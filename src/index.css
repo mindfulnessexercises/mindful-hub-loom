@@ -15,67 +15,67 @@
 
 @layer base {
   :root {
-    /* --- Core Palette --- */
-    --background: 40 33% 97%;
-    --foreground: 220 20% 16%;
+    /* --- Core Palette (richer contrast) --- */
+    --background: 39 30% 96%;
+    --foreground: 220 22% 14%;
 
-    --card: 40 30% 99%;
-    --card-foreground: 220 20% 16%;
+    --card: 38 25% 98%;
+    --card-foreground: 220 22% 14%;
 
-    --popover: 40 30% 99%;
-    --popover-foreground: 220 20% 16%;
+    --popover: 38 25% 98%;
+    --popover-foreground: 220 22% 14%;
 
     /* Deep sage green — calm authority */
-    --primary: 155 25% 28%;
+    --primary: 155 28% 26%;
     --primary-foreground: 40 33% 97%;
 
     /* Warm sand */
-    --secondary: 35 30% 92%;
-    --secondary-foreground: 220 20% 20%;
+    --secondary: 34 28% 90%;
+    --secondary-foreground: 220 22% 18%;
 
     /* Soft stone */
-    --muted: 30 15% 93%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 30 14% 91%;
+    --muted-foreground: 220 12% 40%;
 
     /* Light sage tint */
-    --accent: 150 18% 90%;
-    --accent-foreground: 155 25% 22%;
+    --accent: 150 16% 88%;
+    --accent-foreground: 155 28% 20%;
 
     --destructive: 0 65% 52%;
     --destructive-foreground: 40 33% 97%;
 
-    --border: 30 15% 88%;
-    --input: 30 15% 86%;
-    --ring: 155 25% 28%;
+    --border: 30 14% 84%;
+    --input: 30 14% 82%;
+    --ring: 155 28% 26%;
 
     --radius: 0.625rem;
 
     /* --- Extended Tokens --- */
-    --sage: 155 25% 28%;
-    --sage-light: 150 18% 90%;
-    --sage-muted: 152 12% 72%;
-    --cream: 40 33% 97%;
-    --cream-dark: 35 25% 93%;
-    --stone: 30 10% 58%;
-    --charcoal: 220 20% 16%;
-    --charcoal-light: 220 15% 28%;
-    --warm-white: 40 30% 99%;
+    --sage: 155 28% 26%;
+    --sage-light: 150 16% 88%;
+    --sage-muted: 152 14% 62%;
+    --cream: 39 30% 96%;
+    --cream-dark: 34 22% 91%;
+    --stone: 30 12% 50%;
+    --charcoal: 220 22% 14%;
+    --charcoal-light: 220 18% 26%;
+    --warm-white: 38 25% 98%;
     --terracotta: 16 55% 52%;
     --terracotta-muted: 16 35% 65%;
-    --gold-muted: 38 45% 60%;
+    --gold-muted: 38 45% 55%;
 
-    /* --- Section backgrounds --- */
-    --section-primary: 40 33% 97%;
-    --section-alternate: 40 30% 99%;
-    --section-emphasis: 150 18% 90%;
-    --section-deep: 155 25% 28%;
+    /* --- Section backgrounds (stronger contrast) --- */
+    --section-primary: 39 30% 96%;
+    --section-alternate: 36 22% 93%;
+    --section-emphasis: 152 16% 85%;
+    --section-deep: 155 28% 22%;
 
     /* --- Shadows --- */
-    --shadow-sm: 0 1px 3px 0 hsl(220 20% 16% / 0.04);
-    --shadow-md: 0 4px 12px -2px hsl(220 20% 16% / 0.06);
-    --shadow-lg: 0 8px 24px -4px hsl(220 20% 16% / 0.08);
-    --shadow-card: 0 1px 4px -1px hsl(220 20% 16% / 0.04), 0 2px 8px -2px hsl(220 20% 16% / 0.03);
-    --shadow-card-hover: 0 4px 16px -4px hsl(220 20% 16% / 0.08), 0 8px 24px -8px hsl(220 20% 16% / 0.06);
+    --shadow-sm: 0 1px 3px 0 hsl(220 22% 14% / 0.05);
+    --shadow-md: 0 4px 12px -2px hsl(220 22% 14% / 0.07);
+    --shadow-lg: 0 8px 24px -4px hsl(220 22% 14% / 0.1);
+    --shadow-card: 0 1px 4px -1px hsl(220 22% 14% / 0.05), 0 2px 8px -2px hsl(220 22% 14% / 0.04);
+    --shadow-card-hover: 0 4px 16px -4px hsl(220 22% 14% / 0.1), 0 8px 24px -8px hsl(220 22% 14% / 0.07);
 
     /* Sidebar (unchanged) */
     --sidebar-background: 0 0% 98%;

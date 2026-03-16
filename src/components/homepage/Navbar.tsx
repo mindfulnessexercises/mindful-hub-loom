@@ -14,10 +14,10 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/40 bg-background/90 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 border-b border-border/50 bg-background/92 backdrop-blur-xl">
       <nav className="container mx-auto flex h-14 items-center justify-between">
         {/* Logo */}
-        <a href="/" className="font-serif text-base font-semibold text-foreground tracking-tight">
+        <a href="/" className="font-serif text-[1.0625rem] font-semibold text-foreground tracking-tight">
           Mindfulness Exercises
         </a>
 
@@ -27,7 +27,7 @@ export function Navbar() {
             <li key={link.label}>
               <a
                 href={link.href}
-                className="text-body-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="text-[0.8125rem] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -37,10 +37,10 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm" className="text-body-sm h-8">
+          <Button variant="ghost" size="sm" className="text-[0.8125rem] font-medium h-8 text-muted-foreground hover:text-foreground">
             Log In
           </Button>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 h-8 text-xs font-medium">
+          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 h-8 text-xs font-semibold shadow-soft">
             Explore Programs
           </Button>
         </div>
@@ -57,13 +57,13 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-border/40 bg-background px-5 pb-6 pt-4">
+        <div className="md:hidden border-t border-border/50 bg-background px-5 pb-6 pt-4">
           <ul className="space-y-4">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className="text-body text-foreground block"
+                  className="text-body text-foreground block font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -72,8 +72,8 @@ export function Navbar() {
             ))}
           </ul>
           <div className="mt-6 flex flex-col gap-3">
-            <Button variant="outline" className="w-full">Log In</Button>
-            <Button className="w-full bg-primary text-primary-foreground">Explore Programs</Button>
+            <Button variant="outline" className="w-full border-border">Log In</Button>
+            <Button className="w-full bg-primary text-primary-foreground shadow-elevated">Explore Programs</Button>
           </div>
         </div>
       )}
