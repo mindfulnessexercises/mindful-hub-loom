@@ -17,7 +17,7 @@ const programs = [
     ],
     accreditation: "APA-approved CE credits · CPD Certified · IMMA Accredited",
     format: "Online · Self-paced with live cohort calls",
-    duration: "8–12 months", // [verify before publishing]
+    duration: "4–12 weeks avg · Lifetime access",
     cta: "Learn About This Program",
     href: "#",
     featured: true,
