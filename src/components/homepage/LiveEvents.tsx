@@ -8,33 +8,33 @@ const upcomingEvents = [
     date: "Every Monday",
     time: "12:00 PM PT",
     title: "Guided Mindfulness Meditation",
-    format: "Live Online",
+    format: "Live Online · Free",
     formatIcon: Video,
     description:
-      "A welcoming, guided session open to all levels. Practice with a supportive community in real time.",
-    cta: "Join Session",
+      "A live guided session open to all levels. Practice with an experienced teacher and a supportive community — no preparation needed.",
+    cta: "Join This Session",
     href: "https://connect.mindfulnessexercises.com/c/live-mindfulness-meditations-discussions/",
   },
   {
     date: "Every Wednesday",
     time: "12:00 PM PT",
     title: "Mindful Discussion Circle",
-    format: "Live Online",
+    format: "Live Online · Free",
     formatIcon: Users,
     description:
-      "An open conversation exploring mindfulness topics, personal practice, and professional application.",
-    cta: "Join Discussion",
+      "An open conversation on mindfulness topics — personal practice, professional application, and evidence-based techniques. Bring your questions.",
+    cta: "Join the Circle",
     href: "https://connect.mindfulnessexercises.com/c/live-mindfulness-meditations-discussions/",
   },
   {
     date: "Monthly",
-    time: "Varies",
-    title: "Professional CE Workshop",
-    format: "Live Workshop",
+    time: "Schedule varies",
+    title: "CE Professional Workshop",
+    format: "Live Workshop · CE-Eligible",
     formatIcon: Video,
     description:
-      "In-depth continuing education workshops for therapists, counselors, and educators seeking CE credit.",
-    cta: "View Schedule",
+      "In-depth continuing education workshops for licensed professionals. Earn APA-approved CE credits while deepening clinical mindfulness skills.",
+    cta: "View Upcoming Workshops",
     href: "https://connect.mindfulnessexercises.com/c/live-mindfulness-meditations-discussions/",
   },
 ];
@@ -44,9 +44,9 @@ export function LiveEvents() {
     <SectionWrapper background="alternate" id="events">
       <SectionHeader
         headingId="events-heading"
-        eyebrow="Upcoming Events"
-        title="Learn and connect in real time"
-        subtitle="Live workshops, meditations, and community sessions led by experienced mindfulness teachers."
+        eyebrow="Live Sessions"
+        title="Practice and learn in real time"
+        subtitle="Weekly guided sessions, open discussions, and monthly CE workshops — led by experienced mindfulness teachers."
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 max-w-5xl mx-auto">
@@ -105,7 +105,6 @@ export function LiveEvents() {
         ))}
       </div>
 
-      {/* View all link */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

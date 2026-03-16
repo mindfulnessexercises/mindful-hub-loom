@@ -24,7 +24,7 @@ export function HeroSection() {
             >
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" aria-hidden="true" />
               <span className="text-caption font-medium text-primary">
-                CE-Accredited Professional Training
+                APA-Approved Continuing Education
               </span>
             </motion.div>
 
@@ -46,7 +46,7 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.12 }}
               className="text-body-lg text-muted-foreground mt-4 max-w-lg"
             >
-              Guided exercises for personal practice — and recognized certification programs for therapists, counselors, and educators.
+              Guided practices for personal use — plus accredited certification programs for therapists, counselors, coaches, and educators.
             </motion.p>
 
             <motion.div
@@ -61,7 +61,7 @@ export function HeroSection() {
                 asChild
               >
                 <a href="#certification">
-                  Explore Certification Programs
+                  View Certification Programs
                   <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                 </a>
               </Button>
@@ -72,7 +72,7 @@ export function HeroSection() {
                 asChild
               >
                 <a href="#resources">
-                  Explore Free Resources
+                  Browse Free Practices
                 </a>
               </Button>
             </motion.div>
@@ -84,11 +84,11 @@ export function HeroSection() {
               href="#events"
               className="inline-block mt-3.5 text-body-sm text-muted-foreground hover:text-foreground underline underline-offset-4 decoration-muted-foreground/40 hover:decoration-foreground/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm py-1"
             >
-              Join Live Events →
+              Join a live session →
             </motion.a>
           </div>
 
-          {/* Right: Visual anchor — uses real speaking photo */}
+          {/* Right: Visual anchor */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -104,10 +104,9 @@ export function HeroSection() {
                 loading="eager"
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              {/* Subtle overlay for text legibility on the floating card */}
               <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--foreground)/.35)] via-transparent to-[hsl(var(--foreground)/.05)]" />
 
-              {/* Floating stats strip */}
+              {/* Floating credential strip */}
               <div className="absolute bottom-3.5 left-3.5 right-3.5 rounded-lg bg-card/90 backdrop-blur-md border border-border/60 p-3.5 shadow-[var(--shadow-lg)]">
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-2.5">
@@ -115,8 +114,8 @@ export function HeroSection() {
                       <Shield className="h-4 w-4 text-primary" aria-hidden="true" />
                     </div>
                     <div>
-                      <p className="text-[0.8125rem] font-semibold text-foreground font-serif leading-tight">APA-Approved CE</p>
-                      <p className="text-caption text-muted-foreground">Accredited programs</p>
+                      <p className="text-[0.8125rem] font-semibold text-foreground font-serif leading-tight">APA-Approved Provider</p>
+                      <p className="text-caption text-muted-foreground">CE for psychologists & therapists</p>
                     </div>
                   </div>
                   <div className="hidden sm:block h-8 w-px bg-border/60" aria-hidden="true" />
@@ -125,6 +124,7 @@ export function HeroSection() {
                       <Users className="h-4 w-4 text-primary" aria-hidden="true" />
                     </div>
                     <div>
+                      {/* [verify before publishing] */}
                       <p className="text-[0.8125rem] font-semibold text-foreground font-serif leading-tight">50,000+</p>
                       <p className="text-caption text-muted-foreground">Practitioners served</p>
                     </div>
@@ -135,14 +135,14 @@ export function HeroSection() {
                       <BookOpen className="h-4 w-4 text-primary" aria-hidden="true" />
                     </div>
                     <div>
+                      {/* [verify before publishing] */}
                       <p className="text-[0.8125rem] font-semibold text-foreground font-serif leading-tight">3,000+</p>
-                      <p className="text-caption text-muted-foreground">Free resources</p>
+                      <p className="text-caption text-muted-foreground">Free guided practices</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            {/* NOTE: Replace sean-fargo-speaking.jpg with professional hero photography if preferred. Ideal: teacher guiding a small professional group in natural light. */}
           </motion.div>
         </div>
       </div>

@@ -6,10 +6,10 @@ import { Shield, Users, BookOpen, Award } from "lucide-react";
   Replace with real, verified figures before going live.
 */
 const trustItems = [
-  { icon: BookOpen, value: "3,000+", label: "Free Exercises" },        // verify before publishing
-  { icon: Users, value: "200+", label: "Expert Teachers" },             // verify before publishing
-  { icon: Shield, value: "APA", label: "Approved CE Provider" },
-  { icon: Award, value: "15+", label: "Years of Practice" },            // verify before publishing
+  { icon: Shield, value: "APA-Approved", label: "CE Provider" },
+  { icon: Award, value: "CPD & IMMA", label: "Accredited Programs" },
+  { icon: BookOpen, value: "3,000+", label: "Free Practices" },          // [verify before publishing]
+  { icon: Users, value: "50,000+", label: "Practitioners Served" },      // [verify before publishing]
 ];
 
 export function TrustRibbon() {

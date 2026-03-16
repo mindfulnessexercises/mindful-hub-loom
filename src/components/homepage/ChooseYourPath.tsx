@@ -9,13 +9,13 @@ const paths = [
     title: "Practice Mindfulness",
     audience: "For individuals & beginners",
     benefit:
-      "Access guided meditations, breathing exercises, and mindfulness practices — all free, all evidence-informed.",
+      "Start with free guided meditations, breathing exercises, and body scans — organized by theme and ready to use today.",
     bullets: [
-      "Guided meditations, body scans & breathing exercises",
-      "Organized by theme: stress, sleep, focus, compassion",
-      "New practices added weekly",
+      "Guided practices for stress, sleep, focus, and compassion",
+      "Evidence-informed techniques used in clinical settings",
+      "New exercises added weekly",
     ],
-    cta: "Browse Free Exercises",
+    cta: "Browse Free Practices",
     href: "#resources",
     icon: (
       <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -25,16 +25,16 @@ const paths = [
     ),
   },
   {
-    title: "Become Certified",
+    title: "Get Certified",
     audience: "For therapists, counselors & coaches",
     benefit:
-      "Earn CE credits and professional credentials through accredited mindfulness teacher training.",
+      "Earn CE credits and a recognized mindfulness teaching credential through APA-approved training programs.",
     bullets: [
-      "CE-accredited certification programs",
-      "Designed for licensed professionals",
-      "Self-paced, live & hybrid formats",
+      "APA-approved CE for psychologists, MFTs, LCSWs & more",
+      "Structured programs with live and self-paced options",
+      "Graduate ready to teach in clinical or community settings",
     ],
-    cta: "Explore Programs",
+    cta: "View Programs",
     href: "#certification",
     featured: true,
     icon: (
@@ -48,16 +48,16 @@ const paths = [
     ),
   },
   {
-    title: "Join Live Events",
+    title: "Join Live Sessions",
     audience: "For practitioners & professionals",
     benefit:
-      "Learn in real time with expert-led workshops, community sessions, and CE-eligible trainings.",
+      "Practice with a live community — weekly meditations, open discussions, and CE-eligible professional workshops.",
     bullets: [
-      "Live workshops with experienced teachers",
-      "Free community sessions & CE-eligible events",
-      "Virtual and in-person formats",
+      "Weekly guided meditations and discussion circles",
+      "Monthly CE workshops for licensed professionals",
+      "No cost for community sessions",
     ],
-    cta: "View Upcoming Events",
+    cta: "See Upcoming Sessions",
     href: "#events",
     icon: (
       <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -84,8 +84,8 @@ export function ChooseYourPath() {
       <SectionHeader
         headingId="paths-heading"
         eyebrow="Choose Your Path"
-        title="How would you like to begin?"
-        subtitle="Start a personal practice, earn professional credentials, or learn alongside a community of practitioners."
+        title="What brings you here?"
+        subtitle="Whether you're starting a personal practice, earning professional credentials, or seeking community — there's a clear path forward."
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
