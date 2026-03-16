@@ -9,7 +9,7 @@ export function FounderBlock() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="rounded-xl border border-border bg-card p-6 sm:p-8 lg:p-10 shadow-[var(--shadow-card)]"
+        className="rounded-xl border border-border bg-card p-5 sm:p-8 lg:p-10 shadow-[var(--shadow-card)]"
       >
         <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 lg:gap-10">
           {/* Photo */}
@@ -24,7 +24,7 @@ export function FounderBlock() {
           <div className="text-center sm:text-left flex-1">
             <p className="text-eyebrow text-muted-foreground mb-2">Founded By</p>
             {/* [verify before publishing — replace with real founder name] */}
-            <h2 className="font-serif text-xl sm:text-2xl font-semibold text-foreground mb-2 leading-snug">
+            <h2 id="founder-heading" className="font-serif text-xl sm:text-2xl font-semibold text-foreground mb-2 leading-snug">
               Built by practitioners, for practitioners
             </h2>
             <p className="text-body-sm text-muted-foreground max-w-lg leading-relaxed">

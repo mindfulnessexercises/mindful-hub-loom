@@ -18,7 +18,7 @@ const paths = [
     cta: "Browse Free Exercises",
     href: "#resources",
     icon: (
-      <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M14 4c3.5 0 7 2 7 6 0 3-2 5.5-4 7.5S14 22 14 24c0-2-1-2.5-3-4.5S7 13 7 10c0-4 3.5-6 7-6z" />
         <path d="M14 4c-1.5 3-1 6 0 8s2 4.5 0 8" opacity="0.4" />
       </svg>
@@ -38,7 +38,7 @@ const paths = [
     href: "#certification",
     featured: true,
     icon: (
-      <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="4" y="6" width="20" height="14" rx="2" />
         <path d="M4 10h20" />
         <path d="M14 20v4" />
@@ -60,7 +60,7 @@ const paths = [
     cta: "View Upcoming Events",
     href: "#events",
     icon: (
-      <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="14" cy="14" r="10" />
         <path d="M14 8v6l4 2" />
         <path d="M20 4l2 2M8 4L6 6" opacity="0.4" />
@@ -82,6 +82,7 @@ export function ChooseYourPath() {
   return (
     <SectionWrapper background="primary" id="paths">
       <SectionHeader
+        headingId="paths-heading"
         eyebrow="Choose Your Path"
         title="How would you like to begin?"
         subtitle="Start a personal practice, earn professional credentials, or learn alongside a community of practitioners."
@@ -108,7 +109,7 @@ export function ChooseYourPath() {
               <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent rounded-full" />
             )}
 
-            <div className="p-6 sm:p-7 flex flex-col flex-1">
+            <div className="p-5 sm:p-7 flex flex-col flex-1">
               <div
                 className={cn(
                   "h-12 w-12 rounded-xl flex items-center justify-center mb-5 border",
@@ -124,7 +125,7 @@ export function ChooseYourPath() {
               <h3 className="text-card-heading text-card-foreground mb-2.5">{path.title}</h3>
               <p className="text-body-sm text-muted-foreground mb-5 leading-relaxed">{path.benefit}</p>
 
-              <ul className="space-y-2.5 mb-7 flex-1">
+              <ul className="space-y-2.5 mb-6 flex-1" role="list">
                 {path.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-2.5 text-body-sm text-foreground/80">
                     <span
@@ -132,6 +133,7 @@ export function ChooseYourPath() {
                         "mt-[7px] h-1.5 w-1.5 rounded-full shrink-0",
                         path.featured ? "bg-primary/60" : "bg-muted-foreground/40"
                       )}
+                      aria-hidden="true"
                     />
                     {b}
                   </li>
@@ -141,7 +143,7 @@ export function ChooseYourPath() {
               <Button
                 variant={path.featured ? "default" : "outline"}
                 className={cn(
-                  "w-full h-11 text-sm font-medium",
+                  "w-full min-h-[44px] h-11 text-sm font-medium",
                   path.featured
                     ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-elevated"
                     : "border-border hover:bg-accent/70 hover:border-primary/20 text-foreground"
@@ -150,7 +152,7 @@ export function ChooseYourPath() {
               >
                 <a href={path.href}>
                   {path.cta}
-                  <ArrowRight className="ml-2 h-3.5 w-3.5" />
+                  <ArrowRight className="ml-2 h-3.5 w-3.5" aria-hidden="true" />
                 </a>
               </Button>
             </div>

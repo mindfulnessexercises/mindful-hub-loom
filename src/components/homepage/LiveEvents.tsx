@@ -60,7 +60,9 @@ export function LiveEvents() {
               {/* Date block */}
               <div className="sm:w-28 lg:w-32 flex-shrink-0 bg-primary/[0.08] flex flex-row sm:flex-col items-center justify-center gap-1 px-4 py-3 sm:py-5 border-b sm:border-b-0 sm:border-r border-border/60">
                 <span className="text-eyebrow text-primary/80">{event.day}</span>
-                <time className="font-serif text-2xl sm:text-3xl font-bold text-primary leading-none">{event.date}</time>
+                <time className="font-serif text-2xl sm:text-3xl font-bold text-primary leading-none" dateTime={`2026-${event.date.includes('Apr') ? '04' : '05'}-${event.date.split(' ')[1]}`}>
+                  {event.date}
+                </time>
                 <span className="text-caption text-muted-foreground">{event.year}</span>
               </div>
 
@@ -95,7 +97,7 @@ export function LiveEvents() {
                 <div className="flex-shrink-0">
                   <Button
                     variant="outline"
-                    className="h-11 sm:h-10 w-full sm:w-auto px-5 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200 whitespace-nowrap"
+                    className="min-h-[44px] h-11 sm:h-10 w-full sm:w-auto px-5 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200 whitespace-nowrap"
                     asChild
                   >
                     <a href="#">
@@ -117,7 +119,7 @@ export function LiveEvents() {
         transition={{ duration: 0.4, delay: 0.3 }}
         className="text-center mt-8"
       >
-        <Button size="lg" variant="outline" className="h-12 px-8 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200" asChild>
+        <Button size="lg" variant="outline" className="min-h-[44px] h-12 px-8 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200" asChild>
           <a href="#">
             View All Events
             <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />

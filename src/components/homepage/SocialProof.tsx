@@ -40,7 +40,7 @@ export function SocialProof() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="rounded-xl border border-border bg-card p-6 sm:p-7 flex flex-col shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-300"
+            className="rounded-xl border border-border bg-card p-5 sm:p-7 flex flex-col shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-300"
           >
             <div className="h-9 w-9 rounded-lg bg-primary/[0.08] flex items-center justify-center mb-5" aria-hidden="true">
               <Quote className="h-4 w-4 text-primary/60" />
