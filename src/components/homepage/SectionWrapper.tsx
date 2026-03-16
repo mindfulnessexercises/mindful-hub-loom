@@ -7,6 +7,7 @@ interface SectionWrapperProps {
   background?: "primary" | "alternate" | "emphasis" | "deep";
   id?: string;
   narrow?: boolean;
+  ariaLabel?: string;
 }
 
 const bgMap = {
@@ -22,9 +23,14 @@ export function SectionWrapper({
   background = "primary",
   id,
   narrow = false,
+  ariaLabel,
 }: SectionWrapperProps) {
   return (
-    <section id={id} className={cn(bgMap[background], "py-16 sm:py-20 lg:py-24", className)}>
+    <section
+      id={id}
+      className={cn(bgMap[background], "py-16 sm:py-20 lg:py-24", className)}
+      {...(ariaLabel ? { "aria-label": ariaLabel } : id ? { "aria-labelledby": `${id}-heading` } : {})}
+    >
       <div className={cn("container mx-auto", narrow && "max-w-4xl")}>
         {children}
       </div>
@@ -39,9 +45,10 @@ interface SectionHeaderProps {
   centered?: boolean;
   className?: string;
   light?: boolean;
+  headingId?: string;
 }
 
-export function SectionHeader({ eyebrow, title, subtitle, centered = true, className, light }: SectionHeaderProps) {
+export function SectionHeader({ eyebrow, title, subtitle, centered = true, className, light, headingId }: SectionHeaderProps) {
   return (
     <div className={cn("mb-12 sm:mb-16", centered && "text-center", className)}>
       {eyebrow && (
@@ -49,7 +56,7 @@ export function SectionHeader({ eyebrow, title, subtitle, centered = true, class
           {eyebrow}
         </p>
       )}
-      <h2 className={cn("text-section-heading", light && "text-primary-foreground")}>{title}</h2>
+      <h2 id={headingId} className={cn("text-section-heading", light && "text-primary-foreground")}>{title}</h2>
       {subtitle && (
         <p className={cn("text-body-lg mt-4 max-w-2xl", centered && "mx-auto", light ? "text-primary-foreground/80" : "text-muted-foreground")}>
           {subtitle}

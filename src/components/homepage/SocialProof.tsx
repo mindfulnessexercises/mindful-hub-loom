@@ -31,11 +31,12 @@ export function SocialProof() {
   return (
     <SectionWrapper background="alternate" id="testimonials">
       <SectionHeader
+        headingId="testimonials-heading"
         eyebrow="What Professionals Say"
         title="Trusted by practitioners across disciplines"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-7 max-w-5xl mx-auto">
         {testimonials.map((t, i) => (
           <motion.blockquote
             key={t.name}
@@ -43,10 +44,9 @@ export function SocialProof() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="rounded-xl border border-border bg-card p-7 flex flex-col shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-300"
+            className="rounded-xl border border-border bg-card p-6 sm:p-7 flex flex-col shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-300"
           >
-            {/* Quote icon */}
-            <div className="h-9 w-9 rounded-lg bg-primary/[0.08] flex items-center justify-center mb-5">
+            <div className="h-9 w-9 rounded-lg bg-primary/[0.08] flex items-center justify-center mb-5" aria-hidden="true">
               <Quote className="h-4 w-4 text-primary/60" />
             </div>
 
@@ -56,8 +56,7 @@ export function SocialProof() {
 
             <footer className="pt-5 border-t border-border/60">
               <div className="flex items-center gap-3">
-                {/* Avatar placeholder */}
-                <div className="h-10 w-10 rounded-full bg-accent border border-border flex items-center justify-center flex-shrink-0">
+                <div className="h-10 w-10 rounded-full bg-accent border border-border flex items-center justify-center flex-shrink-0" aria-hidden="true">
                   <span className="font-serif text-sm font-semibold text-primary/70">
                     {t.name.split(" ").map(n => n[0]).join("")}
                   </span>
@@ -75,7 +74,6 @@ export function SocialProof() {
         ))}
       </div>
 
-      {/* Verification notice hidden in markup */}
       {/* [verify before publishing — all testimonials are placeholders] */}
     </SectionWrapper>
   );

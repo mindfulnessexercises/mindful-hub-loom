@@ -58,12 +58,13 @@ export function FreeResourcesPreview() {
   return (
     <SectionWrapper background="primary" id="resources">
       <SectionHeader
+        headingId="resources-heading"
         eyebrow="Free Resource Library"
         title="Explore exercises, guides, and practices"
         subtitle="A curated selection from our growing library — all free, all evidence-informed. Start today or share with clients."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
         {resources.map((resource, i) => (
           <motion.a
             key={resource.title}
@@ -72,12 +73,13 @@ export function FreeResourcesPreview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.06 }}
-            className="group relative rounded-xl border border-border bg-card p-6 flex flex-col hover:shadow-[var(--shadow-card-hover)] hover:border-primary/25 transition-all duration-300"
+            className="group relative rounded-xl border border-border bg-card p-5 sm:p-6 flex flex-col hover:shadow-[var(--shadow-card-hover)] hover:border-primary/25 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            aria-label={`${resource.title} — ${resource.type}, ${resource.duration}`}
           >
             {/* Category chip + type */}
             <div className="flex items-center justify-between mb-4">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-2.5 py-1 text-caption font-medium text-accent-foreground">
-                <resource.icon className="h-3 w-3" />
+                <resource.icon className="h-3 w-3" aria-hidden="true" />
                 {resource.type}
               </span>
               <span className="text-caption font-medium text-muted-foreground">
@@ -85,22 +87,19 @@ export function FreeResourcesPreview() {
               </span>
             </div>
 
-            {/* Title */}
             <h3 className="text-card-heading text-card-foreground mb-2 group-hover:text-primary transition-colors duration-200">
               {resource.title}
             </h3>
 
-            {/* Description */}
             <p className="text-body-sm text-muted-foreground mb-4 flex-1">
               {resource.description}
             </p>
 
-            {/* Bottom: category + arrow */}
             <div className="flex items-center justify-between pt-3 border-t border-border/60">
               <span className="text-caption font-semibold uppercase tracking-wider text-muted-foreground/80">
                 {resource.category}
               </span>
-              <ArrowRight className="h-4 w-4 text-primary/50 group-hover:text-primary group-hover:translate-x-0.5 transition-all duration-200" />
+              <ArrowRight className="h-4 w-4 text-primary/50 group-hover:text-primary group-hover:translate-x-0.5 transition-all duration-200" aria-hidden="true" />
             </div>
           </motion.a>
         ))}
@@ -113,9 +112,11 @@ export function FreeResourcesPreview() {
         transition={{ duration: 0.4, delay: 0.3 }}
         className="text-center mt-12"
       >
-        <Button size="lg" variant="outline" className="h-12 px-8 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200">
-          Explore Full Library
-          <ArrowRight className="ml-2 h-4 w-4" />
+        <Button size="lg" variant="outline" className="h-12 px-8 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200" asChild>
+          <a href="#">
+            Explore Full Library
+            <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+          </a>
         </Button>
         <p className="text-caption text-muted-foreground mt-3">
           {/* [verify before publishing] */}

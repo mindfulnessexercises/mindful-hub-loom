@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function FinalCTA() {
   return (
-    <SectionWrapper background="deep">
+    <SectionWrapper background="deep" ariaLabel="Get started">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -21,26 +21,32 @@ export function FinalCTA() {
           we're here to support your journey.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
           <Button
             size="lg"
             className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8 h-12 text-sm font-semibold shadow-md"
+            asChild
           >
-            Explore Certification Programs
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <a href="#certification">
+              Explore Certification Programs
+              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+            </a>
           </Button>
           <Button
             size="lg"
             variant="outline"
             className="px-8 h-12 text-sm font-medium border-primary-foreground/25 text-primary-foreground hover:bg-primary-foreground/10"
+            asChild
           >
-            Explore Free Resources
+            <a href="#resources">
+              Explore Free Resources
+            </a>
           </Button>
         </div>
 
         <a
           href="#events"
-          className="inline-block mt-5 text-body-sm text-primary-foreground/50 hover:text-primary-foreground/80 underline underline-offset-4 decoration-primary-foreground/20 hover:decoration-primary-foreground/50 transition-colors"
+          className="inline-block mt-5 text-body-sm text-primary-foreground/50 hover:text-primary-foreground/80 underline underline-offset-4 decoration-primary-foreground/20 hover:decoration-primary-foreground/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/50 rounded-sm py-1"
         >
           Or join an upcoming live event →
         </a>
