@@ -8,8 +8,8 @@ const pillars = [
   {
     title: "Accredited Standards",
     description:
-      "Programs offer CE credits recognized by major professional accrediting bodies for therapists, counselors, and educators.",
-    stat: "CE-Accredited",
+      "APA-approved CE credits for psychologists, MFTs, LCSWs, LPCCs, LEPs, and nurses. CPD Certified and IMMA Accredited.",
+    stat: "APA-Approved",
     icon: (
       <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M14 3L4 8v6c0 5.55 4.27 10.74 10 12 5.73-1.26 10-6.45 10-12V8L14 3z" />

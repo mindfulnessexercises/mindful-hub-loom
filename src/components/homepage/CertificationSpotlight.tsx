@@ -159,11 +159,10 @@ export function CertificationSpotlight() {
         transition={{ duration: 0.4, delay: 0.3 }}
         className="text-center text-body-sm text-muted-foreground mt-8"
       >
-        All programs include CE credits for eligible professionals.{" "}
-        <a href="#" className="underline underline-offset-4 decoration-muted-foreground/40 hover:text-foreground hover:decoration-foreground/60 transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
-          Compare programs →
+        CE sponsored by Mindful CECs — APA-approved for psychologists, MFTs, LCSWs, LPCCs, LEPs & nurses.{" "}
+        <a href="/ce-policies" className="underline underline-offset-4 decoration-muted-foreground/40 hover:text-foreground hover:decoration-foreground/60 transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
+          View CE policies →
         </a>
-        {/* verify before publishing — "All programs include CE credits" */}
       </motion.p>
     </SectionWrapper>
   );

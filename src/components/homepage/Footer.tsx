@@ -9,7 +9,7 @@ const footerLinks = {
   "Professional Training": [
     { label: "Certification Programs", href: "#certification" },
     { label: "MBSR Training", href: "#certification" },
-    { label: "CE Credits", href: "#certification" },
+    { label: "CE Credits & Policies", href: "/ce-policies" },
     { label: "For Organizations", href: "#" },
   ],
   Community: [
