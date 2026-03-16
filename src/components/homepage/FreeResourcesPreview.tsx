@@ -9,7 +9,7 @@ const resources = [
     icon: Headphones,
     category: "Stress Relief",
     title: "Body Scan for Deep Relaxation",
-    description: "A 15-minute body scan building interoceptive awareness and activating the parasympathetic response.",
+    description: "A 15-minute body scan that builds interoceptive awareness — commonly used in MBSR and clinical stress reduction programs.",
     duration: "15 min",
   },
   {
@@ -17,7 +17,7 @@ const resources = [
     icon: Play,
     category: "Anxiety",
     title: "4-7-8 Breathing Technique",
-    description: "An evidence-informed breathing pattern used in clinical settings to reduce acute anxiety.",
+    description: "A structured breathing pattern shown to activate the parasympathetic response. Used in therapy and self-care for acute anxiety.",
     duration: "5 min",
   },
   {
@@ -25,7 +25,7 @@ const resources = [
     icon: FileText,
     category: "Workplace",
     title: "Mindfulness at Work: A Practical Guide",
-    description: "How organizations integrate mindfulness programs to improve employee wellbeing and focus.",
+    description: "How organizations are using structured mindfulness programs to measurably reduce burnout and improve focus.",
     duration: "8 min read",
   },
   {
@@ -33,7 +33,7 @@ const resources = [
     icon: Heart,
     category: "Compassion",
     title: "Loving-Kindness Meditation",
-    description: "A traditional metta practice adapted for modern practitioners — builds self-compassion and empathy.",
+    description: "A traditional metta practice adapted for modern use — clinically studied for its effects on self-compassion and emotional resilience.",
     duration: "20 min",
   },
   {
@@ -41,7 +41,7 @@ const resources = [
     icon: Sparkles,
     category: "Movement",
     title: "Mindful Walking Practice",
-    description: "Bring mindfulness off the cushion with this walking practice designed for everyday environments.",
+    description: "Take mindfulness off the cushion. This guided walking exercise is designed for parks, hallways, or any everyday environment.",
     duration: "10 min",
   },
   {
@@ -49,7 +49,7 @@ const resources = [
     icon: BookOpen,
     category: "Research",
     title: "Mindfulness & Emotional Regulation",
-    description: "A concise review of peer-reviewed findings on mindfulness and emotional self-regulation.",
+    description: "A plain-language summary of peer-reviewed findings on how mindfulness practice affects emotional self-regulation.",
     duration: "6 min read",
   },
 ];
@@ -60,8 +60,8 @@ export function FreeResourcesPreview() {
       <SectionHeader
         headingId="resources-heading"
         eyebrow="Free Resource Library"
-        title="Exercises, guides, and practices — always free"
-        subtitle="A curated selection from our growing library. Start a personal practice or share with clients."
+        title="Guided practices, articles, and tools — always free"
+        subtitle="Clinician-reviewed resources you can use personally or share with clients. New content added weekly."
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
@@ -113,13 +113,13 @@ export function FreeResourcesPreview() {
       >
         <Button size="lg" variant="outline" className="min-h-[44px] h-12 px-8 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200" asChild>
           <a href="#">
-            Explore Full Library
+            Browse Full Library
             <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
           </a>
         </Button>
         <p className="text-caption text-muted-foreground mt-3">
-          {/* [verify before publishing] */}
-          3,000+ exercises · Updated weekly · Always free
+          {/* [verify before publishing — exact counts] */}
+          3,000+ free practices · Updated weekly · No account required
         </p>
       </motion.div>
     </SectionWrapper>

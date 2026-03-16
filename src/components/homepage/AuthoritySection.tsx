@@ -6,9 +6,9 @@ import { SectionWrapper, SectionHeader } from "./SectionWrapper";
 */
 const pillars = [
   {
-    title: "Accredited Standards",
+    title: "Accredited CE Provider",
     description:
-      "APA-approved CE credits for psychologists, MFTs, LCSWs, LPCCs, LEPs, and nurses. CPD Certified and IMMA Accredited.",
+      "Approved by the American Psychological Association. CE credits accepted for psychologists, MFTs, LCSWs, LPCCs, LEPs, and nurses in most U.S. states.",
     stat: "APA-Approved",
     icon: (
       <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -18,10 +18,10 @@ const pillars = [
     ),
   },
   {
-    title: "Expert Faculty",
+    title: "Experienced Faculty",
     description:
-      "Developed and taught by experienced mindfulness teachers, clinical researchers, and licensed professionals.",
-    stat: "200+ Teachers", // verify before publishing
+      "Programs developed and taught by licensed clinicians, certified mindfulness teachers, and published researchers.",
+    stat: "200+ Teachers", // [verify before publishing]
     icon: (
       <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="14" cy="9" r="4" />
@@ -31,9 +31,9 @@ const pillars = [
     ),
   },
   {
-    title: "Professional Outcomes",
+    title: "Applied Outcomes",
     description:
-      "Graduates integrate their training into clinical therapy, education, corporate wellness, and private practice.",
+      "Graduates teach mindfulness in therapy, hospitals, schools, corporate wellness programs, and private practice.",
     stat: "Career-Ready",
     icon: (
       <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -43,10 +43,10 @@ const pillars = [
     ),
   },
   {
-    title: "Depth of Library",
+    title: "Comprehensive Library",
     description:
-      "Thousands of guided exercises, research summaries, and educational resources — free and growing every week.",
-    stat: "3,000+ Exercises", // verify before publishing
+      "Thousands of guided practices, worksheets, and research summaries — freely available, clinician-reviewed, and updated weekly.",
+    stat: "3,000+ Practices", // [verify before publishing]
     icon: (
       <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="4" y="4" width="8" height="10" rx="1" />
@@ -73,8 +73,8 @@ export function AuthoritySection() {
       <SectionHeader
         headingId="authority-heading"
         eyebrow="Why Professionals Choose Us"
-        title="Built on credibility, grounded in practice"
-        subtitle="Rigorous training, respected credentials, and a deep commitment to the field of mindfulness."
+        title="Credibility you can verify"
+        subtitle="Accredited programs, experienced faculty, and a track record of professional outcomes."
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">

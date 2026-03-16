@@ -14,7 +14,7 @@ const testimonials = [
     quote:
       "Sean is the absolute gold standard for mindfulness training and coaching. He has tremendous depth and breadth. He is also very kind, with bone-deep integrity, excellent communication and teaching skills, inclusive open-minded awareness, and a sweetly supportive manner.",
     name: "Dr. Rick Hanson",
-    title: "New York Times Bestselling Author",
+    title: "Psychologist · New York Times Bestselling Author",
     credential: "Author of Resilient & Hardwiring Happiness",
     photo: rickHanson,
   },
@@ -22,17 +22,17 @@ const testimonials = [
     quote:
       "It is a privilege to contribute to Sean Fargo's mindfulness teacher certification program. The warm and inviting atmosphere of the classes nourishes and reflects everything that is taught. This is mindfulness training in the truest sense.",
     name: "Christopher Germer, PhD",
-    title: "Clinical Psychologist, Harvard Medical School",
-    credential: "Founder of the Mindful Self-Compassion Program",
+    title: "Clinical Psychologist · Harvard Medical School Faculty",
+    credential: "Co-developer of the Mindful Self-Compassion (MSC) Program",
     photo: chrisGermer,
   },
 ];
 
 const endorsers = [
-  { name: "Jack Kornfield", title: "Bestselling Author & Buddhist Teacher", photo: jackKornfield },
-  { name: "Gabor Maté, MD", title: "Physician & Bestselling Author", photo: gaborMate },
-  { name: "Sharon Salzberg", title: "NYT Bestselling Author & Meditation Pioneer", photo: sharonSalzberg },
-  { name: "Hasan Rafiq", title: "Mindfulness Teacher & Educator", photo: hasanRafiq },
+  { name: "Jack Kornfield", title: "Bestselling Author · Founding Teacher, Spirit Rock", photo: jackKornfield },
+  { name: "Gabor Maté, MD", title: "Physician · Bestselling Author on Trauma & Addiction", photo: gaborMate },
+  { name: "Sharon Salzberg", title: "NYT Bestselling Author · Co-founder, Insight Meditation Society", photo: sharonSalzberg },
+  { name: "Hasan Rafiq", title: "Mindfulness Teacher · Educator", photo: hasanRafiq },
 ];
 
 export function SocialProof() {
@@ -40,8 +40,8 @@ export function SocialProof() {
     <SectionWrapper background="alternate" id="testimonials">
       <SectionHeader
         headingId="testimonials-heading"
-        eyebrow="Endorsed By Leading Voices"
-        title="What world-renowned teachers say"
+        eyebrow="Endorsed By Leading Teachers"
+        title="What colleagues and mentors say"
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">

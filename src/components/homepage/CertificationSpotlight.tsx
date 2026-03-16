@@ -5,44 +5,44 @@ import { SectionWrapper, SectionHeader } from "./SectionWrapper";
 import { cn } from "@/lib/utils";
 
 /*
-  Program data — verify titles, CE details, and formats before publishing.
+  Program data — verify titles, CE details, durations, and URLs before publishing.
 */
 const programs = [
   {
-    title: "Mindfulness-Based Stress Reduction (MBSR) Teacher Training",
-    audience: "Therapists, counselors, social workers & educators",
+    title: "Mindfulness Teacher Training & Certification",
+    audience: "Therapists, counselors, social workers, educators",
     outcomes: [
-      "Qualify to lead MBSR programs in clinical and community settings",
-      "Deepen personal mindfulness practice through structured training",
+      "Earn a recognized mindfulness teaching credential",
+      "Learn to lead MBSR-informed programs in clinical and community settings",
     ],
-    accreditation: "APA-approved CE credits · CPD Certified",
-    format: "Online · Self-paced with live cohort sessions",
-    duration: "8–12 months", // verify before publishing
-    cta: "Learn About MBSR Training",
+    accreditation: "APA-approved CE credits · CPD Certified · IMMA Accredited",
+    format: "Online · Self-paced with live cohort calls",
+    duration: "8–12 months", // [verify before publishing]
+    cta: "Learn About This Program",
     href: "#",
     featured: true,
   },
   {
-    title: "Professional Mindfulness Teacher Certification",
-    audience: "Coaches, wellness professionals & HR leaders",
+    title: "Mindfulness Coaching Certification",
+    audience: "Coaches, wellness professionals, HR leaders",
     outcomes: [
-      "Earn a recognized credential in mindfulness instruction",
-      "Build confidence teaching mindfulness in professional settings",
+      "Integrate mindfulness into coaching and leadership practice",
+      "Graduate with a professional credential and practical toolkit",
     ],
     accreditation: "APA-approved CE credits available",
     format: "Online · Flexible schedule",
     duration: "Self-paced",
-    cta: "Explore Certification",
+    cta: "View Program Details",
     href: "#",
   },
   {
     title: "Mindfulness in Clinical Practice",
-    audience: "Licensed mental health professionals",
+    audience: "Licensed mental health professionals (LMFTs, LCSWs, LPCCs, psychologists)",
     outcomes: [
-      "Integrate evidence-based mindfulness into therapeutic practice",
-      "Earn CE credits for license renewal",
+      "Apply evidence-based mindfulness interventions in therapeutic settings",
+      "Earn CE credits accepted for license renewal in most U.S. states",
     ],
-    accreditation: "APA-approved CE credits available",
+    accreditation: "APA-approved CE credits · CA BRN (CEP17985)",
     format: "Online · Coursework with practicum",
     duration: "Varies by track",
     cta: "View Program Details",
@@ -65,8 +65,8 @@ export function CertificationSpotlight() {
       <SectionHeader
         headingId="certification-heading"
         eyebrow="Professional Training"
-        title="Certification programs that advance your career"
-        subtitle="CE-accredited programs designed for professionals who want to bring mindfulness into their practice with recognized credentials."
+        title="Accredited programs for your career"
+        subtitle="Earn CE credits and professional credentials through structured, evidence-based mindfulness training."
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
@@ -159,7 +159,7 @@ export function CertificationSpotlight() {
         transition={{ duration: 0.4, delay: 0.3 }}
         className="text-center text-body-sm text-muted-foreground mt-8"
       >
-        CE sponsored by Mindful CECs — APA-approved for psychologists, MFTs, LCSWs, LPCCs, LEPs & nurses.{" "}
+        CE sponsored by Mindful CECs — approved by the APA for psychologists, and accepted for MFTs, LCSWs, LPCCs, LEPs & nurses in most states.{" "}
         <a href="/ce-policies" className="underline underline-offset-4 decoration-muted-foreground/40 hover:text-foreground hover:decoration-foreground/60 transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
           View CE policies →
         </a>

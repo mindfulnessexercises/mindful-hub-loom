@@ -48,9 +48,10 @@ export function FounderBlock() {
                 Sean Fargo
               </h2>
               <p className="text-body-sm text-muted-foreground max-w-lg leading-relaxed mb-5">
-                A former Buddhist monk, Sean founded Mindfulness Exercises to bridge the gap between
-                accessible personal practice and rigorous professional training — making evidence-based
-                mindfulness available to practitioners worldwide.
+                A former Buddhist monk trained at UC Berkeley, Sean built Mindfulness Exercises to make
+                evidence-based mindfulness accessible for personal practice and rigorous enough for
+                professional certification — serving over 50,000 practitioners to date.
+                {/* [verify practitioner count before publishing] */}
               </p>
 
               {/* Credential badges */}
