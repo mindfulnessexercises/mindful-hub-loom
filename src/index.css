@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,10 +16,10 @@
 @layer base {
   :root {
     /* --- Core Palette --- */
-    --background: 40 33% 97%;          /* warm cream */
-    --foreground: 220 20% 16%;          /* deep warm charcoal */
+    --background: 40 33% 97%;
+    --foreground: 220 20% 16%;
 
-    --card: 40 30% 99%;                 /* soft white */
+    --card: 40 30% 99%;
     --card-foreground: 220 20% 16%;
 
     --popover: 40 30% 99%;
@@ -63,17 +65,17 @@
     --gold-muted: 38 45% 60%;
 
     /* --- Section backgrounds --- */
-    --section-primary: 40 33% 97%;      /* cream */
-    --section-alternate: 40 30% 99%;    /* warm white */
-    --section-emphasis: 150 18% 90%;    /* sage tint */
-    --section-deep: 155 25% 28%;        /* deep sage */
+    --section-primary: 40 33% 97%;
+    --section-alternate: 40 30% 99%;
+    --section-emphasis: 150 18% 90%;
+    --section-deep: 155 25% 28%;
 
     /* --- Shadows --- */
     --shadow-sm: 0 1px 3px 0 hsl(220 20% 16% / 0.04);
     --shadow-md: 0 4px 12px -2px hsl(220 20% 16% / 0.06);
     --shadow-lg: 0 8px 24px -4px hsl(220 20% 16% / 0.08);
-    --shadow-card: 0 2px 8px -2px hsl(220 20% 16% / 0.05);
-    --shadow-card-hover: 0 8px 24px -4px hsl(220 20% 16% / 0.1);
+    --shadow-card: 0 1px 4px -1px hsl(220 20% 16% / 0.04), 0 2px 8px -2px hsl(220 20% 16% / 0.03);
+    --shadow-card-hover: 0 4px 16px -4px hsl(220 20% 16% / 0.08), 0 8px 24px -8px hsl(220 20% 16% / 0.06);
 
     /* Sidebar (unchanged) */
     --sidebar-background: 0 0% 98%;
@@ -168,27 +170,28 @@
 /* ---- Typography Scale ---- */
 @layer components {
   .text-hero {
-    @apply text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight;
+    @apply text-[2.25rem] sm:text-[2.75rem] lg:text-[3.25rem] font-semibold leading-[1.15] tracking-tight;
     font-family: 'Lora', serif;
   }
 
   .text-section-heading {
-    @apply text-3xl sm:text-4xl font-semibold leading-tight tracking-tight;
+    @apply text-[1.75rem] sm:text-[2.125rem] lg:text-[2.5rem] font-semibold leading-[1.2] tracking-tight;
     font-family: 'Lora', serif;
   }
 
   .text-card-heading {
-    @apply text-xl sm:text-2xl font-semibold leading-snug;
+    @apply text-lg sm:text-xl font-semibold leading-snug;
     font-family: 'Lora', serif;
   }
 
   .text-eyebrow {
-    @apply text-xs sm:text-sm font-semibold uppercase tracking-widest;
+    @apply text-[0.6875rem] sm:text-xs font-semibold uppercase tracking-[0.15em];
     font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.15em;
   }
 
   .text-body-lg {
-    @apply text-lg leading-relaxed;
+    @apply text-base sm:text-lg leading-relaxed;
     font-family: 'DM Sans', sans-serif;
   }
 
@@ -198,7 +201,7 @@
   }
 
   .text-body-sm {
-    @apply text-sm leading-relaxed;
+    @apply text-[0.8125rem] sm:text-sm leading-relaxed;
     font-family: 'DM Sans', sans-serif;
   }
 

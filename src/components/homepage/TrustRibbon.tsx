@@ -1,42 +1,45 @@
 import { motion } from "framer-motion";
 import { Shield, Users, BookOpen, Award } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
 
-/* 
+/*
   NOTE: Items marked [verify before publishing] use placeholder numbers.
   Replace with real, verified figures before going live.
 */
 const trustItems = [
-  { icon: BookOpen, label: "3,000+ Free Exercises" },       // verify before publishing
-  { icon: Users, label: "200+ Expert Teachers" },            // verify before publishing
-  { icon: Shield, label: "CE-Accredited Programs" },
-  { icon: Award, label: "Trusted by Professionals Worldwide" }, // verify before publishing
+  { icon: BookOpen, value: "3,000+", label: "Free Exercises" },        // verify before publishing
+  { icon: Users, value: "200+", label: "Expert Teachers" },             // verify before publishing
+  { icon: Shield, value: "CE", label: "Accredited Programs" },
+  { icon: Award, value: "15+", label: "Years of Practice" },            // verify before publishing
 ];
 
 export function TrustRibbon() {
   return (
-    <div className="border-y border-border/50 bg-[hsl(var(--section-alternate))]">
-      <div className="container mx-auto py-4">
+    <div className="border-y border-border/40 bg-[hsl(var(--section-alternate))]">
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-y-3"
+          className="flex items-center justify-center py-5"
         >
-          {trustItems.map((item, i) => (
-            <div key={item.label} className="flex items-center">
-              <div className="flex items-center gap-2 px-4 sm:px-5">
-                <item.icon className="h-4 w-4 text-primary/60 shrink-0" />
-                <span className="text-body-sm font-medium text-muted-foreground whitespace-nowrap">
-                  {item.label}
-                </span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-4 sm:gap-x-12 lg:gap-x-16">
+            {trustItems.map((item) => (
+              <div key={item.label} className="flex items-center gap-3">
+                <div className="h-9 w-9 rounded-lg bg-accent/60 flex items-center justify-center shrink-0">
+                  <item.icon className="h-4 w-4 text-accent-foreground/70" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-semibold text-foreground leading-none tracking-tight font-serif">
+                    {item.value}
+                  </span>
+                  <span className="text-caption text-muted-foreground mt-0.5">
+                    {item.label}
+                  </span>
+                </div>
               </div>
-              {i < trustItems.length - 1 && (
-                <Separator orientation="vertical" className="hidden sm:block h-4 bg-border/60" />
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </motion.div>
       </div>
     </div>
