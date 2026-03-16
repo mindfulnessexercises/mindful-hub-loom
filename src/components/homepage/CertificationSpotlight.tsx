@@ -15,7 +15,7 @@ const programs = [
       "Qualify to lead MBSR programs in clinical and community settings",
       "Deepen personal mindfulness practice through structured training",
     ],
-    accreditation: "CE credits available through accredited providers", // verify before publishing
+    accreditation: "APA-approved CE credits · CPD Certified",
     format: "Online · Self-paced with live cohort sessions",
     duration: "8–12 months", // verify before publishing
     cta: "Learn About MBSR Training",
@@ -29,9 +29,9 @@ const programs = [
       "Earn a recognized credential in mindfulness instruction",
       "Build confidence teaching mindfulness in professional settings",
     ],
-    accreditation: "CE credits available", // verify before publishing
+    accreditation: "APA-approved CE credits available",
     format: "Online · Flexible schedule",
-    duration: "Self-paced", // verify before publishing
+    duration: "Self-paced",
     cta: "Explore Certification",
     href: "#",
   },
@@ -42,9 +42,9 @@ const programs = [
       "Integrate evidence-based mindfulness into therapeutic practice",
       "Earn CE credits for license renewal",
     ],
-    accreditation: "CE credits available", // verify before publishing
+    accreditation: "APA-approved CE credits available",
     format: "Online · Coursework with practicum",
-    duration: "Varies by track", // verify before publishing
+    duration: "Varies by track",
     cta: "View Program Details",
     href: "#",
   },
@@ -159,11 +159,10 @@ export function CertificationSpotlight() {
         transition={{ duration: 0.4, delay: 0.3 }}
         className="text-center text-body-sm text-muted-foreground mt-8"
       >
-        All programs include CE credits for eligible professionals.{" "}
-        <a href="#" className="underline underline-offset-4 decoration-muted-foreground/40 hover:text-foreground hover:decoration-foreground/60 transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
-          Compare programs →
+        CE sponsored by Mindful CECs — APA-approved for psychologists, MFTs, LCSWs, LPCCs, LEPs & nurses.{" "}
+        <a href="/ce-policies" className="underline underline-offset-4 decoration-muted-foreground/40 hover:text-foreground hover:decoration-foreground/60 transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
+          View CE policies →
         </a>
-        {/* verify before publishing — "All programs include CE credits" */}
       </motion.p>
     </SectionWrapper>
   );

@@ -8,7 +8,7 @@ import { Shield, Users, BookOpen, Award } from "lucide-react";
 const trustItems = [
   { icon: BookOpen, value: "3,000+", label: "Free Exercises" },        // verify before publishing
   { icon: Users, value: "200+", label: "Expert Teachers" },             // verify before publishing
-  { icon: Shield, value: "CE", label: "Accredited Programs" },
+  { icon: Shield, value: "APA", label: "Approved CE Provider" },
   { icon: Award, value: "15+", label: "Years of Practice" },            // verify before publishing
 ];
 
