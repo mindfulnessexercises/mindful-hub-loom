@@ -14,7 +14,7 @@ const trustItems = [
 
 export function TrustRibbon() {
   return (
-    <div className="border-y border-border/60 bg-[hsl(var(--section-alternate))]">
+    <section className="border-y border-border/60 bg-[hsl(var(--section-alternate))]" aria-label="Key facts">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -23,10 +23,10 @@ export function TrustRibbon() {
           transition={{ duration: 0.5 }}
           className="flex items-center justify-center py-5"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-4 sm:gap-x-14 lg:gap-x-18">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4 sm:gap-x-14 lg:gap-x-18">
             {trustItems.map((item) => (
               <div key={item.label} className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-primary/[0.08] border border-primary/[0.08] flex items-center justify-center shrink-0">
+                <div className="h-10 w-10 rounded-lg bg-primary/[0.08] border border-primary/[0.08] flex items-center justify-center shrink-0" aria-hidden="true">
                   <item.icon className="h-[18px] w-[18px] text-primary/70" />
                 </div>
                 <div className="flex flex-col">
@@ -42,6 +42,6 @@ export function TrustRibbon() {
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 }

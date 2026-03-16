@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar, Clock, Video } from "lucide-react";
+import { ArrowRight, Clock, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionWrapper, SectionHeader } from "./SectionWrapper";
 
@@ -40,6 +40,7 @@ export function LiveEvents() {
   return (
     <SectionWrapper background="alternate" id="events">
       <SectionHeader
+        headingId="events-heading"
         eyebrow="Upcoming Events"
         title="Learn and connect in real time"
         subtitle="Join live workshops, trainings, and community practice sessions led by experienced mindfulness teachers."
@@ -47,7 +48,7 @@ export function LiveEvents() {
 
       <div className="space-y-4 lg:space-y-5 max-w-4xl mx-auto">
         {events.map((event, i) => (
-          <motion.div
+          <motion.article
             key={event.title}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -57,18 +58,18 @@ export function LiveEvents() {
           >
             <div className="flex flex-col sm:flex-row">
               {/* Date block */}
-              <div className="sm:w-28 lg:w-32 flex-shrink-0 bg-primary/8 flex flex-row sm:flex-col items-center justify-center gap-1 px-4 py-4 sm:py-6 border-b sm:border-b-0 sm:border-r border-border/60">
+              <div className="sm:w-28 lg:w-32 flex-shrink-0 bg-primary/[0.08] flex flex-row sm:flex-col items-center justify-center gap-1 px-4 py-3 sm:py-6 border-b sm:border-b-0 sm:border-r border-border/60">
                 <span className="text-eyebrow text-primary/70">{event.day}</span>
-                <span className="font-serif text-2xl sm:text-3xl font-bold text-primary leading-none">{event.date}</span>
+                <time className="font-serif text-2xl sm:text-3xl font-bold text-primary leading-none">{event.date}</time>
                 <span className="text-caption text-muted-foreground">{event.year}</span>
               </div>
 
               {/* Content */}
-              <div className="flex-1 p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex-1 p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
                     <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-0.5 text-caption font-medium text-accent-foreground">
-                      <Video className="h-3 w-3" />
+                      <Video className="h-3 w-3" aria-hidden="true" />
                       {event.format}
                     </span>
                     {event.free && (
@@ -77,7 +78,7 @@ export function LiveEvents() {
                       </span>
                     )}
                   </div>
-                  <h3 className="font-serif text-lg font-semibold text-card-foreground mb-1.5 group-hover:text-primary transition-colors duration-200">
+                  <h3 className="font-serif text-base sm:text-lg font-semibold text-card-foreground mb-1.5 group-hover:text-primary transition-colors duration-200">
                     {event.title}
                   </h3>
                   <p className="text-body-sm text-muted-foreground mb-2 sm:mb-0 max-w-xl">
@@ -85,8 +86,8 @@ export function LiveEvents() {
                   </p>
                   <div className="flex items-center gap-3 mt-2 text-caption text-muted-foreground">
                     <span className="inline-flex items-center gap-1">
-                      <Clock className="h-3 w-3" />
-                      {event.time}
+                      <Clock className="h-3 w-3" aria-hidden="true" />
+                      <time>{event.time}</time>
                     </span>
                   </div>
                 </div>
@@ -94,15 +95,18 @@ export function LiveEvents() {
                 <div className="flex-shrink-0">
                   <Button
                     variant="outline"
-                    className="h-10 px-5 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200 whitespace-nowrap"
+                    className="h-11 sm:h-10 w-full sm:w-auto px-5 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200 whitespace-nowrap"
+                    asChild
                   >
-                    Register
-                    <ArrowRight className="ml-1.5 h-4 w-4" />
+                    <a href="#">
+                      Register
+                      <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden="true" />
+                    </a>
                   </Button>
                 </div>
               </div>
             </div>
-          </motion.div>
+          </motion.article>
         ))}
       </div>
 
@@ -113,9 +117,11 @@ export function LiveEvents() {
         transition={{ duration: 0.4, delay: 0.3 }}
         className="text-center mt-12"
       >
-        <Button size="lg" variant="outline" className="h-12 px-8 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200">
-          View All Events
-          <ArrowRight className="ml-2 h-4 w-4" />
+        <Button size="lg" variant="outline" className="h-12 px-8 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200" asChild>
+          <a href="#">
+            View All Events
+            <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+          </a>
         </Button>
       </motion.div>
     </SectionWrapper>

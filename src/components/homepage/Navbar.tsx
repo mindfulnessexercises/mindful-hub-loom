@@ -15,7 +15,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/92 backdrop-blur-xl">
-      <nav className="container mx-auto flex h-14 items-center justify-between">
+      <nav className="container mx-auto flex h-14 items-center justify-between" aria-label="Main navigation">
         {/* Logo */}
         <a href="/" className="font-serif text-[1.0625rem] font-semibold text-foreground tracking-tight">
           Mindfulness Exercises
@@ -27,7 +27,7 @@ export function Navbar() {
             <li key={link.label}>
               <a
                 href={link.href}
-                className="text-[0.8125rem] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="text-[0.8125rem] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm px-1 py-0.5"
               >
                 {link.label}
               </a>
@@ -37,19 +37,21 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm" className="text-[0.8125rem] font-medium h-8 text-muted-foreground hover:text-foreground">
+          <Button variant="ghost" size="sm" className="text-[0.8125rem] font-medium h-9 px-4 text-muted-foreground hover:text-foreground min-w-[44px]">
             Log In
           </Button>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 h-8 text-xs font-semibold shadow-soft">
+          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 text-xs font-semibold shadow-soft min-w-[44px]">
             Explore Programs
           </Button>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 text-foreground"
+          className="md:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-foreground rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
+          aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
         >
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -57,13 +59,13 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-border/50 bg-background px-5 pb-6 pt-4">
-          <ul className="space-y-4">
+        <div id="mobile-menu" className="md:hidden border-t border-border/50 bg-background px-5 pb-6 pt-4" role="navigation" aria-label="Mobile navigation">
+          <ul className="space-y-1">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className="text-body text-foreground block font-medium"
+                  className="text-body text-foreground block font-medium py-3 px-2 rounded-md hover:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring min-h-[44px] flex items-center"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -72,8 +74,8 @@ export function Navbar() {
             ))}
           </ul>
           <div className="mt-6 flex flex-col gap-3">
-            <Button variant="outline" className="w-full border-border">Log In</Button>
-            <Button className="w-full bg-primary text-primary-foreground shadow-elevated">Explore Programs</Button>
+            <Button variant="outline" className="w-full border-border h-11">Log In</Button>
+            <Button className="w-full bg-primary text-primary-foreground shadow-elevated h-11">Explore Programs</Button>
           </div>
         </div>
       )}

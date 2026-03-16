@@ -1,39 +1,39 @@
 const footerLinks = {
   "Free Resources": [
-    "Guided Meditations",
-    "Breathing Exercises",
-    "Mindfulness Articles",
-    "Free Ebook",
-    "Full Library",
+    { label: "Guided Meditations", href: "#resources" },
+    { label: "Breathing Exercises", href: "#resources" },
+    { label: "Mindfulness Articles", href: "#resources" },
+    { label: "Free Ebook", href: "#ebook" },
+    { label: "Full Library", href: "#resources" },
   ],
   "Professional Training": [
-    "Certification Programs",
-    "MBSR Training",
-    "CE Credits",
-    "For Organizations",
+    { label: "Certification Programs", href: "#certification" },
+    { label: "MBSR Training", href: "#certification" },
+    { label: "CE Credits", href: "#certification" },
+    { label: "For Organizations", href: "#" },
   ],
   Community: [
-    "Live Events",
-    "Teacher Directory",
-    "Blog",
-    "Newsletter",
+    { label: "Live Events", href: "#events" },
+    { label: "Teacher Directory", href: "#" },
+    { label: "Blog", href: "#" },
+    { label: "Newsletter", href: "#ebook" },
   ],
   About: [
-    "Our Mission",
-    "Faculty",
-    "Contact Us",
-    "Careers",
+    { label: "Our Mission", href: "#founder" },
+    { label: "Faculty", href: "#authority" },
+    { label: "Contact Us", href: "#" },
+    { label: "Careers", href: "#" },
   ],
 };
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-[hsl(var(--section-alternate))]">
+    <footer className="border-t border-border bg-[hsl(var(--section-alternate))]" role="contentinfo">
       <div className="container mx-auto py-14 lg:py-16">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-10">
           {/* Brand column */}
           <div className="col-span-2">
-            <a href="/" className="font-serif text-lg font-semibold text-foreground">
+            <a href="/" className="font-serif text-lg font-semibold text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
               Mindfulness Exercises
             </a>
             <p className="text-body-sm text-muted-foreground mt-3 max-w-xs">
@@ -42,21 +42,21 @@ export function Footer() {
           </div>
 
           {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h4 className="font-sans text-sm font-semibold text-foreground mb-4">{category}</h4>
+            <nav key={category} aria-label={`${category} links`}>
+              <h3 className="font-sans text-sm font-semibold text-foreground mb-4">{category}</h3>
               <ul className="space-y-2.5">
                 {links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
-                      className="text-body-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                      href={link.href}
+                      className="text-body-sm text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm py-0.5 inline-block"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
           ))}
         </div>
 
@@ -64,17 +64,21 @@ export function Footer() {
           <p className="text-caption text-muted-foreground">
             © {new Date().getFullYear()} Mindfulness Exercises. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            {["Privacy Policy", "Terms of Service", "Accessibility"].map((link) => (
+          <nav aria-label="Legal links" className="flex items-center gap-6">
+            {[
+              { label: "Privacy Policy", href: "#" },
+              { label: "Terms of Service", href: "#" },
+              { label: "Accessibility", href: "#" },
+            ].map((link) => (
               <a
-                key={link}
-                href="#"
-                className="text-caption text-muted-foreground hover:text-foreground transition-colors duration-200"
+                key={link.label}
+                href={link.href}
+                className="text-caption text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm py-0.5"
               >
-                {link}
+                {link.label}
               </a>
             ))}
-          </div>
+          </nav>
         </div>
       </div>
     </footer>
