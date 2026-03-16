@@ -1,27 +1,69 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Play, FileText, Headphones } from "lucide-react";
+import { ArrowRight, Headphones, Play, FileText, BookOpen, Sparkles, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionWrapper, SectionHeader } from "./SectionWrapper";
 
 const resources = [
-  { type: "Guided Meditation", icon: Headphones, title: "Body Scan for Deep Relaxation", duration: "15 min", category: "Stress Relief" },
-  { type: "Breathing Exercise", icon: Play, title: "4-7-8 Breathing Technique", duration: "5 min", category: "Anxiety" },
-  { type: "Article", icon: FileText, title: "Mindfulness in the Workplace: A Practical Guide", duration: "8 min read", category: "Professional" },
-  { type: "Guided Meditation", icon: Headphones, title: "Loving-Kindness Meditation", duration: "20 min", category: "Compassion" },
-  { type: "Exercise", icon: Play, title: "Mindful Walking Practice", duration: "10 min", category: "Movement" },
-  { type: "Article", icon: FileText, title: "How Mindfulness Supports Emotional Regulation", duration: "6 min read", category: "Research" },
+  {
+    type: "Guided Practice",
+    icon: Headphones,
+    category: "Stress Relief",
+    title: "Body Scan for Deep Relaxation",
+    description: "A structured 15-minute body scan that builds interoceptive awareness and activates the parasympathetic response.",
+    duration: "15 min",
+  },
+  {
+    type: "Breathing Exercise",
+    icon: Play,
+    category: "Anxiety",
+    title: "4-7-8 Breathing Technique",
+    description: "An evidence-informed breathing pattern used in clinical settings to reduce acute anxiety symptoms.",
+    duration: "5 min",
+  },
+  {
+    type: "Article",
+    icon: FileText,
+    category: "Professional",
+    title: "Mindfulness in the Workplace: A Practical Guide",
+    description: "How organizations are integrating mindfulness programs to support employee wellbeing and focus.",
+    duration: "8 min read",
+  },
+  {
+    type: "Guided Practice",
+    icon: Heart,
+    category: "Compassion",
+    title: "Loving-Kindness Meditation",
+    description: "A traditional metta practice adapted for modern practitioners, building self-compassion and empathy.",
+    duration: "20 min",
+  },
+  {
+    type: "Exercise",
+    icon: Sparkles,
+    category: "Movement",
+    title: "Mindful Walking Practice",
+    description: "Bring mindfulness off the cushion with this walking practice designed for everyday environments.",
+    duration: "10 min",
+  },
+  {
+    type: "Research Summary",
+    icon: BookOpen,
+    category: "Research",
+    title: "How Mindfulness Supports Emotional Regulation",
+    description: "A concise summary of peer-reviewed findings on mindfulness and emotional self-regulation.",
+    duration: "6 min read",
+  },
 ];
 
 export function FreeResourcesPreview() {
   return (
     <SectionWrapper background="primary" id="resources">
       <SectionHeader
-        eyebrow="Free Resources"
-        title="Start your practice today"
-        subtitle="Explore a curated selection from our library of exercises, meditations, and guides — all free."
+        eyebrow="Free Resource Library"
+        title="Explore exercises, guides, and practices"
+        subtitle="A curated selection from our growing library — all free, all evidence-informed. Start today or share with clients."
       />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
         {resources.map((resource, i) => (
           <motion.a
             key={resource.title}
@@ -30,32 +72,56 @@ export function FreeResourcesPreview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.06 }}
-            className="group rounded-lg border border-border bg-card p-6 flex flex-col hover:shadow-card-hover hover:border-primary/20 transition-all duration-300"
+            className="group relative rounded-xl border border-border bg-card p-6 flex flex-col hover:shadow-[var(--shadow-card-hover)] hover:border-primary/25 transition-all duration-300"
           >
-            <div className="flex items-center gap-2 mb-3">
-              <resource.icon className="h-4 w-4 text-primary/70" />
-              <span className="text-caption font-medium text-muted-foreground uppercase tracking-wider">{resource.type}</span>
+            {/* Category chip + type */}
+            <div className="flex items-center justify-between mb-4">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-2.5 py-1 text-caption font-medium text-accent-foreground">
+                <resource.icon className="h-3 w-3" />
+                {resource.type}
+              </span>
+              <span className="text-caption font-medium text-muted-foreground">
+                {resource.duration}
+              </span>
             </div>
 
-            <h3 className="font-serif text-lg font-semibold text-card-foreground mb-2 group-hover:text-primary transition-colors">
+            {/* Title */}
+            <h3 className="text-card-heading text-card-foreground mb-2 group-hover:text-primary transition-colors duration-200">
               {resource.title}
             </h3>
 
-            <div className="flex items-center gap-3 mt-auto pt-3">
-              <span className="text-caption text-muted-foreground">{resource.duration}</span>
-              <span className="h-1 w-1 rounded-full bg-border" />
-              <span className="text-caption text-muted-foreground">{resource.category}</span>
+            {/* Description */}
+            <p className="text-body-sm text-muted-foreground mb-4 flex-1">
+              {resource.description}
+            </p>
+
+            {/* Bottom: category + arrow */}
+            <div className="flex items-center justify-between pt-3 border-t border-border/60">
+              <span className="text-caption font-semibold uppercase tracking-wider text-muted-foreground/80">
+                {resource.category}
+              </span>
+              <ArrowRight className="h-4 w-4 text-primary/50 group-hover:text-primary group-hover:translate-x-0.5 transition-all duration-200" />
             </div>
           </motion.a>
         ))}
       </div>
 
-      <div className="text-center mt-10">
-        <Button variant="outline" size="lg" className="px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: 0.3 }}
+        className="text-center mt-12"
+      >
+        <Button size="lg" variant="outline" className="h-12 px-8 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200">
           Explore Full Library
           <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
-      </div>
+        <p className="text-caption text-muted-foreground mt-3">
+          {/* [verify before publishing] */}
+          3,000+ exercises · Updated weekly · Always free
+        </p>
+      </motion.div>
     </SectionWrapper>
   );
 }
