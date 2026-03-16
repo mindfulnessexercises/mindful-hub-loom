@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Shield, Users, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
+import seanSpeaking from "@/assets/sean-fargo-speaking.jpg";
 
 export function HeroSection() {
   return (
@@ -87,56 +88,61 @@ export function HeroSection() {
             </motion.a>
           </div>
 
-          {/* Right: Visual anchor */}
+          {/* Right: Visual anchor — uses real speaking photo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="hidden lg:block"
-            aria-hidden="true"
           >
-            {/*
-              REPLACE WITH REAL IMAGE:
-              <img src="/images/hero-teacher.jpg" alt="Mindfulness teacher guiding a small group session" width="600" height="450" loading="eager" className="rounded-xl shadow-prominent object-cover" />
-            */}
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-prominent">
-              <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--accent))] via-[hsl(var(--sage-light))] to-[hsl(var(--secondary))]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--primary)/.18)] to-transparent" />
-              <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 30% 40%, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+              <img
+                src={seanSpeaking}
+                alt="Sean Fargo speaking at a mindfulness training event"
+                width="600"
+                height="450"
+                loading="eager"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              {/* Subtle overlay for text legibility on the floating card */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--foreground)/.35)] via-transparent to-[hsl(var(--foreground)/.05)]" />
 
-              <div className="absolute inset-5 rounded-lg border border-[hsl(var(--primary)/.12)] bg-card/40 backdrop-blur-sm flex flex-col items-center justify-center gap-3 p-6">
-                <div className="w-16 h-16 rounded-full bg-primary/[0.08] border border-primary/10 flex items-center justify-center">
-                  <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8 text-primary/70" stroke="currentColor" strokeWidth="1" aria-hidden="true">
-                    <circle cx="16" cy="16" r="4" />
-                    <ellipse cx="16" cy="10" rx="3" ry="6" />
-                    <ellipse cx="16" cy="22" rx="3" ry="6" />
-                    <ellipse cx="10" cy="16" rx="6" ry="3" />
-                    <ellipse cx="22" cy="16" rx="6" ry="3" />
-                  </svg>
-                </div>
-                <div className="text-center">
-                  <p className="text-eyebrow text-primary/60 mb-0.5">Hero Image</p>
-                  <p className="text-caption text-muted-foreground max-w-[180px]">
-                    Replace with professional teacher or community photo
-                  </p>
-                </div>
-              </div>
-
-              <div className="absolute bottom-3.5 left-3.5 right-3.5 rounded-lg bg-card/85 backdrop-blur-md border border-border/60 p-3.5 shadow-elevated">
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-primary/10 border border-primary/10 flex items-center justify-center shrink-0">
-                    <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5 text-primary" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M10 2L3 6v4.5c0 4.3 3 8.3 7 9.5 4-1.2 7-5.2 7-9.5V6L10 2z" />
-                      <path d="M7.5 10.5L9 12l3.5-4" />
-                    </svg>
+              {/* Floating stats strip */}
+              <div className="absolute bottom-3.5 left-3.5 right-3.5 rounded-lg bg-card/90 backdrop-blur-md border border-border/60 p-3.5 shadow-[var(--shadow-lg)]">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-2.5">
+                    <div className="h-9 w-9 rounded-full bg-primary/10 border border-primary/10 flex items-center justify-center shrink-0">
+                      <Shield className="h-4 w-4 text-primary" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <p className="text-[0.8125rem] font-semibold text-foreground font-serif leading-tight">APA-Approved CE</p>
+                      <p className="text-caption text-muted-foreground">Accredited programs</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[0.8125rem] font-semibold text-foreground font-serif leading-tight">Trusted by professionals</p>
-                    <p className="text-caption text-muted-foreground">Therapists, counselors & educators</p>
+                  <div className="hidden sm:block h-8 w-px bg-border/60" aria-hidden="true" />
+                  <div className="hidden sm:flex items-center gap-2.5">
+                    <div className="h-9 w-9 rounded-full bg-primary/10 border border-primary/10 flex items-center justify-center shrink-0">
+                      <Users className="h-4 w-4 text-primary" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <p className="text-[0.8125rem] font-semibold text-foreground font-serif leading-tight">50,000+</p>
+                      <p className="text-caption text-muted-foreground">Practitioners served</p>
+                    </div>
+                  </div>
+                  <div className="hidden md:block h-8 w-px bg-border/60" aria-hidden="true" />
+                  <div className="hidden md:flex items-center gap-2.5">
+                    <div className="h-9 w-9 rounded-full bg-primary/10 border border-primary/10 flex items-center justify-center shrink-0">
+                      <BookOpen className="h-4 w-4 text-primary" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <p className="text-[0.8125rem] font-semibold text-foreground font-serif leading-tight">3,000+</p>
+                      <p className="text-caption text-muted-foreground">Free resources</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            {/* NOTE: Replace sean-fargo-speaking.jpg with professional hero photography if preferred. Ideal: teacher guiding a small professional group in natural light. */}
           </motion.div>
         </div>
       </div>
