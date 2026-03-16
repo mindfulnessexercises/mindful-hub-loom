@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 import { SectionWrapper, SectionHeader } from "./SectionWrapper";
 
+import rickHanson from "@/assets/endorsers/rick-hanson.png";
+import chrisGermer from "@/assets/endorsers/chris-germer.png";
+
 const testimonials = [
   {
     quote:
@@ -9,7 +12,7 @@ const testimonials = [
     name: "Dr. Rick Hanson",
     title: "New York Times Bestselling Author",
     credential: "Author of Resilient & Hardwiring Happiness",
-    initials: "RH",
+    photo: rickHanson,
   },
   {
     quote:
@@ -17,7 +20,7 @@ const testimonials = [
     name: "Christopher Germer, PhD",
     title: "Clinical Psychologist, Harvard Medical School",
     credential: "Founder of the Mindful Self-Compassion Program",
-    initials: "CG",
+    photo: chrisGermer,
   },
 ];
 
@@ -53,14 +56,14 @@ export function SocialProof() {
 
             <footer className="pt-5 border-t border-border/60">
               <div className="flex items-center gap-3">
-                <div
-                  className="h-10 w-10 rounded-full bg-accent border border-border flex items-center justify-center flex-shrink-0"
-                  aria-hidden="true"
-                >
-                  <span className="font-serif text-sm font-semibold text-primary/70">
-                    {t.initials}
-                  </span>
-                </div>
+                <img
+                  src={t.photo}
+                  alt={t.name}
+                  width="40"
+                  height="40"
+                  loading="lazy"
+                  className="h-10 w-10 rounded-full object-cover flex-shrink-0"
+                />
                 <div>
                   <p className="font-serif text-sm font-semibold text-card-foreground leading-tight">
                     {t.name}
