@@ -14,15 +14,15 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/95 backdrop-blur-md">
-      <nav className="container mx-auto flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-border/40 bg-background/90 backdrop-blur-lg">
+      <nav className="container mx-auto flex h-14 items-center justify-between">
         {/* Logo */}
-        <a href="/" className="font-serif text-lg font-semibold text-foreground tracking-tight">
+        <a href="/" className="font-serif text-base font-semibold text-foreground tracking-tight">
           Mindfulness Exercises
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
             <li key={link.label}>
               <a
@@ -37,10 +37,10 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm" className="text-body-sm">
+          <Button variant="ghost" size="sm" className="text-body-sm h-8">
             Log In
           </Button>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 h-8 text-xs font-medium">
             Explore Programs
           </Button>
         </div>
@@ -57,7 +57,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-border bg-background px-5 pb-6 pt-4">
+        <div className="md:hidden border-t border-border/40 bg-background px-5 pb-6 pt-4">
           <ul className="space-y-4">
             {navLinks.map((link) => (
               <li key={link.label}>

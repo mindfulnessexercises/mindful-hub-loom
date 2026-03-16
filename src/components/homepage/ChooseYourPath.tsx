@@ -1,58 +1,80 @@
 import { motion } from "framer-motion";
-import { Leaf, GraduationCap, Radio, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionWrapper, SectionHeader } from "./SectionWrapper";
 import { cn } from "@/lib/utils";
 
 const paths = [
   {
-    icon: Leaf,
     title: "Practice Mindfulness",
     audience: "For individuals & beginners",
-    benefit: "Access a curated library of free exercises, guided meditations, and breathing practices to support your daily well-being.",
+    benefit:
+      "Access a curated library of free guided meditations, breathing practices, and mindfulness exercises to support your daily well-being.",
     bullets: [
-      "Guided meditations, body scans, and breathing exercises",
+      "Guided meditations, body scans & breathing exercises",
       "Curated by theme: stress, sleep, focus, compassion",
-      "New practices and teachers added regularly",
+      "New practices added regularly",
     ],
     cta: "Browse Free Exercises",
     href: "#resources",
+    icon: (
+      <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 4c3.5 0 7 2 7 6 0 3-2 5.5-4 7.5S14 22 14 24c0-2-1-2.5-3-4.5S7 13 7 10c0-4 3.5-6 7-6z" />
+        <path d="M14 4c-1.5 3-1 6 0 8s2 4.5 0 8" opacity="0.4" />
+      </svg>
+    ),
   },
   {
-    icon: GraduationCap,
     title: "Become Certified",
     audience: "For therapists, counselors & coaches",
-    benefit: "Earn recognized CE credits and professional credentials through accredited mindfulness training programs.",
+    benefit:
+      "Earn recognized CE credits and professional credentials through accredited mindfulness training programs.",
     bullets: [
       "CE-accredited certification programs",
-      "Designed for licensed professionals and educators",
-      "Flexible formats: self-paced, live, and hybrid",
+      "Designed for licensed professionals",
+      "Flexible: self-paced, live & hybrid formats",
     ],
     cta: "Explore Programs",
     href: "#certification",
     featured: true,
+    icon: (
+      <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="6" width="20" height="14" rx="2" />
+        <path d="M4 10h20" />
+        <path d="M14 20v4" />
+        <path d="M10 24h8" />
+        <circle cx="14" cy="14" r="2" opacity="0.5" />
+      </svg>
+    ),
   },
   {
-    icon: Radio,
     title: "Join Live Events",
     audience: "For practitioners & professionals",
-    benefit: "Learn in real time with expert-led workshops, community practice sessions, and professional trainings.",
+    benefit:
+      "Learn in real time with expert-led workshops, community practice sessions, and professional trainings.",
     bullets: [
       "Live workshops with experienced teachers",
-      "Free community sessions and CE-eligible trainings",
+      "Free community sessions & CE-eligible trainings",
       "Virtual and in-person formats",
     ],
     cta: "View Upcoming Events",
     href: "#events",
+    icon: (
+      <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="14" cy="14" r="10" />
+        <path d="M14 8v6l4 2" />
+        <path d="M20 4l2 2M8 4L6 6" opacity="0.4" />
+      </svg>
+    ),
   },
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 16 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, delay: i * 0.1, ease: "easeOut" as const },
+    transition: { duration: 0.4, delay: i * 0.08, ease: "easeOut" as const },
   }),
 };
 
@@ -62,10 +84,10 @@ export function ChooseYourPath() {
       <SectionHeader
         eyebrow="Choose Your Path"
         title="How would you like to begin?"
-        subtitle="Whether you're starting a personal practice, pursuing professional credentials, or looking to learn in community — there's a clear path for you."
+        subtitle="Whether you're starting a personal practice, pursuing professional credentials, or learning in community — there's a clear path for you."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
         {paths.map((path, i) => (
           <motion.div
             key={path.title}
@@ -75,68 +97,72 @@ export function ChooseYourPath() {
             viewport={{ once: true, margin: "-40px" }}
             variants={cardVariants}
             className={cn(
-              "group relative rounded-lg border bg-card p-7 sm:p-8 flex flex-col transition-all duration-300",
-              "hover:shadow-card-hover hover:border-primary/20",
+              "group relative rounded-xl border bg-card flex flex-col transition-all duration-300",
+              "hover:shadow-card-hover",
               path.featured
-                ? "border-primary/25 shadow-elevated ring-1 ring-primary/8"
-                : "border-border shadow-card"
+                ? "border-primary/20 shadow-elevated ring-1 ring-primary/[0.06]"
+                : "border-border/80 shadow-card hover:border-primary/15"
             )}
           >
-            {/* Icon */}
-            <div
-              className={cn(
-                "h-11 w-11 rounded-lg flex items-center justify-center mb-5",
-                path.featured ? "bg-primary/10" : "bg-accent"
-              )}
-            >
-              <path.icon
+            {/* Featured accent line */}
+            {path.featured && (
+              <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent rounded-full" />
+            )}
+
+            <div className="p-6 sm:p-7 flex flex-col flex-1">
+              {/* Icon */}
+              <div
                 className={cn(
-                  "h-5 w-5",
-                  path.featured ? "text-primary" : "text-accent-foreground"
+                  "h-12 w-12 rounded-xl flex items-center justify-center mb-5",
+                  path.featured
+                    ? "bg-primary/10 text-primary"
+                    : "bg-accent text-accent-foreground"
                 )}
-              />
+              >
+                {path.icon}
+              </div>
+
+              {/* Audience label */}
+              <p className="text-eyebrow text-muted-foreground mb-2">{path.audience}</p>
+
+              {/* Title */}
+              <h3 className="text-card-heading text-card-foreground mb-2.5">{path.title}</h3>
+
+              {/* Benefit */}
+              <p className="text-body-sm text-muted-foreground mb-5 leading-relaxed">{path.benefit}</p>
+
+              {/* Bullets */}
+              <ul className="space-y-2 mb-7 flex-1">
+                {path.bullets.map((b) => (
+                  <li key={b} className="flex items-start gap-2.5 text-body-sm text-muted-foreground">
+                    <span
+                      className={cn(
+                        "mt-[7px] h-1 w-1 rounded-full shrink-0",
+                        path.featured ? "bg-primary/50" : "bg-muted-foreground/25"
+                      )}
+                    />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA */}
+              <Button
+                variant={path.featured ? "default" : "outline"}
+                className={cn(
+                  "w-full h-10 text-sm font-medium",
+                  path.featured
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft"
+                    : "border-border/80 hover:bg-accent/60 hover:border-primary/15"
+                )}
+                asChild
+              >
+                <a href={path.href}>
+                  {path.cta}
+                  <ArrowRight className="ml-2 h-3.5 w-3.5" />
+                </a>
+              </Button>
             </div>
-
-            {/* Audience label */}
-            <p className="text-eyebrow text-muted-foreground mb-2">{path.audience}</p>
-
-            {/* Title */}
-            <h3 className="text-card-heading text-card-foreground mb-3">{path.title}</h3>
-
-            {/* Benefit */}
-            <p className="text-body-sm text-muted-foreground mb-5 leading-relaxed">{path.benefit}</p>
-
-            {/* Bullets */}
-            <ul className="space-y-2.5 mb-8 flex-1">
-              {path.bullets.map((b) => (
-                <li key={b} className="flex items-start gap-2.5 text-body-sm text-muted-foreground">
-                  <span
-                    className={cn(
-                      "mt-1.5 h-1.5 w-1.5 rounded-full shrink-0",
-                      path.featured ? "bg-primary/60" : "bg-muted-foreground/30"
-                    )}
-                  />
-                  {b}
-                </li>
-              ))}
-            </ul>
-
-            {/* CTA */}
-            <Button
-              variant={path.featured ? "default" : "outline"}
-              className={cn(
-                "w-full",
-                path.featured
-                  ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft"
-                  : "hover:bg-accent hover:border-primary/20"
-              )}
-              asChild
-            >
-              <a href={path.href}>
-                {path.cta}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
           </motion.div>
         ))}
       </div>
