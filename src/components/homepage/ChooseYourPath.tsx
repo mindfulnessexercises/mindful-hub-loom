@@ -1,18 +1,19 @@
 import { motion } from "framer-motion";
-import { Heart, GraduationCap, Radio, ArrowRight } from "lucide-react";
+import { Leaf, GraduationCap, Radio, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionWrapper, SectionHeader } from "./SectionWrapper";
+import { cn } from "@/lib/utils";
 
 const paths = [
   {
-    icon: Heart,
+    icon: Leaf,
     title: "Practice Mindfulness",
     audience: "For individuals & beginners",
-    benefit: "Start or deepen your personal mindfulness practice with free, expert-guided exercises.",
+    benefit: "Access a curated library of free exercises, guided meditations, and breathing practices to support your daily well-being.",
     bullets: [
-      "Guided meditations and breathing exercises",
-      "Curated collections by theme and duration",
-      "New content added regularly",
+      "Guided meditations, body scans, and breathing exercises",
+      "Curated by theme: stress, sleep, focus, compassion",
+      "New practices and teachers added regularly",
     ],
     cta: "Browse Free Exercises",
     href: "#resources",
@@ -20,12 +21,12 @@ const paths = [
   {
     icon: GraduationCap,
     title: "Become Certified",
-    audience: "For professionals & practitioners",
-    benefit: "Earn CE-accredited credentials and advance your career in mindfulness-based practice.",
+    audience: "For therapists, counselors & coaches",
+    benefit: "Earn recognized CE credits and professional credentials through accredited mindfulness training programs.",
     bullets: [
-      "CE credits from accredited programs",
-      "Designed for therapists, counselors, and coaches",
-      "Flexible online and live training formats",
+      "CE-accredited certification programs",
+      "Designed for licensed professionals and educators",
+      "Flexible formats: self-paced, live, and hybrid",
     ],
     cta: "Explore Programs",
     href: "#certification",
@@ -34,12 +35,12 @@ const paths = [
   {
     icon: Radio,
     title: "Join Live Events",
-    audience: "For the curious & committed",
-    benefit: "Connect with teachers and community in real-time through live workshops and trainings.",
+    audience: "For practitioners & professionals",
+    benefit: "Learn in real time with expert-led workshops, community practice sessions, and professional trainings.",
     bullets: [
-      "Interactive workshops and Q&A sessions",
-      "Virtual and in-person options",
-      "Expert-led with practical takeaways",
+      "Live workshops with experienced teachers",
+      "Free community sessions and CE-eligible trainings",
+      "Virtual and in-person formats",
     ],
     cta: "View Upcoming Events",
     href: "#events",
@@ -51,7 +52,7 @@ const cardVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, delay: i * 0.1 },
+    transition: { duration: 0.45, delay: i * 0.1, ease: "easeOut" as const },
   }),
 };
 
@@ -61,7 +62,7 @@ export function ChooseYourPath() {
       <SectionHeader
         eyebrow="Choose Your Path"
         title="How would you like to begin?"
-        subtitle="Whether you're here for personal growth or professional development, there's a clear path for you."
+        subtitle="Whether you're starting a personal practice, pursuing professional credentials, or looking to learn in community — there's a clear path for you."
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -71,40 +72,64 @@ export function ChooseYourPath() {
             custom={i}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-40px" }}
             variants={cardVariants}
-            className={`group relative rounded-lg border bg-card p-8 flex flex-col transition-shadow duration-300 hover:shadow-card-hover ${
+            className={cn(
+              "group relative rounded-lg border bg-card p-7 sm:p-8 flex flex-col transition-all duration-300",
+              "hover:shadow-card-hover hover:border-primary/20",
               path.featured
-                ? "border-primary/30 ring-1 ring-primary/10 shadow-elevated"
+                ? "border-primary/25 shadow-elevated ring-1 ring-primary/8"
                 : "border-border shadow-card"
-            }`}
-          >
-            {path.featured && (
-              <span className="absolute -top-3 left-6 bg-primary text-primary-foreground text-caption font-semibold px-3 py-1 rounded-full">
-                Most Popular
-              </span>
             )}
-
-            <div className="h-10 w-10 rounded-lg bg-accent flex items-center justify-center mb-5">
-              <path.icon className="h-5 w-5 text-accent-foreground" />
+          >
+            {/* Icon */}
+            <div
+              className={cn(
+                "h-11 w-11 rounded-lg flex items-center justify-center mb-5",
+                path.featured ? "bg-primary/10" : "bg-accent"
+              )}
+            >
+              <path.icon
+                className={cn(
+                  "h-5 w-5",
+                  path.featured ? "text-primary" : "text-accent-foreground"
+                )}
+              />
             </div>
 
+            {/* Audience label */}
             <p className="text-eyebrow text-muted-foreground mb-2">{path.audience}</p>
-            <h3 className="text-card-heading text-card-foreground mb-3">{path.title}</h3>
-            <p className="text-body-sm text-muted-foreground mb-5">{path.benefit}</p>
 
+            {/* Title */}
+            <h3 className="text-card-heading text-card-foreground mb-3">{path.title}</h3>
+
+            {/* Benefit */}
+            <p className="text-body-sm text-muted-foreground mb-5 leading-relaxed">{path.benefit}</p>
+
+            {/* Bullets */}
             <ul className="space-y-2.5 mb-8 flex-1">
               {path.bullets.map((b) => (
-                <li key={b} className="flex items-start gap-2 text-body-sm text-muted-foreground">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/50 shrink-0" />
+                <li key={b} className="flex items-start gap-2.5 text-body-sm text-muted-foreground">
+                  <span
+                    className={cn(
+                      "mt-1.5 h-1.5 w-1.5 rounded-full shrink-0",
+                      path.featured ? "bg-primary/60" : "bg-muted-foreground/30"
+                    )}
+                  />
                   {b}
                 </li>
               ))}
             </ul>
 
+            {/* CTA */}
             <Button
               variant={path.featured ? "default" : "outline"}
-              className={path.featured ? "bg-primary text-primary-foreground hover:bg-primary/90 w-full" : "w-full"}
+              className={cn(
+                "w-full",
+                path.featured
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft"
+                  : "hover:bg-accent hover:border-primary/20"
+              )}
               asChild
             >
               <a href={path.href}>
