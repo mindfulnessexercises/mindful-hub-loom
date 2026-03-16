@@ -45,8 +45,7 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.12 }}
               className="text-body-lg text-muted-foreground mt-4 max-w-lg"
             >
-              A curated library of exercises for personal practice —
-              and recognized certification programs for therapists, counselors, and educators.
+              Guided exercises for personal practice — and recognized certification programs for therapists, counselors, and educators.
             </motion.p>
 
             <motion.div
@@ -97,8 +96,8 @@ export function HeroSection() {
             aria-hidden="true"
           >
             {/*
-              PLACEHOLDER: Replace with real teacher/community photography.
-              Use: <img src="..." alt="Mindfulness teacher guiding a small group practice" width="600" height="450" loading="eager" />
+              REPLACE WITH REAL IMAGE:
+              <img src="/images/hero-teacher.jpg" alt="Mindfulness teacher guiding a small group session" width="600" height="450" loading="eager" className="rounded-xl shadow-prominent object-cover" />
             */}
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-prominent">
               <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--accent))] via-[hsl(var(--sage-light))] to-[hsl(var(--secondary))]" />
@@ -116,7 +115,7 @@ export function HeroSection() {
                   </svg>
                 </div>
                 <div className="text-center">
-                  <p className="text-eyebrow text-primary/60 mb-0.5">Brand Imagery</p>
+                  <p className="text-eyebrow text-primary/60 mb-0.5">Hero Image</p>
                   <p className="text-caption text-muted-foreground max-w-[180px]">
                     Replace with professional teacher or community photo
                   </p>

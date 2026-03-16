@@ -14,11 +14,10 @@ export function FinalCTA() {
         className="text-center max-w-2xl mx-auto"
       >
         <h2 className="text-section-heading text-primary-foreground mb-4">
-          Your next step starts here
+          Start your practice or advance your career — today
         </h2>
-        <p className="text-body-lg text-primary-foreground/75 mb-8">
-          Whether you're exploring mindfulness for the first time or pursuing professional certification,
-          we're here to support your journey.
+        <p className="text-body-lg text-primary-foreground/80 mb-8">
+          Free resources to begin your mindfulness journey, and CE-accredited programs to take it further. Choose the path that fits you.
         </p>
 
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
@@ -46,7 +45,7 @@ export function FinalCTA() {
 
         <a
           href="#events"
-          className="inline-block mt-5 text-body-sm text-primary-foreground/50 hover:text-primary-foreground/80 underline underline-offset-4 decoration-primary-foreground/20 hover:decoration-primary-foreground/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/50 rounded-sm py-1"
+          className="inline-block mt-5 text-body-sm text-primary-foreground/55 hover:text-primary-foreground/85 underline underline-offset-4 decoration-primary-foreground/20 hover:decoration-primary-foreground/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/50 rounded-sm py-1"
         >
           Or join an upcoming live event →
         </a>

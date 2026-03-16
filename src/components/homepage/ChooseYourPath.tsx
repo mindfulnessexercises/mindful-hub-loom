@@ -9,11 +9,11 @@ const paths = [
     title: "Practice Mindfulness",
     audience: "For individuals & beginners",
     benefit:
-      "Access a curated library of free guided meditations, breathing practices, and mindfulness exercises.",
+      "Access guided meditations, breathing exercises, and mindfulness practices — all free, all evidence-informed.",
     bullets: [
       "Guided meditations, body scans & breathing exercises",
-      "Curated by theme: stress, sleep, focus, compassion",
-      "New practices added regularly",
+      "Organized by theme: stress, sleep, focus, compassion",
+      "New practices added weekly",
     ],
     cta: "Browse Free Exercises",
     href: "#resources",
@@ -28,11 +28,11 @@ const paths = [
     title: "Become Certified",
     audience: "For therapists, counselors & coaches",
     benefit:
-      "Earn recognized CE credits and professional credentials through accredited mindfulness training.",
+      "Earn CE credits and professional credentials through accredited mindfulness teacher training.",
     bullets: [
       "CE-accredited certification programs",
       "Designed for licensed professionals",
-      "Flexible: self-paced, live & hybrid formats",
+      "Self-paced, live & hybrid formats",
     ],
     cta: "Explore Programs",
     href: "#certification",
@@ -51,10 +51,10 @@ const paths = [
     title: "Join Live Events",
     audience: "For practitioners & professionals",
     benefit:
-      "Learn in real time with expert-led workshops, community practice sessions, and professional trainings.",
+      "Learn in real time with expert-led workshops, community sessions, and CE-eligible trainings.",
     bullets: [
       "Live workshops with experienced teachers",
-      "Free community sessions & CE-eligible trainings",
+      "Free community sessions & CE-eligible events",
       "Virtual and in-person formats",
     ],
     cta: "View Upcoming Events",
@@ -84,7 +84,7 @@ export function ChooseYourPath() {
       <SectionHeader
         eyebrow="Choose Your Path"
         title="How would you like to begin?"
-        subtitle="Whether you're starting a personal practice, pursuing professional credentials, or learning in community — there's a clear path for you."
+        subtitle="Start a personal practice, earn professional credentials, or learn alongside a community of practitioners."
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
@@ -104,41 +104,33 @@ export function ChooseYourPath() {
                 : "border-border shadow-card hover:border-primary/20"
             )}
           >
-            {/* Featured accent line */}
             {path.featured && (
               <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent rounded-full" />
             )}
 
             <div className="p-6 sm:p-7 flex flex-col flex-1">
-              {/* Icon */}
               <div
                 className={cn(
                   "h-12 w-12 rounded-xl flex items-center justify-center mb-5 border",
                   path.featured
-                    ? "bg-primary/[0.08] border-primary/10 text-primary"
-                    : "bg-accent/80 border-border/60 text-accent-foreground"
+                    ? "bg-primary/[0.1] border-primary/12 text-primary"
+                    : "bg-accent/80 border-border/60 text-foreground/70"
                 )}
               >
                 {path.icon}
               </div>
 
-              {/* Audience label */}
               <p className="text-eyebrow text-muted-foreground mb-2">{path.audience}</p>
-
-              {/* Title */}
               <h3 className="text-card-heading text-card-foreground mb-2.5">{path.title}</h3>
-
-              {/* Benefit */}
               <p className="text-body-sm text-muted-foreground mb-5 leading-relaxed">{path.benefit}</p>
 
-              {/* Bullets */}
               <ul className="space-y-2.5 mb-7 flex-1">
                 {path.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2.5 text-body-sm text-foreground/70">
+                  <li key={b} className="flex items-start gap-2.5 text-body-sm text-foreground/80">
                     <span
                       className={cn(
                         "mt-[7px] h-1.5 w-1.5 rounded-full shrink-0",
-                        path.featured ? "bg-primary/60" : "bg-muted-foreground/30"
+                        path.featured ? "bg-primary/60" : "bg-muted-foreground/40"
                       )}
                     />
                     {b}
@@ -146,7 +138,6 @@ export function ChooseYourPath() {
                 ))}
               </ul>
 
-              {/* CTA */}
               <Button
                 variant={path.featured ? "default" : "outline"}
                 className={cn(
