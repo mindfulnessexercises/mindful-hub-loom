@@ -1,22 +1,43 @@
 const footerLinks = {
-  Resources: ["Guided Meditations", "Breathing Exercises", "Mindfulness Articles", "Free Ebook"],
-  Training: ["Certification Programs", "MBSR Training", "CE Credits", "For Organizations"],
-  Community: ["Live Events", "Teacher Directory", "Blog", "Newsletter"],
-  Company: ["About Us", "Contact", "Privacy Policy", "Terms of Service"],
+  "Free Resources": [
+    "Guided Meditations",
+    "Breathing Exercises",
+    "Mindfulness Articles",
+    "Free Ebook",
+    "Full Library",
+  ],
+  "Professional Training": [
+    "Certification Programs",
+    "MBSR Training",
+    "CE Credits",
+    "For Organizations",
+  ],
+  Community: [
+    "Live Events",
+    "Teacher Directory",
+    "Blog",
+    "Newsletter",
+  ],
+  About: [
+    "Our Mission",
+    "Faculty",
+    "Contact Us",
+    "Careers",
+  ],
 };
 
 export function Footer() {
   return (
     <footer className="border-t border-border bg-[hsl(var(--section-alternate))]">
-      <div className="container mx-auto py-14">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+      <div className="container mx-auto py-14 lg:py-16">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-10">
           {/* Brand column */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="col-span-2">
             <a href="/" className="font-serif text-lg font-semibold text-foreground">
               Mindfulness Exercises
             </a>
-            <p className="text-body-sm text-muted-foreground mt-3">
-              Free mindfulness resources and professional training for a more mindful world.
+            <p className="text-body-sm text-muted-foreground mt-3 max-w-xs">
+              Free mindfulness resources and CE-accredited professional training — for a more mindful world.
             </p>
           </div>
 
@@ -26,7 +47,10 @@ export function Footer() {
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-body-sm text-muted-foreground hover:text-foreground transition-colors">
+                    <a
+                      href="#"
+                      className="text-body-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                    >
                       {link}
                     </a>
                   </li>
@@ -41,9 +65,15 @@ export function Footer() {
             © {new Date().getFullYear()} Mindfulness Exercises. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-caption text-muted-foreground hover:text-foreground transition-colors">Privacy</a>
-            <a href="#" className="text-caption text-muted-foreground hover:text-foreground transition-colors">Terms</a>
-            <a href="#" className="text-caption text-muted-foreground hover:text-foreground transition-colors">Accessibility</a>
+            {["Privacy Policy", "Terms of Service", "Accessibility"].map((link) => (
+              <a
+                key={link}
+                href="#"
+                className="text-caption text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                {link}
+              </a>
+            ))}
           </div>
         </div>
       </div>
