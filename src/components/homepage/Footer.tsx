@@ -29,11 +29,11 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="border-t border-border bg-[hsl(var(--section-alternate))]" role="contentinfo">
-      <div className="container mx-auto py-14 lg:py-16">
+      <div className="container mx-auto py-12 lg:py-16">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-10">
           {/* Brand column */}
           <div className="col-span-2">
-            <a href="/" className="font-serif text-lg font-semibold text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
+            <a href="/" className="font-serif text-lg font-semibold text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm inline-block">
               Mindfulness Exercises
             </a>
             <p className="text-body-sm text-muted-foreground mt-3 max-w-xs">
@@ -44,12 +44,12 @@ export function Footer() {
           {Object.entries(footerLinks).map(([category, links]) => (
             <nav key={category} aria-label={`${category} links`}>
               <h3 className="font-sans text-sm font-semibold text-foreground mb-4">{category}</h3>
-              <ul className="space-y-2.5">
+              <ul className="space-y-2.5" role="list">
                 {links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-body-sm text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm py-0.5 inline-block"
+                      className="text-body-sm text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm py-1 inline-block min-h-[32px] flex items-center"
                     >
                       {link.label}
                     </a>
@@ -60,7 +60,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-border mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-border mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-caption text-muted-foreground">
             © {new Date().getFullYear()} Mindfulness Exercises. All rights reserved.
           </p>
@@ -73,7 +73,7 @@ export function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-caption text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm py-0.5"
+                className="text-caption text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm py-1"
               >
                 {link.label}
               </a>

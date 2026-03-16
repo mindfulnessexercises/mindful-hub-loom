@@ -20,7 +20,7 @@ export function EbookCapture() {
             <div className="relative w-44 sm:w-52">
               <div className="aspect-[3/4] rounded-lg bg-primary-foreground/10 border border-primary-foreground/15 backdrop-blur-sm shadow-lg flex flex-col items-center justify-center p-6 text-center">
                 <div className="h-10 w-10 rounded-full bg-primary-foreground/15 flex items-center justify-center mb-3">
-                  <BookOpen className="h-5 w-5 text-primary-foreground/80" />
+                  <BookOpen className="h-5 w-5 text-primary-foreground/80" aria-hidden="true" />
                 </div>
                 <p className="font-serif text-sm font-semibold text-primary-foreground/90 leading-snug mb-1">
                   The Mindful<br />Practitioner's<br />Starter Guide
@@ -38,7 +38,7 @@ export function EbookCapture() {
           <div className="lg:col-span-3 order-1 lg:order-2">
             <p className="text-eyebrow text-primary-foreground/60 mb-3">Free Download</p>
 
-            <h2 className="text-section-heading text-primary-foreground mb-3">
+            <h2 id="ebook-heading" className="text-section-heading text-primary-foreground mb-3">
               Build a sustainable mindfulness practice
             </h2>
 
@@ -65,7 +65,7 @@ export function EbookCapture() {
             <form
               onSubmit={(e) => e.preventDefault()}
               className="flex flex-col sm:flex-row gap-3 max-w-lg"
-              aria-label="Download free ebook"
+              aria-labelledby="ebook-heading"
             >
               <label htmlFor="ebook-email" className="sr-only">Email address</label>
               <Input
@@ -73,12 +73,13 @@ export function EbookCapture() {
                 type="email"
                 placeholder="Your email address"
                 autoComplete="email"
-                className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus-visible:ring-primary-foreground/30 h-12 flex-1"
+                className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus-visible:ring-primary-foreground/30 min-h-[44px] h-12 flex-1"
                 required
+                aria-required="true"
               />
               <Button
                 type="submit"
-                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 h-12 px-6 font-semibold whitespace-nowrap shadow-md"
+                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 min-h-[44px] h-12 px-6 font-semibold whitespace-nowrap shadow-md"
               >
                 Get Free Guide
                 <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden="true" />
