@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 
 /*
   Program data — verify titles, CE details, and formats before publishing.
-  Marked items use placeholder information.
 */
 const programs = [
   {
@@ -85,13 +84,11 @@ export function CertificationSpotlight() {
                 : "border-border shadow-card hover:border-primary/20"
             )}
           >
-            {/* Featured accent */}
             {prog.featured && (
               <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent rounded-full" />
             )}
 
             <div className="p-6 sm:p-7 flex flex-col flex-1">
-              {/* Featured badge */}
               {prog.featured && (
                 <div className="inline-flex self-start items-center gap-1.5 rounded-full bg-primary/[0.08] border border-primary/12 px-3 py-1 mb-4">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary/70" />
@@ -99,38 +96,34 @@ export function CertificationSpotlight() {
                 </div>
               )}
 
-              {/* Title */}
               <h3 className="text-card-heading text-foreground mb-4 leading-snug">{prog.title}</h3>
 
-              {/* Audience */}
               <div className="mb-4">
                 <p className="text-eyebrow text-muted-foreground mb-1">Who It's For</p>
-                <p className="text-body-sm text-foreground/85">{prog.audience}</p>
+                <p className="text-body-sm text-foreground/90">{prog.audience}</p>
               </div>
 
-              {/* Outcomes */}
               <div className="mb-5 flex-1">
                 <p className="text-eyebrow text-muted-foreground mb-2">What You'll Achieve</p>
                 <ul className="space-y-2">
                   {prog.outcomes.map((outcome) => (
-                    <li key={outcome} className="flex items-start gap-2 text-body-sm text-foreground/75">
-                      <CheckCircle2 className="h-4 w-4 mt-[2px] text-primary/60 shrink-0" />
+                    <li key={outcome} className="flex items-start gap-2 text-body-sm text-foreground/80">
+                      <CheckCircle2 className="h-4 w-4 mt-[2px] text-primary/70 shrink-0" />
                       {outcome}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Meta row */}
               <div className="border-t border-border/80 pt-4 mb-5 space-y-2">
-                <div className="flex items-center gap-2 text-caption text-foreground/60 font-medium">
-                  <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0 text-primary/50" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+                <div className="flex items-center gap-2 text-caption text-foreground/70 font-medium">
+                  <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0 text-primary/60" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M8 1l2 3.5L14 5l-3 3 .5 4L8 10.5 4.5 12 5 8 2 5l4-.5L8 1z" />
                   </svg>
                   <span>{prog.accreditation}</span>
                 </div>
-                <div className="flex items-center gap-2 text-caption text-foreground/60 font-medium">
-                  <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0 text-primary/50" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+                <div className="flex items-center gap-2 text-caption text-foreground/70 font-medium">
+                  <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0 text-primary/60" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="8" cy="8" r="6" />
                     <path d="M8 4.5V8l2.5 1.5" />
                   </svg>
@@ -138,7 +131,6 @@ export function CertificationSpotlight() {
                 </div>
               </div>
 
-              {/* CTA */}
               <Button
                 variant={prog.featured ? "default" : "outline"}
                 className={cn(
@@ -159,7 +151,6 @@ export function CertificationSpotlight() {
         ))}
       </div>
 
-      {/* Compact supporting line */}
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

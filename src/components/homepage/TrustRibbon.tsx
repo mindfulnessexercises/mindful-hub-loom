@@ -26,14 +26,14 @@ export function TrustRibbon() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4 sm:gap-x-14 lg:gap-x-18">
             {trustItems.map((item) => (
               <div key={item.label} className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-primary/[0.08] border border-primary/[0.08] flex items-center justify-center shrink-0" aria-hidden="true">
-                  <item.icon className="h-[18px] w-[18px] text-primary/70" />
+                <div className="h-10 w-10 rounded-lg bg-primary/[0.1] border border-primary/[0.1] flex items-center justify-center shrink-0" aria-hidden="true">
+                  <item.icon className="h-[18px] w-[18px] text-primary" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-sm font-bold text-foreground leading-none tracking-tight font-serif">
                     {item.value}
                   </span>
-                  <span className="text-caption text-muted-foreground mt-0.5 font-medium">
+                  <span className="text-caption text-foreground/60 mt-0.5 font-medium">
                     {item.label}
                   </span>
                 </div>

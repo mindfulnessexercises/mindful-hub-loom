@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { SectionWrapper, SectionHeader } from "./SectionWrapper";
 
 /*
-  Authority pillars — keep concise. Verify claims before publishing.
+  Authority pillars — verify claims before publishing.
 */
 const pillars = [
   {
@@ -34,7 +34,7 @@ const pillars = [
   {
     title: "Professional Outcomes",
     description:
-      "Graduates apply their training in clinical therapy, education, corporate wellness, and private practice.",
+      "Graduates integrate their training into clinical therapy, education, corporate wellness, and private practice.",
     // verify before publishing — add outcome data if available
     stat: "Career-Ready",
     icon: (
@@ -47,7 +47,7 @@ const pillars = [
   {
     title: "Depth of Library",
     description:
-      "A curated collection of thousands of exercises, guided practices, and educational content — free and growing.",
+      "Thousands of guided exercises, research summaries, and educational resources — free and growing every week.",
     // verify before publishing — "thousands" claim
     stat: "3,000+ Exercises", // verify before publishing
     icon: (
@@ -88,23 +88,19 @@ export function AuthoritySection() {
             whileInView="visible"
             viewport={{ once: true, margin: "-30px" }}
             variants={pillarVariants}
-            className="group rounded-xl bg-card/70 border border-border/60 p-6 transition-all duration-300 hover:shadow-card hover:bg-card"
+            className="group rounded-xl bg-card border border-border/70 p-6 transition-all duration-300 hover:shadow-card-hover"
           >
-            {/* Icon container */}
-            <div className="h-12 w-12 rounded-xl bg-primary/[0.1] border border-primary/[0.08] flex items-center justify-center mb-4 text-primary">
+            <div className="h-12 w-12 rounded-xl bg-primary/[0.1] border border-primary/[0.1] flex items-center justify-center mb-4 text-primary">
               {pillar.icon}
             </div>
 
-            {/* Stat highlight */}
             <p className="text-eyebrow text-primary font-bold mb-1.5">{pillar.stat}</p>
 
-            {/* Title */}
             <h3 className="font-serif text-base font-semibold text-foreground mb-2 leading-snug">
               {pillar.title}
             </h3>
 
-            {/* Description */}
-            <p className="text-body-sm text-foreground/65 leading-relaxed">
+            <p className="text-body-sm text-muted-foreground leading-relaxed">
               {pillar.description}
             </p>
           </motion.div>

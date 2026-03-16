@@ -9,7 +9,7 @@ const resources = [
     icon: Headphones,
     category: "Stress Relief",
     title: "Body Scan for Deep Relaxation",
-    description: "A structured 15-minute body scan that builds interoceptive awareness and activates the parasympathetic response.",
+    description: "A 15-minute body scan building interoceptive awareness and activating the parasympathetic response.",
     duration: "15 min",
   },
   {
@@ -17,15 +17,15 @@ const resources = [
     icon: Play,
     category: "Anxiety",
     title: "4-7-8 Breathing Technique",
-    description: "An evidence-informed breathing pattern used in clinical settings to reduce acute anxiety symptoms.",
+    description: "An evidence-informed breathing pattern used in clinical settings to reduce acute anxiety.",
     duration: "5 min",
   },
   {
     type: "Article",
     icon: FileText,
-    category: "Professional",
-    title: "Mindfulness in the Workplace: A Practical Guide",
-    description: "How organizations are integrating mindfulness programs to support employee wellbeing and focus.",
+    category: "Workplace",
+    title: "Mindfulness at Work: A Practical Guide",
+    description: "How organizations integrate mindfulness programs to improve employee wellbeing and focus.",
     duration: "8 min read",
   },
   {
@@ -33,7 +33,7 @@ const resources = [
     icon: Heart,
     category: "Compassion",
     title: "Loving-Kindness Meditation",
-    description: "A traditional metta practice adapted for modern practitioners, building self-compassion and empathy.",
+    description: "A traditional metta practice adapted for modern practitioners — builds self-compassion and empathy.",
     duration: "20 min",
   },
   {
@@ -48,8 +48,8 @@ const resources = [
     type: "Research Summary",
     icon: BookOpen,
     category: "Research",
-    title: "How Mindfulness Supports Emotional Regulation",
-    description: "A concise summary of peer-reviewed findings on mindfulness and emotional self-regulation.",
+    title: "Mindfulness & Emotional Regulation",
+    description: "A concise review of peer-reviewed findings on mindfulness and emotional self-regulation.",
     duration: "6 min read",
   },
 ];
@@ -60,8 +60,8 @@ export function FreeResourcesPreview() {
       <SectionHeader
         headingId="resources-heading"
         eyebrow="Free Resource Library"
-        title="Explore exercises, guides, and practices"
-        subtitle="A curated selection from our growing library — all free, all evidence-informed. Start today or share with clients."
+        title="Exercises, guides, and practices — always free"
+        subtitle="A curated selection from our growing library. Start a personal practice or share with clients."
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
@@ -76,7 +76,6 @@ export function FreeResourcesPreview() {
             className="group relative rounded-xl border border-border bg-card p-5 sm:p-6 flex flex-col hover:shadow-[var(--shadow-card-hover)] hover:border-primary/25 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             aria-label={`${resource.title} — ${resource.type}, ${resource.duration}`}
           >
-            {/* Category chip + type */}
             <div className="flex items-center justify-between mb-4">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-2.5 py-1 text-caption font-medium text-accent-foreground">
                 <resource.icon className="h-3 w-3" aria-hidden="true" />
@@ -91,7 +90,7 @@ export function FreeResourcesPreview() {
               {resource.title}
             </h3>
 
-            <p className="text-body-sm text-muted-foreground mb-4 flex-1">
+            <p className="text-body-sm text-muted-foreground mb-4 flex-1 leading-relaxed">
               {resource.description}
             </p>
 
@@ -110,7 +109,7 @@ export function FreeResourcesPreview() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: 0.3 }}
-        className="text-center mt-12"
+        className="text-center mt-10"
       >
         <Button size="lg" variant="outline" className="h-12 px-8 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200" asChild>
           <a href="#">

@@ -17,42 +17,43 @@ export function EbookCapture() {
         >
           {/* Ebook visual placeholder */}
           <div className="lg:col-span-2 flex justify-center lg:justify-end order-2 lg:order-1" aria-hidden="true">
-            <div className="relative w-44 sm:w-56">
+            <div className="relative w-44 sm:w-52">
               <div className="aspect-[3/4] rounded-lg bg-primary-foreground/10 border border-primary-foreground/15 backdrop-blur-sm shadow-lg flex flex-col items-center justify-center p-6 text-center">
-                <div className="h-10 w-10 rounded-full bg-primary-foreground/15 flex items-center justify-center mb-4">
+                <div className="h-10 w-10 rounded-full bg-primary-foreground/15 flex items-center justify-center mb-3">
                   <BookOpen className="h-5 w-5 text-primary-foreground/80" />
                 </div>
                 <p className="font-serif text-sm font-semibold text-primary-foreground/90 leading-snug mb-1">
                   The Mindful<br />Practitioner's<br />Starter Guide
                 </p>
-                <p className="text-caption text-primary-foreground/50 mt-2">
-                  Free · 42 pages
+                <p className="text-caption text-primary-foreground/50 mt-1.5">
+                  Free · 42 pages {/* verify before publishing */}
                 </p>
                 <div className="absolute left-0 top-2 bottom-2 w-1 rounded-full bg-primary-foreground/10" />
               </div>
-              {/* [Replace with real ebook cover: <img src="..." alt="The Mindful Practitioner's Starter Guide ebook cover" width="224" height="299" loading="lazy" /> ] */}
+              {/* [Replace with real ebook cover: <img src="..." alt="The Mindful Practitioner's Starter Guide ebook cover" width="208" height="277" loading="lazy" /> ] */}
             </div>
           </div>
 
           {/* Content + Form */}
           <div className="lg:col-span-3 order-1 lg:order-2">
-            <p className="text-eyebrow text-primary-foreground/60 mb-4">Free Download</p>
+            <p className="text-eyebrow text-primary-foreground/60 mb-3">Free Download</p>
 
-            <h2 className="text-section-heading text-primary-foreground mb-4">
-              Build a sustainable mindfulness practice — guided, step by step
+            <h2 className="text-section-heading text-primary-foreground mb-3">
+              Build a sustainable mindfulness practice
             </h2>
 
-            <p className="text-body-lg text-primary-foreground/75 mb-6">
-              Our free 42-page guide gives you everything you need to start or deepen your practice with confidence.
+            <p className="text-body-lg text-primary-foreground/80 mb-6 max-w-lg">
+              Our free 42-page guide gives you a structured path to start or deepen your practice with confidence.
+              {/* verify before publishing — page count */}
             </p>
 
-            <ul className="space-y-3 mb-8" role="list">
+            <ul className="space-y-3 mb-7" role="list">
               {[
                 "Daily exercises designed for real schedules and busy lives",
-                "Evidence-informed techniques used in clinical and professional settings",
+                "Evidence-informed techniques used in clinical settings",
                 "A structured 4-week plan you can start today",
               ].map((benefit) => (
-                <li key={benefit} className="flex items-start gap-3 text-body-sm text-primary-foreground/85">
+                <li key={benefit} className="flex items-start gap-3 text-body-sm text-primary-foreground/90">
                   <span className="flex-shrink-0 mt-0.5 h-5 w-5 rounded-full bg-primary-foreground/15 flex items-center justify-center" aria-hidden="true">
                     <Check className="h-3 w-3 text-primary-foreground/80" />
                   </span>
@@ -84,7 +85,7 @@ export function EbookCapture() {
               </Button>
             </form>
 
-            <p className="flex items-center gap-1.5 text-caption text-primary-foreground/40 mt-4">
+            <p className="flex items-center gap-1.5 text-caption text-primary-foreground/45 mt-3">
               <Lock className="h-3 w-3" aria-hidden="true" />
               No spam. Unsubscribe anytime. We respect your privacy.
             </p>
