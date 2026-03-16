@@ -1,12 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Navbar } from "@/components/homepage/Navbar";
+import { HeroSection } from "@/components/homepage/HeroSection";
+import { TrustRibbon } from "@/components/homepage/TrustRibbon";
+import { ChooseYourPath } from "@/components/homepage/ChooseYourPath";
+import { CertificationSpotlight } from "@/components/homepage/CertificationSpotlight";
+import { AuthoritySection } from "@/components/homepage/AuthoritySection";
+import { FreeResourcesPreview } from "@/components/homepage/FreeResourcesPreview";
+import { LiveEvents } from "@/components/homepage/LiveEvents";
+import { EbookCapture } from "@/components/homepage/EbookCapture";
+import { SocialProof } from "@/components/homepage/SocialProof";
+import { FounderBlock } from "@/components/homepage/FounderBlock";
+import { FinalCTA } from "@/components/homepage/FinalCTA";
+import { Footer } from "@/components/homepage/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <main>
+        <HeroSection />
+        <TrustRibbon />
+        <ChooseYourPath />
+        <CertificationSpotlight />
+        <AuthoritySection />
+        <FreeResourcesPreview />
+        <LiveEvents />
+        <EbookCapture />
+        <SocialProof />
+        <FounderBlock />
+        <FinalCTA />
+      </main>
+      <Footer />
     </div>
   );
 };
