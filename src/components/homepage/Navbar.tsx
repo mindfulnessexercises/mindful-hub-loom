@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import logo from "@/assets/logo-mindfulness-exercises.png";
 
 const navLinks = [
   { label: "Free Resources", href: "#resources" },
@@ -17,8 +17,14 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/92 backdrop-blur-xl">
       <nav className="container mx-auto flex h-14 items-center justify-between" aria-label="Main navigation">
         {/* Logo */}
-        <a href="/" className="font-serif text-[1.0625rem] font-semibold text-foreground tracking-tight">
-          Mindfulness Exercises
+        <a href="/" className="flex items-center">
+          <img
+            src={logo}
+            alt="Mindfulness Exercises"
+            width="180"
+            height="32"
+            className="h-7 sm:h-8 w-auto"
+          />
         </a>
 
         {/* Desktop links */}
