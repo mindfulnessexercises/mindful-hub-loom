@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BookOpen, Check, ArrowRight, Lock } from "lucide-react";
+import { BookOpen, Check, ArrowRight, Lock, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SectionWrapper } from "./SectionWrapper";
@@ -13,24 +13,54 @@ export function EbookCapture() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-14 items-center"
+          className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-center"
         >
-          {/* Ebook visual placeholder */}
+          {/* Ebook cover — premium visual treatment */}
           <div className="lg:col-span-2 flex justify-center lg:justify-end order-2 lg:order-1" aria-hidden="true">
-            <div className="relative w-44 sm:w-52">
-              <div className="aspect-[3/4] rounded-lg bg-primary-foreground/10 border border-primary-foreground/15 backdrop-blur-sm shadow-lg flex flex-col items-center justify-center p-6 text-center">
-                <div className="h-10 w-10 rounded-full bg-primary-foreground/15 flex items-center justify-center mb-3">
-                  <BookOpen className="h-5 w-5 text-primary-foreground/80" aria-hidden="true" />
+            <div className="relative w-48 sm:w-56 group">
+              {/* Soft glow behind cover */}
+              <div className="absolute -inset-4 rounded-2xl bg-primary-foreground/[0.06] blur-2xl" />
+
+              {/* Cover */}
+              <div className="relative aspect-[3/4] rounded-lg border border-primary-foreground/15 bg-gradient-to-br from-primary-foreground/[0.12] to-primary-foreground/[0.04] backdrop-blur-sm shadow-lg overflow-hidden">
+                {/* Spine accent */}
+                <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-primary-foreground/20 via-primary-foreground/10 to-primary-foreground/20" />
+
+                {/* Top decorative strip */}
+                <div className="absolute top-0 left-1.5 right-0 h-px bg-gradient-to-r from-primary-foreground/20 via-primary-foreground/10 to-transparent" />
+
+                <div className="relative flex flex-col items-center justify-center h-full px-6 py-8 text-center">
+                  {/* Icon */}
+                  <div className="h-12 w-12 rounded-full bg-primary-foreground/10 border border-primary-foreground/15 flex items-center justify-center mb-4">
+                    <Sparkles className="h-5 w-5 text-primary-foreground/70" aria-hidden="true" />
+                  </div>
+
+                  {/* Title */}
+                  <p className="font-serif text-base sm:text-lg font-semibold text-primary-foreground/95 leading-snug mb-1.5">
+                    The Mindful<br />Practitioner's<br />Starter Guide
+                  </p>
+
+                  {/* Author line */}
+                  <p className="text-caption text-primary-foreground/45 mb-4">
+                    By Sean Fargo
+                  </p>
+
+                  {/* Divider */}
+                  <div className="w-10 h-px bg-primary-foreground/15 mb-4" />
+
+                  <p className="text-caption text-primary-foreground/40">
+                    Free · 42 pages
+                  </p>
                 </div>
-                <p className="font-serif text-sm font-semibold text-primary-foreground/90 leading-snug mb-1">
-                  The Mindful<br />Practitioner's<br />Starter Guide
-                </p>
-                <p className="text-caption text-primary-foreground/50 mt-1.5">
-                  Free · 42 pages {/* verify before publishing */}
-                </p>
-                <div className="absolute left-0 top-2 bottom-2 w-1 rounded-full bg-primary-foreground/10" />
+
+                {/* Bottom accent */}
+                <div className="absolute bottom-0 left-1.5 right-0 h-px bg-gradient-to-r from-primary-foreground/15 via-primary-foreground/8 to-transparent" />
               </div>
-              {/* [Replace with real ebook cover: <img src="..." alt="The Mindful Practitioner's Starter Guide ebook cover" width="208" height="277" loading="lazy" /> ] */}
+
+              {/* Shadow page behind */}
+              <div className="absolute top-1.5 -right-1.5 bottom-1.5 w-full rounded-lg border border-primary-foreground/8 bg-primary-foreground/[0.03] -z-10" />
+
+              {/* NOTE: Replace this entire cover block with: <img src="..." alt="The Mindful Practitioner's Starter Guide ebook cover" width="224" height="299" loading="lazy" className="rounded-lg shadow-lg" /> */}
             </div>
           </div>
 
@@ -44,7 +74,6 @@ export function EbookCapture() {
 
             <p className="text-body-lg text-primary-foreground/80 mb-6 max-w-lg">
               Our free 42-page guide gives you a structured path to start or deepen your practice with confidence.
-              {/* verify before publishing — page count */}
             </p>
 
             <ul className="space-y-3 mb-7" role="list">
