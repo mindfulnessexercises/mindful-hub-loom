@@ -81,40 +81,40 @@ export function CertificationSpotlight() {
             className={cn(
               "group relative rounded-xl border bg-card flex flex-col transition-all duration-300 hover:shadow-card-hover",
               prog.featured
-                ? "border-primary/20 shadow-elevated ring-1 ring-primary/[0.06]"
-                : "border-border/80 shadow-card hover:border-primary/15"
+                ? "border-primary/25 shadow-elevated ring-1 ring-primary/[0.08]"
+                : "border-border shadow-card hover:border-primary/20"
             )}
           >
             {/* Featured accent */}
             {prog.featured && (
-              <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent rounded-full" />
+              <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent rounded-full" />
             )}
 
             <div className="p-6 sm:p-7 flex flex-col flex-1">
               {/* Featured badge */}
               {prog.featured && (
-                <div className="inline-flex self-start items-center gap-1.5 rounded-full bg-primary/8 border border-primary/12 px-3 py-1 mb-4">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary/60" />
-                  <span className="text-caption font-medium text-primary">Flagship Program</span>
+                <div className="inline-flex self-start items-center gap-1.5 rounded-full bg-primary/[0.08] border border-primary/12 px-3 py-1 mb-4">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary/70" />
+                  <span className="text-caption font-semibold text-primary">Flagship Program</span>
                 </div>
               )}
 
               {/* Title */}
-              <h3 className="text-card-heading text-card-foreground mb-4 leading-snug">{prog.title}</h3>
+              <h3 className="text-card-heading text-foreground mb-4 leading-snug">{prog.title}</h3>
 
               {/* Audience */}
               <div className="mb-4">
-                <p className="text-eyebrow text-muted-foreground/70 mb-1">Who It's For</p>
-                <p className="text-body-sm text-foreground/80">{prog.audience}</p>
+                <p className="text-eyebrow text-muted-foreground mb-1">Who It's For</p>
+                <p className="text-body-sm text-foreground/85">{prog.audience}</p>
               </div>
 
               {/* Outcomes */}
               <div className="mb-5 flex-1">
-                <p className="text-eyebrow text-muted-foreground/70 mb-2">What You'll Achieve</p>
+                <p className="text-eyebrow text-muted-foreground mb-2">What You'll Achieve</p>
                 <ul className="space-y-2">
                   {prog.outcomes.map((outcome) => (
-                    <li key={outcome} className="flex items-start gap-2 text-body-sm text-muted-foreground">
-                      <CheckCircle2 className="h-3.5 w-3.5 mt-[3px] text-primary/50 shrink-0" />
+                    <li key={outcome} className="flex items-start gap-2 text-body-sm text-foreground/75">
+                      <CheckCircle2 className="h-4 w-4 mt-[2px] text-primary/60 shrink-0" />
                       {outcome}
                     </li>
                   ))}
@@ -122,15 +122,15 @@ export function CertificationSpotlight() {
               </div>
 
               {/* Meta row */}
-              <div className="border-t border-border/60 pt-4 mb-5 space-y-2">
-                <div className="flex items-center gap-2 text-caption text-muted-foreground">
-                  <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+              <div className="border-t border-border/80 pt-4 mb-5 space-y-2">
+                <div className="flex items-center gap-2 text-caption text-foreground/60 font-medium">
+                  <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0 text-primary/50" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M8 1l2 3.5L14 5l-3 3 .5 4L8 10.5 4.5 12 5 8 2 5l4-.5L8 1z" />
                   </svg>
                   <span>{prog.accreditation}</span>
                 </div>
-                <div className="flex items-center gap-2 text-caption text-muted-foreground">
-                  <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+                <div className="flex items-center gap-2 text-caption text-foreground/60 font-medium">
+                  <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 shrink-0 text-primary/50" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="8" cy="8" r="6" />
                     <path d="M8 4.5V8l2.5 1.5" />
                   </svg>
@@ -142,10 +142,10 @@ export function CertificationSpotlight() {
               <Button
                 variant={prog.featured ? "default" : "outline"}
                 className={cn(
-                  "w-full h-10 text-sm font-medium",
+                  "w-full h-11 text-sm font-medium",
                   prog.featured
-                    ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft"
-                    : "border-border/80 hover:bg-accent/60 hover:border-primary/15"
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-elevated"
+                    : "border-border hover:bg-accent/70 hover:border-primary/20 text-foreground"
                 )}
                 asChild
               >
@@ -168,7 +168,7 @@ export function CertificationSpotlight() {
         className="text-center text-body-sm text-muted-foreground mt-8"
       >
         All programs include CE credits for eligible professionals.{" "}
-        <a href="#" className="underline underline-offset-4 decoration-muted-foreground/40 hover:text-foreground hover:decoration-foreground/60 transition-colors">
+        <a href="#" className="underline underline-offset-4 decoration-muted-foreground/40 hover:text-foreground hover:decoration-foreground/60 transition-colors font-medium">
           Compare programs →
         </a>
         {/* verify before publishing — "All programs include CE credits" */}

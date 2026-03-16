@@ -9,7 +9,7 @@ const paths = [
     title: "Practice Mindfulness",
     audience: "For individuals & beginners",
     benefit:
-      "Access a curated library of free guided meditations, breathing practices, and mindfulness exercises to support your daily well-being.",
+      "Access a curated library of free guided meditations, breathing practices, and mindfulness exercises.",
     bullets: [
       "Guided meditations, body scans & breathing exercises",
       "Curated by theme: stress, sleep, focus, compassion",
@@ -28,7 +28,7 @@ const paths = [
     title: "Become Certified",
     audience: "For therapists, counselors & coaches",
     benefit:
-      "Earn recognized CE credits and professional credentials through accredited mindfulness training programs.",
+      "Earn recognized CE credits and professional credentials through accredited mindfulness training.",
     bullets: [
       "CE-accredited certification programs",
       "Designed for licensed professionals",
@@ -98,25 +98,25 @@ export function ChooseYourPath() {
             variants={cardVariants}
             className={cn(
               "group relative rounded-xl border bg-card flex flex-col transition-all duration-300",
-              "hover:shadow-card-hover",
+              "hover:shadow-card-hover hover:-translate-y-0.5",
               path.featured
-                ? "border-primary/20 shadow-elevated ring-1 ring-primary/[0.06]"
-                : "border-border/80 shadow-card hover:border-primary/15"
+                ? "border-primary/25 shadow-elevated ring-1 ring-primary/[0.08]"
+                : "border-border shadow-card hover:border-primary/20"
             )}
           >
             {/* Featured accent line */}
             {path.featured && (
-              <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent rounded-full" />
+              <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent rounded-full" />
             )}
 
             <div className="p-6 sm:p-7 flex flex-col flex-1">
               {/* Icon */}
               <div
                 className={cn(
-                  "h-12 w-12 rounded-xl flex items-center justify-center mb-5",
+                  "h-12 w-12 rounded-xl flex items-center justify-center mb-5 border",
                   path.featured
-                    ? "bg-primary/10 text-primary"
-                    : "bg-accent text-accent-foreground"
+                    ? "bg-primary/[0.08] border-primary/10 text-primary"
+                    : "bg-accent/80 border-border/60 text-accent-foreground"
                 )}
               >
                 {path.icon}
@@ -132,13 +132,13 @@ export function ChooseYourPath() {
               <p className="text-body-sm text-muted-foreground mb-5 leading-relaxed">{path.benefit}</p>
 
               {/* Bullets */}
-              <ul className="space-y-2 mb-7 flex-1">
+              <ul className="space-y-2.5 mb-7 flex-1">
                 {path.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2.5 text-body-sm text-muted-foreground">
+                  <li key={b} className="flex items-start gap-2.5 text-body-sm text-foreground/70">
                     <span
                       className={cn(
-                        "mt-[7px] h-1 w-1 rounded-full shrink-0",
-                        path.featured ? "bg-primary/50" : "bg-muted-foreground/25"
+                        "mt-[7px] h-1.5 w-1.5 rounded-full shrink-0",
+                        path.featured ? "bg-primary/60" : "bg-muted-foreground/30"
                       )}
                     />
                     {b}
@@ -150,10 +150,10 @@ export function ChooseYourPath() {
               <Button
                 variant={path.featured ? "default" : "outline"}
                 className={cn(
-                  "w-full h-10 text-sm font-medium",
+                  "w-full h-11 text-sm font-medium",
                   path.featured
-                    ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft"
-                    : "border-border/80 hover:bg-accent/60 hover:border-primary/15"
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-elevated"
+                    : "border-border hover:bg-accent/70 hover:border-primary/20 text-foreground"
                 )}
                 asChild
               >

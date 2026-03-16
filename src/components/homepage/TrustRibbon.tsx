@@ -14,7 +14,7 @@ const trustItems = [
 
 export function TrustRibbon() {
   return (
-    <div className="border-y border-border/40 bg-[hsl(var(--section-alternate))]">
+    <div className="border-y border-border/60 bg-[hsl(var(--section-alternate))]">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -23,17 +23,17 @@ export function TrustRibbon() {
           transition={{ duration: 0.5 }}
           className="flex items-center justify-center py-5"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-4 sm:gap-x-12 lg:gap-x-16">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-4 sm:gap-x-14 lg:gap-x-18">
             {trustItems.map((item) => (
               <div key={item.label} className="flex items-center gap-3">
-                <div className="h-9 w-9 rounded-lg bg-accent/60 flex items-center justify-center shrink-0">
-                  <item.icon className="h-4 w-4 text-accent-foreground/70" />
+                <div className="h-10 w-10 rounded-lg bg-primary/[0.08] border border-primary/[0.08] flex items-center justify-center shrink-0">
+                  <item.icon className="h-[18px] w-[18px] text-primary/70" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-sm font-semibold text-foreground leading-none tracking-tight font-serif">
+                  <span className="text-sm font-bold text-foreground leading-none tracking-tight font-serif">
                     {item.value}
                   </span>
-                  <span className="text-caption text-muted-foreground mt-0.5">
+                  <span className="text-caption text-muted-foreground mt-0.5 font-medium">
                     {item.label}
                   </span>
                 </div>
