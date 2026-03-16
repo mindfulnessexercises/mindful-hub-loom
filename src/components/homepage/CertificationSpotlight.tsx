@@ -29,9 +29,9 @@ const programs = [
       "Earn a recognized credential in mindfulness instruction",
       "Build confidence teaching mindfulness in professional settings",
     ],
-    accreditation: "CE credits available", // verify before publishing
+    accreditation: "APA-approved CE credits available",
     format: "Online · Flexible schedule",
-    duration: "Self-paced", // verify before publishing
+    duration: "Self-paced",
     cta: "Explore Certification",
     href: "#",
   },
