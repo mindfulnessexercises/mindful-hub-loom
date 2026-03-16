@@ -15,7 +15,7 @@ const programs = [
       "Qualify to lead MBSR programs in clinical and community settings",
       "Deepen personal mindfulness practice through structured training",
     ],
-    accreditation: "CE credits available through accredited providers", // verify before publishing
+    accreditation: "APA-approved CE credits · CPD Certified",
     format: "Online · Self-paced with live cohort sessions",
     duration: "8–12 months", // verify before publishing
     cta: "Learn About MBSR Training",
