@@ -4,6 +4,10 @@ import { SectionWrapper, SectionHeader } from "./SectionWrapper";
 
 import rickHanson from "@/assets/endorsers/rick-hanson.png";
 import chrisGermer from "@/assets/endorsers/chris-germer.png";
+import jackKornfield from "@/assets/endorsers/jack-kornfield.png";
+import gaborMate from "@/assets/endorsers/gabor-mate.png";
+import sharonSalzberg from "@/assets/endorsers/sharon-salzberg.png";
+import hasanRafiq from "@/assets/endorsers/hasan-rafiq.png";
 
 const testimonials = [
   {
@@ -22,6 +26,13 @@ const testimonials = [
     credential: "Founder of the Mindful Self-Compassion Program",
     photo: chrisGermer,
   },
+];
+
+const endorsers = [
+  { name: "Jack Kornfield", title: "Bestselling Author & Buddhist Teacher", photo: jackKornfield },
+  { name: "Gabor Maté, MD", title: "Physician & Bestselling Author", photo: gaborMate },
+  { name: "Sharon Salzberg", title: "NYT Bestselling Author & Meditation Pioneer", photo: sharonSalzberg },
+  { name: "Hasan Rafiq", title: "Mindfulness Teacher & Educator", photo: hasanRafiq },
 ];
 
 export function SocialProof() {
@@ -80,6 +91,41 @@ export function SocialProof() {
           </motion.blockquote>
         ))}
       </div>
+
+      {/* Compact endorser strip */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+        className="mt-10 sm:mt-12 max-w-3xl mx-auto"
+      >
+        <p className="text-caption text-muted-foreground text-center mb-5 uppercase tracking-wider">
+          Also endorsed by
+        </p>
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
+          {endorsers.map((e) => (
+            <div key={e.name} className="flex items-center gap-2.5">
+              <img
+                src={e.photo}
+                alt={e.name}
+                width="36"
+                height="36"
+                loading="lazy"
+                className="h-9 w-9 rounded-full object-cover flex-shrink-0 ring-1 ring-border"
+              />
+              <div>
+                <p className="font-serif text-sm font-semibold text-card-foreground leading-tight">
+                  {e.name}
+                </p>
+                <p className="text-[11px] text-muted-foreground leading-tight mt-0.5">
+                  {e.title}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </SectionWrapper>
   );
 }
