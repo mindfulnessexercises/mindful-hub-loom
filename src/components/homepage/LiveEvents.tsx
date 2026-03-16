@@ -1,32 +1,37 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar, MapPin } from "lucide-react";
+import { ArrowRight, Calendar, Clock, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { SectionWrapper, SectionHeader } from "./SectionWrapper";
 
 const events = [
   {
     title: "Introduction to Mindfulness-Based Stress Reduction",
-    date: "April 12, 2026",
-    time: "1:00 PM – 3:00 PM ET",
-    format: "Live Virtual",
-    description: "A free introductory session exploring MBSR foundations and how to bring mindfulness into daily life.",
+    date: "Apr 12",
+    year: "2026",
+    day: "Saturday",
+    time: "1:00 – 3:00 PM ET",
+    format: "Live Virtual Workshop",
+    description: "A free introductory session exploring MBSR foundations and how to integrate mindfulness into daily life and professional practice.",
     free: true,
   },
   {
-    title: "CE Workshop: Trauma-Informed Mindfulness",
-    date: "April 26, 2026",
+    title: "CE Workshop: Trauma-Informed Mindfulness in Clinical Settings",
+    date: "Apr 26",
+    year: "2026",
+    day: "Saturday",
     time: "10:00 AM – 4:00 PM ET",
-    format: "Live Virtual",
-    description: "A CE-eligible workshop on integrating trauma-sensitive mindfulness practices in clinical settings.",
+    format: "Live Virtual · CE-Eligible",
+    description: "A CE-eligible deep-dive into trauma-sensitive mindfulness practices for therapists, counselors, and healthcare professionals.",
     free: false,
   },
   {
-    title: "Community Practice: Mindful Movement",
-    date: "May 3, 2026",
-    time: "9:00 AM – 10:00 AM ET",
-    format: "Live Virtual",
-    description: "Join our weekly community practice session focused on mindful movement and body awareness.",
+    title: "Community Practice: Mindful Movement & Body Awareness",
+    date: "May 3",
+    year: "2026",
+    day: "Sunday",
+    time: "9:00 – 10:00 AM ET",
+    format: "Live Virtual · Open to All",
+    description: "A weekly community practice session focused on mindful movement, suitable for all experience levels.",
     free: true,
   },
 ];
@@ -35,12 +40,12 @@ export function LiveEvents() {
   return (
     <SectionWrapper background="alternate" id="events">
       <SectionHeader
-        eyebrow="Live Events"
+        eyebrow="Upcoming Events"
         title="Learn and connect in real time"
-        subtitle="Join live workshops, trainings, and community practice sessions led by experienced teachers."
+        subtitle="Join live workshops, trainings, and community practice sessions led by experienced mindfulness teachers."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="space-y-4 lg:space-y-5 max-w-4xl mx-auto">
         {events.map((event, i) => (
           <motion.div
             key={event.title}
@@ -48,45 +53,71 @@ export function LiveEvents() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="rounded-lg border border-border bg-card p-6 flex flex-col shadow-card hover:shadow-card-hover transition-shadow duration-300"
+            className="group rounded-xl border border-border bg-card p-0 overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-300"
           >
-            <div className="flex items-center gap-2 mb-4">
-              <Badge variant="secondary" className="text-caption font-medium">
-                {event.format}
-              </Badge>
-              {event.free && (
-                <Badge className="bg-primary/10 text-primary border-0 text-caption font-medium">Free</Badge>
-              )}
-            </div>
-
-            <h3 className="font-serif text-lg font-semibold text-card-foreground mb-2">{event.title}</h3>
-            <p className="text-body-sm text-muted-foreground mb-4 flex-1">{event.description}</p>
-
-            <div className="space-y-1.5 mb-5">
-              <div className="flex items-center gap-2 text-caption text-muted-foreground">
-                <Calendar className="h-3.5 w-3.5" />
-                {event.date} · {event.time}
+            <div className="flex flex-col sm:flex-row">
+              {/* Date block */}
+              <div className="sm:w-28 lg:w-32 flex-shrink-0 bg-primary/8 flex flex-row sm:flex-col items-center justify-center gap-1 px-4 py-4 sm:py-6 border-b sm:border-b-0 sm:border-r border-border/60">
+                <span className="text-eyebrow text-primary/70">{event.day}</span>
+                <span className="font-serif text-2xl sm:text-3xl font-bold text-primary leading-none">{event.date}</span>
+                <span className="text-caption text-muted-foreground">{event.year}</span>
               </div>
-              <div className="flex items-center gap-2 text-caption text-muted-foreground">
-                <MapPin className="h-3.5 w-3.5" />
-                {event.format}
+
+              {/* Content */}
+              <div className="flex-1 p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-0.5 text-caption font-medium text-accent-foreground">
+                      <Video className="h-3 w-3" />
+                      {event.format}
+                    </span>
+                    {event.free && (
+                      <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-caption font-semibold text-primary">
+                        Free
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="font-serif text-lg font-semibold text-card-foreground mb-1.5 group-hover:text-primary transition-colors duration-200">
+                    {event.title}
+                  </h3>
+                  <p className="text-body-sm text-muted-foreground mb-2 sm:mb-0 max-w-xl">
+                    {event.description}
+                  </p>
+                  <div className="flex items-center gap-3 mt-2 text-caption text-muted-foreground">
+                    <span className="inline-flex items-center gap-1">
+                      <Clock className="h-3 w-3" />
+                      {event.time}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex-shrink-0">
+                  <Button
+                    variant="outline"
+                    className="h-10 px-5 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200 whitespace-nowrap"
+                  >
+                    Register
+                    <ArrowRight className="ml-1.5 h-4 w-4" />
+                  </Button>
+                </div>
               </div>
             </div>
-
-            <Button variant="outline" className="w-full" size="sm">
-              Register
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
           </motion.div>
         ))}
       </div>
 
-      <div className="text-center mt-10">
-        <Button variant="outline" size="lg" className="px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: 0.3 }}
+        className="text-center mt-12"
+      >
+        <Button size="lg" variant="outline" className="h-12 px-8 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200">
           View All Events
           <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
-      </div>
+      </motion.div>
     </SectionWrapper>
   );
 }
