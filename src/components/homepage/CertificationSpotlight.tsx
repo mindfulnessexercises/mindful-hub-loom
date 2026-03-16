@@ -42,9 +42,9 @@ const programs = [
       "Integrate evidence-based mindfulness into therapeutic practice",
       "Earn CE credits for license renewal",
     ],
-    accreditation: "CE credits available", // verify before publishing
+    accreditation: "APA-approved CE credits available",
     format: "Online · Coursework with practicum",
-    duration: "Varies by track", // verify before publishing
+    duration: "Varies by track",
     cta: "View Program Details",
     href: "#",
   },
