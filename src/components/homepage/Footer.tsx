@@ -19,10 +19,18 @@ const footerLinks = {
     { label: "Newsletter", href: "#ebook" },
   ],
   About: [
-    { label: "Our Mission", href: "#founder" },
+    { label: "Our Mission", href: "/about-us" },
     { label: "Faculty", href: "#authority" },
-    { label: "Contact Us", href: "#" },
-    { label: "Careers", href: "#" },
+    { label: "Feedback", href: "/feedback" },
+    { label: "White Label", href: "/white-label" },
+  ],
+  Legal: [
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms & Conditions", href: "/terms-conditions" },
+    { label: "Terms of Purchase", href: "/terms-of-purchase" },
+    { label: "Medical Disclaimer", href: "/medical-disclaimer" },
+    { label: "Earnings Disclaimer", href: "/earnings-disclaimer" },
+    { label: "Anti-Discrimination Policy", href: "/anti-discrimination-policy-statement" },
   ],
 };
 
