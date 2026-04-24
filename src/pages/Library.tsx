@@ -15,6 +15,7 @@ import { BrowseByCategory } from "@/components/homepage/BrowseByCategory";
 import { MobileLibraryFilters } from "@/components/wp/MobileLibraryFilters";
 import { LibrarySortSelect, sortToWpParams, type LibrarySort } from "@/components/wp/LibrarySortSelect";
 import { SparseCategoryHelper } from "@/components/wp/SparseCategoryHelper";
+import { CategoryChip } from "@/components/wp/CategoryChip";
 import { ActiveFilterBanner } from "@/components/wp/ActiveFilterBanner";
 import { FeaturedFromOtherCategories } from "@/components/wp/FeaturedFromOtherCategories";
 import { CategoriesAvailableSummary } from "@/components/wp/CategoriesAvailableSummary";
