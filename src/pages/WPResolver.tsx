@@ -262,37 +262,49 @@ export default function WPResolver() {
             </div>
           </header>
 
-          {img && (() => {
-            // Treat small or near-square images (logos, icons, portraits) as
-            // "decorative" — render at natural size, centered, no forced crop.
-            // Only true wide editorial photos get the 16:9 hero treatment.
+          {img && tpl.featuredImage !== "hidden" && (() => {
             const w = img.width ?? 0;
             const h = img.height ?? 0;
             const ratio = w && h ? w / h : 0;
-            const isWideHero = w >= 1000 && ratio >= 1.4;
-            if (!isWideHero) {
-              // Compact inline image — capped, centered, no empty space.
+            // Logo-like = small or near-square. When autoDetectLogo is on,
+            // downgrade `hero` placement to `inline` so we don't get a giant
+            // empty band around a square logo.
+            const isLogoLike = !w || !h || w < 1000 || ratio < 1.4;
+            const placement =
+              tpl.featuredImage === "hero" && tpl.autoDetectLogo && isLogoLike
+                ? "inline"
+                : tpl.featuredImage;
+
+            if (placement === "hero") {
               return (
-                <div className="container mx-auto max-w-3xl mt-8 flex justify-center">
+                <div className="container mx-auto max-w-4xl">
                   <img
                     src={img.url}
                     alt={img.alt}
-                    width={w || undefined}
-                    height={h || undefined}
-                    className="max-h-64 w-auto object-contain rounded-md"
+                    width={w}
+                    height={h}
+                    className="w-full aspect-[16/9] object-cover rounded-lg shadow-[var(--shadow-lg)] mt-8"
                     loading="eager"
                   />
                 </div>
               );
             }
+            // inline / header-icon both render as a centered, capped image.
+            // header-icon uses tighter spacing so it sits closer to the title.
+            const isIcon = placement === "header-icon";
             return (
-              <div className="container mx-auto max-w-4xl">
+              <div
+                className={`container mx-auto max-w-3xl flex justify-center ${
+                  isIcon ? "mt-2" : "mt-6"
+                }`}
+              >
                 <img
                   src={img.url}
                   alt={img.alt}
-                  width={w}
-                  height={h}
-                  className="w-full aspect-[16/9] object-cover rounded-lg shadow-[var(--shadow-lg)] mt-8"
+                  width={w || undefined}
+                  height={h || undefined}
+                  style={{ maxHeight: tpl.featuredMaxHeightPx }}
+                  className="w-auto object-contain rounded-md"
                   loading="eager"
                 />
               </div>
