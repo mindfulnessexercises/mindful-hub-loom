@@ -26,6 +26,7 @@ const Index = () => {
         <AuthoritySection />
         <FreeResourcesPreview />
         <LatestPosts />
+        <BrowseByCategory />
         <LiveEvents />
         <EbookCapture />
         <SocialProof />
