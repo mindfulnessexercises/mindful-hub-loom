@@ -18,6 +18,13 @@ import { trackEvent } from "@/lib/analytics";
  *    Sections are inferred from the data attribute, so adding a new section
  *    only requires marking up its wrapper — no edits here needed.
  *
+ * 3) **CTA impressions**
+ *    Same dwell logic, but watches `data-track-cta="<id>"` elements (form
+ *    wrappers, hero button rows, FinalCTA buttons). Fires
+ *    `homepage_cta_viewed` once per CTA per page-view. Pair this with the
+ *    existing `cta_clicked` events to compute per-CTA CTR and view→signup
+ *    funnels.
+ *
  * Together these let analytics correlate "user reached EbookCapture" /
  * "scrolled to 75%" with downstream signup or registration events to find
  * which sections actually drive conversion.
