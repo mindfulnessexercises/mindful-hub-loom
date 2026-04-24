@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import {
   wp,
   getFeaturedImage,
-  stripHtml,
   type WPCategory,
   type WPPost,
 } from "@/lib/wp";
