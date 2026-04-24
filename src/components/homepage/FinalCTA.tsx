@@ -20,7 +20,12 @@ export function FinalCTA() {
           Explore 3,000+ free mindfulness exercises for personal practice, or enroll in our APA-approved Mindfulness Teacher Certification. Choose the path that fits.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
+        <div
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4"
+          data-track-cta="final_cta_buttons"
+          data-track-cta-label="Final CTA — Get certified / Browse free"
+          data-track-cta-location="homepage_final_cta"
+        >
           <Button
             size="lg"
             className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8 min-h-[44px] h-12 text-sm font-semibold shadow-md"
