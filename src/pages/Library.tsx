@@ -281,6 +281,7 @@ export default function Library() {
                       );
                     })}
                   </div>
+                  )}
 
                   <LoadMoreSection
                     loaded={allPosts.length}
