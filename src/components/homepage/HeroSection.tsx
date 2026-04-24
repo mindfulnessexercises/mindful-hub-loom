@@ -96,6 +96,7 @@ export function HeroSection() {
                 size="md"
                 placeholder="Search 1,500+ articles & resources…"
                 buttonLabel="Search"
+                source="homepage_hero"
               />
             </motion.div>
 

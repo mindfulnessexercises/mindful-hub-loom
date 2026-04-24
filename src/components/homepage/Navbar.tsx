@@ -85,6 +85,7 @@ export function Navbar() {
               autoFocus
               placeholder="Search articles, exercises, scripts…"
               onSubmitted={() => setSearchOpen(false)}
+              source="navbar_desktop"
             />
           </div>
         </div>
@@ -98,6 +99,7 @@ export function Navbar() {
               size="md"
               placeholder="Search…"
               onSubmitted={() => setMobileOpen(false)}
+              source="navbar_mobile"
             />
           </div>
           <ul className="space-y-1">
