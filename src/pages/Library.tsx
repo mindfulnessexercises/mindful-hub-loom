@@ -606,6 +606,17 @@ export default function Library() {
 
             {/* ---- PAGES TAB ---- */}
             <TabsContent value="pages" className="mt-0">
+              {/* Pages tab only carries the search filter (no category). */}
+              <ActiveFilterBanner
+                search={search || undefined}
+                onClearCategory={() => updateParam("cat", undefined)}
+                onClearAll={() => {
+                  const next = new URLSearchParams(params);
+                  next.delete("q");
+                  next.delete("page");
+                  setParams(next);
+                }}
+              />
               {pagesQuery.isLoading && <PageRowSkeletonList count={8} />}
               {pagesQuery.isError && <EmptyState message="Could not load pages. Please try again." />}
               {!pagesQuery.isLoading && allPages.length === 0 && (
