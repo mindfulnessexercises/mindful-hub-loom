@@ -201,33 +201,82 @@ export default function Library() {
 
             {/* ---- POSTS TAB ---- */}
             <TabsContent value="posts" className="mt-0">
-              {/* Category filter */}
-              {catsQuery.data && (
-                <div className="mb-8 flex flex-wrap gap-2">
-                  <button
-                    onClick={() => updateParam("cat", undefined)}
-                    className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
-                      !category ? "bg-primary text-primary-foreground border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"
-                    }`}
-                  >
-                    All categories
-                  </button>
-                  {catsQuery.data.items
-                    .filter((c) => c.count > 0 && c.slug !== "uncategorized")
-                    .slice(0, 20)
-                    .map((c) => (
+              {/* Category filter — single horizontally-scrollable row */}
+              {catsQuery.data && (() => {
+                const visibleCats = catsQuery.data.items
+                  .filter((c) => c.count > 0 && c.slug !== "uncategorized")
+                  .slice(0, 20);
+                const activeCat = category ? visibleCats.find((c) => c.id === category) : undefined;
+                return (
+                  <div className="mb-6 space-y-3">
+                    <div
+                      role="tablist"
+                      aria-label="Filter articles by category"
+                      className="flex flex-nowrap gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0"
+                    >
                       <button
-                        key={c.id}
-                        onClick={() => updateParam("cat", String(c.id))}
-                        className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
-                          category === c.id ? "bg-primary text-primary-foreground border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"
+                        role="tab"
+                        aria-selected={!category}
+                        onClick={() => updateParam("cat", undefined)}
+                        className={`shrink-0 text-xs font-medium px-3 py-2 min-h-[36px] rounded-full border transition-colors ${
+                          !category
+                            ? "bg-primary text-primary-foreground border-primary"
+                            : "bg-card text-muted-foreground border-border hover:text-foreground"
                         }`}
                       >
-                        {c.name} <span className="opacity-60 ml-1">({c.count})</span>
+                        All categories
                       </button>
-                    ))}
-                </div>
-              )}
+                      {visibleCats.map((c) => (
+                        <button
+                          key={c.id}
+                          role="tab"
+                          aria-selected={category === c.id}
+                          onClick={() => updateParam("cat", String(c.id))}
+                          className={`shrink-0 text-xs font-medium px-3 py-2 min-h-[36px] rounded-full border transition-colors ${
+                            category === c.id
+                              ? "bg-primary text-primary-foreground border-primary"
+                              : "bg-card text-muted-foreground border-border hover:text-foreground"
+                          }`}
+                        >
+                          {c.name} <span className="opacity-60 ml-1">({c.count})</span>
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Active filter chips + clear-all */}
+                    {(activeCat || search) && (
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-caption text-muted-foreground mr-1">Active:</span>
+                        {search && (
+                          <FilterChip
+                            label={`Search: "${search}"`}
+                            onRemove={() => updateParam("q", undefined)}
+                          />
+                        )}
+                        {activeCat && (
+                          <FilterChip
+                            label={`Category: ${activeCat.name}`}
+                            onRemove={() => updateParam("cat", undefined)}
+                          />
+                        )}
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const next = new URLSearchParams(params);
+                            next.delete("q");
+                            next.delete("cat");
+                            next.delete("page");
+                            setParams(next);
+                          }}
+                          className="ml-1 text-xs font-semibold text-primary hover:underline underline-offset-4 min-h-[36px] inline-flex items-center"
+                        >
+                          Clear all
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
 
               {postsQuery.isLoading && <PostCardSkeletonGrid count={9} />}
               {postsQuery.isError && <EmptyState message="Could not load articles. Please try again." />}
