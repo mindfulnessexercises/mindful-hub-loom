@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import { Search, ArrowRight, Loader2, FileText, BookOpen } from "lucide-react";
+import { Search, ArrowRight, Loader2, FileText, BookOpen, X } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { Button } from "@/components/ui/button";
@@ -201,33 +201,82 @@ export default function Library() {
 
             {/* ---- POSTS TAB ---- */}
             <TabsContent value="posts" className="mt-0">
-              {/* Category filter */}
-              {catsQuery.data && (
-                <div className="mb-8 flex flex-wrap gap-2">
-                  <button
-                    onClick={() => updateParam("cat", undefined)}
-                    className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
-                      !category ? "bg-primary text-primary-foreground border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"
-                    }`}
-                  >
-                    All categories
-                  </button>
-                  {catsQuery.data.items
-                    .filter((c) => c.count > 0 && c.slug !== "uncategorized")
-                    .slice(0, 20)
-                    .map((c) => (
+              {/* Category filter — single horizontally-scrollable row */}
+              {catsQuery.data && (() => {
+                const visibleCats = catsQuery.data.items
+                  .filter((c) => c.count > 0 && c.slug !== "uncategorized")
+                  .slice(0, 20);
+                const activeCat = category ? visibleCats.find((c) => c.id === category) : undefined;
+                return (
+                  <div className="mb-6 space-y-3">
+                    <div
+                      role="tablist"
+                      aria-label="Filter articles by category"
+                      className="flex flex-nowrap gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0"
+                    >
                       <button
-                        key={c.id}
-                        onClick={() => updateParam("cat", String(c.id))}
-                        className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
-                          category === c.id ? "bg-primary text-primary-foreground border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"
+                        role="tab"
+                        aria-selected={!category}
+                        onClick={() => updateParam("cat", undefined)}
+                        className={`shrink-0 text-xs font-medium px-3 py-2 min-h-[36px] rounded-full border transition-colors ${
+                          !category
+                            ? "bg-primary text-primary-foreground border-primary"
+                            : "bg-card text-muted-foreground border-border hover:text-foreground"
                         }`}
                       >
-                        {c.name} <span className="opacity-60 ml-1">({c.count})</span>
+                        All categories
                       </button>
-                    ))}
-                </div>
-              )}
+                      {visibleCats.map((c) => (
+                        <button
+                          key={c.id}
+                          role="tab"
+                          aria-selected={category === c.id}
+                          onClick={() => updateParam("cat", String(c.id))}
+                          className={`shrink-0 text-xs font-medium px-3 py-2 min-h-[36px] rounded-full border transition-colors ${
+                            category === c.id
+                              ? "bg-primary text-primary-foreground border-primary"
+                              : "bg-card text-muted-foreground border-border hover:text-foreground"
+                          }`}
+                        >
+                          {c.name} <span className="opacity-60 ml-1">({c.count})</span>
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Active filter chips + clear-all */}
+                    {(activeCat || search) && (
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-caption text-muted-foreground mr-1">Active:</span>
+                        {search && (
+                          <FilterChip
+                            label={`Search: "${search}"`}
+                            onRemove={() => updateParam("q", undefined)}
+                          />
+                        )}
+                        {activeCat && (
+                          <FilterChip
+                            label={`Category: ${activeCat.name}`}
+                            onRemove={() => updateParam("cat", undefined)}
+                          />
+                        )}
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const next = new URLSearchParams(params);
+                            next.delete("q");
+                            next.delete("cat");
+                            next.delete("page");
+                            setParams(next);
+                          }}
+                          className="ml-1 text-xs font-semibold text-primary hover:underline underline-offset-4 min-h-[36px] inline-flex items-center"
+                        >
+                          Clear all
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
 
               {postsQuery.isLoading && <PostCardSkeletonGrid count={9} />}
               {postsQuery.isError && <EmptyState message="Could not load articles. Please try again." />}
@@ -358,4 +407,20 @@ export default function Library() {
 
 function EmptyState({ message }: { message: string }) {
   return <p className="text-center text-muted-foreground py-12">{message}</p>;
+}
+
+function FilterChip({ label, onRemove }: { label: string; onRemove: () => void }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-accent text-accent-foreground border border-border text-xs font-medium">
+      {label}
+      <button
+        type="button"
+        onClick={onRemove}
+        aria-label={`Remove filter ${label}`}
+        className="inline-flex items-center justify-center h-6 w-6 rounded-full hover:bg-background/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        <X className="h-3 w-3" />
+      </button>
+    </span>
+  );
 }
