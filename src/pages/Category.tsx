@@ -19,12 +19,12 @@ const PER_PAGE = 100;
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 export default function Category({ sectionSlug }: { sectionSlug?: string } = {}) {
-  const params = useParams();
+  const routeParams = useParams();
   // sectionSlug is provided when this page is mounted at a fixed top-level
   // route (e.g. /podcast, /downloads). Otherwise the slug comes from the URL.
-  const slug = sectionSlug ?? params.slug ?? "";
-  const [params] = useSearchParams();
-  const pageParam = Math.max(1, Number(params.get("page") ?? "1"));
+  const slug = sectionSlug ?? routeParams.slug ?? "";
+  const [searchParams] = useSearchParams();
+  const pageParam = Math.max(1, Number(searchParams.get("page") ?? "1"));
 
   const catQuery = useQuery({
     queryKey: wpKeys.categoryBySlug(slug),
