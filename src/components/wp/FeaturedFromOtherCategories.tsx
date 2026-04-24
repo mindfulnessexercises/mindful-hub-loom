@@ -245,20 +245,27 @@ interface FeaturedCardProps {
  * horizontal rail.
  */
 function FeaturedCard({ cat, post, position, fromCategoryId, onClick }: FeaturedCardProps) {
-  // Guard against double-fires from React 18 strict-mode re-mounts.
-  const firedRef = useRef(false);
-  const liRef = useImpression<HTMLLIElement>(() => {
-    if (firedRef.current) return;
-    firedRef.current = true;
-    trackEvent("featured_other_cats_card_viewed", {
-      from_category_id: fromCategoryId,
-      category_id: cat.id,
-      category_slug: cat.slug,
-      post_id: post.id,
-      post_slug: post.slug,
-      position,
-    });
-  });
+  // Cross-mount dedupe handled by useImpression's `dedupeKey` (module-level
+  // cache survives strict-mode and route-bounce remounts; a fresh impression
+  // is allowed once the TTL elapses, so genuine return visits still count).
+  const liRef = useImpression<HTMLLIElement>(
+    () => {
+      trackEvent("featured_other_cats_card_viewed", {
+        from_category_id: fromCategoryId,
+        category_id: cat.id,
+        category_slug: cat.slug,
+        post_id: post.id,
+        post_slug: post.slug,
+        position,
+      });
+    },
+    {
+      // Position is intentionally excluded so the same card in different
+      // rail positions still dedupes — what we care about is "did the user
+      // actually see THIS card recently", not the slot it occupied.
+      dedupeKey: `featured_other_cats_card:${fromCategoryId}:${cat.id}:${post.id}`,
+    },
+  );
   const img = getFeaturedImage(post);
   return (
     <li ref={liRef} className="snap-start shrink-0 w-[260px] sm:w-[280px]">
