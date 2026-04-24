@@ -28,6 +28,25 @@ import { ArrowLeft, RefreshCcw } from "lucide-react";
  */
 
 type RangePreset = "24h" | "7d" | "30d";
+type MatchSourceFilter = "all" | "category" | "title" | "default";
+
+const MATCH_SOURCE_FILTERS: { value: MatchSourceFilter; label: string }[] = [
+  { value: "all", label: "All sources" },
+  { value: "category", label: "Category match" },
+  { value: "title", label: "Title match" },
+  { value: "default", label: "Default (no match)" },
+];
+
+/**
+ * Read the CTA rule's match_source from JSONB props. Only `cta_clicked`
+ * events carry this — signup events have no match source so they bypass
+ * the filter and always count toward conversion totals.
+ */
+function getMatchSource(row: AnalyticsRow): string | null {
+  const props = (row.props ?? {}) as Record<string, unknown>;
+  const v = props.match_source;
+  return typeof v === "string" ? v : null;
+}
 
 const RANGES: Record<RangePreset, { label: string; ms: number }> = {
   "24h": { label: "Last 24 hours", ms: 24 * 60 * 60 * 1000 },
@@ -190,6 +209,7 @@ const StatCard = ({ label, value, hint }: { label: string; value: string | numbe
 
 export default function AdminAnalytics() {
   const [range, setRange] = useState<RangePreset>("7d");
+  const [matchSource, setMatchSource] = useState<MatchSourceFilter>("all");
   const [rows, setRows] = useState<AnalyticsRow[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -225,8 +245,18 @@ export default function AdminAnalytics() {
     };
   }, [range, refreshKey]);
 
+  // Apply match_source segmentation to CTA click events. Non-click events
+  // (signups, upstream intent) are kept as-is so conversion math stays honest.
+  const filteredRows = useMemo(() => {
+    if (matchSource === "all" || rows == null) return rows ?? [];
+    return rows.filter((r) => {
+      if (r.name !== "cta_clicked") return true;
+      return getMatchSource(r) === matchSource;
+    });
+  }, [rows, matchSource]);
+
   const headline = useMemo(() => {
-    const data = rows ?? [];
+    const data = filteredRows;
     const counts = {
       clicks: 0,
       submitted: 0,
@@ -243,11 +273,33 @@ export default function AdminAnalytics() {
       ? Math.round((counts.succeeded / counts.submitted) * 1000) / 10
       : null;
     return { ...counts, conversion };
-  }, [rows]);
+  }, [filteredRows]);
 
-  const byLocation = useMemo(() => aggregate(rows ?? [], "cta_location"), [rows]);
-  const byCategory = useMemo(() => aggregate(rows ?? [], "category_slug"), [rows]);
-  const byDestination = useMemo(() => aggregate(rows ?? [], "cta_destination"), [rows]);
+  const byLocation = useMemo(() => aggregate(filteredRows, "cta_location"), [filteredRows]);
+  const byCategory = useMemo(() => aggregate(filteredRows, "category_slug"), [filteredRows]);
+  const byDestination = useMemo(() => aggregate(filteredRows, "cta_destination"), [filteredRows]);
+
+  // CTA clicks broken down by which rule produced the label/destination.
+  // This is the headline view for spotting whether default fallbacks are
+  // outperforming targeted matches (a sign the rule set has gaps).
+  const byMatchSource = useMemo(() => {
+    const buckets = new Map<string, { clicks: number }>();
+    for (const r of rows ?? []) {
+      if (r.name !== "cta_clicked") continue;
+      const src = getMatchSource(r) ?? "unknown";
+      const b = buckets.get(src) ?? { clicks: 0 };
+      b.clicks++;
+      buckets.set(src, b);
+    }
+    const total = Array.from(buckets.values()).reduce((s, b) => s + b.clicks, 0);
+    return Array.from(buckets.entries())
+      .map(([source, b]) => ({
+        source,
+        clicks: b.clicks,
+        share: total > 0 ? Math.round((b.clicks / total) * 1000) / 10 : 0,
+      }))
+      .sort((a, b) => b.clicks - a.clicks);
+  }, [rows]);
 
   // Upstream intent counters: these events sit BEFORE a CTA click in the
   // funnel — they tell us how the user shaped what they were looking at when
@@ -354,6 +406,29 @@ export default function AdminAnalytics() {
           )}
         </div>
 
+        {/* Match-source segmentation: filters cta_clicked events by which rule
+            (category / title / default) produced the CTA. Signup events are
+            unaffected so conversion totals stay comparable across segments. */}
+        <div className="flex flex-wrap items-center gap-2" aria-label="Match source filter">
+          <span className="text-eyebrow text-muted-foreground mr-1">Segment CTA clicks:</span>
+          {MATCH_SOURCE_FILTERS.map((opt) => (
+            <Button
+              key={opt.value}
+              variant={matchSource === opt.value ? "default" : "outline"}
+              size="sm"
+              onClick={() => setMatchSource(opt.value)}
+              className="min-h-[36px]"
+            >
+              {opt.label}
+            </Button>
+          ))}
+          {matchSource !== "all" && (
+            <Badge variant="secondary" className="self-center">
+              Filtering by match_source = {matchSource}
+            </Badge>
+          )}
+        </div>
+
         {error && (
           <Card>
             <CardContent className="pt-6">
@@ -381,7 +456,62 @@ export default function AdminAnalytics() {
           )}
         </section>
 
-        {/* Breakdowns */}
+        {/* CTA clicks by match_source — always shows the full window
+            (unfiltered) so you can see the segment shares at a glance even
+            while drilling into one segment above. */}
+        <section>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-card-heading font-serif">CTA clicks by match source</CardTitle>
+              <p className="text-body-sm text-muted-foreground">
+                Which rule produced the CTA — category match, title match, or default fallback.
+                Use this to see whether targeted rules are doing the work.
+              </p>
+            </CardHeader>
+            <CardContent>
+              {byMatchSource.length === 0 ? (
+                <p className="text-body-sm text-muted-foreground py-6 text-center">
+                  No CTA clicks in the selected range.
+                </p>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full text-body-sm">
+                    <thead>
+                      <tr className="border-b border-border text-left text-muted-foreground">
+                        <th className="py-2 pr-4 font-medium">Match source</th>
+                        <th className="py-2 pr-4 font-medium text-right">Clicks</th>
+                        <th className="py-2 pr-4 font-medium text-right">Share</th>
+                        <th className="py-2 font-medium text-right">Filter</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {byMatchSource.map((r) => (
+                        <tr key={r.source} className="border-b border-border/50 last:border-0">
+                          <td className="py-2 pr-4 font-mono text-xs">{r.source}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.clicks}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.share}%</td>
+                          <td className="py-2 text-right">
+                            {(r.source === "category" || r.source === "title" || r.source === "default") && (
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                className="h-7 px-2 text-xs"
+                                onClick={() => setMatchSource(r.source as MatchSourceFilter)}
+                              >
+                                Drill in
+                              </Button>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </section>
+
         <section className="grid gap-6 lg:grid-cols-2">
           <BreakdownTable
             title="By CTA location"
