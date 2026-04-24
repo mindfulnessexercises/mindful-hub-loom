@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useQueries } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { ArrowRight, Compass, Loader2 } from "lucide-react";
@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import {
   wp,
   getFeaturedImage,
+  stripHtml,
   type WPCategory,
   type WPPost,
 } from "@/lib/wp";
