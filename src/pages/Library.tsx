@@ -473,6 +473,17 @@ export default function Library() {
                     label="articles"
                     pendingSkeleton={<PostCardSkeletonGrid count={6} />}
                   />
+
+                  {/* When the user has narrowed to a single category, surface a
+                      cross-category discovery row to encourage broader browsing. */}
+                  {category && catsQuery.data && (
+                    <FeaturedFromOtherCategories
+                      activeCategoryId={category}
+                      allCategories={catsQuery.data.items.filter(
+                        (c) => c.count > 0 && c.slug !== "uncategorized",
+                      )}
+                    />
+                  )}
                 </>
               )}
             </TabsContent>
