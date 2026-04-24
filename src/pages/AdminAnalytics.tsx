@@ -406,6 +406,29 @@ export default function AdminAnalytics() {
           )}
         </div>
 
+        {/* Match-source segmentation: filters cta_clicked events by which rule
+            (category / title / default) produced the CTA. Signup events are
+            unaffected so conversion totals stay comparable across segments. */}
+        <div className="flex flex-wrap items-center gap-2" aria-label="Match source filter">
+          <span className="text-eyebrow text-muted-foreground mr-1">Segment CTA clicks:</span>
+          {MATCH_SOURCE_FILTERS.map((opt) => (
+            <Button
+              key={opt.value}
+              variant={matchSource === opt.value ? "default" : "outline"}
+              size="sm"
+              onClick={() => setMatchSource(opt.value)}
+              className="min-h-[36px]"
+            >
+              {opt.label}
+            </Button>
+          ))}
+          {matchSource !== "all" && (
+            <Badge variant="secondary" className="self-center">
+              Filtering by match_source = {matchSource}
+            </Badge>
+          )}
+        </div>
+
         {error && (
           <Card>
             <CardContent className="pt-6">
