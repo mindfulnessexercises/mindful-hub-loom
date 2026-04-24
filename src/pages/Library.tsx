@@ -67,6 +67,18 @@ export default function Library() {
   const pagesSort: LibrarySort = sort === "popular" ? "newest" : sort;
   const pagesSortParams = sortToWpParams(pagesSort, !!search);
 
+  // ----- Categories (only used for posts tab) -----
+  const catsQuery = useQuery({
+    queryKey: wpKeys.categories(),
+    queryFn: () => wp.categories(),
+    staleTime: WP_STALE.taxonomy,
+    gcTime: WP_STALE.gc,
+  });
+  const activeCategory = category
+    ? catsQuery.data?.items.find((item) => item.id === category)
+    : undefined;
+  const cptEndpoint = resolveCategoryCptEndpoint(activeCategory);
+
   // ----- Posts (infinite) -----
   const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
     queryKey: [...wpKeys.postsList({ scope: "library", search, category, perPage: PER_PAGE, endpoint: cptEndpoint }), { sort }],
@@ -122,18 +134,6 @@ export default function Library() {
     fetchNextPage: pagesQuery.fetchNextPage,
     source: "library_pages",
   });
-
-  // ----- Categories (only used for posts tab) -----
-  const catsQuery = useQuery({
-    queryKey: wpKeys.categories(),
-    queryFn: () => wp.categories(),
-    staleTime: WP_STALE.taxonomy,
-    gcTime: WP_STALE.gc,
-  });
-  const activeCategory = category
-    ? catsQuery.data?.items.find((item) => item.id === category)
-    : undefined;
-  const cptEndpoint = resolveCategoryCptEndpoint(activeCategory);
 
   // Record the active category as a "recent visit" so MoreLikeThis can use
   // the user's browsing trail this session as an additional intent signal.
