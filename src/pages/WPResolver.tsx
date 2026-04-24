@@ -187,7 +187,7 @@ export default function WPResolver() {
           {/* Hero: breadcrumbs, title, byline. No featured image inside the
               header — it slots in below so the eye lands on the title first. */}
           <header className="border-b border-border bg-[hsl(var(--section-alternate))]">
-            <div className="container mx-auto max-w-3xl py-8 lg:py-12">
+            <div className="container mx-auto max-w-3xl py-6 lg:py-8">
               <div className="mb-5">
                 <WPBreadcrumbs items={breadcrumbItems} />
               </div>
@@ -255,18 +255,42 @@ export default function WPResolver() {
             </div>
           </header>
 
-          {img && (
-            <div className="container mx-auto max-w-4xl">
-              <img
-                src={img.url}
-                alt={img.alt}
-                width={img.width}
-                height={img.height}
-                className="w-full aspect-[16/9] object-cover rounded-lg shadow-[var(--shadow-lg)] mt-8"
-                loading="eager"
-              />
-            </div>
-          )}
+          {img && (() => {
+            // Treat small or near-square images (logos, icons, portraits) as
+            // "decorative" — render at natural size, centered, no forced crop.
+            // Only true wide editorial photos get the 16:9 hero treatment.
+            const w = img.width ?? 0;
+            const h = img.height ?? 0;
+            const ratio = w && h ? w / h : 0;
+            const isWideHero = w >= 1000 && ratio >= 1.4;
+            if (!isWideHero) {
+              // Compact inline image — capped, centered, no empty space.
+              return (
+                <div className="container mx-auto max-w-3xl mt-8 flex justify-center">
+                  <img
+                    src={img.url}
+                    alt={img.alt}
+                    width={w || undefined}
+                    height={h || undefined}
+                    className="max-h-64 w-auto object-contain rounded-md"
+                    loading="eager"
+                  />
+                </div>
+              );
+            }
+            return (
+              <div className="container mx-auto max-w-4xl">
+                <img
+                  src={img.url}
+                  alt={img.alt}
+                  width={w}
+                  height={h}
+                  className="w-full aspect-[16/9] object-cover rounded-lg shadow-[var(--shadow-lg)] mt-8"
+                  loading="eager"
+                />
+              </div>
+            );
+          })()}
 
           {/* Two-column body: sticky TOC on lg+, content + share rail. */}
           <div className="container mx-auto max-w-6xl py-10 lg:py-14">
