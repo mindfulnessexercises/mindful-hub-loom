@@ -138,6 +138,7 @@ export function EbookCapture() {
               />
               <Button
                 type="submit"
+                disabled={status === "submitting"}
                 onClick={() =>
                   trackCtaClick({
                     cta_label: "Get Free Guide",
@@ -146,12 +147,36 @@ export function EbookCapture() {
                     matched: true,
                   })
                 }
-                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 min-h-[44px] h-12 px-6 font-semibold whitespace-nowrap shadow-md"
+                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 min-h-[44px] h-12 px-6 font-semibold whitespace-nowrap shadow-md disabled:opacity-70"
               >
-                Get Free Guide
-                <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden="true" />
+                {status === "submitting" ? (
+                  <>
+                    <Loader2 className="mr-1.5 h-4 w-4 animate-spin" aria-hidden="true" />
+                    Sending…
+                  </>
+                ) : (
+                  <>
+                    Get Free Guide
+                    <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden="true" />
+                  </>
+                )}
               </Button>
             </form>
+
+            {/* Inline status — also announced to screen readers via aria-live. */}
+            <div className="mt-3 min-h-[1.25rem]" aria-live="polite">
+              {status === "succeeded" && (
+                <p className="text-caption text-primary-foreground/90 flex items-center gap-1.5">
+                  <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                  Check your inbox — your free guide is on the way.
+                </p>
+              )}
+              {status === "failed" && errorMessage && (
+                <p className="text-caption text-[hsl(var(--destructive-foreground,0_0%_100%))] bg-[hsl(var(--destructive)/0.85)] inline-block px-2.5 py-1 rounded">
+                  {errorMessage}
+                </p>
+              )}
+            </div>
 
             <p className="flex items-center gap-1.5 text-caption text-primary-foreground/45 mt-3">
               <Lock className="h-3 w-3" aria-hidden="true" />
