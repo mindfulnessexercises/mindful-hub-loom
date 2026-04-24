@@ -306,12 +306,22 @@ export default function Library() {
                   Pages {pagesTotal > 0 && <span className="opacity-60 text-xs">({pagesTotal.toLocaleString()})</span>}
                 </TabsTrigger>
               </TabsList>
-              <LibrarySortSelect
-                value={sort}
-                onChange={onSortChange}
-                hasSearch={!!search}
-                includePopular={tab === "posts"}
-              />
+              <div className="flex items-center gap-2">
+                <ShareLibraryView
+                  tab={tab}
+                  category={category}
+                  sort={sort}
+                  defaultSort="newest"
+                  search={search || undefined}
+                  page={pageParam}
+                />
+                <LibrarySortSelect
+                  value={sort}
+                  onChange={onSortChange}
+                  hasSearch={!!search}
+                  includePopular={tab === "posts"}
+                />
+              </div>
             </div>
 
             {/* ---- POSTS TAB ---- */}
