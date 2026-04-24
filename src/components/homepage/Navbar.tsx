@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-mindfulness-exercises.png";
 
 const navLinks = [
-  { label: "Free Resources", href: "#resources" },
-  { label: "Training & Certification", href: "#certification" },
+  { label: "Free Exercises", href: "#resources" },
+  { label: "Get Certified", href: "https://certify.mindfulnessexercises.com/", external: true },
   { label: "Live Events", href: "#events" },
   { label: "About", href: "#authority" },
 ];
@@ -33,6 +33,7 @@ export function Navbar() {
             <li key={link.label}>
               <a
                 href={link.href}
+                {...(link.external ? { target: "_blank", rel: "noopener" } : {})}
                 className="text-[0.8125rem] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm px-1 py-0.5"
               >
                 {link.label}
@@ -46,8 +47,8 @@ export function Navbar() {
           <Button variant="ghost" size="sm" className="text-[0.8125rem] font-medium h-9 px-4 text-muted-foreground hover:text-foreground min-w-[44px]">
             Log In
           </Button>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 text-xs font-semibold shadow-soft min-w-[44px]">
-            Explore Programs
+          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 text-xs font-semibold shadow-soft min-w-[44px]" asChild>
+            <a href="https://certify.mindfulnessexercises.com/" target="_blank" rel="noopener">Get Certified</a>
           </Button>
         </div>
 
@@ -71,6 +72,7 @@ export function Navbar() {
               <li key={link.label}>
                 <a
                   href={link.href}
+                  {...(link.external ? { target: "_blank", rel: "noopener" } : {})}
                   className="text-body text-foreground block font-medium py-3 px-2 rounded-md hover:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring min-h-[44px] flex items-center"
                   onClick={() => setMobileOpen(false)}
                 >
@@ -81,7 +83,9 @@ export function Navbar() {
           </ul>
           <div className="mt-6 flex flex-col gap-3">
             <Button variant="outline" className="w-full border-border h-11">Log In</Button>
-            <Button className="w-full bg-primary text-primary-foreground shadow-elevated h-11">Explore Programs</Button>
+            <Button className="w-full bg-primary text-primary-foreground shadow-elevated h-11" asChild>
+              <a href="https://certify.mindfulnessexercises.com/" target="_blank" rel="noopener">Get Certified</a>
+            </Button>
           </div>
         </div>
       )}

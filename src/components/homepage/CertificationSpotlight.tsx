@@ -18,8 +18,8 @@ const programs = [
     accreditation: "APA-approved CE credits · CPD Certified · IMMA Accredited",
     format: "Online · Self-paced with live cohort calls",
     duration: "4–12 weeks avg · Lifetime access",
-    cta: "Learn About This Program",
-    href: "#",
+    cta: "Apply for Certification",
+    href: "https://certify.mindfulnessexercises.com/",
     featured: true,
   },
   {
@@ -33,7 +33,7 @@ const programs = [
     format: "Online · Flexible schedule",
     duration: "Self-paced",
     cta: "View Program Details",
-    href: "#",
+    href: "https://certify.mindfulnessexercises.com/",
   },
   {
     title: "Mindfulness in Clinical Practice",
@@ -46,7 +46,7 @@ const programs = [
     format: "Online · Coursework with practicum",
     duration: "Varies by track",
     cta: "View Program Details",
-    href: "#",
+    href: "https://certify.mindfulnessexercises.com/",
   },
 ];
 
@@ -142,7 +142,7 @@ export function CertificationSpotlight() {
                 )}
                 asChild
               >
-                <a href={prog.href}>
+                <a href={prog.href} target="_blank" rel="noopener">
                   {prog.cta}
                   <ArrowRight className="ml-2 h-3.5 w-3.5" aria-hidden="true" />
                 </a>

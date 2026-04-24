@@ -35,9 +35,9 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.06 }}
               className="text-hero text-foreground"
             >
-              Free mindfulness resources.{" "}
-              <span className="text-primary">CE-accredited training</span>{" "}
-              for professionals.
+              Mindfulness Exercises:{" "}
+              <span className="text-primary">3,000+ free practices</span>{" "}
+              & accredited teacher certification.
             </motion.h1>
 
             <motion.p
@@ -46,7 +46,7 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.12 }}
               className="text-body-lg text-muted-foreground mt-4 max-w-lg"
             >
-              Guided practices for personal use — plus accredited certification programs for therapists, counselors, coaches, and educators.
+              Guided mindfulness exercises, scripts, and worksheets for personal practice — plus APA-approved Mindfulness Teacher Certification for therapists, counselors, coaches, and educators.
             </motion.p>
 
             <motion.div
@@ -60,8 +60,8 @@ export function HeroSection() {
                 className="bg-primary text-primary-foreground hover:bg-primary/90 px-7 h-12 sm:h-11 text-sm font-medium shadow-elevated tracking-wide"
                 asChild
               >
-                <a href="#certification">
-                  View Certification Programs
+                <a href="https://certify.mindfulnessexercises.com/" target="_blank" rel="noopener">
+                  Get Certified to Teach Mindfulness
                   <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                 </a>
               </Button>
@@ -72,7 +72,7 @@ export function HeroSection() {
                 asChild
               >
                 <a href="#resources">
-                  Browse Free Practices
+                  Browse Free Mindfulness Exercises
                 </a>
               </Button>
             </motion.div>

@@ -7,10 +7,10 @@ const footerLinks = {
     { label: "Full Library", href: "#resources" },
   ],
   "Professional Training": [
-    { label: "Certification Programs", href: "#certification" },
-    { label: "MBSR Training", href: "#certification" },
+    { label: "Mindfulness Teacher Certification", href: "https://certify.mindfulnessexercises.com/" },
+    { label: "MBSR-Informed Training", href: "https://certify.mindfulnessexercises.com/" },
     { label: "CE Credits & Policies", href: "/ce-policies" },
-    { label: "For Organizations", href: "#" },
+    { label: "For Organizations", href: "https://certify.mindfulnessexercises.com/" },
   ],
   Community: [
     { label: "Live Events", href: "#events" },
