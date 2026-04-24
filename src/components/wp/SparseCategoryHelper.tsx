@@ -190,10 +190,9 @@ export function SparseCategoryHelper({
   onSelectCategory,
 }: SparseCategoryHelperProps) {
   const variant: "empty" | "sparse" = resultCount === 0 ? "empty" : "sparse";
-  // Only render when results are unhelpfully few — otherwise the user can
-  // browse normally without a nudge.
-  if (variant === "sparse" && resultCount >= FEW_THRESHOLD) return null;
 
+  // NB: hooks must run unconditionally — `useMemo`/`useQueries` come BEFORE
+  // the early return below.
   const neighbors = useMemo(
     () => pickNeighbors(activeCategory, allCategories),
     [activeCategory, allCategories],
@@ -204,9 +203,8 @@ export function SparseCategoryHelper({
     [allCategories, activeCategory?.id],
   );
 
-  // Fetch neighbor post counts via WP `count` field (already on category) but
-  // also pre-warm the first page of each so clicking is instant. Limited to
-  // visible neighbor tiles to keep the request fan-out small.
+  // Pre-warm the first page of each visible neighbor so clicking is instant.
+  // Limited to neighbor tiles to keep request fan-out small.
   useQueries({
     queries: neighbors.map((cat) => ({
       queryKey: [...wpKeys.postsList({ scope: "neighbor-prewarm", category: cat.id, perPage: 1 })],
@@ -215,6 +213,10 @@ export function SparseCategoryHelper({
       gcTime: WP_STALE.gc,
     })),
   });
+
+  // Only render when results are unhelpfully few — otherwise the user can
+  // browse normally without a nudge.
+  if (variant === "sparse" && resultCount >= FEW_THRESHOLD) return null;
 
   const heading = activeCategory
     ? variant === "empty"
