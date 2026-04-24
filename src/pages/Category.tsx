@@ -35,10 +35,12 @@ export default function Category({ sectionSlug }: { sectionSlug?: string } = {})
     retry: false,
   });
 
-  // Some categories (Podcast, Downloads) store their content in a custom post
-  // type rather than the default `post` type. Fetch from the matching CPT
-  // endpoint so the category page actually has results.
-  const cptEndpoint = CATEGORY_CPT_ENDPOINT[slug];
+  // Some categories store their content in a custom post type rather than the
+  // default `post` type — either as a top-level section (Podcast, Downloads)
+  // or as a subcategory whose parent is one of those sections (e.g. "Guided
+  // Meditation" lives under Podcast). Resolve the right CPT endpoint so the
+  // category page actually has results.
+  const cptEndpoint = resolveCategoryCptEndpoint(catQuery.data);
 
   const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
     queryKey: wpKeys.postsList({ scope: "category", category: catQuery.data?.id, perPage: PER_PAGE, endpoint: cptEndpoint }),
