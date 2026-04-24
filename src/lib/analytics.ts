@@ -110,6 +110,8 @@ export interface CtaClickProps {
   category_id?: number;
   category_slug?: string;
   matched?: boolean;
+  /** "category" | "title" | "default" — where the CTA rule matched, if any. */
+  match_source?: string;
 }
 
 export function trackCtaClick(props: CtaClickProps): void {

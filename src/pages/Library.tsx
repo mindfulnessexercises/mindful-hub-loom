@@ -466,6 +466,7 @@ export default function Library() {
                                     category_id: cta.matchedCategory?.id ?? cats[0]?.id,
                                     category_slug: cta.matchedCategory?.slug ?? cats[0]?.slug,
                                     matched: cta.matched,
+                                    match_source: cta.matchSource,
                                   })
                                 }
                                 className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all min-h-[36px]"
@@ -572,6 +573,7 @@ export default function Library() {
                                       cta_location: "library_page_card",
                                       page_id: p.id,
                                       matched: cta.matched,
+                                      match_source: cta.matchSource,
                                     })
                                   }
                                   className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:gap-2 transition-all min-h-[36px]"
