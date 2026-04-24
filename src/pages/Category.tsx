@@ -178,6 +178,7 @@ export default function Category() {
                   );
                 })}
               </div>
+              )}
 
               <LoadMoreSection
                 loaded={allPosts.length}
