@@ -174,24 +174,63 @@ export function CategoryExploration({
         </div>
       </div>
 
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {/* itemscope ItemList microdata mirrors the JSON-LD above for crawlers
+          that prefer inline microdata. Each <li> is a CollectionPage entry
+          with a real, crawlable /category/:slug URL. */}
+      <ul
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+        itemScope
+        itemType="https://schema.org/ItemList"
+      >
         {visibleCats.map((cat, i) => {
           const q = queries[i];
           const posts: WPPost[] = q?.data?.items ?? [];
+          const categoryHref = `/category/${cat.slug}`;
+          const categoryName = stripHtml(cat.name);
+          const description = `Browse ${cat.count.toLocaleString()} ${cat.count === 1 ? "post" : "posts"} in the ${categoryName} category — guided practices, articles and resources.`;
           return (
-            <li key={cat.id}>
-              <article className="h-full flex flex-col rounded-lg border border-border bg-card p-5 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] transition-all">
+            <li
+              key={cat.id}
+              itemProp="itemListElement"
+              itemScope
+              itemType="https://schema.org/ListItem"
+            >
+              <meta itemProp="position" content={String(i + 1)} />
+              <article
+                className="h-full flex flex-col rounded-lg border border-border bg-card p-5 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] transition-all"
+                itemProp="item"
+                itemScope
+                itemType="https://schema.org/CollectionPage"
+              >
+                {/* Hidden but indexable metadata for the category card */}
+                <link itemProp="url" href={categoryHref} />
+                <meta itemProp="name" content={categoryName} />
+                <meta itemProp="description" content={description} />
+
                 <header className="flex items-start justify-between gap-3 mb-3">
                   <div className="min-w-0">
                     <h3 className="text-base font-semibold text-foreground truncate">
-                      {cat.name}
+                      <Link
+                        to={categoryHref}
+                        onClick={() =>
+                          trackEvent("category_exploration_topic_opened", {
+                            category_id: cat.id,
+                            category_slug: cat.slug,
+                            location: "topic_card_title",
+                          })
+                        }
+                        className="hover:text-primary transition-colors focus:outline-none focus-visible:underline"
+                        title={`${categoryName} — ${cat.count} ${cat.count === 1 ? "post" : "posts"}`}
+                      >
+                        {cat.name}
+                      </Link>
                     </h3>
                     <p className="text-xs text-muted-foreground mt-0.5">
                       {cat.count.toLocaleString()} {cat.count === 1 ? "post" : "posts"}
                     </p>
                   </div>
                   <Link
-                    to={`/library?cat=${cat.id}`}
+                    to={categoryHref}
                     onClick={() =>
                       trackEvent("category_exploration_topic_opened", {
                         category_id: cat.id,
@@ -200,7 +239,8 @@ export function CategoryExploration({
                       })
                     }
                     className="shrink-0 text-xs font-semibold text-primary hover:underline underline-offset-4 inline-flex items-center gap-1 min-h-[36px]"
-                    aria-label={`Browse all ${cat.name} posts`}
+                    aria-label={`Browse all ${categoryName} posts`}
+                    title={`View the ${categoryName} category page`}
                   >
                     Browse <ArrowRight className="h-3 w-3" />
                   </Link>
@@ -221,6 +261,7 @@ export function CategoryExploration({
                     <ul className="space-y-2.5 border-t border-border/60 pt-3">
                       {posts.map((p) => {
                         const img = getFeaturedImage(p);
+                        const postTitle = stripHtml(p.title.rendered);
                         return (
                           <li key={p.id}>
                             <Link
@@ -233,11 +274,12 @@ export function CategoryExploration({
                                 })
                               }
                               className="group flex items-start gap-3 -mx-1 px-1 py-1 rounded hover:bg-[hsl(var(--section-alternate))] transition-colors"
+                              title={postTitle}
                             >
                               {img ? (
                                 <img
                                   src={img.url}
-                                  alt=""
+                                  alt={img.alt || postTitle}
                                   loading="lazy"
                                   className="h-10 w-10 rounded object-cover shrink-0"
                                 />
@@ -256,9 +298,11 @@ export function CategoryExploration({
                   )}
                 </div>
 
-                {/* Inline call-to-action for keyboard users / mobile reach */}
+                {/* Inline call-to-action for keyboard users / mobile reach.
+                    Points at the canonical /category/:slug page so crawlers
+                    pick up the link as a real internal link, not a filter URL. */}
                 <Link
-                  to={`/library?cat=${cat.id}`}
+                  to={categoryHref}
                   onClick={() =>
                     trackEvent("category_exploration_topic_opened", {
                       category_id: cat.id,
@@ -267,6 +311,8 @@ export function CategoryExploration({
                     })
                   }
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all min-h-[36px]"
+                  aria-label={`Explore the ${categoryName} category`}
+                  title={`Explore the ${categoryName} category`}
                 >
                   Explore {cat.name} <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
