@@ -1,11 +1,12 @@
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import { ArrowRight, Loader2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
+import { LoadMoreSection, PostCardSkeletonGrid } from "@/components/wp/LoadMoreSection";
 import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
@@ -126,17 +127,7 @@ export default function Category() {
 
         {/* Grid */}
         <section className="container mx-auto py-12 lg:py-16">
-          {postsQuery.isLoading && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {Array.from({ length: 9 }).map((_, i) => (
-                <div key={i} className="space-y-3">
-                  <Skeleton className="aspect-[16/10] w-full rounded-lg" />
-                  <Skeleton className="h-4 w-1/3" />
-                  <Skeleton className="h-6 w-full" />
-                </div>
-              ))}
-            </div>
-          )}
+          {postsQuery.isLoading && <PostCardSkeletonGrid count={9} />}
 
           {!postsQuery.isLoading && allPosts.length === 0 && (
             <p className="text-center text-muted-foreground py-12">No articles in this category yet.</p>
@@ -172,24 +163,15 @@ export default function Category() {
                 })}
               </div>
 
-              <div className="mt-12 flex flex-col items-center gap-3">
-                <p className="text-body-sm text-muted-foreground">
-                  Showing {allPosts.length.toLocaleString()} of {total.toLocaleString()}
-                </p>
-                {postsQuery.hasNextPage && (
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="h-11 min-w-[200px]"
-                    onClick={loadMore}
-                    disabled={postsQuery.isFetchingNextPage}
-                  >
-                    {postsQuery.isFetchingNextPage ? (
-                      <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Loading…</>
-                    ) : "Load more"}
-                  </Button>
-                )}
-              </div>
+              <LoadMoreSection
+                loaded={allPosts.length}
+                total={total}
+                hasNext={!!postsQuery.hasNextPage}
+                isFetching={postsQuery.isFetchingNextPage}
+                onClick={loadMore}
+                label="articles"
+                pendingSkeleton={<PostCardSkeletonGrid count={6} />}
+              />
 
               {/* Funnel CTA */}
               <aside className="mt-16 p-6 lg:p-8 rounded-lg bg-[hsl(var(--section-emphasis))] border border-border max-w-3xl mx-auto">
