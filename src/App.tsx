@@ -18,6 +18,7 @@ const WPResolver = lazy(() => import("./pages/WPResolver.tsx"));
 const AdminAnalytics = lazy(() => import("./pages/AdminAnalytics.tsx"));
 const AdminCtaQA = lazy(() => import("./pages/AdminCtaQA.tsx"));
 const AdminLinkChecker = lazy(() => import("./pages/AdminLinkChecker.tsx"));
+const AdminCategoryAudit = lazy(() => import("./pages/AdminCategoryAudit.tsx"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -61,6 +62,7 @@ const App = () => (
             <Route path="/admin/analytics" element={<AdminAnalytics />} />
             <Route path="/admin/cta-qa" element={<AdminCtaQA />} />
             <Route path="/admin/link-checker" element={<AdminLinkChecker />} />
+            <Route path="/admin/category-audit" element={<AdminCategoryAudit />} />
             {/* Alias: /blog/:slug also resolves to the post via WPResolver */}
             <Route path="/blog/:slug" element={<WPResolver />} />
             {/* Smart resolver: tries post first, then WP page. Keep last before NotFound.
