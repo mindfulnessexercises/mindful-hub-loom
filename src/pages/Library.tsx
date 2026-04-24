@@ -409,8 +409,25 @@ export default function Library() {
                 );
               })()}
 
-              {!postsQuery.isLoading && allPosts.length === 0 && !category && (
-                <EmptyState message="No articles match your filters." />
+              {/* No-category empty state — also use the rich helper so users get
+                  category tiles + intent topics instead of a dead-end message. */}
+              {!postsQuery.isLoading && !postsQuery.isError && allPosts.length === 0 && !category && catsQuery.data && (
+                <SparseCategoryHelper
+                  allCategories={catsQuery.data.items.filter(
+                    (c) => c.count > 0 && c.slug !== "uncategorized",
+                  )}
+                  resultCount={0}
+                  search={search || undefined}
+                  onClearCategory={() => updateParam("cat", undefined)}
+                  onClearAll={() => {
+                    const next = new URLSearchParams(params);
+                    next.delete("q");
+                    next.delete("cat");
+                    next.delete("page");
+                    setParams(next);
+                  }}
+                  onSelectCategory={(id) => updateParam("cat", String(id))}
+                />
               )}
 
               {allPosts.length > 0 && (
