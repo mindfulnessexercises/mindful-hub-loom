@@ -12,6 +12,7 @@ import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
 import { useUrlPagination } from "@/hooks/use-url-pagination";
+import { buildMatchSnippet, highlightTerms } from "@/lib/search-snippet";
 
 const PER_PAGE = 50; // Per content type, when searching both
 
@@ -207,7 +208,10 @@ export default function Search() {
               )}
               <ul className="divide-y divide-border border-y border-border">
                 {pages.map((page) => {
-                  const desc = stripHtml(page.excerpt.rendered).slice(0, 200);
+                  const plainTitle = stripHtml(page.title.rendered);
+                  const fullText = `${plainTitle}. ${stripHtml(page.excerpt.rendered)} ${stripHtml(page.content?.rendered ?? "")}`;
+                  const snippet = buildMatchSnippet(fullText, q, { radius: 80, maxLen: 220 });
+                  const terms = q.trim().toLowerCase().split(/\s+/).filter((t) => t.length >= 2);
                   return (
                     <li key={page.id}>
                       <Link
@@ -216,8 +220,12 @@ export default function Search() {
                       >
                         <FileText className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" aria-hidden />
                         <div className="flex-1 min-w-0">
-                          <p className="text-card-heading text-foreground group-hover:text-primary transition-colors" dangerouslySetInnerHTML={{ __html: page.title.rendered }} />
-                          {desc && <p className="text-body-sm text-muted-foreground mt-1 line-clamp-2">{desc}</p>}
+                          <h3 className="text-card-heading text-foreground group-hover:text-primary transition-colors">
+                            {highlightTerms(plainTitle, terms)}
+                          </h3>
+                          {snippet && (
+                            <p className="text-body-sm text-muted-foreground mt-1 line-clamp-2">{snippet.node}</p>
+                          )}
                           <p className="text-caption text-muted-foreground mt-1.5">/{page.slug}</p>
                         </div>
                         <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0 mt-1" aria-hidden />
@@ -256,6 +264,11 @@ export default function Search() {
                 {visiblePosts.map((post) => {
                   const img = getFeaturedImage(post);
                   const cats = getCategories(post);
+                  const plainTitle = stripHtml(post.title.rendered);
+                  const plainExcerpt = stripHtml(post.excerpt.rendered);
+                  const terms = q.trim().toLowerCase().split(/\s+/).filter((t) => t.length >= 2);
+                  // Prefer an excerpt-based snippet; fall back to leading excerpt.
+                  const snippet = buildMatchSnippet(`${plainExcerpt} ${plainTitle}`, q, { radius: 90, maxLen: 240 });
                   return (
                     <article key={post.id} className="group flex flex-col bg-card rounded-lg overflow-hidden border border-border shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-300">
                       <Link to={`/${post.slug}`} className="block aspect-[16/10] bg-muted overflow-hidden">
@@ -271,9 +284,13 @@ export default function Search() {
                           <span>{formatDate(post.date)}</span>
                         </div>
                         <h3 className="text-card-heading text-foreground mb-2">
-                          <Link to={`/${post.slug}`} className="hover:text-primary transition-colors" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                          <Link to={`/${post.slug}`} className="hover:text-primary transition-colors">
+                            {highlightTerms(plainTitle, terms)}
+                          </Link>
                         </h3>
-                        <p className="text-body-sm text-muted-foreground line-clamp-3">{stripHtml(post.excerpt.rendered)}</p>
+                        <p className="text-body-sm text-muted-foreground line-clamp-3">
+                          {snippet ? snippet.node : plainExcerpt}
+                        </p>
                       </div>
                     </article>
                   );
