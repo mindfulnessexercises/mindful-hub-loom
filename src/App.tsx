@@ -18,6 +18,7 @@ const WPResolver = lazy(() => import("./pages/WPResolver.tsx"));
 const AdminAnalytics = lazy(() => import("./pages/AdminAnalytics.tsx"));
 const AdminCtaQA = lazy(() => import("./pages/AdminCtaQA.tsx"));
 const AdminLinkChecker = lazy(() => import("./pages/AdminLinkChecker.tsx"));
+const AdminCategoryAudit = lazy(() => import("./pages/AdminCategoryAudit.tsx"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
