@@ -564,6 +564,7 @@ export default function Library() {
                       <MoreLikeThis
                         activeCategory={activeCat}
                         allCategories={visibleCats}
+                        search={search || undefined}
                       />
                     );
                   })()}
