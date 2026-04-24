@@ -273,11 +273,33 @@ export default function AdminAnalytics() {
       ? Math.round((counts.succeeded / counts.submitted) * 1000) / 10
       : null;
     return { ...counts, conversion };
-  }, [rows]);
+  }, [filteredRows]);
 
-  const byLocation = useMemo(() => aggregate(rows ?? [], "cta_location"), [rows]);
-  const byCategory = useMemo(() => aggregate(rows ?? [], "category_slug"), [rows]);
-  const byDestination = useMemo(() => aggregate(rows ?? [], "cta_destination"), [rows]);
+  const byLocation = useMemo(() => aggregate(filteredRows, "cta_location"), [filteredRows]);
+  const byCategory = useMemo(() => aggregate(filteredRows, "category_slug"), [filteredRows]);
+  const byDestination = useMemo(() => aggregate(filteredRows, "cta_destination"), [filteredRows]);
+
+  // CTA clicks broken down by which rule produced the label/destination.
+  // This is the headline view for spotting whether default fallbacks are
+  // outperforming targeted matches (a sign the rule set has gaps).
+  const byMatchSource = useMemo(() => {
+    const buckets = new Map<string, { clicks: number }>();
+    for (const r of rows ?? []) {
+      if (r.name !== "cta_clicked") continue;
+      const src = getMatchSource(r) ?? "unknown";
+      const b = buckets.get(src) ?? { clicks: 0 };
+      b.clicks++;
+      buckets.set(src, b);
+    }
+    const total = Array.from(buckets.values()).reduce((s, b) => s + b.clicks, 0);
+    return Array.from(buckets.entries())
+      .map(([source, b]) => ({
+        source,
+        clicks: b.clicks,
+        share: total > 0 ? Math.round((b.clicks / total) * 1000) / 10 : 0,
+      }))
+      .sort((a, b) => b.clicks - a.clicks);
+  }, [rows]);
 
   // Upstream intent counters: these events sit BEFORE a CTA click in the
   // funnel — they tell us how the user shaped what they were looking at when
