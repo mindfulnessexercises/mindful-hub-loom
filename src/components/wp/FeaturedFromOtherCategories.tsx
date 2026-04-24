@@ -107,7 +107,13 @@ export function FeaturedFromOtherCategories({
         items_signature: itemsSignature,
       });
     },
-    { enabled: items.length > 0 },
+    {
+      enabled: items.length > 0,
+      // Cross-mount dedupe: same row composition (same active category +
+      // same item set) within the TTL window won't double-fire after a
+      // route bounce or strict-mode remount.
+      dedupeKey: `featured_other_cats_row:${activeCategoryId}:${itemsSignature}`,
+    },
   );
 
   // If the row is empty AFTER all category fetches have settled, show a
