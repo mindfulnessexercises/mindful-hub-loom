@@ -13,6 +13,7 @@ import { LoadMoreSection, PostCardSkeletonGrid, PageRowSkeletonList } from "@/co
 import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 import { BrowseByCategory } from "@/components/homepage/BrowseByCategory";
 import { MobileLibraryFilters } from "@/components/wp/MobileLibraryFilters";
+import { LibrarySortSelect, sortToWpParams, type LibrarySort } from "@/components/wp/LibrarySortSelect";
 import {
   wp,
   getFeaturedImage,
@@ -38,15 +39,33 @@ export default function Library() {
   const categoryParam = params.get("cat");
   const category = categoryParam ? Number(categoryParam) : undefined;
   const pageParam = Math.max(1, Number(params.get("page") ?? "1"));
+  // Sort is shareable: persisted as ?sort=... so deep links re-create the
+  // same ordering. Defaults to "newest" (matches WP REST default of date desc).
+  const sortParam = (params.get("sort") ?? "newest") as LibrarySort;
+  const validSorts: LibrarySort[] = ["newest", "oldest", "relevance", "popular", "title"];
+  const sort: LibrarySort = validSorts.includes(sortParam) ? sortParam : "newest";
   const [searchInput, setSearchInput] = useState(search);
 
   useEffect(() => { setSearchInput(search); }, [search]);
 
+  // Translate the URL `sort` to WP REST orderby/order. "popular" only applies
+  // to posts (comment_count); pages fall back to date desc for it.
+  const postsSortParams = sortToWpParams(sort, !!search);
+  const pagesSort: LibrarySort = sort === "popular" ? "newest" : sort;
+  const pagesSortParams = sortToWpParams(pagesSort, !!search);
+
   // ----- Posts (infinite) -----
   const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
-    queryKey: wpKeys.postsList({ scope: "library", search, category, perPage: PER_PAGE }),
+    queryKey: [...wpKeys.postsList({ scope: "library", search, category, perPage: PER_PAGE }), { sort }],
     queryFn: ({ pageParam = 1 }) =>
-      wp.posts({ page: pageParam as number, per_page: PER_PAGE, search: search || undefined, categories: category }),
+      wp.posts({
+        page: pageParam as number,
+        per_page: PER_PAGE,
+        search: search || undefined,
+        categories: category,
+        orderby: postsSortParams.orderby,
+        order: postsSortParams.order,
+      }),
     getNextPageParam: (lastPage, all) =>
       all.length + 1 <= lastPage.totalPages ? all.length + 1 : undefined,
     initialPageParam: 1,
@@ -64,9 +83,15 @@ export default function Library() {
 
   // ----- Pages (infinite) -----
   const pagesQuery = useInfiniteQuery<PaginatedResult<WPPage>>({
-    queryKey: ["wp", "pages", "list-infinite", { q: search, pp: PER_PAGE, scope: "library" }],
+    queryKey: ["wp", "pages", "list-infinite", { q: search, pp: PER_PAGE, scope: "library", sort: pagesSort }],
     queryFn: ({ pageParam = 1 }) =>
-      wp.pages({ page: pageParam as number, per_page: PER_PAGE, search: search || undefined }),
+      wp.pages({
+        page: pageParam as number,
+        per_page: PER_PAGE,
+        search: search || undefined,
+        orderby: pagesSortParams.orderby as "date" | "title" | "relevance",
+        order: pagesSortParams.order,
+      }),
     getNextPageParam: (lastPage, all) =>
       all.length + 1 <= lastPage.totalPages ? all.length + 1 : undefined,
     initialPageParam: 1,
@@ -110,13 +135,19 @@ export default function Library() {
     setParams(next);
   };
 
+  const onSortChange = (next: LibrarySort) => {
+    // Default = "newest" → drop param to keep URLs clean & canonical.
+    updateParam("sort", next === "newest" ? undefined : next);
+  };
+
   // Commit mobile-sheet filter changes back to the URL in a single transition
-  // so the resulting view stays shareable (search + tab + cat all in the URL).
+  // so the resulting view stays shareable (search + tab + cat + sort all in the URL).
   const onMobileFiltersApply = ({
     tab: nextTab,
     search: nextSearch,
     category: nextCategory,
-  }: { tab: "posts" | "pages"; search: string; category?: number }) => {
+    sort: nextSort,
+  }: { tab: "posts" | "pages"; search: string; category?: number; sort: LibrarySort }) => {
     const next = new URLSearchParams(params);
     if (nextTab === "pages") next.set("tab", "pages"); else next.delete("tab");
     if (nextSearch) next.set("q", nextSearch); else next.delete("q");
@@ -125,6 +156,7 @@ export default function Library() {
     } else {
       next.delete("cat");
     }
+    if (nextSort && nextSort !== "newest") next.set("sort", nextSort); else next.delete("sort");
     next.delete("page");
     setParams(next);
   };
@@ -222,23 +254,32 @@ export default function Library() {
               tab={tab}
               search={search}
               category={category}
+              sort={sort}
               categories={(catsQuery.data?.items ?? []).filter((c) => c.count > 0 && c.slug !== "uncategorized")}
               onApply={onMobileFiltersApply}
             />
           </div>
 
           <Tabs value={tab} onValueChange={onTabChange}>
-            {/* Desktop tabs — on mobile the bottom-sheet handles tab switching. */}
-            <TabsList className="mb-8 h-auto p-1 hidden sm:inline-flex">
-              <TabsTrigger value="posts" className="gap-2 px-4 py-2 min-h-[44px]">
-                <FileText className="h-4 w-4" aria-hidden />
-                Articles {postsTotal > 0 && <span className="opacity-60 text-xs">({postsTotal.toLocaleString()})</span>}
-              </TabsTrigger>
-              <TabsTrigger value="pages" className="gap-2 px-4 py-2 min-h-[44px]">
-                <BookOpen className="h-4 w-4" aria-hidden />
-                Pages {pagesTotal > 0 && <span className="opacity-60 text-xs">({pagesTotal.toLocaleString()})</span>}
-              </TabsTrigger>
-            </TabsList>
+            {/* Desktop tabs row + sort. On mobile the bottom-sheet owns both. */}
+            <div className="mb-8 hidden sm:flex sm:items-center sm:justify-between sm:gap-4">
+              <TabsList className="h-auto p-1">
+                <TabsTrigger value="posts" className="gap-2 px-4 py-2 min-h-[44px]">
+                  <FileText className="h-4 w-4" aria-hidden />
+                  Articles {postsTotal > 0 && <span className="opacity-60 text-xs">({postsTotal.toLocaleString()})</span>}
+                </TabsTrigger>
+                <TabsTrigger value="pages" className="gap-2 px-4 py-2 min-h-[44px]">
+                  <BookOpen className="h-4 w-4" aria-hidden />
+                  Pages {pagesTotal > 0 && <span className="opacity-60 text-xs">({pagesTotal.toLocaleString()})</span>}
+                </TabsTrigger>
+              </TabsList>
+              <LibrarySortSelect
+                value={sort}
+                onChange={onSortChange}
+                hasSearch={!!search}
+                includePopular={tab === "posts"}
+              />
+            </div>
 
             {/* ---- POSTS TAB ---- */}
             <TabsContent value="posts" className="mt-0">

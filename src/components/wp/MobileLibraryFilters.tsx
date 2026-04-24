@@ -14,12 +14,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import type { WPCategory } from "@/lib/wp";
+import { LIBRARY_SORT_OPTIONS, type LibrarySort } from "@/components/wp/LibrarySortSelect";
 
 export interface MobileLibraryFiltersProps {
   /** Current applied state, sourced from the URL. */
   tab: "posts" | "pages";
   search: string;
   category?: number;
+  sort: LibrarySort;
 
   /** All loadable categories (already filtered to non-empty / non-uncategorized). */
   categories: WPCategory[];
@@ -29,11 +31,16 @@ export interface MobileLibraryFiltersProps {
    * is responsible for translating this into useSearchParams updates so links
    * remain shareable.
    */
-  onApply: (next: { tab: "posts" | "pages"; search: string; category?: number }) => void;
+  onApply: (next: {
+    tab: "posts" | "pages";
+    search: string;
+    category?: number;
+    sort: LibrarySort;
+  }) => void;
 }
 
 /**
- * Mobile-only bottom-sheet that consolidates Search + Tab + Category filters
+ * Mobile-only bottom-sheet that consolidates Search + Tab + Category + Sort
  * for the Library page. The sheet stages changes locally so the user can tweak
  * multiple filters at once, then commits them through `onApply` — which writes
  * them back to the URL so the resulting view is still shareable.
@@ -42,6 +49,7 @@ export function MobileLibraryFilters({
   tab,
   search,
   category,
+  sort,
   categories,
   onApply,
 }: MobileLibraryFiltersProps) {
@@ -51,6 +59,7 @@ export function MobileLibraryFilters({
   const [draftTab, setDraftTab] = useState<"posts" | "pages">(tab);
   const [draftSearch, setDraftSearch] = useState(search);
   const [draftCategory, setDraftCategory] = useState<number | undefined>(category);
+  const [draftSort, setDraftSort] = useState<LibrarySort>(sort);
 
   // Re-sync the draft whenever the sheet opens OR the URL state changes from
   // outside (e.g. category chip tapped on desktop, deep link, back button).
@@ -59,18 +68,22 @@ export function MobileLibraryFilters({
       setDraftTab(tab);
       setDraftSearch(search);
       setDraftCategory(category);
+      setDraftSort(sort);
     }
-  }, [open, tab, search, category]);
+  }, [open, tab, search, category, sort]);
 
   const activeCount =
-    (search ? 1 : 0) + (category ? 1 : 0) + (tab === "pages" ? 1 : 0);
+    (search ? 1 : 0) +
+    (category ? 1 : 0) +
+    (tab === "pages" ? 1 : 0) +
+    (sort !== "newest" ? 1 : 0);
 
   const handleApply = () => {
     onApply({
       tab: draftTab,
       search: draftSearch.trim(),
-      // Category only applies to the posts tab
       category: draftTab === "posts" ? draftCategory : undefined,
+      sort: draftTab === "pages" && draftSort === "popular" ? "newest" : draftSort,
     });
     setOpen(false);
   };
@@ -79,6 +92,7 @@ export function MobileLibraryFilters({
     setDraftSearch("");
     setDraftCategory(undefined);
     setDraftTab("posts");
+    setDraftSort("newest");
   };
 
   return (
@@ -178,7 +192,42 @@ export function MobileLibraryFilters({
               </div>
             </div>
 
-            {/* Category list (posts only) */}
+            {/* Sort */}
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-2">
+                Sort by
+              </p>
+              <ul className="rounded-lg border border-border bg-card divide-y divide-border overflow-hidden">
+                {LIBRARY_SORT_OPTIONS.filter(
+                  (o) => draftTab === "posts" || o.value !== "popular",
+                ).map((opt) => {
+                  const disabled = opt.value === "relevance" && !draftSearch.trim();
+                  const selected = draftSort === opt.value;
+                  return (
+                    <li key={opt.value}>
+                      <button
+                        type="button"
+                        disabled={disabled}
+                        aria-pressed={selected}
+                        onClick={() => setDraftSort(opt.value)}
+                        className={`w-full flex items-center justify-between gap-3 text-left px-4 py-3 min-h-[48px] transition-colors ${
+                          selected ? "bg-primary/10 text-foreground" : "hover:bg-accent/50"
+                        } ${disabled ? "opacity-40 cursor-not-allowed" : ""}`}
+                      >
+                        <span className="flex-1 text-sm font-medium">{opt.label}</span>
+                        {disabled && (
+                          <span className="text-xs text-muted-foreground">Needs search</span>
+                        )}
+                        {selected && !disabled && (
+                          <Check className="h-4 w-4 text-primary shrink-0" aria-hidden />
+                        )}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
             {draftTab === "posts" && (
               <div>
                 <div className="flex items-center justify-between mb-2">

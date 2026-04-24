@@ -66,8 +66,22 @@ async function wpFetch<T>(
   return { items, total, totalPages };
 }
 
-type PostsParams = { page?: number; per_page?: number; search?: string; categories?: number; _embed?: 1 };
-type PagesParams = { page?: number; per_page?: number; search?: string };
+type PostsParams = {
+  page?: number;
+  per_page?: number;
+  search?: string;
+  categories?: number;
+  _embed?: 1;
+  orderby?: "date" | "title" | "relevance" | "comment_count" | "modified";
+  order?: "asc" | "desc";
+};
+type PagesParams = {
+  page?: number;
+  per_page?: number;
+  search?: string;
+  orderby?: "date" | "title" | "relevance" | "modified" | "menu_order";
+  order?: "asc" | "desc";
+};
 
 export const wp = {
   posts: (params: PostsParams = {}, cache: CacheOptions = {}) =>
