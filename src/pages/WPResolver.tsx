@@ -33,6 +33,10 @@ import { ShareBar } from "@/components/wp/ShareBar";
 import { AuthorCard } from "@/components/wp/AuthorCard";
 import { RelatedPosts } from "@/components/wp/RelatedPosts";
 import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
+import {
+  getTemplateConfig,
+  HERO_DENSITY_CLASS,
+} from "@/lib/wp-template-config";
 
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
