@@ -9,6 +9,7 @@ export const RESERVED_SLUGS = [
   "ce-policies", // CE policies page
   "search",      // /search results page
   "category",    // /category/:slug landing pages
+  "library",     // /library browse-all index
 ] as const;
 
 export const RESERVED_SLUG_SET: ReadonlySet<string> = new Set(RESERVED_SLUGS);
