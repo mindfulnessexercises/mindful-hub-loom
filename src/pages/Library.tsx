@@ -17,6 +17,7 @@ import { LibrarySortSelect, sortToWpParams, type LibrarySort } from "@/component
 import { SparseCategoryHelper } from "@/components/wp/SparseCategoryHelper";
 import { FeaturedFromOtherCategories } from "@/components/wp/FeaturedFromOtherCategories";
 import { CategoriesAvailableSummary } from "@/components/wp/CategoriesAvailableSummary";
+import { CategoryExploration } from "@/components/wp/CategoryExploration";
 import { trackCtaClick } from "@/lib/analytics";
 import {
   wp,
