@@ -12,6 +12,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { LoadMoreSection, PostCardSkeletonGrid, PageRowSkeletonList } from "@/components/wp/LoadMoreSection";
 import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 import { BrowseByCategory } from "@/components/homepage/BrowseByCategory";
+import { MobileLibraryFilters } from "@/components/wp/MobileLibraryFilters";
 import {
   wp,
   getFeaturedImage,
@@ -109,6 +110,25 @@ export default function Library() {
     setParams(next);
   };
 
+  // Commit mobile-sheet filter changes back to the URL in a single transition
+  // so the resulting view stays shareable (search + tab + cat all in the URL).
+  const onMobileFiltersApply = ({
+    tab: nextTab,
+    search: nextSearch,
+    category: nextCategory,
+  }: { tab: "posts" | "pages"; search: string; category?: number }) => {
+    const next = new URLSearchParams(params);
+    if (nextTab === "pages") next.set("tab", "pages"); else next.delete("tab");
+    if (nextSearch) next.set("q", nextSearch); else next.delete("q");
+    if (nextTab === "posts" && nextCategory !== undefined) {
+      next.set("cat", String(nextCategory));
+    } else {
+      next.delete("cat");
+    }
+    next.delete("page");
+    setParams(next);
+  };
+
   const allPosts = useMemo(
     () => postsQuery.data?.pages.flatMap((p) => p.items) ?? [],
     [postsQuery.data],
@@ -170,7 +190,8 @@ export default function Library() {
               Search and filter every article and resource page in one place.
             </p>
 
-            <form onSubmit={onSearch} className="mt-8 flex flex-col sm:flex-row gap-3 max-w-2xl">
+            {/* Desktop search — on mobile users open the bottom-sheet (below) */}
+            <form onSubmit={onSearch} className="mt-8 hidden sm:flex flex-row gap-3 max-w-2xl">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" aria-hidden />
                 <Input
@@ -194,8 +215,21 @@ export default function Library() {
             eyebrow="Jump to a topic"
             title="Browse by category"
           />
+          {/* Mobile sticky filter bar — opens a bottom-sheet that batches tab/search/category
+              edits before committing to the URL. Hidden on >=sm where the inline UI fits. */}
+          <div className="sm:hidden sticky top-16 z-30 -mx-4 px-4 py-3 bg-background/95 backdrop-blur-sm border-b border-border mb-6">
+            <MobileLibraryFilters
+              tab={tab}
+              search={search}
+              category={category}
+              categories={(catsQuery.data?.items ?? []).filter((c) => c.count > 0 && c.slug !== "uncategorized").slice(0, 30)}
+              onApply={onMobileFiltersApply}
+            />
+          </div>
+
           <Tabs value={tab} onValueChange={onTabChange}>
-            <TabsList className="mb-8 h-auto p-1">
+            {/* Desktop tabs — on mobile the bottom-sheet handles tab switching. */}
+            <TabsList className="mb-8 h-auto p-1 hidden sm:inline-flex">
               <TabsTrigger value="posts" className="gap-2 px-4 py-2 min-h-[44px]">
                 <FileText className="h-4 w-4" aria-hidden />
                 Articles {postsTotal > 0 && <span className="opacity-60 text-xs">({postsTotal.toLocaleString()})</span>}
@@ -215,7 +249,7 @@ export default function Library() {
                   .slice(0, 20);
                 const activeCat = category ? visibleCats.find((c) => c.id === category) : undefined;
                 return (
-                  <div className="mb-6 space-y-3">
+                  <div className="mb-6 space-y-3 hidden sm:block">
                     <div
                       role="tablist"
                       aria-label="Filter articles by category"
