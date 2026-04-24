@@ -10,6 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { LoadMoreSection, PostCardSkeletonGrid, PageRowSkeletonList } from "@/components/wp/LoadMoreSection";
+import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 import {
   wp,
   getFeaturedImage,
@@ -112,6 +113,7 @@ export default function Library() {
     [postsQuery.data],
   );
   const postsTotal = postsQuery.data?.pages[0]?.total ?? 0;
+  const { query: postsFilter, setQuery: setPostsFilter, filtered: visiblePosts } = useClientPostFilter(allPosts);
 
   const allPages = useMemo(
     () => pagesQuery.data?.pages.flatMap((p) => p.items) ?? [],
