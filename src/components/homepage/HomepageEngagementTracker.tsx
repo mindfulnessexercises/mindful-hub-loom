@@ -163,9 +163,6 @@ export function HomepageEngagementTracker() {
         observer!.observe(el);
       });
     }
-        observer!.observe(el);
-      });
-    }
 
     return () => {
       window.removeEventListener("scroll", onScroll);
