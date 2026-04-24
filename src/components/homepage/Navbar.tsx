@@ -5,6 +5,7 @@ import logo from "@/assets/logo-mindfulness-exercises.png";
 
 const navLinks = [
   { label: "Free Exercises", href: "#resources" },
+  { label: "Blog", href: "/blog" },
   { label: "Get Certified", href: "https://certify.mindfulnessexercises.com/", external: true },
   { label: "Live Events", href: "#events" },
   { label: "About", href: "#authority" },
