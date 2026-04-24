@@ -699,6 +699,7 @@ export default function Library() {
               <ActiveFilterBanner
                 search={search || undefined}
                 onClearCategory={() => updateParam("cat", undefined)}
+                onClearSearch={() => updateParam("q", undefined)}
                 onClearAll={() => {
                   const next = new URLSearchParams(params);
                   next.delete("q");
