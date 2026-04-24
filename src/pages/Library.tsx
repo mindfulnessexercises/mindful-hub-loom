@@ -549,6 +549,7 @@ export default function Library() {
                       allCategories={catsQuery.data.items.filter(
                         (c) => c.count > 0 && c.slug !== "uncategorized",
                       )}
+                      onClearCategory={() => updateParam("cat", undefined)}
                     />
                   )}
 

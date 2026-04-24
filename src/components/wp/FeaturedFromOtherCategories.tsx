@@ -1,11 +1,12 @@
 import { useRef } from "react";
 import { useQueries } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Compass, X } from "lucide-react";
 import { wp, getFeaturedImage, stripHtml, type WPCategory, type WPPost } from "@/lib/wp";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { trackEvent } from "@/lib/analytics";
 import { useImpression } from "@/hooks/use-impression";
+import { Button } from "@/components/ui/button";
 
 /**
  * Surfaces a horizontal row of recent posts from categories OTHER than the
@@ -39,12 +40,17 @@ export interface FeaturedFromOtherCategoriesProps {
   allCategories: WPCategory[];
   /** Optional title override. */
   title?: string;
+  /** Optional callback to clear the active category filter. When provided
+   *  AND the row ends up empty, we render a friendly fallback with a
+   *  "Clear category filter" action instead of returning null. */
+  onClearCategory?: () => void;
 }
 
 export function FeaturedFromOtherCategories({
   activeCategoryId,
   allCategories,
   title = "Featured from other categories",
+  onClearCategory,
 }: FeaturedFromOtherCategoriesProps) {
   // Most-popular categories first — those tend to have the freshest content
   // and the broadest appeal as a "you might also like" prompt.
@@ -104,8 +110,58 @@ export function FeaturedFromOtherCategories({
     { enabled: items.length > 0 },
   );
 
-  // Hide entirely when nothing to show — avoids a lonely heading + spinner.
-  if (items.length === 0) return null;
+  // If the row is empty AFTER all category fetches have settled, show a
+  // friendly fallback (when a clear-filter callback is wired up). While
+  // queries are still loading, we render nothing rather than flash the
+  // empty-state — avoids a confusing "nothing here" → "actually here it is"
+  // bounce.
+  const allSettled = queries.every((q) => !q.isLoading);
+  if (items.length === 0) {
+    if (!allSettled || !onClearCategory) return null;
+    return (
+      <section
+        aria-label={`${title} — no items`}
+        className="mt-12 lg:mt-16 pt-10 lg:pt-12 border-t border-border"
+      >
+        <div className="rounded-xl border border-border bg-[hsl(var(--section-alternate))] p-6 lg:p-8 flex items-start gap-4">
+          <div className="shrink-0 h-10 w-10 rounded-md bg-accent text-accent-foreground inline-flex items-center justify-center">
+            <Compass className="h-5 w-5" aria-hidden />
+          </div>
+          <div className="flex-1 min-w-0">
+            <h2 className="text-card-heading text-foreground">
+              Nothing to feature from other categories yet
+            </h2>
+            <p className="mt-1 text-body-sm text-muted-foreground">
+              Clear the current filter to explore the full library — or pick a
+              different topic from the sidebar.
+            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  trackEvent("featured_other_cats_empty_clear_clicked", {
+                    from_category_id: activeCategoryId,
+                  });
+                  onClearCategory();
+                }}
+                className="min-h-[40px]"
+              >
+                <X className="h-3.5 w-3.5" /> Clear category filter
+              </Button>
+              <Link
+                to="/library"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all min-h-[40px]"
+              >
+                Browse the full library <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   const handleClick = (
     cat: WPCategory,
