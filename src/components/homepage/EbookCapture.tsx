@@ -3,6 +3,7 @@ import { Check, ArrowRight, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SectionWrapper } from "./SectionWrapper";
+import { trackCtaClick, trackEvent } from "@/lib/analytics";
 import ebookCover from "@/assets/ebook-cover.jpg";
 
 export function EbookCapture() {
@@ -64,13 +65,26 @@ export function EbookCapture() {
             </ul>
 
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={(e) => {
+                e.preventDefault();
+                // Capture the email and fire structured signup events. The form
+                // doesn't yet POST anywhere — once the backend is wired in we can
+                // emit "_succeeded"/"_failed" events from the response handlers.
+                const form = e.currentTarget as HTMLFormElement;
+                const emailInput = form.elements.namedItem("ebook-email") as HTMLInputElement | null;
+                trackEvent("email_signup_submitted", {
+                  form_id: "ebook_capture",
+                  has_email: !!emailInput?.value,
+                  location: "homepage_ebook_section",
+                });
+              }}
               className="flex flex-col sm:flex-row gap-3 max-w-lg"
               aria-labelledby="ebook-heading"
             >
               <label htmlFor="ebook-email" className="sr-only">Email address</label>
               <Input
                 id="ebook-email"
+                name="ebook-email"
                 type="email"
                 placeholder="Your email address"
                 autoComplete="email"
@@ -80,6 +94,14 @@ export function EbookCapture() {
               />
               <Button
                 type="submit"
+                onClick={() =>
+                  trackCtaClick({
+                    cta_label: "Get Free Guide",
+                    cta_destination: "form:ebook_capture",
+                    cta_location: "homepage_ebook_section",
+                    matched: true,
+                  })
+                }
                 className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 min-h-[44px] h-12 px-6 font-semibold whitespace-nowrap shadow-md"
               >
                 Get Free Guide
