@@ -222,7 +222,7 @@ export default function Library() {
               tab={tab}
               search={search}
               category={category}
-              categories={(catsQuery.data?.items ?? []).filter((c) => c.count > 0 && c.slug !== "uncategorized").slice(0, 30)}
+              categories={(catsQuery.data?.items ?? []).filter((c) => c.count > 0 && c.slug !== "uncategorized")}
               onApply={onMobileFiltersApply}
             />
           </div>
