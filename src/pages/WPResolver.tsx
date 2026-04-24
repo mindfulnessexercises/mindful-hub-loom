@@ -20,6 +20,8 @@ const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 export default function WPResolver() {
   const { slug = "" } = useParams();
+  const navigate = useNavigate();
+  const contentRef = useRef<HTMLDivElement | null>(null);
 
   // Try post first, then page (this matches WordPress's own URL resolution).
   const query = useQuery({
@@ -144,8 +146,9 @@ export default function WPResolver() {
 
           <div className="container mx-auto max-w-3xl py-10 lg:py-14">
             <div
+              ref={contentRef}
               className="prose prose-lg prose-stone max-w-none prose-headings:font-serif prose-headings:text-foreground prose-p:text-foreground/90 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-lg prose-img:shadow-[var(--shadow-card)]"
-              dangerouslySetInnerHTML={{ __html: doc.content.rendered }}
+              dangerouslySetInnerHTML={{ __html: rewrittenHtml }}
             />
 
             <aside className="mt-12 lg:mt-16 p-6 lg:p-8 rounded-lg bg-[hsl(var(--section-emphasis))] border border-border">
