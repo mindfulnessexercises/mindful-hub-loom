@@ -21,7 +21,7 @@ export function TrustRibbon() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex items-center justify-center py-5"
+          className="flex flex-col items-center py-5 gap-4"
         >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4 sm:gap-x-14 lg:gap-x-18">
             {trustItems.map((item) => (
@@ -40,6 +40,14 @@ export function TrustRibbon() {
               </div>
             ))}
           </div>
+
+          {/* Endorser sliver — verified names below */}
+          <p className="text-caption text-muted-foreground text-center pt-1 border-t border-border/50 w-full max-w-3xl">
+            <span className="text-foreground/60 font-medium uppercase tracking-[0.12em] text-[0.6875rem] mr-2">Endorsed by</span>
+            <span className="font-serif text-foreground/80">
+              Tara Brach · Jon Kabat-Zinn · Jack Kornfield · Sharon Salzberg · Gabor Maté
+            </span>
+          </p>
         </motion.div>
       </div>
     </section>
