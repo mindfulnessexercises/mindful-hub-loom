@@ -17,6 +17,7 @@ import { LibrarySortSelect, sortToWpParams, type LibrarySort } from "@/component
 import { SparseCategoryHelper } from "@/components/wp/SparseCategoryHelper";
 import { FeaturedFromOtherCategories } from "@/components/wp/FeaturedFromOtherCategories";
 import { CategoriesAvailableSummary } from "@/components/wp/CategoriesAvailableSummary";
+import { CategoryExploration } from "@/components/wp/CategoryExploration";
 import { trackCtaClick } from "@/lib/analytics";
 import {
   wp,
@@ -519,6 +520,18 @@ export default function Library() {
                       allCategories={catsQuery.data.items.filter(
                         (c) => c.count > 0 && c.slug !== "uncategorized",
                       )}
+                    />
+                  )}
+
+                  {/* Wide-net category exploration — appears on every posts view
+                      (filtered or not) to keep discovery surfaces consistent.
+                      Lazy-expands and previews recent posts per topic. */}
+                  {catsQuery.data && (
+                    <CategoryExploration
+                      categories={catsQuery.data.items.filter(
+                        (c) => c.count > 0 && c.slug !== "uncategorized",
+                      )}
+                      excludeCategoryId={category}
                     />
                   )}
                 </>
