@@ -28,6 +28,8 @@ import {
   wp,
   getFeaturedImage,
   getCategories,
+  getWpPostHref,
+  resolveCategoryCptEndpoint,
   stripHtml,
   formatDate,
   type WPPost,
@@ -65,15 +67,28 @@ export default function Library() {
   const pagesSort: LibrarySort = sort === "popular" ? "newest" : sort;
   const pagesSortParams = sortToWpParams(pagesSort, !!search);
 
+  // ----- Categories (only used for posts tab) -----
+  const catsQuery = useQuery({
+    queryKey: wpKeys.categories(),
+    queryFn: () => wp.categories(),
+    staleTime: WP_STALE.taxonomy,
+    gcTime: WP_STALE.gc,
+  });
+  const activeCategory = category
+    ? catsQuery.data?.items.find((item) => item.id === category)
+    : undefined;
+  const cptEndpoint = resolveCategoryCptEndpoint(activeCategory);
+
   // ----- Posts (infinite) -----
   const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
-    queryKey: [...wpKeys.postsList({ scope: "library", search, category, perPage: PER_PAGE }), { sort }],
+    queryKey: [...wpKeys.postsList({ scope: "library", search, category, perPage: PER_PAGE, endpoint: cptEndpoint }), { sort }],
     queryFn: ({ pageParam = 1 }) =>
       wp.posts({
         page: pageParam as number,
         per_page: PER_PAGE,
         search: search || undefined,
         categories: category,
+        endpoint: cptEndpoint,
         orderby: postsSortParams.orderby,
         order: postsSortParams.order,
       }),
@@ -82,7 +97,7 @@ export default function Library() {
     initialPageParam: 1,
     staleTime: WP_STALE.list,
     gcTime: WP_STALE.gc,
-    enabled: tab === "posts",
+    enabled: tab === "posts" && (!category || !!catsQuery.data),
   });
 
   const postsPagination = useUrlPagination({
@@ -118,14 +133,6 @@ export default function Library() {
     isFetchingNextPage: pagesQuery.isFetchingNextPage,
     fetchNextPage: pagesQuery.fetchNextPage,
     source: "library_pages",
-  });
-
-  // ----- Categories (only used for posts tab) -----
-  const catsQuery = useQuery({
-    queryKey: wpKeys.categories(),
-    queryFn: () => wp.categories(),
-    staleTime: WP_STALE.taxonomy,
-    gcTime: WP_STALE.gc,
   });
 
   // Record the active category as a "recent visit" so MoreLikeThis can use
@@ -569,6 +576,7 @@ export default function Library() {
                     {visiblePosts.map((post) => {
                       const img = getFeaturedImage(post);
                       const cats = getCategories(post);
+                      const postHref = getWpPostHref(post.slug, cptEndpoint);
                       // Contextual inline CTA derived from the post's category — e.g. a
                       // "Meditation Scripts" post gets "Get the free script" instead of
                       // the generic "Read article". Keeps the link target on the post
@@ -576,7 +584,7 @@ export default function Library() {
                       const cta = getPostInlineCTA(post);
                       return (
                         <article key={post.id} className="group flex flex-col bg-card rounded-lg overflow-hidden border border-border shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-300">
-                          <Link to={`/${post.slug}`} className="block aspect-[16/10] bg-muted overflow-hidden">
+                          <Link to={postHref} className="block aspect-[16/10] bg-muted overflow-hidden">
                             {img ? (
                               <img src={img.url} alt={img.alt} loading="lazy" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" />
                             ) : (
@@ -589,16 +597,16 @@ export default function Library() {
                               <span>{formatDate(post.date)}</span>
                             </div>
                             <h2 className="text-card-heading text-foreground mb-2">
-                              <Link to={`/${post.slug}`} className="hover:text-primary transition-colors" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                              <Link to={postHref} className="hover:text-primary transition-colors" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
                             </h2>
                             <p className="text-body-sm text-muted-foreground line-clamp-3">{stripHtml(post.excerpt.rendered)}</p>
                             <div className="mt-4 flex items-center justify-between gap-3 pt-4 border-t border-border/60">
                               <Link
-                                to={cta.href ?? `/${post.slug}`}
+                                to={cta.href ?? postHref}
                                 onClick={() =>
                                   trackCtaClick({
                                     cta_label: cta.label,
-                                    cta_destination: cta.href ?? `/${post.slug}`,
+                                    cta_destination: cta.href ?? postHref,
                                     cta_location: "library_post_card",
                                     post_id: post.id,
                                     category_id: cta.matchedCategory?.id ?? cats[0]?.id,
@@ -613,11 +621,11 @@ export default function Library() {
                               </Link>
                               {cta.href && (
                                 <Link
-                                  to={`/${post.slug}`}
+                                  to={postHref}
                                   onClick={() =>
                                     trackCtaClick({
                                       cta_label: "Read article",
-                                      cta_destination: `/${post.slug}`,
+                                      cta_destination: postHref,
                                       cta_location: "library_post_card_secondary",
                                       post_id: post.id,
                                       category_id: cats[0]?.id,

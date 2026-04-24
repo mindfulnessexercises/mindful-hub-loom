@@ -9,7 +9,7 @@
  *      via RUN_LIVE_WP_TESTS=1 so CI/sandbox runs stay hermetic and fast.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { CATEGORY_CPT_ENDPOINT, CPT_URL_PARENT, URL_PARENT_TO_CPT_ENDPOINT, getCategoryCptEndpointById, getWpPostHref, wp } from "@/lib/wp";
+import { CATEGORY_CPT_ENDPOINT, CPT_PARENT_CATEGORY_ENDPOINT, CPT_URL_PARENT, URL_PARENT_TO_CPT_ENDPOINT, getCategoryCptEndpointById, getWpPostHref, resolveCategoryCptEndpoint, wp } from "@/lib/wp";
 import { resolveLegacyRedirect } from "@/lib/legacy-redirects";
 import { isReservedSlug } from "@/lib/reserved-slugs";
 import { mapWpPathToAppPath } from "@/lib/rewrite-wp-html";
@@ -58,6 +58,16 @@ describe("CATEGORY_CPT_ENDPOINT registry", () => {
     expect(getCategoryCptEndpointById(categories, 13431)).toBe("/wp/v2/downloads");
     expect(getCategoryCptEndpointById(categories, 42)).toBeUndefined();
     expect(getCategoryCptEndpointById(categories, undefined)).toBeUndefined();
+  });
+
+  it("resolves CPT endpoints for top-level and nested podcast/download categories", () => {
+    expect(resolveCategoryCptEndpoint({ slug: "podcast", parent: 0 })).toBe(CATEGORY_CPT_ENDPOINT.podcast);
+    expect(resolveCategoryCptEndpoint({ slug: "downloads", parent: 0 })).toBe(CATEGORY_CPT_ENDPOINT.downloads);
+    expect(resolveCategoryCptEndpoint({ slug: "guided-meditation", parent: 13273 }))
+      .toBe(CPT_PARENT_CATEGORY_ENDPOINT[13273]);
+    expect(resolveCategoryCptEndpoint({ slug: "worksheets", parent: 13431 }))
+      .toBe(CPT_PARENT_CATEGORY_ENDPOINT[13431]);
+    expect(resolveCategoryCptEndpoint({ slug: "blog", parent: 0 })).toBeUndefined();
   });
 });
 
