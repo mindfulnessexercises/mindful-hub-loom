@@ -7,6 +7,15 @@ interface SeoProps {
   ogImage?: string;
   type?: "article" | "website";
   jsonLd?: Record<string, unknown>;
+  /** Pagination link for the previous page in a series (rel="prev"). */
+  prevUrl?: string;
+  /** Pagination link for the next page in a series (rel="next"). */
+  nextUrl?: string;
+  /**
+   * Tell crawlers not to index this view (e.g. search result pages, filtered
+   * permutations, internal-only states). Defaults to false.
+   */
+  noindex?: boolean;
 }
 
 function setMeta(selector: string, attr: string, value: string) {
@@ -28,7 +37,35 @@ function setMeta(selector: string, attr: string, value: string) {
   el.setAttribute(attr, value);
 }
 
-export function WPSeo({ title, description, canonical, ogImage, type = "article", jsonLd }: SeoProps) {
+/** Remove a tag entirely if it exists. Use for tags that may be absent. */
+function removeMeta(selector: string) {
+  const el = document.head.querySelector(selector);
+  if (el) el.remove();
+}
+
+/**
+ * Set or remove a <link rel="prev|next"> tag. Google deprecated rel=prev/next
+ * as a strict ranking signal, but Bing and other crawlers still consume them
+ * for paginated series — and they're explicit, harmless hints to indicate the
+ * relationship between paginated pages.
+ */
+function setOrRemoveLinkRel(rel: "prev" | "next", href?: string) {
+  const selector = `link[rel="${rel}"]`;
+  if (href) setMeta(selector, "href", href);
+  else removeMeta(selector);
+}
+
+export function WPSeo({
+  title,
+  description,
+  canonical,
+  ogImage,
+  type = "article",
+  jsonLd,
+  prevUrl,
+  nextUrl,
+  noindex = false,
+}: SeoProps) {
   useEffect(() => {
     const prevTitle = document.title;
     document.title = title;
@@ -38,10 +75,24 @@ export function WPSeo({ title, description, canonical, ogImage, type = "article"
     setMeta('meta[property="og:description"]', "content", description);
     setMeta('meta[property="og:type"]', "content", type);
     if (ogImage) setMeta('meta[property="og:image"]', "content", ogImage);
-    if (canonical) setMeta('link[rel="canonical"]', "href", canonical);
+    if (canonical) {
+      setMeta('link[rel="canonical"]', "href", canonical);
+      setMeta('meta[property="og:url"]', "content", canonical);
+    }
     setMeta('meta[name="twitter:title"]', "content", title);
     setMeta('meta[name="twitter:description"]', "content", description);
     if (ogImage) setMeta('meta[name="twitter:image"]', "content", ogImage);
+
+    // Robots: only emit a tag when we actually want noindex; otherwise leave
+    // the document at its default (indexable) state and remove any stale tag.
+    if (noindex) {
+      setMeta('meta[name="robots"]', "content", "noindex, follow");
+    } else {
+      removeMeta('meta[name="robots"]');
+    }
+
+    setOrRemoveLinkRel("prev", prevUrl);
+    setOrRemoveLinkRel("next", nextUrl);
 
     let scriptEl: HTMLScriptElement | null = null;
     if (jsonLd) {
@@ -55,8 +106,12 @@ export function WPSeo({ title, description, canonical, ogImage, type = "article"
     return () => {
       document.title = prevTitle;
       if (scriptEl) scriptEl.remove();
+      // Clean up tags that may not be set on the next view.
+      removeMeta('link[rel="prev"]');
+      removeMeta('link[rel="next"]');
+      removeMeta('meta[name="robots"]');
     };
-  }, [title, description, canonical, ogImage, type, jsonLd]);
+  }, [title, description, canonical, ogImage, type, jsonLd, prevUrl, nextUrl, noindex]);
 
   return null;
 }

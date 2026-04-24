@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
+import { buildPaginatedSeo } from "@/lib/seo-pagination";
 
 const PER_PAGE = 100; // WordPress REST API maximum
 
@@ -80,14 +81,34 @@ export default function Blog() {
 
   const allPosts = postsQuery.data?.pages.flatMap((p) => p.items) ?? [];
   const total = postsQuery.data?.pages[0]?.total ?? 0;
+  const totalPages = postsQuery.data?.pages[0]?.totalPages ?? 1;
 
+  // SEO: canonical reflects current filters + page so each variant self-refs.
+  // Filtered views (search query or category) should NOT be indexed — they're
+  // user-driven permutations that would dilute the canonical /blog page.
+  const isFiltered = !!search || !!category;
+  const { canonical, prevUrl, nextUrl } = buildPaginatedSeo({
+    path: "/blog",
+    page: pageParam,
+    totalPages,
+    filters: { q: search || undefined, cat: category },
+  });
 
   return (
     <div className="min-h-screen bg-background">
       <WPSeo
-        title="Mindfulness Exercises Blog — Practices, Research & Teaching Insights"
+        title={
+          search
+            ? `Search "${search}" — Blog · Mindfulness Exercises`
+            : pageParam > 1
+              ? `Blog — Page ${pageParam} · Mindfulness Exercises`
+              : "Mindfulness Exercises Blog — Practices, Research & Teaching Insights"
+        }
         description="Browse 1,500+ articles on mindfulness exercises, meditation scripts, MBSR techniques, and teaching practice from Mindfulness Exercises."
-        canonical="https://mindfulnessexercises.com/blog"
+        canonical={canonical}
+        prevUrl={prevUrl}
+        nextUrl={nextUrl}
+        noindex={isFiltered}
         type="website"
       />
       <Navbar />

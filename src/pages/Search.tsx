@@ -89,6 +89,8 @@ export default function Search() {
       <WPSeo
         title={q ? `Search: ${q} — Mindfulness Exercises` : "Search Mindfulness Exercises"}
         description={`Search ${q ? `for "${q}" across ` : ""}1,500+ mindfulness exercises, articles, scripts, and resources from Mindfulness Exercises.`}
+        canonical="https://mindfulnessexercises.com/search"
+        noindex
         type="website"
       />
       <Navbar />
