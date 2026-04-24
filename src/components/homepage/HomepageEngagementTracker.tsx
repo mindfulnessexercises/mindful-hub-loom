@@ -80,54 +80,89 @@ export function HomepageEngagementTracker() {
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
 
-    // ─── Section impressions ───────────────────────────────────────
+    // ─── Section + CTA impressions ─────────────────────────────────
     let observer: IntersectionObserver | null = null;
     const dwellTimers = new Map<string, ReturnType<typeof setTimeout>>();
+    // Tracks which keys have already fired across BOTH section and CTA
+    // observers — keys are namespaced ("section:hero" vs "cta:ebook_form")
+    // so a section and a CTA can never collide.
+    const firedKeys = new Set<string>();
+    // Mirror to refs so strict-mode double-mounts don't double-fire.
+    firedSections.current.forEach((s) => firedKeys.add(`section:${s}`));
+
+    const fire = (
+      kind: "section" | "cta",
+      el: HTMLElement,
+      id: string,
+    ) => {
+      const key = `${kind}:${id}`;
+      if (firedKeys.has(key)) return;
+      firedKeys.add(key);
+      if (kind === "section") {
+        firedSections.current.add(id);
+        trackEvent("homepage_section_viewed", {
+          section_id: id,
+          section_label: el.dataset.trackSectionLabel ?? id,
+          section_index: Number(el.dataset.trackSectionIndex ?? -1),
+        });
+      } else {
+        trackEvent("homepage_cta_viewed", {
+          cta_id: id,
+          cta_label: el.dataset.trackCtaLabel ?? id,
+          cta_location: el.dataset.trackCtaLocation ?? "homepage",
+        });
+      }
+    };
+
     if (typeof IntersectionObserver !== "undefined") {
       const targets = Array.from(
-        document.querySelectorAll<HTMLElement>("[data-track-section]"),
+        document.querySelectorAll<HTMLElement>(
+          "[data-track-section], [data-track-cta]",
+        ),
       );
       observer = new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
             const el = entry.target as HTMLElement;
-            const id = el.dataset.trackSection;
-            if (!id || firedSections.current.has(id)) continue;
+            const kind: "section" | "cta" = el.dataset.trackCta ? "cta" : "section";
+            const id = (kind === "cta" ? el.dataset.trackCta : el.dataset.trackSection) ?? "";
+            if (!id) continue;
+            const key = `${kind}:${id}`;
+            if (firedKeys.has(key)) {
+              if (observer) observer.unobserve(el);
+              continue;
+            }
             const visible = entry.isIntersecting && entry.intersectionRatio >= IMPRESSION_THRESHOLD;
             if (visible) {
-              if (!dwellTimers.has(id)) {
+              if (!dwellTimers.has(key)) {
                 dwellTimers.set(
-                  id,
+                  key,
                   setTimeout(() => {
-                    if (firedSections.current.has(id)) return;
-                    firedSections.current.add(id);
-                    dwellTimers.delete(id);
-                    trackEvent("homepage_section_viewed", {
-                      section_id: id,
-                      section_label: el.dataset.trackSectionLabel ?? id,
-                      // Position helps rank sections by scroll order in reports.
-                      section_index: Number(el.dataset.trackSectionIndex ?? -1),
-                    });
+                    dwellTimers.delete(key);
+                    fire(kind, el, id);
                     if (observer) observer.unobserve(el);
                   }, IMPRESSION_DWELL_MS),
                 );
               }
             } else {
-              const t = dwellTimers.get(id);
+              const t = dwellTimers.get(key);
               if (t != null) {
                 clearTimeout(t);
-                dwellTimers.delete(id);
+                dwellTimers.delete(key);
               }
             }
           }
         },
         { threshold: [IMPRESSION_THRESHOLD] },
       );
-      // Assign an ordinal index by document order for reporting convenience.
+      // Assign an ordinal index by document order for sections only.
       targets.forEach((el, i) => {
-        if (el.dataset.trackSectionIndex == null) {
+        if (el.dataset.trackSection && el.dataset.trackSectionIndex == null) {
           el.dataset.trackSectionIndex = String(i);
         }
+        observer!.observe(el);
+      });
+    }
         observer!.observe(el);
       });
     }
