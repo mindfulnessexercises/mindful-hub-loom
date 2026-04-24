@@ -1,27 +1,34 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { Search, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { Search, ArrowRight, Loader2 } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
-import { wp, getFeaturedImage, getCategories, stripHtml, formatDate } from "@/lib/wp";
+import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
 import { WPSeo } from "@/components/wp/WPSeo";
+
+const PER_PAGE = 24;
 
 export default function Blog() {
   const [params, setParams] = useSearchParams();
-  const page = Number(params.get("page") ?? "1");
   const search = params.get("q") ?? "";
   const categoryParam = params.get("cat");
   const category = categoryParam ? Number(categoryParam) : undefined;
   const [searchInput, setSearchInput] = useState(search);
 
-  const postsQuery = useQuery({
-    queryKey: ["wp-posts", page, search, category],
-    queryFn: () => wp.posts({ page, per_page: 12, search: search || undefined, categories: category }),
+  const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
+    queryKey: ["wp-posts", search, category],
+    queryFn: ({ pageParam = 1 }) =>
+      wp.posts({ page: pageParam as number, per_page: PER_PAGE, search: search || undefined, categories: category }),
+    getNextPageParam: (lastPage, all) => {
+      const next = all.length + 1;
+      return next <= lastPage.totalPages ? next : undefined;
+    },
+    initialPageParam: 1,
     staleTime: 5 * 60 * 1000,
   });
 
@@ -34,7 +41,6 @@ export default function Blog() {
   const updateParam = (key: string, value?: string) => {
     const next = new URLSearchParams(params);
     if (value) next.set(key, value); else next.delete(key);
-    if (key !== "page") next.delete("page");
     setParams(next);
   };
 
@@ -43,15 +49,15 @@ export default function Blog() {
     updateParam("q", searchInput.trim() || undefined);
   };
 
-  const totalPages = postsQuery.data?.totalPages ?? 1;
-  const total = postsQuery.data?.total ?? 0;
+  const allPosts = postsQuery.data?.pages.flatMap((p) => p.items) ?? [];
+  const total = postsQuery.data?.pages[0]?.total ?? 0;
 
   return (
     <div className="min-h-screen bg-background">
       <WPSeo
         title="Mindfulness Exercises Blog — Practices, Research & Teaching Insights"
-        description="Browse 1,200+ articles on mindfulness exercises, meditation scripts, MBSR techniques, and teaching practice from Mindfulness Exercises."
-        canonical={`https://mindfulnessexercises.com/blog${page > 1 ? `?page=${page}` : ""}`}
+        description="Browse 1,500+ articles on mindfulness exercises, meditation scripts, MBSR techniques, and teaching practice from Mindfulness Exercises."
+        canonical="https://mindfulnessexercises.com/blog"
         type="website"
       />
       <Navbar />
@@ -95,7 +101,7 @@ export default function Blog() {
                 >
                   All
                 </button>
-                {catsQuery.data.items.slice(0, 12).map((c) => (
+                {catsQuery.data.items.slice(0, 16).map((c) => (
                   <button
                     key={c.id}
                     onClick={() => updateParam("cat", String(c.id))}
@@ -130,73 +136,72 @@ export default function Blog() {
             <p className="text-center text-muted-foreground py-12">Could not load articles. Please try again.</p>
           )}
 
-          {postsQuery.data && postsQuery.data.items.length === 0 && (
+          {!postsQuery.isLoading && allPosts.length === 0 && (
             <p className="text-center text-muted-foreground py-12">No articles found.</p>
           )}
 
-          {postsQuery.data && postsQuery.data.items.length > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {postsQuery.data.items.map((post) => {
-                const img = getFeaturedImage(post);
-                const cats = getCategories(post);
-                return (
-                  <article key={post.id} className="group flex flex-col bg-card rounded-lg overflow-hidden border border-border shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-300">
-                    <Link to={`/blog/${post.slug}`} className="block aspect-[16/10] bg-muted overflow-hidden">
-                      {img ? (
-                        <img
-                          src={img.url}
-                          alt={img.alt}
-                          loading="lazy"
-                          className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-[hsl(var(--accent))]" />
-                      )}
-                    </Link>
-                    <div className="p-5 flex flex-col flex-1">
-                      <div className="flex items-center gap-2 text-caption text-muted-foreground mb-2">
-                        {cats[0] && <Badge variant="secondary" className="font-medium">{cats[0].name}</Badge>}
-                        <span>{formatDate(post.date)}</span>
-                      </div>
-                      <h2 className="text-card-heading text-foreground mb-2">
-                        <Link to={`/blog/${post.slug}`} className="hover:text-primary transition-colors" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-                      </h2>
-                      <p className="text-body-sm text-muted-foreground line-clamp-3">
-                        {stripHtml(post.excerpt.rendered)}
-                      </p>
-                      <Link to={`/blog/${post.slug}`} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all">
-                        Read article <ArrowRight className="h-3.5 w-3.5" />
+          {allPosts.length > 0 && (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                {allPosts.map((post) => {
+                  const img = getFeaturedImage(post);
+                  const cats = getCategories(post);
+                  return (
+                    <article key={post.id} className="group flex flex-col bg-card rounded-lg overflow-hidden border border-border shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-300">
+                      <Link to={`/${post.slug}`} className="block aspect-[16/10] bg-muted overflow-hidden">
+                        {img ? (
+                          <img
+                            src={img.url}
+                            alt={img.alt}
+                            loading="lazy"
+                            className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-[hsl(var(--accent))]" />
+                        )}
                       </Link>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          )}
+                      <div className="p-5 flex flex-col flex-1">
+                        <div className="flex items-center gap-2 text-caption text-muted-foreground mb-2">
+                          {cats[0] && <Badge variant="secondary" className="font-medium">{cats[0].name}</Badge>}
+                          <span>{formatDate(post.date)}</span>
+                        </div>
+                        <h2 className="text-card-heading text-foreground mb-2">
+                          <Link to={`/${post.slug}`} className="hover:text-primary transition-colors" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                        </h2>
+                        <p className="text-body-sm text-muted-foreground line-clamp-3">
+                          {stripHtml(post.excerpt.rendered)}
+                        </p>
+                        <Link to={`/${post.slug}`} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all">
+                          Read article <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
 
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <nav className="mt-12 flex items-center justify-center gap-2" aria-label="Pagination">
-              <Button
-                variant="outline"
-                size="sm"
-                disabled={page <= 1}
-                onClick={() => updateParam("page", String(page - 1))}
-              >
-                <ChevronLeft className="h-4 w-4" /> Previous
-              </Button>
-              <span className="text-body-sm text-muted-foreground px-4">
-                Page {page} of {totalPages}
-              </span>
-              <Button
-                variant="outline"
-                size="sm"
-                disabled={page >= totalPages}
-                onClick={() => updateParam("page", String(page + 1))}
-              >
-                Next <ChevronRight className="h-4 w-4" />
-              </Button>
-            </nav>
+              {/* Load more */}
+              <div className="mt-12 flex flex-col items-center gap-3">
+                <p className="text-body-sm text-muted-foreground">
+                  Showing {allPosts.length.toLocaleString()} of {total.toLocaleString()}
+                </p>
+                {postsQuery.hasNextPage && (
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="h-11 min-w-[200px]"
+                    onClick={() => postsQuery.fetchNextPage()}
+                    disabled={postsQuery.isFetchingNextPage}
+                  >
+                    {postsQuery.isFetchingNextPage ? (
+                      <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Loading…</>
+                    ) : (
+                      <>Load more articles</>
+                    )}
+                  </Button>
+                )}
+              </div>
+            </>
           )}
         </section>
       </main>
