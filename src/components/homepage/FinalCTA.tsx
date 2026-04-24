@@ -14,10 +14,10 @@ export function FinalCTA() {
         className="text-center max-w-2xl mx-auto"
       >
         <h2 className="text-section-heading text-primary-foreground mb-4">
-          Start practicing today — or take your career further
+          Practice today — or get certified to teach mindfulness
         </h2>
         <p className="text-body-lg text-primary-foreground/80 mb-8">
-          Free guided practices for personal use. APA-approved certification programs for professionals ready to teach. Choose the path that fits.
+          Explore 3,000+ free mindfulness exercises for personal practice, or enroll in our APA-approved Mindfulness Teacher Certification. Choose the path that fits.
         </p>
 
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
@@ -26,8 +26,8 @@ export function FinalCTA() {
             className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8 min-h-[44px] h-12 text-sm font-semibold shadow-md"
             asChild
           >
-            <a href="#certification">
-              View Certification Programs
+            <a href="https://certify.mindfulnessexercises.com/" target="_blank" rel="noopener">
+              Get Certified to Teach Mindfulness
               <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
             </a>
           </Button>
@@ -38,7 +38,7 @@ export function FinalCTA() {
             asChild
           >
             <a href="#resources">
-              Browse Free Practices
+              Browse Free Mindfulness Exercises
             </a>
           </Button>
         </div>
