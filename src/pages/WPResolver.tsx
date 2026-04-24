@@ -33,6 +33,10 @@ import { ShareBar } from "@/components/wp/ShareBar";
 import { AuthorCard } from "@/components/wp/AuthorCard";
 import { RelatedPosts } from "@/components/wp/RelatedPosts";
 import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
+import {
+  getTemplateConfig,
+  HERO_DENSITY_CLASS,
+} from "@/lib/wp-template-config";
 
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
@@ -121,6 +125,9 @@ export default function WPResolver() {
   const cats = kind === "post" ? getCategories(doc) : [];
   const primaryCategory = cats[0];
   const author = kind === "post" ? getAuthor(doc) : null;
+  const templateKind: "page" | "post" | "podcast" =
+    kind === "page" ? "page" : isPodcastEpisode ? "podcast" : "post";
+  const tpl = getTemplateConfig(doc.slug, templateKind);
   const canonicalSlugPath = cptEndpoint
     ? `/${CPT_URL_PARENT[cptEndpoint]}/${doc.slug}`
     : `/${doc.slug}`;
@@ -187,7 +194,7 @@ export default function WPResolver() {
           {/* Hero: breadcrumbs, title, byline. No featured image inside the
               header — it slots in below so the eye lands on the title first. */}
           <header className="border-b border-border bg-[hsl(var(--section-alternate))]">
-            <div className="container mx-auto max-w-3xl py-6 lg:py-8">
+            <div className={`container mx-auto max-w-3xl ${HERO_DENSITY_CLASS[tpl.heroDensity]}`}>
               <div className="mb-5">
                 <WPBreadcrumbs items={breadcrumbItems} />
               </div>
@@ -255,37 +262,49 @@ export default function WPResolver() {
             </div>
           </header>
 
-          {img && (() => {
-            // Treat small or near-square images (logos, icons, portraits) as
-            // "decorative" — render at natural size, centered, no forced crop.
-            // Only true wide editorial photos get the 16:9 hero treatment.
+          {img && tpl.featuredImage !== "hidden" && (() => {
             const w = img.width ?? 0;
             const h = img.height ?? 0;
             const ratio = w && h ? w / h : 0;
-            const isWideHero = w >= 1000 && ratio >= 1.4;
-            if (!isWideHero) {
-              // Compact inline image — capped, centered, no empty space.
+            // Logo-like = small or near-square. When autoDetectLogo is on,
+            // downgrade `hero` placement to `inline` so we don't get a giant
+            // empty band around a square logo.
+            const isLogoLike = !w || !h || w < 1000 || ratio < 1.4;
+            const placement =
+              tpl.featuredImage === "hero" && tpl.autoDetectLogo && isLogoLike
+                ? "inline"
+                : tpl.featuredImage;
+
+            if (placement === "hero") {
               return (
-                <div className="container mx-auto max-w-3xl mt-8 flex justify-center">
+                <div className="container mx-auto max-w-4xl">
                   <img
                     src={img.url}
                     alt={img.alt}
-                    width={w || undefined}
-                    height={h || undefined}
-                    className="max-h-64 w-auto object-contain rounded-md"
+                    width={w}
+                    height={h}
+                    className="w-full aspect-[16/9] object-cover rounded-lg shadow-[var(--shadow-lg)] mt-8"
                     loading="eager"
                   />
                 </div>
               );
             }
+            // inline / header-icon both render as a centered, capped image.
+            // header-icon uses tighter spacing so it sits closer to the title.
+            const isIcon = placement === "header-icon";
             return (
-              <div className="container mx-auto max-w-4xl">
+              <div
+                className={`container mx-auto max-w-3xl flex justify-center ${
+                  isIcon ? "mt-2" : "mt-6"
+                }`}
+              >
                 <img
                   src={img.url}
                   alt={img.alt}
-                  width={w}
-                  height={h}
-                  className="w-full aspect-[16/9] object-cover rounded-lg shadow-[var(--shadow-lg)] mt-8"
+                  width={w || undefined}
+                  height={h || undefined}
+                  style={{ maxHeight: tpl.featuredMaxHeightPx }}
+                  className="w-auto object-contain rounded-md"
                   loading="eager"
                 />
               </div>
@@ -293,7 +312,7 @@ export default function WPResolver() {
           })()}
 
           {/* Two-column body: sticky TOC on lg+, content + share rail. */}
-          <div className="container mx-auto max-w-6xl py-10 lg:py-14">
+          <div className={`container mx-auto max-w-6xl ${tpl.heroDensity === "compact" ? "py-6 lg:py-10" : "py-10 lg:py-14"}`}>
             <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-12 xl:gap-16">
               <div className="max-w-3xl mx-auto lg:mx-0 w-full min-w-0">
                 {audioSrc && (
