@@ -58,7 +58,7 @@ export const wp = {
     wpFetch<WPPost>("/wp/v2/posts", { _embed: 1, per_page: 12, ...params }),
   postBySlug: (slug: string) =>
     wpFetch<WPPost>("/wp/v2/posts", { slug, _embed: 1, per_page: 1 }).then((r) => r.items[0] ?? null),
-  pages: (params: { page?: number; per_page?: number } = {}) =>
+  pages: (params: { page?: number; per_page?: number; search?: string } = {}) =>
     wpFetch<WPPage>("/wp/v2/pages", { per_page: 100, ...params }),
   pageBySlug: (slug: string) =>
     wpFetch<WPPage>("/wp/v2/pages", { slug, _embed: 1, per_page: 1 }).then((r) => r.items[0] ?? null),

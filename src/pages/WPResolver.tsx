@@ -14,7 +14,7 @@ import { Badge } from "@/components/ui/badge";
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 // Routes handled elsewhere — never resolve them as WP content.
-const RESERVED = new Set(["", "blog", "ce-policies"]);
+const RESERVED = new Set(["", "blog", "ce-policies", "search"]);
 
 export default function WPResolver() {
   const { slug = "" } = useParams();

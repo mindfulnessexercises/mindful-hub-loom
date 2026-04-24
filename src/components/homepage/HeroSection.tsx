@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Users, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
 import seanSpeaking from "@/assets/sean-fargo-speaking.jpg";
+import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
 
 export function HeroSection() {
   return (
@@ -77,10 +78,23 @@ export function HeroSection() {
               </Button>
             </motion.div>
 
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.24 }}
+              className="mt-6 max-w-lg"
+            >
+              <SiteSearchBar
+                size="md"
+                placeholder="Search 1,500+ articles & resources…"
+                buttonLabel="Search"
+              />
+            </motion.div>
+
             <motion.a
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.28 }}
+              transition={{ duration: 0.5, delay: 0.32 }}
               href="#events"
               className="inline-block mt-3.5 text-body-sm text-muted-foreground hover:text-foreground underline underline-offset-4 decoration-muted-foreground/40 hover:decoration-foreground/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm py-1"
             >
