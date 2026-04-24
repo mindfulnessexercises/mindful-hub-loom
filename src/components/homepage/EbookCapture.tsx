@@ -3,6 +3,7 @@ import { Check, ArrowRight, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SectionWrapper } from "./SectionWrapper";
+import { trackCtaClick, trackEvent } from "@/lib/analytics";
 import ebookCover from "@/assets/ebook-cover.jpg";
 
 export function EbookCapture() {
