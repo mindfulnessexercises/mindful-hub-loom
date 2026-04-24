@@ -53,6 +53,10 @@ const App = () => (
             <Route path="/library" element={<Library />} />
             <Route path="/search" element={<Search />} />
             <Route path="/category/:slug" element={<Category />} />
+            {/* Legacy WP section landings — render the Category page directly so
+                the app URL matches the WordPress URL (no /category/ prefix). */}
+            <Route path="/podcast" element={<Category sectionSlug="podcast" />} />
+            <Route path="/downloads" element={<Category sectionSlug="downloads" />} />
             {/* Admin/internal — public route per product decision; noindex via meta */}
             <Route path="/admin/analytics" element={<AdminAnalytics />} />
             <Route path="/admin/cta-qa" element={<AdminCtaQA />} />
