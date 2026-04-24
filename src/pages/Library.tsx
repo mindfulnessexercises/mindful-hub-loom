@@ -25,6 +25,7 @@ import {
   type PaginatedResult,
 } from "@/lib/wp";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
+import { getPostInlineCTA, getPageInlineCTA } from "@/lib/library-cta";
 import { useUrlPagination } from "@/hooks/use-url-pagination";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { buildPaginatedSeo } from "@/lib/seo-pagination";
