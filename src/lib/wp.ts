@@ -98,6 +98,20 @@ export const wp = {
   },
   postBySlug: (slug: string, cache: CacheOptions = {}) =>
     wpFetch<WPPost>("/wp/v2/posts", { slug, _embed: 1, per_page: 1 }, cache).then((r) => r.items[0] ?? null),
+  /**
+   * Look up a single CPT entry by slug from an arbitrary REST endpoint
+   * (e.g. /wp/v2/podcast-episodes). Returns null on 404 so callers can fall
+   * through to the next lookup. Used by WPResolver to support nested URLs
+   * like /podcast-episodes/<slug> and /downloads/<slug>.
+   */
+  cptBySlug: async (endpoint: string, slug: string, cache: CacheOptions = {}) => {
+    try {
+      const r = await wpFetch<WPPost>(endpoint, { slug, _embed: 1, per_page: 1 }, cache);
+      return r.items[0] ?? null;
+    } catch {
+      return null;
+    }
+  },
   pages: (params: PagesParams = {}, cache: CacheOptions = {}) =>
     wpFetch<WPPage>("/wp/v2/pages", { per_page: 100, ...params }, cache),
   pageBySlug: (slug: string, cache: CacheOptions = {}) =>
@@ -119,6 +133,27 @@ export const CATEGORY_CPT_ENDPOINT: Record<string, string> = {
   podcast: "/wp/v2/podcast-episodes",
   downloads: "/wp/v2/downloads",
 };
+
+/**
+ * Map of URL parent segment → REST endpoint for nested permalinks like
+ * /podcast-episodes/<slug>, /downloads/<slug>. Used by WPResolver to look up
+ * the correct CPT when resolving a nested URL, and by Category.tsx to build
+ * the in-app link for a CPT entry surfaced in a category listing.
+ *
+ * Example: a card in /category/podcast knows the slug lives at
+ * /podcast-episodes/<slug>, not /<slug>, because `podcast` resolves to the
+ * `/wp/v2/podcast-episodes` endpoint and the URL parent for that endpoint is
+ * `podcast-episodes`.
+ */
+export const CPT_URL_PARENT: Record<string, string> = {
+  "/wp/v2/podcast-episodes": "podcast-episodes",
+  "/wp/v2/downloads": "downloads",
+};
+
+export const URL_PARENT_TO_CPT_ENDPOINT: Record<string, string> = Object.fromEntries(
+  Object.entries(CPT_URL_PARENT).map(([endpoint, parent]) => [parent, endpoint]),
+);
+
 
 
 // Common TTL presets (seconds)

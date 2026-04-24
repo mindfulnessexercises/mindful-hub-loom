@@ -6,7 +6,7 @@ import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { wp, getFeaturedImage, getCategories, getAuthor, stripHtml, formatDate } from "@/lib/wp";
+import { wp, getFeaturedImage, getCategories, getAuthor, stripHtml, formatDate, URL_PARENT_TO_CPT_ENDPOINT } from "@/lib/wp";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
 import NotFound from "./NotFound";
@@ -26,13 +26,24 @@ export default function WPResolver() {
   const rawPath = (params["*"] ?? params.slug ?? "").replace(/\/+$/, "");
   const segments = rawPath.split("/").filter(Boolean);
   const slug = segments[segments.length - 1] ?? "";
+  // For nested URLs the parent segment tells us which CPT endpoint to try.
+  // e.g. /podcast-episodes/<slug> → /wp/v2/podcast-episodes; /downloads/<slug>
+  // → /wp/v2/downloads. Single-segment URLs have no parent.
+  const parent = segments.length > 1 ? segments[segments.length - 2] : "";
+  const cptEndpoint = URL_PARENT_TO_CPT_ENDPOINT[parent];
   const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement | null>(null);
 
-  // Try post first, then page (this matches WordPress's own URL resolution).
+  // Resolution order: CPT (if URL parent maps to one) → post → page. Matches
+  // WordPress's own permalink resolution while extending it to surface CPT
+  // entries (podcast episodes, downloads) under their nested URLs.
   const query = useQuery({
-    queryKey: wpKeys.resolveSlug(slug),
+    queryKey: [...wpKeys.resolveSlug(slug), cptEndpoint ?? ""],
     queryFn: async () => {
+      if (cptEndpoint) {
+        const cpt = await wp.cptBySlug(cptEndpoint, slug);
+        if (cpt) return { kind: "post" as const, data: cpt };
+      }
       const post = await wp.postBySlug(slug);
       if (post) return { kind: "post" as const, data: post };
       const page = await wp.pageBySlug(slug);

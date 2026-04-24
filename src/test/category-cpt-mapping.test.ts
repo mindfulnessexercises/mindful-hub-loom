@@ -9,7 +9,10 @@
  *      via RUN_LIVE_WP_TESTS=1 so CI/sandbox runs stay hermetic and fast.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { CATEGORY_CPT_ENDPOINT, wp } from "@/lib/wp";
+import { CATEGORY_CPT_ENDPOINT, CPT_URL_PARENT, URL_PARENT_TO_CPT_ENDPOINT, wp } from "@/lib/wp";
+import { resolveLegacyRedirect } from "@/lib/legacy-redirects";
+import { isReservedSlug } from "@/lib/reserved-slugs";
+import { mapWpPathToAppPath } from "@/lib/rewrite-wp-html";
 
 const LIVE = process.env.RUN_LIVE_WP_TESTS === "1";
 const WP_ORIGIN = "https://mindfulnessexercises.com";
@@ -113,4 +116,52 @@ describe.skipIf(!LIVE)("live WP REST returns non-empty results per CPT mapping",
     },
     20_000,
   );
+});
+
+// ---------------------------------------------------------------------------
+// Section landing redirects: visiting /podcast or /downloads must NOT load the
+// stale legacy WP page — they must redirect to /category/<slug> instead.
+// ---------------------------------------------------------------------------
+describe("section landing slugs route to category pages", () => {
+  it.each([
+    { from: "/podcast", to: "/category/podcast" },
+    { from: "/downloads", to: "/category/downloads" },
+  ])("redirects $from → $to", ({ from, to }) => {
+    const hit = resolveLegacyRedirect(from);
+    expect(hit).not.toBeNull();
+    expect(hit?.target).toBe(to);
+    expect(hit?.external).toBe(false);
+    expect(hit?.rule).toBe("section_landing_to_category");
+  });
+
+  it("treats podcast and downloads as reserved so WPResolver short-circuits", () => {
+    // Belt-and-suspenders: even if a navigation happens before useLegacyRedirects
+    // fires, WPResolver must not fetch the WP page with that slug.
+    expect(isReservedSlug("podcast")).toBe(true);
+    expect(isReservedSlug("downloads")).toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// CPT URL parent registry: ensures podcast episodes / downloads keep clean
+// in-app URLs and that legacy WP body links to those URLs get rewritten.
+// ---------------------------------------------------------------------------
+describe("CPT_URL_PARENT registry", () => {
+  it("maps each CPT endpoint to a URL parent and back", () => {
+    expect(CPT_URL_PARENT[CATEGORY_CPT_ENDPOINT.podcast]).toBe("podcast-episodes");
+    expect(CPT_URL_PARENT[CATEGORY_CPT_ENDPOINT.downloads]).toBe("downloads");
+    // Round-trip: parent → endpoint → parent.
+    for (const [endpoint, parent] of Object.entries(CPT_URL_PARENT)) {
+      expect(URL_PARENT_TO_CPT_ENDPOINT[parent]).toBe(endpoint);
+    }
+  });
+
+  it("rewrites legacy CPT permalinks to in-app paths in WP body HTML", () => {
+    expect(mapWpPathToAppPath("/podcast-episodes/the-dharma-of-healing-with-justin-michelson"))
+      .toBe("/podcast-episodes/the-dharma-of-healing-with-justin-michelson");
+    expect(mapWpPathToAppPath("/downloads/some-pdf-resource"))
+      .toBe("/downloads/some-pdf-resource");
+    // Sanity: unknown nested paths still left external.
+    expect(mapWpPathToAppPath("/something/unknown/nested")).toBeNull();
+  });
 });

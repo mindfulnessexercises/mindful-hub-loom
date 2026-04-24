@@ -11,6 +11,11 @@ export const RESERVED_SLUGS = [
   "category",    // /category/:slug landing pages
   "library",     // /library browse-all index
   "admin",       // /admin/* internal pages (analytics dashboard etc.)
+  // Legacy WP "section landing" slugs whose pages are hand-built archives
+  // pointing to outdated content + external links. We redirect /podcast and
+  // /downloads to /category/<slug> so the WP resolver never serves them.
+  "podcast",
+  "downloads",
 ] as const;
 
 export const RESERVED_SLUG_SET: ReadonlySet<string> = new Set(RESERVED_SLUGS);

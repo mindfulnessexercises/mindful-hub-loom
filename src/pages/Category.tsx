@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { LoadMoreSection, PostCardSkeletonGrid } from "@/components/wp/LoadMoreSection";
-import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult, CATEGORY_CPT_ENDPOINT } from "@/lib/wp";
+import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult, CATEGORY_CPT_ENDPOINT, CPT_URL_PARENT } from "@/lib/wp";
 import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
@@ -80,6 +80,12 @@ export default function Category() {
   const total = postsQuery.data?.pages[0]?.total ?? cat.count;
   const totalPages = postsQuery.data?.pages[0]?.totalPages ?? 1;
   const { query: filterQuery, setQuery: setFilterQuery, filtered: visiblePosts } = useClientPostFilter(allPosts);
+  // CPT entries (podcast episodes, downloads) live at nested URLs like
+  // /podcast-episodes/<slug>; default posts live at /<slug>. WPResolver
+  // handles both, but we have to point the card at the right path.
+  const urlParent = cptEndpoint ? CPT_URL_PARENT[cptEndpoint] : "";
+  const postHref = (postSlug: string) =>
+    urlParent ? `/${urlParent}/${postSlug}` : `/${postSlug}`;
   const description = cat.description
     ? stripHtml(cat.description)
     : `Browse ${cat.count.toLocaleString()} mindfulness exercises and articles in the ${cat.name} category from Mindfulness Exercises.`;
@@ -163,7 +169,7 @@ export default function Category() {
                   const cats = getCategories(post);
                   return (
                     <article key={post.id} className="group flex flex-col bg-card rounded-lg overflow-hidden border border-border shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-300">
-                      <Link to={`/${post.slug}`} className="block aspect-[16/10] bg-muted overflow-hidden">
+                      <Link to={postHref(post.slug)} className="block aspect-[16/10] bg-muted overflow-hidden">
                         {img ? (
                           <img src={img.url} alt={img.alt} loading="lazy" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" />
                         ) : (
@@ -176,7 +182,7 @@ export default function Category() {
                           <span>{formatDate(post.date)}</span>
                         </div>
                         <h2 className="text-card-heading text-foreground mb-2">
-                          <Link to={`/${post.slug}`} className="hover:text-primary transition-colors" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                          <Link to={postHref(post.slug)} className="hover:text-primary transition-colors" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
                         </h2>
                         <p className="text-body-sm text-muted-foreground line-clamp-3">{stripHtml(post.excerpt.rendered)}</p>
                       </div>

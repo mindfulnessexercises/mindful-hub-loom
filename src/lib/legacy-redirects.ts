@@ -41,7 +41,12 @@ export interface LegacyRedirect {
  *   "/old-about-us": { target: "/about", external: false, rule: "manual" }
  */
 const EXPLICIT_REDIRECTS: Record<string, LegacyRedirect> = {
-  // Add per-path overrides here as you discover them.
+  // Legacy WordPress section landings: the WP "Podcast" page (slug `podcast`)
+  // and "Downloads" page are hand-built archives with stale episode lists and
+  // hard-coded mindfulnessexercises.com links. The category pages render the
+  // live CPT contents instead, so always send these slugs there.
+  "/podcast": { target: "/category/podcast", external: false, rule: "section_landing_to_category" },
+  "/downloads": { target: "/category/downloads", external: false, rule: "section_landing_to_category" },
 };
 
 interface PatternRule {
