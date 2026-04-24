@@ -357,19 +357,12 @@ export default function Library() {
                         All categories
                       </button>
                       {visibleCats.map((c) => (
-                        <button
+                        <CategoryChip
                           key={c.id}
-                          role="tab"
-                          aria-selected={category === c.id}
-                          onClick={() => updateParam("cat", String(c.id))}
-                          className={`shrink-0 text-xs font-medium px-3 py-2 min-h-[36px] rounded-full border transition-colors ${
-                            category === c.id
-                              ? "bg-primary text-primary-foreground border-primary"
-                              : "bg-card text-muted-foreground border-border hover:text-foreground"
-                          }`}
-                        >
-                          {c.name} <span className="opacity-60 ml-1">({c.count})</span>
-                        </button>
+                          cat={c}
+                          active={category === c.id}
+                          onSelect={(id) => updateParam("cat", String(id))}
+                        />
                       ))}
                     </div>
 
