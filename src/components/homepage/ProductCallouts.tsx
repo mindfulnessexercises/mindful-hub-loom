@@ -244,16 +244,26 @@ export function ProductCallouts() {
               <ProofList icon={Award} label="What you'll achieve" items={p.proof.outcomes} />
               <ProofList icon={FileText} label="What's included" items={p.proof.details} />
 
-              <figure className="border-l-2 border-primary/40 pl-4 mt-1">
-                <Quote className="h-4 w-4 text-primary/50 mb-1.5" aria-hidden="true" />
-                <blockquote className="text-body-sm text-foreground/85 italic leading-relaxed">
-                  “{p.proof.review.quote}”
-                </blockquote>
-                <figcaption className="mt-2 text-caption text-muted-foreground">
-                  <span className="font-medium text-foreground/80">{p.proof.review.author}</span>
-                  <span className="mx-1.5">·</span>
-                  {p.proof.review.role}
-                </figcaption>
+              <figure className="flex gap-3 border-l-2 border-primary/40 pl-4 mt-1">
+                {p.proof.review.image && (
+                  <img
+                    src={p.proof.review.image}
+                    alt={`Portrait of ${p.proof.review.author}`}
+                    loading="lazy"
+                    className="w-14 h-14 rounded-full object-cover bg-muted shrink-0"
+                  />
+                )}
+                <div className="flex-1 min-w-0">
+                  <Quote className="h-4 w-4 text-primary/50 mb-1.5" aria-hidden="true" />
+                  <blockquote className="text-body-sm text-foreground/85 italic leading-relaxed">
+                    “{p.proof.review.quote}”
+                  </blockquote>
+                  <figcaption className="mt-2 text-caption text-muted-foreground">
+                    <span className="font-medium text-foreground/80">{p.proof.review.author}</span>
+                    <span className="mx-1.5">·</span>
+                    {p.proof.review.role}
+                  </figcaption>
+                </div>
               </figure>
             </div>
           </motion.article>
