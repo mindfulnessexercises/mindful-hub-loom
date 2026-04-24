@@ -188,6 +188,12 @@ export default function Library() {
         </section>
 
         <section className="container mx-auto py-12 lg:py-16">
+          <BrowseByCategory
+            embedded
+            limit={8}
+            eyebrow="Jump to a topic"
+            title="Browse by category"
+          />
           <Tabs value={tab} onValueChange={onTabChange}>
             <TabsList className="mb-8 h-auto p-1">
               <TabsTrigger value="posts" className="gap-2 px-4 py-2 min-h-[44px]">
