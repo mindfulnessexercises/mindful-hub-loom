@@ -245,8 +245,18 @@ export default function AdminAnalytics() {
     };
   }, [range, refreshKey]);
 
+  // Apply match_source segmentation to CTA click events. Non-click events
+  // (signups, upstream intent) are kept as-is so conversion math stays honest.
+  const filteredRows = useMemo(() => {
+    if (matchSource === "all" || rows == null) return rows ?? [];
+    return rows.filter((r) => {
+      if (r.name !== "cta_clicked") return true;
+      return getMatchSource(r) === matchSource;
+    });
+  }, [rows, matchSource]);
+
   const headline = useMemo(() => {
-    const data = rows ?? [];
+    const data = filteredRows;
     const counts = {
       clicks: 0,
       submitted: 0,
