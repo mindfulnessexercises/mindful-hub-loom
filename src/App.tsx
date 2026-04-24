@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound.tsx";
 
 const CEPolicies = lazy(() => import("./pages/CEPolicies.tsx"));
 const Blog = lazy(() => import("./pages/Blog.tsx"));
+const Search = lazy(() => import("./pages/Search.tsx"));
 const WPResolver = lazy(() => import("./pages/WPResolver.tsx"));
 
 const queryClient = new QueryClient({
