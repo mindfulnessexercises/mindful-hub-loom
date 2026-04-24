@@ -74,9 +74,9 @@ export function Footer() {
           </p>
           <nav aria-label="Legal links" className="flex items-center gap-6">
             {[
-              { label: "Privacy Policy", href: "#" },
-              { label: "Terms of Service", href: "#" },
-              { label: "Accessibility", href: "#" },
+              { label: "Privacy Policy", href: "/privacy-policy" },
+              { label: "Terms & Conditions", href: "/terms-conditions" },
+              { label: "Feedback", href: "/feedback" },
             ].map((link) => (
               <a
                 key={link.label}
