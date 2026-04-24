@@ -1,28 +1,89 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, Users, FileText, Award, Quote } from "lucide-react";
 import { SectionWrapper, SectionHeader } from "./SectionWrapper";
 
 /*
-  Intent-based callouts — each card opens with the visitor's *goal*
-  (verb-led question), then routes to the correct paid landing page.
-  Distinct from MoreWaysToGrow (which is product-led) by leading with intent.
+  Intent-led callouts with a proof block directly under each CTA.
+  Proof = audience, outcomes, curriculum/licensing details, and a real
+  testimonial sourced from each product's landing page.
+  Cert is featured (98% of revenue) and shown wider/first.
 */
-const callouts = [
+type Product = {
+  intent: string;
+  label: string;
+  description: string;
+  href: string;
+  cta: string;
+  proof: {
+    audience: string[];
+    outcomes: string[];
+    details: string[];
+    review: { quote: string; author: string; role: string };
+  };
+  featured?: boolean;
+};
+
+const products: Product[] = [
   {
     intent: "I want to teach mindfulness",
     label: "Get Certified",
     description:
-      "Earn a recognized teaching credential through our APA-approved certification — CPD, IMMA & IMTA accredited.",
+      "Earn the Certified Mindfulness Meditation Teacher (CMMT) credential — APA-approved CE, CPD, IMMA & IMTA accredited.",
     href: "https://certify.mindfulnessexercises.com/",
-    cta: "Start Certification",
+    cta: "Start Certification — from $2,497",
+    featured: true,
+    proof: {
+      audience: [
+        "Therapists, counselors, coaches, yoga teachers, educators",
+        "2,000+ certified graduates across 30+ countries",
+      ],
+      outcomes: [
+        "Use 'CMMT' after your name with a verified LinkedIn badge",
+        "Lead MBSR-informed programs in clinical, corporate & community settings",
+        "Listed on the public graduate directory",
+      ],
+      details: [
+        "40 hours · self-paced · lifetime access · no renewal fees",
+        "10-week curriculum + 30 training videos + workbook + 200 scripts",
+        "Monthly live workshops with Gabor Maté, Sharon Salzberg, Rick Hanson & more",
+      ],
+      review: {
+        quote:
+          "Sean is the absolute gold standard for mindfulness training and coaching. He has tremendous depth and breadth, with bone-deep integrity and excellent teaching skills.",
+        author: "Dr. Rick Hanson",
+        role: "NYT Bestselling Author · Hardwiring Happiness",
+      },
+    },
   },
   {
     intent: "I need ready-to-teach material",
     label: "Get the Curriculum",
     description:
-      "10 done-for-you sessions with 400+ brandable slides, scripts, and student workbooks — start teaching this week.",
+      "10 done-for-you sessions with 400+ brandable slides, scripts, and workbooks — start teaching this week.",
     href: "https://curriculum.mindfulnessexercises.com/",
     cta: "Browse the Curriculum",
+    proof: {
+      audience: [
+        "Therapists, coaches, yoga teachers, corporate facilitators",
+        "No certification required to teach with these materials",
+      ],
+      outcomes: [
+        "Run multi-week group programs or standalone workshops",
+        "Brand every slide and workbook with your own logo",
+        "Save weeks of session-prep time",
+      ],
+      details: [
+        "10 facilitator scripts · 400+ slides · 10 student workbooks",
+        "Plus: 200 meditation scripts, 300 worksheets, 10 teacher deep-dives",
+        "Commercial license · fully editable · lifetime access · Adult/Teen/Bundle",
+      ],
+      review: {
+        quote:
+          "I went from feeling unsure to leading group sessions confidently within a week. The scripts gave me structure while still letting me bring my own voice.",
+        author: "Sarah A.",
+        role: "Therapist",
+      },
+    },
   },
   {
     intent: "I want to teach trauma-sensitively",
@@ -30,19 +91,63 @@ const callouts = [
     description:
       "A 15-hour certification to recognize trauma responses, modify practices, and teach within ethical scope.",
     href: "https://trauma.mindfulnessexercises.com/",
-    cta: "View Trauma Training",
+    cta: "Begin Trauma Training — $297",
+    proof: {
+      audience: [
+        "Mindfulness & yoga teachers, coaches, therapists, healthcare educators",
+        "Anyone with a regular practice who wants to support others responsibly",
+      ],
+      outcomes: [
+        "Recognize hyperarousal, hypoarousal & dissociation in real time",
+        "Modify body scans, breath work & sits with opt-out language",
+        "Make confident referrals — knowing exactly when to refer out",
+      ],
+      details: [
+        "4 expert-led modules · 62-page workbook · 3 ready-to-use scripts",
+        "Masterclasses with David Treleaven, Willoughby Britton & Chris Germer",
+        "CPD & IMMA accredited · 30-day guarantee · no renewal fees",
+      ],
+      review: {
+        quote:
+          "Before this training, I would avoid difficult moments in group meditation. Now I have a framework for recognizing what's happening and responding calmly.",
+        author: "Licensed Therapist & Mindfulness Teacher",
+        role: "Completed 2024",
+      },
+    },
   },
   {
     intent: "I just need meditation scripts",
     label: "Get the Scripts",
     description:
-      "200 expert-written guided meditation scripts across 12 categories — open, read, guide. Commercial license included.",
+      "200 expert-written guided meditation scripts across 12 categories — open, read, guide.",
     href: "https://scripts.mindfulnessexercises.com/",
-    cta: "Get the Script Library",
+    cta: "Get the Script Library — $97",
+    proof: {
+      audience: [
+        "Therapists, coaches, yoga instructors, retreat & workshop leaders",
+        "Trusted by 10,000+ professionals · 4.9/5 rating",
+      ],
+      outcomes: [
+        "Save 2+ hours per week on session prep",
+        "Guide with confidence in 1:1, group, corporate or retreat settings",
+        "Use in paid sessions, recordings, courses & email sequences",
+      ],
+      details: [
+        "200 PDFs across 12 categories · 3–30 min sessions · trauma-informed",
+        "Commercial-use license included · master index · natural pacing built in",
+        "One-time payment · 60-day refund · lifetime updates",
+      ],
+      review: {
+        quote:
+          "I save 2+ hours every week on session prep. Last month's anxiety series got the most positive feedback I've ever received.",
+        author: "Veronica Lebednik",
+        role: "Yoga Teacher · Guides 10-min meditations in class",
+      },
+    },
   },
 ];
 
-const variants = {
+const cardVariants = {
   hidden: { opacity: 0, y: 12 },
   visible: (i: number) => ({
     opacity: 1,
@@ -51,51 +156,105 @@ const variants = {
   }),
 };
 
+function ProofList({
+  icon: Icon,
+  label,
+  items,
+}: {
+  icon: typeof Users;
+  label: string;
+  items: string[];
+}) {
+  return (
+    <div>
+      <p className="flex items-center gap-2 text-eyebrow text-muted-foreground mb-2">
+        <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+        {label}
+      </p>
+      <ul className="space-y-1.5" role="list">
+        {items.map((item) => (
+          <li key={item} className="flex items-start gap-2 text-body-sm text-foreground/80 leading-relaxed">
+            <CheckCircle2 className="h-3.5 w-3.5 mt-1 text-primary/70 shrink-0" aria-hidden="true" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function ProductCallouts() {
   return (
-    <SectionWrapper background="primary" id="product-callouts" ariaLabel="Find the right program for your goal">
+    <SectionWrapper
+      background="primary"
+      id="product-callouts"
+      ariaLabel="Find the right program for your goal"
+    >
       <SectionHeader
         eyebrow="Find Your Next Step"
         title="What are you here to do?"
-        subtitle="Pick the goal that fits — we'll point you to the program built for it."
+        subtitle="Pick the goal that fits — see the proof, then go straight to the program built for it."
       />
 
       <div
-        className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6"
         data-track-cta="product_callouts"
         data-track-cta-location="homepage_product_callouts"
       >
-        {callouts.map((c, i) => (
-          <motion.a
-            key={c.intent}
-            href={c.href}
-            target="_blank"
-            rel="noopener noreferrer"
+        {products.map((p, i) => (
+          <motion.article
+            key={p.intent}
             custom={i}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            variants={variants}
-            data-track-cta-label={c.label}
-            className="group flex flex-col sm:flex-row sm:items-center gap-5 p-6 lg:p-7 bg-card border border-border rounded-xl hover:border-primary/40 hover:shadow-card-hover transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            variants={cardVariants}
+            className={`group flex flex-col bg-card border rounded-xl overflow-hidden transition-all duration-200 hover:shadow-card-hover ${
+              p.featured
+                ? "border-primary/30 ring-1 ring-primary/[0.08] shadow-elevated"
+                : "border-border hover:border-primary/30"
+            }`}
           >
-            <div className="flex-1">
-              <p className="text-eyebrow text-primary mb-2">{c.label}</p>
-              <h3 className="font-serif text-xl font-semibold text-card-foreground leading-snug mb-2">
-                “{c.intent}”
+            {/* Header / primary CTA */}
+            <a
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track-cta-label={p.label}
+              className="p-6 lg:p-7 border-b border-border hover:bg-accent/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <p className="text-eyebrow text-primary mb-2">{p.label}</p>
+              <h3 className="font-serif text-xl lg:text-2xl font-semibold text-card-foreground leading-snug mb-2">
+                “{p.intent}”
               </h3>
-              <p className="text-body-sm text-muted-foreground leading-relaxed">
-                {c.description}
+              <p className="text-body-sm text-muted-foreground leading-relaxed mb-4">
+                {p.description}
               </p>
-            </div>
-
-            <div className="shrink-0 sm:self-center">
-              <span className="inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
-                {c.cta}
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all">
+                {p.cta}
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
               </span>
+            </a>
+
+            {/* Proof block — directly under the primary CTA */}
+            <div className="p-6 lg:p-7 space-y-5 bg-[hsl(var(--section-alternate))]/40">
+              <ProofList icon={Users} label="Who it's for" items={p.proof.audience} />
+              <ProofList icon={Award} label="What you'll achieve" items={p.proof.outcomes} />
+              <ProofList icon={FileText} label="What's included" items={p.proof.details} />
+
+              <figure className="border-l-2 border-primary/40 pl-4 mt-1">
+                <Quote className="h-4 w-4 text-primary/50 mb-1.5" aria-hidden="true" />
+                <blockquote className="text-body-sm text-foreground/85 italic leading-relaxed">
+                  “{p.proof.review.quote}”
+                </blockquote>
+                <figcaption className="mt-2 text-caption text-muted-foreground">
+                  <span className="font-medium text-foreground/80">{p.proof.review.author}</span>
+                  <span className="mx-1.5">·</span>
+                  {p.proof.review.role}
+                </figcaption>
+              </figure>
             </div>
-          </motion.a>
+          </motion.article>
         ))}
       </div>
     </SectionWrapper>
