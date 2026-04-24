@@ -13,6 +13,7 @@ import { LoadMoreSection, PostCardSkeletonGrid, PageRowSkeletonList } from "@/co
 import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 import { BrowseByCategory } from "@/components/homepage/BrowseByCategory";
 import { MobileLibraryFilters } from "@/components/wp/MobileLibraryFilters";
+import { LibrarySortSelect, sortToWpParams, type LibrarySort } from "@/components/wp/LibrarySortSelect";
 import {
   wp,
   getFeaturedImage,
