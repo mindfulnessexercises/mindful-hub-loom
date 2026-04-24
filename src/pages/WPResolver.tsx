@@ -106,7 +106,9 @@ export default function WPResolver() {
               {cats.length > 0 && (
                 <div className="flex flex-wrap items-center gap-2 mb-4">
                   {cats.slice(0, 3).map((c) => (
-                    <Badge key={c.id} variant="secondary">{c.name}</Badge>
+                    <Link key={c.id} to={`/category/${c.slug}`}>
+                      <Badge variant="secondary" className="hover:bg-primary/10 transition-colors">{c.name}</Badge>
+                    </Link>
                   ))}
                 </div>
               )}
