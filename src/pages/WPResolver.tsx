@@ -1,5 +1,6 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { useEffect, useMemo, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
@@ -11,6 +12,7 @@ import { WPSeo } from "@/components/wp/WPSeo";
 import NotFound from "./NotFound";
 import { Calendar, ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { rewriteWpHtml, attachWpLinkInterceptor } from "@/lib/rewrite-wp-html";
 
 import { isReservedSlug } from "@/lib/reserved-slugs";
 
