@@ -112,7 +112,7 @@ export function FreeResourcesPreview() {
         className="text-center mt-10"
       >
         <Button size="lg" variant="outline" className="min-h-[44px] h-12 px-8 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-200" asChild>
-          <a href="#">
+          <a href="/library">
             Browse Full Library
             <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
           </a>

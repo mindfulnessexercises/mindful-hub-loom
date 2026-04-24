@@ -6,6 +6,7 @@ import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
 
 const navLinks = [
   { label: "Free Exercises", href: "#resources" },
+  { label: "Library", href: "/library" },
   { label: "Blog", href: "/blog" },
   { label: "Get Certified", href: "https://certify.mindfulnessexercises.com/", external: true },
   { label: "Live Events", href: "#events" },
