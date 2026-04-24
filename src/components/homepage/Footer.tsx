@@ -15,7 +15,7 @@ const footerLinks = {
   Community: [
     { label: "Live Events", href: "#events" },
     { label: "Teacher Directory", href: "#" },
-    { label: "Blog", href: "#" },
+    { label: "Blog", href: "/blog" },
     { label: "Newsletter", href: "#ebook" },
   ],
   About: [
