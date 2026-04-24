@@ -125,7 +125,68 @@ const PATTERN_RULES: PatternRule[] = [
         external: true,
         rule: "shortlink_p",
       };
-    },
+  // ---------------------------------------------------------------------
+  // Legacy boundary: features that live on the WordPress origin only.
+  // These represent ~17% of incoming traffic (auth, account, community)
+  // plus ~6.5% of WP-internal asset requests. Forwarding to the legacy
+  // origin keeps users out of 404s until a native React version ships.
+  // ---------------------------------------------------------------------
+
+  // Auth pages — /login, /register, /signup, /logout, /password-reset, etc.
+  {
+    rule: "auth_legacy",
+    match: /^\/(login|logout|register|signup|sign-in|sign-up|password-reset|forgot-password|reset-password|account-recovery)(?:\/.*)?$/,
+    build: (_, fullPath) => ({
+      target: `${LEGACY_ORIGIN}${fullPath}`,
+      external: true,
+      rule: "auth_legacy",
+    }),
+  },
+
+  // Member dashboard / account / billing — anything under these prefixes.
+  {
+    rule: "member_area_legacy",
+    match: /^\/(dashboard|account|my-account|members?|profile|billing|orders|subscriptions|memberships?)(?:\/.*)?$/,
+    build: (_, fullPath) => ({
+      target: `${LEGACY_ORIGIN}${fullPath}`,
+      external: true,
+      rule: "member_area_legacy",
+    }),
+  },
+
+  // Circle community — /c/<space>, /community/*.
+  {
+    rule: "community_legacy",
+    match: /^\/(c|community|forums?|groups?)(?:\/.*)?$/,
+    build: (_, fullPath) => ({
+      target: `${LEGACY_ORIGIN}${fullPath}`,
+      external: true,
+      rule: "community_legacy",
+    }),
+  },
+
+  // Course/LMS gated areas — keep on WP for now (LearnDash/Memberpress style URLs).
+  {
+    rule: "lms_gated_legacy",
+    match: /^\/(quizzes|assignments|certificates|course-progress|profile-builder)(?:\/.*)?$/,
+    build: (_, fullPath) => ({
+      target: `${LEGACY_ORIGIN}${fullPath}`,
+      external: true,
+      rule: "lms_gated_legacy",
+    }),
+  },
+
+  // WordPress internals: /wp-content, /wp-admin, /wp-login.php, /wp-json, /feed,
+  // /xmlrpc.php, /comments/feed, etc. These should never be served by the React
+  // app. Forward to the WP origin so plugin assets and feeds keep working.
+  {
+    rule: "wp_internals",
+    match: /^\/(wp-content|wp-admin|wp-includes|wp-json|wp-login\.php|wp-cron\.php|xmlrpc\.php|feed|comments|trackback|rss|rss2|atom)(?:\/.*)?$/,
+    build: (_, fullPath) => ({
+      target: `${LEGACY_ORIGIN}${fullPath}`,
+      external: true,
+      rule: "wp_internals",
+    }),
   },
 ];
 
