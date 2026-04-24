@@ -120,6 +120,40 @@ export function CategoryExploration({
     });
   };
 
+  // SEO: emit a JSON-LD ItemList describing the visible topic cards so search
+  // engines can understand this as a structured list of category landing pages
+  // (each pointing at its crawlable /category/:slug URL). Re-runs whenever the
+  // visible set grows (Show more) so the markup stays in sync.
+  useEffect(() => {
+    const origin = typeof window !== "undefined" ? window.location.origin : "";
+    const json = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: title,
+      itemListOrder: "https://schema.org/ItemListOrderDescending",
+      numberOfItems: visibleCats.length,
+      itemListElement: visibleCats.map((cat, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${origin}/category/${cat.slug}`,
+        name: stripHtml(cat.name),
+      })),
+    };
+    const id = "category-exploration-jsonld";
+    let el = document.getElementById(id) as HTMLScriptElement | null;
+    const created = !el;
+    if (!el) {
+      el = document.createElement("script");
+      el.id = id;
+      el.type = "application/ld+json";
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify(json);
+    return () => {
+      if (created) el?.remove();
+    };
+  }, [visibleCats, title]);
+
   return (
     <section
       aria-label={title}
