@@ -4,6 +4,7 @@ import { TrustRibbon } from "@/components/homepage/TrustRibbon";
 import { ChooseYourPath } from "@/components/homepage/ChooseYourPath";
 import { CertificationSpotlight } from "@/components/homepage/CertificationSpotlight";
 import { MoreWaysToGrow } from "@/components/homepage/MoreWaysToGrow";
+import { ProductCallouts } from "@/components/homepage/ProductCallouts";
 import { AuthoritySection } from "@/components/homepage/AuthoritySection";
 import { FreeResourcesPreview } from "@/components/homepage/FreeResourcesPreview";
 import { LatestPosts } from "@/components/homepage/LatestPosts";
@@ -34,6 +35,7 @@ const Index = () => {
         <LiveEvents />
         <EbookCapture />
         <SocialProof />
+        <ProductCallouts />
         <FounderBlock />
         <FinalCTA />
       </main>
