@@ -245,8 +245,7 @@ export default function Library() {
               {/* Category filter — single horizontally-scrollable row */}
               {catsQuery.data && (() => {
                 const visibleCats = catsQuery.data.items
-                  .filter((c) => c.count > 0 && c.slug !== "uncategorized")
-                  .slice(0, 20);
+                  .filter((c) => c.count > 0 && c.slug !== "uncategorized");
                 const activeCat = category ? visibleCats.find((c) => c.id === category) : undefined;
                 return (
                   <div className="mb-6 space-y-3 hidden sm:block">
