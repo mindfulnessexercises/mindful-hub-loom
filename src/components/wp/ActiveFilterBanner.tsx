@@ -7,22 +7,26 @@ import { trackEvent } from "@/lib/analytics";
  * Active-filter banner shown across the top of the Library results when any
  * filter (category and/or search) is applied. Doubles as a **breadcrumb**:
  *
- *   Library  ›  Category: <name>  ·  Search: "<q>"
+ *   Library  ›  Category: <name> ×  ›  Search: "<q>" ×
  *
- * Provides the two one-click escape hatches users keep asking for:
- *   - "× Clear category" — removes only the category filter, keeping search
- *   - "Clear all filters" — wipes everything (category, search, page)
- *
- * Visible on every viewport (the existing chips inside the desktop tab row
- * stay as a redundant secondary affordance, but this banner is the primary
- * "you are filtered" signal — especially important on mobile where the chip
- * row sits behind the bottom-sheet trigger).
+ * Interaction model:
+ *   - Clicking "Library" wipes EVERY filter (category, search, page) — same
+ *     as the standalone "Clear all filters" button. This matches the user's
+ *     mental model that the root crumb is the unfiltered library.
+ *   - Clicking the category segment removes ONLY the category filter, leaving
+ *     any active search term intact.
+ *   - Clicking the search segment removes ONLY the search query, leaving the
+ *     category filter intact.
+ *   - The bigger explicit buttons on the right remain as redundant, more
+ *     discoverable affordances — especially important on mobile where the
+ *     compact crumb hit-targets can feel fiddly.
  */
 
 export interface ActiveFilterBannerProps {
   categoryName?: string;
   search?: string;
   onClearCategory: () => void;
+  onClearSearch: () => void;
   onClearAll: () => void;
 }
 
@@ -30,6 +34,7 @@ export function ActiveFilterBanner({
   categoryName,
   search,
   onClearCategory,
+  onClearSearch,
   onClearAll,
 }: ActiveFilterBannerProps) {
   // Render nothing when no filter is active so the banner never adds visual
@@ -45,6 +50,15 @@ export function ActiveFilterBanner({
     onClearCategory();
   };
 
+  const handleClearSearch = () => {
+    trackEvent("library_filter_cleared", {
+      target: "search",
+      had_category: Boolean(categoryName),
+      query: search,
+    });
+    onClearSearch();
+  };
+
   const handleClearAll = () => {
     trackEvent("library_filter_cleared", {
       target: "all",
@@ -55,6 +69,11 @@ export function ActiveFilterBanner({
     onClearAll();
   };
 
+  // Shared chip styling for the interactive crumb segments. Mobile-friendly
+  // 36px+ tap target via py-1 + min-h-[36px] without making the bar feel chunky.
+  const chipClass =
+    "group inline-flex items-center gap-1 rounded-md border border-border bg-card px-2 py-1 min-h-[36px] text-sm text-foreground hover:border-primary/40 hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 transition-colors";
+
   return (
     <div
       role="status"
@@ -62,30 +81,55 @@ export function ActiveFilterBanner({
       className="mb-6 rounded-lg border border-primary/30 bg-primary/5 p-3 sm:p-4"
     >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-        {/* Breadcrumb trail */}
-        <nav aria-label="Filter breadcrumb" className="flex items-center gap-1.5 min-w-0">
+        {/* Breadcrumb trail — each segment after Library acts as a one-click
+            "remove just this filter" control. Library itself wipes everything. */}
+        <nav aria-label="Filter breadcrumb" className="flex flex-wrap items-center gap-1.5 min-w-0">
           <Filter className="h-3.5 w-3.5 text-primary shrink-0" aria-hidden />
           <Link
             to="/library"
             onClick={handleClearAll}
-            className="text-sm font-medium text-primary hover:underline underline-offset-4"
+            className="text-sm font-medium text-primary hover:underline underline-offset-4 min-h-[36px] inline-flex items-center"
           >
             Library
           </Link>
+
           {categoryName && (
             <>
               <ChevronRight className="h-3.5 w-3.5 text-muted-foreground shrink-0" aria-hidden />
-              <span className="text-sm font-semibold text-foreground truncate">
-                {categoryName}
-              </span>
+              <button
+                type="button"
+                onClick={handleClearCategory}
+                className={chipClass}
+                aria-label={`Clear category filter: ${categoryName}`}
+                title="Clear category filter"
+              >
+                <span className="font-semibold truncate max-w-[12rem]">{categoryName}</span>
+                <X
+                  className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary shrink-0"
+                  aria-hidden
+                />
+              </button>
             </>
           )}
+
           {search && (
             <>
               <ChevronRight className="h-3.5 w-3.5 text-muted-foreground shrink-0" aria-hidden />
-              <span className="text-sm text-foreground truncate">
-                Search: <span className="font-semibold">&ldquo;{search}&rdquo;</span>
-              </span>
+              <button
+                type="button"
+                onClick={handleClearSearch}
+                className={chipClass}
+                aria-label={`Clear search: ${search}`}
+                title="Clear search"
+              >
+                <span className="truncate max-w-[14rem]">
+                  Search: <span className="font-semibold">&ldquo;{search}&rdquo;</span>
+                </span>
+                <X
+                  className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary shrink-0"
+                  aria-hidden
+                />
+              </button>
             </>
           )}
         </nav>
@@ -93,7 +137,8 @@ export function ActiveFilterBanner({
         {/* Spacer pushes actions to the right on wide layouts. */}
         <div className="flex-1" />
 
-        {/* One-click escape hatches */}
+        {/* Redundant, more discoverable escape hatches. Kept because mobile
+            users often miss that the breadcrumb chips themselves are clickable. */}
         <div className="flex flex-wrap items-center gap-2">
           {categoryName && (
             <Button
