@@ -442,7 +442,7 @@ export default function Library() {
                       <button
                         role="tab"
                         aria-selected={!category}
-                        onClick={() => updateParam("cat", undefined)}
+                        onClick={() => onCategorySelect(undefined)}
                         className={`shrink-0 text-xs font-medium px-3 py-2 min-h-[36px] rounded-full border transition-colors ${
                           !category
                             ? "bg-primary text-primary-foreground border-primary"
@@ -456,7 +456,7 @@ export default function Library() {
                           key={c.id}
                           cat={c}
                           active={category === c.id}
-                          onSelect={(id) => updateParam("cat", String(id))}
+                          onSelect={(id) => onCategorySelect(id)}
                         />
                       ))}
                     </div>
