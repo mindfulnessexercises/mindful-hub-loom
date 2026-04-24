@@ -14,7 +14,12 @@ const trustItems = [
 
 export function TrustRibbon() {
   return (
-    <section className="border-y border-border/60 bg-[hsl(var(--section-alternate))]" aria-label="Key facts">
+    <section
+      className="border-y border-border/60 bg-[hsl(var(--section-alternate))]"
+      aria-label="Key facts"
+      data-track-section="trust-ribbon"
+      data-track-section-label="Trust Ribbon"
+    >
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}

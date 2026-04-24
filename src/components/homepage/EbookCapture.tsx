@@ -80,6 +80,9 @@ export function EbookCapture() {
               }}
               className="flex flex-col sm:flex-row gap-3 max-w-lg"
               aria-labelledby="ebook-heading"
+              data-track-cta="ebook_capture_form"
+              data-track-cta-label="Ebook capture — Get Free Guide"
+              data-track-cta-location="homepage_ebook_section"
             >
               <label htmlFor="ebook-email" className="sr-only">Email address</label>
               <Input

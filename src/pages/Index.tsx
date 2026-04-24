@@ -13,10 +13,12 @@ import { SocialProof } from "@/components/homepage/SocialProof";
 import { FounderBlock } from "@/components/homepage/FounderBlock";
 import { FinalCTA } from "@/components/homepage/FinalCTA";
 import { Footer } from "@/components/homepage/Footer";
+import { HomepageEngagementTracker } from "@/components/homepage/HomepageEngagementTracker";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <HomepageEngagementTracker />
       <Navbar />
       <main>
         <HeroSection />

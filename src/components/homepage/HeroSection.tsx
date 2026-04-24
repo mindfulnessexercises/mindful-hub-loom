@@ -6,7 +6,12 @@ import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden" aria-labelledby="hero-heading">
+    <section
+      className="relative overflow-hidden"
+      aria-labelledby="hero-heading"
+      data-track-section="hero"
+      data-track-section-label="Hero"
+    >
       {/* Layered background */}
       <div className="absolute inset-0 bg-[hsl(var(--section-primary))]" />
       <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--accent)/.4)] via-transparent to-[hsl(var(--secondary)/.25)]" />
@@ -55,6 +60,9 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.18 }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-7"
+              data-track-cta="hero_primary_buttons"
+              data-track-cta-label="Hero — Get certified / Browse free"
+              data-track-cta-location="homepage_hero"
             >
               <Button
                 size="lg"
