@@ -16,6 +16,7 @@ import { MobileLibraryFilters } from "@/components/wp/MobileLibraryFilters";
 import { LibrarySortSelect, sortToWpParams, type LibrarySort } from "@/components/wp/LibrarySortSelect";
 import { SparseCategoryHelper } from "@/components/wp/SparseCategoryHelper";
 import { FeaturedFromOtherCategories } from "@/components/wp/FeaturedFromOtherCategories";
+import { CategoriesAvailableSummary } from "@/components/wp/CategoriesAvailableSummary";
 import {
   wp,
   getFeaturedImage,
@@ -250,6 +251,18 @@ export default function Library() {
             eyebrow="Jump to a topic"
             title="Browse by category"
           />
+
+          {/* Transparent inventory of every available category with counts —
+              collapsible to keep the page compact, with one-click filtering. */}
+          {catsQuery.data && (
+            <CategoriesAvailableSummary
+              categories={catsQuery.data.items.filter(
+                (c) => c.count > 0 && c.slug !== "uncategorized",
+              )}
+              activeCategoryId={category}
+              totalPages={pagesTotal || undefined}
+            />
+          )}
           {/* Mobile sticky filter bar — opens a bottom-sheet that batches tab/search/category
               edits before committing to the URL. Hidden on >=sm where the inline UI fits. */}
           <div className="sm:hidden sticky top-16 z-30 -mx-4 px-4 py-3 bg-background/95 backdrop-blur-sm border-b border-border mb-6">
