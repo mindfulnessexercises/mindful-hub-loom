@@ -314,6 +314,24 @@ export default function Library() {
 
             {/* ---- POSTS TAB ---- */}
             <TabsContent value="posts" className="mt-0">
+              {/* Active-filter breadcrumb banner — visible whenever a category
+                  or search filter is applied. Provides one-click clears. */}
+              <ActiveFilterBanner
+                categoryName={
+                  category && catsQuery.data
+                    ? catsQuery.data.items.find((c) => c.id === category)?.name
+                    : undefined
+                }
+                search={search || undefined}
+                onClearCategory={() => updateParam("cat", undefined)}
+                onClearAll={() => {
+                  const next = new URLSearchParams(params);
+                  next.delete("q");
+                  next.delete("cat");
+                  next.delete("page");
+                  setParams(next);
+                }}
+              />
               {/* Category filter — single horizontally-scrollable row */}
               {catsQuery.data && (() => {
                 const visibleCats = catsQuery.data.items
