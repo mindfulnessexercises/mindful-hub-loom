@@ -20,6 +20,7 @@ import { CategoriesAvailableSummary } from "@/components/wp/CategoriesAvailableS
 import { CategoryExploration } from "@/components/wp/CategoryExploration";
 import { MoreLikeThis } from "@/components/wp/MoreLikeThis";
 import { trackCtaClick } from "@/lib/analytics";
+import { recordRecentCategory } from "@/lib/recent-categories";
 import {
   wp,
   getFeaturedImage,
