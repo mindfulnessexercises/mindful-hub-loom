@@ -6,11 +6,13 @@ const footerLinks = {
     { label: "Free Ebook", href: "#ebook" },
     { label: "Full Library", href: "#resources" },
   ],
-  "Professional Training": [
-    { label: "Mindfulness Teacher Certification", href: "https://certify.mindfulnessexercises.com/" },
-    { label: "MBSR-Informed Training", href: "https://certify.mindfulnessexercises.com/" },
+  "Tools & Programs": [
+    { label: "Teacher Certification", href: "https://certify.mindfulnessexercises.com/" },
+    { label: "MindfulPro AI", href: "https://mindfulpro.ai/" },
+    { label: "200 Meditation Scripts", href: "https://scripts.mindfulnessexercises.com/" },
+    { label: "Trauma-Sensitive Certification", href: "https://trauma.mindfulnessexercises.com/" },
+    { label: "Brandable Curriculum", href: "https://curriculum.mindfulnessexercises.com/" },
     { label: "CE Credits & Policies", href: "/ce-policies" },
-    { label: "For Organizations", href: "https://certify.mindfulnessexercises.com/" },
   ],
   Community: [
     { label: "Live Events", href: "#events" },
@@ -57,6 +59,7 @@ export function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
+                      {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       className="text-body-sm text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm py-1 inline-flex items-center min-h-[32px]"
                     >
                       {link.label}
