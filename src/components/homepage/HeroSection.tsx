@@ -60,6 +60,9 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.18 }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-7"
+              data-track-cta="hero_primary_buttons"
+              data-track-cta-label="Hero — Get certified / Browse free"
+              data-track-cta-location="homepage_hero"
             >
               <Button
                 size="lg"
