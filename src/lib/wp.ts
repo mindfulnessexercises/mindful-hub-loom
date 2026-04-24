@@ -30,7 +30,7 @@ export interface WPPost {
 
 export interface WPPage extends WPPost {}
 
-export interface WPCategory { id: number; name: string; slug: string; count: number; description?: string }
+export interface WPCategory { id: number; name: string; slug: string; count: number; description?: string; parent?: number }
 
 export interface PaginatedResult<T> {
   items: T[];
@@ -133,6 +133,34 @@ export const CATEGORY_CPT_ENDPOINT: Record<string, string> = {
   podcast: "/wp/v2/podcast-episodes",
   downloads: "/wp/v2/downloads",
 };
+
+/**
+ * Map of WordPress category id → CPT REST endpoint for any category whose
+ * **parent** is one of the CPT-backed sections (Podcast id=13273, Downloads
+ * id=13431). Subcategories like "Guided Meditation" (parent=Podcast) only
+ * contain CPT entries, so /wp/v2/posts returns []. Resolved at runtime in
+ * Category.tsx by looking up the category's `parent` field.
+ */
+export const CPT_PARENT_CATEGORY_ENDPOINT: Record<number, string> = {
+  13273: "/wp/v2/podcast-episodes", // Podcast
+  13431: "/wp/v2/downloads",        // Downloads
+};
+
+/**
+ * Resolve the CPT endpoint for a category by checking (1) its slug against
+ * CATEGORY_CPT_ENDPOINT (top-level sections), then (2) its parent id against
+ * CPT_PARENT_CATEGORY_ENDPOINT (sub-sections). Returns undefined when the
+ * category is served by the standard /wp/v2/posts endpoint.
+ */
+export function resolveCategoryCptEndpoint(
+  category: Pick<WPCategory, "slug" | "parent"> | null | undefined,
+): string | undefined {
+  if (!category) return undefined;
+  const bySlug = CATEGORY_CPT_ENDPOINT[category.slug];
+  if (bySlug) return bySlug;
+  if (category.parent) return CPT_PARENT_CATEGORY_ENDPOINT[category.parent];
+  return undefined;
+}
 
 /**
  * Map of URL parent segment → REST endpoint for nested permalinks like

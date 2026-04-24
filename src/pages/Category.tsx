@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { LoadMoreSection, PostCardSkeletonGrid } from "@/components/wp/LoadMoreSection";
-import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult, CATEGORY_CPT_ENDPOINT, CPT_URL_PARENT } from "@/lib/wp";
+import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult, CATEGORY_CPT_ENDPOINT, CPT_URL_PARENT, resolveCategoryCptEndpoint } from "@/lib/wp";
 import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
@@ -35,10 +35,12 @@ export default function Category({ sectionSlug }: { sectionSlug?: string } = {})
     retry: false,
   });
 
-  // Some categories (Podcast, Downloads) store their content in a custom post
-  // type rather than the default `post` type. Fetch from the matching CPT
-  // endpoint so the category page actually has results.
-  const cptEndpoint = CATEGORY_CPT_ENDPOINT[slug];
+  // Some categories store their content in a custom post type rather than the
+  // default `post` type — either as a top-level section (Podcast, Downloads)
+  // or as a subcategory whose parent is one of those sections (e.g. "Guided
+  // Meditation" lives under Podcast). Resolve the right CPT endpoint so the
+  // category page actually has results.
+  const cptEndpoint = resolveCategoryCptEndpoint(catQuery.data);
 
   const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
     queryKey: wpKeys.postsList({ scope: "category", category: catQuery.data?.id, perPage: PER_PAGE, endpoint: cptEndpoint }),
