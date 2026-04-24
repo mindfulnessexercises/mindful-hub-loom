@@ -39,6 +39,16 @@ export default function WPResolver() {
     retry: false,
   });
 
+  // Hooks MUST run on every render — keep above any early returns. Falls back
+  // to empty string when content isn't loaded yet; the rendered <div> for
+  // body content is gated by query.data below so this never paints.
+  const rawContent = query.data?.data.content.rendered ?? "";
+  const rewrittenHtml = useMemo(() => rewriteWpHtml(rawContent), [rawContent]);
+  useEffect(
+    () => attachWpLinkInterceptor(contentRef.current, navigate),
+    [rewrittenHtml, navigate],
+  );
+
   if (isReservedSlug(slug)) return <NotFound />;
 
   if (query.isLoading) {
@@ -66,11 +76,6 @@ export default function WPResolver() {
   const title = stripHtml(doc.title.rendered);
   const cats = kind === "post" ? getCategories(doc) : [];
   const author = kind === "post" ? getAuthor(doc) : null;
-  // Rewrite mindfulnessexercises.com links inside the body to in-app paths,
-  // and intercept clicks so they use SPA navigation. Memoised on the raw HTML
-  // so we don't re-parse on every render.
-  const rewrittenHtml = useMemo(() => rewriteWpHtml(doc.content.rendered), [doc.content.rendered]);
-  useEffect(() => attachWpLinkInterceptor(contentRef.current, navigate), [rewrittenHtml, navigate]);
 
   const jsonLd = kind === "post"
     ? {
