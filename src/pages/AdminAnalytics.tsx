@@ -249,6 +249,36 @@ export default function AdminAnalytics() {
   const byCategory = useMemo(() => aggregate(rows ?? [], "category_slug"), [rows]);
   const byDestination = useMemo(() => aggregate(rows ?? [], "cta_destination"), [rows]);
 
+  // Upstream intent counters: these events sit BEFORE a CTA click in the
+  // funnel — they tell us how the user shaped what they were looking at when
+  // the CTA was eventually shown. We pull `source` from JSONB props so we can
+  // see e.g. how many searches came from the navbar vs the search page itself.
+  const upstreamIntent = useMemo(() => {
+    type Bucket = { searches: number; sortChanges: number; categoryChanges: number; tabChanges: number; loadMores: number };
+    const map = new Map<string, Bucket>();
+    const ensure = (k: string): Bucket => {
+      let b = map.get(k);
+      if (!b) {
+        b = { searches: 0, sortChanges: 0, categoryChanges: 0, tabChanges: 0, loadMores: 0 };
+        map.set(k, b);
+      }
+      return b;
+    };
+    for (const row of rows ?? []) {
+      const props = (row.props ?? {}) as Record<string, unknown>;
+      const source = typeof props.source === "string" ? props.source : null;
+      if (!source) continue;
+      if (row.name === "search_submitted") ensure(source).searches++;
+      else if (row.name === "sort_changed") ensure(source).sortChanges++;
+      else if (row.name === "category_filter_changed") ensure(source).categoryChanges++;
+      else if (row.name === "library_tab_changed" || row.name === "search_type_changed") ensure(source).tabChanges++;
+      else if (row.name === "pagination_load_more") ensure(source).loadMores++;
+    }
+    return Array.from(map.entries())
+      .map(([source, b]) => ({ source, ...b, total: b.searches + b.sortChanges + b.categoryChanges + b.tabChanges + b.loadMores }))
+      .sort((a, b) => b.total - a.total);
+  }, [rows]);
+
   const recent = (rows ?? []).slice(0, 50);
   const showingCapHint = (rows?.length ?? 0) >= ROW_CAP;
 
