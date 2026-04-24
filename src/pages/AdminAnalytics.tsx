@@ -456,7 +456,62 @@ export default function AdminAnalytics() {
           )}
         </section>
 
-        {/* Breakdowns */}
+        {/* CTA clicks by match_source — always shows the full window
+            (unfiltered) so you can see the segment shares at a glance even
+            while drilling into one segment above. */}
+        <section>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-card-heading font-serif">CTA clicks by match source</CardTitle>
+              <p className="text-body-sm text-muted-foreground">
+                Which rule produced the CTA — category match, title match, or default fallback.
+                Use this to see whether targeted rules are doing the work.
+              </p>
+            </CardHeader>
+            <CardContent>
+              {byMatchSource.length === 0 ? (
+                <p className="text-body-sm text-muted-foreground py-6 text-center">
+                  No CTA clicks in the selected range.
+                </p>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full text-body-sm">
+                    <thead>
+                      <tr className="border-b border-border text-left text-muted-foreground">
+                        <th className="py-2 pr-4 font-medium">Match source</th>
+                        <th className="py-2 pr-4 font-medium text-right">Clicks</th>
+                        <th className="py-2 pr-4 font-medium text-right">Share</th>
+                        <th className="py-2 font-medium text-right">Filter</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {byMatchSource.map((r) => (
+                        <tr key={r.source} className="border-b border-border/50 last:border-0">
+                          <td className="py-2 pr-4 font-mono text-xs">{r.source}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.clicks}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.share}%</td>
+                          <td className="py-2 text-right">
+                            {(r.source === "category" || r.source === "title" || r.source === "default") && (
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                className="h-7 px-2 text-xs"
+                                onClick={() => setMatchSource(r.source as MatchSourceFilter)}
+                              >
+                                Drill in
+                              </Button>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </section>
+
         <section className="grid gap-6 lg:grid-cols-2">
           <BreakdownTable
             title="By CTA location"
