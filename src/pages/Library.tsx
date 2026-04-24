@@ -48,11 +48,24 @@ export default function Library() {
 
   useEffect(() => { setSearchInput(search); }, [search]);
 
+  // Translate the URL `sort` to WP REST orderby/order. "popular" only applies
+  // to posts (comment_count); pages fall back to date desc for it.
+  const postsSortParams = sortToWpParams(sort, !!search);
+  const pagesSort: LibrarySort = sort === "popular" ? "newest" : sort;
+  const pagesSortParams = sortToWpParams(pagesSort, !!search);
+
   // ----- Posts (infinite) -----
   const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
-    queryKey: wpKeys.postsList({ scope: "library", search, category, perPage: PER_PAGE }),
+    queryKey: [...wpKeys.postsList({ scope: "library", search, category, perPage: PER_PAGE }), { sort }],
     queryFn: ({ pageParam = 1 }) =>
-      wp.posts({ page: pageParam as number, per_page: PER_PAGE, search: search || undefined, categories: category }),
+      wp.posts({
+        page: pageParam as number,
+        per_page: PER_PAGE,
+        search: search || undefined,
+        categories: category,
+        orderby: postsSortParams.orderby,
+        order: postsSortParams.order,
+      }),
     getNextPageParam: (lastPage, all) =>
       all.length + 1 <= lastPage.totalPages ? all.length + 1 : undefined,
     initialPageParam: 1,
@@ -70,9 +83,15 @@ export default function Library() {
 
   // ----- Pages (infinite) -----
   const pagesQuery = useInfiniteQuery<PaginatedResult<WPPage>>({
-    queryKey: ["wp", "pages", "list-infinite", { q: search, pp: PER_PAGE, scope: "library" }],
+    queryKey: ["wp", "pages", "list-infinite", { q: search, pp: PER_PAGE, scope: "library", sort: pagesSort }],
     queryFn: ({ pageParam = 1 }) =>
-      wp.pages({ page: pageParam as number, per_page: PER_PAGE, search: search || undefined }),
+      wp.pages({
+        page: pageParam as number,
+        per_page: PER_PAGE,
+        search: search || undefined,
+        orderby: pagesSortParams.orderby as "date" | "title" | "relevance",
+        order: pagesSortParams.order,
+      }),
     getNextPageParam: (lastPage, all) =>
       all.length + 1 <= lastPage.totalPages ? all.length + 1 : undefined,
     initialPageParam: 1,
