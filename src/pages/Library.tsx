@@ -18,6 +18,7 @@ import { SparseCategoryHelper } from "@/components/wp/SparseCategoryHelper";
 import { FeaturedFromOtherCategories } from "@/components/wp/FeaturedFromOtherCategories";
 import { CategoriesAvailableSummary } from "@/components/wp/CategoriesAvailableSummary";
 import { CategoryExploration } from "@/components/wp/CategoryExploration";
+import { MoreLikeThis } from "@/components/wp/MoreLikeThis";
 import { trackCtaClick } from "@/lib/analytics";
 import {
   wp,
@@ -522,6 +523,22 @@ export default function Library() {
                       )}
                     />
                   )}
+
+                  {/* Similarity-driven recommendations — only when a category
+                      is active. Mixes posts from related categories with related pages. */}
+                  {category && catsQuery.data && (() => {
+                    const visibleCats = catsQuery.data.items.filter(
+                      (c) => c.count > 0 && c.slug !== "uncategorized",
+                    );
+                    const activeCat = visibleCats.find((c) => c.id === category);
+                    if (!activeCat) return null;
+                    return (
+                      <MoreLikeThis
+                        activeCategory={activeCat}
+                        allCategories={visibleCats}
+                      />
+                    );
+                  })()}
 
                   {/* Wide-net category exploration — appears on every posts view
                       (filtered or not) to keep discovery surfaces consistent.
