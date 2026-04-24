@@ -8,9 +8,10 @@ import { wp, getFeaturedImage, getCategories, stripHtml, formatDate } from "@/li
 
 export function LatestPosts() {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["wp-latest-posts"],
+    queryKey: ["wp", "posts", "latest", 6],
     queryFn: () => wp.posts({ per_page: 6 }),
-    staleTime: 10 * 60 * 1000,
+    staleTime: 30 * 60 * 1000,
+    gcTime: 24 * 60 * 60 * 1000,
   });
 
   if (isError) return null;

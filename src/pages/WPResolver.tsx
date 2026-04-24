@@ -6,6 +6,7 @@ import { Footer } from "@/components/homepage/Footer";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { wp, getFeaturedImage, getCategories, getAuthor, stripHtml, formatDate } from "@/lib/wp";
+import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
 import NotFound from "./NotFound";
 import { Calendar, ArrowLeft } from "lucide-react";
@@ -20,7 +21,7 @@ export default function WPResolver() {
 
   // Try post first, then page (this matches WordPress's own URL resolution).
   const query = useQuery({
-    queryKey: ["wp-resolve", slug],
+    queryKey: wpKeys.resolveSlug(slug),
     queryFn: async () => {
       const post = await wp.postBySlug(slug);
       if (post) return { kind: "post" as const, data: post };
@@ -28,7 +29,8 @@ export default function WPResolver() {
       if (page) return { kind: "page" as const, data: page };
       return null;
     },
-    staleTime: 10 * 60 * 1000,
+    staleTime: WP_STALE.detail,
+    gcTime: WP_STALE.gc,
     enabled: !!slug && !isReservedSlug(slug),
     retry: false,
   });

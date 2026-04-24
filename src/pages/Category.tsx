@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
+import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { useUrlPagination } from "@/hooks/use-url-pagination";
 import NotFound from "./NotFound";
@@ -18,15 +19,16 @@ export default function Category() {
   const { slug = "" } = useParams();
 
   const catQuery = useQuery({
-    queryKey: ["wp-cat", slug],
+    queryKey: wpKeys.categoryBySlug(slug),
     queryFn: () => wp.categoryBySlug(slug),
-    staleTime: 30 * 60 * 1000,
+    staleTime: WP_STALE.taxonomy,
+    gcTime: WP_STALE.gc,
     enabled: !!slug,
     retry: false,
   });
 
   const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
-    queryKey: ["wp-cat-posts", catQuery.data?.id],
+    queryKey: wpKeys.postsList({ scope: "category", category: catQuery.data?.id, perPage: PER_PAGE }),
     queryFn: ({ pageParam = 1 }) =>
       wp.posts({ page: pageParam as number, per_page: PER_PAGE, categories: catQuery.data!.id }),
     getNextPageParam: (lastPage, all) => {
@@ -35,7 +37,8 @@ export default function Category() {
     },
     initialPageParam: 1,
     enabled: !!catQuery.data?.id,
-    staleTime: 5 * 60 * 1000,
+    staleTime: WP_STALE.list,
+    gcTime: WP_STALE.gc,
   });
 
   const { loadMore } = useUrlPagination({
