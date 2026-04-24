@@ -66,10 +66,6 @@ export default function Library() {
   const postsSortParams = sortToWpParams(sort, !!search);
   const pagesSort: LibrarySort = sort === "popular" ? "newest" : sort;
   const pagesSortParams = sortToWpParams(pagesSort, !!search);
-  const activeCategory = category
-    ? catsQuery.data?.items.find((item) => item.id === category)
-    : undefined;
-  const cptEndpoint = resolveCategoryCptEndpoint(activeCategory);
 
   // ----- Posts (infinite) -----
   const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
@@ -134,6 +130,10 @@ export default function Library() {
     staleTime: WP_STALE.taxonomy,
     gcTime: WP_STALE.gc,
   });
+  const activeCategory = category
+    ? catsQuery.data?.items.find((item) => item.id === category)
+    : undefined;
+  const cptEndpoint = resolveCategoryCptEndpoint(activeCategory);
 
   // Record the active category as a "recent visit" so MoreLikeThis can use
   // the user's browsing trail this session as an additional intent signal.
