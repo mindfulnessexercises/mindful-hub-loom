@@ -28,6 +28,25 @@ import { ArrowLeft, RefreshCcw } from "lucide-react";
  */
 
 type RangePreset = "24h" | "7d" | "30d";
+type MatchSourceFilter = "all" | "category" | "title" | "default";
+
+const MATCH_SOURCE_FILTERS: { value: MatchSourceFilter; label: string }[] = [
+  { value: "all", label: "All sources" },
+  { value: "category", label: "Category match" },
+  { value: "title", label: "Title match" },
+  { value: "default", label: "Default (no match)" },
+];
+
+/**
+ * Read the CTA rule's match_source from JSONB props. Only `cta_clicked`
+ * events carry this — signup events have no match source so they bypass
+ * the filter and always count toward conversion totals.
+ */
+function getMatchSource(row: AnalyticsRow): string | null {
+  const props = (row.props ?? {}) as Record<string, unknown>;
+  const v = props.match_source;
+  return typeof v === "string" ? v : null;
+}
 
 const RANGES: Record<RangePreset, { label: string; ms: number }> = {
   "24h": { label: "Last 24 hours", ms: 24 * 60 * 60 * 1000 },
