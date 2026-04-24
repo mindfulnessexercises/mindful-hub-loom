@@ -43,6 +43,113 @@ function clean(props: EventProps): EventProps {
 }
 
 /**
+ * Per-event required-prop registry. Events not listed here are unconstrained
+ * (free-form telemetry). Events listed here MUST carry every key in their
+ * array OR the validator will:
+ *   1. console.warn (visible in dev + prod) so the bad call site is obvious
+ *   2. append `_validation_failed: true` and `_missing_props: "a,b"` to the
+ *      payload so the in-app dashboard surfaces broken events too
+ *   3. still forward the event — analytics MUST NEVER break the UX, and
+ *      partial data is more useful than dropped data for diagnosis.
+ *
+ * Keep this in sync with `docs/analytics-taxonomy.md`.
+ *
+ * Featured-row events are the canonical example: every card-level impression
+ * or click MUST carry the post + category identifiers, otherwise the row is
+ * unattributable in funnel analysis.
+ */
+const REQUIRED_PROPS: Record<string, readonly string[]> = {
+  // CTA clicks — minimum shape that downstream funnel queries depend on.
+  cta_clicked: ["cta_label", "cta_destination", "cta_location"],
+
+  // Email signups
+  email_signup_submitted: ["form_id"],
+  email_signup_succeeded: ["form_id"],
+  email_signup_failed: ["form_id"],
+
+  // Featured-from-other-categories rail (Library)
+  featured_other_cats_row_viewed: ["from_category_id", "item_count", "items_signature"],
+  featured_other_cats_card_viewed: ["category_id", "category_slug", "post_id", "post_slug", "position"],
+  featured_other_cats_card_clicked: [
+    "category_id",
+    "category_slug",
+    "post_id",
+    "post_slug",
+    "position",
+    "click_target",
+  ],
+  featured_other_cats_empty_clear_clicked: ["from_category_id"],
+
+  // Category exploration grid (Library)
+  category_exploration_loaded_more: ["from", "to", "total_available"],
+  category_exploration_topic_opened: ["category_id", "category_slug", "location"],
+  category_exploration_post_opened: ["category_id", "category_slug", "post_id"],
+
+  // More-like-this related links (post detail)
+  more_like_this_post_opened: ["post_id"],
+  more_like_this_page_opened: ["page_id"],
+  more_like_this_related_category_opened: ["category_id", "category_slug"],
+
+  // Search & filter
+  search_submitted: ["query", "source"],
+  category_filter_changed: ["from_category_id", "to_category_id", "source"],
+  sort_changed: ["from_sort", "to_sort", "source"],
+  library_tab_changed: ["from_tab", "to_tab", "source"],
+  search_type_changed: ["from_type", "to_type", "source"],
+  library_filter_cleared: ["cleared"],
+  library_view_shared: ["method", "path"],
+  pagination_load_more: ["source", "from_page", "to_page"],
+  empty_state_tile_clicked: ["category_id", "category_slug"],
+
+  // Engagement
+  homepage_scroll_depth: ["depth_percent"],
+  homepage_section_viewed: ["section"],
+  homepage_cta_viewed: ["cta_location"],
+
+  // Infra
+  legacy_redirect: ["from", "to", "rule", "external"],
+};
+
+/**
+ * Returns the list of missing required props for `name`, or an empty array if
+ * the event is valid (or has no required-prop schema).
+ *
+ * "Missing" means the key is not present OR the value is `null`/`undefined`/
+ * empty string. Zero and `false` are valid values.
+ */
+function findMissingRequired(name: string, props: EventProps): string[] {
+  const required = REQUIRED_PROPS[name];
+  if (!required) return [];
+  const missing: string[] = [];
+  for (const key of required) {
+    const v = props[key];
+    if (v === undefined || v === null || v === "") missing.push(key);
+  }
+  return missing;
+}
+
+/**
+ * Validate + annotate. Returns the props to actually send (possibly with
+ * validation flags appended) and emits a console.warn when validation fails.
+ *
+ * Exported for unit testing — `trackEvent` uses it internally.
+ */
+export function validateEventProps(name: string, props: EventProps): EventProps {
+  const missing = findMissingRequired(name, props);
+  if (missing.length === 0) return props;
+  // eslint-disable-next-line no-console
+  console.warn(
+    `[analytics] event "${name}" is missing required props: ${missing.join(", ")}`,
+    { received: props },
+  );
+  return {
+    ...props,
+    _validation_failed: true,
+    _missing_props: missing.join(","),
+  };
+}
+
+/**
  * Fire-and-forget Lovable Cloud sink. Buffers events into rAF-batched
  * inserts so a click handler never awaits a network round-trip, and so a
  * burst of events (e.g. impression observer firing 6 sections at once)
@@ -85,17 +192,18 @@ function enqueueCloud(name: string, props: EventProps): void {
  */
 export function trackEvent(name: string, props: EventProps = {}): void {
   const cleaned = clean(props);
+  const validated = validateEventProps(name, cleaned);
   const win = w();
 
   // Lovable Cloud sink — queued + non-blocking. Powers the in-app dashboard.
-  enqueueCloud(name, cleaned);
+  enqueueCloud(name, validated);
 
   if (!win) return;
 
   // GTM / GA4 — pushes onto dataLayer with `event` key.
   try {
     if (Array.isArray(win.dataLayer)) {
-      win.dataLayer.push({ event: name, ...cleaned });
+      win.dataLayer.push({ event: name, ...validated });
     }
   } catch {
     /* never let analytics break the app */
@@ -104,7 +212,7 @@ export function trackEvent(name: string, props: EventProps = {}): void {
   // Plausible
   try {
     if (typeof win.plausible === "function") {
-      win.plausible(name, Object.keys(cleaned).length ? { props: cleaned } : undefined);
+      win.plausible(name, Object.keys(validated).length ? { props: validated } : undefined);
     }
   } catch {
     /* swallow */
@@ -113,7 +221,7 @@ export function trackEvent(name: string, props: EventProps = {}): void {
   // PostHog
   try {
     if (win.posthog?.capture) {
-      win.posthog.capture(name, cleaned);
+      win.posthog.capture(name, validated);
     }
   } catch {
     /* swallow */
@@ -122,7 +230,7 @@ export function trackEvent(name: string, props: EventProps = {}): void {
   // Dev-only visibility — see what is being fired without a provider attached.
   if (import.meta.env.DEV) {
     // eslint-disable-next-line no-console
-    console.debug("[analytics]", name, cleaned);
+    console.debug("[analytics]", name, validated);
   }
 }
 
