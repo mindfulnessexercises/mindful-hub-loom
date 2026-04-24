@@ -196,14 +196,14 @@ export function trackEvent(name: string, props: EventProps = {}): void {
   const win = w();
 
   // Lovable Cloud sink — queued + non-blocking. Powers the in-app dashboard.
-  enqueueCloud(name, cleaned);
+  enqueueCloud(name, validated);
 
   if (!win) return;
 
   // GTM / GA4 — pushes onto dataLayer with `event` key.
   try {
     if (Array.isArray(win.dataLayer)) {
-      win.dataLayer.push({ event: name, ...cleaned });
+      win.dataLayer.push({ event: name, ...validated });
     }
   } catch {
     /* never let analytics break the app */
@@ -212,7 +212,7 @@ export function trackEvent(name: string, props: EventProps = {}): void {
   // Plausible
   try {
     if (typeof win.plausible === "function") {
-      win.plausible(name, Object.keys(cleaned).length ? { props: cleaned } : undefined);
+      win.plausible(name, Object.keys(validated).length ? { props: validated } : undefined);
     }
   } catch {
     /* swallow */
@@ -221,7 +221,7 @@ export function trackEvent(name: string, props: EventProps = {}): void {
   // PostHog
   try {
     if (win.posthog?.capture) {
-      win.posthog.capture(name, cleaned);
+      win.posthog.capture(name, validated);
     }
   } catch {
     /* swallow */
@@ -230,7 +230,7 @@ export function trackEvent(name: string, props: EventProps = {}): void {
   // Dev-only visibility — see what is being fired without a provider attached.
   if (import.meta.env.DEV) {
     // eslint-disable-next-line no-console
-    console.debug("[analytics]", name, cleaned);
+    console.debug("[analytics]", name, validated);
   }
 }
 
