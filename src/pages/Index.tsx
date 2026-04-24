@@ -6,6 +6,7 @@ import { CertificationSpotlight } from "@/components/homepage/CertificationSpotl
 import { AuthoritySection } from "@/components/homepage/AuthoritySection";
 import { FreeResourcesPreview } from "@/components/homepage/FreeResourcesPreview";
 import { LatestPosts } from "@/components/homepage/LatestPosts";
+import { BrowseByCategory } from "@/components/homepage/BrowseByCategory";
 import { LiveEvents } from "@/components/homepage/LiveEvents";
 import { EbookCapture } from "@/components/homepage/EbookCapture";
 import { SocialProof } from "@/components/homepage/SocialProof";
@@ -25,6 +26,7 @@ const Index = () => {
         <AuthoritySection />
         <FreeResourcesPreview />
         <LatestPosts />
+        <BrowseByCategory />
         <LiveEvents />
         <EbookCapture />
         <SocialProof />
