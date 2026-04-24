@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Blog", href: "/blog" },
   { label: "Get Certified", href: "https://certify.mindfulnessexercises.com/", external: true },
   { label: "Live Events", href: "#events" },
-  { label: "About", href: "#authority" },
+  { label: "About", href: "/about" },
 ];
 
 export function Navbar() {
