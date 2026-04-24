@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      analytics_events: {
+        Row: {
+          category_slug: string | null
+          cta_destination: string | null
+          cta_location: string | null
+          form_id: string | null
+          id: string
+          name: string
+          occurred_at: string
+          props: Json
+        }
+        Insert: {
+          category_slug?: string | null
+          cta_destination?: string | null
+          cta_location?: string | null
+          form_id?: string | null
+          id?: string
+          name: string
+          occurred_at?: string
+          props?: Json
+        }
+        Update: {
+          category_slug?: string | null
+          cta_destination?: string | null
+          cta_location?: string | null
+          form_id?: string | null
+          id?: string
+          name?: string
+          occurred_at?: string
+          props?: Json
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
