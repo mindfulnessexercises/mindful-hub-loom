@@ -7,7 +7,7 @@ import { Footer } from "@/components/homepage/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
+import { wp, getCategoryCptEndpointById, getFeaturedImage, getCategories, getWpPostHref, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { buildPaginatedSeo } from "@/lib/seo-pagination";
@@ -29,10 +29,19 @@ export default function Blog() {
   // Keep the input synced when the URL changes (back/forward, shared links).
   useEffect(() => { setSearchInput(search); }, [search]);
 
+  const catsQuery = useQuery({
+    queryKey: wpKeys.categories(),
+    queryFn: () => wp.categories(),
+    staleTime: WP_STALE.taxonomy,
+    gcTime: WP_STALE.gc,
+  });
+
+  const cptEndpoint = getCategoryCptEndpointById(catsQuery.data?.items, category);
+
   const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
-    queryKey: wpKeys.postsList({ scope: "blog", search, category, perPage: PER_PAGE }),
+    queryKey: wpKeys.postsList({ scope: "blog", search, category, perPage: PER_PAGE, endpoint: cptEndpoint }),
     queryFn: ({ pageParam = 1 }) =>
-      wp.posts({ page: pageParam as number, per_page: PER_PAGE, search: search || undefined, categories: category }),
+      wp.posts({ page: pageParam as number, per_page: PER_PAGE, search: search || undefined, categories: category, endpoint: cptEndpoint }),
     getNextPageParam: (lastPage, all) => {
       const next = all.length + 1;
       return next <= lastPage.totalPages ? next : undefined;
@@ -40,6 +49,7 @@ export default function Blog() {
     initialPageParam: 1,
     staleTime: WP_STALE.list,
     gcTime: WP_STALE.gc,
+    enabled: !category || !!catsQuery.data,
   });
 
   // Auto-fetch additional pages until we reach ?page=N (e.g. on a shared link).
@@ -54,13 +64,6 @@ export default function Blog() {
       postsQuery.fetchNextPage();
     }
   }, [pageParam, postsQuery.data, postsQuery.hasNextPage, postsQuery.isFetchingNextPage]);
-
-  const catsQuery = useQuery({
-    queryKey: wpKeys.categories(),
-    queryFn: () => wp.categories(),
-    staleTime: WP_STALE.taxonomy,
-    gcTime: WP_STALE.gc,
-  });
 
   const updateParam = (key: string, value?: string, opts: { resetPage?: boolean } = { resetPage: true }) => {
     const next = new URLSearchParams(params);
@@ -207,7 +210,7 @@ export default function Blog() {
                   const cats = getCategories(post);
                   return (
                     <article key={post.id} className="group flex flex-col bg-card rounded-lg overflow-hidden border border-border shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-300">
-                      <Link to={`/${post.slug}`} className="block aspect-[16/10] bg-muted overflow-hidden">
+                      <Link to={getWpPostHref(post.slug, cptEndpoint)} className="block aspect-[16/10] bg-muted overflow-hidden">
                         {img ? (
                           <img
                             src={img.url}
@@ -225,12 +228,12 @@ export default function Blog() {
                           <span>{formatDate(post.date)}</span>
                         </div>
                         <h2 className="text-card-heading text-foreground mb-2">
-                          <Link to={`/${post.slug}`} className="hover:text-primary transition-colors" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                          <Link to={getWpPostHref(post.slug, cptEndpoint)} className="hover:text-primary transition-colors" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
                         </h2>
                         <p className="text-body-sm text-muted-foreground line-clamp-3">
                           {stripHtml(post.excerpt.rendered)}
                         </p>
-                        <Link to={`/${post.slug}`} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all">
+                        <Link to={getWpPostHref(post.slug, cptEndpoint)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all">
                           Read article <ArrowRight className="h-3.5 w-3.5" />
                         </Link>
                       </div>
