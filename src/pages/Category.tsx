@@ -8,6 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { LoadMoreSection, PostCardSkeletonGrid } from "@/components/wp/LoadMoreSection";
 import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
+import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { buildPaginatedSeo } from "@/lib/seo-pagination";
@@ -72,6 +73,7 @@ export default function Category() {
   const allPosts = postsQuery.data?.pages.flatMap((p) => p.items) ?? [];
   const total = postsQuery.data?.pages[0]?.total ?? cat.count;
   const totalPages = postsQuery.data?.pages[0]?.totalPages ?? 1;
+  const { query: filterQuery, setQuery: setFilterQuery, filtered: visiblePosts } = useClientPostFilter(allPosts);
   const description = cat.description
     ? stripHtml(cat.description)
     : `Browse ${cat.count.toLocaleString()} mindfulness exercises and articles in the ${cat.name} category from Mindfulness Exercises.`;
@@ -135,8 +137,22 @@ export default function Category() {
 
           {allPosts.length > 0 && (
             <>
+              <div className="mb-6 lg:mb-8">
+                <ClientFilterBar
+                  query={filterQuery}
+                  onChange={setFilterQuery}
+                  loadedCount={allPosts.length}
+                  filteredCount={visiblePosts.length}
+                  noun="articles"
+                />
+              </div>
+              {filterQuery && visiblePosts.length === 0 ? (
+                <p className="text-center text-muted-foreground py-12">
+                  No loaded articles match "{filterQuery}". Try Load more, or clear the filter.
+                </p>
+              ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                {allPosts.map((post) => {
+                {visiblePosts.map((post) => {
                   const img = getFeaturedImage(post);
                   const cats = getCategories(post);
                   return (
