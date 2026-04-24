@@ -28,6 +28,12 @@ export function SectionWrapper({
   return (
     <section
       id={id}
+      // `data-track-section` lets HomepageEngagementTracker observe this
+      // section for impression analytics WITHOUT every section file having
+      // to wire up its own observer. We use the wrapper id (or aria-label,
+      // lower-cased) as the section identifier so reports stay readable.
+      data-track-section={id ?? ariaLabel?.toLowerCase().replace(/\s+/g, "-")}
+      data-track-section-label={ariaLabel ?? id}
       className={cn(bgMap[background], "py-16 sm:py-20 lg:py-24", className)}
       {...(ariaLabel ? { "aria-label": ariaLabel } : id ? { "aria-labelledby": `${id}-heading` } : {})}
     >
