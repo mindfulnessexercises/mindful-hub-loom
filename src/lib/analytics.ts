@@ -116,4 +116,9 @@ export interface CtaClickProps {
 
 export function trackCtaClick(props: CtaClickProps): void {
   trackEvent("cta_clicked", { ...props });
+  // Also record dispatch / queue arrival tracking. Done lazily-imported to
+  // avoid a circular import (cta-arrival imports `trackEvent` from this file).
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  void import("./cta-arrival").then((m) => m.recordCtaDispatch(props)).catch(() => {});
 }
+

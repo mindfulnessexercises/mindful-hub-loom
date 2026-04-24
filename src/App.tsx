@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { lazy, Suspense } from "react";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import { usePageArrivalTracker } from "@/lib/cta-arrival";
 
 const CEPolicies = lazy(() => import("./pages/CEPolicies.tsx"));
 const Blog = lazy(() => import("./pages/Blog.tsx"));
@@ -22,12 +23,23 @@ const queryClient = new QueryClient({
 
 const PageFallback = () => <div className="min-h-screen bg-background" />;
 
+/**
+ * Sits inside <BrowserRouter> so it can read the current location and fire
+ * `cta_destination_arrived` events when the user lands on the page a CTA
+ * was pointing at. See `src/lib/cta-arrival.ts` for the full mechanism.
+ */
+const RouterEffects = () => {
+  usePageArrivalTracker();
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <RouterEffects />
         <Suspense fallback={<PageFallback />}>
           <Routes>
             <Route path="/" element={<Index />} />
@@ -49,3 +61,4 @@ const App = () => (
 );
 
 export default App;
+
