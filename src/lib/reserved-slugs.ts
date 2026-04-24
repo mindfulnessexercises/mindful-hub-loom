@@ -10,6 +10,7 @@ export const RESERVED_SLUGS = [
   "search",      // /search results page
   "category",    // /category/:slug landing pages
   "library",     // /library browse-all index
+  "admin",       // /admin/* internal pages (analytics dashboard etc.)
 ] as const;
 
 export const RESERVED_SLUG_SET: ReadonlySet<string> = new Set(RESERVED_SLUGS);
