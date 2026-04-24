@@ -60,15 +60,26 @@ export function FeaturedFromOtherCategories({
 
   // Pair each fetched post with its category so the card can show the badge
   // and link to that category's filtered view.
+  // Final order is deterministic: primary = category popularity (post count
+  // desc); secondary tie-breaker = most-recent post date desc. This keeps the
+  // row stable across renders and makes the "what shows up first" logic
+  // predictable for editorial review.
   const items = otherCats
     .map((cat, i) => {
       const post = queries[i]?.data?.items[0] as WPPost | undefined;
       return post ? { cat, post } : null;
     })
-    .filter((x): x is { cat: WPCategory; post: WPPost } => Boolean(x));
+    .filter((x): x is { cat: WPCategory; post: WPPost } => Boolean(x))
+    .sort((a, b) => {
+      if (b.cat.count !== a.cat.count) return b.cat.count - a.cat.count;
+      const aTs = new Date(a.post.date).getTime();
+      const bTs = new Date(b.post.date).getTime();
+      return bTs - aTs;
+    });
 
   // Hide entirely when nothing to show — avoids a lonely heading + spinner.
   if (items.length === 0) return null;
+
 
   return (
     <section
