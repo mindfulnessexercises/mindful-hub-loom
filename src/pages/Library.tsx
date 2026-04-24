@@ -12,6 +12,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { LoadMoreSection, PostCardSkeletonGrid, PageRowSkeletonList } from "@/components/wp/LoadMoreSection";
 import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 import { BrowseByCategory } from "@/components/homepage/BrowseByCategory";
+import { MobileLibraryFilters } from "@/components/wp/MobileLibraryFilters";
 import {
   wp,
   getFeaturedImage,
