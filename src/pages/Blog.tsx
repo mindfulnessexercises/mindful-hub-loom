@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
 import { WPSeo } from "@/components/wp/WPSeo";
 
-const PER_PAGE = 24;
+const PER_PAGE = 100; // WordPress REST API maximum
 
 export default function Blog() {
   const [params, setParams] = useSearchParams();
