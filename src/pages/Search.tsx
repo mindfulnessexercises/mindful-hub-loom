@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { ArrowRight, Loader2, FileText, BookOpen } from "lucide-react";
@@ -10,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
+import { useUrlPagination } from "@/hooks/use-url-pagination";
 
 const PER_PAGE = 50; // Per content type, when searching both
 
@@ -25,6 +25,8 @@ export default function Search() {
   const updateParam = (key: string, value?: string) => {
     const next = new URLSearchParams(params);
     if (value) next.set(key, value); else next.delete(key);
+    // Any filter change resets pagination so shared URLs are coherent.
+    if (key !== "page") next.delete("page");
     setParams(next);
   };
 
@@ -59,6 +61,13 @@ export default function Search() {
     queryKey: ["wp-categories"],
     queryFn: () => wp.categories(),
     staleTime: 60 * 60 * 1000,
+  });
+
+  const { loadMore } = useUrlPagination({
+    loadedPages: postsQuery.data?.pages.length ?? 0,
+    hasNextPage: !!postsQuery.hasNextPage,
+    isFetchingNextPage: postsQuery.isFetchingNextPage,
+    fetchNextPage: postsQuery.fetchNextPage,
   });
 
   const allPosts = postsQuery.data?.pages.flatMap((p) => p.items) ?? [];
@@ -268,7 +277,7 @@ export default function Search() {
                     size="lg"
                     variant="outline"
                     className="h-11 min-w-[200px]"
-                    onClick={() => postsQuery.fetchNextPage()}
+                    onClick={loadMore}
                     disabled={postsQuery.isFetchingNextPage}
                   >
                     {postsQuery.isFetchingNextPage ? (

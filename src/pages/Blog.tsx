@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { Search, ArrowRight, Loader2 } from "lucide-react";
@@ -18,7 +18,13 @@ export default function Blog() {
   const search = params.get("q") ?? "";
   const categoryParam = params.get("cat");
   const category = categoryParam ? Number(categoryParam) : undefined;
+  // ?page=N controls how many "Load more" pages have been loaded — makes the
+  // current scroll position shareable and survives back/forward navigation.
+  const pageParam = Math.max(1, Number(params.get("page") ?? "1"));
   const [searchInput, setSearchInput] = useState(search);
+
+  // Keep the input synced when the URL changes (back/forward, shared links).
+  useEffect(() => { setSearchInput(search); }, [search]);
 
   const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
     queryKey: ["wp-posts", search, category],
@@ -32,15 +38,29 @@ export default function Blog() {
     staleTime: 5 * 60 * 1000,
   });
 
+  // Auto-fetch additional pages until we reach ?page=N (e.g. on a shared link).
+  useEffect(() => {
+    const loaded = postsQuery.data?.pages.length ?? 0;
+    if (
+      loaded > 0 &&
+      loaded < pageParam &&
+      postsQuery.hasNextPage &&
+      !postsQuery.isFetchingNextPage
+    ) {
+      postsQuery.fetchNextPage();
+    }
+  }, [pageParam, postsQuery.data, postsQuery.hasNextPage, postsQuery.isFetchingNextPage]);
+
   const catsQuery = useQuery({
     queryKey: ["wp-categories"],
     queryFn: () => wp.categories(),
     staleTime: 60 * 60 * 1000,
   });
 
-  const updateParam = (key: string, value?: string) => {
+  const updateParam = (key: string, value?: string, opts: { resetPage?: boolean } = { resetPage: true }) => {
     const next = new URLSearchParams(params);
     if (value) next.set(key, value); else next.delete(key);
+    if (opts.resetPage && key !== "page") next.delete("page");
     setParams(next);
   };
 
@@ -49,8 +69,15 @@ export default function Blog() {
     updateParam("q", searchInput.trim() || undefined);
   };
 
+  const loadMore = () => {
+    postsQuery.fetchNextPage();
+    // Persist the new page count to the URL so the state is shareable.
+    updateParam("page", String((postsQuery.data?.pages.length ?? 0) + 1), { resetPage: false });
+  };
+
   const allPosts = postsQuery.data?.pages.flatMap((p) => p.items) ?? [];
   const total = postsQuery.data?.pages[0]?.total ?? 0;
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -193,7 +220,7 @@ export default function Blog() {
                     size="lg"
                     variant="outline"
                     className="h-11 min-w-[200px]"
-                    onClick={() => postsQuery.fetchNextPage()}
+                    onClick={loadMore}
                     disabled={postsQuery.isFetchingNextPage}
                   >
                     {postsQuery.isFetchingNextPage ? (
