@@ -279,6 +279,7 @@ export default function Search() {
                   );
                 })}
               </div>
+              )}
 
               <LoadMoreSection
                 loaded={allPosts.length}
