@@ -135,13 +135,19 @@ export default function Library() {
     setParams(next);
   };
 
+  const onSortChange = (next: LibrarySort) => {
+    // Default = "newest" → drop param to keep URLs clean & canonical.
+    updateParam("sort", next === "newest" ? undefined : next);
+  };
+
   // Commit mobile-sheet filter changes back to the URL in a single transition
-  // so the resulting view stays shareable (search + tab + cat all in the URL).
+  // so the resulting view stays shareable (search + tab + cat + sort all in the URL).
   const onMobileFiltersApply = ({
     tab: nextTab,
     search: nextSearch,
     category: nextCategory,
-  }: { tab: "posts" | "pages"; search: string; category?: number }) => {
+    sort: nextSort,
+  }: { tab: "posts" | "pages"; search: string; category?: number; sort: LibrarySort }) => {
     const next = new URLSearchParams(params);
     if (nextTab === "pages") next.set("tab", "pages"); else next.delete("tab");
     if (nextSearch) next.set("q", nextSearch); else next.delete("q");
@@ -150,6 +156,7 @@ export default function Library() {
     } else {
       next.delete("cat");
     }
+    if (nextSort && nextSort !== "newest") next.set("sort", nextSort); else next.delete("sort");
     next.delete("page");
     setParams(next);
   };
