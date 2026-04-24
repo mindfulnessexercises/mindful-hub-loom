@@ -223,27 +223,15 @@ export default function Blog() {
                 })}
               </div>
 
-              {/* Load more */}
-              <div className="mt-12 flex flex-col items-center gap-3">
-                <p className="text-body-sm text-muted-foreground">
-                  Showing {allPosts.length.toLocaleString()} of {total.toLocaleString()}
-                </p>
-                {postsQuery.hasNextPage && (
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="h-11 min-w-[200px]"
-                    onClick={loadMore}
-                    disabled={postsQuery.isFetchingNextPage}
-                  >
-                    {postsQuery.isFetchingNextPage ? (
-                      <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Loading…</>
-                    ) : (
-                      <>Load more articles</>
-                    )}
-                  </Button>
-                )}
-              </div>
+              <LoadMoreSection
+                loaded={allPosts.length}
+                total={total}
+                hasNext={!!postsQuery.hasNextPage}
+                isFetching={postsQuery.isFetchingNextPage}
+                onClick={loadMore}
+                label="articles"
+                pendingSkeleton={<PostCardSkeletonGrid count={6} />}
+              />
             </>
           )}
         </section>
