@@ -154,6 +154,20 @@ export const URL_PARENT_TO_CPT_ENDPOINT: Record<string, string> = Object.fromEnt
   Object.entries(CPT_URL_PARENT).map(([endpoint, parent]) => [parent, endpoint]),
 );
 
+export function getCategoryCptEndpointById(
+  categories: Array<Pick<WPCategory, "id" | "slug">> | undefined,
+  categoryId?: number,
+): string | undefined {
+  if (!categoryId || !categories?.length) return undefined;
+  const slug = categories.find((category) => category.id === categoryId)?.slug;
+  return slug ? CATEGORY_CPT_ENDPOINT[slug] : undefined;
+}
+
+export function getWpPostHref(postSlug: string, endpoint?: string): string {
+  const urlParent = endpoint ? CPT_URL_PARENT[endpoint] : "";
+  return urlParent ? `/${urlParent}/${postSlug}` : `/${postSlug}`;
+}
+
 
 
 // Common TTL presets (seconds)
