@@ -13,6 +13,7 @@ import { WPSeo } from "@/components/wp/WPSeo";
 import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
 import { useUrlPagination } from "@/hooks/use-url-pagination";
 import { buildMatchSnippet, highlightTerms } from "@/lib/search-snippet";
+import { trackEvent } from "@/lib/analytics";
 
 const PER_PAGE = 50; // Per content type, when searching both
 
@@ -31,6 +32,28 @@ export default function Search() {
     // Any filter change resets pagination so shared URLs are coherent.
     if (key !== "page") next.delete("page");
     setParams(next);
+  };
+
+  // Fire structured filter-change events on the search results page so we can
+  // attribute downstream CTA conversion to the upstream refinement step.
+  const onTypeChange = (nextType: ContentType) => {
+    updateParam("type", nextType === "all" ? undefined : nextType);
+    trackEvent("search_type_changed", {
+      from_type: type, to_type: nextType, source: "search_page", query: q,
+    });
+  };
+
+  const onCategoryChange = (id: number | undefined) => {
+    updateParam("cat", id !== undefined ? String(id) : undefined);
+    const cat = id !== undefined && catsQuery.data?.items.find((c) => c.id === id);
+    trackEvent("category_filter_changed", {
+      from_category_id: category,
+      to_category_id: id,
+      to_category_slug: cat ? cat.slug : undefined,
+      to_category_name: cat ? cat.name : undefined,
+      source: "search_page",
+      query: q,
+    });
   };
 
   // ---- Posts (paginated, infinite) ----
@@ -74,6 +97,7 @@ export default function Search() {
     hasNextPage: !!postsQuery.hasNextPage,
     isFetchingNextPage: postsQuery.isFetchingNextPage,
     fetchNextPage: postsQuery.fetchNextPage,
+    source: "search_posts",
   });
 
   const allPosts = postsQuery.data?.pages.flatMap((p) => p.items) ?? [];
@@ -116,7 +140,7 @@ export default function Search() {
             )}
 
             <div className="mt-6 max-w-2xl">
-              <SiteSearchBar initialValue={q} size="lg" />
+              <SiteSearchBar initialValue={q} size="lg" source="search_page_header" />
             </div>
 
             {/* Type filter */}
@@ -129,7 +153,7 @@ export default function Search() {
                 ] as { id: ContentType; label: string }[]).map((t) => (
                   <button
                     key={t.id}
-                    onClick={() => updateParam("type", t.id === "all" ? undefined : t.id)}
+                    onClick={() => onTypeChange(t.id)}
                     className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
                       type === t.id ? "bg-primary text-primary-foreground border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"
                     }`}
@@ -144,7 +168,7 @@ export default function Search() {
             {q && (type === "all" || type === "posts") && catsQuery.data && (
               <div className="mt-3 flex flex-wrap gap-2">
                 <button
-                  onClick={() => updateParam("cat", undefined)}
+                  onClick={() => onCategoryChange(undefined)}
                   className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
                     !category ? "bg-card text-muted-foreground border-border hover:text-foreground" : "bg-card text-muted-foreground border-border hover:text-foreground"
                   } ${!category ? "ring-1 ring-primary/30" : ""}`}
@@ -157,7 +181,7 @@ export default function Search() {
                   .map((c) => (
                     <button
                       key={c.id}
-                      onClick={() => updateParam("cat", String(c.id))}
+                      onClick={() => onCategoryChange(c.id)}
                       className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
                         category === c.id ? "bg-primary text-primary-foreground border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"
                       }`}

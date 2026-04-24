@@ -22,7 +22,7 @@ import { FeaturedFromOtherCategories } from "@/components/wp/FeaturedFromOtherCa
 import { CategoriesAvailableSummary } from "@/components/wp/CategoriesAvailableSummary";
 import { CategoryExploration } from "@/components/wp/CategoryExploration";
 import { MoreLikeThis } from "@/components/wp/MoreLikeThis";
-import { trackCtaClick } from "@/lib/analytics";
+import { trackCtaClick, trackEvent } from "@/lib/analytics";
 import { recordRecentCategory } from "@/lib/recent-categories";
 import {
   wp,
@@ -90,6 +90,7 @@ export default function Library() {
     hasNextPage: !!postsQuery.hasNextPage,
     isFetchingNextPage: postsQuery.isFetchingNextPage,
     fetchNextPage: postsQuery.fetchNextPage,
+    source: "library_posts",
   });
 
   // ----- Pages (infinite) -----
@@ -116,6 +117,7 @@ export default function Library() {
     hasNextPage: !!pagesQuery.hasNextPage,
     isFetchingNextPage: pagesQuery.isFetchingNextPage,
     fetchNextPage: pagesQuery.fetchNextPage,
+    source: "library_pages",
   });
 
   // ----- Categories (only used for posts tab) -----
@@ -145,7 +147,18 @@ export default function Library() {
 
   const onSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    updateParam("q", searchInput.trim() || undefined);
+    const trimmed = searchInput.trim();
+    updateParam("q", trimmed || undefined);
+    if (trimmed) {
+      // Distinct from `cta_clicked` — search submissions are upstream intent
+      // signals. `source` lets us split desktop bar vs mobile sheet later.
+      trackEvent("search_submitted", {
+        query: trimmed,
+        source: "library_header",
+        tab,
+        category_id: category,
+      });
+    }
   };
 
   const onTabChange = (value: string) => {
@@ -154,11 +167,34 @@ export default function Library() {
     next.delete("page");
     next.delete("cat"); // category only applies to posts
     setParams(next);
+    trackEvent("library_tab_changed", { from_tab: tab, to_tab: value, source: "library" });
   };
 
   const onSortChange = (next: LibrarySort) => {
     // Default = "newest" → drop param to keep URLs clean & canonical.
     updateParam("sort", next === "newest" ? undefined : next);
+    trackEvent("sort_changed", {
+      from_sort: sort,
+      to_sort: next,
+      source: "library",
+      tab,
+      has_search: !!search,
+    });
+  };
+
+  // Wrap chip clicks so we capture which category drove the filter — this
+  // pairs with `cta_clicked` downstream so we can attribute conversion to
+  // the upstream filter intent, not just the CTA position.
+  const onCategorySelect = (id: number | undefined) => {
+    updateParam("cat", id !== undefined ? String(id) : undefined);
+    const cat = id !== undefined && catsQuery.data?.items.find((c) => c.id === id);
+    trackEvent("category_filter_changed", {
+      from_category_id: category,
+      to_category_id: id,
+      to_category_slug: cat ? cat.slug : undefined,
+      to_category_name: cat ? cat.name : undefined,
+      source: "library",
+    });
   };
 
   // Commit mobile-sheet filter changes back to the URL in a single transition
@@ -180,6 +216,34 @@ export default function Library() {
     if (nextSort && nextSort !== "newest") next.set("sort", nextSort); else next.delete("sort");
     next.delete("page");
     setParams(next);
+
+    // Emit a granular event PER changed dimension so the mobile sheet shows
+    // up in the same dashboards as the desktop controls — keeps location
+    // attribution clean ("source: library_mobile_sheet").
+    if (nextTab !== tab) {
+      trackEvent("library_tab_changed", { from_tab: tab, to_tab: nextTab, source: "library_mobile_sheet" });
+    }
+    if (nextSort !== sort) {
+      trackEvent("sort_changed", {
+        from_sort: sort, to_sort: nextSort, source: "library_mobile_sheet",
+        tab: nextTab, has_search: !!nextSearch,
+      });
+    }
+    if ((nextCategory ?? null) !== (category ?? null)) {
+      const cat = nextCategory !== undefined && catsQuery.data?.items.find((c) => c.id === nextCategory);
+      trackEvent("category_filter_changed", {
+        from_category_id: category,
+        to_category_id: nextCategory,
+        to_category_slug: cat ? cat.slug : undefined,
+        to_category_name: cat ? cat.name : undefined,
+        source: "library_mobile_sheet",
+      });
+    }
+    if (nextSearch && nextSearch !== search) {
+      trackEvent("search_submitted", {
+        query: nextSearch, source: "library_mobile_sheet", tab: nextTab, category_id: nextCategory,
+      });
+    }
   };
 
   const allPosts = useMemo(
@@ -378,7 +442,7 @@ export default function Library() {
                       <button
                         role="tab"
                         aria-selected={!category}
-                        onClick={() => updateParam("cat", undefined)}
+                        onClick={() => onCategorySelect(undefined)}
                         className={`shrink-0 text-xs font-medium px-3 py-2 min-h-[36px] rounded-full border transition-colors ${
                           !category
                             ? "bg-primary text-primary-foreground border-primary"
@@ -392,7 +456,7 @@ export default function Library() {
                           key={c.id}
                           cat={c}
                           active={category === c.id}
-                          onSelect={(id) => updateParam("cat", String(id))}
+                          onSelect={(id) => onCategorySelect(id)}
                         />
                       ))}
                     </div>

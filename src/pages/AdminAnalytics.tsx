@@ -249,6 +249,36 @@ export default function AdminAnalytics() {
   const byCategory = useMemo(() => aggregate(rows ?? [], "category_slug"), [rows]);
   const byDestination = useMemo(() => aggregate(rows ?? [], "cta_destination"), [rows]);
 
+  // Upstream intent counters: these events sit BEFORE a CTA click in the
+  // funnel — they tell us how the user shaped what they were looking at when
+  // the CTA was eventually shown. We pull `source` from JSONB props so we can
+  // see e.g. how many searches came from the navbar vs the search page itself.
+  const upstreamIntent = useMemo(() => {
+    type Bucket = { searches: number; sortChanges: number; categoryChanges: number; tabChanges: number; loadMores: number };
+    const map = new Map<string, Bucket>();
+    const ensure = (k: string): Bucket => {
+      let b = map.get(k);
+      if (!b) {
+        b = { searches: 0, sortChanges: 0, categoryChanges: 0, tabChanges: 0, loadMores: 0 };
+        map.set(k, b);
+      }
+      return b;
+    };
+    for (const row of rows ?? []) {
+      const props = (row.props ?? {}) as Record<string, unknown>;
+      const source = typeof props.source === "string" ? props.source : null;
+      if (!source) continue;
+      if (row.name === "search_submitted") ensure(source).searches++;
+      else if (row.name === "sort_changed") ensure(source).sortChanges++;
+      else if (row.name === "category_filter_changed") ensure(source).categoryChanges++;
+      else if (row.name === "library_tab_changed" || row.name === "search_type_changed") ensure(source).tabChanges++;
+      else if (row.name === "pagination_load_more") ensure(source).loadMores++;
+    }
+    return Array.from(map.entries())
+      .map(([source, b]) => ({ source, ...b, total: b.searches + b.sortChanges + b.categoryChanges + b.tabChanges + b.loadMores }))
+      .sort((a, b) => b.total - a.total);
+  }, [rows]);
+
   const recent = (rows ?? []).slice(0, 50);
   const showingCapHint = (rows?.length ?? 0) >= ROW_CAP;
 
@@ -375,6 +405,58 @@ export default function AdminAnalytics() {
             keyLabel="Destination"
             formatKey={(k) => <span title={k}>{truncate(k, 80)}</span>}
           />
+        </section>
+
+        {/* Upstream intent — events that happen BEFORE a CTA click and shape
+            what the user was looking at. Pair with the breakdowns above to
+            see whether refinement (search/sort/filter) precedes conversion. */}
+        <section>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-card-heading font-serif">Upstream intent by source</CardTitle>
+              <p className="text-body-sm text-muted-foreground">
+                Filter changes, search submissions, and pagination — grouped by where
+                the user was when they made the change. Use it to see which surfaces
+                drive deep refinement before a CTA click.
+              </p>
+            </CardHeader>
+            <CardContent>
+              {upstreamIntent.length === 0 ? (
+                <p className="text-body-sm text-muted-foreground py-6 text-center">
+                  No upstream events in the selected range.
+                </p>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full text-body-sm">
+                    <thead>
+                      <tr className="border-b border-border text-left text-muted-foreground">
+                        <th className="py-2 pr-4 font-medium">Source</th>
+                        <th className="py-2 pr-4 font-medium text-right">Searches</th>
+                        <th className="py-2 pr-4 font-medium text-right">Sort changes</th>
+                        <th className="py-2 pr-4 font-medium text-right">Category changes</th>
+                        <th className="py-2 pr-4 font-medium text-right">Tab / type changes</th>
+                        <th className="py-2 pr-4 font-medium text-right">Load more</th>
+                        <th className="py-2 font-medium text-right">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {upstreamIntent.slice(0, 50).map((r) => (
+                        <tr key={r.source} className="border-b border-border/50 last:border-0">
+                          <td className="py-2 pr-4 font-mono text-xs">{r.source}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.searches}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.sortChanges}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.categoryChanges}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.tabChanges}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.loadMores}</td>
+                          <td className="py-2 text-right tabular-nums font-semibold">{r.total}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </CardContent>
+          </Card>
         </section>
 
         {/* Recent feed for spot-checking */}
