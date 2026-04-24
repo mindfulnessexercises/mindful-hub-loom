@@ -17,6 +17,7 @@ import { LibrarySortSelect, sortToWpParams, type LibrarySort } from "@/component
 import { SparseCategoryHelper } from "@/components/wp/SparseCategoryHelper";
 import { CategoryChip } from "@/components/wp/CategoryChip";
 import { ActiveFilterBanner } from "@/components/wp/ActiveFilterBanner";
+import { ShareLibraryView } from "@/components/wp/ShareLibraryView";
 import { FeaturedFromOtherCategories } from "@/components/wp/FeaturedFromOtherCategories";
 import { CategoriesAvailableSummary } from "@/components/wp/CategoriesAvailableSummary";
 import { CategoryExploration } from "@/components/wp/CategoryExploration";
@@ -305,12 +306,22 @@ export default function Library() {
                   Pages {pagesTotal > 0 && <span className="opacity-60 text-xs">({pagesTotal.toLocaleString()})</span>}
                 </TabsTrigger>
               </TabsList>
-              <LibrarySortSelect
-                value={sort}
-                onChange={onSortChange}
-                hasSearch={!!search}
-                includePopular={tab === "posts"}
-              />
+              <div className="flex items-center gap-2">
+                <ShareLibraryView
+                  tab={tab}
+                  category={category}
+                  sort={sort}
+                  defaultSort="newest"
+                  search={search || undefined}
+                  page={pageParam}
+                />
+                <LibrarySortSelect
+                  value={sort}
+                  onChange={onSortChange}
+                  hasSearch={!!search}
+                  includePopular={tab === "posts"}
+                />
+              </div>
             </div>
 
             {/* ---- POSTS TAB ---- */}
