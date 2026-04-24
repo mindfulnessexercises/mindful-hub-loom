@@ -52,11 +52,11 @@ const products = [
 
 export function MoreWaysToGrow() {
   return (
-    <SectionWrapper id="programs" tone="alternate">
+    <SectionWrapper id="programs" background="alternate" ariaLabel="Tools and Programs">
       <SectionHeader
         eyebrow="Tools & Programs"
         title="More ways to grow your practice"
-        description="Beyond the flagship certification, these are the tools, scripts, and programs trusted by mindfulness professionals worldwide."
+        subtitle="Beyond the flagship certification, these are the tools, scripts, and programs trusted by mindfulness professionals worldwide."
       />
 
       <div className="mt-10 grid gap-4 md:gap-5 md:grid-cols-2 lg:grid-cols-5">
