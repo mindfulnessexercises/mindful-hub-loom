@@ -457,32 +457,54 @@ export default function Library() {
               {allPages.length > 0 && (
                 <>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {allPages.map((p) => (
-                      <li key={p.id}>
-                        <Link
-                          to={`/${p.slug}`}
-                          className="group flex items-start gap-4 p-5 rounded-lg border border-border bg-card hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] transition-all min-h-[44px]"
-                        >
-                          <div className="shrink-0 mt-1 h-9 w-9 rounded-md bg-accent text-accent-foreground inline-flex items-center justify-center">
-                            <BookOpen className="h-4 w-4" aria-hidden />
+                    {allPages.map((p) => {
+                      // Pages get a slug/title-based CTA (no categories on pages).
+                      const cta = getPageInlineCTA(p);
+                      return (
+                        <li key={p.id}>
+                          <div className="group flex items-start gap-4 p-5 rounded-lg border border-border bg-card hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] transition-all">
+                            <Link
+                              to={`/${p.slug}`}
+                              className="shrink-0 mt-1 h-9 w-9 rounded-md bg-accent text-accent-foreground inline-flex items-center justify-center"
+                              aria-hidden
+                              tabIndex={-1}
+                            >
+                              <BookOpen className="h-4 w-4" />
+                            </Link>
+                            <div className="flex-1 min-w-0">
+                              <h2 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                <Link
+                                  to={`/${p.slug}`}
+                                  className="hover:text-primary transition-colors"
+                                  dangerouslySetInnerHTML={{ __html: p.title.rendered }}
+                                />
+                              </h2>
+                              {p.excerpt?.rendered && (
+                                <p className="mt-1 text-body-sm text-muted-foreground line-clamp-2">
+                                  {stripHtml(p.excerpt.rendered)}
+                                </p>
+                              )}
+                              <div className="mt-3 flex items-center gap-3 flex-wrap">
+                                <Link
+                                  to={cta.href ?? `/${p.slug}`}
+                                  className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:gap-2 transition-all min-h-[36px]"
+                                >
+                                  {cta.label} <ArrowRight className="h-3 w-3" />
+                                </Link>
+                                {cta.href && (
+                                  <Link
+                                    to={`/${p.slug}`}
+                                    className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                                  >
+                                    View page
+                                  </Link>
+                                )}
+                              </div>
+                            </div>
                           </div>
-                          <div className="flex-1 min-w-0">
-                            <h2
-                              className="text-base font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2"
-                              dangerouslySetInnerHTML={{ __html: p.title.rendered }}
-                            />
-                            {p.excerpt?.rendered && (
-                              <p className="mt-1 text-body-sm text-muted-foreground line-clamp-2">
-                                {stripHtml(p.excerpt.rendered)}
-                              </p>
-                            )}
-                            <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-primary">
-                              View page <ArrowRight className="h-3 w-3" />
-                            </span>
-                          </div>
-                        </Link>
-                      </li>
-                    ))}
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   <LoadMoreSection
