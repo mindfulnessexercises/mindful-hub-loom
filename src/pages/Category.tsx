@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { LoadMoreSection, PostCardSkeletonGrid } from "@/components/wp/LoadMoreSection";
-import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
+import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult, CATEGORY_CPT_ENDPOINT } from "@/lib/wp";
 import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
@@ -32,10 +32,15 @@ export default function Category() {
     retry: false,
   });
 
+  // Some categories (Podcast, Downloads) store their content in a custom post
+  // type rather than the default `post` type. Fetch from the matching CPT
+  // endpoint so the category page actually has results.
+  const cptEndpoint = CATEGORY_CPT_ENDPOINT[slug];
+
   const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
-    queryKey: wpKeys.postsList({ scope: "category", category: catQuery.data?.id, perPage: PER_PAGE }),
+    queryKey: wpKeys.postsList({ scope: "category", category: catQuery.data?.id, perPage: PER_PAGE, endpoint: cptEndpoint }),
     queryFn: ({ pageParam = 1 }) =>
-      wp.posts({ page: pageParam as number, per_page: PER_PAGE, categories: catQuery.data!.id }),
+      wp.posts({ page: pageParam as number, per_page: PER_PAGE, categories: catQuery.data!.id, endpoint: cptEndpoint }),
     getNextPageParam: (lastPage, all) => {
       const next = all.length + 1;
       return next <= lastPage.totalPages ? next : undefined;
