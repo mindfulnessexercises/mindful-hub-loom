@@ -38,13 +38,26 @@ export interface PaginatedResult<T> {
   totalPages: number;
 }
 
-async function wpFetch<T>(path: string, params: Record<string, string | number | undefined> = {}): Promise<PaginatedResult<T>> {
+// Cache controls
+//   ttl  — override cache duration in seconds (0 disables, max 86400)
+//   bust — true forces a fresh upstream fetch and tells caches not to store
+export interface CacheOptions { ttl?: number; bust?: boolean }
+
+async function wpFetch<T>(
+  path: string,
+  params: Record<string, string | number | undefined> = {},
+  cache: CacheOptions = {},
+): Promise<PaginatedResult<T>> {
   const search = new URLSearchParams({ path });
   for (const [k, v] of Object.entries(params)) {
     if (v !== undefined && v !== "") search.append(k, String(v));
   }
+  if (cache.ttl !== undefined) search.append("ttl", String(cache.ttl));
+  if (cache.bust) search.append("bust", "1");
   const res = await fetch(`${PROXY_URL}?${search.toString()}`, {
     headers: { apikey: ANON, Authorization: `Bearer ${ANON}` },
+    // When busting, also bypass the browser's HTTP cache.
+    cache: cache.bust ? "no-store" : "default",
   });
   if (!res.ok) throw new Error(`WP fetch failed: ${res.status}`);
   const items = (await res.json()) as T[];
@@ -53,19 +66,41 @@ async function wpFetch<T>(path: string, params: Record<string, string | number |
   return { items, total, totalPages };
 }
 
+type PostsParams = { page?: number; per_page?: number; search?: string; categories?: number; _embed?: 1 };
+type PagesParams = { page?: number; per_page?: number; search?: string };
+
 export const wp = {
-  posts: (params: { page?: number; per_page?: number; search?: string; categories?: number; _embed?: 1 } = {}) =>
-    wpFetch<WPPost>("/wp/v2/posts", { _embed: 1, per_page: 12, ...params }),
-  postBySlug: (slug: string) =>
-    wpFetch<WPPost>("/wp/v2/posts", { slug, _embed: 1, per_page: 1 }).then((r) => r.items[0] ?? null),
-  pages: (params: { page?: number; per_page?: number; search?: string } = {}) =>
-    wpFetch<WPPage>("/wp/v2/pages", { per_page: 100, ...params }),
-  pageBySlug: (slug: string) =>
-    wpFetch<WPPage>("/wp/v2/pages", { slug, _embed: 1, per_page: 1 }).then((r) => r.items[0] ?? null),
-  categories: () => wpFetch<WPCategory>("/wp/v2/categories", { per_page: 100, orderby: "count", order: "desc" }),
-  categoryBySlug: (slug: string) =>
-    wpFetch<WPCategory>("/wp/v2/categories", { slug, per_page: 1 }).then((r) => r.items[0] ?? null),
+  posts: (params: PostsParams = {}, cache: CacheOptions = {}) =>
+    wpFetch<WPPost>("/wp/v2/posts", { _embed: 1, per_page: 12, ...params }, cache),
+  postBySlug: (slug: string, cache: CacheOptions = {}) =>
+    wpFetch<WPPost>("/wp/v2/posts", { slug, _embed: 1, per_page: 1 }, cache).then((r) => r.items[0] ?? null),
+  pages: (params: PagesParams = {}, cache: CacheOptions = {}) =>
+    wpFetch<WPPage>("/wp/v2/pages", { per_page: 100, ...params }, cache),
+  pageBySlug: (slug: string, cache: CacheOptions = {}) =>
+    wpFetch<WPPage>("/wp/v2/pages", { slug, _embed: 1, per_page: 1 }, cache).then((r) => r.items[0] ?? null),
+  categories: (cache: CacheOptions = {}) =>
+    wpFetch<WPCategory>("/wp/v2/categories", { per_page: 100, orderby: "count", order: "desc" }, cache),
+  categoryBySlug: (slug: string, cache: CacheOptions = {}) =>
+    wpFetch<WPCategory>("/wp/v2/categories", { slug, per_page: 1 }, cache).then((r) => r.items[0] ?? null),
 };
+
+// Common TTL presets (seconds)
+export const WP_TTL = {
+  short: 60,        // 1 min — for fast-moving content
+  default: 600,     // 10 min — matches edge default
+  long: 3600,       // 1 hr — for slow-changing pages/categories
+  day: 86_400,      // 24 hr — for very stable assets
+} as const;
+
+// Force a fresh fetch from WordPress for one path. Use after publishing/editing
+// content in WP. Returns the freshly fetched payload (and refreshes downstream
+// caches by sending bust=1).
+export async function bustWPCache(path: "posts" | "pages" | "categories" = "posts"): Promise<void> {
+  if (path === "posts") await wp.posts({ per_page: 1 }, { bust: true });
+  else if (path === "pages") await wp.pages({ per_page: 1 }, { bust: true });
+  else await wp.categories({ bust: true });
+}
+
 
 // ---- Helpers ----
 export function stripHtml(html: string): string {
