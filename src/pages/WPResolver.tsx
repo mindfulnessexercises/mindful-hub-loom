@@ -77,9 +77,10 @@ export default function WPResolver() {
   // body content is gated by query.data below so this never paints.
   const rawContent = query.data?.data.content.rendered ?? "";
   // Two-pass HTML transform: rewrite WP-internal links, then inject TOC ids.
-  const { html: rewrittenHtml, toc } = useMemo(() => {
+  const { rewrittenHtml, toc } = useMemo(() => {
     const linked = rewriteWpHtml(rawContent);
-    return { ...extractToc(linked), html: extractToc(linked).html, toc: extractToc(linked).items };
+    const { html, items } = extractToc(linked);
+    return { rewrittenHtml: html, toc: items };
   }, [rawContent]);
 
   const audioSrc = useMemo(() => extractFirstAudioUrl(rawContent), [rawContent]);
