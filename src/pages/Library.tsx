@@ -249,7 +249,7 @@ export default function Library() {
                   .slice(0, 20);
                 const activeCat = category ? visibleCats.find((c) => c.id === category) : undefined;
                 return (
-                  <div className="mb-6 space-y-3">
+                  <div className="mb-6 space-y-3 hidden sm:block">
                     <div
                       role="tablist"
                       aria-label="Filter articles by category"
