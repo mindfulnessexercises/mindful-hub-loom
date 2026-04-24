@@ -1,20 +1,38 @@
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useMemo, useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar, ArrowLeft, Clock, Headphones } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { wp, getFeaturedImage, getCategories, getAuthor, stripHtml, formatDate, URL_PARENT_TO_CPT_ENDPOINT } from "@/lib/wp";
+import {
+  wp,
+  getFeaturedImage,
+  getCategories,
+  getAuthor,
+  stripHtml,
+  URL_PARENT_TO_CPT_ENDPOINT,
+  CPT_URL_PARENT,
+} from "@/lib/wp";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
 import NotFound from "./NotFound";
-import { Calendar, ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { rewriteWpHtml, attachWpLinkInterceptor } from "@/lib/rewrite-wp-html";
-
 import { isReservedSlug } from "@/lib/reserved-slugs";
+import {
+  estimateReadingMinutes,
+  extractToc,
+  extractFirstAudioUrl,
+} from "@/lib/reading";
+import { ReadingProgress } from "@/components/wp/ReadingProgress";
+import { WPBreadcrumbs } from "@/components/wp/WPBreadcrumbs";
+import { TableOfContents } from "@/components/wp/TableOfContents";
+import { ShareBar } from "@/components/wp/ShareBar";
+import { AuthorCard } from "@/components/wp/AuthorCard";
+import { RelatedPosts } from "@/components/wp/RelatedPosts";
+import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
 
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
@@ -27,17 +45,14 @@ export default function WPResolver() {
   // the URL parent we need to map to a CPT endpoint.
   const allSegments = location.pathname.replace(/\/+$/, "").split("/").filter(Boolean);
   const slug = allSegments[allSegments.length - 1] ?? params.slug ?? "";
-  // For nested URLs the parent segment tells us which CPT endpoint to try.
-  // e.g. /podcast-episodes/<slug> → /wp/v2/podcast-episodes; /downloads/<slug>
-  // → /wp/v2/downloads. Single-segment URLs have no parent.
   const parent = allSegments.length > 1 ? allSegments[allSegments.length - 2] : "";
   const cptEndpoint = URL_PARENT_TO_CPT_ENDPOINT[parent];
+  const isPodcastEpisode = parent === "podcast-episodes";
   const navigate = useNavigate();
+  const articleRef = useRef<HTMLElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
-  // Resolution order: CPT (if URL parent maps to one) → post → page. Matches
-  // WordPress's own permalink resolution while extending it to surface CPT
-  // entries (podcast episodes, downloads) under their nested URLs.
+  // Resolution order: CPT (if URL parent maps to one) → post → page.
   const query = useQuery({
     queryKey: [...wpKeys.resolveSlug(slug), cptEndpoint ?? ""],
     queryFn: async () => {
@@ -61,7 +76,15 @@ export default function WPResolver() {
   // to empty string when content isn't loaded yet; the rendered <div> for
   // body content is gated by query.data below so this never paints.
   const rawContent = query.data?.data.content.rendered ?? "";
-  const rewrittenHtml = useMemo(() => rewriteWpHtml(rawContent), [rawContent]);
+  // Two-pass HTML transform: rewrite WP-internal links, then inject TOC ids.
+  const { html: rewrittenHtml, toc } = useMemo(() => {
+    const linked = rewriteWpHtml(rawContent);
+    return { ...extractToc(linked), html: extractToc(linked).html, toc: extractToc(linked).items };
+  }, [rawContent]);
+
+  const audioSrc = useMemo(() => extractFirstAudioUrl(rawContent), [rawContent]);
+  const readingMinutes = useMemo(() => estimateReadingMinutes(rawContent), [rawContent]);
+
   useEffect(
     () => attachWpLinkInterceptor(contentRef.current, navigate),
     [rewrittenHtml, navigate],
@@ -74,6 +97,7 @@ export default function WPResolver() {
       <div className="min-h-screen bg-background">
         <Navbar />
         <main className="container mx-auto max-w-3xl py-12 lg:py-20 space-y-6">
+          <Skeleton className="h-4 w-1/3" />
           <Skeleton className="h-12 w-3/4" />
           <Skeleton className="h-6 w-1/2" />
           <Skeleton className="aspect-[16/9] w-full rounded-lg" />
@@ -90,49 +114,90 @@ export default function WPResolver() {
 
   const { kind, data: doc } = query.data;
   const img = getFeaturedImage(doc);
-  const description = doc.yoast_head_json?.description || stripHtml(doc.excerpt.rendered).slice(0, 160);
+  const description =
+    doc.yoast_head_json?.description || stripHtml(doc.excerpt.rendered).slice(0, 160);
   const title = stripHtml(doc.title.rendered);
   const cats = kind === "post" ? getCategories(doc) : [];
+  const primaryCategory = cats[0];
   const author = kind === "post" ? getAuthor(doc) : null;
+  const canonicalSlugPath = cptEndpoint
+    ? `/${CPT_URL_PARENT[cptEndpoint]}/${doc.slug}`
+    : `/${doc.slug}`;
+  const canonicalUrl = `https://mindfulnessexercises.com${canonicalSlugPath}`;
+  const shareUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}${canonicalSlugPath}`
+      : canonicalUrl;
 
-  const jsonLd = kind === "post"
-    ? {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        headline: title,
-        description,
-        image: img?.url ? [img.url] : undefined,
-        datePublished: doc.date,
-        dateModified: doc.modified,
-        author: author ? { "@type": "Person", name: author.name } : { "@type": "Organization", name: "Mindfulness Exercises" },
-        publisher: {
-          "@type": "Organization",
-          name: "Mindfulness Exercises",
-          url: "https://mindfulnessexercises.com",
-        },
-        mainEntityOfPage: `https://mindfulnessexercises.com/${doc.slug}`,
-      }
-    : undefined;
+  const breadcrumbItems = [
+    ...(kind === "post"
+      ? isPodcastEpisode
+        ? [{ label: "Podcast", href: "/podcast" }]
+        : [{ label: "Blog", href: "/blog" }]
+      : []),
+    ...(primaryCategory && !isPodcastEpisode
+      ? [{ label: primaryCategory.name, href: `/category/${primaryCategory.slug}` }]
+      : []),
+    { label: title },
+  ];
+
+  const jsonLd =
+    kind === "post"
+      ? {
+          "@context": "https://schema.org",
+          "@type": isPodcastEpisode ? "PodcastEpisode" : "Article",
+          headline: title,
+          description,
+          image: img?.url ? [img.url] : undefined,
+          datePublished: doc.date,
+          dateModified: doc.modified,
+          author: author
+            ? { "@type": "Person", name: author.name }
+            : { "@type": "Organization", name: "Mindfulness Exercises" },
+          publisher: {
+            "@type": "Organization",
+            name: "Mindfulness Exercises",
+            url: "https://mindfulnessexercises.com",
+          },
+          mainEntityOfPage: canonicalUrl,
+          ...(audioSrc
+            ? {
+                associatedMedia: { "@type": "MediaObject", contentUrl: audioSrc },
+              }
+            : {}),
+        }
+      : undefined;
 
   return (
     <div className="min-h-screen bg-background">
       <WPSeo
         title={`${title} — Mindfulness Exercises`}
         description={description}
-        canonical={`https://mindfulnessexercises.com/${doc.slug}`}
+        canonical={canonicalUrl}
         ogImage={img?.url}
         type={kind === "post" ? "article" : "website"}
         jsonLd={jsonLd}
       />
+      <ReadingProgress targetRef={articleRef} />
       <Navbar />
 
       <main>
-        <article>
+        <article ref={articleRef}>
+          {/* Hero: breadcrumbs, title, byline. No featured image inside the
+              header — it slots in below so the eye lands on the title first. */}
           <header className="border-b border-border bg-[hsl(var(--section-alternate))]">
-            <div className="container mx-auto max-w-3xl py-10 lg:py-14">
+            <div className="container mx-auto max-w-3xl py-8 lg:py-12">
+              <div className="mb-5">
+                <WPBreadcrumbs items={breadcrumbItems} />
+              </div>
+
               {kind === "post" && (
-                <Link to="/blog" className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-6">
-                  <ArrowLeft className="h-3.5 w-3.5" /> All articles
+                <Link
+                  to={isPodcastEpisode ? "/podcast" : "/blog"}
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-5"
+                >
+                  <ArrowLeft className="h-3.5 w-3.5" />
+                  {isPodcastEpisode ? "All episodes" : "All articles"}
                 </Link>
               )}
 
@@ -140,20 +205,50 @@ export default function WPResolver() {
                 <div className="flex flex-wrap items-center gap-2 mb-4">
                   {cats.slice(0, 3).map((c) => (
                     <Link key={c.id} to={`/category/${c.slug}`}>
-                      <Badge variant="secondary" className="hover:bg-primary/10 transition-colors">{c.name}</Badge>
+                      <Badge
+                        variant="secondary"
+                        className="hover:bg-primary/10 transition-colors"
+                      >
+                        {c.name}
+                      </Badge>
                     </Link>
                   ))}
                 </div>
               )}
 
-              <h1 className="text-hero text-foreground mb-5" dangerouslySetInnerHTML={{ __html: doc.title.rendered }} />
+              <h1
+                className="text-hero text-foreground mb-6 text-balance"
+                dangerouslySetInnerHTML={{ __html: doc.title.rendered }}
+              />
 
               {kind === "post" && (
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-body-sm text-muted-foreground">
-                  {author && <span>By {author.name}</span>}
-                  <span className="inline-flex items-center gap-1.5">
-                    <Calendar className="h-3.5 w-3.5" /> {formatDate(doc.date)}
-                  </span>
+                <div className="flex flex-wrap items-center justify-between gap-4 mt-6">
+                  {author ? (
+                    <AuthorCard
+                      author={author}
+                      publishedAt={doc.date}
+                      readingMinutes={readingMinutes}
+                    />
+                  ) : (
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-body-sm text-muted-foreground">
+                      <span className="inline-flex items-center gap-1.5">
+                        <Calendar className="h-3.5 w-3.5" />
+                        {new Date(doc.date).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <Clock className="h-3.5 w-3.5" /> {readingMinutes} min read
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
+              {kind === "page" && readingMinutes > 0 && (
+                <div className="text-body-sm text-muted-foreground inline-flex items-center gap-1.5 mt-2">
+                  <Clock className="h-3.5 w-3.5" /> {readingMinutes} min read
                 </div>
               )}
             </div>
@@ -172,32 +267,82 @@ export default function WPResolver() {
             </div>
           )}
 
-          <div className="container mx-auto max-w-3xl py-10 lg:py-14">
-            <div
-              ref={contentRef}
-              className="prose prose-lg prose-stone max-w-none prose-headings:font-serif prose-headings:text-foreground prose-p:text-foreground/90 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-lg prose-img:shadow-[var(--shadow-card)]"
-              dangerouslySetInnerHTML={{ __html: rewrittenHtml }}
-            />
+          {/* Two-column body: sticky TOC on lg+, content + share rail. */}
+          <div className="container mx-auto max-w-6xl py-10 lg:py-14">
+            <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-12 xl:gap-16">
+              <div className="max-w-3xl mx-auto lg:mx-0 w-full min-w-0">
+                {audioSrc && (
+                  <div className="mb-8">
+                    <p className="text-eyebrow text-primary mb-2 inline-flex items-center gap-1.5">
+                      <Headphones className="h-3.5 w-3.5" /> Listen to this episode
+                    </p>
+                    <PodcastPlayer src={audioSrc} title={title} episodeId={doc.id} />
+                  </div>
+                )}
 
-            <aside className="mt-12 lg:mt-16 p-6 lg:p-8 rounded-lg bg-[hsl(var(--section-emphasis))] border border-border">
-              <p className="text-eyebrow text-primary mb-2">Mindfulness Teacher Certification</p>
-              <h2 className="text-card-heading text-foreground mb-2">
-                {kind === "post" ? "Ready to teach mindfulness exercises with confidence?" : "Take the next step in your practice"}
-              </h2>
-              <p className="text-body text-muted-foreground mb-5 max-w-xl">
-                Join the APA-, CPD- and IMMA-accredited Mindfulness Teacher Certification trusted by mindfulness teachers worldwide.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Button asChild size="lg" className="h-11">
-                  <a href={CERTIFY_URL} target="_blank" rel="noopener">
-                    Get certified <ArrowRight className="h-4 w-4 ml-1" />
-                  </a>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="h-11">
-                  <Link to="/blog">Browse the blog</Link>
-                </Button>
+                <div
+                  ref={contentRef}
+                  className="prose prose-lg prose-stone max-w-none prose-headings:font-serif prose-headings:scroll-mt-24 prose-headings:text-foreground prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-foreground/90 prose-p:leading-[1.75] prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:underline-offset-4 prose-blockquote:border-l-primary prose-blockquote:bg-[hsl(var(--section-alternate))] prose-blockquote:py-1 prose-blockquote:px-5 prose-blockquote:rounded-r-md prose-blockquote:not-italic prose-img:rounded-lg prose-img:shadow-[var(--shadow-card)] prose-figure:my-8 prose-figcaption:text-center prose-figcaption:text-muted-foreground prose-figcaption:text-sm prose-li:marker:text-primary"
+                  dangerouslySetInnerHTML={{ __html: rewrittenHtml }}
+                />
+
+                {/* Inline share rail — appears at the natural end of the read. */}
+                <div className="mt-10 pt-6 border-t border-border">
+                  <ShareBar
+                    title={title}
+                    url={shareUrl}
+                    kind={isPodcastEpisode ? "podcast" : kind}
+                  />
+                </div>
+
+                <aside className="mt-12 lg:mt-16 p-6 lg:p-8 rounded-lg bg-[hsl(var(--section-emphasis))] border border-border">
+                  <p className="text-eyebrow text-primary mb-2">
+                    Mindfulness Teacher Certification
+                  </p>
+                  <h2 className="text-card-heading text-foreground mb-2">
+                    {kind === "post"
+                      ? "Ready to teach mindfulness exercises with confidence?"
+                      : "Take the next step in your practice"}
+                  </h2>
+                  <p className="text-body text-muted-foreground mb-5 max-w-xl">
+                    Join the APA-, CPD- and IMMA-accredited Mindfulness Teacher
+                    Certification trusted by mindfulness teachers worldwide.
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    <Button asChild size="lg" className="h-11">
+                      <a href={CERTIFY_URL} target="_blank" rel="noopener">
+                        Get certified <ArrowRight className="h-4 w-4 ml-1" />
+                      </a>
+                    </Button>
+                    <Button asChild variant="outline" size="lg" className="h-11">
+                      <Link to={isPodcastEpisode ? "/podcast" : "/blog"}>
+                        {isPodcastEpisode ? "Browse episodes" : "Browse the blog"}
+                      </Link>
+                    </Button>
+                  </div>
+                </aside>
+
+                {primaryCategory && kind === "post" && (
+                  <RelatedPosts
+                    categoryId={primaryCategory.id}
+                    excludeId={doc.id}
+                    endpoint={cptEndpoint}
+                  />
+                )}
               </div>
-            </aside>
+
+              {/* Sticky sidebar — only renders when there's a meaningful TOC. */}
+              {toc.length >= 3 && (
+                <aside
+                  className="hidden lg:block"
+                  aria-label="Article navigation sidebar"
+                >
+                  <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto pr-2">
+                    <TableOfContents items={toc} />
+                  </div>
+                </aside>
+              )}
+            </div>
           </div>
         </article>
       </main>
