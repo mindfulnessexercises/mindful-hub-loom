@@ -39,6 +39,11 @@ export default function Library() {
   const categoryParam = params.get("cat");
   const category = categoryParam ? Number(categoryParam) : undefined;
   const pageParam = Math.max(1, Number(params.get("page") ?? "1"));
+  // Sort is shareable: persisted as ?sort=... so deep links re-create the
+  // same ordering. Defaults to "newest" (matches WP REST default of date desc).
+  const sortParam = (params.get("sort") ?? "newest") as LibrarySort;
+  const validSorts: LibrarySort[] = ["newest", "oldest", "relevance", "popular", "title"];
+  const sort: LibrarySort = validSorts.includes(sortParam) ? sortParam : "newest";
   const [searchInput, setSearchInput] = useState(search);
 
   useEffect(() => { setSearchInput(search); }, [search]);
