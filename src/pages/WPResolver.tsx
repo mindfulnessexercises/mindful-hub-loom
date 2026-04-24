@@ -11,10 +11,9 @@ import NotFound from "./NotFound";
 import { Calendar, ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
-const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
+import { isReservedSlug } from "@/lib/reserved-slugs";
 
-// Routes handled elsewhere — never resolve them as WP content.
-const RESERVED = new Set(["", "blog", "ce-policies", "search", "category"]);
+const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 export default function WPResolver() {
   const { slug = "" } = useParams();
@@ -30,11 +29,11 @@ export default function WPResolver() {
       return null;
     },
     staleTime: 10 * 60 * 1000,
-    enabled: !!slug && !RESERVED.has(slug),
+    enabled: !!slug && !isReservedSlug(slug),
     retry: false,
   });
 
-  if (RESERVED.has(slug)) return <NotFound />;
+  if (isReservedSlug(slug)) return <NotFound />;
 
   if (query.isLoading) {
     return (
