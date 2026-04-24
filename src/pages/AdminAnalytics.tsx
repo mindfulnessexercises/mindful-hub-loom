@@ -209,6 +209,7 @@ const StatCard = ({ label, value, hint }: { label: string; value: string | numbe
 
 export default function AdminAnalytics() {
   const [range, setRange] = useState<RangePreset>("7d");
+  const [matchSource, setMatchSource] = useState<MatchSourceFilter>("all");
   const [rows, setRows] = useState<AnalyticsRow[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
