@@ -565,6 +565,15 @@ export default function Library() {
                               <div className="mt-3 flex items-center gap-3 flex-wrap">
                                 <Link
                                   to={cta.href ?? `/${p.slug}`}
+                                  onClick={() =>
+                                    trackCtaClick({
+                                      cta_label: cta.label,
+                                      cta_destination: cta.href ?? `/${p.slug}`,
+                                      cta_location: "library_page_card",
+                                      page_id: p.id,
+                                      matched: cta.matched,
+                                    })
+                                  }
                                   className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:gap-2 transition-all min-h-[36px]"
                                 >
                                   {cta.label} <ArrowRight className="h-3 w-3" />
@@ -572,6 +581,15 @@ export default function Library() {
                                 {cta.href && (
                                   <Link
                                     to={`/${p.slug}`}
+                                    onClick={() =>
+                                      trackCtaClick({
+                                        cta_label: "View page",
+                                        cta_destination: `/${p.slug}`,
+                                        cta_location: "library_page_card_secondary",
+                                        page_id: p.id,
+                                        matched: false,
+                                      })
+                                    }
                                     className="text-xs text-muted-foreground hover:text-foreground transition-colors"
                                   >
                                     View page
