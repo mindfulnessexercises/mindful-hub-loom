@@ -13,6 +13,7 @@ import { WPSeo } from "@/components/wp/WPSeo";
 import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
 import { useUrlPagination } from "@/hooks/use-url-pagination";
 import { buildMatchSnippet, highlightTerms } from "@/lib/search-snippet";
+import { trackEvent } from "@/lib/analytics";
 
 const PER_PAGE = 50; // Per content type, when searching both
 
@@ -31,6 +32,28 @@ export default function Search() {
     // Any filter change resets pagination so shared URLs are coherent.
     if (key !== "page") next.delete("page");
     setParams(next);
+  };
+
+  // Fire structured filter-change events on the search results page so we can
+  // attribute downstream CTA conversion to the upstream refinement step.
+  const onTypeChange = (nextType: ContentType) => {
+    updateParam("type", nextType === "all" ? undefined : nextType);
+    trackEvent("search_type_changed", {
+      from_type: type, to_type: nextType, source: "search_page", query: q,
+    });
+  };
+
+  const onCategoryChange = (id: number | undefined) => {
+    updateParam("cat", id !== undefined ? String(id) : undefined);
+    const cat = id !== undefined && catsQuery.data?.items.find((c) => c.id === id);
+    trackEvent("category_filter_changed", {
+      from_category_id: category,
+      to_category_id: id,
+      to_category_slug: cat ? cat.slug : undefined,
+      to_category_name: cat ? cat.name : undefined,
+      source: "search_page",
+      query: q,
+    });
   };
 
   // ---- Posts (paginated, infinite) ----
