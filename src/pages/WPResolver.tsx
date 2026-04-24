@@ -19,7 +19,13 @@ import { isReservedSlug } from "@/lib/reserved-slugs";
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 export default function WPResolver() {
-  const { slug = "" } = useParams();
+  const params = useParams();
+  // Supports both /:slug and nested /*. For nested URLs (e.g.
+  // /course/foo, /podcast-episodes/bar), WP's permalink for the leaf is the
+  // last path segment — that's what we look up.
+  const rawPath = (params["*"] ?? params.slug ?? "").replace(/\/+$/, "");
+  const segments = rawPath.split("/").filter(Boolean);
+  const slug = segments[segments.length - 1] ?? "";
   const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement | null>(null);
 

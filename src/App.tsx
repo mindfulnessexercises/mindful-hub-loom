@@ -59,8 +59,15 @@ const App = () => (
             <Route path="/admin/link-checker" element={<AdminLinkChecker />} />
             {/* Alias: /blog/:slug also resolves to the post via WPResolver */}
             <Route path="/blog/:slug" element={<WPResolver />} />
-            {/* Smart resolver: tries post first, then WP page. Keep last before NotFound */}
+            {/* Smart resolver: tries post first, then WP page. Keep last before NotFound.
+                Nested paths (/course/x, /podcast-episodes/y, /downloads/z) resolve via
+                the last path segment — see WPResolver. */}
             <Route path="/:slug" element={<WPResolver />} />
+            <Route path="/course/*" element={<WPResolver />} />
+            <Route path="/courses/*" element={<WPResolver />} />
+            <Route path="/podcast-episodes/*" element={<WPResolver />} />
+            <Route path="/downloads/*" element={<WPResolver />} />
+            <Route path="/lessons/*" element={<WPResolver />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
