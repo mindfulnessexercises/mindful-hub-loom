@@ -99,19 +99,22 @@ export default function Blog() {
                     !category ? "bg-primary text-primary-foreground border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"
                   }`}
                 >
-                  All
+                  All articles
                 </button>
-                {catsQuery.data.items.slice(0, 16).map((c) => (
-                  <button
-                    key={c.id}
-                    onClick={() => updateParam("cat", String(c.id))}
-                    className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
-                      category === c.id ? "bg-primary text-primary-foreground border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"
-                    }`}
-                  >
-                    {c.name}
-                  </button>
-                ))}
+                {catsQuery.data.items
+                  .filter((c) => c.count > 0 && c.slug !== "uncategorized")
+                  .slice(0, 20)
+                  .map((c) => (
+                    <button
+                      key={c.id}
+                      onClick={() => updateParam("cat", String(c.id))}
+                      className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
+                        category === c.id ? "bg-primary text-primary-foreground border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"
+                      }`}
+                    >
+                      {c.name} <span className="opacity-60 ml-1">({c.count})</span>
+                    </button>
+                  ))}
               </div>
             )}
           </div>
