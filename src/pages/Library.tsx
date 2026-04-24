@@ -22,6 +22,7 @@ import {
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { useUrlPagination } from "@/hooks/use-url-pagination";
 import { WPSeo } from "@/components/wp/WPSeo";
+import { buildPaginatedSeo } from "@/lib/seo-pagination";
 
 const PER_PAGE = 100;
 type Tab = "posts" | "pages";
@@ -32,6 +33,7 @@ export default function Library() {
   const search = params.get("q") ?? "";
   const categoryParam = params.get("cat");
   const category = categoryParam ? Number(categoryParam) : undefined;
+  const pageParam = Math.max(1, Number(params.get("page") ?? "1"));
   const [searchInput, setSearchInput] = useState(search);
 
   useEffect(() => { setSearchInput(search); }, [search]);
@@ -116,12 +118,38 @@ export default function Library() {
   );
   const pagesTotal = pagesQuery.data?.pages[0]?.total ?? 0;
 
+  // SEO: canonical preserves the active tab + page so Google indexes each
+  // distinct surface (Articles vs Pages, page 1 vs N). User-typed search
+  // queries are noindexed to avoid endless filter permutations being crawled.
+  const activeTotalPages =
+    tab === "posts"
+      ? postsQuery.data?.pages[0]?.totalPages ?? 1
+      : pagesQuery.data?.pages[0]?.totalPages ?? 1;
+  const { canonical, prevUrl, nextUrl } = buildPaginatedSeo({
+    path: "/library",
+    page: pageParam,
+    totalPages: activeTotalPages,
+    filters: {
+      tab: tab === "pages" ? "pages" : undefined,
+      cat: tab === "posts" ? category : undefined,
+    },
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <WPSeo
-        title="Library — Browse All Articles & Pages | Mindfulness Exercises"
+        title={
+          search
+            ? `Search "${search}" — Library · Mindfulness Exercises`
+            : tab === "pages"
+              ? "Resource Pages — Library · Mindfulness Exercises"
+              : "Articles — Library · Mindfulness Exercises"
+        }
         description="Browse the complete Mindfulness Exercises library: 1,500+ articles and dozens of resource pages including free meditations, scripts, and certification info."
-        canonical="https://mindfulnessexercises.com/library"
+        canonical={canonical}
+        prevUrl={prevUrl}
+        nextUrl={nextUrl}
+        noindex={!!search}
         type="website"
       />
       <Navbar />
