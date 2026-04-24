@@ -1,12 +1,18 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Lock } from "lucide-react";
+import { Check, ArrowRight, Lock, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SectionWrapper } from "./SectionWrapper";
 import { trackCtaClick, trackEvent } from "@/lib/analytics";
+import { submitEmailSignup, EmailSignupError } from "@/lib/email-signup";
 import ebookCover from "@/assets/ebook-cover.jpg";
 
+type SignupStatus = "idle" | "submitting" | "succeeded" | "failed";
+
 export function EbookCapture() {
+  const [status, setStatus] = useState<SignupStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   return (
     <SectionWrapper background="deep" id="ebook" ariaLabel="Free ebook download">
       <div className="max-w-5xl mx-auto">
@@ -65,18 +71,53 @@ export function EbookCapture() {
             </ul>
 
             <form
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
-                // Capture the email and fire structured signup events. The form
-                // doesn't yet POST anywhere — once the backend is wired in we can
-                // emit "_succeeded"/"_failed" events from the response handlers.
+                if (status === "submitting") return; // guard double-submits
                 const form = e.currentTarget as HTMLFormElement;
                 const emailInput = form.elements.namedItem("ebook-email") as HTMLInputElement | null;
+                const email = emailInput?.value?.trim() ?? "";
+                const startedAt = performance.now();
+
                 trackEvent("email_signup_submitted", {
                   form_id: "ebook_capture",
-                  has_email: !!emailInput?.value,
+                  has_email: !!email,
                   location: "homepage_ebook_section",
                 });
+                setStatus("submitting");
+                setErrorMessage(null);
+
+                try {
+                  const result = await submitEmailSignup({
+                    email,
+                    source: "homepage_ebook_section",
+                  });
+                  // Success — fire conversion event with timing so we can
+                  // compute submitted→succeeded conversion rate and latency.
+                  trackEvent("email_signup_succeeded", {
+                    form_id: "ebook_capture",
+                    location: "homepage_ebook_section",
+                    duration_ms: Math.round(performance.now() - startedAt),
+                    subscriber_id: result.subscriber_id,
+                  });
+                  setStatus("succeeded");
+                  form.reset();
+                } catch (err) {
+                  // Failure — fire diagnostic event with stable error_code so
+                  // we can break drop-off down by reason (validation vs server vs network).
+                  const code = err instanceof EmailSignupError ? err.code : "unknown_error";
+                  const httpStatus = err instanceof EmailSignupError ? err.status : -1;
+                  const message = err instanceof Error ? err.message : "Something went wrong.";
+                  trackEvent("email_signup_failed", {
+                    form_id: "ebook_capture",
+                    location: "homepage_ebook_section",
+                    duration_ms: Math.round(performance.now() - startedAt),
+                    error_code: code,
+                    http_status: httpStatus,
+                  });
+                  setErrorMessage(message);
+                  setStatus("failed");
+                }
               }}
               className="flex flex-col sm:flex-row gap-3 max-w-lg"
               aria-labelledby="ebook-heading"
