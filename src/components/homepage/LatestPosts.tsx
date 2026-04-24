@@ -20,6 +20,8 @@ export function LatestPosts() {
     <section
       className="py-16 lg:py-20 bg-[hsl(var(--section-primary))]"
       aria-labelledby="latest-posts-heading"
+      data-track-section="latest-posts"
+      data-track-section-label="Latest Posts"
     >
       <div className="container mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
