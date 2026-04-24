@@ -97,6 +97,7 @@ export default function Search() {
     hasNextPage: !!postsQuery.hasNextPage,
     isFetchingNextPage: postsQuery.isFetchingNextPage,
     fetchNextPage: postsQuery.fetchNextPage,
+    source: "search_posts",
   });
 
   const allPosts = postsQuery.data?.pages.flatMap((p) => p.items) ?? [];
@@ -139,7 +140,7 @@ export default function Search() {
             )}
 
             <div className="mt-6 max-w-2xl">
-              <SiteSearchBar initialValue={q} size="lg" />
+              <SiteSearchBar initialValue={q} size="lg" source="search_page_header" />
             </div>
 
             {/* Type filter */}
@@ -152,7 +153,7 @@ export default function Search() {
                 ] as { id: ContentType; label: string }[]).map((t) => (
                   <button
                     key={t.id}
-                    onClick={() => updateParam("type", t.id === "all" ? undefined : t.id)}
+                    onClick={() => onTypeChange(t.id)}
                     className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
                       type === t.id ? "bg-primary text-primary-foreground border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"
                     }`}
@@ -167,7 +168,7 @@ export default function Search() {
             {q && (type === "all" || type === "posts") && catsQuery.data && (
               <div className="mt-3 flex flex-wrap gap-2">
                 <button
-                  onClick={() => updateParam("cat", undefined)}
+                  onClick={() => onCategoryChange(undefined)}
                   className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
                     !category ? "bg-card text-muted-foreground border-border hover:text-foreground" : "bg-card text-muted-foreground border-border hover:text-foreground"
                   } ${!category ? "ring-1 ring-primary/30" : ""}`}
@@ -180,7 +181,7 @@ export default function Search() {
                   .map((c) => (
                     <button
                       key={c.id}
-                      onClick={() => updateParam("cat", String(c.id))}
+                      onClick={() => onCategoryChange(c.id)}
                       className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
                         category === c.id ? "bg-primary text-primary-foreground border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"
                       }`}
