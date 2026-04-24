@@ -312,7 +312,7 @@ export default function WPResolver() {
           })()}
 
           {/* Two-column body: sticky TOC on lg+, content + share rail. */}
-          <div className="container mx-auto max-w-6xl py-10 lg:py-14">
+          <div className={`container mx-auto max-w-6xl ${tpl.heroDensity === "compact" ? "py-6 lg:py-10" : "py-10 lg:py-14"}`}>
             <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-12 xl:gap-16">
               <div className="max-w-3xl mx-auto lg:mx-0 w-full min-w-0">
                 {audioSrc && (
