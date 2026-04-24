@@ -40,6 +40,7 @@ import {
 
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
+
 export default function WPResolver() {
   const params = useParams();
   const location = useLocation();
