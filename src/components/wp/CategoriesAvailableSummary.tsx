@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, Tag } from "lucide-react";
+import { ChevronDown, Info, Tag } from "lucide-react";
 import type { WPCategory } from "@/lib/wp";
 
 /**
