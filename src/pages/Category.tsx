@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { LoadMoreSection, PostCardSkeletonGrid } from "@/components/wp/LoadMoreSection";
-import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult, CATEGORY_CPT_ENDPOINT } from "@/lib/wp";
+import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult, CATEGORY_CPT_ENDPOINT, CPT_URL_PARENT } from "@/lib/wp";
 import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
