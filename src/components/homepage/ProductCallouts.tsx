@@ -18,7 +18,7 @@ type Product = {
     audience: string[];
     outcomes: string[];
     details: string[];
-    review: { quote: string; author: string; role: string };
+    review: { quote: string; author: string; role: string; image?: string };
   };
   featured?: boolean;
 };
@@ -49,9 +49,10 @@ const products: Product[] = [
       ],
       review: {
         quote:
-          "Sean is the absolute gold standard for mindfulness training and coaching. He has tremendous depth and breadth, with bone-deep integrity and excellent teaching skills.",
-        author: "Dr. Rick Hanson",
-        role: "NYT Bestselling Author · Hardwiring Happiness",
+          "Sean is a wonderful teacher, well practiced in the teachings of mindfulness and compassion, dedicated and thoughtful.",
+        author: "Jack Kornfield",
+        role: "Renowned Mindfulness Teacher · Founder, Spirit Rock",
+        image: "https://scripts.mindfulnessexercises.com/assets/jack-BrsJ41Pt.png",
       },
     },
   },
@@ -109,9 +110,10 @@ const products: Product[] = [
       ],
       review: {
         quote:
-          "Before this training, I would avoid difficult moments in group meditation. Now I have a framework for recognizing what's happening and responding calmly.",
-        author: "Licensed Therapist & Mindfulness Teacher",
-        role: "Completed 2024",
+          "Having collaborated with Sean Fargo, I can attest that he is a visionary who brings scope, insight and compassion to his teaching and support of others on the path of meditation.",
+        author: "Gabor Maté",
+        role: "M.D. · Author, The Myth of Normal",
+        image: "https://certify.mindfulnessexercises.com/assets/gabor-mate-BQza_1r2.png",
       },
     },
   },
