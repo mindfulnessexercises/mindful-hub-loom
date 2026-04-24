@@ -108,8 +108,6 @@ export function CategoryExploration({
     })),
   });
 
-  if (visibleCats.length === 0) return null;
-
   const onShowMore = () => {
     const next = Math.min(visibleCount + BATCH_INCREMENT, ordered.length);
     setVisibleCount(next);
@@ -123,8 +121,10 @@ export function CategoryExploration({
   // SEO: emit a JSON-LD ItemList describing the visible topic cards so search
   // engines can understand this as a structured list of category landing pages
   // (each pointing at its crawlable /category/:slug URL). Re-runs whenever the
-  // visible set grows (Show more) so the markup stays in sync.
+  // visible set grows (Show more) so the markup stays in sync. Skipped when
+  // there's nothing to render.
   useEffect(() => {
+    if (visibleCats.length === 0) return;
     const origin = typeof window !== "undefined" ? window.location.origin : "";
     const json = {
       "@context": "https://schema.org",
@@ -153,6 +153,8 @@ export function CategoryExploration({
       if (created) el?.remove();
     };
   }, [visibleCats, title]);
+
+  if (visibleCats.length === 0) return null;
 
   return (
     <section
