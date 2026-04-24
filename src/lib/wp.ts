@@ -30,7 +30,7 @@ export interface WPPost {
 
 export interface WPPage extends WPPost {}
 
-export interface WPCategory { id: number; name: string; slug: string; count: number }
+export interface WPCategory { id: number; name: string; slug: string; count: number; description?: string }
 
 export interface PaginatedResult<T> {
   items: T[];
