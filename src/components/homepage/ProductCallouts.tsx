@@ -18,7 +18,7 @@ type Product = {
     audience: string[];
     outcomes: string[];
     details: string[];
-    review: { quote: string; author: string; role: string };
+    review: { quote: string; author: string; role: string; image?: string };
   };
   featured?: boolean;
 };
@@ -49,9 +49,10 @@ const products: Product[] = [
       ],
       review: {
         quote:
-          "Sean is the absolute gold standard for mindfulness training and coaching. He has tremendous depth and breadth, with bone-deep integrity and excellent teaching skills.",
-        author: "Dr. Rick Hanson",
-        role: "NYT Bestselling Author · Hardwiring Happiness",
+          "Sean is a wonderful teacher, well practiced in the teachings of mindfulness and compassion, dedicated and thoughtful.",
+        author: "Jack Kornfield",
+        role: "Renowned Mindfulness Teacher · Founder, Spirit Rock",
+        image: "https://scripts.mindfulnessexercises.com/assets/jack-BrsJ41Pt.png",
       },
     },
   },
@@ -109,9 +110,10 @@ const products: Product[] = [
       ],
       review: {
         quote:
-          "Before this training, I would avoid difficult moments in group meditation. Now I have a framework for recognizing what's happening and responding calmly.",
-        author: "Licensed Therapist & Mindfulness Teacher",
-        role: "Completed 2024",
+          "Having collaborated with Sean Fargo, I can attest that he is a visionary who brings scope, insight and compassion to his teaching and support of others on the path of meditation.",
+        author: "Gabor Maté",
+        role: "M.D. · Author, The Myth of Normal",
+        image: "https://certify.mindfulnessexercises.com/assets/gabor-mate-BQza_1r2.png",
       },
     },
   },
@@ -242,16 +244,26 @@ export function ProductCallouts() {
               <ProofList icon={Award} label="What you'll achieve" items={p.proof.outcomes} />
               <ProofList icon={FileText} label="What's included" items={p.proof.details} />
 
-              <figure className="border-l-2 border-primary/40 pl-4 mt-1">
-                <Quote className="h-4 w-4 text-primary/50 mb-1.5" aria-hidden="true" />
-                <blockquote className="text-body-sm text-foreground/85 italic leading-relaxed">
-                  “{p.proof.review.quote}”
-                </blockquote>
-                <figcaption className="mt-2 text-caption text-muted-foreground">
-                  <span className="font-medium text-foreground/80">{p.proof.review.author}</span>
-                  <span className="mx-1.5">·</span>
-                  {p.proof.review.role}
-                </figcaption>
+              <figure className="flex gap-3 border-l-2 border-primary/40 pl-4 mt-1">
+                {p.proof.review.image && (
+                  <img
+                    src={p.proof.review.image}
+                    alt={`Portrait of ${p.proof.review.author}`}
+                    loading="lazy"
+                    className="w-14 h-14 rounded-full object-cover bg-muted shrink-0"
+                  />
+                )}
+                <div className="flex-1 min-w-0">
+                  <Quote className="h-4 w-4 text-primary/50 mb-1.5" aria-hidden="true" />
+                  <blockquote className="text-body-sm text-foreground/85 italic leading-relaxed">
+                    “{p.proof.review.quote}”
+                  </blockquote>
+                  <figcaption className="mt-2 text-caption text-muted-foreground">
+                    <span className="font-medium text-foreground/80">{p.proof.review.author}</span>
+                    <span className="mx-1.5">·</span>
+                    {p.proof.review.role}
+                  </figcaption>
+                </div>
               </figure>
             </div>
           </motion.article>
