@@ -43,12 +43,53 @@ function clean(props: EventProps): EventProps {
 }
 
 /**
+ * Fire-and-forget Lovable Cloud sink. Buffers events into rAF-batched
+ * inserts so a click handler never awaits a network round-trip, and so a
+ * burst of events (e.g. impression observer firing 6 sections at once)
+ * coalesces into a single INSERT. Failures are swallowed by design —
+ * analytics MUST NEVER break the UX.
+ */
+type QueuedEvent = { name: string; props: EventProps; occurred_at: string };
+const cloudQueue: QueuedEvent[] = [];
+let flushScheduled = false;
+
+async function flushCloudQueue(): Promise<void> {
+  flushScheduled = false;
+  if (cloudQueue.length === 0) return;
+  const batch = cloudQueue.splice(0, cloudQueue.length);
+  try {
+    // Lazy import so analytics has zero cost on initial bundle parse and
+    // doesn't pull supabase into pages that never fire an event.
+    const { supabase } = await import("@/integrations/supabase/client");
+    const rows = batch.map((e) => ({ name: e.name, props: e.props, occurred_at: e.occurred_at }));
+    await supabase.from("analytics_events").insert(rows);
+  } catch {
+    /* never let analytics break the app */
+  }
+}
+
+function enqueueCloud(name: string, props: EventProps): void {
+  cloudQueue.push({ name, props, occurred_at: new Date().toISOString() });
+  if (flushScheduled) return;
+  flushScheduled = true;
+  if (typeof window !== "undefined" && typeof window.requestAnimationFrame === "function") {
+    window.requestAnimationFrame(() => void flushCloudQueue());
+  } else {
+    queueMicrotask(() => void flushCloudQueue());
+  }
+}
+
+/**
  * Fire a tracked event. Safe to call even when no analytics provider is
  * loaded — it will silently no-op (and dev-log).
  */
 export function trackEvent(name: string, props: EventProps = {}): void {
   const cleaned = clean(props);
   const win = w();
+
+  // Lovable Cloud sink — queued + non-blocking. Powers the in-app dashboard.
+  enqueueCloud(name, cleaned);
+
   if (!win) return;
 
   // GTM / GA4 — pushes onto dataLayer with `event` key.
