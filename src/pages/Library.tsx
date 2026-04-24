@@ -195,20 +195,37 @@ export default function Library() {
   );
   const pagesTotal = pagesQuery.data?.pages[0]?.total ?? 0;
 
-  // SEO: canonical preserves the active tab + page so Google indexes each
-  // distinct surface (Articles vs Pages, page 1 vs N). User-typed search
-  // queries are noindexed to avoid endless filter permutations being crawled.
+  // SEO: canonical preserves EVERY view-defining param (tab, category, sort,
+  // search, page) so a shared deep link's <link rel="canonical"> matches the
+  // URL the user shared. Default values are dropped inside buildPaginatedSeo
+  // (alphabetical order, page last) so equivalent views collapse to one URL.
+  //
+  // Indexability rules:
+  //   - Search results (`q=…`)        → noindex (endless permutations).
+  //   - Non-default sort orders       → noindex (alt orderings of same set).
+  //   - Out-of-range page numbers     → clamped by buildPaginatedSeo, so the
+  //                                     canonical always points to a valid page.
   const activeTotalPages =
     tab === "posts"
       ? postsQuery.data?.pages[0]?.totalPages ?? 1
       : pagesQuery.data?.pages[0]?.totalPages ?? 1;
+  const isNonDefaultSort = sort !== "newest";
   const { canonical, prevUrl, nextUrl } = buildPaginatedSeo({
     path: "/library",
     page: pageParam,
     totalPages: activeTotalPages,
     filters: {
+      // tab=posts is the default → omitted; tab=pages is explicit.
       tab: tab === "pages" ? "pages" : undefined,
-      cat: tab === "posts" ? category : undefined,
+      // Category only applies to the posts tab; ignore on pages.
+      cat: tab === "posts" && category ? category : undefined,
+      // Search query is part of the canonical so the search results page
+      // self-references — combined with noindex below it tells crawlers
+      // "this URL exists, but don't index it".
+      q: search || undefined,
+      // Only serialise non-default sorts so /library?sort=newest collapses
+      // to /library.
+      sort: isNonDefaultSort ? sort : undefined,
     },
   });
 
@@ -226,7 +243,9 @@ export default function Library() {
         canonical={canonical}
         prevUrl={prevUrl}
         nextUrl={nextUrl}
-        noindex={!!search}
+        // Noindex search and non-default sort orderings to avoid duplicating
+        // the same content under endless filter/sort permutations.
+        noindex={!!search || isNonDefaultSort}
         type="website"
       />
       <Navbar />
