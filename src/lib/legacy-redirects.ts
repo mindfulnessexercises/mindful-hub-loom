@@ -45,6 +45,9 @@ const EXPLICIT_REDIRECTS: Record<string, LegacyRedirect> = {
   // the Category page directly (see src/App.tsx). We intentionally do NOT
   // redirect them to /category/<slug> because we want the app's URLs to match
   // the legacy WordPress URLs for those section landings.
+
+  // The WordPress page lives at /about-us; map the shorter /about to it.
+  "/about": { target: "/about-us", external: false, rule: "about_alias" },
 };
 
 interface PatternRule {
