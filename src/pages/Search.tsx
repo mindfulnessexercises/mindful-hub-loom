@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { LoadMoreSection, PostCardSkeletonGrid } from "@/components/wp/LoadMoreSection";
 import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
+import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
@@ -76,6 +77,7 @@ export default function Search() {
 
   const allPosts = postsQuery.data?.pages.flatMap((p) => p.items) ?? [];
   const postsTotal = postsQuery.data?.pages[0]?.total ?? 0;
+  const { query: filterQuery, setQuery: setFilterQuery, filtered: visiblePosts } = useClientPostFilter(allPosts);
   const pages = pagesQuery.data?.items ?? [];
   const pagesTotal = pagesQuery.data?.total ?? 0;
   const showPosts = type === "all" || type === "posts";
@@ -236,8 +238,22 @@ export default function Search() {
                   <h2 className="text-card-heading text-foreground">Articles ({postsTotal.toLocaleString()})</h2>
                 </div>
               )}
+              <div className="mb-6 lg:mb-8">
+                <ClientFilterBar
+                  query={filterQuery}
+                  onChange={setFilterQuery}
+                  loadedCount={allPosts.length}
+                  filteredCount={visiblePosts.length}
+                  noun="articles"
+                />
+              </div>
+              {filterQuery && visiblePosts.length === 0 ? (
+                <p className="text-center text-muted-foreground py-12">
+                  No loaded articles match "{filterQuery}". Try Load more, or clear the filter.
+                </p>
+              ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                {allPosts.map((post) => {
+                {visiblePosts.map((post) => {
                   const img = getFeaturedImage(post);
                   const cats = getCategories(post);
                   return (
@@ -263,6 +279,7 @@ export default function Search() {
                   );
                 })}
               </div>
+              )}
 
               <LoadMoreSection
                 loaded={allPosts.length}

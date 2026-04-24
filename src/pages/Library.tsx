@@ -10,6 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { LoadMoreSection, PostCardSkeletonGrid, PageRowSkeletonList } from "@/components/wp/LoadMoreSection";
+import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 import {
   wp,
   getFeaturedImage,
@@ -112,6 +113,7 @@ export default function Library() {
     [postsQuery.data],
   );
   const postsTotal = postsQuery.data?.pages[0]?.total ?? 0;
+  const { query: postsFilter, setQuery: setPostsFilter, filtered: visiblePosts } = useClientPostFilter(allPosts);
 
   const allPages = useMemo(
     () => pagesQuery.data?.pages.flatMap((p) => p.items) ?? [],
@@ -235,8 +237,22 @@ export default function Library() {
 
               {allPosts.length > 0 && (
                 <>
+                  <div className="mb-6 lg:mb-8">
+                    <ClientFilterBar
+                      query={postsFilter}
+                      onChange={setPostsFilter}
+                      loadedCount={allPosts.length}
+                      filteredCount={visiblePosts.length}
+                      noun="articles"
+                    />
+                  </div>
+                  {postsFilter && visiblePosts.length === 0 ? (
+                    <p className="text-center text-muted-foreground py-12">
+                      No loaded articles match "{postsFilter}". Try Load more, or clear the filter.
+                    </p>
+                  ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    {allPosts.map((post) => {
+                    {visiblePosts.map((post) => {
                       const img = getFeaturedImage(post);
                       const cats = getCategories(post);
                       return (
@@ -265,6 +281,7 @@ export default function Library() {
                       );
                     })}
                   </div>
+                  )}
 
                   <LoadMoreSection
                     loaded={allPosts.length}
