@@ -125,6 +125,9 @@ const PATTERN_RULES: PatternRule[] = [
         external: true,
         rule: "shortlink_p",
       };
+    },
+  },
+
   // ---------------------------------------------------------------------
   // Legacy boundary: features that live on the WordPress origin only.
   // These represent ~17% of incoming traffic (auth, account, community)
