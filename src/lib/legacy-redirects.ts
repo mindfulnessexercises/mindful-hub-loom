@@ -41,12 +41,10 @@ export interface LegacyRedirect {
  *   "/old-about-us": { target: "/about", external: false, rule: "manual" }
  */
 const EXPLICIT_REDIRECTS: Record<string, LegacyRedirect> = {
-  // Legacy WordPress section landings: the WP "Podcast" page (slug `podcast`)
-  // and "Downloads" page are hand-built archives with stale episode lists and
-  // hard-coded mindfulnessexercises.com links. The category pages render the
-  // live CPT contents instead, so always send these slugs there.
-  "/podcast": { target: "/category/podcast", external: false, rule: "section_landing_to_category" },
-  "/downloads": { target: "/category/downloads", external: false, rule: "section_landing_to_category" },
+  // Note: /podcast and /downloads are handled by dedicated routes that mount
+  // the Category page directly (see src/App.tsx). We intentionally do NOT
+  // redirect them to /category/<slug> because we want the app's URLs to match
+  // the legacy WordPress URLs for those section landings.
 };
 
 interface PatternRule {

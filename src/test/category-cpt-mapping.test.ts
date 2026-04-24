@@ -132,24 +132,22 @@ describe.skipIf(!LIVE)("live WP REST returns non-empty results per CPT mapping",
 });
 
 // ---------------------------------------------------------------------------
-// Section landing redirects: visiting /podcast or /downloads must NOT load the
-// stale legacy WP page — they must redirect to /category/<slug> instead.
+// Section landing slugs: visiting /podcast or /downloads must NOT trigger a
+// legacy redirect — those URLs are mounted directly to the Category page so
+// that the app URL matches the legacy WordPress URL.
 // ---------------------------------------------------------------------------
-describe("section landing slugs route to category pages", () => {
+describe("section landing slugs render in-place (no redirect)", () => {
   it.each([
-    { from: "/podcast", to: "/category/podcast" },
-    { from: "/downloads", to: "/category/downloads" },
-  ])("redirects $from → $to", ({ from, to }) => {
+    { from: "/podcast" },
+    { from: "/downloads" },
+  ])("does not redirect $from", ({ from }) => {
     const hit = resolveLegacyRedirect(from);
-    expect(hit).not.toBeNull();
-    expect(hit?.target).toBe(to);
-    expect(hit?.external).toBe(false);
-    expect(hit?.rule).toBe("section_landing_to_category");
+    expect(hit).toBeNull();
   });
 
   it("treats podcast and downloads as reserved so WPResolver short-circuits", () => {
-    // Belt-and-suspenders: even if a navigation happens before useLegacyRedirects
-    // fires, WPResolver must not fetch the WP page with that slug.
+    // Belt-and-suspenders: even if the dedicated route is ever removed, the
+    // /:slug → WPResolver fallback must not try to fetch the stale WP page.
     expect(isReservedSlug("podcast")).toBe(true);
     expect(isReservedSlug("downloads")).toBe(true);
   });
