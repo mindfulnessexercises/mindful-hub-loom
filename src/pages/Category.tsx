@@ -51,6 +51,7 @@ export default function Category() {
     hasNextPage: !!postsQuery.hasNextPage,
     isFetchingNextPage: postsQuery.isFetchingNextPage,
     fetchNextPage: postsQuery.fetchNextPage,
+    source: `category:${slug}`,
   });
 
   if (catQuery.isLoading) {
