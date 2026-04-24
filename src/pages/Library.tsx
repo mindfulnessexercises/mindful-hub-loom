@@ -215,8 +215,21 @@ export default function Library() {
             eyebrow="Jump to a topic"
             title="Browse by category"
           />
+          {/* Mobile sticky filter bar — opens a bottom-sheet that batches tab/search/category
+              edits before committing to the URL. Hidden on >=sm where the inline UI fits. */}
+          <div className="sm:hidden sticky top-16 z-30 -mx-4 px-4 py-3 bg-background/95 backdrop-blur-sm border-b border-border mb-6">
+            <MobileLibraryFilters
+              tab={tab}
+              search={search}
+              category={category}
+              categories={(catsQuery.data?.items ?? []).filter((c) => c.count > 0 && c.slug !== "uncategorized").slice(0, 30)}
+              onApply={onMobileFiltersApply}
+            />
+          </div>
+
           <Tabs value={tab} onValueChange={onTabChange}>
-            <TabsList className="mb-8 h-auto p-1">
+            {/* Desktop tabs — on mobile the bottom-sheet handles tab switching. */}
+            <TabsList className="mb-8 h-auto p-1 hidden sm:inline-flex">
               <TabsTrigger value="posts" className="gap-2 px-4 py-2 min-h-[44px]">
                 <FileText className="h-4 w-4" aria-hidden />
                 Articles {postsTotal > 0 && <span className="opacity-60 text-xs">({postsTotal.toLocaleString()})</span>}
