@@ -84,6 +84,26 @@ export function CategoriesAvailableSummary({
 
       {open && (
         <div id="categories-available-list" className="px-4 lg:px-5 pb-5 pt-1">
+          {/* Plain-language explanation of what clicking a chip actually does
+              to the Library — keeps users from being surprised when their
+              total / pagination drops after applying a category filter. */}
+          <div
+            role="note"
+            className="mb-4 flex items-start gap-2.5 rounded-md border border-border bg-[hsl(var(--section-alternate))] p-3 text-xs text-muted-foreground"
+          >
+            <Info className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" aria-hidden />
+            <p className="leading-relaxed">
+              Selecting a category filters the Library to only that topic. The
+              total result count and number of pages will update to reflect
+              just those posts (e.g. picking a 40-post category shows 40
+              results across however many pages that fills, not the full
+              library total). Clear the filter — or pick{" "}
+              <Link to="/library" className="font-semibold text-primary hover:underline underline-offset-4">
+                All categories
+              </Link>{" "}
+              — to see everything again.
+            </p>
+          </div>
           <ul className="flex flex-wrap gap-2">
             {sorted.map((c) => {
               const isActive = c.id === activeCategoryId;
