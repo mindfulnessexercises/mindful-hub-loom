@@ -50,6 +50,7 @@ export function FeaturedFromOtherCategories({
   activeCategoryId,
   allCategories,
   title = "Featured from other categories",
+  onClearCategory,
 }: FeaturedFromOtherCategoriesProps) {
   // Most-popular categories first — those tend to have the freshest content
   // and the broadest appeal as a "you might also like" prompt.
