@@ -12,6 +12,7 @@ import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { buildPaginatedSeo } from "@/lib/seo-pagination";
 import { LoadMoreSection, PostCardSkeletonGrid } from "@/components/wp/LoadMoreSection";
+import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 
 const PER_PAGE = 100; // WordPress REST API maximum
 
@@ -82,6 +83,7 @@ export default function Blog() {
   const allPosts = postsQuery.data?.pages.flatMap((p) => p.items) ?? [];
   const total = postsQuery.data?.pages[0]?.total ?? 0;
   const totalPages = postsQuery.data?.pages[0]?.totalPages ?? 1;
+  const { query: filterQuery, setQuery: setFilterQuery, filtered: visiblePosts } = useClientPostFilter(allPosts);
 
   // SEO: canonical reflects current filters + page so each variant self-refs.
   // Filtered views (search query or category) should NOT be indexed — they're
@@ -185,8 +187,22 @@ export default function Blog() {
 
           {allPosts.length > 0 && (
             <>
+              <div className="mb-6 lg:mb-8">
+                <ClientFilterBar
+                  query={filterQuery}
+                  onChange={setFilterQuery}
+                  loadedCount={allPosts.length}
+                  filteredCount={visiblePosts.length}
+                  noun="articles"
+                />
+              </div>
+              {filterQuery && visiblePosts.length === 0 ? (
+                <p className="text-center text-muted-foreground py-12">
+                  No loaded articles match "{filterQuery}". Try Load more, or clear the filter.
+                </p>
+              ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                {allPosts.map((post) => {
+                {visiblePosts.map((post) => {
                   const img = getFeaturedImage(post);
                   const cats = getCategories(post);
                   return (
