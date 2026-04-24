@@ -32,11 +32,12 @@ export const wpKeys = {
     category?: number;
     perPage: number;
     scope?: string; // optional namespace, e.g. "blog" | "search"
+    endpoint?: string; // optional CPT endpoint override (e.g. /wp/v2/podcast-episodes)
   }) =>
     [
       "wp", "posts", "list",
       filters.scope ?? "default",
-      { q: filters.search ?? "", cat: filters.category ?? 0, pp: filters.perPage },
+      { q: filters.search ?? "", cat: filters.category ?? 0, pp: filters.perPage, ep: filters.endpoint ?? "" },
     ] as const,
 
   // Non-infinite single-page fetch (e.g. simple "give me 100 pages").

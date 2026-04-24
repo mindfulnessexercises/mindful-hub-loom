@@ -74,6 +74,14 @@ type PostsParams = {
   _embed?: 1;
   orderby?: "date" | "title" | "relevance" | "comment_count" | "modified";
   order?: "asc" | "desc";
+  /**
+   * Override the REST endpoint. Defaults to "/wp/v2/posts" but can be pointed
+   * at a custom post type like "/wp/v2/podcast-episodes" or "/wp/v2/downloads"
+   * to surface CPT entries in category listings (the standard /posts endpoint
+   * only returns the built-in `post` type, even when the CPT shares the same
+   * category taxonomy).
+   */
+  endpoint?: string;
 };
 type PagesParams = {
   page?: number;
@@ -84,8 +92,10 @@ type PagesParams = {
 };
 
 export const wp = {
-  posts: (params: PostsParams = {}, cache: CacheOptions = {}) =>
-    wpFetch<WPPost>("/wp/v2/posts", { _embed: 1, per_page: 12, ...params }, cache),
+  posts: (params: PostsParams = {}, cache: CacheOptions = {}) => {
+    const { endpoint = "/wp/v2/posts", ...rest } = params;
+    return wpFetch<WPPost>(endpoint, { _embed: 1, per_page: 12, ...rest }, cache);
+  },
   postBySlug: (slug: string, cache: CacheOptions = {}) =>
     wpFetch<WPPost>("/wp/v2/posts", { slug, _embed: 1, per_page: 1 }, cache).then((r) => r.items[0] ?? null),
   pages: (params: PagesParams = {}, cache: CacheOptions = {}) =>
@@ -97,6 +107,19 @@ export const wp = {
   categoryBySlug: (slug: string, cache: CacheOptions = {}) =>
     wpFetch<WPCategory>("/wp/v2/categories", { slug, per_page: 1 }, cache).then((r) => r.items[0] ?? null),
 };
+
+/**
+ * Map of category slug → custom post type REST endpoint. WordPress's standard
+ * /wp/v2/posts only returns the built-in `post` type, so categories whose
+ * content lives in a CPT (Podcast = `podcast-episodes`, Downloads = `downloads`)
+ * appear empty unless we hit the CPT endpoint directly. Both CPTs still expose
+ * the `categories` taxonomy, so filtering by category id still works.
+ */
+export const CATEGORY_CPT_ENDPOINT: Record<string, string> = {
+  podcast: "/wp/v2/podcast-episodes",
+  downloads: "/wp/v2/downloads",
+};
+
 
 // Common TTL presets (seconds)
 export const WP_TTL = {
