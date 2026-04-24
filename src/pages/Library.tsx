@@ -522,6 +522,18 @@ export default function Library() {
                       )}
                     />
                   )}
+
+                  {/* Wide-net category exploration — appears on every posts view
+                      (filtered or not) to keep discovery surfaces consistent.
+                      Lazy-expands and previews recent posts per topic. */}
+                  {catsQuery.data && (
+                    <CategoryExploration
+                      categories={catsQuery.data.items.filter(
+                        (c) => c.count > 0 && c.slug !== "uncategorized",
+                      )}
+                      excludeCategoryId={category}
+                    />
+                  )}
                 </>
               )}
             </TabsContent>
