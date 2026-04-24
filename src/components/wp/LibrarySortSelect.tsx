@@ -1,8 +1,11 @@
-import { ArrowDownWideNarrow } from "lucide-react";
+import { ArrowDownWideNarrow, Info, Search } from "lucide-react";
 import {
   Select,
   SelectContent,
   SelectItem,
+  SelectLabel,
+  SelectGroup,
+  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -18,7 +21,7 @@ export type LibrarySort = "newest" | "oldest" | "relevance" | "popular" | "title
 export const LIBRARY_SORT_OPTIONS: { value: LibrarySort; label: string; hint?: string }[] = [
   { value: "newest", label: "Newest first" },
   { value: "oldest", label: "Oldest first" },
-  { value: "relevance", label: "Most relevant", hint: "When searching" },
+  { value: "relevance", label: "Most relevant", hint: "Search-only" },
   { value: "popular", label: "Most popular" },
   { value: "title", label: "Title (A–Z)" },
 ];
@@ -26,13 +29,6 @@ export const LIBRARY_SORT_OPTIONS: { value: LibrarySort; label: string; hint?: s
 /**
  * Translate a {@link LibrarySort} into the WordPress REST `orderby` + `order`
  * params. Centralised so the URL key stays decoupled from WP's vocabulary.
- *
- * Notes:
- * - `relevance` only works on the WP REST API when `search` is non-empty;
- *   callers must check `hasSearch` before using it (we fall back to date desc).
- * - `popular` uses `comment_count` — a server-side proxy for engagement that
- *   doesn't require an analytics plugin. Swap to a hit-counter field later if
- *   the WP install gains one.
  */
 export function sortToWpParams(
   sort: LibrarySort,
@@ -74,30 +70,64 @@ export function LibrarySortSelect({
 }: LibrarySortSelectProps) {
   return (
     <div className={`flex items-center gap-2 ${className ?? ""}`}>
-      <ArrowDownWideNarrow className="h-4 w-4 text-muted-foreground shrink-0" aria-hidden />
-      <label htmlFor="library-sort" className="text-caption text-muted-foreground sr-only sm:not-sr-only">
-        Sort
+      <label
+        htmlFor="library-sort"
+        className="hidden sm:inline-flex items-center gap-1.5 text-caption text-muted-foreground font-medium"
+      >
+        <ArrowDownWideNarrow className="h-4 w-4" aria-hidden />
+        Sort by
       </label>
       <Select value={value} onValueChange={(v) => onChange(v as LibrarySort)}>
-        <SelectTrigger id="library-sort" className="h-10 min-h-[40px] w-[180px] bg-card text-sm" aria-label="Sort results">
-          <SelectValue />
+        <SelectTrigger
+          id="library-sort"
+          className="h-10 min-h-[40px] w-[200px] bg-card text-sm font-medium"
+          aria-label="Sort results"
+        >
+          <SelectValue placeholder="Sort by" />
         </SelectTrigger>
-        <SelectContent>
-          {LIBRARY_SORT_OPTIONS.filter((o) => includePopular || o.value !== "popular").map((opt) => {
-            const disabled = opt.value === "relevance" && !hasSearch;
-            return (
-              <SelectItem key={opt.value} value={opt.value} disabled={disabled}>
-                <span className="flex items-center gap-2">
-                  {opt.label}
-                  {disabled && (
-                    <span className="text-xs text-muted-foreground">(needs search)</span>
-                  )}
+        <SelectContent className="w-[260px]">
+          <SelectGroup>
+            <SelectLabel className="text-xs uppercase tracking-wide text-muted-foreground">
+              Order results by
+            </SelectLabel>
+            {LIBRARY_SORT_OPTIONS.filter((o) => includePopular || o.value !== "popular").map((opt) => {
+              const disabled = opt.value === "relevance" && !hasSearch;
+              return (
+                <SelectItem key={opt.value} value={opt.value} disabled={disabled}>
+                  <span className="flex w-full items-center justify-between gap-3">
+                    <span>{opt.label}</span>
+                    {opt.value === "relevance" && (
+                      <span
+                        className={`inline-flex items-center gap-1 text-[10px] font-medium uppercase tracking-wide px-1.5 py-0.5 rounded ${
+                          disabled
+                            ? "bg-muted text-muted-foreground"
+                            : "bg-primary/10 text-primary"
+                        }`}
+                      >
+                        <Search className="h-3 w-3" aria-hidden />
+                        Search-only
+                      </span>
+                    )}
+                  </span>
+                </SelectItem>
+              );
+            })}
+          </SelectGroup>
+          {!hasSearch && (
+            <>
+              <SelectSeparator />
+              <p className="px-2 py-2 text-xs text-muted-foreground flex items-start gap-1.5">
+                <Info className="h-3.5 w-3.5 mt-0.5 shrink-0" aria-hidden />
+                <span>
+                  <strong className="font-semibold text-foreground">Most relevant</strong> becomes
+                  available after you enter a search query.
                 </span>
-              </SelectItem>
-            );
-          })}
+              </p>
+            </>
+          )}
         </SelectContent>
       </Select>
     </div>
   );
 }
+
