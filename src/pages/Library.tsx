@@ -14,6 +14,7 @@ import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilt
 import { BrowseByCategory } from "@/components/homepage/BrowseByCategory";
 import { MobileLibraryFilters } from "@/components/wp/MobileLibraryFilters";
 import { LibrarySortSelect, sortToWpParams, type LibrarySort } from "@/components/wp/LibrarySortSelect";
+import { SparseCategoryHelper } from "@/components/wp/SparseCategoryHelper";
 import {
   wp,
   getFeaturedImage,
@@ -362,7 +363,36 @@ export default function Library() {
 
               {postsQuery.isLoading && <PostCardSkeletonGrid count={9} />}
               {postsQuery.isError && <EmptyState message="Could not load articles. Please try again." />}
-              {!postsQuery.isLoading && allPosts.length === 0 && (
+
+              {/* Sparse / empty category helper — surfaces when a category filter is active
+                  and yields zero or only a handful of results. Suggests related categories
+                  (token overlap + popularity) and clear next actions. */}
+              {!postsQuery.isLoading && !postsQuery.isError && category && catsQuery.data && (() => {
+                const visibleCats = catsQuery.data.items.filter(
+                  (c) => c.count > 0 && c.slug !== "uncategorized",
+                );
+                const activeCat = visibleCats.find((c) => c.id === category);
+                if (!activeCat) return null;
+                return (
+                  <SparseCategoryHelper
+                    activeCategory={activeCat}
+                    allCategories={visibleCats}
+                    resultCount={postsTotal}
+                    search={search || undefined}
+                    onClearCategory={() => updateParam("cat", undefined)}
+                    onClearAll={() => {
+                      const next = new URLSearchParams(params);
+                      next.delete("q");
+                      next.delete("cat");
+                      next.delete("page");
+                      setParams(next);
+                    }}
+                    onSelectCategory={(id) => updateParam("cat", String(id))}
+                  />
+                );
+              })()}
+
+              {!postsQuery.isLoading && allPosts.length === 0 && !category && (
                 <EmptyState message="No articles match your filters." />
               )}
 
