@@ -407,6 +407,58 @@ export default function AdminAnalytics() {
           />
         </section>
 
+        {/* Upstream intent — events that happen BEFORE a CTA click and shape
+            what the user was looking at. Pair with the breakdowns above to
+            see whether refinement (search/sort/filter) precedes conversion. */}
+        <section>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-card-heading font-serif">Upstream intent by source</CardTitle>
+              <p className="text-body-sm text-muted-foreground">
+                Filter changes, search submissions, and pagination — grouped by where
+                the user was when they made the change. Use it to see which surfaces
+                drive deep refinement before a CTA click.
+              </p>
+            </CardHeader>
+            <CardContent>
+              {upstreamIntent.length === 0 ? (
+                <p className="text-body-sm text-muted-foreground py-6 text-center">
+                  No upstream events in the selected range.
+                </p>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full text-body-sm">
+                    <thead>
+                      <tr className="border-b border-border text-left text-muted-foreground">
+                        <th className="py-2 pr-4 font-medium">Source</th>
+                        <th className="py-2 pr-4 font-medium text-right">Searches</th>
+                        <th className="py-2 pr-4 font-medium text-right">Sort changes</th>
+                        <th className="py-2 pr-4 font-medium text-right">Category changes</th>
+                        <th className="py-2 pr-4 font-medium text-right">Tab / type changes</th>
+                        <th className="py-2 pr-4 font-medium text-right">Load more</th>
+                        <th className="py-2 font-medium text-right">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {upstreamIntent.slice(0, 50).map((r) => (
+                        <tr key={r.source} className="border-b border-border/50 last:border-0">
+                          <td className="py-2 pr-4 font-mono text-xs">{r.source}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.searches}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.sortChanges}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.categoryChanges}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.tabChanges}</td>
+                          <td className="py-2 pr-4 text-right tabular-nums">{r.loadMores}</td>
+                          <td className="py-2 text-right tabular-nums font-semibold">{r.total}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </section>
+
         {/* Recent feed for spot-checking */}
         <section>
           <Card>
