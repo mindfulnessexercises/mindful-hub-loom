@@ -386,6 +386,11 @@ export default function Library() {
                     {visiblePosts.map((post) => {
                       const img = getFeaturedImage(post);
                       const cats = getCategories(post);
+                      // Contextual inline CTA derived from the post's category — e.g. a
+                      // "Meditation Scripts" post gets "Get the free script" instead of
+                      // the generic "Read article". Keeps the link target on the post
+                      // unless the rule supplies an in-app `href`.
+                      const cta = getPostInlineCTA(post);
                       return (
                         <article key={post.id} className="group flex flex-col bg-card rounded-lg overflow-hidden border border-border shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-300">
                           <Link to={`/${post.slug}`} className="block aspect-[16/10] bg-muted overflow-hidden">
@@ -404,9 +409,23 @@ export default function Library() {
                               <Link to={`/${post.slug}`} className="hover:text-primary transition-colors" dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
                             </h2>
                             <p className="text-body-sm text-muted-foreground line-clamp-3">{stripHtml(post.excerpt.rendered)}</p>
-                            <Link to={`/${post.slug}`} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all">
-                              Read article <ArrowRight className="h-3.5 w-3.5" />
-                            </Link>
+                            <div className="mt-4 flex items-center justify-between gap-3 pt-4 border-t border-border/60">
+                              <Link
+                                to={cta.href ?? `/${post.slug}`}
+                                className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all min-h-[36px]"
+                              >
+                                {cta.label} <ArrowRight className="h-3.5 w-3.5" />
+                              </Link>
+                              {cta.href && (
+                                <Link
+                                  to={`/${post.slug}`}
+                                  className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                                  aria-label={`Read article: ${stripHtml(post.title.rendered)}`}
+                                >
+                                  Read article
+                                </Link>
+                              )}
+                            </div>
                           </div>
                         </article>
                       );
