@@ -20,16 +20,17 @@ const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 export default function WPResolver() {
   const params = useParams();
-  // Supports both /:slug and nested /*. For nested URLs (e.g.
-  // /course/foo, /podcast-episodes/bar), WP's permalink for the leaf is the
-  // last path segment — that's what we look up.
-  const rawPath = (params["*"] ?? params.slug ?? "").replace(/\/+$/, "");
-  const segments = rawPath.split("/").filter(Boolean);
-  const slug = segments[segments.length - 1] ?? "";
+  const location = useLocation();
+  // Use the actual pathname so we can see the parent segment for nested
+  // routes mounted with a splat (e.g. <Route path="/podcast-episodes/*">),
+  // where params["*"] only captures the part AFTER the parent and would lose
+  // the URL parent we need to map to a CPT endpoint.
+  const allSegments = location.pathname.replace(/\/+$/, "").split("/").filter(Boolean);
+  const slug = allSegments[allSegments.length - 1] ?? params.slug ?? "";
   // For nested URLs the parent segment tells us which CPT endpoint to try.
   // e.g. /podcast-episodes/<slug> → /wp/v2/podcast-episodes; /downloads/<slug>
   // → /wp/v2/downloads. Single-segment URLs have no parent.
-  const parent = segments.length > 1 ? segments[segments.length - 2] : "";
+  const parent = allSegments.length > 1 ? allSegments[allSegments.length - 2] : "";
   const cptEndpoint = URL_PARENT_TO_CPT_ENDPOINT[parent];
   const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement | null>(null);
