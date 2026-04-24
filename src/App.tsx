@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound.tsx";
 const CEPolicies = lazy(() => import("./pages/CEPolicies.tsx"));
 const Blog = lazy(() => import("./pages/Blog.tsx"));
 const Search = lazy(() => import("./pages/Search.tsx"));
+const Category = lazy(() => import("./pages/Category.tsx"));
 const WPResolver = lazy(() => import("./pages/WPResolver.tsx"));
 
 const queryClient = new QueryClient({
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/ce-policies" element={<CEPolicies />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/category/:slug" element={<Category />} />
             {/* Alias: /blog/:slug also resolves to the post via WPResolver */}
             <Route path="/blog/:slug" element={<WPResolver />} />
             {/* Smart resolver: tries post first, then WP page. Keep last before NotFound */}
