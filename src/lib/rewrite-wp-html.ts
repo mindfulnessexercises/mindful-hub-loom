@@ -73,9 +73,19 @@ export function mapWpPathToAppPath(pathname: string): string | null {
   // /library passthrough
   if (p === "/library" || p.startsWith("/library/")) return p;
 
+  // Known CPT permalinks under nested URLs (podcast episodes, downloads,
+  // courses, lessons). The app routes these through WPResolver which knows
+  // how to fetch the matching CPT entry by leaf slug.
+  const CPT_URL_PARENTS = ["podcast-episodes", "downloads", "course", "courses", "lessons"];
+  const segments = p.slice(1).split("/").filter(Boolean);
+  if (segments.length >= 2 && CPT_URL_PARENTS.includes(segments[0])) {
+    // Preserve the full nested path so React Router's /<parent>/* route
+    // matches and the leaf slug ends up in params.
+    return p;
+  }
+
   // Otherwise treat as a top-level slug (post or page) — but only if it's a
   // single segment AND not a reserved app route (those are handled above).
-  const segments = p.slice(1).split("/").filter(Boolean);
   if (segments.length === 1) {
     const slug = segments[0];
     if (isReservedSlug(slug)) return `/${slug}`;
