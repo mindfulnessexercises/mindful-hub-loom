@@ -408,3 +408,19 @@ export default function Library() {
 function EmptyState({ message }: { message: string }) {
   return <p className="text-center text-muted-foreground py-12">{message}</p>;
 }
+
+function FilterChip({ label, onRemove }: { label: string; onRemove: () => void }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 pl-3 pr-1.5 py-1 rounded-full bg-accent text-accent-foreground border border-border text-xs font-medium">
+      {label}
+      <button
+        type="button"
+        onClick={onRemove}
+        aria-label={`Remove filter ${label}`}
+        className="inline-flex items-center justify-center h-6 w-6 rounded-full hover:bg-background/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        <X className="h-3 w-3" />
+      </button>
+    </span>
+  );
+}
