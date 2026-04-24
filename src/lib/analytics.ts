@@ -192,6 +192,7 @@ function enqueueCloud(name: string, props: EventProps): void {
  */
 export function trackEvent(name: string, props: EventProps = {}): void {
   const cleaned = clean(props);
+  const validated = validateEventProps(name, cleaned);
   const win = w();
 
   // Lovable Cloud sink — queued + non-blocking. Powers the in-app dashboard.
