@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound.tsx";
 
 const CEPolicies = lazy(() => import("./pages/CEPolicies.tsx"));
 const Blog = lazy(() => import("./pages/Blog.tsx"));
+const Library = lazy(() => import("./pages/Library.tsx"));
 const Search = lazy(() => import("./pages/Search.tsx"));
 const Category = lazy(() => import("./pages/Category.tsx"));
 const WPResolver = lazy(() => import("./pages/WPResolver.tsx"));
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/ce-policies" element={<CEPolicies />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/library" element={<Library />} />
             <Route path="/search" element={<Search />} />
             <Route path="/category/:slug" element={<Category />} />
             {/* Alias: /blog/:slug also resolves to the post via WPResolver */}
