@@ -20,6 +20,7 @@ import { CategoriesAvailableSummary } from "@/components/wp/CategoriesAvailableS
 import { CategoryExploration } from "@/components/wp/CategoryExploration";
 import { MoreLikeThis } from "@/components/wp/MoreLikeThis";
 import { trackCtaClick } from "@/lib/analytics";
+import { recordRecentCategory } from "@/lib/recent-categories";
 import {
   wp,
   getFeaturedImage,
@@ -121,6 +122,16 @@ export default function Library() {
     staleTime: WP_STALE.taxonomy,
     gcTime: WP_STALE.gc,
   });
+
+  // Record the active category as a "recent visit" so MoreLikeThis can use
+  // the user's browsing trail this session as an additional intent signal.
+  useEffect(() => {
+    if (!category || !catsQuery.data) return;
+    const cat = catsQuery.data.items.find((c) => c.id === category);
+    if (!cat) return;
+    recordRecentCategory({ id: cat.id, slug: cat.slug, name: cat.name });
+  }, [category, catsQuery.data]);
+
 
   const updateParam = (key: string, value?: string, opts: { resetPage?: boolean } = { resetPage: true }) => {
     const next = new URLSearchParams(params);
@@ -553,6 +564,7 @@ export default function Library() {
                       <MoreLikeThis
                         activeCategory={activeCat}
                         allCategories={visibleCats}
+                        search={search || undefined}
                       />
                     );
                   })()}
