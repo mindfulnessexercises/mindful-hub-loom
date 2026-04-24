@@ -457,6 +457,17 @@ export default function Library() {
                             <div className="mt-4 flex items-center justify-between gap-3 pt-4 border-t border-border/60">
                               <Link
                                 to={cta.href ?? `/${post.slug}`}
+                                onClick={() =>
+                                  trackCtaClick({
+                                    cta_label: cta.label,
+                                    cta_destination: cta.href ?? `/${post.slug}`,
+                                    cta_location: "library_post_card",
+                                    post_id: post.id,
+                                    category_id: cta.matchedCategory?.id ?? cats[0]?.id,
+                                    category_slug: cta.matchedCategory?.slug ?? cats[0]?.slug,
+                                    matched: cta.matched,
+                                  })
+                                }
                                 className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2 transition-all min-h-[36px]"
                               >
                                 {cta.label} <ArrowRight className="h-3.5 w-3.5" />
@@ -464,6 +475,17 @@ export default function Library() {
                               {cta.href && (
                                 <Link
                                   to={`/${post.slug}`}
+                                  onClick={() =>
+                                    trackCtaClick({
+                                      cta_label: "Read article",
+                                      cta_destination: `/${post.slug}`,
+                                      cta_location: "library_post_card_secondary",
+                                      post_id: post.id,
+                                      category_id: cats[0]?.id,
+                                      category_slug: cats[0]?.slug,
+                                      matched: false,
+                                    })
+                                  }
                                   className="text-xs text-muted-foreground hover:text-foreground transition-colors"
                                   aria-label={`Read article: ${stripHtml(post.title.rendered)}`}
                                 >
