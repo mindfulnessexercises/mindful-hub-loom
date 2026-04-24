@@ -1,1 +1,4 @@
 project_id = "glpbynaneshuhmjtbpsa"
+
+[functions.wp-proxy]
+verify_jwt = false
