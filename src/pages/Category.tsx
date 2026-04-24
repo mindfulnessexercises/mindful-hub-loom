@@ -8,6 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
 import { WPSeo } from "@/components/wp/WPSeo";
+import { useUrlPagination } from "@/hooks/use-url-pagination";
 import NotFound from "./NotFound";
 
 const PER_PAGE = 100;
@@ -35,6 +36,13 @@ export default function Category() {
     initialPageParam: 1,
     enabled: !!catQuery.data?.id,
     staleTime: 5 * 60 * 1000,
+  });
+
+  const { loadMore } = useUrlPagination({
+    loadedPages: postsQuery.data?.pages.length ?? 0,
+    hasNextPage: !!postsQuery.hasNextPage,
+    isFetchingNextPage: postsQuery.isFetchingNextPage,
+    fetchNextPage: postsQuery.fetchNextPage,
   });
 
   if (catQuery.isLoading) {
@@ -158,7 +166,7 @@ export default function Category() {
                     size="lg"
                     variant="outline"
                     className="h-11 min-w-[200px]"
-                    onClick={() => postsQuery.fetchNextPage()}
+                    onClick={loadMore}
                     disabled={postsQuery.isFetchingNextPage}
                   >
                     {postsQuery.isFetchingNextPage ? (
