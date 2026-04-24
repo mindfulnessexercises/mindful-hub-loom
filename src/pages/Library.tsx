@@ -190,7 +190,8 @@ export default function Library() {
               Search and filter every article and resource page in one place.
             </p>
 
-            <form onSubmit={onSearch} className="mt-8 flex flex-col sm:flex-row gap-3 max-w-2xl">
+            {/* Desktop search — on mobile users open the bottom-sheet (below) */}
+            <form onSubmit={onSearch} className="mt-8 hidden sm:flex flex-row gap-3 max-w-2xl">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" aria-hidden />
                 <Input
