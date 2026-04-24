@@ -1,11 +1,12 @@
 import { useRef } from "react";
 import { useQueries } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Compass, X } from "lucide-react";
 import { wp, getFeaturedImage, stripHtml, type WPCategory, type WPPost } from "@/lib/wp";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { trackEvent } from "@/lib/analytics";
 import { useImpression } from "@/hooks/use-impression";
+import { Button } from "@/components/ui/button";
 
 /**
  * Surfaces a horizontal row of recent posts from categories OTHER than the
