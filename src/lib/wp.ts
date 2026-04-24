@@ -63,6 +63,8 @@ export const wp = {
   pageBySlug: (slug: string) =>
     wpFetch<WPPage>("/wp/v2/pages", { slug, _embed: 1, per_page: 1 }).then((r) => r.items[0] ?? null),
   categories: () => wpFetch<WPCategory>("/wp/v2/categories", { per_page: 100, orderby: "count", order: "desc" }),
+  categoryBySlug: (slug: string) =>
+    wpFetch<WPCategory>("/wp/v2/categories", { slug, per_page: 1 }).then((r) => r.items[0] ?? null),
 };
 
 // ---- Helpers ----
