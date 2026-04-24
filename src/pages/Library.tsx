@@ -123,6 +123,16 @@ export default function Library() {
     gcTime: WP_STALE.gc,
   });
 
+  // Record the active category as a "recent visit" so MoreLikeThis can use
+  // the user's browsing trail this session as an additional intent signal.
+  useEffect(() => {
+    if (!category || !catsQuery.data) return;
+    const cat = catsQuery.data.items.find((c) => c.id === category);
+    if (!cat) return;
+    recordRecentCategory({ id: cat.id, slug: cat.slug, name: cat.name });
+  }, [category, catsQuery.data]);
+
+
   const updateParam = (key: string, value?: string, opts: { resetPage?: boolean } = { resetPage: true }) => {
     const next = new URLSearchParams(params);
     if (value) next.set(key, value); else next.delete(key);
