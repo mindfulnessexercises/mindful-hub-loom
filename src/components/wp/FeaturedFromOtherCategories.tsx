@@ -40,6 +40,10 @@ export interface FeaturedFromOtherCategoriesProps {
   allCategories: WPCategory[];
   /** Optional title override. */
   title?: string;
+  /** Optional callback to clear the active category filter. When provided
+   *  AND the row ends up empty, we render a friendly fallback with a
+   *  "Clear category filter" action instead of returning null. */
+  onClearCategory?: () => void;
 }
 
 export function FeaturedFromOtherCategories({
