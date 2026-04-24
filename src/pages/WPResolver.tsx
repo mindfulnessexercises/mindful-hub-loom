@@ -187,7 +187,7 @@ export default function WPResolver() {
           {/* Hero: breadcrumbs, title, byline. No featured image inside the
               header — it slots in below so the eye lands on the title first. */}
           <header className="border-b border-border bg-[hsl(var(--section-alternate))]">
-            <div className="container mx-auto max-w-3xl py-8 lg:py-12">
+            <div className="container mx-auto max-w-3xl py-6 lg:py-8">
               <div className="mb-5">
                 <WPBreadcrumbs items={breadcrumbItems} />
               </div>
