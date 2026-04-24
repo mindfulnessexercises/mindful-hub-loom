@@ -258,5 +258,3 @@ export function CategoryExploration({
   );
 }
 
-// Re-stub a no-op import marker to satisfy types when stripHtml is unused.
-void stripHtml;
