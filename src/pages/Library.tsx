@@ -18,6 +18,7 @@ import { SparseCategoryHelper } from "@/components/wp/SparseCategoryHelper";
 import { FeaturedFromOtherCategories } from "@/components/wp/FeaturedFromOtherCategories";
 import { CategoriesAvailableSummary } from "@/components/wp/CategoriesAvailableSummary";
 import { CategoryExploration } from "@/components/wp/CategoryExploration";
+import { MoreLikeThis } from "@/components/wp/MoreLikeThis";
 import { trackCtaClick } from "@/lib/analytics";
 import {
   wp,
