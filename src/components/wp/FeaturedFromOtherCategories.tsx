@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { useQueries } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { ArrowRight, Compass, X } from "lucide-react";
