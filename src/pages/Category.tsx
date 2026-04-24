@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
+import { buildPaginatedSeo } from "@/lib/seo-pagination";
 import { useUrlPagination } from "@/hooks/use-url-pagination";
 import NotFound from "./NotFound";
 
@@ -17,6 +18,8 @@ const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 export default function Category() {
   const { slug = "" } = useParams();
+  const [params] = useSearchParams();
+  const pageParam = Math.max(1, Number(params.get("page") ?? "1"));
 
   const catQuery = useQuery({
     queryKey: wpKeys.categoryBySlug(slug),
