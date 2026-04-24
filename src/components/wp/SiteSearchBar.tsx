@@ -4,6 +4,7 @@ import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 interface Props {
   initialValue?: string;
@@ -13,6 +14,12 @@ interface Props {
   buttonLabel?: string;
   autoFocus?: boolean;
   onSubmitted?: () => void;
+  /**
+   * Identifier for analytics — where on the site this search bar lives
+   * (e.g. "search_page_header", "navbar"). Used to attribute downstream
+   * conversions to the upstream search intent. Defaults to "site_search".
+   */
+  source?: string;
 }
 
 export function SiteSearchBar({
@@ -23,6 +30,7 @@ export function SiteSearchBar({
   buttonLabel = "Search",
   autoFocus,
   onSubmitted,
+  source = "site_search",
 }: Props) {
   const [value, setValue] = useState(initialValue);
   const navigate = useNavigate();
@@ -31,6 +39,7 @@ export function SiteSearchBar({
     e.preventDefault();
     const q = value.trim();
     if (!q) return;
+    trackEvent("search_submitted", { query: q, source });
     navigate(`/search?q=${encodeURIComponent(q)}`);
     onSubmitted?.();
   };
