@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Library", href: "/library" },
   { label: "Blog", href: "/blog" },
   { label: "Get Certified", href: "https://certify.mindfulnessexercises.com/", external: true },
-  { label: "Live Events", href: "#events" },
+  { label: "Live Events", href: "https://connect.mindfulnessexercises.com/c/live-mindfulness-meditations-discussions/", external: true },
   { label: "About", href: "/about-us" },
 ];
 
