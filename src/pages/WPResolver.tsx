@@ -66,6 +66,11 @@ export default function WPResolver() {
   const title = stripHtml(doc.title.rendered);
   const cats = kind === "post" ? getCategories(doc) : [];
   const author = kind === "post" ? getAuthor(doc) : null;
+  // Rewrite mindfulnessexercises.com links inside the body to in-app paths,
+  // and intercept clicks so they use SPA navigation. Memoised on the raw HTML
+  // so we don't re-parse on every render.
+  const rewrittenHtml = useMemo(() => rewriteWpHtml(doc.content.rendered), [doc.content.rendered]);
+  useEffect(() => attachWpLinkInterceptor(contentRef.current, navigate), [rewrittenHtml, navigate]);
 
   const jsonLd = kind === "post"
     ? {
