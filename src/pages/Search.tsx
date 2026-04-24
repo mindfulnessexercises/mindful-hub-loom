@@ -63,6 +63,13 @@ export default function Search() {
     staleTime: 60 * 60 * 1000,
   });
 
+  const { loadMore } = useUrlPagination({
+    loadedPages: postsQuery.data?.pages.length ?? 0,
+    hasNextPage: !!postsQuery.hasNextPage,
+    isFetchingNextPage: postsQuery.isFetchingNextPage,
+    fetchNextPage: postsQuery.fetchNextPage,
+  });
+
   const allPosts = postsQuery.data?.pages.flatMap((p) => p.items) ?? [];
   const postsTotal = postsQuery.data?.pages[0]?.total ?? 0;
   const pages = pagesQuery.data?.items ?? [];
@@ -270,7 +277,7 @@ export default function Search() {
                     size="lg"
                     variant="outline"
                     className="h-11 min-w-[200px]"
-                    onClick={() => postsQuery.fetchNextPage()}
+                    onClick={loadMore}
                     disabled={postsQuery.isFetchingNextPage}
                   >
                     {postsQuery.isFetchingNextPage ? (
