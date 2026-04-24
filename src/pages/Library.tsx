@@ -15,6 +15,7 @@ import { BrowseByCategory } from "@/components/homepage/BrowseByCategory";
 import { MobileLibraryFilters } from "@/components/wp/MobileLibraryFilters";
 import { LibrarySortSelect, sortToWpParams, type LibrarySort } from "@/components/wp/LibrarySortSelect";
 import { SparseCategoryHelper } from "@/components/wp/SparseCategoryHelper";
+import { ActiveFilterBanner } from "@/components/wp/ActiveFilterBanner";
 import { FeaturedFromOtherCategories } from "@/components/wp/FeaturedFromOtherCategories";
 import { CategoriesAvailableSummary } from "@/components/wp/CategoriesAvailableSummary";
 import { CategoryExploration } from "@/components/wp/CategoryExploration";
@@ -313,6 +314,24 @@ export default function Library() {
 
             {/* ---- POSTS TAB ---- */}
             <TabsContent value="posts" className="mt-0">
+              {/* Active-filter breadcrumb banner — visible whenever a category
+                  or search filter is applied. Provides one-click clears. */}
+              <ActiveFilterBanner
+                categoryName={
+                  category && catsQuery.data
+                    ? catsQuery.data.items.find((c) => c.id === category)?.name
+                    : undefined
+                }
+                search={search || undefined}
+                onClearCategory={() => updateParam("cat", undefined)}
+                onClearAll={() => {
+                  const next = new URLSearchParams(params);
+                  next.delete("q");
+                  next.delete("cat");
+                  next.delete("page");
+                  setParams(next);
+                }}
+              />
               {/* Category filter — single horizontally-scrollable row */}
               {catsQuery.data && (() => {
                 const visibleCats = catsQuery.data.items
@@ -587,6 +606,17 @@ export default function Library() {
 
             {/* ---- PAGES TAB ---- */}
             <TabsContent value="pages" className="mt-0">
+              {/* Pages tab only carries the search filter (no category). */}
+              <ActiveFilterBanner
+                search={search || undefined}
+                onClearCategory={() => updateParam("cat", undefined)}
+                onClearAll={() => {
+                  const next = new URLSearchParams(params);
+                  next.delete("q");
+                  next.delete("page");
+                  setParams(next);
+                }}
+              />
               {pagesQuery.isLoading && <PageRowSkeletonList count={8} />}
               {pagesQuery.isError && <EmptyState message="Could not load pages. Please try again." />}
               {!pagesQuery.isLoading && allPages.length === 0 && (
