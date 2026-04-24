@@ -9,7 +9,7 @@
  *      via RUN_LIVE_WP_TESTS=1 so CI/sandbox runs stay hermetic and fast.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { CATEGORY_CPT_ENDPOINT, CPT_URL_PARENT, URL_PARENT_TO_CPT_ENDPOINT, wp } from "@/lib/wp";
+import { CATEGORY_CPT_ENDPOINT, CPT_URL_PARENT, URL_PARENT_TO_CPT_ENDPOINT, getCategoryCptEndpointById, getWpPostHref, wp } from "@/lib/wp";
 import { resolveLegacyRedirect } from "@/lib/legacy-redirects";
 import { isReservedSlug } from "@/lib/reserved-slugs";
 import { mapWpPathToAppPath } from "@/lib/rewrite-wp-html";
@@ -45,6 +45,19 @@ describe("CATEGORY_CPT_ENDPOINT registry", () => {
     expect(CATEGORY_CPT_ENDPOINT.blog).toBeUndefined();
     expect(CATEGORY_CPT_ENDPOINT["meditation-scripts"]).toBeUndefined();
     expect(CATEGORY_CPT_ENDPOINT.stress).toBeUndefined();
+  });
+
+  it("derives the CPT endpoint from a selected category id", () => {
+    const categories = [
+      { id: 13273, slug: "podcast" },
+      { id: 13431, slug: "downloads" },
+      { id: 42, slug: "blog" },
+    ];
+
+    expect(getCategoryCptEndpointById(categories, 13273)).toBe("/wp/v2/podcast-episodes");
+    expect(getCategoryCptEndpointById(categories, 13431)).toBe("/wp/v2/downloads");
+    expect(getCategoryCptEndpointById(categories, 42)).toBeUndefined();
+    expect(getCategoryCptEndpointById(categories, undefined)).toBeUndefined();
   });
 });
 
@@ -163,5 +176,12 @@ describe("CPT_URL_PARENT registry", () => {
       .toBe("/downloads/some-pdf-resource");
     // Sanity: unknown nested paths still left external.
     expect(mapWpPathToAppPath("/something/unknown/nested")).toBeNull();
+  });
+
+  it("builds internal app hrefs for CPT and default posts", () => {
+    expect(getWpPostHref("the-dharma-of-healing-with-justin-michelson", "/wp/v2/podcast-episodes"))
+      .toBe("/podcast-episodes/the-dharma-of-healing-with-justin-michelson");
+    expect(getWpPostHref("some-download", "/wp/v2/downloads")).toBe("/downloads/some-download");
+    expect(getWpPostHref("standard-blog-post")).toBe("/standard-blog-post");
   });
 });
