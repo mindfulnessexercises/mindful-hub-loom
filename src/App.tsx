@@ -15,6 +15,7 @@ const Search = lazy(() => import("./pages/Search.tsx"));
 const Category = lazy(() => import("./pages/Category.tsx"));
 const WPResolver = lazy(() => import("./pages/WPResolver.tsx"));
 const AdminAnalytics = lazy(() => import("./pages/AdminAnalytics.tsx"));
+const AdminCtaQA = lazy(() => import("./pages/AdminCtaQA.tsx"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -51,6 +52,7 @@ const App = () => (
             <Route path="/category/:slug" element={<Category />} />
             {/* Admin/internal — public route per product decision; noindex via meta */}
             <Route path="/admin/analytics" element={<AdminAnalytics />} />
+            <Route path="/admin/cta-qa" element={<AdminCtaQA />} />
             {/* Alias: /blog/:slug also resolves to the post via WPResolver */}
             <Route path="/blog/:slug" element={<WPResolver />} />
             {/* Smart resolver: tries post first, then WP page. Keep last before NotFound */}
