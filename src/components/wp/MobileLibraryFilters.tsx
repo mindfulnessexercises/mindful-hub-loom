@@ -192,7 +192,42 @@ export function MobileLibraryFilters({
               </div>
             </div>
 
-            {/* Category list (posts only) */}
+            {/* Sort */}
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-2">
+                Sort by
+              </p>
+              <ul className="rounded-lg border border-border bg-card divide-y divide-border overflow-hidden">
+                {LIBRARY_SORT_OPTIONS.filter(
+                  (o) => draftTab === "posts" || o.value !== "popular",
+                ).map((opt) => {
+                  const disabled = opt.value === "relevance" && !draftSearch.trim();
+                  const selected = draftSort === opt.value;
+                  return (
+                    <li key={opt.value}>
+                      <button
+                        type="button"
+                        disabled={disabled}
+                        aria-pressed={selected}
+                        onClick={() => setDraftSort(opt.value)}
+                        className={`w-full flex items-center justify-between gap-3 text-left px-4 py-3 min-h-[48px] transition-colors ${
+                          selected ? "bg-primary/10 text-foreground" : "hover:bg-accent/50"
+                        } ${disabled ? "opacity-40 cursor-not-allowed" : ""}`}
+                      >
+                        <span className="flex-1 text-sm font-medium">{opt.label}</span>
+                        {disabled && (
+                          <span className="text-xs text-muted-foreground">Needs search</span>
+                        )}
+                        {selected && !disabled && (
+                          <Check className="h-4 w-4 text-primary shrink-0" aria-hidden />
+                        )}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+
             {draftTab === "posts" && (
               <div>
                 <div className="flex items-center justify-between mb-2">
