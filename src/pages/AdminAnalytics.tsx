@@ -252,12 +252,28 @@ export default function AdminAnalytics() {
   const recent = (rows ?? []).slice(0, 50);
   const showingCapHint = (rows?.length ?? 0) >= ROW_CAP;
 
+  // Set the document title + a noindex meta tag without pulling in helmet.
+  useEffect(() => {
+    const prevTitle = document.title;
+    document.title = "Analytics — Internal dashboard";
+    let robots = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    const created = !robots;
+    if (!robots) {
+      robots = document.createElement("meta");
+      robots.name = "robots";
+      document.head.appendChild(robots);
+    }
+    const prevContent = robots.content;
+    robots.content = "noindex,nofollow";
+    return () => {
+      document.title = prevTitle;
+      if (created) robots?.remove();
+      else if (robots) robots.content = prevContent;
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Analytics — Internal dashboard</title>
-        <meta name="robots" content="noindex,nofollow" />
-      </Helmet>
 
       <header className="border-b border-border bg-[hsl(var(--section-alternate))]">
         <div className="container mx-auto py-6 flex items-center justify-between gap-4">
