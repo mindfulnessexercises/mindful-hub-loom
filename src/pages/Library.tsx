@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { LoadMoreSection, PostCardSkeletonGrid, PageRowSkeletonList } from "@/components/wp/LoadMoreSection";
 import {
   wp,
   getFeaturedImage,
@@ -226,7 +227,7 @@ export default function Library() {
                 </div>
               )}
 
-              {postsQuery.isLoading && <CardGridSkeleton />}
+              {postsQuery.isLoading && <PostCardSkeletonGrid count={9} />}
               {postsQuery.isError && <EmptyState message="Could not load articles. Please try again." />}
               {!postsQuery.isLoading && allPosts.length === 0 && (
                 <EmptyState message="No articles match your filters." />
@@ -265,13 +266,14 @@ export default function Library() {
                     })}
                   </div>
 
-                  <LoadMore
+                  <LoadMoreSection
                     loaded={allPosts.length}
                     total={postsTotal}
                     hasNext={!!postsQuery.hasNextPage}
                     isFetching={postsQuery.isFetchingNextPage}
                     onClick={postsPagination.loadMore}
                     label="articles"
+                    pendingSkeleton={<PostCardSkeletonGrid count={6} />}
                   />
                 </>
               )}
@@ -279,7 +281,7 @@ export default function Library() {
 
             {/* ---- PAGES TAB ---- */}
             <TabsContent value="pages" className="mt-0">
-              {pagesQuery.isLoading && <ListSkeleton />}
+              {pagesQuery.isLoading && <PageRowSkeletonList count={8} />}
               {pagesQuery.isError && <EmptyState message="Could not load pages. Please try again." />}
               {!pagesQuery.isLoading && allPages.length === 0 && (
                 <EmptyState message="No pages match your search." />
@@ -316,13 +318,14 @@ export default function Library() {
                     ))}
                   </ul>
 
-                  <LoadMore
+                  <LoadMoreSection
                     loaded={allPages.length}
                     total={pagesTotal}
                     hasNext={!!pagesQuery.hasNextPage}
                     isFetching={pagesQuery.isFetchingNextPage}
                     onClick={pagesPagination.loadMore}
                     label="pages"
+                    pendingSkeleton={<PageRowSkeletonList count={4} />}
                   />
                 </>
               )}
@@ -336,54 +339,6 @@ export default function Library() {
   );
 }
 
-function CardGridSkeleton() {
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-      {Array.from({ length: 9 }).map((_, i) => (
-        <div key={i} className="space-y-3">
-          <Skeleton className="aspect-[16/10] w-full rounded-lg" />
-          <Skeleton className="h-4 w-1/3" />
-          <Skeleton className="h-6 w-full" />
-          <Skeleton className="h-4 w-full" />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function ListSkeleton() {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {Array.from({ length: 8 }).map((_, i) => (
-        <Skeleton key={i} className="h-24 w-full rounded-lg" />
-      ))}
-    </div>
-  );
-}
-
 function EmptyState({ message }: { message: string }) {
   return <p className="text-center text-muted-foreground py-12">{message}</p>;
-}
-
-function LoadMore({
-  loaded, total, hasNext, isFetching, onClick, label,
-}: {
-  loaded: number; total: number; hasNext: boolean; isFetching: boolean; onClick: () => void; label: string;
-}) {
-  return (
-    <div className="mt-12 flex flex-col items-center gap-3">
-      <p className="text-body-sm text-muted-foreground">
-        Showing {loaded.toLocaleString()} of {total.toLocaleString()}
-      </p>
-      {hasNext && (
-        <Button size="lg" variant="outline" className="h-11 min-w-[200px]" onClick={onClick} disabled={isFetching}>
-          {isFetching ? (
-            <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Loading…</>
-          ) : (
-            <>Load more {label}</>
-          )}
-        </Button>
-      )}
-    </div>
-  );
 }

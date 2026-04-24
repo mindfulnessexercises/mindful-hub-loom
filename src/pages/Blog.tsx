@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import { Search, ArrowRight, Loader2 } from "lucide-react";
+import { Search, ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { buildPaginatedSeo } from "@/lib/seo-pagination";
+import { LoadMoreSection, PostCardSkeletonGrid } from "@/components/wp/LoadMoreSection";
 
 const PER_PAGE = 100; // WordPress REST API maximum
 
@@ -173,18 +173,7 @@ export default function Blog() {
 
         {/* Grid */}
         <section className="container mx-auto py-12 lg:py-16">
-          {postsQuery.isLoading && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {Array.from({ length: 9 }).map((_, i) => (
-                <div key={i} className="space-y-3">
-                  <Skeleton className="aspect-[16/10] w-full rounded-lg" />
-                  <Skeleton className="h-4 w-1/3" />
-                  <Skeleton className="h-6 w-full" />
-                  <Skeleton className="h-4 w-full" />
-                </div>
-              ))}
-            </div>
-          )}
+          {postsQuery.isLoading && <PostCardSkeletonGrid count={9} />}
 
           {postsQuery.isError && (
             <p className="text-center text-muted-foreground py-12">Could not load articles. Please try again.</p>
