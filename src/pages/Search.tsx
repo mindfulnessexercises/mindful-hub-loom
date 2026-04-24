@@ -1,11 +1,11 @@
 import { Link, useSearchParams } from "react-router-dom";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import { ArrowRight, Loader2, FileText, BookOpen } from "lucide-react";
+import { ArrowRight, FileText, BookOpen } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
+import { LoadMoreSection, PostCardSkeletonGrid } from "@/components/wp/LoadMoreSection";
 import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
@@ -173,17 +173,7 @@ export default function Search() {
             <p className="text-center text-muted-foreground py-12">Enter a search term above to get started.</p>
           )}
 
-          {q && isLoading && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="space-y-3">
-                  <Skeleton className="aspect-[16/10] w-full rounded-lg" />
-                  <Skeleton className="h-6 w-full" />
-                  <Skeleton className="h-4 w-full" />
-                </div>
-              ))}
-            </div>
-          )}
+          {q && isLoading && <PostCardSkeletonGrid count={6} />}
 
           {q && !isLoading && grandTotal === 0 && (
             <div className="text-center py-16 max-w-md mx-auto">
@@ -274,24 +264,15 @@ export default function Search() {
                 })}
               </div>
 
-              <div className="mt-10 flex flex-col items-center gap-3">
-                <p className="text-body-sm text-muted-foreground">
-                  Showing {allPosts.length.toLocaleString()} of {postsTotal.toLocaleString()} articles
-                </p>
-                {postsQuery.hasNextPage && (
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="h-11 min-w-[200px]"
-                    onClick={loadMore}
-                    disabled={postsQuery.isFetchingNextPage}
-                  >
-                    {postsQuery.isFetchingNextPage ? (
-                      <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Loading…</>
-                    ) : "Load more articles"}
-                  </Button>
-                )}
-              </div>
+              <LoadMoreSection
+                loaded={allPosts.length}
+                total={postsTotal}
+                hasNext={!!postsQuery.hasNextPage}
+                isFetching={postsQuery.isFetchingNextPage}
+                onClick={loadMore}
+                label="articles"
+                pendingSkeleton={<PostCardSkeletonGrid count={6} />}
+              />
             </div>
           )}
         </section>
