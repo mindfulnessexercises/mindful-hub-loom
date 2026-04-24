@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Search as SearchIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-mindfulness-exercises.png";
+import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
 
 const navLinks = [
   { label: "Free Exercises", href: "#resources" },
@@ -13,6 +14,7 @@ const navLinks = [
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/92 backdrop-blur-xl">
@@ -44,7 +46,15 @@ export function Navbar() {
         </ul>
 
         {/* Desktop CTA */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-2">
+          <button
+            onClick={() => setSearchOpen((s) => !s)}
+            aria-label="Search the site"
+            aria-expanded={searchOpen}
+            className="h-9 w-9 inline-flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <SearchIcon className="h-4 w-4" />
+          </button>
           <Button variant="ghost" size="sm" className="text-[0.8125rem] font-medium h-9 px-4 text-muted-foreground hover:text-foreground min-w-[44px]">
             Log In
           </Button>
@@ -65,9 +75,30 @@ export function Navbar() {
         </button>
       </nav>
 
+      {/* Desktop search dropdown */}
+      {searchOpen && (
+        <div className="hidden md:block border-t border-border/50 bg-background/95 backdrop-blur-xl">
+          <div className="container mx-auto py-3">
+            <SiteSearchBar
+              size="md"
+              autoFocus
+              placeholder="Search articles, exercises, scripts…"
+              onSubmitted={() => setSearchOpen(false)}
+            />
+          </div>
+        </div>
+      )}
+
       {/* Mobile menu */}
       {mobileOpen && (
         <div id="mobile-menu" className="md:hidden border-t border-border/50 bg-background px-5 pb-6 pt-4" role="navigation" aria-label="Mobile navigation">
+          <div className="mb-4">
+            <SiteSearchBar
+              size="md"
+              placeholder="Search…"
+              onSubmitted={() => setMobileOpen(false)}
+            />
+          </div>
           <ul className="space-y-1">
             {navLinks.map((link) => (
               <li key={link.label}>
