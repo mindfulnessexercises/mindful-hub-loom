@@ -244,5 +244,3 @@ function FeaturedCard({ cat, post, position, fromCategoryId, onClick }: Featured
     </li>
   );
 }
-// Suppress unused-import warning for useEffect (kept available for future scroll telemetry).
-void useEffect;
