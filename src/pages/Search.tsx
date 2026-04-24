@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
+import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
 import { useUrlPagination } from "@/hooks/use-url-pagination";
@@ -32,7 +33,7 @@ export default function Search() {
 
   // ---- Posts (paginated, infinite) ----
   const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
-    queryKey: ["search-posts", q, category],
+    queryKey: wpKeys.postsList({ scope: "search", search: q, category, perPage: PER_PAGE }),
     queryFn: ({ pageParam = 1 }) =>
       wp.posts({
         page: pageParam as number,
@@ -46,21 +47,24 @@ export default function Search() {
     },
     initialPageParam: 1,
     enabled: !!q && (type === "all" || type === "posts"),
-    staleTime: 5 * 60 * 1000,
+    staleTime: WP_STALE.list,
+    gcTime: WP_STALE.gc,
   });
 
   // ---- Pages (single fetch, max 100; pages are usually fewer) ----
   const pagesQuery = useQuery({
-    queryKey: ["search-pages", q],
+    queryKey: wpKeys.pagesList({ search: q, perPage: 100 }),
     queryFn: () => wp.pages({ per_page: 100, search: q } as { per_page: number; search: string }),
     enabled: !!q && (type === "all" || type === "pages"),
-    staleTime: 5 * 60 * 1000,
+    staleTime: WP_STALE.list,
+    gcTime: WP_STALE.gc,
   });
 
   const catsQuery = useQuery({
-    queryKey: ["wp-categories"],
+    queryKey: wpKeys.categories(),
     queryFn: () => wp.categories(),
-    staleTime: 60 * 60 * 1000,
+    staleTime: WP_STALE.taxonomy,
+    gcTime: WP_STALE.gc,
   });
 
   const { loadMore } = useUrlPagination({

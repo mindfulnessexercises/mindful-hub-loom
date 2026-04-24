@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { wp, getFeaturedImage, getCategories, stripHtml, formatDate, type WPPost, type PaginatedResult } from "@/lib/wp";
+import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
 
 const PER_PAGE = 100; // WordPress REST API maximum
@@ -27,7 +28,7 @@ export default function Blog() {
   useEffect(() => { setSearchInput(search); }, [search]);
 
   const postsQuery = useInfiniteQuery<PaginatedResult<WPPost>>({
-    queryKey: ["wp-posts", search, category],
+    queryKey: wpKeys.postsList({ scope: "blog", search, category, perPage: PER_PAGE }),
     queryFn: ({ pageParam = 1 }) =>
       wp.posts({ page: pageParam as number, per_page: PER_PAGE, search: search || undefined, categories: category }),
     getNextPageParam: (lastPage, all) => {
@@ -35,7 +36,8 @@ export default function Blog() {
       return next <= lastPage.totalPages ? next : undefined;
     },
     initialPageParam: 1,
-    staleTime: 5 * 60 * 1000,
+    staleTime: WP_STALE.list,
+    gcTime: WP_STALE.gc,
   });
 
   // Auto-fetch additional pages until we reach ?page=N (e.g. on a shared link).
@@ -52,9 +54,10 @@ export default function Blog() {
   }, [pageParam, postsQuery.data, postsQuery.hasNextPage, postsQuery.isFetchingNextPage]);
 
   const catsQuery = useQuery({
-    queryKey: ["wp-categories"],
+    queryKey: wpKeys.categories(),
     queryFn: () => wp.categories(),
-    staleTime: 60 * 60 * 1000,
+    staleTime: WP_STALE.taxonomy,
+    gcTime: WP_STALE.gc,
   });
 
   const updateParam = (key: string, value?: string, opts: { resetPage?: boolean } = { resetPage: true }) => {
