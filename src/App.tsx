@@ -33,6 +33,7 @@ const PageFallback = () => <div className="min-h-screen bg-background" />;
  */
 const RouterEffects = () => {
   usePageArrivalTracker();
+  useLegacyRedirects();
   return null;
 };
 
