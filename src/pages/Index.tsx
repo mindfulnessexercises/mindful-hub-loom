@@ -4,6 +4,7 @@ import { TrustRibbon } from "@/components/homepage/TrustRibbon";
 import { ChooseYourPath } from "@/components/homepage/ChooseYourPath";
 import { CertificationSpotlight } from "@/components/homepage/CertificationSpotlight";
 import { TopEndorsements } from "@/components/homepage/TopEndorsements";
+import { TopEndorsements } from "@/components/homepage/TopEndorsements";
 import { MoreWaysToGrow } from "@/components/homepage/MoreWaysToGrow";
 import { ProductCallouts } from "@/components/homepage/ProductCallouts";
 import { AuthoritySection } from "@/components/homepage/AuthoritySection";
@@ -27,6 +28,7 @@ const Index = () => {
         <HeroSection />
         <TrustRibbon />
         <ChooseYourPath />
+        <TopEndorsements />
         <CertificationSpotlight />
         <MoreWaysToGrow />
         <AuthoritySection />
