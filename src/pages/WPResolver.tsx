@@ -53,6 +53,29 @@ function stripElfsightEmbeds(html: string): string {
     .replace(/<div[^>]*class="[^"]*elfsight-app-[^"]*"[^>]*><\/div>/gi, "");
 }
 
+/**
+ * Cleans up legacy Thrive Architect / lead-capture cruft that appears on
+ * every /downloads/* meditation page in the WP source. Removes:
+ *   - [tcb-script ...]…[/tcb-script] shortcodes and bare [tcb_*] tags
+ *   - The "Download this Audio Meditation for Free…" lead-capture line,
+ *     including any <p> wrapper, so it doesn't render alongside the new
+ *     native player.
+ */
+function stripDownloadsLegacy(html: string): string {
+  if (!html) return html;
+  return html
+    .replace(/\[tcb-script[\s\S]*?\[\/tcb-script\]/gi, "")
+    .replace(/\[\/?tcb[_-][^\]]*\]/gi, "")
+    .replace(
+      /<p[^>]*>\s*Download this Audio Meditation for Free[\s\S]*?<\/p>/gi,
+      "",
+    )
+    .replace(
+      /Download this Audio Meditation for Free[^<]*?Email Address[^<:]*[:.]?/gi,
+      "",
+    );
+}
+
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 
