@@ -43,7 +43,7 @@ const BASE_DEFAULTS: TemplateConfig = {
   autoDetectLogo: true,
 };
 
-const KIND_DEFAULTS: Record<"page" | "post" | "podcast", Partial<TemplateConfig>> = {
+const KIND_DEFAULTS: Record<"page" | "post" | "podcast" | "download", Partial<TemplateConfig>> = {
   // Static pages rarely benefit from a giant hero photo. Default to inline +
   // compact spacing, and aggressively detect logos so they don't dominate.
   page: {
@@ -63,6 +63,14 @@ const KIND_DEFAULTS: Record<"page" | "post" | "podcast", Partial<TemplateConfig>
     heroDensity: "compact",
     featuredImage: "inline",
     featuredMaxHeightPx: 220,
+    autoDetectLogo: false,
+  },
+  // Audio downloads: the user came to listen. Hero is dense, featured image
+  // is hidden (it gets pulled into the MeditationPlayer's portrait slot
+  // instead). Player should appear within the first viewport on desktop.
+  download: {
+    heroDensity: "compact",
+    featuredImage: "hidden",
     autoDetectLogo: false,
   },
 };
