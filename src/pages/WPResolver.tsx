@@ -97,11 +97,17 @@ export default function WPResolver() {
   // body content is gated by query.data below so this never paints.
   const rawContent = query.data?.data.content.rendered ?? "";
   // Two-pass HTML transform: rewrite WP-internal links, then inject TOC ids.
+  // Also strips legacy Elfsight audio embeds when we have a native meditation
+  // player ready to render in their place.
+  const meditationQuery = useMeditation(slug);
+  const meditation = meditationQuery.data;
+
   const { rewrittenHtml, toc } = useMemo(() => {
-    const linked = rewriteWpHtml(rawContent);
+    const cleaned = meditation ? stripElfsightEmbeds(rawContent) : rawContent;
+    const linked = rewriteWpHtml(cleaned);
     const { html, items } = extractToc(linked);
     return { rewrittenHtml: html, toc: items };
-  }, [rawContent]);
+  }, [rawContent, meditation]);
 
   const audioSrc = useMemo(() => extractFirstAudioUrl(rawContent), [rawContent]);
   const readingMinutes = useMemo(() => estimateReadingMinutes(rawContent), [rawContent]);
