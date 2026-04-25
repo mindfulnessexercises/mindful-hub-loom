@@ -33,10 +33,25 @@ import { ShareBar } from "@/components/wp/ShareBar";
 import { AuthorCard } from "@/components/wp/AuthorCard";
 import { RelatedPosts } from "@/components/wp/RelatedPosts";
 import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
+import { MeditationPlayer } from "@/components/wp/MeditationPlayer";
+import { useMeditation } from "@/hooks/use-meditation";
 import {
   getTemplateConfig,
   HERO_DENSITY_CLASS,
 } from "@/lib/wp-template-config";
+
+/**
+ * Removes Elfsight audio player embeds from rendered WP HTML once we have a
+ * native MeditationPlayer to show instead — prevents the old player from
+ * appearing alongside the new one. Targets both the lazy script tag and the
+ * placeholder div Elfsight injects into.
+ */
+function stripElfsightEmbeds(html: string): string {
+  if (!html) return html;
+  return html
+    .replace(/<script[^>]*elfsightcdn[^>]*><\/script>/gi, "")
+    .replace(/<div[^>]*class="[^"]*elfsight-app-[^"]*"[^>]*><\/div>/gi, "");
+}
 
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
@@ -82,11 +97,17 @@ export default function WPResolver() {
   // body content is gated by query.data below so this never paints.
   const rawContent = query.data?.data.content.rendered ?? "";
   // Two-pass HTML transform: rewrite WP-internal links, then inject TOC ids.
+  // Also strips legacy Elfsight audio embeds when we have a native meditation
+  // player ready to render in their place.
+  const meditationQuery = useMeditation(slug);
+  const meditation = meditationQuery.data;
+
   const { rewrittenHtml, toc } = useMemo(() => {
-    const linked = rewriteWpHtml(rawContent);
+    const cleaned = meditation ? stripElfsightEmbeds(rawContent) : rawContent;
+    const linked = rewriteWpHtml(cleaned);
     const { html, items } = extractToc(linked);
     return { rewrittenHtml: html, toc: items };
-  }, [rawContent]);
+  }, [rawContent, meditation]);
 
   const audioSrc = useMemo(() => extractFirstAudioUrl(rawContent), [rawContent]);
   const readingMinutes = useMemo(() => estimateReadingMinutes(rawContent), [rawContent]);
@@ -316,7 +337,19 @@ export default function WPResolver() {
           <div className={`container mx-auto max-w-6xl ${tpl.heroDensity === "compact" ? "py-6 lg:py-10" : "py-10 lg:py-14"}`}>
             <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-12 xl:gap-16">
               <div className="max-w-3xl mx-auto lg:mx-0 w-full min-w-0">
-                {audioSrc && (
+                {meditation ? (
+                  <div className="mb-8">
+                    <MeditationPlayer
+                      src={meditation.audio_url}
+                      title={meditation.title}
+                      speaker={meditation.speaker ?? undefined}
+                      portraitUrl={meditation.portrait_url ?? undefined}
+                      durationSeconds={meditation.duration_seconds ?? undefined}
+                      downloadUrl={meditation.audio_url}
+                      meditationId={meditation.slug}
+                    />
+                  </div>
+                ) : audioSrc && (
                   <div className="mb-8">
                     <p className="text-eyebrow text-primary mb-2 inline-flex items-center gap-1.5">
                       <Headphones className="h-3.5 w-3.5" /> Listen to this episode
