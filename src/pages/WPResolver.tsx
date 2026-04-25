@@ -33,10 +33,25 @@ import { ShareBar } from "@/components/wp/ShareBar";
 import { AuthorCard } from "@/components/wp/AuthorCard";
 import { RelatedPosts } from "@/components/wp/RelatedPosts";
 import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
+import { MeditationPlayer } from "@/components/wp/MeditationPlayer";
+import { useMeditation } from "@/hooks/use-meditation";
 import {
   getTemplateConfig,
   HERO_DENSITY_CLASS,
 } from "@/lib/wp-template-config";
+
+/**
+ * Removes Elfsight audio player embeds from rendered WP HTML once we have a
+ * native MeditationPlayer to show instead — prevents the old player from
+ * appearing alongside the new one. Targets both the lazy script tag and the
+ * placeholder div Elfsight injects into.
+ */
+function stripElfsightEmbeds(html: string): string {
+  if (!html) return html;
+  return html
+    .replace(/<script[^>]*elfsightcdn[^>]*><\/script>/gi, "")
+    .replace(/<div[^>]*class="[^"]*elfsight-app-[^"]*"[^>]*><\/div>/gi, "");
+}
 
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
