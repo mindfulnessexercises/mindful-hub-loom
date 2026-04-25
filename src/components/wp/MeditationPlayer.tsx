@@ -46,6 +46,7 @@ export function MeditationPlayer({
   durationSeconds,
   downloadUrl,
   meditationId,
+  hideTitle = false,
 }: MeditationPlayerProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
