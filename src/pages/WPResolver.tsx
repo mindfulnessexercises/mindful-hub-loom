@@ -311,6 +311,20 @@ export default function WPResolver() {
             </div>
           </header>
 
+          {meditation && (
+            <div className="container mx-auto max-w-3xl mt-8">
+              <MeditationPlayer
+                src={meditation.audio_url}
+                title={meditation.title}
+                speaker={meditation.speaker ?? undefined}
+                portraitUrl={meditation.portrait_url ?? undefined}
+                durationSeconds={meditation.duration_seconds ?? undefined}
+                downloadUrl={meditation.audio_url}
+                meditationId={meditation.slug}
+              />
+            </div>
+          )}
+
           {img && tpl.featuredImage !== "hidden" && (() => {
             const w = img.width ?? 0;
             const h = img.height ?? 0;
