@@ -54,26 +54,75 @@ function stripElfsightEmbeds(html: string): string {
 }
 
 /**
- * Cleans up legacy Thrive Architect / lead-capture cruft that appears on
- * every /downloads/* meditation page in the WP source. Removes:
- *   - [tcb-script ...]…[/tcb-script] shortcodes and bare [tcb_*] tags
- *   - The "Download this Audio Meditation for Free…" lead-capture line,
- *     including any <p> wrapper, so it doesn't render alongside the new
- *     native player.
+ * Aggressively cleans up legacy Thrive Architect / lead-capture cruft that
+ * appears on every /downloads/* meditation page in the WP source. The old
+ * pages were built by hand in Thrive and left orphan media behind once the
+ * Elfsight player + email-capture form were stripped:
+ *
+ *   - [tcb-script …][/tcb-script] shortcodes and bare [tcb_*] tags
+ *   - "Download this Audio Meditation for Free…" lead-capture line
+ *   - Lonely headphone download icon (orphan once form is gone)
+ *   - Creative Commons license badges (replaced by a clean footer strip)
+ *   - Hint paragraphs ("Would you like to download…", "*Note:*", etc.)
+ *   - Empty <p>, <div>, <figure> shells left after image/script removal
+ *
+ * Runs only on /downloads/* pages so blog posts keep all their formatting.
  */
 function stripDownloadsLegacy(html: string): string {
   if (!html) return html;
-  return html
-    .replace(/\[tcb-script[\s\S]*?\[\/tcb-script\]/gi, "")
-    .replace(/\[\/?tcb[_-][^\]]*\]/gi, "")
-    .replace(
-      /<p[^>]*>\s*Download this Audio Meditation for Free[\s\S]*?<\/p>/gi,
-      "",
-    )
-    .replace(
-      /Download this Audio Meditation for Free[^<]*?Email Address[^<:]*[:.]?/gi,
-      "",
-    );
+  let out = html;
+
+  // Thrive shortcodes
+  out = out.replace(/\[tcb-script[\s\S]*?\[\/tcb-script\]/gi, "");
+  out = out.replace(/\[\/?tcb[_-][^\]]*\]/gi, "");
+
+  // Lead-capture sentence (with or without <p> wrapper)
+  out = out.replace(
+    /<p[^>]*>\s*Download this Audio Meditation for Free[\s\S]*?<\/p>/gi,
+    "",
+  );
+  out = out.replace(
+    /Download this Audio Meditation for Free[^<]*?Email Address[^<:]*[:.]?/gi,
+    "",
+  );
+
+  // Orphan headphone download icon — typically a small <img> from the WP
+  // uploads dir with "headphone" or "download" in its filename, or sized
+  // <200px square. Match by filename hint.
+  out = out.replace(
+    /<img[^>]*(?:headphone|download-icon|download_icon|headphones)[^>]*>/gi,
+    "",
+  );
+
+  // Creative Commons badges (cc-by-nc-nd images and Creative Commons text)
+  out = out.replace(
+    /<a[^>]*creativecommons\.org[^>]*>[\s\S]*?<\/a>/gi,
+    "",
+  );
+  out = out.replace(
+    /<img[^>]*(?:creativecommons|cc[\-_]by|by-nc-nd)[^>]*>/gi,
+    "",
+  );
+
+  // Hint/instructional paragraphs that referenced the old player UX
+  out = out.replace(
+    /<p[^>]*>\s*(?:Would you like to download|To download[^<]*right.click|\*?Note:\*?)[\s\S]*?<\/p>/gi,
+    "",
+  );
+
+  // Random video thumbnails embedded as bare <img> with no player wrapper —
+  // detect via filename patterns from the WP uploads (yt-thumb, video-still, etc.)
+  out = out.replace(
+    /<img[^>]*(?:yt[\-_]?thumb|video[\-_]still|video[\-_]thumb|youtube\.com\/vi)[^>]*>/gi,
+    "",
+  );
+
+  // Strip empty wrappers left behind (run twice to catch nested empties)
+  for (let i = 0; i < 3; i++) {
+    out = out.replace(/<(p|div|figure|figcaption)[^>]*>\s*(?:&nbsp;|\s)*<\/\1>/gi, "");
+  }
+
+  return out;
 }
 
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
