@@ -86,7 +86,7 @@ const SLUG_OVERRIDES: Record<string, Partial<TemplateConfig>> = {
 
 export function getTemplateConfig(
   slug: string,
-  kind: "page" | "post" | "podcast",
+  kind: "page" | "post" | "podcast" | "download",
 ): TemplateConfig {
   return {
     ...BASE_DEFAULTS,
