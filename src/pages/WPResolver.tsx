@@ -72,54 +72,72 @@ function stripDownloadsLegacy(html: string): string {
   if (!html) return html;
   let out = html;
 
-  // Thrive shortcodes
+  // Thrive shortcodes — including those with HTML-entity-escaped quotes
   out = out.replace(/\[tcb-script[\s\S]*?\[\/tcb-script\]/gi, "");
   out = out.replace(/\[\/?tcb[_-][^\]]*\]/gi, "");
 
-  // Lead-capture sentence (with or without <p> wrapper)
+  // Lead-capture line. The actual WP markup is:
+  //   <p>...<strong>Download this Audio Meditation for Free,&nbsp;</strong>
+  //         <strong></strong>Just Enter Your First Name and Email Address:</p>
+  // So we need to match the WHOLE <p> that contains this phrase anywhere
+  // inside, not just at the start. Use a non-greedy lookahead approach.
   out = out.replace(
-    /<p[^>]*>\s*Download this Audio Meditation for Free[\s\S]*?<\/p>/gi,
-    "",
-  );
-  out = out.replace(
-    /Download this Audio Meditation for Free[^<]*?Email Address[^<:]*[:.]?/gi,
-    "",
-  );
-
-  // Orphan headphone download icon — typically a small <img> from the WP
-  // uploads dir with "headphone" or "download" in its filename, or sized
-  // <200px square. Match by filename hint.
-  out = out.replace(
-    /<img[^>]*(?:headphone|download-icon|download_icon|headphones)[^>]*>/gi,
+    /<p\b[^>]*>(?:(?!<\/p>)[\s\S])*?Download this Audio Meditation for Free(?:(?!<\/p>)[\s\S])*?<\/p>/gi,
     "",
   );
 
-  // Creative Commons badges (cc-by-nc-nd images and Creative Commons text)
+  // Orphan audio/headphone download icon. The actual filenames seen are
+  // `audio-download-icon`, `headphone*`, etc. Strip the <img> AND any
+  // wrapping <span> with no other meaningful content.
   out = out.replace(
-    /<a[^>]*creativecommons\.org[^>]*>[\s\S]*?<\/a>/gi,
-    "",
-  );
-  out = out.replace(
-    /<img[^>]*(?:creativecommons|cc[\-_]by|by-nc-nd)[^>]*>/gi,
+    /<img[^>]*(?:audio-download-icon|headphone|download-icon|download_icon|headphones)[^>]*>/gi,
     "",
   );
 
-  // Hint/instructional paragraphs that referenced the old player UX
+  // The "mindfulness exercises attribution" badge that WP appends to every
+  // /downloads/* page (a brand stamp, not real content). Same treatment.
+  out = out.replace(
+    /<img[^>]*mindfulness-exercises-attribution[^>]*>/gi,
+    "",
+  );
+
+  // Creative Commons badges (linked or bare <img>).
+  out = out.replace(/<a[^>]*creativecommons\.org[^>]*>[\s\S]*?<\/a>/gi, "");
+  out = out.replace(
+    /<img[^>]*(?:creativecommons|cc[\-_]by|by-nc-nd|cc-license)[^>]*>/gi,
+    "",
+  );
+
+  // Speaker portrait that duplicates the MeditationPlayer portrait. WP often
+  // appends a 400x400 headshot at the bottom of every page. Detect by:
+  //   - <img> from /wp-content/uploads/ dir
+  //   - explicit width/height of 400 (and they're square)
+  // This is intentionally conservative — we don't strip ALL inline images.
+  out = out.replace(
+    /<img[^>]*\bwidth=["']400["'][^>]*\bheight=["']400["'][^>]*>/gi,
+    "",
+  );
+
+  // Hint/instructional paragraphs from the old UX.
   out = out.replace(
     /<p[^>]*>\s*(?:Would you like to download|To download[^<]*right.click|\*?Note:\*?)[\s\S]*?<\/p>/gi,
     "",
   );
 
-  // Random video thumbnails embedded as bare <img> with no player wrapper —
-  // detect via filename patterns from the WP uploads (yt-thumb, video-still, etc.)
-  out = out.replace(
-    /<img[^>]*(?:yt[\-_]?thumb|video[\-_]still|video[\-_]thumb|youtube\.com\/vi)[^>]*>/gi,
-    "",
-  );
-
-  // Strip empty wrappers left behind (run twice to catch nested empties)
-  for (let i = 0; i < 3; i++) {
-    out = out.replace(/<(p|div|figure|figcaption)[^>]*>\s*(?:&nbsp;|\s)*<\/\1>/gi, "");
+  // Strip empty wrappers (and wrappers whose only remaining child is empty
+  // <span>s/<strong>s left behind by partial removals). Run a few passes
+  // because removals can cascade.
+  for (let i = 0; i < 4; i++) {
+    // Wrappers with only whitespace / nbsp
+    out = out.replace(
+      /<(p|div|figure|figcaption|span)\b[^>]*>\s*(?:&nbsp;|\s)*<\/\1>/gi,
+      "",
+    );
+    // Wrappers whose entire content is empty inline tags (span/strong/em/b/i)
+    out = out.replace(
+      /<(p|div)\b[^>]*>\s*(?:<(?:span|strong|em|b|i)\b[^>]*>\s*(?:&nbsp;|\s)*<\/(?:span|strong|em|b|i)>\s*)+<\/\1>/gi,
+      "",
+    );
   }
 
   return out;
