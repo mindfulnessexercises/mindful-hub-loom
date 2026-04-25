@@ -47,6 +47,51 @@ export type Database = {
         }
         Relationships: []
       }
+      meditations: {
+        Row: {
+          audio_url: string
+          created_at: string
+          duration_seconds: number | null
+          elfsight_app_id: string | null
+          id: string
+          original_audio_url: string | null
+          portrait_url: string | null
+          rehosted: boolean
+          slug: string
+          speaker: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          audio_url: string
+          created_at?: string
+          duration_seconds?: number | null
+          elfsight_app_id?: string | null
+          id?: string
+          original_audio_url?: string | null
+          portrait_url?: string | null
+          rehosted?: boolean
+          slug: string
+          speaker?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          audio_url?: string
+          created_at?: string
+          duration_seconds?: number | null
+          elfsight_app_id?: string | null
+          id?: string
+          original_audio_url?: string | null
+          portrait_url?: string | null
+          rehosted?: boolean
+          slug?: string
+          speaker?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
