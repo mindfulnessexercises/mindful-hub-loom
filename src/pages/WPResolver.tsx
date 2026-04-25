@@ -366,7 +366,7 @@ export default function WPResolver() {
                 src={meditation.audio_url}
                 title={meditation.title}
                 speaker={meditation.speaker ?? undefined}
-                portraitUrl={meditation.portrait_url ?? undefined}
+                portraitUrl={meditation.portrait_url ?? img?.url ?? undefined}
                 durationSeconds={meditation.duration_seconds ?? undefined}
                 downloadUrl={meditation.audio_url}
                 meditationId={meditation.slug}
@@ -374,7 +374,7 @@ export default function WPResolver() {
             </div>
           )}
 
-          {img && tpl.featuredImage !== "hidden" && (() => {
+          {img && tpl.featuredImage !== "hidden" && !isDownloadsPage && (() => {
             const w = img.width ?? 0;
             const h = img.height ?? 0;
             const ratio = w && h ? w / h : 0;
