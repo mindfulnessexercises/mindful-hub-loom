@@ -19,6 +19,7 @@ const AdminAnalytics = lazy(() => import("./pages/AdminAnalytics.tsx"));
 const AdminCtaQA = lazy(() => import("./pages/AdminCtaQA.tsx"));
 const AdminLinkChecker = lazy(() => import("./pages/AdminLinkChecker.tsx"));
 const AdminCategoryAudit = lazy(() => import("./pages/AdminCategoryAudit.tsx"));
+const DemoMeditationPlayer = lazy(() => import("./pages/DemoMeditationPlayer.tsx"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
