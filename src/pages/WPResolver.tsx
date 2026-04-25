@@ -223,8 +223,14 @@ export default function WPResolver() {
   const cats = kind === "post" ? getCategories(doc) : [];
   const primaryCategory = cats[0];
   const author = kind === "post" ? getAuthor(doc) : null;
-  const templateKind: "page" | "post" | "podcast" =
-    kind === "page" ? "page" : isPodcastEpisode ? "podcast" : "post";
+  const templateKind: "page" | "post" | "podcast" | "download" =
+    kind === "page"
+      ? "page"
+      : isPodcastEpisode
+        ? "podcast"
+        : isDownloadsPage
+          ? "download"
+          : "post";
   const tpl = getTemplateConfig(doc.slug, templateKind);
   const canonicalSlugPath = cptEndpoint
     ? `/${CPT_URL_PARENT[cptEndpoint]}/${doc.slug}`
