@@ -15,6 +15,8 @@ interface MeditationPlayerProps {
   downloadUrl?: string;
   /** Slug or ID for analytics. */
   meditationId?: string;
+  /** Hide the title row inside the player (useful when the page H1 already shows it). */
+  hideTitle?: boolean;
 }
 
 const SPEEDS = [1, 1.25, 1.5, 1.75, 0.75] as const;
@@ -44,6 +46,7 @@ export function MeditationPlayer({
   durationSeconds,
   downloadUrl,
   meditationId,
+  hideTitle = false,
 }: MeditationPlayerProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
@@ -139,9 +142,11 @@ export function MeditationPlayer({
 
         <div className="flex-1 min-w-0 flex flex-col justify-between gap-4">
           <header className="text-center sm:text-left">
-            <h2 className="text-xl sm:text-2xl font-bold leading-tight">{title}</h2>
+            {!hideTitle && (
+              <h2 className="text-xl sm:text-2xl font-bold leading-tight">{title}</h2>
+            )}
             {speaker && (
-              <p className="mt-1 text-xs sm:text-sm font-semibold tracking-[0.18em] uppercase opacity-90">
+              <p className={`${hideTitle ? "" : "mt-1"} text-xs sm:text-sm font-semibold tracking-[0.18em] uppercase opacity-90`}>
                 {speaker}
                 {duration > 0 && (
                   <>

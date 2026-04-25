@@ -223,8 +223,14 @@ export default function WPResolver() {
   const cats = kind === "post" ? getCategories(doc) : [];
   const primaryCategory = cats[0];
   const author = kind === "post" ? getAuthor(doc) : null;
-  const templateKind: "page" | "post" | "podcast" =
-    kind === "page" ? "page" : isPodcastEpisode ? "podcast" : "post";
+  const templateKind: "page" | "post" | "podcast" | "download" =
+    kind === "page"
+      ? "page"
+      : isPodcastEpisode
+        ? "podcast"
+        : isDownloadsPage
+          ? "download"
+          : "post";
   const tpl = getTemplateConfig(doc.slug, templateKind);
   const canonicalSlugPath = cptEndpoint
     ? `/${CPT_URL_PARENT[cptEndpoint]}/${doc.slug}`
@@ -297,7 +303,7 @@ export default function WPResolver() {
                 <WPBreadcrumbs items={breadcrumbItems} />
               </div>
 
-              {kind === "post" && (
+              {kind === "post" && !isDownloadsPage && (
                 <Link
                   to={isPodcastEpisode ? "/podcast" : "/blog"}
                   className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-5"
@@ -361,7 +367,7 @@ export default function WPResolver() {
           </header>
 
           {meditation && (
-            <div className="container mx-auto max-w-3xl mt-8">
+            <div className={`container mx-auto max-w-3xl ${isDownloadsPage ? "mt-4" : "mt-8"}`}>
               <MeditationPlayer
                 src={meditation.audio_url}
                 title={meditation.title}
@@ -370,6 +376,10 @@ export default function WPResolver() {
                 durationSeconds={meditation.duration_seconds ?? undefined}
                 downloadUrl={meditation.audio_url}
                 meditationId={meditation.slug}
+                hideTitle={
+                  isDownloadsPage &&
+                  meditation.title.trim().toLowerCase() === title.trim().toLowerCase()
+                }
               />
             </div>
           )}
