@@ -132,7 +132,7 @@ export function MeditationPlayer({
               loading="lazy"
               width={160}
               height={160}
-              className="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-xl shadow-lg grayscale"
+              className="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-xl shadow-lg"
             />
           </div>
         )}
