@@ -15,6 +15,8 @@ interface MeditationPlayerProps {
   downloadUrl?: string;
   /** Slug or ID for analytics. */
   meditationId?: string;
+  /** Hide the title row inside the player (useful when the page H1 already shows it). */
+  hideTitle?: boolean;
 }
 
 const SPEEDS = [1, 1.25, 1.5, 1.75, 0.75] as const;
