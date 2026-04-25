@@ -53,6 +53,29 @@ function stripElfsightEmbeds(html: string): string {
     .replace(/<div[^>]*class="[^"]*elfsight-app-[^"]*"[^>]*><\/div>/gi, "");
 }
 
+/**
+ * Cleans up legacy Thrive Architect / lead-capture cruft that appears on
+ * every /downloads/* meditation page in the WP source. Removes:
+ *   - [tcb-script ...]…[/tcb-script] shortcodes and bare [tcb_*] tags
+ *   - The "Download this Audio Meditation for Free…" lead-capture line,
+ *     including any <p> wrapper, so it doesn't render alongside the new
+ *     native player.
+ */
+function stripDownloadsLegacy(html: string): string {
+  if (!html) return html;
+  return html
+    .replace(/\[tcb-script[\s\S]*?\[\/tcb-script\]/gi, "")
+    .replace(/\[\/?tcb[_-][^\]]*\]/gi, "")
+    .replace(
+      /<p[^>]*>\s*Download this Audio Meditation for Free[\s\S]*?<\/p>/gi,
+      "",
+    )
+    .replace(
+      /Download this Audio Meditation for Free[^<]*?Email Address[^<:]*[:.]?/gi,
+      "",
+    );
+}
+
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 
@@ -102,12 +125,16 @@ export default function WPResolver() {
   const meditationQuery = useMeditation(slug);
   const meditation = meditationQuery.data;
 
+  const isDownloadsPage = parent === "downloads";
+
   const { rewrittenHtml, toc } = useMemo(() => {
-    const cleaned = meditation ? stripElfsightEmbeds(rawContent) : rawContent;
+    let cleaned = rawContent;
+    if (meditation) cleaned = stripElfsightEmbeds(cleaned);
+    if (isDownloadsPage) cleaned = stripDownloadsLegacy(cleaned);
     const linked = rewriteWpHtml(cleaned);
     const { html, items } = extractToc(linked);
     return { rewrittenHtml: html, toc: items };
-  }, [rawContent, meditation]);
+  }, [rawContent, meditation, isDownloadsPage]);
 
   const audioSrc = useMemo(() => extractFirstAudioUrl(rawContent), [rawContent]);
   const readingMinutes = useMemo(() => estimateReadingMinutes(rawContent), [rawContent]);
@@ -284,6 +311,20 @@ export default function WPResolver() {
             </div>
           </header>
 
+          {meditation && (
+            <div className="container mx-auto max-w-3xl mt-8">
+              <MeditationPlayer
+                src={meditation.audio_url}
+                title={meditation.title}
+                speaker={meditation.speaker ?? undefined}
+                portraitUrl={meditation.portrait_url ?? undefined}
+                durationSeconds={meditation.duration_seconds ?? undefined}
+                downloadUrl={meditation.audio_url}
+                meditationId={meditation.slug}
+              />
+            </div>
+          )}
+
           {img && tpl.featuredImage !== "hidden" && (() => {
             const w = img.width ?? 0;
             const h = img.height ?? 0;
@@ -337,19 +378,7 @@ export default function WPResolver() {
           <div className={`container mx-auto max-w-6xl ${tpl.heroDensity === "compact" ? "py-6 lg:py-10" : "py-10 lg:py-14"}`}>
             <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-12 xl:gap-16">
               <div className="max-w-3xl mx-auto lg:mx-0 w-full min-w-0">
-                {meditation ? (
-                  <div className="mb-8">
-                    <MeditationPlayer
-                      src={meditation.audio_url}
-                      title={meditation.title}
-                      speaker={meditation.speaker ?? undefined}
-                      portraitUrl={meditation.portrait_url ?? undefined}
-                      durationSeconds={meditation.duration_seconds ?? undefined}
-                      downloadUrl={meditation.audio_url}
-                      meditationId={meditation.slug}
-                    />
-                  </div>
-                ) : audioSrc && (
+                {!meditation && audioSrc && (
                   <div className="mb-8">
                     <p className="text-eyebrow text-primary mb-2 inline-flex items-center gap-1.5">
                       <Headphones className="h-3.5 w-3.5" /> Listen to this episode
