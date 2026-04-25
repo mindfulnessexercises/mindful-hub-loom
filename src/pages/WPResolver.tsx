@@ -367,7 +367,7 @@ export default function WPResolver() {
           </header>
 
           {meditation && (
-            <div className="container mx-auto max-w-3xl mt-8">
+            <div className={`container mx-auto max-w-3xl ${isDownloadsPage ? "mt-4" : "mt-8"}`}>
               <MeditationPlayer
                 src={meditation.audio_url}
                 title={meditation.title}
@@ -376,6 +376,10 @@ export default function WPResolver() {
                 durationSeconds={meditation.duration_seconds ?? undefined}
                 downloadUrl={meditation.audio_url}
                 meditationId={meditation.slug}
+                hideTitle={
+                  isDownloadsPage &&
+                  meditation.title.trim().toLowerCase() === title.trim().toLowerCase()
+                }
               />
             </div>
           )}
