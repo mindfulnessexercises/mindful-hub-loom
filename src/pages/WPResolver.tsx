@@ -303,7 +303,7 @@ export default function WPResolver() {
                 <WPBreadcrumbs items={breadcrumbItems} />
               </div>
 
-              {kind === "post" && (
+              {kind === "post" && !isDownloadsPage && (
                 <Link
                   to={isPodcastEpisode ? "/podcast" : "/blog"}
                   className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-5"
