@@ -125,12 +125,16 @@ export default function WPResolver() {
   const meditationQuery = useMeditation(slug);
   const meditation = meditationQuery.data;
 
+  const isDownloadsPage = parent === "downloads";
+
   const { rewrittenHtml, toc } = useMemo(() => {
-    const cleaned = meditation ? stripElfsightEmbeds(rawContent) : rawContent;
+    let cleaned = rawContent;
+    if (meditation) cleaned = stripElfsightEmbeds(cleaned);
+    if (isDownloadsPage) cleaned = stripDownloadsLegacy(cleaned);
     const linked = rewriteWpHtml(cleaned);
     const { html, items } = extractToc(linked);
     return { rewrittenHtml: html, toc: items };
-  }, [rawContent, meditation]);
+  }, [rawContent, meditation, isDownloadsPage]);
 
   const audioSrc = useMemo(() => extractFirstAudioUrl(rawContent), [rawContent]);
   const readingMinutes = useMemo(() => estimateReadingMinutes(rawContent), [rawContent]);
