@@ -12,7 +12,12 @@
 
 import { corsHeaders } from "https://esm.sh/@supabase/supabase-js@2.104.1/cors";
 
-const WP_BASE = "https://mindfulnessexercises.com/wp-json";
+// Configurable via the WP_API_BASE secret so we can flip to a subdomain
+// (e.g. https://wp.mindfulnessexercises.com/wp-json) at cutover without a
+// code deploy. Falls back to the legacy root domain.
+const WP_BASE =
+  Deno.env.get("WP_API_BASE")?.replace(/\/+$/, "") ??
+  "https://mindfulnessexercises.com/wp-json";
 const DEFAULT_CACHE_SECONDS = 600;
 const MAX_CACHE_SECONDS = 86_400; // 24h ceiling
 
