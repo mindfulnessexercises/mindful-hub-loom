@@ -92,6 +92,36 @@ export type Database = {
         }
         Relationships: []
       }
+      rehosted_images: {
+        Row: {
+          byte_size: number | null
+          content_type: string | null
+          created_at: string
+          id: string
+          original_url: string
+          public_url: string
+          storage_path: string
+        }
+        Insert: {
+          byte_size?: number | null
+          content_type?: string | null
+          created_at?: string
+          id?: string
+          original_url: string
+          public_url: string
+          storage_path: string
+        }
+        Update: {
+          byte_size?: number | null
+          content_type?: string | null
+          created_at?: string
+          id?: string
+          original_url?: string
+          public_url?: string
+          storage_path?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
