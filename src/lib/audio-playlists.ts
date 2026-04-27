@@ -493,11 +493,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "power-of-gratitude-meditation-7-ways-to-cultivate-it": {
-    heading: "Listen: Heart-Centered Gratitude Meditation",
+    heading: "Listen: Power of Gratitude audio series",
     intro:
-      "A longer guided meditation for letting gratitude land in the chest — opening the heart slowly and tenderly to what is already enough.",
+      "Two guided meditations on gratitude — Heart-Centered Gratitude opens the chest slowly and tenderly to what is already enough; The Power of Gratitude widens the practice into a quiet, daily way of seeing.",
     tracks: [
       { title: "Heart-Centered Gratitude — Guided Meditation", src: `${AUDIO_BASE}/power-of-gratitude-meditation/heart-centered-gratitude.mp3` },
+      { title: "The Power of Gratitude — Guided Meditation", src: `${AUDIO_BASE}/power-of-gratitude-meditation/the-power-of-gratitude.mp3` },
     ],
   },
   "reduce-rumination-and-increase-positive-states-through-neuro-learning": {
@@ -579,6 +580,46 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A guided meditation for listening inward — tuning the dial of attention to the quiet conversation between breath and body.",
     tracks: [
       { title: "Tuning Into Breath and Body — Guided Meditation", src: `${AUDIO_BASE}/learning-the-secret-language-of-your-body/tuning-into-breath-and-body.mp3` },
+    ],
+  },
+  "8-sleep-meditations-for-a-good-nights-rest": {
+    heading: "Listen: The Power of Gratitude For Sleep",
+    intro:
+      "A slow, soothing guided meditation for the end of the day — letting gratitude soften the body, quiet the mind, and carry you into rest.",
+    tracks: [
+      { title: "The Power of Gratitude For Sleep — Guided Meditation", src: `${AUDIO_BASE}/8-sleep-meditations/power-of-gratitude-for-sleep.mp3` },
+    ],
+  },
+  "self-compassion-pause": {
+    heading: "Listen: The Voice of A Good Friend",
+    intro:
+      "A guided self-compassion meditation — practicing offering yourself the same warmth, patience, and steady kindness you'd give a close friend.",
+    tracks: [
+      { title: "The Voice of A Good Friend — Guided Meditation", src: `${AUDIO_BASE}/self-compassion-pause/voice-of-a-good-friend.mp3` },
+    ],
+  },
+  "soft-belly": {
+    heading: "Listen: Touching Your Belly & Heart",
+    intro:
+      "A grounding guided meditation using gentle touch — one hand on the belly, one on the heart — to settle the nervous system and feel held by your own presence.",
+    tracks: [
+      { title: "Touching Your Belly & Heart — Guided Meditation", src: `${AUDIO_BASE}/soft-belly/touching-your-belly-and-heart.mp3` },
+    ],
+  },
+  "what-the-world-needs": {
+    heading: "Listen: What The World Needs",
+    intro:
+      "A guided meditation on offering what's most yours to give — a quiet practice of remembering that the world needs you alive, awake, and present.",
+    tracks: [
+      { title: "What The World Needs — Guided Meditation", src: `${AUDIO_BASE}/what-the-world-needs/what-the-world-needs.mp3` },
+    ],
+  },
+  "loving-kindness-benefactor": {
+    heading: "Listen: Wishing Care For Self and Others",
+    intro:
+      "A guided loving-kindness meditation — extending warm wishes of care first to yourself, then outward to a benefactor, a loved one, and beyond.",
+    tracks: [
+      { title: "Wishing Care For Self and Others — Guided Meditation", src: `${AUDIO_BASE}/loving-kindness-benefactor/wishing-care-for-self-and-others.mp3` },
     ],
   },
 };
