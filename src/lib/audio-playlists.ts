@@ -234,11 +234,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "6-mindful-breathing-exercises": {
-    heading: "Listen: Breathing With Curiosity",
+    heading: "Listen: Mindful Breathing audio series",
     intro:
-      "A guided meditation that invites you to meet the breath as if for the first time — fresh, unhurried, alive with quiet wonder.",
+      "Two guided meditations for meeting the breath with fresh attention — the first invites curiosity, the second a fully embodied awareness of breathing.",
     tracks: [
       { title: "Breathing With Curiosity — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-with-curiosity.mp3` },
+      { title: "Embodied Awareness of Breathing — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/embodied-awareness-of-breathing.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -322,11 +323,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "cultivating-self-care-and-extending-it-out": {
-    heading: "Listen: Tending to the Body",
+    heading: "Listen: Self-Care audio series",
     intro:
-      "A gentle guided meditation for offering kind, attentive care to the body — meeting it the way you'd tend to someone you love.",
+      "Two gentle guided meditations for offering kind, attentive care to yourself — Tending to the Body softens you back into physical presence; Caring Awareness for the Head brings tenderness to a busy mind.",
     tracks: [
       { title: "Tending to the Body — Guided Meditation", src: `${AUDIO_BASE}/cultivating-self-care/tending-to-the-body.mp3` },
+      { title: "Caring Awareness for the Head — Guided Meditation", src: `${AUDIO_BASE}/cultivating-self-care/caring-awareness-for-the-head.mp3` },
     ],
   },
   "higher-self-meditation": {
@@ -351,6 +353,56 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A grounding guided body-scan meditation moving through the three centers of intelligence — belly, heart, and head — settling each in turn.",
     tracks: [
       { title: "Three Centers — Belly, Heart & Head", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/three-centers.mp3` },
+    ],
+  },
+  "power-of-acceptance": {
+    heading: "Listen to the Acceptance audio series",
+    intro:
+      "Three guided meditations on acceptance — welcoming this moment as it is, accepting the present, and softening into life as it unfolds. A gentle practice for letting go of resistance.",
+    tracks: [
+      { title: "Part 1: Welcoming This Moment", src: `${AUDIO_BASE}/power-of-acceptance/welcoming-this-moment.mp3` },
+      { title: "Part 2: Accepting This Present Moment As It Is", src: `${AUDIO_BASE}/power-of-acceptance/accepting-this-present-moment.mp3` },
+      { title: "Part 3: How to Accept Life As It Unfolds", src: `${AUDIO_BASE}/power-of-acceptance/how-to-accept-life.mp3` },
+    ],
+  },
+  "8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself": {
+    heading: "Listen: 21-Day Compassion Meditation",
+    intro:
+      "A guided meditation companion to this collection of self-compassion exercises — a soft, steady practice for tending to your own heart.",
+    tracks: [
+      { title: "21-Day Compassion — Guided Meditation", src: `${AUDIO_BASE}/8-self-compassion-exercises/21-day-compassion.mp3` },
+    ],
+  },
+  "mindfulness-body-scan-for-self-compassion": {
+    heading: "Listen: How to Simply Be In The Body",
+    intro:
+      "A guided body-scan meditation for releasing the effort of doing and resting into the simple, kind awareness of being.",
+    tracks: [
+      { title: "How to Simply Be In The Body — Guided Meditation", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/how-to-simply-be-in-the-body.mp3` },
+    ],
+  },
+  "guided-meditation-self-acceptance": {
+    heading: "Listen: How to Allow Your Experience to Be What It Is",
+    intro:
+      "A guided meditation for meeting whatever is arising — pleasant or painful — with allowance instead of resistance, and discovering the spaciousness underneath.",
+    tracks: [
+      { title: "How to Allow Your Experience to Be What It Is — Guided Meditation", src: `${AUDIO_BASE}/guided-meditation-self-acceptance/how-to-allow-your-experience.mp3` },
+    ],
+  },
+  "short-body-scan": {
+    heading: "Listen: Body Scan Meditation",
+    intro:
+      "A grounding guided body scan — moving slowly through the body with kind, curious attention, returning you to the felt sense of being here.",
+    tracks: [
+      { title: "Body Scan — Guided Meditation", src: `${AUDIO_BASE}/short-body-scan/body-scan-meditation.mp3` },
+    ],
+  },
+  "honoring-joanna-macy-a-tribute-to-a-visionary-of-interconnection-and-courage": {
+    heading: "Listen: Cultivating Courage to Be With What Is",
+    intro:
+      "A guided meditation in the spirit of Joanna Macy's work — turning toward what is hard with steadiness and tender courage, instead of looking away.",
+    tracks: [
+      { title: "Cultivating Courage to Be With What Is — Guided Meditation", src: `${AUDIO_BASE}/honoring-joanna-macy/cultivating-courage.mp3` },
     ],
   },
 };
