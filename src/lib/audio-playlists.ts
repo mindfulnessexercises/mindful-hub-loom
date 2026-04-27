@@ -116,9 +116,32 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "silence-quotes": {
     heading: "Listen to the Silence audio series",
     intro:
-      "A guided reflection on the power of silence for inspiration and stillness. (Part 1 coming soon.)",
+      "A two-part guided reflection on the power of silence for inspiration and stillness.",
     tracks: [
+      { title: "Part 1: Silence Quotes", src: `${AUDIO_BASE}/silence-quotes/part-1.mp3` },
       { title: "Part 2: Silence Quotes", src: `${AUDIO_BASE}/silence-quotes/part-2.mp3` },
+    ],
+  },
+  "healing-quotes": {
+    heading: "Listen to the Healing audio series",
+    intro:
+      "A two-part guided reflection on healing as a journey to inner peace.",
+    tracks: [
+      { title: "Part 1: Healing Quotes", src: `${AUDIO_BASE}/healing-quotes/part-1.mp3` },
+      { title: "Part 2: Healing Quotes", src: `${AUDIO_BASE}/healing-quotes/part-2.mp3` },
+    ],
+  },
+  "heart-chakra-affirmations": {
+    heading: "Listen to the Heart Chakra audio series",
+    intro:
+      "A six-part reflection on opening the heart chakra (Anahata) for emotional healing and love.",
+    tracks: [
+      { title: "Part 1: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-1.mp3` },
+      { title: "Part 2: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-2.mp3` },
+      { title: "Part 3: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-3.mp3` },
+      { title: "Part 4: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-4.mp3` },
+      { title: "Part 5: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-5.mp3` },
+      { title: "Part 6: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-6.mp3` },
     ],
   },
 };
