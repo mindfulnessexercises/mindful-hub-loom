@@ -493,11 +493,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "power-of-gratitude-meditation-7-ways-to-cultivate-it": {
-    heading: "Listen: Heart-Centered Gratitude Meditation",
+    heading: "Listen: Power of Gratitude audio series",
     intro:
-      "A longer guided meditation for letting gratitude land in the chest — opening the heart slowly and tenderly to what is already enough.",
+      "Two guided meditations on gratitude — Heart-Centered Gratitude opens the chest slowly and tenderly to what is already enough; The Power of Gratitude widens the practice into a quiet, daily way of seeing.",
     tracks: [
       { title: "Heart-Centered Gratitude — Guided Meditation", src: `${AUDIO_BASE}/power-of-gratitude-meditation/heart-centered-gratitude.mp3` },
+      { title: "The Power of Gratitude — Guided Meditation", src: `${AUDIO_BASE}/power-of-gratitude-meditation/the-power-of-gratitude.mp3` },
     ],
   },
   "reduce-rumination-and-increase-positive-states-through-neuro-learning": {
