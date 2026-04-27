@@ -34,6 +34,8 @@ import { AuthorCard } from "@/components/wp/AuthorCard";
 import { RelatedPosts } from "@/components/wp/RelatedPosts";
 import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
 import { MeditationPlayer } from "@/components/wp/MeditationPlayer";
+import { MeditationScript } from "@/components/wp/MeditationScript";
+import { getMeditationScript } from "@/lib/meditation-scripts";
 import { useMeditation } from "@/hooks/use-meditation";
 import {
   getTemplateConfig,
@@ -401,6 +403,22 @@ export default function WPResolver() {
               />
             </div>
           )}
+
+          {isDownloadsPage && (() => {
+            const script = getMeditationScript(slug);
+            if (!script) return null;
+            return (
+              <div className="container mx-auto max-w-3xl mt-6">
+                <MeditationScript
+                  variant="inline"
+                  pdfUrl={script.pdfUrl}
+                  title={script.title}
+                  fileSize={script.fileSize}
+                  meditationId={slug}
+                />
+              </div>
+            );
+          })()}
 
           {img && tpl.featuredImage !== "hidden" && !isDownloadsPage && (() => {
             const w = img.width ?? 0;
