@@ -89,7 +89,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "stress-quotes": {
     heading: "Listen to the Stress audio series",
     intro:
-      "Two calming tracks designed to slow the breath and quiet a busy mind — soft wisdom for moments when stress feels louder than you do. Plus four bonus guided meditations: Relieving Stress; Dropping the Suitcases of Regret & Worry; Mindfulness for Stress in two lengths (a longer settling practice and a shorter five-minute reset).",
+      "Two calming tracks designed to slow the breath and quiet a busy mind — soft wisdom for moments when stress feels louder than you do. Plus five bonus guided meditations: Relieving Stress; Dropping the Suitcases of Regret & Worry; Mindfulness for Stress in two lengths (a longer settling practice and a shorter five-minute reset); and Soft Belly Breathing — a gentle belly-breath practice for stress relief.",
     tracks: [
       { title: "Part 1: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-1.mp3` },
       { title: "Part 2: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-2.mp3` },
@@ -97,6 +97,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Bonus: Dropping the Suitcases of Regret & Worry — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/stress-quotes/dropping-the-suitcases.mp3` },
       { title: "Bonus: Mindfulness for Stress — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/stress-quotes/mindfulness-for-stress.mp3` },
       { title: "Bonus: Mindfulness for Stress (Short Version) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/stress-quotes/mindfulness-for-stress-short.mp3` },
+      { title: "Bonus: Soft Belly Breathing To Reduce Stress — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/soft-belly/soft-belly-breathing-stress.mp3` },
     ],
   },
   "empathy-quotes": {
@@ -390,12 +391,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "kindness-for-your-thinking-mind": {
     heading: "Listen: Kindness for the Mind audio series",
     intro:
-      "Six guided meditations and dharma talks for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Mind Appreciation turns warm attention to the mind itself; Mindfulness of Thoughts & Feelings (in two takes) practices noticing the inner weather without getting carried away; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking; Practice Notes: Thinking as Scenery (Gil Fronsdal) reframes thoughts as the passing landscape of the mind, not the destination.",
+      "Seven guided meditations and dharma talks for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Mind Appreciation turns warm attention to the mind itself; Mindfulness of Thoughts & Feelings (in two takes) practices noticing the inner weather without getting carried away; Thoughts and Emotions is a companion practice for working skillfully with what arises; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking; Practice Notes: Thinking as Scenery (Gil Fronsdal) reframes thoughts as the passing landscape of the mind, not the destination.",
     tracks: [
       { title: "Three Centers — Belly, Heart & Head by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/three-centers.mp3` },
       { title: "Mind Appreciation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/mind-appreciation.mp3` },
       { title: "Mindfulness of Thoughts & Feelings — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/mindfulness-of-thoughts-feelings.mp3` },
       { title: "Mindfulness of Thoughts & Feelings (Alternate Take) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/mindfulness-of-thoughts-feelings-v2.mp3` },
+      { title: "Thoughts and Emotions — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/working-with-thoughts/thoughts-and-emotions.mp3` },
       { title: "Practice Notes: Soft Receptive Mind — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/soft-receptive-mind.mp3` },
       { title: "Practice Notes: Thinking as Scenery — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/practice-notes-thinking-as-scenery.mp3` },
     ],
@@ -492,7 +494,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "three-60-second-meditation-techniques-for-anxiety": {
     heading: "Listen: Anxiety audio series",
     intro:
-      "Seven guided meditations for working with anxiety — Befriending Anxiety invites a softer relationship with anxious feeling; Alleviating Tension (and an extended take of the same practice) releases the held tightness it leaves behind; Standard Practice For Anxiety offers a steady, repeatable companion for harder moments; plus a Micro-Meditation series of three two-minute resets you can do anywhere.",
+      "Nine guided meditations for working with anxiety — Befriending Anxiety invites a softer relationship with anxious feeling; Alleviating Tension (and an extended take of the same practice) releases the held tightness it leaves behind; Standard Practice For Anxiety offers a steady, repeatable companion for harder moments; plus a Micro-Meditation series of three two-minute resets and an SOS series (1- and 3-minute) for moments when anxiety spikes and you need a fast, steady anchor.",
     tracks: [
       { title: "Befriending Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/three-60-second-anxiety/befriending-anxiety.mp3` },
       { title: "Alleviating Tension In Your Body & Mind — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/three-60-second-anxiety/alleviating-tension.mp3` },
@@ -501,14 +503,17 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Micro-Meditation #1 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-2.mp3` },
       { title: "Micro-Meditation #2 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-3.mp3` },
       { title: "Micro-Meditation #3 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-4.mp3` },
+      { title: "SOS Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/sos-1-minute.mp3` },
+      { title: "SOS Meditation (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/sos-3-minutes.mp3` },
     ],
   },
   "bedtime-mindfulness": {
-    heading: "Listen: Directing Your Awareness With Relaxation",
+    heading: "Listen: Bedtime audio series",
     intro:
-      "A slow, soothing guided meditation for the end of the day — gently directing awareness through the body with deep relaxation as the doorway into rest.",
+      "Two slow, soothing guided meditations for the end of the day — Directing Your Awareness With Relaxation gently moves through the body using deep relaxation as the doorway into rest; Sleep (5 Minutes) is a short bedtime practice for the nights you just need help drifting off.",
     tracks: [
       { title: "Directing Your Awareness With Relaxation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/bedtime-mindfulness/directing-awareness-relaxation.mp3` },
+      { title: "Sleep Meditation (5 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/sleep-5-minutes.mp3` },
     ],
   },
   "self-love-affirmations": {
@@ -532,10 +537,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "how-to-cultivate-an-attitude-of-gratitude-why-its-important": {
     heading: "Listen: Attitude of Gratitude audio series",
     intro:
-      "Two guided meditations on the felt sense of gratitude — Gratitude Is Not In The Words drops beneath language into the quiet warmth itself; Sharing Gratitude is a longer practice for letting appreciation move outward, into your relationships and into the world.",
+      "Three guided meditations on the felt sense of gratitude — Gratitude Is Not In The Words drops beneath language into the quiet warmth itself; Sharing Gratitude is a longer practice for letting appreciation move outward, into your relationships and into the world; Starting The Day With Gratitude is a morning practice for letting appreciation set the tone before anything else does.",
     tracks: [
       { title: "Gratitude Is Not In The Words — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/attitude-of-gratitude/gratitude-is-not-in-the-words.mp3` },
       { title: "Sharing Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude/sharing-gratitude.mp3` },
+      { title: "Starting The Day With Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/starting-the-day-with-gratitude.mp3` },
     ],
   },
   "full-body-awareness": {
@@ -626,11 +632,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "morning-affirmations": {
-    heading: "Listen: The Foundation For All Abundance",
+    heading: "Listen: Morning Practice audio series",
     intro:
-      "A grounding morning guided meditation — settling into gratitude as the quiet foundation beneath every other kind of abundance.",
+      "Two grounding morning guided meditations — The Foundation For All Abundance settles into gratitude as the quiet foundation beneath every other kind of abundance; Starting The Day With Gratitude is a longer practice for letting appreciation set the tone before anything else does.",
     tracks: [
       { title: "The Foundation For All Abundance — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/foundation-for-all-abundance.mp3` },
+      { title: "Starting The Day With Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/starting-the-day-with-gratitude.mp3` },
     ],
   },
   "learning-the-secret-language-of-your-body-with-inna-segal": {
@@ -642,11 +649,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "8-sleep-meditations-for-a-good-nights-rest": {
-    heading: "Listen: The Power of Gratitude For Sleep",
+    heading: "Listen: Sleep audio series",
     intro:
-      "A slow, soothing guided meditation for the end of the day — letting gratitude soften the body, quiet the mind, and carry you into rest.",
+      "Three slow, soothing guided meditations for the end of the day — The Power of Gratitude For Sleep lets gratitude soften the body and quiet the mind; Sleep (5 Minutes) is a short bedtime practice for the nights you just need help drifting off; Sleep Appreciation is a longer, tender practice for settling into rest as the day's final act of self-care.",
     tracks: [
       { title: "The Power of Gratitude For Sleep — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/power-of-gratitude-for-sleep.mp3` },
+      { title: "Sleep Meditation (5 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/sleep-5-minutes.mp3` },
+      { title: "Sleep Appreciation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/sleep-appreciation.mp3` },
     ],
   },
   "self-compassion-pause": {
@@ -658,11 +667,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "soft-belly": {
-    heading: "Listen: Touching Your Belly & Heart",
+    heading: "Listen: Soft Belly audio series",
     intro:
-      "A grounding guided meditation using gentle touch — one hand on the belly, one on the heart — to settle the nervous system and feel held by your own presence.",
+      "Two grounding guided meditations using the belly as an anchor — Touching Your Belly & Heart uses gentle touch (one hand on the belly, one on the heart) to settle the nervous system and feel held by your own presence; Soft Belly Breathing To Reduce Stress is a longer practice for softening the belly with each breath as a doorway out of fight-or-flight.",
     tracks: [
       { title: "Touching Your Belly & Heart — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/soft-belly/touching-your-belly-and-heart.mp3` },
+      { title: "Soft Belly Breathing To Reduce Stress — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/soft-belly/soft-belly-breathing-stress.mp3` },
     ],
   },
   "what-the-world-needs": {
@@ -693,7 +703,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "9-mindfulness-exercises-for-anxiety": {
     heading: "Listen: Anxiety audio series",
     intro:
-      "A dharma talk plus on-the-go practices for working with anxiety — Working With Fear (Joseph Goldstein) is a longer retreat-style teaching on meeting fear with steady awareness; the Commute series offers one, three, and five-minute resets for the car, train, or sidewalk; the Micro-Meditation series gives three two-minute resets you can drop into anywhere; Breathing Anchor is a longer guided practice for steadying the mind on the rhythm of the breath when anxiety is loud.",
+      "A dharma talk plus on-the-go practices for working with anxiety — Working With Fear (Joseph Goldstein) is a longer retreat-style teaching on meeting fear with steady awareness; the Commute series offers one, three, and five-minute resets for the car, train, or sidewalk; the Micro-Meditation series gives three two-minute resets you can drop into anywhere; the SOS series (1- and 3-minute) is for moments when anxiety spikes and you need a fast, steady anchor; Breathing Anchor is a longer guided practice for steadying the mind on the rhythm of the breath when anxiety is loud.",
     tracks: [
       { title: "Working With Fear — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/working-with-fear.mp3` },
       { title: "Commute Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/commute-1-minute.mp3` },
@@ -702,17 +712,20 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Micro-Meditation #1 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-2.mp3` },
       { title: "Micro-Meditation #2 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-3.mp3` },
       { title: "Micro-Meditation #3 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-4.mp3` },
+      { title: "SOS Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/sos-1-minute.mp3` },
+      { title: "SOS Meditation (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/sos-3-minutes.mp3` },
       { title: "Breathing Anchor — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/breathing-anchor.mp3` },
     ],
   },
   "working-with-thoughts": {
     heading: "Listen: Working With Thought and Emotion",
     intro:
-      "A dharma talk by Joseph Goldstein on meeting thoughts and emotions with awareness — seeing them clearly enough that they no longer have to run the show. Followed by a short companion dharma talk by Gil Fronsdal — Dharmette: Content vs Process — on the freeing distinction between what the mind is thinking about and the simple fact that it's thinking. Plus a guided meditation on Mindfulness of Thoughts & Feelings — practicing noticing the inner weather without getting carried away.",
+      "A dharma talk by Joseph Goldstein on meeting thoughts and emotions with awareness — seeing them clearly enough that they no longer have to run the show. Followed by a short companion dharma talk by Gil Fronsdal — Dharmette: Content vs Process — on the freeing distinction between what the mind is thinking about and the simple fact that it's thinking. Plus two guided meditations: Mindfulness of Thoughts & Feelings — practicing noticing the inner weather without getting carried away — and Thoughts and Emotions, a companion practice for working skillfully with what arises.",
     tracks: [
       { title: "Working With Thought and Emotion — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/working-with-thoughts/working-with-thought-and-emotion.mp3` },
       { title: "Dharmette: Content vs Process — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/working-with-thoughts/dharmette-content-vs-process.mp3` },
       { title: "Mindfulness of Thoughts & Feelings — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/mindfulness-of-thoughts-feelings.mp3` },
+      { title: "Thoughts and Emotions — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/working-with-thoughts/thoughts-and-emotions.mp3` },
     ],
   },
   "guided-loving-kindness-meditation-audio": {
@@ -732,11 +745,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "walking-meditation-worksheet-2": {
-    heading: "Listen: Walking Meditation",
+    heading: "Listen: Walking Meditation audio series",
     intro:
-      "A dharma talk by Matthew Brensilver on walking meditation — instructions and reflections on bringing mindful presence into the simple act of putting one foot in front of the other.",
+      "A dharma talk by Matthew Brensilver on walking meditation — instructions and reflections on bringing mindful presence into the simple act of putting one foot in front of the other. Plus a guided Walking Meditation by Sean Fargo for practicing it directly, step by step.",
     tracks: [
       { title: "Walking Meditation — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/walking-meditation-worksheet/walking-meditation-talk.mp3` },
+      { title: "Walking Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/walking-meditation-worksheet-2/walking.mp3` },
     ],
   },
   "style-over-summit-what-dirtbag-billionaire-taught-me-about-practice": {
