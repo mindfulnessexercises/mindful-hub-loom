@@ -398,6 +398,56 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Feeling Tones: Pleasant, Unpleasant, Neutral",
     fileSize: "177 KB",
   },
+  "finding-the-breath": {
+    pdfUrl: "/sample-scripts/finding-the-breath.pdf",
+    title: "Finding the Breath",
+    fileSize: "184 KB",
+  },
+  "focusing-your-attention-using-breath": {
+    pdfUrl: "/sample-scripts/focusing-your-attention-using-breath.pdf",
+    title: "Focusing Your Attention Using Breath",
+    fileSize: "179 KB",
+  },
+  "gladdening-the-mind": {
+    pdfUrl: "/sample-scripts/gladdening-the-mind.pdf",
+    title: "Gladdening the Mind",
+    fileSize: "188 KB",
+  },
+  "growing-happiness-in-the-mind": {
+    pdfUrl: "/sample-scripts/growing-happiness-in-the-mind.pdf",
+    title: "Growing Happiness in the Mind",
+    fileSize: "194 KB",
+  },
+  "intention-to-be-happy": {
+    pdfUrl: "/sample-scripts/intention-to-be-happy.pdf",
+    title: "Intention to be Happy",
+    fileSize: "192 KB",
+  },
+  "laying-down-meditation-and-visualizing-a-lake": {
+    pdfUrl: "/sample-scripts/laying-down-meditation-and-visualizing-a-lake.pdf",
+    title: "Laying Down Meditation and Visualizing a Lake",
+    fileSize: "186 KB",
+  },
+  "mindfulness-while-waiting-in-line": {
+    pdfUrl: "/sample-scripts/mindfulness-while-waiting-in-line.pdf",
+    title: "Mindfulness While Waiting in Line",
+    fileSize: "150 KB",
+  },
+  "noticing-what-brings-you-joy": {
+    pdfUrl: "/sample-scripts/noticing-what-brings-you-joy.pdf",
+    title: "Noticing What Brings You Joy",
+    fileSize: "182 KB",
+  },
+  "one-complete-cycle-of-breath": {
+    pdfUrl: "/sample-scripts/one-complete-cycle-of-breath.pdf",
+    title: "One Complete Cycle of Breath",
+    fileSize: "177 KB",
+  },
+  "opening-your-awareness-to-whatever-is-arising": {
+    pdfUrl: "/sample-scripts/opening-your-awareness-to-whatever-is-arising.pdf",
+    title: "Opening Your Awareness to Whatever is Arising",
+    fileSize: "179 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
