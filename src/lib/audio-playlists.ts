@@ -31,7 +31,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "meaningful-work-quotes": {
     heading: "Listen to the Meaningful Work audio series",
     intro:
-      "A four-part guided reflection on finding purpose, presence, and meaning in your daily work.",
+      "Four short tracks of hand-picked quotes and gentle reflection prompts — a calm companion for reconnecting with purpose, presence, and meaning in your workday.",
     tracks: [
       { title: "Part 1: Meaningful Work", src: `${AUDIO_BASE}/meaningful-work-quotes/part-1.mp3` },
       { title: "Part 2: Meaningful Work", src: `${AUDIO_BASE}/meaningful-work-quotes/part-2.mp3` },
@@ -42,7 +42,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "karma-quotes": {
     heading: "Listen to the Karma audio series",
     intro:
-      "A three-part reflection exploring karma's influence on relationships, life, and personal growth.",
+      "Three contemplative tracks weaving together teachings on karma — how each thought, word, and action shapes our relationships, our path, and our growth.",
     tracks: [
       { title: "Part 1: Karma", src: `${AUDIO_BASE}/karma-quotes/part-1.mp3` },
       { title: "Part 2: Karma", src: `${AUDIO_BASE}/karma-quotes/part-2.mp3` },
@@ -52,7 +52,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "self-care-quotes": {
     heading: "Listen to the Self-Care audio series",
     intro:
-      "A two-part guided reflection on self-care as a daily mindfulness practice.",
+      "Two gentle tracks of soothing quotes and mindful pauses — a soft reminder that tending to yourself is not indulgence, but practice.",
     tracks: [
       { title: "Part 1: Self-Care Quotes", src: `${AUDIO_BASE}/self-care-quotes/part-1.mp3` },
       { title: "Part 2: Self-Care Quotes", src: `${AUDIO_BASE}/self-care-quotes/part-2.mp3` },
@@ -61,7 +61,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "mindset-quotes": {
     heading: "Listen to the Growth Mindset audio series",
     intro:
-      "A two-part reflection on cultivating a growth mindset for personal transformation.",
+      "Two reflective tracks of curated quotes to help you meet challenge with curiosity, soften self-judgment, and grow through what you go through.",
     tracks: [
       { title: "Part 1: Growth Mindset", src: `${AUDIO_BASE}/mindset-quotes/part-1.mp3` },
       { title: "Part 2: Growth Mindset", src: `${AUDIO_BASE}/mindset-quotes/part-2.mp3` },
@@ -70,7 +70,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "resilience-quotes": {
     heading: "Listen to the Resilience audio series",
     intro:
-      "A two-part guided reflection on building resilience through mindful awareness.",
+      "Two grounding tracks of quotes and quiet reflection — for the days you need to remember how steady you actually are.",
     tracks: [
       { title: "Part 1: Resilience", src: `${AUDIO_BASE}/resilience-quotes/part-1.mp3` },
       { title: "Part 2: Resilience", src: `${AUDIO_BASE}/resilience-quotes/part-2.mp3` },
@@ -79,7 +79,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "stress-quotes": {
     heading: "Listen to the Stress audio series",
     intro:
-      "A two-part guided reflection on navigating stress with mindful wisdom.",
+      "Two calming tracks designed to slow the breath and quiet a busy mind — soft wisdom for moments when stress feels louder than you do.",
     tracks: [
       { title: "Part 1: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-1.mp3` },
       { title: "Part 2: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-2.mp3` },
@@ -88,7 +88,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "empathy-quotes": {
     heading: "Listen to the Empathy audio series",
     intro:
-      "A three-part reflection on cultivating empathy, understanding, and compassion.",
+      "Three warm tracks of quotes and reflection on truly seeing others — for opening the heart, deepening understanding, and meeting people (and yourself) with compassion.",
     tracks: [
       { title: "Part 1: Empathy Quotes", src: `${AUDIO_BASE}/empathy-quotes/part-1.mp3` },
       { title: "Part 2: Empathy Quotes", src: `${AUDIO_BASE}/empathy-quotes/part-2.mp3` },
@@ -98,7 +98,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "self-worth-quotes": {
     heading: "Listen to the Self-Worth audio series",
     intro:
-      "A two-part guided reflection on building confidence and inner self-worth.",
+      "Two affirming tracks of curated quotes and mindful pauses — a quiet reminder that your worth was never something you had to earn.",
     tracks: [
       { title: "Part 1: Self-Worth Quotes", src: `${AUDIO_BASE}/self-worth-quotes/part-1.mp3` },
       { title: "Part 2: Self-Worth Quotes", src: `${AUDIO_BASE}/self-worth-quotes/part-2.mp3` },
@@ -107,7 +107,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "letting-go-quotes": {
     heading: "Listen to the Letting Go audio series",
     intro:
-      "A two-part reflection on the practice of letting go for renewal and growth.",
+      "Two spacious tracks of quotes and gentle reflection on releasing what's no longer yours to carry — making room for what wants to come next.",
     tracks: [
       { title: "Part 1: Letting Go Quotes", src: `${AUDIO_BASE}/letting-go-quotes/part-1.mp3` },
       { title: "Part 2: Letting Go Quotes", src: `${AUDIO_BASE}/letting-go-quotes/part-2.mp3` },
@@ -116,7 +116,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "silence-quotes": {
     heading: "Listen to the Silence audio series",
     intro:
-      "A two-part guided reflection on the power of silence for inspiration and stillness.",
+      "Two quiet tracks of timeless quotes and unhurried pauses — an invitation to listen for what only stillness can say.",
     tracks: [
       { title: "Part 1: Silence Quotes", src: `${AUDIO_BASE}/silence-quotes/part-1.mp3` },
       { title: "Part 2: Silence Quotes", src: `${AUDIO_BASE}/silence-quotes/part-2.mp3` },
@@ -125,7 +125,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "healing-quotes": {
     heading: "Listen to the Healing audio series",
     intro:
-      "A two-part guided reflection on healing as a journey to inner peace.",
+      "Two tender tracks of quotes and reflection for walking alongside your own healing — at its own pace, in its own time, with kindness.",
     tracks: [
       { title: "Part 1: Healing Quotes", src: `${AUDIO_BASE}/healing-quotes/part-1.mp3` },
       { title: "Part 2: Healing Quotes", src: `${AUDIO_BASE}/healing-quotes/part-2.mp3` },
@@ -134,7 +134,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "heart-chakra-affirmations": {
     heading: "Listen to the Heart Chakra audio series",
     intro:
-      "A six-part reflection on opening the heart chakra (Anahata) for emotional healing and love.",
+      "Six guided tracks of affirmations for Anahata, the heart center — softening the chest, opening to love, and gently tending to old emotional wounds.",
     tracks: [
       { title: "Part 1: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-1.mp3` },
       { title: "Part 2: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-2.mp3` },
