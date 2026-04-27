@@ -908,6 +908,56 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Relieving Stress With SBNRR",
     fileSize: "186 KB",
   },
+  "mindfulness-of-speech": {
+    pdfUrl: "/sample-scripts/mindfulness-of-speech.pdf",
+    title: "Mindfulness of Speech",
+    fileSize: "149 KB",
+  },
+  "mindful-speech": {
+    pdfUrl: "/sample-scripts/mindful-speech.pdf",
+    title: "Mindful Speech",
+    fileSize: "164 KB",
+  },
+  "meditation-with-a-pet": {
+    pdfUrl: "/sample-scripts/meditation-with-a-pet.pdf",
+    title: "Meditation with a Pet",
+    fileSize: "143 KB",
+  },
+  "whats-your-weather-like-kids": {
+    pdfUrl: "/sample-scripts/whats-your-weather-like-kids.pdf",
+    title: "What's Your Weather Like? (Kids)",
+    fileSize: "161 KB",
+  },
+  "sounds-and-silence-kids": {
+    pdfUrl: "/sample-scripts/sounds-and-silence-kids.pdf",
+    title: "Sounds and Silence (Kids)",
+    fileSize: "162 KB",
+  },
+  "mindfulness-for-kids": {
+    pdfUrl: "/sample-scripts/mindfulness-for-kids.pdf",
+    title: "Mindfulness for Kids",
+    fileSize: "184 KB",
+  },
+  "reflecting-on-a-role-model": {
+    pdfUrl: "/sample-scripts/reflecting-on-a-role-model.pdf",
+    title: "Reflecting on a Role Model",
+    fileSize: "184 KB",
+  },
+  "being-present-for-your-baby": {
+    pdfUrl: "/sample-scripts/being-present-for-your-baby.pdf",
+    title: "Being Present For Your Baby",
+    fileSize: "190 KB",
+  },
+  "connecting-with-your-baby": {
+    pdfUrl: "/sample-scripts/connecting-with-your-baby.pdf",
+    title: "Connecting with Your Baby",
+    fileSize: "186 KB",
+  },
+  "focusing-on-pregnancy-and-motherhood": {
+    pdfUrl: "/sample-scripts/focusing-on-pregnancy-and-motherhood.pdf",
+    title: "Focusing on Pregnancy and Motherhood",
+    fileSize: "193 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
