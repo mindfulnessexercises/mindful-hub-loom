@@ -433,10 +433,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "mindfulness-body-scan-for-self-compassion": {
     heading: "Listen: Self-Compassion Body Scan audio series",
     intro:
-      "Two guided body-scan meditations — How to Simply Be In The Body softens the urge to do and lets you rest into being; Body Appreciation tends to each part of you with gratitude and care.",
+      "Two guided body-scan meditations from Sean Fargo plus a long-form classic — How to Simply Be In The Body softens the urge to do and lets you rest into being; Body Appreciation tends to each part of you with gratitude and care; Guided Body Scan (Gil Fronsdal) is a slow, traditional body-scan practice for moving through the whole body with steady, unhurried attention.",
     tracks: [
       { title: "How to Simply Be In The Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/how-to-simply-be-in-the-body.mp3` },
       { title: "Body Appreciation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/body-appreciation.mp3` },
+      { title: "Guided Body Scan — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/gil-fronsdal-body-scan.mp3` },
     ],
   },
   "guided-meditation-self-acceptance": {
