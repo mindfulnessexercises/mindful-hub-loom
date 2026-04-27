@@ -868,6 +868,46 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Focused Attention to Settle the Mind",
     fileSize: "178 KB",
   },
+  "mindful-media": {
+    pdfUrl: "/sample-scripts/mindful-media.pdf",
+    title: "Mindful Media",
+    fileSize: "179 KB",
+  },
+  "notice-and-accept-your-body-in-the-present-moment": {
+    pdfUrl: "/sample-scripts/notice-and-accept-your-body-in-the-present-moment.pdf",
+    title: "Notice and Accept Your Body in the Present Moment",
+    fileSize: "197 KB",
+  },
+  "noting-thoughts-to-see-where-the-mind-is": {
+    pdfUrl: "/sample-scripts/noting-thoughts-to-see-where-the-mind-is.pdf",
+    title: "Noting Thoughts to See Where the Mind Is",
+    fileSize: "178 KB",
+  },
+  "re-relaxing-the-drifting-mind-with-a-home-base": {
+    pdfUrl: "/sample-scripts/re-relaxing-the-drifting-mind-with-a-home-base.pdf",
+    title: "Re-relaxing the Drifting Mind with a Home Base",
+    fileSize: "207 KB",
+  },
+  "stilling-the-mind": {
+    pdfUrl: "/sample-scripts/stilling-the-mind.pdf",
+    title: "Stilling the Mind",
+    fileSize: "180 KB",
+  },
+  "soft-belly-breathing": {
+    pdfUrl: "/sample-scripts/soft-belly-breathing.pdf",
+    title: "Soft Belly Breathing",
+    fileSize: "188 KB",
+  },
+  "simply-stopping": {
+    pdfUrl: "/sample-scripts/simply-stopping.pdf",
+    title: "Simply Stopping",
+    fileSize: "181 KB",
+  },
+  "relieving-stress-with-sbnrr": {
+    pdfUrl: "/sample-scripts/relieving-stress-with-sbnrr.pdf",
+    title: "Relieving Stress With SBNRR",
+    fileSize: "186 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
