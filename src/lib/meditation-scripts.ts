@@ -618,6 +618,56 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Rewriting Your Bad Day",
     fileSize: "196 KB",
   },
+  "appreciating-the-little-things": {
+    pdfUrl: "/sample-scripts/appreciating-the-little-things.pdf",
+    title: "Appreciating the Little Things",
+    fileSize: "173 KB",
+  },
+  "gratitude-when-youve-got-attitude": {
+    pdfUrl: "/sample-scripts/gratitude-when-youve-got-attitude.pdf",
+    title: "Gratitude When You've Got Attitude",
+    fileSize: "160 KB",
+  },
+  "the-power-of-gratitude-for-sleep": {
+    pdfUrl: "/sample-scripts/the-power-of-gratitude-for-sleep.pdf",
+    title: "The Power of Gratitude for Sleep",
+    fileSize: "181 KB",
+  },
+  "the-foundation-for-all-abundance": {
+    pdfUrl: "/sample-scripts/the-foundation-for-all-abundance.pdf",
+    title: "The Foundation for All Abundance",
+    fileSize: "180 KB",
+  },
+  "starting-the-day-with-gratitude": {
+    pdfUrl: "/sample-scripts/starting-the-day-with-gratitude.pdf",
+    title: "Starting the Day with Gratitude",
+    fileSize: "188 KB",
+  },
+  "sharing-gratitude": {
+    pdfUrl: "/sample-scripts/sharing-gratitude.pdf",
+    title: "Sharing Gratitude",
+    fileSize: "187 KB",
+  },
+  "mind-appreciation-meditation": {
+    pdfUrl: "/sample-scripts/mind-appreciation-meditation.pdf",
+    title: "Mind Appreciation Meditation",
+    fileSize: "184 KB",
+  },
+  "making-room-for-gratitude": {
+    pdfUrl: "/sample-scripts/making-room-for-gratitude.pdf",
+    title: "Making Room for Gratitude",
+    fileSize: "183 KB",
+  },
+  "heart-centered-gratitude": {
+    pdfUrl: "/sample-scripts/heart-centered-gratitude.pdf",
+    title: "Heart-Centered Gratitude",
+    fileSize: "179 KB",
+  },
+  "gratitude-is-not-in-the-words": {
+    pdfUrl: "/sample-scripts/gratitude-is-not-in-the-words.pdf",
+    title: "Gratitude Is Not in the Words",
+    fileSize: "179 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
