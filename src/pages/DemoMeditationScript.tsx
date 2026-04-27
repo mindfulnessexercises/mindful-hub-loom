@@ -53,9 +53,8 @@ export default function DemoMeditationScript() {
           <MeditationScript
             variant="inline"
             pdfUrl={SAMPLE_PDF}
-            title="Body Scan for Beginners"
-            pageCount={3}
-            fileSize="180 KB"
+            title={SAMPLE_TITLE}
+            fileSize="26 KB"
             meditationId="demo-inline"
           />
         </section>
@@ -76,9 +75,8 @@ export default function DemoMeditationScript() {
           <MeditationScript
             variant="collapsible"
             pdfUrl={SAMPLE_PDF}
-            title="Body Scan for Beginners"
-            pageCount={3}
-            fileSize="180 KB"
+            title={SAMPLE_TITLE}
+            fileSize="26 KB"
             meditationId="demo-collapsible"
           />
         </section>
@@ -98,9 +96,8 @@ export default function DemoMeditationScript() {
           <MeditationScript
             variant="card"
             pdfUrl={SAMPLE_PDF}
-            title="Body Scan for Beginners"
-            pageCount={3}
-            fileSize="180 KB"
+            title={SAMPLE_TITLE}
+            fileSize="26 KB"
             meditationId="demo-card"
           />
         </section>
