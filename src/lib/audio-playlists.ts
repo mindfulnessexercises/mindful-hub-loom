@@ -234,11 +234,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "6-mindful-breathing-exercises": {
-    heading: "Listen: Breathing With Curiosity",
+    heading: "Listen: Mindful Breathing audio series",
     intro:
-      "A guided meditation that invites you to meet the breath as if for the first time — fresh, unhurried, alive with quiet wonder.",
+      "Two guided meditations for meeting the breath with fresh attention — the first invites curiosity, the second a fully embodied awareness of breathing.",
     tracks: [
       { title: "Breathing With Curiosity — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-with-curiosity.mp3` },
+      { title: "Embodied Awareness of Breathing — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/embodied-awareness-of-breathing.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -322,11 +323,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "cultivating-self-care-and-extending-it-out": {
-    heading: "Listen: Tending to the Body",
+    heading: "Listen: Self-Care audio series",
     intro:
-      "A gentle guided meditation for offering kind, attentive care to the body — meeting it the way you'd tend to someone you love.",
+      "Two gentle guided meditations for offering kind, attentive care to yourself — Tending to the Body softens you back into physical presence; Caring Awareness for the Head brings tenderness to a busy mind.",
     tracks: [
       { title: "Tending to the Body — Guided Meditation", src: `${AUDIO_BASE}/cultivating-self-care/tending-to-the-body.mp3` },
+      { title: "Caring Awareness for the Head — Guided Meditation", src: `${AUDIO_BASE}/cultivating-self-care/caring-awareness-for-the-head.mp3` },
     ],
   },
   "higher-self-meditation": {
