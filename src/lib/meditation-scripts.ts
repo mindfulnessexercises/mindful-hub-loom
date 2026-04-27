@@ -958,6 +958,31 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Focusing on Pregnancy and Motherhood",
     fileSize: "193 KB",
   },
+  "focusing-on-your-happy-baby": {
+    pdfUrl: "/sample-scripts/focusing-on-your-happy-baby.pdf",
+    title: "Focusing on Your Happy Baby",
+    fileSize: "186 KB",
+  },
+  "gratitude-for-pregnancy": {
+    pdfUrl: "/sample-scripts/gratitude-for-pregnancy.pdf",
+    title: "Gratitude for Pregnancy",
+    fileSize: "186 KB",
+  },
+  "teen-meditation-to-believe-in-yourself": {
+    pdfUrl: "/sample-scripts/teen-meditation-to-believe-in-yourself.pdf",
+    title: "Teen Meditation to Believe in Yourself",
+    fileSize: "191 KB",
+  },
+  "listening-and-speaking-with-a-partner": {
+    pdfUrl: "/sample-scripts/listening-and-speaking-with-a-partner.pdf",
+    title: "Listening and Speaking with a Partner",
+    fileSize: "181 KB",
+  },
+  "mindfulness-while-speaking-with-others": {
+    pdfUrl: "/sample-scripts/mindfulness-while-speaking-with-others.pdf",
+    title: "Mindfulness While Speaking with Others",
+    fileSize: "182 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
