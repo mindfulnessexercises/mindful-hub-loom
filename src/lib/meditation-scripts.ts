@@ -588,6 +588,36 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Emotion as the Object of Focus",
     fileSize: "186 KB",
   },
+  "releasing-grief-and-bringing-in-the-positive": {
+    pdfUrl: "/sample-scripts/releasing-grief-and-bringing-in-the-positive.pdf",
+    title: "Releasing Grief and Bringing in the Positive",
+    fileSize: "200 KB",
+  },
+  "releasing-the-pressure-of-emotions": {
+    pdfUrl: "/sample-scripts/releasing-the-pressure-of-emotions.pdf",
+    title: "Releasing the Pressure of Emotions",
+    fileSize: "181 KB",
+  },
+  "using-rain-for-difficult-emotions-and-thoughts": {
+    pdfUrl: "/sample-scripts/using-rain-for-difficult-emotions-and-thoughts.pdf",
+    title: "Using R.A.I.N. for Difficult Emotions and Thoughts",
+    fileSize: "180 KB",
+  },
+  "understanding-your-emotions": {
+    pdfUrl: "/sample-scripts/understanding-your-emotions.pdf",
+    title: "Understanding Your Emotions",
+    fileSize: "181 KB",
+  },
+  "stopping-obsessive-thoughts-about-the-past": {
+    pdfUrl: "/sample-scripts/stopping-obsessive-thoughts-about-the-past.pdf",
+    title: "Stopping Obsessive Thoughts About the Past",
+    fileSize: "194 KB",
+  },
+  "rewriting-your-bad-day": {
+    pdfUrl: "/sample-scripts/rewriting-your-bad-day.pdf",
+    title: "Rewriting Your Bad Day",
+    fileSize: "196 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
