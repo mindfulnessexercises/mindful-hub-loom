@@ -164,6 +164,32 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Chocolate Meditation",
     fileSize: "163 KB",
   },
+  "grounding-body-scan": {
+    pdfUrl: "/sample-scripts/grounding-body-scan.pdf",
+    title: "Grounding Body Scan",
+    fileSize: "185 KB",
+  },
+  "awareness-of-the-four-elements": {
+    pdfUrl: "/sample-scripts/awareness-of-four-elements.pdf",
+    title: "Awareness of Four Elements — Earth, Air, Water, and Fire",
+    fileSize: "178 KB",
+  },
+  // Flagged: PDF is titled "Ocean Mind"; mapped to the canonical Ocean
+  // Meditation post — review before relying on it.
+  "experience-your-mind-like-an-ocean": {
+    pdfUrl: "/sample-scripts/ocean-mind.pdf",
+    title: "Ocean Mind",
+    fileSize: "160 KB",
+    flagged: true,
+  },
+  // Flagged: PDF is "Awareness When Walking"; mapped to the canonical
+  // Walking Meditation script post.
+  "walking-meditation-guided-script": {
+    pdfUrl: "/sample-scripts/awareness-when-walking.pdf",
+    title: "Awareness When Walking",
+    fileSize: "182 KB",
+    flagged: true,
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
