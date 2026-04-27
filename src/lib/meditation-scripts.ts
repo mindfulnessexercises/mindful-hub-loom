@@ -488,6 +488,56 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Pleasant vs Unpleasant",
     fileSize: "191 KB",
   },
+  "classic-five-hindrances": {
+    pdfUrl: "/sample-scripts/classic-five-hindrances.pdf",
+    title: "Classic Five Hindrances",
+    fileSize: "151 KB",
+  },
+  "four-stages-of-meditation": {
+    pdfUrl: "/sample-scripts/four-stages-of-meditation.pdf",
+    title: "Four Stages of Meditation",
+    fileSize: "150 KB",
+  },
+  "when-you-just-cant-meditate": {
+    pdfUrl: "/sample-scripts/when-you-just-cant-meditate.pdf",
+    title: "When You Just Can't Meditate",
+    fileSize: "148 KB",
+  },
+  "naming-the-feelings": {
+    pdfUrl: "/sample-scripts/naming-the-feelings.pdf",
+    title: "Naming the Feelings",
+    fileSize: "151 KB",
+  },
+  "staying-with-emotions": {
+    pdfUrl: "/sample-scripts/staying-with-emotions.pdf",
+    title: "Staying with Emotions",
+    fileSize: "160 KB",
+  },
+  "being-mindful-and-present-with-negative-emotions": {
+    pdfUrl: "/sample-scripts/being-mindful-and-present-with-negative-emotions.pdf",
+    title: "Being Mindful and Present with Negative Emotions",
+    fileSize: "193 KB",
+  },
+  "when-your-mind-wanders": {
+    pdfUrl: "/sample-scripts/when-your-mind-wanders.pdf",
+    title: "When Your Mind Wanders",
+    fileSize: "184 KB",
+  },
+  "observe-judging-with-awareness": {
+    pdfUrl: "/sample-scripts/observe-judging-with-awareness.pdf",
+    title: "Observe Judging with Awareness",
+    fileSize: "194 KB",
+  },
+  "reduce-envy-and-celebrate-others": {
+    pdfUrl: "/sample-scripts/reduce-envy-and-celebrate-others.pdf",
+    title: "Reduce Envy and Celebrate Others",
+    fileSize: "194 KB",
+  },
+  "alleviate-depression": {
+    pdfUrl: "/sample-scripts/alleviate-depression.pdf",
+    title: "Alleviate Depression",
+    fileSize: "200 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
