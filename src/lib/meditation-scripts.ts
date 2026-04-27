@@ -258,6 +258,52 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Shopping Mindfully",
     fileSize: "178 KB",
   },
+  "working-with-boredom": {
+    pdfUrl: "/sample-scripts/working-with-boredom.pdf",
+    title: "Working with Boredom",
+    fileSize: "148 KB",
+  },
+  "power-of-acceptance": {
+    pdfUrl: "/sample-scripts/power-of-acceptance.pdf",
+    title: "Power of Acceptance",
+    fileSize: "149 KB",
+  },
+  "cultivating-joy": {
+    pdfUrl: "/sample-scripts/cultivating-joy.pdf",
+    title: "Cultivating Joy",
+    fileSize: "148 KB",
+  },
+  "cultivating-equanimity": {
+    pdfUrl: "/sample-scripts/cultivating-equanimity.pdf",
+    title: "Cultivating Equanimity",
+    fileSize: "149 KB",
+  },
+  // PDF is "Being Still"; canonical post slug uses "-meditation" suffix.
+  "being-still-meditation": {
+    pdfUrl: "/sample-scripts/being-still.pdf",
+    title: "Being Still",
+    fileSize: "146 KB",
+  },
+  "5-minute-standing-meditation": {
+    pdfUrl: "/sample-scripts/5-minute-standing-meditation.pdf",
+    title: "5 Minute Standing Meditation",
+    fileSize: "148 KB",
+  },
+  "one-breath-at-a-time": {
+    pdfUrl: "/sample-scripts/one-breath-at-a-time.pdf",
+    title: "One Breath at a Time",
+    fileSize: "154 KB",
+  },
+  "5-minutes-to-regain-calm-clarity-and-confidence": {
+    pdfUrl: "/sample-scripts/5-minutes-to-regain-calm-clarity-and-confidence.pdf",
+    title: "5 Minutes to Regain Calm, Clarity, and Confidence",
+    fileSize: "189 KB",
+  },
+  "mindfulness-of-the-present-moment-without-any-goals": {
+    pdfUrl: "/sample-scripts/mindfulness-of-the-present-moment-without-any-goals.pdf",
+    title: "Mindfulness of the Present Moment Without Any Goals",
+    fileSize: "191 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
