@@ -718,6 +718,38 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Practicing For Oneself Is Complicated — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/is-it-selfish-to-want-happiness/practicing-for-oneself-is-complicated.mp3` },
     ],
   },
+  "20-mindfulness-lessons-i-wish-i-knew": {
+    heading: "Listen: Practice Notes — Noticing What Works",
+    intro:
+      "A short dharma talk by Gil Fronsdal — a tender invitation to pay attention to what actually helps, and to let that quiet noticing become its own teacher.",
+    tracks: [
+      { title: "Practice Notes: Noticing What Works — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/20-mindfulness-lessons/noticing-what-works.mp3` },
+    ],
+  },
+  "discover-effortless-mindfulness-with-loch-kelly": {
+    heading: "Listen: Practice Notes — In The Flow",
+    intro:
+      "A short dharma talk by Gil Fronsdal on the kind of practice that begins to move on its own — when attention, body, and breath quietly come into accord and effort softens into flow.",
+    tracks: [
+      { title: "Practice Notes: In The Flow — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/discover-effortless-mindfulness/in-the-flow.mp3` },
+    ],
+  },
+  "right-livelihood-and-vocation-audio": {
+    heading: "Listen: Right Speech",
+    intro:
+      "A dharma talk by Joseph Goldstein on Right Speech — the slow, careful practice of letting our words match our deepest intentions, in everyday life as much as on the cushion.",
+    tracks: [
+      { title: "Right Speech — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/right-livelihood-and-vocation-audio/right-speech.mp3` },
+    ],
+  },
+  "mindfulness-meditation-and-the-space-in-between": {
+    heading: "Listen: Practice Notes — Ease",
+    intro:
+      "A short dharma talk by Gil Fronsdal on ease — not as the absence of effort, but as the soft, spacious quality that lives in the in-between of practice.",
+    tracks: [
+      { title: "Practice Notes: Ease — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/ease.mp3` },
+    ],
+  },
 };
 
 export function getPlaylist(slug: string | undefined): AudioPlaylist | null {
