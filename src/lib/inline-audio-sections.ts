@@ -104,6 +104,26 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
   ],
   "karma-quotes": [
     {
+      match: "relationship karma quotes",
+      label: "Listen: Relationship Karma quotes",
+      src: `${AUDIO_BASE}/karma-quotes/relationship-karma-quotes.mp3`,
+    },
+    {
+      match: "karma quotes about life",
+      label: "Listen: Karma Quotes about Life",
+      src: `${AUDIO_BASE}/karma-quotes/karma-quotes-about-life.mp3`,
+    },
+    {
+      match: "karma greed quotes",
+      label: "Listen: Karma Greed quotes",
+      src: `${AUDIO_BASE}/karma-quotes/karma-greed-quotes.mp3`,
+    },
+    {
+      match: "karma you reap what you sow",
+      label: "Listen: Karma — You Reap What You Sow",
+      src: `${AUDIO_BASE}/karma-quotes/karma-you-reap-what-you-sow.mp3`,
+    },
+    {
       match: "karma justice quotes",
       label: "Listen: Karma Justice quotes",
       src: `${AUDIO_BASE}/karma-quotes/karma-justice-quotes.mp3`,

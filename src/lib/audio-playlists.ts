@@ -58,6 +58,32 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 2: Self-Care Quotes", src: `${AUDIO_BASE}/self-care-quotes/part-2.mp3` },
     ],
   },
+  "mindset-quotes": {
+    heading: "Listen to the Growth Mindset audio series",
+    intro:
+      "A two-part reflection on cultivating a growth mindset for personal transformation.",
+    tracks: [
+      { title: "Part 1: Growth Mindset", src: `${AUDIO_BASE}/mindset-quotes/part-1.mp3` },
+      { title: "Part 2: Growth Mindset", src: `${AUDIO_BASE}/mindset-quotes/part-2.mp3` },
+    ],
+  },
+  "resilience-quotes": {
+    heading: "Listen to the Resilience audio series",
+    intro:
+      "A two-part guided reflection on building resilience through mindful awareness.",
+    tracks: [
+      { title: "Part 1: Resilience", src: `${AUDIO_BASE}/resilience-quotes/part-1.mp3` },
+      { title: "Part 2: Resilience", src: `${AUDIO_BASE}/resilience-quotes/part-2.mp3` },
+    ],
+  },
+  "stress-quotes": {
+    heading: "Listen to the Stress audio series",
+    intro:
+      "A guided reflection on navigating stress with mindful wisdom. (Part 1 coming soon.)",
+    tracks: [
+      { title: "Part 2: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-2.mp3` },
+    ],
+  },
 };
 
 export function getPlaylist(slug: string | undefined): AudioPlaylist | null {
