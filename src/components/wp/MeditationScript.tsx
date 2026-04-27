@@ -1,11 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
-import pdfWorkerUrl from "pdfjs-dist/legacy/build/pdf.worker.min.mjs?url";
 import { Download, FileText, Printer, ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
-
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
 
 export type MeditationScriptVariant = "inline" | "collapsible" | "card";
 
@@ -40,12 +36,19 @@ function PdfCanvasPreview({ pdfUrl, title, onView }: PdfCanvasPreviewProps) {
 
   useEffect(() => {
     let cancelled = false;
-    const loadingTask = pdfjsLib.getDocument({ url: pdfUrl });
+    let loadingTask: { promise: Promise<any>; destroy: () => Promise<void> } | null = null;
 
     async function renderFirstPage() {
       setStatus("loading");
 
       try {
+        const [pdfjsLib, workerModule] = await Promise.all([
+          import("pdfjs-dist/legacy/build/pdf.mjs"),
+          import("pdfjs-dist/legacy/build/pdf.worker.min.mjs?url"),
+        ]);
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc = workerModule.default;
+        loadingTask = pdfjsLib.getDocument({ url: pdfUrl });
         const pdf = await loadingTask.promise;
         const page = await pdf.getPage(1);
         const canvas = canvasRef.current;
@@ -90,7 +93,7 @@ function PdfCanvasPreview({ pdfUrl, title, onView }: PdfCanvasPreviewProps) {
 
     return () => {
       cancelled = true;
-      void loadingTask.destroy();
+      void loadingTask?.destroy();
     };
   }, [pdfUrl, renderWidth, onView]);
 
