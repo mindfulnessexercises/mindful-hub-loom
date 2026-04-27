@@ -96,7 +96,7 @@ export function getTemplateConfig(
 }
 
 export const HERO_DENSITY_CLASS: Record<HeroDensity, string> = {
-  compact: "py-4 lg:py-6",
-  default: "py-6 lg:py-10",
-  spacious: "py-10 lg:py-16",
+  compact: "py-3 lg:py-5",
+  default: "py-4 lg:py-7",
+  spacious: "py-8 lg:py-12",
 };

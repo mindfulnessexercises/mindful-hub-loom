@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useMemo, useRef } from "react";
-import { ArrowRight, Calendar, ArrowLeft, Clock, Headphones } from "lucide-react";
+import { ArrowRight, Calendar, Clock, Headphones } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { Button } from "@/components/ui/button";
@@ -383,22 +383,12 @@ export default function WPResolver() {
               header — it slots in below so the eye lands on the title first. */}
           <header className="border-b border-border bg-[hsl(var(--section-alternate))]">
             <div className={`container mx-auto max-w-3xl ${HERO_DENSITY_CLASS[tpl.heroDensity]}`}>
-              <div className="mb-5">
+              <div className="mb-3">
                 <WPBreadcrumbs items={breadcrumbItems} />
               </div>
 
-              {kind === "post" && !isDownloadsPage && (
-                <Link
-                  to={isPodcastEpisode ? "/podcast" : "/blog"}
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-5"
-                >
-                  <ArrowLeft className="h-3.5 w-3.5" />
-                  {isPodcastEpisode ? "All episodes" : "All articles"}
-                </Link>
-              )}
-
               {cats.length > 0 && (
-                <div className="flex flex-wrap items-center gap-2 mb-4">
+                <div className="flex flex-wrap items-center gap-2 mb-3">
                   {cats.slice(0, 3).map((c) => (
                     <Link key={c.id} to={`/category/${c.slug}`}>
                       <Badge
@@ -413,12 +403,12 @@ export default function WPResolver() {
               )}
 
               <h1
-                className="text-hero text-foreground mb-6 text-balance"
+                className="text-section-heading text-foreground mb-4 text-balance"
                 dangerouslySetInnerHTML={{ __html: doc.title.rendered }}
               />
 
               {kind === "post" && (
-                <div className="flex flex-wrap items-center justify-between gap-4 mt-6">
+                <div className="flex flex-wrap items-center justify-between gap-3 mt-3">
                   {author ? (
                     <AuthorCard
                       author={author}
