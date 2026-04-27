@@ -197,11 +197,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "meditation-script-contentment": {
-    heading: "Listen: Contentment for Simply Being",
+    heading: "Listen: Contentment audio series",
     intro:
-      "A guided meditation for resting into the quiet sufficiency of this moment — softening the urge to do, fix, or become, and letting yourself simply be.",
+      "A guided meditation plus a dharma talk on contentment — Contentment for Simply Being rests into the quiet sufficiency of this moment; Practice Notes: Contentment (Gil Fronsdal) reflects on contentment as a path of practice.",
     tracks: [
       { title: "Contentment for Simply Being — Guided Meditation", src: `${AUDIO_BASE}/meditation-script-contentment/contentment-for-simply-being.mp3` },
+      { title: "Practice Notes: Contentment — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/meditation-script-contentment/practice-notes-contentment.mp3` },
     ],
   },
   "awareness-of-the-four-elements": {
@@ -298,11 +299,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "growing-happiness-in-the-mind": {
-    heading: "Listen: Opening to Gladness",
+    heading: "Listen: Happiness audio series",
     intro:
-      "A guided meditation for letting small moments of joy land — opening the heart to the quiet gladness already woven into ordinary life.",
+      "A guided meditation plus a dharma talk on happiness — Opening to Gladness lets small moments of joy land; Ripples of Happiness (Matthew Brensilver) explores how cultivated happiness ripples outward into relationship, work, and world.",
     tracks: [
       { title: "Opening to Gladness — Guided Meditation", src: `${AUDIO_BASE}/growing-happiness-in-the-mind/opening-to-gladness.mp3` },
+      { title: "Ripples of Happiness — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/growing-happiness-in-the-mind/ripples-of-happiness.mp3` },
     ],
   },
   "the-highest-form-of-happiness-rediscovering-peace": {
@@ -394,11 +396,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "guided-meditation-self-acceptance": {
-    heading: "Listen: How to Allow Your Experience to Be What It Is",
+    heading: "Listen: Self-Acceptance audio series",
     intro:
-      "A guided meditation for meeting whatever is arising — pleasant or painful — with allowance instead of resistance, and discovering the spaciousness underneath.",
+      "A guided meditation plus a short dharma talk — How to Allow Your Experience to Be What It Is meets whatever arises with allowance; Practice Notes: It's OK (Gil Fronsdal) is a tender reminder that this moment, too, is allowed to be exactly as it is.",
     tracks: [
       { title: "How to Allow Your Experience to Be What It Is — Guided Meditation", src: `${AUDIO_BASE}/guided-meditation-self-acceptance/how-to-allow-your-experience.mp3` },
+      { title: "Practice Notes: It's OK — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/guided-meditation-self-acceptance/practice-notes-its-ok.mp3` },
     ],
   },
   "short-body-scan": {
@@ -495,10 +498,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "power-of-gratitude-meditation-7-ways-to-cultivate-it": {
     heading: "Listen: Power of Gratitude audio series",
     intro:
-      "Two guided meditations on gratitude — Heart-Centered Gratitude opens the chest slowly and tenderly to what is already enough; The Power of Gratitude widens the practice into a quiet, daily way of seeing.",
+      "Two guided meditations and a dharma talk on gratitude — Heart-Centered Gratitude opens the chest tenderly to what is already enough; The Power of Gratitude widens it into a daily way of seeing; Gratitude (Gil Fronsdal) offers a contemplative reflection on gratitude as practice.",
     tracks: [
       { title: "Heart-Centered Gratitude — Guided Meditation", src: `${AUDIO_BASE}/power-of-gratitude-meditation/heart-centered-gratitude.mp3` },
       { title: "The Power of Gratitude — Guided Meditation", src: `${AUDIO_BASE}/power-of-gratitude-meditation/the-power-of-gratitude.mp3` },
+      { title: "Gratitude — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-fronsdal.mp3` },
     ],
   },
   "reduce-rumination-and-increase-positive-states-through-neuro-learning": {
@@ -620,6 +624,54 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A guided loving-kindness meditation — extending warm wishes of care first to yourself, then outward to a benefactor, a loved one, and beyond.",
     tracks: [
       { title: "Wishing Care For Self and Others — Guided Meditation", src: `${AUDIO_BASE}/loving-kindness-benefactor/wishing-care-for-self-and-others.mp3` },
+    ],
+  },
+  "the-importance-of-finding-quiet-time": {
+    heading: "Listen: The Still, Quiet Place Within",
+    intro:
+      "A short dharma talk by Gil Fronsdal — pointing toward the still, quiet place that is always already here, beneath the noise of thought.",
+    tracks: [
+      { title: "The Still, Quiet Place Within — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/importance-of-finding-quiet-time/still-quiet-place-within.mp3` },
+    ],
+  },
+  "9-mindfulness-exercises-for-anxiety": {
+    heading: "Listen: Working With Fear",
+    intro:
+      "A dharma talk by Joseph Goldstein on meeting fear with mindfulness — turning toward what frightens us with steady awareness, again and again, until the grip softens.",
+    tracks: [
+      { title: "Working With Fear — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/working-with-fear.mp3` },
+    ],
+  },
+  "working-with-thoughts": {
+    heading: "Listen: Working With Thought and Emotion",
+    intro:
+      "A dharma talk by Joseph Goldstein on meeting thoughts and emotions with awareness — seeing them clearly enough that they no longer have to run the show.",
+    tracks: [
+      { title: "Working With Thought and Emotion — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/working-with-thoughts/working-with-thought-and-emotion.mp3` },
+    ],
+  },
+  "guided-loving-kindness-meditation-audio": {
+    heading: "Listen: The Kind Heart",
+    intro:
+      "A dharma talk by Joseph Goldstein on metta and the kind heart — the slow, steady cultivation of friendliness toward self, others, and life itself.",
+    tracks: [
+      { title: "The Kind Heart — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/guided-loving-kindness-meditation-audio/the-kind-heart.mp3` },
+    ],
+  },
+  "reflections-on-slowing-down-self-love-and-inner-wisdom": {
+    heading: "Listen: Every Moment a Chance to Restart",
+    intro:
+      "A short dharma talk by Gil Fronsdal — a quiet reminder that practice is never lost; every moment offers a fresh chance to begin again.",
+    tracks: [
+      { title: "Every Moment a Chance to Restart — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/reflections-on-slowing-down/every-moment-a-chance-to-restart.mp3` },
+    ],
+  },
+  "walking-meditation-worksheet-2": {
+    heading: "Listen: Walking Meditation",
+    intro:
+      "A dharma talk by Matthew Brensilver on walking meditation — instructions and reflections on bringing mindful presence into the simple act of putting one foot in front of the other.",
+    tracks: [
+      { title: "Walking Meditation — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/walking-meditation-worksheet/walking-meditation-talk.mp3` },
     ],
   },
 };
