@@ -478,6 +478,16 @@ export function injectInlineAudio(html: string, slug: string | undefined): strin
       const track = tracks.find((t) => text.includes(normalize(t.match)));
       if (!track) return full;
 
+      // Suggested filename for the Download link — derived from the
+      // file's pathname so the saved file keeps a sensible name.
+      let filename = "guided-meditation.mp3";
+      try {
+        const last = new URL(track.src).pathname.split("/").filter(Boolean).pop();
+        if (last) filename = decodeURIComponent(last);
+      } catch {
+        // ignore
+      }
+
       // Inline styles only — keeps this independent of Tailwind classes
       // surviving WP HTML rewrites. Mirrors the "serene & elevated" feel.
       const player = `
@@ -487,6 +497,12 @@ export function injectInlineAudio(html: string, slug: string | undefined): strin
     Your browser does not support the audio element.
     <a href="${track.src}">Download the audio file</a>.
   </audio>
+  <div class="mt-2">
+    <a href="${track.src}" download="${filename}" class="inline-flex min-h-[44px] items-center gap-1.5 rounded-md border border-border bg-background px-3 py-2 text-xs font-medium text-foreground/85 hover:bg-muted hover:text-foreground transition" aria-label="Download ${track.label} as MP3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+      Download MP3
+    </a>
+  </div>
 </figure>`;
       return `${full}\n${player}`;
     },
