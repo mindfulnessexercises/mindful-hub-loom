@@ -267,6 +267,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "The Beauty Of Your Breath — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/beauty-of-your-breath.mp3` },
       { title: "Breathing Space — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-space.mp3` },
       { title: "Five-Minute Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/5-minute-breathing.mp3` },
+      { title: "Ten-Minute Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-10-minutes.mp3` },
+      { title: "Fifteen-Minute Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-15-minutes.mp3` },
       { title: "Breathing In Care — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-in-care.mp3` },
       { title: "Creating Mental Space Through Mindful Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/creating-mental-space.mp3` },
       { title: "Feeling Embodied With Mindfulness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/feeling-embodied.mp3` },
@@ -424,10 +426,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself": {
     heading: "Listen: Self-Compassion audio series",
     intro:
-      "Two guided meditations companion to this collection of self-compassion exercises — 21-Day Compassion offers a steady daily practice; Nourishing Your Body With Attention turns kind, attentive presence toward the body itself.",
+      "Three guided meditations companion to this collection of self-compassion exercises — 21-Day Compassion offers a steady daily practice; Nourishing Your Body With Attention turns kind, attentive presence toward the body itself; Compassion Meditation is a longer practice for opening the heart wide enough to hold both your own pain and the pain of others.",
     tracks: [
       { title: "21-Day Compassion — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/21-day-compassion.mp3` },
       { title: "Nourishing Your Body With Attention — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/nourishing-body-with-attention.mp3` },
+      { title: "Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/compassion-meditation.mp3` },
     ],
   },
   "mindfulness-body-scan-for-self-compassion": {
@@ -582,10 +585,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "the-power-of-loving-kindness-how-to-cultivate-it": {
     heading: "Listen: Loving-Kindness audio series",
     intro:
-      "A classic metta practice with Sean Fargo — extending warmth and goodwill first to yourself, then outward, in widening circles of care. Plus a long-form Guided Metta Meditation by Gil Fronsdal — a tender, traditional metta practice from one of the foremost Western teachers of loving-kindness.",
+      "A classic metta practice with Sean Fargo — extending warmth and goodwill first to yourself, then outward, in widening circles of care. Plus a long-form Guided Metta Meditation by Gil Fronsdal — a tender, traditional metta practice from one of the foremost Western teachers of loving-kindness. Closes with a two-part long-form retreat on the Brahmaviharas — the four boundless states of loving-kindness, compassion, sympathetic joy, and equanimity.",
     tracks: [
       { title: "Loving-Kindness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-loving-kindness/loving-kindness.mp3` },
       { title: "Guided Metta Meditation — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/gil-fronsdal-metta.mp3` },
+      { title: "The Brahmaviharas, Part 1 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/brahmavihara-part-1.mp3` },
+      { title: "The Brahmaviharas, Part 2 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/brahmavihara-part-2.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -668,11 +673,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "self-compassion-pause": {
-    heading: "Listen: The Voice of A Good Friend",
+    heading: "Listen: Self-Compassion Pause audio series",
     intro:
-      "A guided self-compassion meditation — practicing offering yourself the same warmth, patience, and steady kindness you'd give a close friend.",
+      "A short and a longer self-compassion practice — The Voice of A Good Friend invites the same warmth, patience, and steady kindness you'd offer a close friend; Compassion Meditation is a longer practice for letting the heart soften into both your own pain and the pain of others.",
     tracks: [
       { title: "The Voice of A Good Friend — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/self-compassion-pause/voice-of-a-good-friend.mp3` },
+      { title: "Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/compassion-meditation.mp3` },
     ],
   },
   "soft-belly": {
@@ -826,11 +832,15 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "mindfulness-meditation-and-the-space-in-between": {
-    heading: "Listen: Practice Notes — Ease",
+    heading: "Listen: The Space In Between audio series",
     intro:
-      "A short dharma talk by Gil Fronsdal on ease — not as the absence of effort, but as the soft, spacious quality that lives in the in-between of practice.",
+      "A short dharma talk by Gil Fronsdal on ease — not as the absence of effort, but as the soft, spacious quality that lives in the in-between of practice. Plus a four-part long-form retreat series on Emptiness — the liberating teaching that what we take to be solid (self, thought, experience) is more open and spacious than the mind first assumes.",
     tracks: [
       { title: "Practice Notes: Ease — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/ease.mp3` },
+      { title: "Emptiness, Part 1 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-1.mp3` },
+      { title: "Emptiness, Part 2 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-2.mp3` },
+      { title: "Emptiness, Part 3 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-3.mp3` },
+      { title: "Emptiness, Part 4 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-4.mp3` },
     ],
   },
 };
