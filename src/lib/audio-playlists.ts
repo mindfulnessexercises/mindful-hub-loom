@@ -209,7 +209,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation plus a dharma talk on contentment — Contentment for Simply Being rests into the quiet sufficiency of this moment; Practice Notes: Contentment (Gil Fronsdal) reflects on contentment as a path of practice.",
     tracks: [
-      { title: "Contentment for Simply Being — Guided Meditation", src: `${AUDIO_BASE}/meditation-script-contentment/contentment-for-simply-being.mp3` },
+      { title: "Contentment for Simply Being — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/meditation-script-contentment/contentment-for-simply-being.mp3` },
       { title: "Practice Notes: Contentment — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/meditation-script-contentment/practice-notes-contentment.mp3` },
     ],
   },
@@ -218,8 +218,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "Two guided meditations for inhabiting the body — Elemental Body Awareness moves through earth, water, fire, and air; How to Come Home to the Body offers a slower return to physical presence.",
     tracks: [
-      { title: "Elemental Body Awareness — Guided Meditation", src: `${AUDIO_BASE}/awareness-of-the-four-elements/elemental-body-awareness.mp3` },
-      { title: "How to Come Home to the Body — Guided Meditation", src: `${AUDIO_BASE}/awareness-of-the-four-elements/come-home-to-the-body.mp3` },
+      { title: "Elemental Body Awareness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/awareness-of-the-four-elements/elemental-body-awareness.mp3` },
+      { title: "How to Come Home to the Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/awareness-of-the-four-elements/come-home-to-the-body.mp3` },
     ],
   },
   "how-to-practice-mindfulness-of-death-and-why-its-important": {
@@ -227,7 +227,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A tender guided meditation on the truth of impermanence — not as fear, but as an invitation to live this life more awake, more honest, more grateful.",
     tracks: [
-      { title: "Mindfulness of Death — Guided Meditation", src: `${AUDIO_BASE}/how-to-practice-mindfulness-of-death/mindfulness-of-death.mp3` },
+      { title: "Mindfulness of Death — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-practice-mindfulness-of-death/mindfulness-of-death.mp3` },
     ],
   },
   "feeling-tones-pleasant-unpleasant-neutral": {
@@ -235,7 +235,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation on vedanā — the subtle tone of pleasant, unpleasant, or neutral that colors every experience before we even notice it.",
     tracks: [
-      { title: "Mindfulness of Feeling Tones — Guided Meditation", src: `${AUDIO_BASE}/feeling-tones-pleasant-unpleasant-neutral/mindfulness-of-feeling-tones.mp3` },
+      { title: "Mindfulness of Feeling Tones — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/feeling-tones-pleasant-unpleasant-neutral/mindfulness-of-feeling-tones.mp3` },
     ],
   },
   "10-tips-for-teaching-mindfulness-of-breathing-practices": {
@@ -243,7 +243,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation on the foundational practice — resting attention on the breath, returning gently each time the mind wanders.",
     tracks: [
-      { title: "Mindfulness of Breathing — Guided Meditation", src: `${AUDIO_BASE}/10-tips-teaching-mindfulness-of-breathing/mindfulness-of-breathing.mp3` },
+      { title: "Mindfulness of Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/10-tips-teaching-mindfulness-of-breathing/mindfulness-of-breathing.mp3` },
     ],
   },
   "6-mindful-breathing-exercises": {
@@ -251,10 +251,10 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "Four guided meditations for meeting the breath with fresh attention — from curiosity, to embodied awareness, to counting each exhale, to resting in the rhythm of the breath without judgment.",
     tracks: [
-      { title: "Breathing With Curiosity — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-with-curiosity.mp3` },
-      { title: "Embodied Awareness of Breathing — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/embodied-awareness-of-breathing.mp3` },
-      { title: "Counting Each Exhale — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/counting-each-exhale.mp3` },
-      { title: "Rhythm Of The Breath Without Judgment — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/rhythm-of-the-breath.mp3` },
+      { title: "Breathing With Curiosity — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-with-curiosity.mp3` },
+      { title: "Embodied Awareness of Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/embodied-awareness-of-breathing.mp3` },
+      { title: "Counting Each Exhale — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/counting-each-exhale.mp3` },
+      { title: "Rhythm Of The Breath Without Judgment — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/rhythm-of-the-breath.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -262,7 +262,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A trauma-sensitive guided meditation for slowly, gently rebuilding a sense of safety and belonging within your own body.",
     tracks: [
-      { title: "Finding Refuge in the Body — Guided Meditation", src: `${AUDIO_BASE}/using-yoga-and-mindfulness-to-heal-trauma/finding-refuge-in-the-body.mp3` },
+      { title: "Finding Refuge in the Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/using-yoga-and-mindfulness-to-heal-trauma/finding-refuge-in-the-body.mp3` },
     ],
   },
   "cope-with-difficult-emotions-through-mindfulness": {
@@ -270,7 +270,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation plus a short dharma talk for working with hard feelings — Exploring Frustration turns toward the heat of it with curiosity and care; Entering Into Difficulty (Gil Fronsdal) is a tender reflection on how we step closer, instead of away, when the difficult arises.",
     tracks: [
-      { title: "Exploring Frustration — Guided Meditation", src: `${AUDIO_BASE}/cope-with-difficult-emotions/exploring-frustration.mp3` },
+      { title: "Exploring Frustration — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cope-with-difficult-emotions/exploring-frustration.mp3` },
       { title: "Entering Into Difficulty — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions/entering-into-difficulty.mp3` },
     ],
   },
@@ -279,7 +279,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation for softening the chest with appreciation — letting gratitude land in the body as a quiet antidote to anxious mind.",
     tracks: [
-      { title: "Feeling Appreciative — Guided Meditation", src: `${AUDIO_BASE}/an-anti-anxiety-gratitude-practice/feeling-appreciative.mp3` },
+      { title: "Feeling Appreciative — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/an-anti-anxiety-gratitude-practice/feeling-appreciative.mp3` },
     ],
   },
   "meditation-inner-critic-audio": {
@@ -287,7 +287,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A short talk unpacking the three faces the inner critic tends to wear — and how seeing them clearly is the first step to loosening their grip.",
     tracks: [
-      { title: "The 3 Core Identities of the Critic", src: `${AUDIO_BASE}/inner-critic/three-core-identities.mp3` },
+      { title: "The 3 Core Identities of the Critic — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/inner-critic/three-core-identities.mp3` },
     ],
   },
   "guided-meditation-inner-critic": {
@@ -295,7 +295,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A short talk unpacking the three faces the inner critic tends to wear — and how seeing them clearly is the first step to loosening their grip.",
     tracks: [
-      { title: "The 3 Core Identities of the Critic", src: `${AUDIO_BASE}/inner-critic/three-core-identities.mp3` },
+      { title: "The 3 Core Identities of the Critic — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/inner-critic/three-core-identities.mp3` },
     ],
   },
   "when-mindfulness-meets-the-nervous-system": {
@@ -303,8 +303,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "Two trauma-sensitive guided meditations — Mindfulness of Shame meets shame with steady awareness; How to Befriend Your Body, Your Emotions and Your Spirit invites a softer relationship with the whole of you.",
     tracks: [
-      { title: "Mindfulness of Shame — Guided Meditation", src: `${AUDIO_BASE}/when-mindfulness-meets-the-nervous-system/mindfulness-of-shame.mp3` },
-      { title: "How to Befriend Your Body, Your Emotions & Your Spirit — Guided Meditation", src: `${AUDIO_BASE}/when-mindfulness-meets-the-nervous-system/befriend-body-emotions-spirit.mp3` },
+      { title: "Mindfulness of Shame — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/when-mindfulness-meets-the-nervous-system/mindfulness-of-shame.mp3` },
+      { title: "How to Befriend Your Body, Your Emotions & Your Spirit — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/when-mindfulness-meets-the-nervous-system/befriend-body-emotions-spirit.mp3` },
     ],
   },
   "growing-happiness-in-the-mind": {
@@ -312,7 +312,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation plus a dharma talk on happiness — Opening to Gladness lets small moments of joy land; Ripples of Happiness (Matthew Brensilver) explores how cultivated happiness ripples outward into relationship, work, and world.",
     tracks: [
-      { title: "Opening to Gladness — Guided Meditation", src: `${AUDIO_BASE}/growing-happiness-in-the-mind/opening-to-gladness.mp3` },
+      { title: "Opening to Gladness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/growing-happiness-in-the-mind/opening-to-gladness.mp3` },
       { title: "Ripples of Happiness — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/growing-happiness-in-the-mind/ripples-of-happiness.mp3` },
     ],
   },
@@ -321,8 +321,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation for softening into the kind of happiness that doesn't depend on circumstance — the steady, peaceful kind that lives beneath the noise.",
     tracks: [
-      { title: "Opening to Happiness — Guided Meditation", src: `${AUDIO_BASE}/highest-form-of-happiness/opening-to-happiness.mp3` },
-      { title: "Daily Practices For Love & Happiness — Guided Meditation", src: `${AUDIO_BASE}/highest-form-of-happiness/daily-practices-love-happiness.mp3` },
+      { title: "Opening to Happiness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/highest-form-of-happiness/opening-to-happiness.mp3` },
+      { title: "Daily Practices For Love & Happiness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/highest-form-of-happiness/daily-practices-love-happiness.mp3` },
     ],
   },
   "visiting-your-safe-place": {
@@ -330,7 +330,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A trauma-sensitive guided meditation for noticing the small signals of safety already present in the body — a gentle anchor for the nervous system.",
     tracks: [
-      { title: "Sensing Into Safety — Guided Meditation", src: `${AUDIO_BASE}/visiting-your-safe-place/sensing-into-safety.mp3` },
+      { title: "Sensing Into Safety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/visiting-your-safe-place/sensing-into-safety.mp3` },
     ],
   },
   "movement-meditation": {
@@ -338,7 +338,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A spacious guided meditation orienting awareness through the seven directions — front, back, left, right, above, below, and within — a practice of fully inhabiting your place in space.",
     tracks: [
-      { title: "Seven Directions — Guided Meditation", src: `${AUDIO_BASE}/movement-meditation/seven-directions.mp3` },
+      { title: "Seven Directions — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/movement-meditation/seven-directions.mp3` },
     ],
   },
   "cultivating-self-care-and-extending-it-out": {
@@ -346,8 +346,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "Two gentle guided meditations for offering kind, attentive care to yourself — Tending to the Body softens you back into physical presence; Caring Awareness for the Head brings tenderness to a busy mind.",
     tracks: [
-      { title: "Tending to the Body — Guided Meditation", src: `${AUDIO_BASE}/cultivating-self-care/tending-to-the-body.mp3` },
-      { title: "Caring Awareness for the Head — Guided Meditation", src: `${AUDIO_BASE}/cultivating-self-care/caring-awareness-for-the-head.mp3` },
+      { title: "Tending to the Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-self-care/tending-to-the-body.mp3` },
+      { title: "Caring Awareness for the Head — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-self-care/caring-awareness-for-the-head.mp3` },
     ],
   },
   "higher-self-meditation": {
@@ -355,7 +355,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A spacious guided meditation that softens the felt sense of time — opening into a wider, quieter awareness beneath the rush.",
     tracks: [
-      { title: "The Expanding Dimension of Time — Guided Meditation", src: `${AUDIO_BASE}/higher-self-meditation/expanding-dimension-of-time.mp3` },
+      { title: "The Expanding Dimension of Time — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/higher-self-meditation/expanding-dimension-of-time.mp3` },
     ],
   },
   "what-rick-hansons-meditation-taught-me-about-truly-staying-present": {
@@ -363,7 +363,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A grounding guided meditation for meeting whatever is here — pleasant, unpleasant, or in-between — with the simple acknowledgment: this moment is like this.",
     tracks: [
-      { title: "This Moment Is Like This — Guided Meditation", src: `${AUDIO_BASE}/rick-hansons-meditation-staying-present/this-moment-is-like-this.mp3` },
+      { title: "This Moment Is Like This — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/rick-hansons-meditation-staying-present/this-moment-is-like-this.mp3` },
     ],
   },
   "kindness-for-your-thinking-mind": {
@@ -371,7 +371,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation plus a short dharma talk for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking itself.",
     tracks: [
-      { title: "Three Centers — Belly, Heart & Head", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/three-centers.mp3` },
+      { title: "Three Centers — Belly, Heart & Head by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/three-centers.mp3` },
       { title: "Practice Notes: Soft Receptive Mind — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/soft-receptive-mind.mp3` },
     ],
   },
@@ -393,8 +393,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "Two guided meditations companion to this collection of self-compassion exercises — 21-Day Compassion offers a steady daily practice; Nourishing Your Body With Attention turns kind, attentive presence toward the body itself.",
     tracks: [
-      { title: "21-Day Compassion — Guided Meditation", src: `${AUDIO_BASE}/8-self-compassion-exercises/21-day-compassion.mp3` },
-      { title: "Nourishing Your Body With Attention — Guided Meditation", src: `${AUDIO_BASE}/8-self-compassion-exercises/nourishing-body-with-attention.mp3` },
+      { title: "21-Day Compassion — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/21-day-compassion.mp3` },
+      { title: "Nourishing Your Body With Attention — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/nourishing-body-with-attention.mp3` },
     ],
   },
   "mindfulness-body-scan-for-self-compassion": {
@@ -402,8 +402,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "Two guided body-scan meditations — How to Simply Be In The Body softens the urge to do and lets you rest into being; Body Appreciation tends to each part of you with gratitude and care.",
     tracks: [
-      { title: "How to Simply Be In The Body — Guided Meditation", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/how-to-simply-be-in-the-body.mp3` },
-      { title: "Body Appreciation — Guided Meditation", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/body-appreciation.mp3` },
+      { title: "How to Simply Be In The Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/how-to-simply-be-in-the-body.mp3` },
+      { title: "Body Appreciation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/body-appreciation.mp3` },
     ],
   },
   "guided-meditation-self-acceptance": {
@@ -411,7 +411,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation plus a short dharma talk — How to Allow Your Experience to Be What It Is meets whatever arises with allowance; Practice Notes: It's OK (Gil Fronsdal) is a tender reminder that this moment, too, is allowed to be exactly as it is.",
     tracks: [
-      { title: "How to Allow Your Experience to Be What It Is — Guided Meditation", src: `${AUDIO_BASE}/guided-meditation-self-acceptance/how-to-allow-your-experience.mp3` },
+      { title: "How to Allow Your Experience to Be What It Is — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/guided-meditation-self-acceptance/how-to-allow-your-experience.mp3` },
       { title: "Practice Notes: It's OK — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/guided-meditation-self-acceptance/practice-notes-its-ok.mp3` },
     ],
   },
@@ -420,7 +420,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A grounding guided body scan — moving slowly through the body with kind, curious attention, returning you to the felt sense of being here.",
     tracks: [
-      { title: "Body Scan — Guided Meditation", src: `${AUDIO_BASE}/short-body-scan/body-scan-meditation.mp3` },
+      { title: "Body Scan — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/short-body-scan/body-scan-meditation.mp3` },
     ],
   },
   "honoring-joanna-macy-a-tribute-to-a-visionary-of-interconnection-and-courage": {
@@ -428,7 +428,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation in the spirit of Joanna Macy's work — turning toward what is hard with steadiness and tender courage, instead of looking away.",
     tracks: [
-      { title: "Cultivating Courage to Be With What Is — Guided Meditation", src: `${AUDIO_BASE}/honoring-joanna-macy/cultivating-courage.mp3` },
+      { title: "Cultivating Courage to Be With What Is — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/honoring-joanna-macy/cultivating-courage.mp3` },
     ],
   },
   "body-scan-advanced": {
@@ -436,7 +436,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided body-scan meditation focused on the head and neck — softening the held tension we so often carry without noticing.",
     tracks: [
-      { title: "Sensing Into the Head and Neck — Guided Meditation", src: `${AUDIO_BASE}/body-scan-advanced/sensing-into-head-and-neck.mp3` },
+      { title: "Sensing Into the Head and Neck — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/body-scan-advanced/sensing-into-head-and-neck.mp3` },
     ],
   },
   "settling-into-presence": {
@@ -444,7 +444,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A short guided meditation for letting the body, breath, and mind arrive — gently — into the simple presence of right now.",
     tracks: [
-      { title: "Settling Into This Present Moment — Guided Meditation", src: `${AUDIO_BASE}/settling-into-presence/settling-into-this-present-moment.mp3` },
+      { title: "Settling Into This Present Moment — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/settling-into-presence/settling-into-this-present-moment.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -452,8 +452,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "Two guided meditations and a dharma talk for working with anxiety — Alleviating Anxiety meets anxious sensations with steady, kind awareness; Noticing The Presence of Anxiety practices simply seeing it clearly without becoming it; Working With Fear (Joseph Goldstein) widens the lens with a longer reflection on meeting fear in practice.",
     tracks: [
-      { title: "Alleviating Anxiety — Guided Meditation", src: `${AUDIO_BASE}/affirmations-for-anxiety/alleviating-anxiety.mp3` },
-      { title: "Noticing The Presence of Anxiety — Guided Meditation", src: `${AUDIO_BASE}/affirmations-for-anxiety/noticing-presence-of-anxiety.mp3` },
+      { title: "Alleviating Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/affirmations-for-anxiety/alleviating-anxiety.mp3` },
+      { title: "Noticing The Presence of Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/affirmations-for-anxiety/noticing-presence-of-anxiety.mp3` },
       {
         title: "Working With Fear — Dharma Talk by Joseph Goldstein",
         src: `${AUDIO_BASE}/affirmations-for-anxiety/working-with-fear.mp3`,
@@ -468,9 +468,9 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "Three guided meditations for working with anxiety — Befriending Anxiety invites a softer relationship with anxious feeling; Alleviating Tension releases the held tightness it leaves behind; Standard Practice For Anxiety offers a steady, repeatable companion for harder moments.",
     tracks: [
-      { title: "Befriending Anxiety — Guided Meditation", src: `${AUDIO_BASE}/three-60-second-anxiety/befriending-anxiety.mp3` },
-      { title: "Alleviating Tension In Your Body & Mind — Guided Meditation", src: `${AUDIO_BASE}/three-60-second-anxiety/alleviating-tension.mp3` },
-      { title: "Standard Practice For Anxiety — Guided Meditation", src: `${AUDIO_BASE}/three-60-second-anxiety/standard-practice-for-anxiety.mp3` },
+      { title: "Befriending Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/three-60-second-anxiety/befriending-anxiety.mp3` },
+      { title: "Alleviating Tension In Your Body & Mind — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/three-60-second-anxiety/alleviating-tension.mp3` },
+      { title: "Standard Practice For Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/three-60-second-anxiety/standard-practice-for-anxiety.mp3` },
     ],
   },
   "bedtime-mindfulness": {
@@ -478,7 +478,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A slow, soothing guided meditation for the end of the day — gently directing awareness through the body with deep relaxation as the doorway into rest.",
     tracks: [
-      { title: "Directing Your Awareness With Relaxation — Guided Meditation", src: `${AUDIO_BASE}/bedtime-mindfulness/directing-awareness-relaxation.mp3` },
+      { title: "Directing Your Awareness With Relaxation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/bedtime-mindfulness/directing-awareness-relaxation.mp3` },
     ],
   },
   "self-love-affirmations": {
@@ -486,7 +486,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation plus a short dharma talk on quiet inner steadiness — Feeling Competent rests into the felt sense of your own capability; Confidence (Gil Fronsdal) is a tender reflection on the kind of confidence that doesn't need to prove anything to be true.",
     tracks: [
-      { title: "Feeling Competent — Guided Meditation", src: `${AUDIO_BASE}/self-love-affirmations/feeling-competent.mp3` },
+      { title: "Feeling Competent — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/self-love-affirmations/feeling-competent.mp3` },
       { title: "Confidence — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/self-love-affirmations/confidence.mp3` },
     ],
   },
@@ -495,7 +495,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation plus a short dharma talk on joy — Gratitude And Gladness softens you into the quiet gladness of being alive; Be Amazed: Wow (Gil Fronsdal) is a tender reminder of the simple wonder hiding in plain sight.",
     tracks: [
-      { title: "Gratitude And Gladness — Guided Meditation", src: `${AUDIO_BASE}/cultivating-joy/gratitude-and-gladness.mp3` },
+      { title: "Gratitude And Gladness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-joy/gratitude-and-gladness.mp3` },
       { title: "Be Amazed: Wow — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/be-amazed-wow.mp3` },
     ],
   },
@@ -504,7 +504,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation on the felt sense of gratitude — beneath the language, beneath the listing, into the quiet warmth itself.",
     tracks: [
-      { title: "Gratitude Is Not In The Words — Guided Meditation", src: `${AUDIO_BASE}/attitude-of-gratitude/gratitude-is-not-in-the-words.mp3` },
+      { title: "Gratitude Is Not In The Words — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/attitude-of-gratitude/gratitude-is-not-in-the-words.mp3` },
     ],
   },
   "full-body-awareness": {
@@ -512,7 +512,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation plus a dharma talk on coming home to the body — Grounding uses the felt sense of contact and weight to steady the nervous system; Being Trusting In The Body (Gil Fronsdal) is a longer reflection on letting awareness rest, with confidence, in the body itself.",
     tracks: [
-      { title: "Grounding — Guided Meditation", src: `${AUDIO_BASE}/full-body-awareness/grounding.mp3` },
+      { title: "Grounding — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/full-body-awareness/grounding.mp3` },
       { title: "Being Trusting In The Body — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/full-body-awareness/being-trusting-in-the-body.mp3` },
     ],
   },
@@ -521,8 +521,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "Two guided meditations and a dharma talk on gratitude — Heart-Centered Gratitude opens the chest tenderly to what is already enough; The Power of Gratitude widens it into a daily way of seeing; Gratitude (Gil Fronsdal) offers a contemplative reflection on gratitude as practice.",
     tracks: [
-      { title: "Heart-Centered Gratitude — Guided Meditation", src: `${AUDIO_BASE}/power-of-gratitude-meditation/heart-centered-gratitude.mp3` },
-      { title: "The Power of Gratitude — Guided Meditation", src: `${AUDIO_BASE}/power-of-gratitude-meditation/the-power-of-gratitude.mp3` },
+      { title: "Heart-Centered Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/heart-centered-gratitude.mp3` },
+      { title: "The Power of Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/the-power-of-gratitude.mp3` },
       { title: "Gratitude — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-fronsdal.mp3` },
     ],
   },
@@ -531,7 +531,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation for working skillfully with the looping mind — gently interrupting rumination and returning, again and again, to presence.",
     tracks: [
-      { title: "How To Stop Ruminating — Guided Meditation", src: `${AUDIO_BASE}/reduce-rumination/how-to-stop-ruminating.mp3` },
+      { title: "How To Stop Ruminating — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/reduce-rumination/how-to-stop-ruminating.mp3` },
     ],
   },
   "the-power-of-loving-kindness-how-to-cultivate-it": {
@@ -539,7 +539,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A classic metta practice — extending warmth and goodwill first to yourself, then outward, in widening circles of care.",
     tracks: [
-      { title: "Loving-Kindness — Guided Meditation", src: `${AUDIO_BASE}/power-of-loving-kindness/loving-kindness.mp3` },
+      { title: "Loving-Kindness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-loving-kindness/loving-kindness.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -547,8 +547,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "Two guided meditations in the noting tradition — Noting Thinking or Feeling practices the simple distinction between thought and feeling; Resolving Judgments meets judgmental mind with steady, non-reactive awareness.",
     tracks: [
-      { title: "Noting Thinking or Feeling — Guided Meditation", src: `${AUDIO_BASE}/noting-your-judgments/noting-thinking-or-feeling.mp3` },
-      { title: "Resolving Judgments — Guided Meditation", src: `${AUDIO_BASE}/noting-your-judgments/resolving-judgments.mp3` },
+      { title: "Noting Thinking or Feeling — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/noting-your-judgments/noting-thinking-or-feeling.mp3` },
+      { title: "Resolving Judgments — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/noting-your-judgments/resolving-judgments.mp3` },
     ],
   },
   "meditation-scripts-for-anxiety": {
@@ -556,7 +556,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation for stepping back from anxious thought — watching it from a steady, spacious distance instead of being swept inside it.",
     tracks: [
-      { title: "Observing Anxiety From A Distance — Guided Meditation", src: `${AUDIO_BASE}/meditation-scripts-for-anxiety/observing-anxiety-from-a-distance.mp3` },
+      { title: "Observing Anxiety From A Distance — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/meditation-scripts-for-anxiety/observing-anxiety-from-a-distance.mp3` },
     ],
   },
   "5-minute-meditation-script-from-mindfulness-exercises": {
@@ -564,7 +564,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A short guided meditation — just a single minute to settle, soften, and remember the good already here.",
     tracks: [
-      { title: "One Minute For Good — Guided Meditation", src: `${AUDIO_BASE}/5-minute-meditation-script/one-minute-for-good.mp3` },
+      { title: "One Minute For Good — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/5-minute-meditation-script/one-minute-for-good.mp3` },
     ],
   },
   "awareness-of-the-five-senses": {
@@ -572,7 +572,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation for arriving through the five senses — a fresh, embodied way back into the simple aliveness of right now.",
     tracks: [
-      { title: "Opening Your Senses — Guided Meditation", src: `${AUDIO_BASE}/awareness-of-the-five-senses/opening-your-senses.mp3` },
+      { title: "Opening Your Senses — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/awareness-of-the-five-senses/opening-your-senses.mp3` },
     ],
   },
   "mindfulness-body-scan-for-stress-relief": {
@@ -580,7 +580,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided body scan plus a short dharma talk for softening held tension — Relaxing Your Body moves slowly through the body, region by region, into deeper rest; Practice Notes: Relax The Eyes (Gil Fronsdal) turns kind attention to the small, often-overlooked tightness around the eyes that quietly carries a whole day's stress.",
     tracks: [
-      { title: "Relaxing Your Body — Guided Meditation", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/relaxing-your-body.mp3` },
+      { title: "Relaxing Your Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/relaxing-your-body.mp3` },
       { title: "Practice Notes: Relax The Eyes — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/relax-the-eyes.mp3` },
     ],
   },
@@ -589,7 +589,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A laying-down guided visualization — letting the still, mirror-quiet of a mountain lake settle the mind and body.",
     tracks: [
-      { title: "Sensing The Serenity Of A Lake — Guided Meditation", src: `${AUDIO_BASE}/laying-down-meditation-visualizing-a-lake/sensing-serenity-of-a-lake.mp3` },
+      { title: "Sensing The Serenity Of A Lake — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/laying-down-meditation-visualizing-a-lake/sensing-serenity-of-a-lake.mp3` },
     ],
   },
   "morning-affirmations": {
@@ -597,7 +597,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A grounding morning guided meditation — settling into gratitude as the quiet foundation beneath every other kind of abundance.",
     tracks: [
-      { title: "The Foundation For All Abundance — Guided Meditation", src: `${AUDIO_BASE}/morning-affirmations/foundation-for-all-abundance.mp3` },
+      { title: "The Foundation For All Abundance — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/foundation-for-all-abundance.mp3` },
     ],
   },
   "learning-the-secret-language-of-your-body-with-inna-segal": {
@@ -605,7 +605,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation for listening inward — tuning the dial of attention to the quiet conversation between breath and body.",
     tracks: [
-      { title: "Tuning Into Breath and Body — Guided Meditation", src: `${AUDIO_BASE}/learning-the-secret-language-of-your-body/tuning-into-breath-and-body.mp3` },
+      { title: "Tuning Into Breath and Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/learning-the-secret-language-of-your-body/tuning-into-breath-and-body.mp3` },
     ],
   },
   "8-sleep-meditations-for-a-good-nights-rest": {
@@ -613,7 +613,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A slow, soothing guided meditation for the end of the day — letting gratitude soften the body, quiet the mind, and carry you into rest.",
     tracks: [
-      { title: "The Power of Gratitude For Sleep — Guided Meditation", src: `${AUDIO_BASE}/8-sleep-meditations/power-of-gratitude-for-sleep.mp3` },
+      { title: "The Power of Gratitude For Sleep — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/power-of-gratitude-for-sleep.mp3` },
     ],
   },
   "self-compassion-pause": {
@@ -621,7 +621,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided self-compassion meditation — practicing offering yourself the same warmth, patience, and steady kindness you'd give a close friend.",
     tracks: [
-      { title: "The Voice of A Good Friend — Guided Meditation", src: `${AUDIO_BASE}/self-compassion-pause/voice-of-a-good-friend.mp3` },
+      { title: "The Voice of A Good Friend — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/self-compassion-pause/voice-of-a-good-friend.mp3` },
     ],
   },
   "soft-belly": {
@@ -629,7 +629,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A grounding guided meditation using gentle touch — one hand on the belly, one on the heart — to settle the nervous system and feel held by your own presence.",
     tracks: [
-      { title: "Touching Your Belly & Heart — Guided Meditation", src: `${AUDIO_BASE}/soft-belly/touching-your-belly-and-heart.mp3` },
+      { title: "Touching Your Belly & Heart — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/soft-belly/touching-your-belly-and-heart.mp3` },
     ],
   },
   "what-the-world-needs": {
@@ -637,7 +637,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided meditation on offering what's most yours to give — a quiet practice of remembering that the world needs you alive, awake, and present.",
     tracks: [
-      { title: "What The World Needs — Guided Meditation", src: `${AUDIO_BASE}/what-the-world-needs/what-the-world-needs.mp3` },
+      { title: "What The World Needs — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/what-the-world-needs/what-the-world-needs.mp3` },
     ],
   },
   "loving-kindness-benefactor": {
@@ -645,7 +645,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "A guided loving-kindness meditation — extending warm wishes of care first to yourself, then outward to a benefactor, a loved one, and beyond.",
     tracks: [
-      { title: "Wishing Care For Self and Others — Guided Meditation", src: `${AUDIO_BASE}/loving-kindness-benefactor/wishing-care-for-self-and-others.mp3` },
+      { title: "Wishing Care For Self and Others — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/loving-kindness-benefactor/wishing-care-for-self-and-others.mp3` },
     ],
   },
   "the-importance-of-finding-quiet-time": {
