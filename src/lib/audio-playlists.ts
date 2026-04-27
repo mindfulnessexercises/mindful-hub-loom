@@ -197,11 +197,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "meditation-script-contentment": {
-    heading: "Listen: Contentment for Simply Being",
+    heading: "Listen: Contentment audio series",
     intro:
-      "A guided meditation for resting into the quiet sufficiency of this moment — softening the urge to do, fix, or become, and letting yourself simply be.",
+      "A guided meditation plus a dharma talk on contentment — Contentment for Simply Being rests into the quiet sufficiency of this moment; Practice Notes: Contentment (Gil Fronsdal) reflects on contentment as a path of practice.",
     tracks: [
       { title: "Contentment for Simply Being — Guided Meditation", src: `${AUDIO_BASE}/meditation-script-contentment/contentment-for-simply-being.mp3` },
+      { title: "Practice Notes: Contentment — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/meditation-script-contentment/practice-notes-contentment.mp3` },
     ],
   },
   "awareness-of-the-four-elements": {
@@ -298,11 +299,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "growing-happiness-in-the-mind": {
-    heading: "Listen: Opening to Gladness",
+    heading: "Listen: Happiness audio series",
     intro:
-      "A guided meditation for letting small moments of joy land — opening the heart to the quiet gladness already woven into ordinary life.",
+      "A guided meditation plus a dharma talk on happiness — Opening to Gladness lets small moments of joy land; Ripples of Happiness (Matthew Brensilver) explores how cultivated happiness ripples outward into relationship, work, and world.",
     tracks: [
       { title: "Opening to Gladness — Guided Meditation", src: `${AUDIO_BASE}/growing-happiness-in-the-mind/opening-to-gladness.mp3` },
+      { title: "Ripples of Happiness — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/growing-happiness-in-the-mind/ripples-of-happiness.mp3` },
     ],
   },
   "the-highest-form-of-happiness-rediscovering-peace": {
@@ -394,11 +396,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "guided-meditation-self-acceptance": {
-    heading: "Listen: How to Allow Your Experience to Be What It Is",
+    heading: "Listen: Self-Acceptance audio series",
     intro:
-      "A guided meditation for meeting whatever is arising — pleasant or painful — with allowance instead of resistance, and discovering the spaciousness underneath.",
+      "A guided meditation plus a short dharma talk — How to Allow Your Experience to Be What It Is meets whatever arises with allowance; Practice Notes: It's OK (Gil Fronsdal) is a tender reminder that this moment, too, is allowed to be exactly as it is.",
     tracks: [
       { title: "How to Allow Your Experience to Be What It Is — Guided Meditation", src: `${AUDIO_BASE}/guided-meditation-self-acceptance/how-to-allow-your-experience.mp3` },
+      { title: "Practice Notes: It's OK — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/guided-meditation-self-acceptance/practice-notes-its-ok.mp3` },
     ],
   },
   "short-body-scan": {
@@ -495,10 +498,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "power-of-gratitude-meditation-7-ways-to-cultivate-it": {
     heading: "Listen: Power of Gratitude audio series",
     intro:
-      "Two guided meditations on gratitude — Heart-Centered Gratitude opens the chest slowly and tenderly to what is already enough; The Power of Gratitude widens the practice into a quiet, daily way of seeing.",
+      "Two guided meditations and a dharma talk on gratitude — Heart-Centered Gratitude opens the chest tenderly to what is already enough; The Power of Gratitude widens it into a daily way of seeing; Gratitude (Gil Fronsdal) offers a contemplative reflection on gratitude as practice.",
     tracks: [
       { title: "Heart-Centered Gratitude — Guided Meditation", src: `${AUDIO_BASE}/power-of-gratitude-meditation/heart-centered-gratitude.mp3` },
       { title: "The Power of Gratitude — Guided Meditation", src: `${AUDIO_BASE}/power-of-gratitude-meditation/the-power-of-gratitude.mp3` },
+      { title: "Gratitude — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-fronsdal.mp3` },
     ],
   },
   "reduce-rumination-and-increase-positive-states-through-neuro-learning": {
