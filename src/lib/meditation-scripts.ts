@@ -18,7 +18,7 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
   "affectionate-breathing": {
     pdfUrl: "/sample-scripts/affectionate-breathing.pdf",
     title: "Breathing Self-Compassion",
-    fileSize: "98 KB",
+    fileSize: "196 KB",
     flagged: true,
   },
 };
