@@ -679,6 +679,39 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Walking Meditation — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/walking-meditation-worksheet/walking-meditation-talk.mp3` },
     ],
   },
+  "style-over-summit-what-dirtbag-billionaire-taught-me-about-practice": {
+    heading: "Listen: Practice Notes — Patience",
+    intro:
+      "A short dharma talk by Gil Fronsdal on patience as practice — the slow, steady willingness to stay with what's actually here, instead of leaning toward the next thing.",
+    tracks: [
+      { title: "Practice Notes: Patience — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/style-over-summit/practice-notes-patience.mp3` },
+    ],
+  },
+  "supports-practice-audio": {
+    heading: "Listen: Supports for Practice audio series",
+    intro:
+      "Two dharma talks by Matthew Brensilver on what holds practice up beneath the technique — Sincerity points to the quiet honesty that makes practice real; Limits of Technique is a longer reflection on where method ends and presence begins.",
+    tracks: [
+      { title: "Sincerity — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/supports-practice-audio/sincerity.mp3` },
+      { title: "Limits of Technique — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/supports-practice-audio/limits-of-technique.mp3` },
+    ],
+  },
+  "healing-stillness-aimless-love": {
+    heading: "Listen: Teach Me To Care And Not To Care",
+    intro:
+      "A dharma talk by Gil Fronsdal taking T.S. Eliot's line as a doorway into equanimity — a love that cares deeply without grasping, and a stillness that holds it all.",
+    tracks: [
+      { title: "Teach Me To Care And Not To Care — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/healing-stillness-aimless-love/teach-me-to-care-not-to-care.mp3` },
+    ],
+  },
+  "is-it-selfish-to-want-happiness": {
+    heading: "Listen: Practicing For Oneself Is Complicated",
+    intro:
+      "A short dharma talk by Matthew Brensilver — a tender, honest look at the tangled question of practicing for our own sake, and how care for self and care for others quietly fold into one another.",
+    tracks: [
+      { title: "Practicing For Oneself Is Complicated — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/is-it-selfish-to-want-happiness/practicing-for-oneself-is-complicated.mp3` },
+    ],
+  },
 };
 
 export function getPlaylist(slug: string | undefined): AudioPlaylist | null {
