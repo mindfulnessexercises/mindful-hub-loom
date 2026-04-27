@@ -1083,6 +1083,56 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Restoring Confidence When Negatively Impacted",
     fileSize: "198 KB",
   },
+  "impermanence": {
+    pdfUrl: "/sample-scripts/impermanence.pdf",
+    title: "Impermanence",
+    fileSize: "151 KB",
+  },
+  "meditation-on-life-and-death": {
+    pdfUrl: "/sample-scripts/meditation-on-life-and-death.pdf",
+    title: "Meditation on Life and Death",
+    fileSize: "159 KB",
+  },
+  "your-future-potential": {
+    pdfUrl: "/sample-scripts/your-future-potential.pdf",
+    title: "Your Future Potential",
+    fileSize: "189 KB",
+  },
+  "what-the-world-needs": {
+    pdfUrl: "/sample-scripts/what-the-world-needs.pdf",
+    title: "What The World Needs",
+    fileSize: "181 KB",
+  },
+  "mental-subtractions-of-positive-events": {
+    pdfUrl: "/sample-scripts/mental-subtractions-of-positive-events.pdf",
+    title: "Mental Subtractions of Positive Events",
+    fileSize: "182 KB",
+  },
+  "higher-self-meditation": {
+    pdfUrl: "/sample-scripts/higher-self-meditation.pdf",
+    title: "Higher Self Meditation",
+    fileSize: "324 KB",
+  },
+  "imagining-your-inner-land-to-build-healthy-boundaries": {
+    pdfUrl: "/sample-scripts/imagining-your-inner-land-to-build-healthy-boundaries.pdf",
+    title: "Imagining Your Inner Land to Build Healthy Boundaries",
+    fileSize: "186 KB",
+  },
+  "imagining-your-tree-of-knowledge": {
+    pdfUrl: "/sample-scripts/imagining-your-tree-of-knowledge.pdf",
+    title: "Imagining Your Tree of Knowledge",
+    fileSize: "205 KB",
+  },
+  "manifestation-meditation": {
+    pdfUrl: "/sample-scripts/manifestation-meditation.pdf",
+    title: "Manifestation Meditation",
+    fileSize: "199 KB",
+  },
+  "mindfulness-while-being-creative": {
+    pdfUrl: "/sample-scripts/mindfulness-while-being-creative.pdf",
+    title: "Mindfulness While Being Creative",
+    fileSize: "182 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
