@@ -106,12 +106,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "self-worth-quotes": {
     heading: "Listen to the Self-Worth audio series",
     intro:
-      "Two affirming tracks of curated quotes and mindful pauses — a quiet reminder that your worth was never something you had to earn. Plus a bonus guided meditation: Feeling Worthy, and a short dharma talk by Gil Fronsdal — Power and Worthiness — exploring how a settled sense of worth becomes its own quiet form of strength.",
+      "Two affirming tracks of curated quotes and mindful pauses — a quiet reminder that your worth was never something you had to earn. Plus a bonus guided meditation: Feeling Worthy, and two short dharma talks by Gil Fronsdal — Power and Worthiness on how a settled sense of worth becomes its own quiet form of strength, and Practice Notes: Imperfect on the steady kindness of meeting yourself just as you are.",
     tracks: [
       { title: "Part 1: Self-Worth Quotes", src: `${AUDIO_BASE}/self-worth-quotes/part-1.mp3` },
       { title: "Part 2: Self-Worth Quotes", src: `${AUDIO_BASE}/self-worth-quotes/part-2.mp3` },
       { title: "Bonus: Feeling Worthy — Guided Meditation", src: `${AUDIO_BASE}/self-worth-quotes/feeling-worthy.mp3` },
       { title: "Power and Worthiness — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/self-worth-quotes/power-and-worthiness.mp3` },
+      { title: "Practice Notes: Imperfect — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/self-worth-quotes/practice-notes-imperfect.mp3` },
     ],
   },
   "letting-go-quotes": {
@@ -126,10 +127,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "silence-quotes": {
     heading: "Listen to the Silence audio series",
     intro:
-      "Two quiet tracks of timeless quotes and unhurried pauses — an invitation to listen for what only stillness can say.",
+      "Two quiet tracks of timeless quotes and unhurried pauses — an invitation to listen for what only stillness can say. Closes with a bonus guided meditation by Sean Fargo: Grounded Silence — a longer settling into the steady, embodied quiet beneath the noise.",
     tracks: [
       { title: "Part 1: Silence Quotes", src: `${AUDIO_BASE}/silence-quotes/part-1.mp3` },
       { title: "Part 2: Silence Quotes", src: `${AUDIO_BASE}/silence-quotes/part-2.mp3` },
+      { title: "Bonus: Grounded Silence — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/silence-quotes/grounded-silence.mp3` },
     ],
   },
   "healing-quotes": {
@@ -268,10 +270,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "cope-with-difficult-emotions-through-mindfulness": {
     heading: "Listen: Difficult Emotions audio series",
     intro:
-      "A guided meditation plus a short dharma talk for working with hard feelings — Exploring Frustration turns toward the heat of it with curiosity and care; Entering Into Difficulty (Gil Fronsdal) is a tender reflection on how we step closer, instead of away, when the difficult arises.",
+      "A guided meditation plus two dharma talks for working with hard feelings — Exploring Frustration turns toward the heat of it with curiosity and care; Entering Into Difficulty (Gil Fronsdal) is a tender reflection on how we step closer, instead of away, when the difficult arises; Working With Afflictive Emotions (Joseph Goldstein) widens the lens with a longer retreat-style teaching on meeting strong emotion in practice.",
     tracks: [
       { title: "Exploring Frustration — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cope-with-difficult-emotions/exploring-frustration.mp3` },
       { title: "Entering Into Difficulty — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions/entering-into-difficulty.mp3` },
+      { title: "Working With Afflictive Emotions — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/cope-with-difficult-emotions/working-with-afflictive-emotions.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -369,10 +372,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "kindness-for-your-thinking-mind": {
     heading: "Listen: Kindness for the Mind audio series",
     intro:
-      "A guided meditation plus a short dharma talk for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking itself.",
+      "A guided meditation plus two short dharma talks for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking itself; Practice Notes: Thinking as Scenery (Gil Fronsdal) reframes thoughts as the passing landscape of the mind, not the destination.",
     tracks: [
       { title: "Three Centers — Belly, Heart & Head by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/three-centers.mp3` },
       { title: "Practice Notes: Soft Receptive Mind — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/soft-receptive-mind.mp3` },
+      { title: "Practice Notes: Thinking as Scenery — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/practice-notes-thinking-as-scenery.mp3` },
     ],
   },
   "power-of-acceptance": {
@@ -442,9 +446,10 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "settling-into-presence": {
     heading: "Listen: Settling Into This Present Moment",
     intro:
-      "A short guided meditation for letting the body, breath, and mind arrive — gently — into the simple presence of right now.",
+      "A short guided meditation by Sean Fargo for letting the body, breath, and mind arrive — gently — into the simple presence of right now. Followed by a short dharma talk by Gil Fronsdal — Dharmette: A Fresh Start — on how each present moment offers a quiet chance to begin again.",
     tracks: [
       { title: "Settling Into This Present Moment — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/settling-into-presence/settling-into-this-present-moment.mp3` },
+      { title: "Dharmette: A Fresh Start — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/settling-into-presence/dharmette-fresh-start.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -466,10 +471,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "three-60-second-meditation-techniques-for-anxiety": {
     heading: "Listen: Anxiety audio series",
     intro:
-      "Three guided meditations for working with anxiety — Befriending Anxiety invites a softer relationship with anxious feeling; Alleviating Tension releases the held tightness it leaves behind; Standard Practice For Anxiety offers a steady, repeatable companion for harder moments.",
+      "Four guided meditations for working with anxiety — Befriending Anxiety invites a softer relationship with anxious feeling; Alleviating Tension (and an extended take of the same practice) releases the held tightness it leaves behind; Standard Practice For Anxiety offers a steady, repeatable companion for harder moments.",
     tracks: [
       { title: "Befriending Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/three-60-second-anxiety/befriending-anxiety.mp3` },
       { title: "Alleviating Tension In Your Body & Mind — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/three-60-second-anxiety/alleviating-tension.mp3` },
+      { title: "Alleviating Tension In Your Body & Mind (Extended Version) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/three-60-second-anxiety/alleviating-tension-extended.mp3` },
       { title: "Standard Practice For Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/three-60-second-anxiety/standard-practice-for-anxiety.mp3` },
     ],
   },
@@ -668,9 +674,10 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "working-with-thoughts": {
     heading: "Listen: Working With Thought and Emotion",
     intro:
-      "A dharma talk by Joseph Goldstein on meeting thoughts and emotions with awareness — seeing them clearly enough that they no longer have to run the show.",
+      "A dharma talk by Joseph Goldstein on meeting thoughts and emotions with awareness — seeing them clearly enough that they no longer have to run the show. Followed by a short companion dharma talk by Gil Fronsdal — Dharmette: Content vs Process — on the freeing distinction between what the mind is thinking about and the simple fact that it's thinking.",
     tracks: [
       { title: "Working With Thought and Emotion — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/working-with-thoughts/working-with-thought-and-emotion.mp3` },
+      { title: "Dharmette: Content vs Process — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/working-with-thoughts/dharmette-content-vs-process.mp3` },
     ],
   },
   "guided-loving-kindness-meditation-audio": {
@@ -698,11 +705,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "style-over-summit-what-dirtbag-billionaire-taught-me-about-practice": {
-    heading: "Listen: Practice Notes — Patience",
+    heading: "Listen: Practice Notes audio series",
     intro:
-      "A short dharma talk by Gil Fronsdal on patience as practice — the slow, steady willingness to stay with what's actually here, instead of leaning toward the next thing.",
+      "Two short dharma talks by Gil Fronsdal — Practice Notes: Patience explores patience as the slow, steady willingness to stay with what's actually here, instead of leaning toward the next thing; Dharmette: Metaphors offers a playful look at the images and metaphors we live by, and how they quietly shape the practice itself.",
     tracks: [
       { title: "Practice Notes: Patience — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/style-over-summit/practice-notes-patience.mp3` },
+      { title: "Dharmette: Metaphors — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/style-over-summit/dharmette-metaphors.mp3` },
     ],
   },
   "supports-practice-audio": {
