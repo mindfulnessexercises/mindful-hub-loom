@@ -13,6 +13,13 @@ export interface PlaylistTrack {
   title: string;
   /** Public URL of the audio file. */
   src: string;
+  /**
+   * Optional WP post slug where this track originally lives. When set
+   * (and different from the host playlist's slug), the track row will
+   * render an "Open original post" link so visitors can jump to the
+   * source page for context. Leading slash is optional.
+   */
+  postSlug?: string;
 }
 
 export interface AudioPlaylist {
@@ -447,7 +454,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     tracks: [
       { title: "Alleviating Anxiety — Guided Meditation", src: `${AUDIO_BASE}/affirmations-for-anxiety/alleviating-anxiety.mp3` },
       { title: "Noticing The Presence of Anxiety — Guided Meditation", src: `${AUDIO_BASE}/affirmations-for-anxiety/noticing-presence-of-anxiety.mp3` },
-      { title: "Working With Fear — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/affirmations-for-anxiety/working-with-fear.mp3` },
+      {
+        title: "Working With Fear — Dharma Talk by Joseph Goldstein",
+        src: `${AUDIO_BASE}/affirmations-for-anxiety/working-with-fear.mp3`,
+        // Also featured on the 9-mindfulness-exercises-for-anxiety hub —
+        // surface a link there for visitors who arrive here first.
+        postSlug: "9-mindfulness-exercises-for-anxiety",
+      },
     ],
   },
   "three-60-second-meditation-techniques-for-anxiety": {

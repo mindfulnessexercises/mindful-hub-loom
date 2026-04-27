@@ -540,7 +540,7 @@ export default function WPResolver() {
                 {(() => {
                   const playlist = getPlaylist(slug);
                   if (!playlist) return null;
-                  return <AudioPlaylistBlock playlist={playlist} />;
+                  return <AudioPlaylistBlock playlist={playlist} hostSlug={slug} />;
                 })()}
 
                 <div
