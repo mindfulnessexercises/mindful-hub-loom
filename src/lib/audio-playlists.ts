@@ -38,12 +38,15 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "meaningful-work-quotes": {
     heading: "Listen to the Meaningful Work audio series",
     intro:
-      "Four short tracks of hand-picked quotes and gentle reflection prompts — a calm companion for reconnecting with purpose, presence, and meaning in your workday.",
+      "Four short tracks of hand-picked quotes and gentle reflection prompts — a calm companion for reconnecting with purpose, presence, and meaning in your workday. Plus a Meeting Meditation series in three lengths (1, 3, and 5 minutes) for steadying yourself before walking into the room.",
     tracks: [
       { title: "Part 1: Meaningful Work", src: `${AUDIO_BASE}/meaningful-work-quotes/part-1.mp3` },
       { title: "Part 2: Meaningful Work", src: `${AUDIO_BASE}/meaningful-work-quotes/part-2.mp3` },
       { title: "Part 3: Meaningful Work", src: `${AUDIO_BASE}/meaningful-work-quotes/part-3.mp3` },
       { title: "Part 4: Meaningful Work", src: `${AUDIO_BASE}/meaningful-work-quotes/part-4.mp3` },
+      { title: "Meeting Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/meaningful-work-quotes/meeting-1-minute.mp3` },
+      { title: "Meeting Meditation (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/meaningful-work-quotes/meeting-3-minutes.mp3` },
+      { title: "Meeting Meditation (5 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/meaningful-work-quotes/meeting-5-minutes.mp3` },
     ],
   },
   "karma-quotes": {
@@ -86,11 +89,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "stress-quotes": {
     heading: "Listen to the Stress audio series",
     intro:
-      "Two calming tracks designed to slow the breath and quiet a busy mind — soft wisdom for moments when stress feels louder than you do. Plus a bonus guided meditation: Relieving Stress.",
+      "Two calming tracks designed to slow the breath and quiet a busy mind — soft wisdom for moments when stress feels louder than you do. Plus two bonus guided meditations: Relieving Stress, and Dropping the Suitcases of Regret & Worry — a tender practice for setting down what you've been carrying.",
     tracks: [
       { title: "Part 1: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-1.mp3` },
       { title: "Part 2: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-2.mp3` },
       { title: "Bonus: Relieving Stress — Guided Meditation", src: `${AUDIO_BASE}/stress-quotes/relieving-stress.mp3` },
+      { title: "Bonus: Dropping the Suitcases of Regret & Worry — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/stress-quotes/dropping-the-suitcases.mp3` },
     ],
   },
   "empathy-quotes": {
@@ -251,7 +255,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "6-mindful-breathing-exercises": {
     heading: "Listen: Mindful Breathing audio series",
     intro:
-      "Eight guided meditations for meeting the breath with fresh attention — from curiosity and embodied awareness, to counting each exhale, to resting in the rhythm of the breath without judgment, plus longer practices on the quiet beauty of the breath, a spacious breathing space, a short five-minute reset, and breathing with care.",
+      "Ten guided meditations for meeting the breath with fresh attention — from curiosity and embodied awareness, to counting each exhale, to resting in the rhythm of the breath without judgment. Plus longer practices on the quiet beauty of the breath, a spacious breathing space, a short five-minute reset, breathing with care, creating mental space through mindful breathing, and a felt-sense practice of feeling embodied.",
     tracks: [
       { title: "Breathing With Curiosity — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-with-curiosity.mp3` },
       { title: "Embodied Awareness of Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/embodied-awareness-of-breathing.mp3` },
@@ -261,6 +265,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Breathing Space — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-space.mp3` },
       { title: "Five-Minute Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/5-minute-breathing.mp3` },
       { title: "Breathing In Care — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-in-care.mp3` },
+      { title: "Creating Mental Space Through Mindful Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/creating-mental-space.mp3` },
+      { title: "Feeling Embodied With Mindfulness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/feeling-embodied.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -335,11 +341,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "visiting-your-safe-place": {
-    heading: "Listen: Sensing Into Safety",
+    heading: "Listen: Safe Place audio series",
     intro:
-      "A trauma-sensitive guided meditation for noticing the small signals of safety already present in the body — a gentle anchor for the nervous system.",
+      "Two trauma-sensitive guided meditations — Sensing Into Safety notices the small signals of safety already present in the body, a gentle anchor for the nervous system; Guided Visualization for Ease & Well-Being uses imagery to settle into a felt sense of spacious, easeful belonging.",
     tracks: [
       { title: "Sensing Into Safety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/visiting-your-safe-place/sensing-into-safety.mp3` },
+      { title: "Guided Visualization For Ease & Well-Being — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/visiting-your-safe-place/guided-visualization-ease-wellbeing.mp3` },
     ],
   },
   "movement-meditation": {
@@ -353,10 +360,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "cultivating-self-care-and-extending-it-out": {
     heading: "Listen: Self-Care audio series",
     intro:
-      "Two gentle guided meditations for offering kind, attentive care to yourself — Tending to the Body softens you back into physical presence; Caring Awareness for the Head brings tenderness to a busy mind.",
+      "Three gentle guided meditations for offering kind, attentive care to yourself — Tending to the Body softens you back into physical presence; Caring Awareness for the Head brings tenderness to a busy mind; Filling Your Cup is a longer replenishing practice for the days you've poured yourself empty.",
     tracks: [
       { title: "Tending to the Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-self-care/tending-to-the-body.mp3` },
       { title: "Caring Awareness for the Head — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-self-care/caring-awareness-for-the-head.mp3` },
+      { title: "Filling Your Cup — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-self-care/filling-your-cup.mp3` },
     ],
   },
   "higher-self-meditation": {
