@@ -79,9 +79,46 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "stress-quotes": {
     heading: "Listen to the Stress audio series",
     intro:
-      "A guided reflection on navigating stress with mindful wisdom. (Part 1 coming soon.)",
+      "A two-part guided reflection on navigating stress with mindful wisdom.",
     tracks: [
+      { title: "Part 1: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-1.mp3` },
       { title: "Part 2: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-2.mp3` },
+    ],
+  },
+  "empathy-quotes": {
+    heading: "Listen to the Empathy audio series",
+    intro:
+      "A three-part reflection on cultivating empathy, understanding, and compassion.",
+    tracks: [
+      { title: "Part 1: Empathy Quotes", src: `${AUDIO_BASE}/empathy-quotes/part-1.mp3` },
+      { title: "Part 2: Empathy Quotes", src: `${AUDIO_BASE}/empathy-quotes/part-2.mp3` },
+      { title: "Part 3: Empathy Quotes", src: `${AUDIO_BASE}/empathy-quotes/part-3.mp3` },
+    ],
+  },
+  "self-worth-quotes": {
+    heading: "Listen to the Self-Worth audio series",
+    intro:
+      "A two-part guided reflection on building confidence and inner self-worth.",
+    tracks: [
+      { title: "Part 1: Self-Worth Quotes", src: `${AUDIO_BASE}/self-worth-quotes/part-1.mp3` },
+      { title: "Part 2: Self-Worth Quotes", src: `${AUDIO_BASE}/self-worth-quotes/part-2.mp3` },
+    ],
+  },
+  "letting-go-quotes": {
+    heading: "Listen to the Letting Go audio series",
+    intro:
+      "A two-part reflection on the practice of letting go for renewal and growth.",
+    tracks: [
+      { title: "Part 1: Letting Go Quotes", src: `${AUDIO_BASE}/letting-go-quotes/part-1.mp3` },
+      { title: "Part 2: Letting Go Quotes", src: `${AUDIO_BASE}/letting-go-quotes/part-2.mp3` },
+    ],
+  },
+  "silence-quotes": {
+    heading: "Listen to the Silence audio series",
+    intro:
+      "A guided reflection on the power of silence for inspiration and stillness. (Part 1 coming soon.)",
+    tracks: [
+      { title: "Part 2: Silence Quotes", src: `${AUDIO_BASE}/silence-quotes/part-2.mp3` },
     ],
   },
 };
