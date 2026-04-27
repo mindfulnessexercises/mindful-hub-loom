@@ -67,12 +67,29 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
     {
       match: "time management and productivity",
       label: "Listen: Time Management & Productivity affirmations",
-      src: `${AUDIO_BASE}/affirmations-for-teens/time-management-and-productivity.mp3`,
+      // v2 = re-recorded take (April 2026), supersedes original.
+      src: `${AUDIO_BASE}/affirmations-for-teens/time-management-and-productivity-v2.mp3`,
     },
     {
       match: "conflict resolution and communication",
       label: "Listen: Conflict Resolution & Communication affirmations",
-      src: `${AUDIO_BASE}/affirmations-for-teens/conflict-resolution-and-communication.mp3`,
+      // v2 = re-recorded take (April 2026), supersedes original.
+      src: `${AUDIO_BASE}/affirmations-for-teens/conflict-resolution-and-communication-v2.mp3`,
+    },
+    {
+      match: "mindfulness and presence",
+      label: "Listen: Mindfulness & Presence affirmations",
+      src: `${AUDIO_BASE}/affirmations-for-teens/mindfulness-and-presence.mp3`,
+    },
+    {
+      match: "personal development and growth",
+      label: "Listen: Personal Development & Growth affirmations",
+      src: `${AUDIO_BASE}/affirmations-for-teens/personal-development-and-growth.mp3`,
+    },
+    {
+      match: "graciousness and empathy",
+      label: "Listen: Graciousness & Empathy affirmations",
+      src: `${AUDIO_BASE}/affirmations-for-teens/graciousness-and-empathy.mp3`,
     },
   ],
 };
