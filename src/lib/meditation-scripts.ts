@@ -768,6 +768,56 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Visualizing a Beautiful Island for Sleep",
     fileSize: "215 KB",
   },
+  "bedtime-mindfulness": {
+    pdfUrl: "/sample-scripts/bedtime-mindfulness.pdf",
+    title: "Bedtime Mindfulness",
+    fileSize: "178 KB",
+  },
+  "your-peaceful-place-guided-visualization": {
+    pdfUrl: "/sample-scripts/your-peaceful-place-guided-visualization.pdf",
+    title: "Your Peaceful Place - Guided Visualization",
+    fileSize: "188 KB",
+  },
+  "a-breathing-anchor-for-your-wandering-mind": {
+    pdfUrl: "/sample-scripts/a-breathing-anchor-for-your-wandering-mind.pdf",
+    title: "A Breathing Anchor for Your Wandering Mind",
+    fileSize: "135 KB",
+  },
+  "deep-breathing": {
+    pdfUrl: "/sample-scripts/deep-breathing.pdf",
+    title: "Deep Breathing",
+    fileSize: "168 KB",
+  },
+  "for-chaotic-times": {
+    pdfUrl: "/sample-scripts/for-chaotic-times.pdf",
+    title: "For Chaotic Times",
+    fileSize: "151 KB",
+  },
+  "immersing-your-awareness-into-the-breath": {
+    pdfUrl: "/sample-scripts/immersing-your-awareness-into-the-breath.pdf",
+    title: "Immersing Your Awareness into the Breath",
+    fileSize: "198 KB",
+  },
+  "noting-thinking-or-feeling": {
+    pdfUrl: "/sample-scripts/noting-thinking-or-feeling.pdf",
+    title: "Noting Thinking or Feeling",
+    fileSize: "185 KB",
+  },
+  "mindfulness-for-anxiety-and-stress": {
+    pdfUrl: "/sample-scripts/mindfulness-for-anxiety-and-stress.pdf",
+    title: "Mindfulness for Anxiety and Stress",
+    fileSize: "188 KB",
+  },
+  "alleviate-stress-with-three-deep-breaths": {
+    pdfUrl: "/sample-scripts/alleviate-stress-with-three-deep-breaths.pdf",
+    title: "Alleviate Stress with Three Deep Breaths",
+    fileSize: "215 KB",
+  },
+  "breathe-away-anxious-thoughts": {
+    pdfUrl: "/sample-scripts/breathe-away-anxious-thoughts.pdf",
+    title: "Breathe Away Anxious Thoughts",
+    fileSize: "186 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
