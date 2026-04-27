@@ -99,11 +99,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "self-worth-quotes": {
     heading: "Listen to the Self-Worth audio series",
     intro:
-      "Two affirming tracks of curated quotes and mindful pauses — a quiet reminder that your worth was never something you had to earn. Plus a bonus guided meditation: Feeling Worthy.",
+      "Two affirming tracks of curated quotes and mindful pauses — a quiet reminder that your worth was never something you had to earn. Plus a bonus guided meditation: Feeling Worthy, and a short dharma talk by Gil Fronsdal — Power and Worthiness — exploring how a settled sense of worth becomes its own quiet form of strength.",
     tracks: [
       { title: "Part 1: Self-Worth Quotes", src: `${AUDIO_BASE}/self-worth-quotes/part-1.mp3` },
       { title: "Part 2: Self-Worth Quotes", src: `${AUDIO_BASE}/self-worth-quotes/part-2.mp3` },
       { title: "Bonus: Feeling Worthy — Guided Meditation", src: `${AUDIO_BASE}/self-worth-quotes/feeling-worthy.mp3` },
+      { title: "Power and Worthiness — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/self-worth-quotes/power-and-worthiness.mp3` },
     ],
   },
   "letting-go-quotes": {
@@ -258,11 +259,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "cope-with-difficult-emotions-through-mindfulness": {
-    heading: "Listen: Exploring Frustration",
+    heading: "Listen: Difficult Emotions audio series",
     intro:
-      "A guided meditation for turning toward frustration with curiosity instead of resistance — meeting the heat of it with steadiness, space, and care.",
+      "A guided meditation plus a short dharma talk for working with hard feelings — Exploring Frustration turns toward the heat of it with curiosity and care; Entering Into Difficulty (Gil Fronsdal) is a tender reflection on how we step closer, instead of away, when the difficult arises.",
     tracks: [
       { title: "Exploring Frustration — Guided Meditation", src: `${AUDIO_BASE}/cope-with-difficult-emotions/exploring-frustration.mp3` },
+      { title: "Entering Into Difficulty — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions/entering-into-difficulty.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -358,11 +360,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "kindness-for-your-thinking-mind": {
-    heading: "Listen: Three Centers Meditation — Belly, Heart & Head",
+    heading: "Listen: Kindness for the Mind audio series",
     intro:
-      "A grounding guided body-scan meditation moving through the three centers of intelligence — belly, heart, and head — settling each in turn.",
+      "A guided meditation plus a short dharma talk for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking itself.",
     tracks: [
       { title: "Three Centers — Belly, Heart & Head", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/three-centers.mp3` },
+      { title: "Practice Notes: Soft Receptive Mind — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/soft-receptive-mind.mp3` },
     ],
   },
   "power-of-acceptance": {
@@ -466,11 +469,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "self-love-affirmations": {
-    heading: "Listen: Feeling Competent",
+    heading: "Listen: Self-Love audio series",
     intro:
-      "A grounding guided meditation for resting into the felt sense of your own capability — quietly affirming that you are competent, worthy, and enough.",
+      "A guided meditation plus a short dharma talk on quiet inner steadiness — Feeling Competent rests into the felt sense of your own capability; Confidence (Gil Fronsdal) is a tender reflection on the kind of confidence that doesn't need to prove anything to be true.",
     tracks: [
       { title: "Feeling Competent — Guided Meditation", src: `${AUDIO_BASE}/self-love-affirmations/feeling-competent.mp3` },
+      { title: "Confidence — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/self-love-affirmations/confidence.mp3` },
     ],
   },
   "cultivating-joy": {
@@ -632,11 +636,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "the-importance-of-finding-quiet-time": {
-    heading: "Listen: The Still, Quiet Place Within",
+    heading: "Listen: Quiet Time audio series",
     intro:
-      "A short dharma talk by Gil Fronsdal — pointing toward the still, quiet place that is always already here, beneath the noise of thought.",
+      "Two short dharma talks by Gil Fronsdal — The Still, Quiet Place Within points to the silence that is always already here, beneath the noise of thought; Settle The Heart First is a tender reminder that before we ask the mind to settle, we tend, gently, to the heart.",
     tracks: [
       { title: "The Still, Quiet Place Within — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/importance-of-finding-quiet-time/still-quiet-place-within.mp3` },
+      { title: "Settle The Heart First — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/importance-of-finding-quiet-time/settle-the-heart-first.mp3` },
     ],
   },
   "9-mindfulness-exercises-for-anxiety": {
@@ -690,10 +695,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "supports-practice-audio": {
     heading: "Listen: Supports for Practice audio series",
     intro:
-      "Two dharma talks by Matthew Brensilver on what holds practice up beneath the technique — Sincerity points to the quiet honesty that makes practice real; Limits of Technique is a longer reflection on where method ends and presence begins.",
+      "Three dharma talks by Matthew Brensilver on what holds practice up beneath the technique — Sincerity points to the quiet honesty that makes practice real; Limits of Technique reflects on where method ends and presence begins; Practice Notes: Vision turns toward the larger purpose that quietly orients a life of practice.",
     tracks: [
       { title: "Sincerity — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/supports-practice-audio/sincerity.mp3` },
       { title: "Limits of Technique — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/supports-practice-audio/limits-of-technique.mp3` },
+      { title: "Practice Notes: Vision — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/supports-practice-audio/vision.mp3` },
     ],
   },
   "healing-stillness-aimless-love": {
