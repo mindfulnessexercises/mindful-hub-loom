@@ -155,10 +155,8 @@ interface MeditationScriptProps {
  *  - "collapsible": download/print card; click to expand inline viewer
  *  - "card":        download/print card only (no viewer)
  *
- * Uses the browser's native PDF viewer via <iframe>, which works on every
- * modern desktop browser and falls back gracefully on iOS/Android (we show
- * a clear "Open PDF" button so mobile users can read it in their device's
- * native PDF reader instead of a janky in-page embed).
+ * Uses PDF.js to render a first-page canvas preview instead of relying on the
+ * browser's native PDF plugin, which can be blocked inside embedded previews.
  */
 export function MeditationScript({
   pdfUrl,
@@ -170,15 +168,15 @@ export function MeditationScript({
 }: MeditationScriptProps) {
   const [expanded, setExpanded] = useState(variant === "inline");
 
-  const fireView = () => {
+  const fireView = useCallback(() => {
     trackEvent("script_view", { meditation_id: meditationId, pdf_url: pdfUrl });
-  };
-  const fireDownload = () => {
+  }, [meditationId, pdfUrl]);
+  const fireDownload = useCallback(() => {
     trackEvent("script_download", { meditation_id: meditationId, pdf_url: pdfUrl });
-  };
-  const firePrint = () => {
+  }, [meditationId, pdfUrl]);
+  const firePrint = useCallback(() => {
     trackEvent("script_print", { meditation_id: meditationId, pdf_url: pdfUrl });
-  };
+  }, [meditationId, pdfUrl]);
 
   const handleToggle = () => {
     const next = !expanded;
@@ -270,48 +268,20 @@ export function MeditationScript({
             <Printer className="h-4 w-4 mr-1.5" />
             Print
           </Button>
-          <Button asChild size="sm" className="min-h-[44px]">
-            <a href={pdfUrl} download onClick={fireDownload}>
-              <Download className="h-4 w-4 mr-1.5" />
-              Download PDF
-            </a>
-          </Button>
+          <a
+            href={pdfUrl}
+            download
+            onClick={fireDownload}
+            className={buttonVariants({ size: "sm", className: "min-h-[44px]" })}
+          >
+            <Download className="h-4 w-4 mr-1.5" />
+            Download PDF
+          </a>
         </div>
       </div>
 
-      {/* Inline PDF viewer. <object> with <iframe> fallback so the PDF still
-          shows when an extension blocks one or the other. The text link below
-          is always visible as a final escape hatch. */}
       {showViewer && (
-        <div className="border-t border-border bg-muted/30">
-          <div className="aspect-[8.5/11] sm:aspect-[8.5/9] w-full bg-background">
-            <object
-              data={`${pdfUrl}#view=FitH`}
-              type="application/pdf"
-              className="w-full h-full"
-              aria-label={`${title} — script preview`}
-            >
-              <iframe
-                src={`${pdfUrl}#view=FitH`}
-                title={`${title} — script preview`}
-                className="w-full h-full"
-                loading="lazy"
-              />
-            </object>
-          </div>
-          <div className="p-3 flex justify-center">
-            <a
-              href={pdfUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={fireView}
-              className="inline-flex items-center justify-center gap-1.5 min-h-[44px] px-4 text-sm font-medium text-primary hover:underline"
-            >
-              <ExternalLink className="h-4 w-4" />
-              Open PDF in new tab
-            </a>
-          </div>
-        </div>
+        <PdfCanvasPreview pdfUrl={pdfUrl} title={title} onView={fireView} />
       )}
     </section>
   );
