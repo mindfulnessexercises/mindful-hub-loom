@@ -155,6 +155,17 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 4: Sacral Chakra", src: `${AUDIO_BASE}/sacral-chakra-affirmations/part-4.mp3` },
     ],
   },
+  "throat-chakra-affirmations": {
+    heading: "Listen to the Throat Chakra audio series",
+    intro:
+      "Four guided tracks of affirmations for Vishuddha, the throat center — clearing the channel of expression, honoring your truth, and finding the words that have been waiting to be spoken.",
+    tracks: [
+      { title: "Part 1: Throat Chakra", src: `${AUDIO_BASE}/throat-chakra-affirmations/part-1.mp3` },
+      { title: "Part 2: Throat Chakra", src: `${AUDIO_BASE}/throat-chakra-affirmations/part-2.mp3` },
+      { title: "Part 3: Throat Chakra", src: `${AUDIO_BASE}/throat-chakra-affirmations/part-3.mp3` },
+      { title: "Part 4: Throat Chakra", src: `${AUDIO_BASE}/throat-chakra-affirmations/part-4.mp3` },
+    ],
+  },
   "gratitude-affirmations": {
     heading: "Listen to the Gratitude Affirmations audio series",
     intro:
