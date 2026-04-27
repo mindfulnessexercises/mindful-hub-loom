@@ -79,10 +79,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "stress-quotes": {
     heading: "Listen to the Stress audio series",
     intro:
-      "Two calming tracks designed to slow the breath and quiet a busy mind — soft wisdom for moments when stress feels louder than you do.",
+      "Two calming tracks designed to slow the breath and quiet a busy mind — soft wisdom for moments when stress feels louder than you do. Plus a bonus guided meditation: Relieving Stress.",
     tracks: [
       { title: "Part 1: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-1.mp3` },
       { title: "Part 2: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-2.mp3` },
+      { title: "Bonus: Relieving Stress — Guided Meditation", src: `${AUDIO_BASE}/stress-quotes/relieving-stress.mp3` },
     ],
   },
   "empathy-quotes": {
@@ -239,11 +240,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "6-mindful-breathing-exercises": {
     heading: "Listen: Mindful Breathing audio series",
     intro:
-      "Two guided meditations for meeting the breath with fresh attention — the first invites curiosity, the second a fully embodied awareness of breathing.",
+      "Four guided meditations for meeting the breath with fresh attention — from curiosity, to embodied awareness, to counting each exhale, to resting in the rhythm of the breath without judgment.",
     tracks: [
       { title: "Breathing With Curiosity — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-with-curiosity.mp3` },
       { title: "Embodied Awareness of Breathing — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/embodied-awareness-of-breathing.mp3` },
       { title: "Counting Each Exhale — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/counting-each-exhale.mp3` },
+      { title: "Rhythm Of The Breath Without Judgment — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/rhythm-of-the-breath.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -443,10 +445,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "three-60-second-meditation-techniques-for-anxiety": {
     heading: "Listen: Anxiety audio series",
     intro:
-      "Two guided meditations for working with anxiety — Befriending Anxiety invites a softer, more curious relationship with anxious feeling; Alleviating Tension In Your Body & Mind helps release the held tightness anxiety leaves behind.",
+      "Three guided meditations for working with anxiety — Befriending Anxiety invites a softer relationship with anxious feeling; Alleviating Tension releases the held tightness it leaves behind; Standard Practice For Anxiety offers a steady, repeatable companion for harder moments.",
     tracks: [
       { title: "Befriending Anxiety — Guided Meditation", src: `${AUDIO_BASE}/three-60-second-anxiety/befriending-anxiety.mp3` },
       { title: "Alleviating Tension In Your Body & Mind — Guided Meditation", src: `${AUDIO_BASE}/three-60-second-anxiety/alleviating-tension.mp3` },
+      { title: "Standard Practice For Anxiety — Guided Meditation", src: `${AUDIO_BASE}/three-60-second-anxiety/standard-practice-for-anxiety.mp3` },
     ],
   },
   "bedtime-mindfulness": {
@@ -514,11 +517,60 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "noting-your-judgments": {
-    heading: "Listen: Noting Thinking or Feeling",
+    heading: "Listen: Noting & Non-Judgment audio series",
     intro:
-      "A short guided meditation in the noting tradition — practicing the simple, freeing distinction between thinking and feeling as each arises.",
+      "Two guided meditations in the noting tradition — Noting Thinking or Feeling practices the simple distinction between thought and feeling; Resolving Judgments meets judgmental mind with steady, non-reactive awareness.",
     tracks: [
       { title: "Noting Thinking or Feeling — Guided Meditation", src: `${AUDIO_BASE}/noting-your-judgments/noting-thinking-or-feeling.mp3` },
+      { title: "Resolving Judgments — Guided Meditation", src: `${AUDIO_BASE}/noting-your-judgments/resolving-judgments.mp3` },
+    ],
+  },
+  "meditation-scripts-for-anxiety": {
+    heading: "Listen: Observing Anxiety From A Distance",
+    intro:
+      "A guided meditation for stepping back from anxious thought — watching it from a steady, spacious distance instead of being swept inside it.",
+    tracks: [
+      { title: "Observing Anxiety From A Distance — Guided Meditation", src: `${AUDIO_BASE}/meditation-scripts-for-anxiety/observing-anxiety-from-a-distance.mp3` },
+    ],
+  },
+  "5-minute-meditation-script-from-mindfulness-exercises": {
+    heading: "Listen: One Minute For Good",
+    intro:
+      "A short guided meditation — just a single minute to settle, soften, and remember the good already here.",
+    tracks: [
+      { title: "One Minute For Good — Guided Meditation", src: `${AUDIO_BASE}/5-minute-meditation-script/one-minute-for-good.mp3` },
+    ],
+  },
+  "awareness-of-the-five-senses": {
+    heading: "Listen: Opening Your Senses",
+    intro:
+      "A guided meditation for arriving through the five senses — a fresh, embodied way back into the simple aliveness of right now.",
+    tracks: [
+      { title: "Opening Your Senses — Guided Meditation", src: `${AUDIO_BASE}/awareness-of-the-five-senses/opening-your-senses.mp3` },
+    ],
+  },
+  "mindfulness-body-scan-for-stress-relief": {
+    heading: "Listen: Relaxing Your Body",
+    intro:
+      "A slow guided body scan for releasing the held tension of a stressful day — softening through the body, region by region, into deeper rest.",
+    tracks: [
+      { title: "Relaxing Your Body — Guided Meditation", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/relaxing-your-body.mp3` },
+    ],
+  },
+  "laying-down-meditation-visualizing-a-lake": {
+    heading: "Listen: Sensing The Serenity Of A Lake",
+    intro:
+      "A laying-down guided visualization — letting the still, mirror-quiet of a mountain lake settle the mind and body.",
+    tracks: [
+      { title: "Sensing The Serenity Of A Lake — Guided Meditation", src: `${AUDIO_BASE}/laying-down-meditation-visualizing-a-lake/sensing-serenity-of-a-lake.mp3` },
+    ],
+  },
+  "morning-affirmations": {
+    heading: "Listen: The Foundation For All Abundance",
+    intro:
+      "A grounding morning guided meditation — settling into gratitude as the quiet foundation beneath every other kind of abundance.",
+    tracks: [
+      { title: "The Foundation For All Abundance — Guided Meditation", src: `${AUDIO_BASE}/morning-affirmations/foundation-for-all-abundance.mp3` },
     ],
   },
   "learning-the-secret-language-of-your-body-with-inna-segal": {
