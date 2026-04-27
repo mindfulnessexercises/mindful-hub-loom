@@ -98,10 +98,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "self-worth-quotes": {
     heading: "Listen to the Self-Worth audio series",
     intro:
-      "Two affirming tracks of curated quotes and mindful pauses — a quiet reminder that your worth was never something you had to earn.",
+      "Two affirming tracks of curated quotes and mindful pauses — a quiet reminder that your worth was never something you had to earn. Plus a bonus guided meditation: Feeling Worthy.",
     tracks: [
       { title: "Part 1: Self-Worth Quotes", src: `${AUDIO_BASE}/self-worth-quotes/part-1.mp3` },
       { title: "Part 2: Self-Worth Quotes", src: `${AUDIO_BASE}/self-worth-quotes/part-2.mp3` },
+      { title: "Bonus: Feeling Worthy — Guided Meditation", src: `${AUDIO_BASE}/self-worth-quotes/feeling-worthy.mp3` },
     ],
   },
   "letting-go-quotes": {
@@ -373,11 +374,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself": {
-    heading: "Listen: 21-Day Compassion Meditation",
+    heading: "Listen: Self-Compassion audio series",
     intro:
-      "A guided meditation companion to this collection of self-compassion exercises — a soft, steady practice for tending to your own heart.",
+      "Two guided meditations companion to this collection of self-compassion exercises — 21-Day Compassion offers a steady daily practice; Nourishing Your Body With Attention turns kind, attentive presence toward the body itself.",
     tracks: [
       { title: "21-Day Compassion — Guided Meditation", src: `${AUDIO_BASE}/8-self-compassion-exercises/21-day-compassion.mp3` },
+      { title: "Nourishing Your Body With Attention — Guided Meditation", src: `${AUDIO_BASE}/8-self-compassion-exercises/nourishing-body-with-attention.mp3` },
     ],
   },
   "mindfulness-body-scan-for-self-compassion": {
@@ -430,11 +432,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "affirmations-for-anxiety": {
-    heading: "Listen: Alleviating Anxiety",
+    heading: "Listen: Anxiety audio series",
     intro:
-      "A gentle guided meditation for softening the grip of anxiety — meeting anxious sensations with steady, kind awareness instead of resistance.",
+      "Two gentle guided meditations for softening the grip of anxiety — Alleviating Anxiety meets anxious sensations with steady, kind awareness; Noticing The Presence of Anxiety practices simply seeing it clearly without becoming it.",
     tracks: [
       { title: "Alleviating Anxiety — Guided Meditation", src: `${AUDIO_BASE}/affirmations-for-anxiety/alleviating-anxiety.mp3` },
+      { title: "Noticing The Presence of Anxiety — Guided Meditation", src: `${AUDIO_BASE}/affirmations-for-anxiety/noticing-presence-of-anxiety.mp3` },
     ],
   },
   "three-60-second-meditation-techniques-for-anxiety": {
@@ -460,6 +463,62 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A grounding guided meditation for resting into the felt sense of your own capability — quietly affirming that you are competent, worthy, and enough.",
     tracks: [
       { title: "Feeling Competent — Guided Meditation", src: `${AUDIO_BASE}/self-love-affirmations/feeling-competent.mp3` },
+    ],
+  },
+  "cultivating-joy": {
+    heading: "Listen: Gratitude And Gladness",
+    intro:
+      "A gentle guided meditation for softening into the quiet gladness of being alive — a doorway from gratitude into joy.",
+    tracks: [
+      { title: "Gratitude And Gladness — Guided Meditation", src: `${AUDIO_BASE}/cultivating-joy/gratitude-and-gladness.mp3` },
+    ],
+  },
+  "how-to-cultivate-an-attitude-of-gratitude-why-its-important": {
+    heading: "Listen: Gratitude Is Not In The Words",
+    intro:
+      "A guided meditation on the felt sense of gratitude — beneath the language, beneath the listing, into the quiet warmth itself.",
+    tracks: [
+      { title: "Gratitude Is Not In The Words — Guided Meditation", src: `${AUDIO_BASE}/attitude-of-gratitude/gratitude-is-not-in-the-words.mp3` },
+    ],
+  },
+  "full-body-awareness": {
+    heading: "Listen: Grounding",
+    intro:
+      "A short guided meditation for arriving back into the body — using the felt sense of contact and weight to steady the nervous system.",
+    tracks: [
+      { title: "Grounding — Guided Meditation", src: `${AUDIO_BASE}/full-body-awareness/grounding.mp3` },
+    ],
+  },
+  "power-of-gratitude-meditation-7-ways-to-cultivate-it": {
+    heading: "Listen: Heart-Centered Gratitude Meditation",
+    intro:
+      "A longer guided meditation for letting gratitude land in the chest — opening the heart slowly and tenderly to what is already enough.",
+    tracks: [
+      { title: "Heart-Centered Gratitude — Guided Meditation", src: `${AUDIO_BASE}/power-of-gratitude-meditation/heart-centered-gratitude.mp3` },
+    ],
+  },
+  "reduce-rumination-and-increase-positive-states-through-neuro-learning": {
+    heading: "Listen: How To Stop Ruminating",
+    intro:
+      "A guided meditation for working skillfully with the looping mind — gently interrupting rumination and returning, again and again, to presence.",
+    tracks: [
+      { title: "How To Stop Ruminating — Guided Meditation", src: `${AUDIO_BASE}/reduce-rumination/how-to-stop-ruminating.mp3` },
+    ],
+  },
+  "the-power-of-loving-kindness-how-to-cultivate-it": {
+    heading: "Listen: Loving-Kindness Meditation",
+    intro:
+      "A classic metta practice — extending warmth and goodwill first to yourself, then outward, in widening circles of care.",
+    tracks: [
+      { title: "Loving-Kindness — Guided Meditation", src: `${AUDIO_BASE}/power-of-loving-kindness/loving-kindness.mp3` },
+    ],
+  },
+  "noting-your-judgments": {
+    heading: "Listen: Noting Thinking or Feeling",
+    intro:
+      "A short guided meditation in the noting tradition — practicing the simple, freeing distinction between thinking and feeling as each arises.",
+    tracks: [
+      { title: "Noting Thinking or Feeling — Guided Meditation", src: `${AUDIO_BASE}/noting-your-judgments/noting-thinking-or-feeling.mp3` },
     ],
   },
   "learning-the-secret-language-of-your-body-with-inna-segal": {
