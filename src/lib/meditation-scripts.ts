@@ -448,6 +448,46 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Opening Your Awareness to Whatever is Arising",
     fileSize: "179 KB",
   },
+  "whole-body-breathing": {
+    pdfUrl: "/sample-scripts/whole-body-breathing.pdf",
+    title: "Whole Body Breathing",
+    fileSize: "177 KB",
+  },
+  "visualizing-your-peaceful-and-beautiful-place": {
+    pdfUrl: "/sample-scripts/visualizing-your-peaceful-and-beautiful-place.pdf",
+    title: "Visualizing Your Peaceful and Beautiful Place",
+    fileSize: "194 KB",
+  },
+  "using-the-power-of-your-mind": {
+    pdfUrl: "/sample-scripts/using-the-power-of-your-mind.pdf",
+    title: "Using the Power of Your Mind",
+    fileSize: "181 KB",
+  },
+  "using-a-trigger-for-mindfulness": {
+    pdfUrl: "/sample-scripts/using-a-trigger-for-mindfulness.pdf",
+    title: "Using a Trigger for Mindfulness",
+    fileSize: "193 KB",
+  },
+  "three-mindful-breaths": {
+    pdfUrl: "/sample-scripts/three-mindful-breaths.pdf",
+    title: "Three Mindful Breaths",
+    fileSize: "181 KB",
+  },
+  "the-practice-of-smiling": {
+    pdfUrl: "/sample-scripts/the-practice-of-smiling.pdf",
+    title: "The Practice of Smiling",
+    fileSize: "180 KB",
+  },
+  "several-meditations-in-1": {
+    pdfUrl: "/sample-scripts/several-meditations-in-1.pdf",
+    title: "Several Meditations in 1",
+    fileSize: "462 KB",
+  },
+  "pleasant-vs-unpleasant": {
+    pdfUrl: "/sample-scripts/pleasant-vs-unpleasant.pdf",
+    title: "Pleasant vs Unpleasant",
+    fileSize: "191 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
