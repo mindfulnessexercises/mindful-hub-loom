@@ -36,6 +36,7 @@ import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
 import { MeditationPlayer } from "@/components/wp/MeditationPlayer";
 import { MeditationScript } from "@/components/wp/MeditationScript";
 import { getMeditationScript } from "@/lib/meditation-scripts";
+import { injectInlineAudio } from "@/lib/inline-audio-sections";
 import { useMeditation } from "@/hooks/use-meditation";
 import {
   getTemplateConfig,
@@ -248,9 +249,12 @@ export default function WPResolver() {
     // capture line we always want to remove.
     cleaned = stripScriptLeadCapture(cleaned);
     const linked = rewriteWpHtml(cleaned);
-    const { html, items } = extractToc(linked);
+    // Inject inline native <audio> players beneath section headings on
+    // posts configured in the inline-audio registry (e.g. teen affirmations).
+    const withAudio = injectInlineAudio(linked, slug);
+    const { html, items } = extractToc(withAudio);
     return { rewrittenHtml: html, toc: items };
-  }, [rawContent, meditation, isDownloadsPage]);
+  }, [rawContent, meditation, isDownloadsPage, slug]);
 
   const audioSrc = useMemo(() => extractFirstAudioUrl(rawContent), [rawContent]);
   const readingMinutes = useMemo(() => estimateReadingMinutes(rawContent), [rawContent]);
