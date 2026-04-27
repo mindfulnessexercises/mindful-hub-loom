@@ -279,7 +279,8 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
     {
       match: "assertiveness and leadership",
       label: "Listen: Assertiveness & Leadership affirmations",
-      src: `${AUDIO_BASE}/positive-affirmations-for-men/assertiveness-and-leadership.mp3`,
+      // v2 = re-recorded take, supersedes original.
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/assertiveness-and-leadership-v2.mp3`,
     },
     {
       match: "balanced work-life integration",
@@ -289,7 +290,8 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
     {
       match: "career and ambition",
       label: "Listen: Career & Ambition affirmations",
-      src: `${AUDIO_BASE}/positive-affirmations-for-men/career-and-ambition.mp3`,
+      // v2 = re-recorded take, supersedes original.
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/career-and-ambition-v2.mp3`,
     },
     {
       match: "courage and bravery",
@@ -299,17 +301,49 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
     {
       match: "creativity and innovation",
       label: "Listen: Creativity & Innovation affirmations",
-      src: `${AUDIO_BASE}/positive-affirmations-for-men/creativity-and-innovation.mp3`,
+      // v2 = re-recorded take, supersedes original.
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/creativity-and-innovation-v2.mp3`,
     },
     {
       match: "financial abundance and prosperity",
       label: "Listen: Financial Abundance & Prosperity affirmations",
-      src: `${AUDIO_BASE}/positive-affirmations-for-men/financial-abundance-and-prosperity.mp3`,
+      // v2 = re-recorded take, supersedes original.
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/financial-abundance-and-prosperity-v2.mp3`,
     },
     {
       match: "gratitude and appreciation",
       label: "Listen: Gratitude & Appreciation affirmations",
       src: `${AUDIO_BASE}/positive-affirmations-for-men/gratitude-and-appreciation.mp3`,
+    },
+    {
+      match: "health and well-being",
+      label: "Listen: Health & Well-Being affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/health-and-well-being.mp3`,
+    },
+    {
+      match: "mindfulness and presence",
+      label: "Listen: Mindfulness & Presence affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/mindfulness-and-presence.mp3`,
+    },
+    {
+      match: "optimism and positivity",
+      label: "Listen: Optimism & Positivity affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/optimism-and-positivity.mp3`,
+    },
+    {
+      match: "personal growth and fulfillment",
+      label: "Listen: Personal Growth & Fulfillment affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/personal-growth-and-fulfillment.mp3`,
+    },
+    {
+      match: "relationships and communication",
+      label: "Listen: Relationships & Communication affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/relationships-and-communication.mp3`,
+    },
+    {
+      match: "strength and resilience",
+      label: "Listen: Strength & Resilience affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/strength-and-resilience.mp3`,
     },
   ],
   "positive-affirmations-for-kids": [
