@@ -403,7 +403,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "Two guided body-scan meditations — How to Simply Be In The Body softens the urge to do and lets you rest into being; Body Appreciation tends to each part of you with gratitude and care.",
     tracks: [
       { title: "How to Simply Be In The Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/how-to-simply-be-in-the-body.mp3` },
-      { title: "Body Appreciation — Guided Meditation by Mystic Mars", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/body-appreciation.mp3` },
+      { title: "Body Appreciation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/body-appreciation.mp3` },
     ],
   },
   "guided-meditation-self-acceptance": {
@@ -521,7 +521,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     intro:
       "Two guided meditations and a dharma talk on gratitude — Heart-Centered Gratitude opens the chest tenderly to what is already enough; The Power of Gratitude widens it into a daily way of seeing; Gratitude (Gil Fronsdal) offers a contemplative reflection on gratitude as practice.",
     tracks: [
-      { title: "Heart-Centered Gratitude — Guided Meditation by Mystic Mars", src: `${AUDIO_BASE}/power-of-gratitude-meditation/heart-centered-gratitude.mp3` },
+      { title: "Heart-Centered Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/heart-centered-gratitude.mp3` },
       { title: "The Power of Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/the-power-of-gratitude.mp3` },
       { title: "Gratitude — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-fronsdal.mp3` },
     ],
