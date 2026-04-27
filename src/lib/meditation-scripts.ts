@@ -1183,6 +1183,36 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Working with Attachment and Addiction",
     fileSize: "372 KB",
   },
+  "a-safe-place-to-deal-with-pain": {
+    pdfUrl: "/sample-scripts/a-safe-place-to-deal-with-pain.pdf",
+    title: "A Safe Place to Deal with Pain",
+    fileSize: "199 KB",
+  },
+  "changing-your-perspective-on-pain": {
+    pdfUrl: "/sample-scripts/changing-your-perspective-on-pain.pdf",
+    title: "Changing Your Perspective on Pain",
+    fileSize: "198 KB",
+  },
+  "deep-state-of-relaxation-for-chronic-pain": {
+    pdfUrl: "/sample-scripts/deep-state-of-relaxation-for-chronic-pain.pdf",
+    title: "Deep State of Relaxation for Chronic Pain",
+    fileSize: "197 KB",
+  },
+  "pain-body-scan": {
+    pdfUrl: "/sample-scripts/pain-body-scan.pdf",
+    title: "Pain - Body Scan",
+    fileSize: "195 KB",
+  },
+  "pain-breathing-and-deep-body-scan": {
+    pdfUrl: "/sample-scripts/pain-breathing-and-deep-body-scan.pdf",
+    title: "Pain - Breathing and Deep Body Scan",
+    fileSize: "202 KB",
+  },
+  "making-room-for-pain-or-discomfort": {
+    pdfUrl: "/sample-scripts/making-room-for-pain-or-discomfort.pdf",
+    title: "Making Room for Pain or Discomfort",
+    fileSize: "190 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
