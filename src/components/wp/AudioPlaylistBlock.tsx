@@ -56,6 +56,83 @@ export function AudioPlaylistBlock({ playlist }: AudioPlaylistBlockProps) {
           </li>
         ))}
       </ol>
+
+      <div className="mt-6 border-t border-border pt-5">
+        <h3 className="text-eyebrow text-primary mb-3">
+          About this audio series
+        </h3>
+        <dl className="space-y-3">
+          <details className="group rounded-lg border border-border bg-background/60 p-4 min-h-[44px]">
+            <summary className="cursor-pointer list-none text-sm font-medium text-foreground marker:hidden flex items-start justify-between gap-3">
+              <span>How does this audio series work?</span>
+              <span
+                aria-hidden
+                className="text-muted-foreground transition-transform group-open:rotate-45 text-lg leading-none"
+              >
+                +
+              </span>
+            </summary>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Each track is a short, self-contained reflection — a hand-picked
+              collection of quotes read slowly, with quiet pauses to let the
+              words land. You can listen straight through in order, or dip into
+              a single part whenever you have a few minutes.
+            </p>
+          </details>
+
+          <details className="group rounded-lg border border-border bg-background/60 p-4 min-h-[44px]">
+            <summary className="cursor-pointer list-none text-sm font-medium text-foreground marker:hidden flex items-start justify-between gap-3">
+              <span>Who is this for?</span>
+              <span
+                aria-hidden
+                className="text-muted-foreground transition-transform group-open:rotate-45 text-lg leading-none"
+              >
+                +
+              </span>
+            </summary>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              For anyone who wants to slow down — beginners and longtime
+              meditators alike. No prior practice is needed. Teachers, coaches,
+              and therapists are also welcome to share these with clients and
+              students as a gentle contemplative resource.
+            </p>
+          </details>
+
+          <details className="group rounded-lg border border-border bg-background/60 p-4 min-h-[44px]">
+            <summary className="cursor-pointer list-none text-sm font-medium text-foreground marker:hidden flex items-start justify-between gap-3">
+              <span>How should I listen?</span>
+              <span
+                aria-hidden
+                className="text-muted-foreground transition-transform group-open:rotate-45 text-lg leading-none"
+              >
+                +
+              </span>
+            </summary>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Find a quiet moment, use headphones if you can, and let the
+              silences between quotes do as much work as the words. There's no
+              right way — listening on a walk, before sleep, or alongside the
+              written quotes below all work beautifully.
+            </p>
+          </details>
+
+          <details className="group rounded-lg border border-border bg-background/60 p-4 min-h-[44px]">
+            <summary className="cursor-pointer list-none text-sm font-medium text-foreground marker:hidden flex items-start justify-between gap-3">
+              <span>Can I save or share these?</span>
+              <span
+                aria-hidden
+                className="text-muted-foreground transition-transform group-open:rotate-45 text-lg leading-none"
+              >
+                +
+              </span>
+            </summary>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Yes — listening here is always free. You're welcome to share the
+              page link with anyone who might find it nourishing.
+            </p>
+          </details>
+        </dl>
+      </div>
     </section>
   );
 }
