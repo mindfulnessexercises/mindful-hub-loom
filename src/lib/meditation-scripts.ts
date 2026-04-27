@@ -718,6 +718,56 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Appreciating Things in Your Life",
     fileSize: "189 KB",
   },
+  "focusing-on-the-positive-moments-throughout-the-day": {
+    pdfUrl: "/sample-scripts/focusing-on-the-positive-moments-throughout-the-day.pdf",
+    title: "Focusing on the Positive Moments Throughout the Day",
+    fileSize: "181 KB",
+  },
+  "sleep-longer-with-more-ease": {
+    pdfUrl: "/sample-scripts/sleep-longer-with-more-ease.pdf",
+    title: "Sleep Longer with More Ease",
+    fileSize: "197 KB",
+  },
+  "sleep-appreciation": {
+    pdfUrl: "/sample-scripts/sleep-appreciation.pdf",
+    title: "Sleep Appreciation",
+    fileSize: "182 KB",
+  },
+  "a-visualization-to-relax-the-mind-for-deep-sleep": {
+    pdfUrl: "/sample-scripts/a-visualization-to-relax-the-mind-for-deep-sleep.pdf",
+    title: "A Visualization to Relax the Mind for Deep Sleep",
+    fileSize: "203 KB",
+  },
+  "mental-relaxation-for-sleep": {
+    pdfUrl: "/sample-scripts/mental-relaxation-for-sleep.pdf",
+    title: "Mental Relaxation for Sleep",
+    fileSize: "204 KB",
+  },
+  "relaxation-for-sleep": {
+    pdfUrl: "/sample-scripts/relaxation-for-sleep.pdf",
+    title: "Relaxation for Sleep",
+    fileSize: "196 KB",
+  },
+  "simple-sleep-meditation": {
+    pdfUrl: "/sample-scripts/simple-sleep-meditation.pdf",
+    title: "Simple Sleep Meditation",
+    fileSize: "195 KB",
+  },
+  "total-body-relaxation-for-sleep": {
+    pdfUrl: "/sample-scripts/total-body-relaxation-for-sleep.pdf",
+    title: "Total Body Relaxation for Sleep",
+    fileSize: "196 KB",
+  },
+  "visualization-of-a-sleepy-train-ride": {
+    pdfUrl: "/sample-scripts/visualization-of-a-sleepy-train-ride.pdf",
+    title: "Visualization of a Sleepy Train Ride",
+    fileSize: "206 KB",
+  },
+  "visualizing-a-beautiful-island-for-sleep": {
+    pdfUrl: "/sample-scripts/visualizing-a-beautiful-island-for-sleep.pdf",
+    title: "Visualizing a Beautiful Island for Sleep",
+    fileSize: "215 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
