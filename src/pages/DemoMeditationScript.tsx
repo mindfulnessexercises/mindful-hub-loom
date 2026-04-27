@@ -4,13 +4,9 @@ import { MeditationScript } from "@/components/wp/MeditationScript";
 /**
  * Side-by-side demo of the MeditationScript display variants.
  * Visit /admin/meditation-script-demo to compare.
- *
- * Uses Mozilla's canonical sample PDF so the demo works without any
- * uploads. Real scripts will live in the `meditation-scripts` Cloud
- * Storage bucket.
  */
-const SAMPLE_PDF =
-  "https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf";
+const SAMPLE_PDF = "/sample-scripts/awareness-of-each-of-the-five-senses.pdf";
+const SAMPLE_TITLE = "Awareness of Each of the Five Senses";
 
 export default function DemoMeditationScript() {
   useEffect(() => {
@@ -57,9 +53,8 @@ export default function DemoMeditationScript() {
           <MeditationScript
             variant="inline"
             pdfUrl={SAMPLE_PDF}
-            title="Body Scan for Beginners"
-            pageCount={3}
-            fileSize="180 KB"
+            title={SAMPLE_TITLE}
+            fileSize="26 KB"
             meditationId="demo-inline"
           />
         </section>
@@ -80,9 +75,8 @@ export default function DemoMeditationScript() {
           <MeditationScript
             variant="collapsible"
             pdfUrl={SAMPLE_PDF}
-            title="Body Scan for Beginners"
-            pageCount={3}
-            fileSize="180 KB"
+            title={SAMPLE_TITLE}
+            fileSize="26 KB"
             meditationId="demo-collapsible"
           />
         </section>
@@ -102,9 +96,8 @@ export default function DemoMeditationScript() {
           <MeditationScript
             variant="card"
             pdfUrl={SAMPLE_PDF}
-            title="Body Scan for Beginners"
-            pageCount={3}
-            fileSize="180 KB"
+            title={SAMPLE_TITLE}
+            fileSize="26 KB"
             meditationId="demo-card"
           />
         </section>
