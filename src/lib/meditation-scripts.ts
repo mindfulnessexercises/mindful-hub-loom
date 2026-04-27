@@ -1153,6 +1153,36 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Starting Your Day with Mindfulness",
     fileSize: "180 KB",
   },
+  "dealing-with-addiction": {
+    pdfUrl: "/sample-scripts/dealing-with-addiction.pdf",
+    title: "Dealing with Addiction",
+    fileSize: "201 KB",
+  },
+  "focusing-on-being-a-healthy-person": {
+    pdfUrl: "/sample-scripts/focusing-on-being-a-healthy-person.pdf",
+    title: "Focusing on Being a Healthy Person",
+    fileSize: "216 KB",
+  },
+  "relax-accept-break-habits-learn-and-be-happy": {
+    pdfUrl: "/sample-scripts/relax-accept-break-habits-learn-and-be-happy.pdf",
+    title: "Relax, Accept, Break Habits, Learn and Be Happy",
+    fileSize: "213 KB",
+  },
+  "visualizing-a-fountain-for-healing": {
+    pdfUrl: "/sample-scripts/visualizing-a-fountain-for-healing.pdf",
+    title: "Visualizing a Fountain for Healing",
+    fileSize: "185 KB",
+  },
+  "cultivating-a-sense-of-agency-to-overcome-trauma": {
+    pdfUrl: "/sample-scripts/cultivating-a-sense-of-agency-to-overcome-trauma.pdf",
+    title: "Cultivating a Sense of Agency to Overcome Trauma",
+    fileSize: "202 KB",
+  },
+  "working-with-attachment-and-addiction": {
+    pdfUrl: "/sample-scripts/working-with-attachment-and-addiction.pdf",
+    title: "Working with Attachment and Addiction",
+    fileSize: "372 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
