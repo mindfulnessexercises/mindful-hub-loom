@@ -66,6 +66,7 @@ function PdfCanvasPreview({ pdfUrl, title, onView }: PdfCanvasPreviewProps) {
 
         const renderTask = page.render({
           canvasContext: context,
+          canvas,
           viewport: displayViewport,
           transform: outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : undefined,
         });
