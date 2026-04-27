@@ -202,11 +202,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "awareness-of-the-four-elements": {
-    heading: "Listen: Elemental Body Awareness",
+    heading: "Listen: Body Awareness audio series",
     intro:
-      "A guided meditation moving slowly through earth, water, fire, and air as they live in the body — a settling practice for coming home to physical presence.",
+      "Two guided meditations for inhabiting the body — Elemental Body Awareness moves through earth, water, fire, and air; How to Come Home to the Body offers a slower return to physical presence.",
     tracks: [
       { title: "Elemental Body Awareness — Guided Meditation", src: `${AUDIO_BASE}/awareness-of-the-four-elements/elemental-body-awareness.mp3` },
+      { title: "How to Come Home to the Body — Guided Meditation", src: `${AUDIO_BASE}/awareness-of-the-four-elements/come-home-to-the-body.mp3` },
     ],
   },
   "how-to-practice-mindfulness-of-death-and-why-its-important": {
@@ -283,11 +284,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "when-mindfulness-meets-the-nervous-system": {
-    heading: "Listen: Mindfulness of Shame",
+    heading: "Listen: Nervous System audio series",
     intro:
-      "A tender, trauma-sensitive guided meditation for meeting shame with awareness — softening its grip without bypass, and remembering you are not what shame says you are.",
+      "Two trauma-sensitive guided meditations — Mindfulness of Shame meets shame with steady awareness; How to Befriend Your Body, Your Emotions and Your Spirit invites a softer relationship with the whole of you.",
     tracks: [
       { title: "Mindfulness of Shame — Guided Meditation", src: `${AUDIO_BASE}/when-mindfulness-meets-the-nervous-system/mindfulness-of-shame.mp3` },
+      { title: "How to Befriend Your Body, Your Emotions & Your Spirit — Guided Meditation", src: `${AUDIO_BASE}/when-mindfulness-meets-the-nervous-system/befriend-body-emotions-spirit.mp3` },
     ],
   },
   "growing-happiness-in-the-mind": {
@@ -358,11 +360,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "power-of-acceptance": {
     heading: "Listen to the Acceptance audio series",
     intro:
-      "Three guided meditations on acceptance — welcoming this moment as it is, accepting the present, and softening into life as it unfolds. A gentle practice for letting go of resistance.",
+      "Four guided meditations on acceptance — welcoming this moment, accepting it as it is, trusting you are capable of meeting it, and softening into life as it unfolds. A gentle practice for letting go of resistance.",
     tracks: [
       { title: "Part 1: Welcoming This Moment", src: `${AUDIO_BASE}/power-of-acceptance/welcoming-this-moment.mp3` },
       { title: "Part 2: Accepting This Present Moment As It Is", src: `${AUDIO_BASE}/power-of-acceptance/accepting-this-present-moment.mp3` },
-      { title: "Part 3: How to Accept Life As It Unfolds", src: `${AUDIO_BASE}/power-of-acceptance/how-to-accept-life.mp3` },
+      { title: "Part 3: I Am Capable of Meeting This Moment", src: `${AUDIO_BASE}/power-of-acceptance/capable-of-meeting-this-moment.mp3` },
+      { title: "Part 4: How to Accept Life As It Unfolds", src: `${AUDIO_BASE}/power-of-acceptance/how-to-accept-life.mp3` },
     ],
   },
   "8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself": {
@@ -403,6 +406,30 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A guided meditation in the spirit of Joanna Macy's work — turning toward what is hard with steadiness and tender courage, instead of looking away.",
     tracks: [
       { title: "Cultivating Courage to Be With What Is — Guided Meditation", src: `${AUDIO_BASE}/honoring-joanna-macy/cultivating-courage.mp3` },
+    ],
+  },
+  "body-scan-advanced": {
+    heading: "Listen: Sensing Into the Head and Neck",
+    intro:
+      "A guided body-scan meditation focused on the head and neck — softening the held tension we so often carry without noticing.",
+    tracks: [
+      { title: "Sensing Into the Head and Neck — Guided Meditation", src: `${AUDIO_BASE}/body-scan-advanced/sensing-into-head-and-neck.mp3` },
+    ],
+  },
+  "settling-into-presence": {
+    heading: "Listen: Settling Into This Present Moment",
+    intro:
+      "A short guided meditation for letting the body, breath, and mind arrive — gently — into the simple presence of right now.",
+    tracks: [
+      { title: "Settling Into This Present Moment — Guided Meditation", src: `${AUDIO_BASE}/settling-into-presence/settling-into-this-present-moment.mp3` },
+    ],
+  },
+  "learning-the-secret-language-of-your-body-with-inna-segal": {
+    heading: "Listen: Tuning Into Breath and Body",
+    intro:
+      "A guided meditation for listening inward — tuning the dial of attention to the quiet conversation between breath and body.",
+    tracks: [
+      { title: "Tuning Into Breath and Body — Guided Meditation", src: `${AUDIO_BASE}/learning-the-secret-language-of-your-body/tuning-into-breath-and-body.mp3` },
     ],
   },
 };
