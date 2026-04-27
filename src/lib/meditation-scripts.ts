@@ -1,4 +1,4 @@
-// Registry mapping meditation slug → downloadable PDF script.
+// Registry mapping post/meditation slug → downloadable PDF script.
 // Add new entries as PDFs are uploaded to public/sample-scripts/.
 // `flagged: true` means the slug→PDF match is a best guess and should be
 // reviewed before relying on it in production.
@@ -15,8 +15,11 @@ export interface MeditationScriptEntry {
 }
 
 export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
-  "affectionate-breathing": {
-    pdfUrl: "/sample-scripts/affectionate-breathing.pdf",
+  // Best-guess match for "Breathing Self-Compassion" PDF — the post combines
+  // breath awareness with cultivating self-compassion, which mirrors the PDF
+  // intro: "combines awareness of the breath with compassion for the self".
+  "intention-of-self-compassion": {
+    pdfUrl: "/sample-scripts/breathing-self-compassion.pdf",
     title: "Breathing Self-Compassion",
     fileSize: "196 KB",
     flagged: true,
