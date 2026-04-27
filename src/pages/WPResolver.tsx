@@ -404,21 +404,6 @@ export default function WPResolver() {
             </div>
           )}
 
-          {isDownloadsPage && (() => {
-            const script = getMeditationScript(slug);
-            if (!script) return null;
-            return (
-              <div className="container mx-auto max-w-3xl mt-6">
-                <MeditationScript
-                  variant="inline"
-                  pdfUrl={script.pdfUrl}
-                  title={script.title}
-                  fileSize={script.fileSize}
-                  meditationId={slug}
-                />
-              </div>
-            );
-          })()}
 
           {img && tpl.featuredImage !== "hidden" && !isDownloadsPage && (() => {
             const w = img.width ?? 0;
@@ -481,6 +466,22 @@ export default function WPResolver() {
                     <PodcastPlayer src={audioSrc} title={title} episodeId={doc.id} />
                   </div>
                 )}
+
+                {(() => {
+                  const script = getMeditationScript(slug);
+                  if (!script) return null;
+                  return (
+                    <div className="mb-8">
+                      <MeditationScript
+                        variant="inline"
+                        pdfUrl={script.pdfUrl}
+                        title={script.title}
+                        fileSize={script.fileSize}
+                        meditationId={slug}
+                      />
+                    </div>
+                  );
+                })()}
 
                 <div
                   ref={contentRef}
