@@ -538,6 +538,56 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Alleviate Depression",
     fileSize: "200 KB",
   },
+  "alleviate-your-feeling-of-loneliness": {
+    pdfUrl: "/sample-scripts/alleviate-your-feeling-of-loneliness.pdf",
+    title: "Alleviate Your Feeling of Loneliness",
+    fileSize: "192 KB",
+  },
+  "alleviate-feelings-of-anger-and-resentment": {
+    pdfUrl: "/sample-scripts/alleviate-feelings-of-anger-and-resentment.pdf",
+    title: "Alleviate Feelings of Anger and Resentment",
+    fileSize: "200 KB",
+  },
+  "attending-to-emotional-mental-or-external-difficulties": {
+    pdfUrl: "/sample-scripts/attending-to-emotional-mental-or-external-difficulties.pdf",
+    title: "Attending to Emotional, Mental, or External Difficulties",
+    fileSize: "190 KB",
+  },
+  "build-resilience-to-your-response-to-anger": {
+    pdfUrl: "/sample-scripts/build-resilience-to-your-response-to-anger.pdf",
+    title: "Build Resilience to Your Response to Anger",
+    fileSize: "146 KB",
+  },
+  "clarity-of-your-emotion": {
+    pdfUrl: "/sample-scripts/clarity-of-your-emotion.pdf",
+    title: "Clarity of Your Emotion",
+    fileSize: "180 KB",
+  },
+  "dealing-with-negative-thoughts": {
+    pdfUrl: "/sample-scripts/dealing-with-negative-thoughts.pdf",
+    title: "Dealing with Negative Thoughts",
+    fileSize: "180 KB",
+  },
+  "noting-your-judgments": {
+    pdfUrl: "/sample-scripts/noting-your-judgments.pdf",
+    title: "Noting Your Judgments",
+    fileSize: "188 KB",
+  },
+  "recognizing-your-resilience-to-difficulty": {
+    pdfUrl: "/sample-scripts/recognizing-your-resilience-to-difficulty.pdf",
+    title: "Recognizing Your Resilience to Difficulty",
+    fileSize: "182 KB",
+  },
+  "reducing-depression-with-someone-elses-love": {
+    pdfUrl: "/sample-scripts/reducing-depression-with-someone-elses-love.pdf",
+    title: "Reducing Depression with Someone Else's Love",
+    fileSize: "206 KB",
+  },
+  "emotion-as-the-object-of-focus": {
+    pdfUrl: "/sample-scripts/emotion-as-the-object-of-focus.pdf",
+    title: "Emotion as the Object of Focus",
+    fileSize: "186 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
