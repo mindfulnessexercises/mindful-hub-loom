@@ -37,6 +37,8 @@ import { MeditationPlayer } from "@/components/wp/MeditationPlayer";
 import { MeditationScript } from "@/components/wp/MeditationScript";
 import { getMeditationScript } from "@/lib/meditation-scripts";
 import { injectInlineAudio } from "@/lib/inline-audio-sections";
+import { getPlaylist } from "@/lib/audio-playlists";
+import { AudioPlaylistBlock } from "@/components/wp/AudioPlaylistBlock";
 import { useMeditation } from "@/hooks/use-meditation";
 import {
   getTemplateConfig,
@@ -532,6 +534,12 @@ export default function WPResolver() {
                       />
                     </div>
                   );
+                })()}
+
+                {(() => {
+                  const playlist = getPlaylist(slug);
+                  if (!playlist) return null;
+                  return <AudioPlaylistBlock playlist={playlist} />;
                 })()}
 
                 <div
