@@ -244,6 +244,9 @@ export default function WPResolver() {
     let cleaned = rawContent;
     if (meditation) cleaned = stripElfsightEmbeds(cleaned);
     if (isDownloadsPage) cleaned = stripDownloadsLegacy(cleaned);
+    // Runs on every post — old script-style posts have a recurring lead
+    // capture line we always want to remove.
+    cleaned = stripScriptLeadCapture(cleaned);
     const linked = rewriteWpHtml(cleaned);
     const { html, items } = extractToc(linked);
     return { rewrittenHtml: html, toc: items };
