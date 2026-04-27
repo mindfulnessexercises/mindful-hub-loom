@@ -275,6 +275,60 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
       src: `${AUDIO_BASE}/morning-affirmations/spirituality-and-inner-connection.mp3`,
     },
   ],
+  "positive-affirmations-for-men": [
+    {
+      match: "assertiveness and leadership",
+      label: "Listen: Assertiveness & Leadership affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/assertiveness-and-leadership.mp3`,
+    },
+    {
+      match: "balanced work-life integration",
+      label: "Listen: Balanced Work-Life Integration affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/balanced-work-life-integration.mp3`,
+    },
+    {
+      match: "career and ambition",
+      label: "Listen: Career & Ambition affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/career-and-ambition.mp3`,
+    },
+    {
+      match: "courage and bravery",
+      label: "Listen: Courage & Bravery affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/courage-and-bravery.mp3`,
+    },
+    {
+      match: "creativity and innovation",
+      label: "Listen: Creativity & Innovation affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/creativity-and-innovation.mp3`,
+    },
+    {
+      match: "financial abundance and prosperity",
+      label: "Listen: Financial Abundance & Prosperity affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/financial-abundance-and-prosperity.mp3`,
+    },
+    {
+      match: "gratitude and appreciation",
+      label: "Listen: Gratitude & Appreciation affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/gratitude-and-appreciation.mp3`,
+    },
+  ],
+  "positive-affirmations-for-kids": [
+    {
+      match: "creativity and imagination",
+      label: "Listen: Creativity & Imagination affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-kids/creativity-and-imagination.mp3`,
+    },
+    {
+      match: "emotions and resilience",
+      label: "Listen: Emotions & Resilience affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-kids/emotions-and-resilience.mp3`,
+    },
+    {
+      match: "environmental responsibility",
+      label: "Listen: Environmental Responsibility affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-kids/environmental-responsibility.mp3`,
+    },
+  ],
 };
 
 function normalize(text: string): string {
