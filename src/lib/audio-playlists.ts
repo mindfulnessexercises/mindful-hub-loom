@@ -173,8 +173,9 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "i-am-affirmations": {
     heading: "Listen to the I Am Affirmations audio series",
     intro:
-      "A grounding series of 'I Am' affirmations — quiet declarations of who you already are, returning you to the steady ground beneath the noise. (Part 1 coming soon.)",
+      "A grounding four-part series of 'I Am' affirmations — quiet declarations of who you already are, returning you to the steady ground beneath the noise.",
     tracks: [
+      { title: "Part 1: I Am Affirmations", src: `${AUDIO_BASE}/i-am-affirmations/part-1.mp3` },
       { title: "Part 2: I Am Affirmations", src: `${AUDIO_BASE}/i-am-affirmations/part-2.mp3` },
       { title: "Part 3: I Am Affirmations", src: `${AUDIO_BASE}/i-am-affirmations/part-3.mp3` },
       { title: "Part 4: I Am Affirmations", src: `${AUDIO_BASE}/i-am-affirmations/part-4.mp3` },
