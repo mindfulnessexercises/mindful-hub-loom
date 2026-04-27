@@ -161,6 +161,21 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
   ],
   "chakra-affirmations": [
     {
+      match: "root chakra muladhara",
+      label: "Listen: Root Chakra (Muladhara) affirmations",
+      src: `${AUDIO_BASE}/chakra-affirmations/root-chakra-muladhara.mp3`,
+    },
+    {
+      match: "sacral chakra svadhisthana",
+      label: "Listen: Sacral Chakra (Svadhisthana) affirmations",
+      src: `${AUDIO_BASE}/chakra-affirmations/sacral-chakra-svadhisthana.mp3`,
+    },
+    {
+      match: "solar plexus chakra manipura",
+      label: "Listen: Solar Plexus Chakra (Manipura) affirmations",
+      src: `${AUDIO_BASE}/chakra-affirmations/solar-plexus-chakra-manipura.mp3`,
+    },
+    {
       // Match before "Heart Chakra Affirmations" anywhere — the hub
       // page heading is "Heart Chakra (Anahata):" so include both.
       match: "heart chakra anahata",
@@ -181,6 +196,38 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
       match: "crown chakra sahasrara",
       label: "Listen: Crown Chakra (Sahasrara) affirmations",
       src: `${AUDIO_BASE}/chakra-affirmations/crown-chakra-sahasrara.mp3`,
+    },
+  ],
+  "morning-affirmations": [
+    {
+      match: "adventure and boldness",
+      label: "Listen: Adventure & Boldness affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/adventure-and-boldness.mp3`,
+    },
+    {
+      match: "communication and expression",
+      label: "Listen: Communication & Expression affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/communication-and-expression.mp3`,
+    },
+    {
+      match: "financial abundance",
+      label: "Listen: Financial Abundance affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/financial-abundance.mp3`,
+    },
+    {
+      match: "inner peace and serenity",
+      label: "Listen: Inner Peace & Serenity affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/inner-peace-and-serenity.mp3`,
+    },
+    {
+      match: "optimism and positivity",
+      label: "Listen: Optimism & Positivity affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/optimism-and-positivity.mp3`,
+    },
+    {
+      match: "spirituality and inner connection",
+      label: "Listen: Spirituality & Inner Connection affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/spirituality-and-inner-connection.mp3`,
     },
   ],
 };
