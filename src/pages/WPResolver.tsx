@@ -145,6 +145,50 @@ function stripDownloadsLegacy(html: string): string {
   return out;
 }
 
+/**
+ * Removes the legacy lead-capture line that appears on every guided meditation
+ * script post:
+ *   Download "Title" by entering your name and email below:DOWNLOAD NOW
+ * The phrase often appears twice in a row (the second styled as a faded
+ * placeholder, sometimes with curly quotes ", ", or ", "). We strip any
+ * <p>/<div>/<h*> that contains the signature phrase, plus any standalone
+ * "DOWNLOAD NOW" link/button leftovers.
+ */
+function stripScriptLeadCapture(html: string): string {
+  if (!html) return html;
+  let out = html;
+
+  // Match any block-level wrapper containing the signature lead-capture phrase.
+  // The phrase: "by entering your name and email below" is unique enough to
+  // safely target. Quotes around the title vary (straight, curly, smart).
+  const phrase = /by\s+entering\s+your\s+name\s+and\s+email\s+below/i;
+  out = out.replace(
+    /<(p|div|h[1-6])\b[^>]*>(?:(?!<\/\1>)[\s\S])*?by\s+entering\s+your\s+name\s+and\s+email\s+below(?:(?!<\/\1>)[\s\S])*?<\/\1>/gi,
+    "",
+  );
+
+  // Standalone "DOWNLOAD NOW" buttons/links left behind (anchor or button).
+  out = out.replace(
+    /<a\b[^>]*>\s*DOWNLOAD\s+NOW\s*<\/a>/gi,
+    "",
+  );
+  out = out.replace(
+    /<button\b[^>]*>\s*DOWNLOAD\s+NOW\s*<\/button>/gi,
+    "",
+  );
+
+  // Bare "DOWNLOAD NOW" text inside a wrapper (e.g. <p>DOWNLOAD NOW</p>).
+  out = out.replace(
+    /<(p|div|span|strong)\b[^>]*>\s*DOWNLOAD\s+NOW\s*<\/\1>/gi,
+    "",
+  );
+
+  // Suppress unused-var warning while keeping the intent documented above.
+  void phrase;
+
+  return out;
+}
+
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 
@@ -200,6 +244,9 @@ export default function WPResolver() {
     let cleaned = rawContent;
     if (meditation) cleaned = stripElfsightEmbeds(cleaned);
     if (isDownloadsPage) cleaned = stripDownloadsLegacy(cleaned);
+    // Runs on every post — old script-style posts have a recurring lead
+    // capture line we always want to remove.
+    cleaned = stripScriptLeadCapture(cleaned);
     const linked = rewriteWpHtml(cleaned);
     const { html, items } = extractToc(linked);
     return { rewrittenHtml: html, toc: items };
