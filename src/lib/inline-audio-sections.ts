@@ -102,6 +102,13 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
       src: `${AUDIO_BASE}/affirmations-for-teens/graciousness-and-empathy.mp3`,
     },
   ],
+  "karma-quotes": [
+    {
+      match: "karma justice quotes",
+      label: "Listen: Karma Justice quotes",
+      src: `${AUDIO_BASE}/karma-quotes/karma-justice-quotes.mp3`,
+    },
+  ],
 };
 
 function normalize(text: string): string {

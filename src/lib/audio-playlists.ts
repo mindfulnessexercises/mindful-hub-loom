@@ -39,6 +39,25 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 4: Meaningful Work", src: `${AUDIO_BASE}/meaningful-work-quotes/part-4.mp3` },
     ],
   },
+  "karma-quotes": {
+    heading: "Listen to the Karma audio series",
+    intro:
+      "A three-part reflection exploring karma's influence on relationships, life, and personal growth.",
+    tracks: [
+      { title: "Part 1: Karma", src: `${AUDIO_BASE}/karma-quotes/part-1.mp3` },
+      { title: "Part 2: Karma", src: `${AUDIO_BASE}/karma-quotes/part-2.mp3` },
+      { title: "Part 3: Karma", src: `${AUDIO_BASE}/karma-quotes/part-3.mp3` },
+    ],
+  },
+  "self-care-quotes": {
+    heading: "Listen to the Self-Care audio series",
+    intro:
+      "A two-part guided reflection on self-care as a daily mindfulness practice.",
+    tracks: [
+      { title: "Part 1: Self-Care Quotes", src: `${AUDIO_BASE}/self-care-quotes/part-1.mp3` },
+      { title: "Part 2: Self-Care Quotes", src: `${AUDIO_BASE}/self-care-quotes/part-2.mp3` },
+    ],
+  },
 };
 
 export function getPlaylist(slug: string | undefined): AudioPlaylist | null {
