@@ -626,6 +626,54 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Wishing Care For Self and Others — Guided Meditation", src: `${AUDIO_BASE}/loving-kindness-benefactor/wishing-care-for-self-and-others.mp3` },
     ],
   },
+  "the-importance-of-finding-quiet-time": {
+    heading: "Listen: The Still, Quiet Place Within",
+    intro:
+      "A short dharma talk by Gil Fronsdal — pointing toward the still, quiet place that is always already here, beneath the noise of thought.",
+    tracks: [
+      { title: "The Still, Quiet Place Within — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/importance-of-finding-quiet-time/still-quiet-place-within.mp3` },
+    ],
+  },
+  "9-mindfulness-exercises-for-anxiety": {
+    heading: "Listen: Working With Fear",
+    intro:
+      "A dharma talk by Joseph Goldstein on meeting fear with mindfulness — turning toward what frightens us with steady awareness, again and again, until the grip softens.",
+    tracks: [
+      { title: "Working With Fear — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/working-with-fear.mp3` },
+    ],
+  },
+  "working-with-thoughts": {
+    heading: "Listen: Working With Thought and Emotion",
+    intro:
+      "A dharma talk by Joseph Goldstein on meeting thoughts and emotions with awareness — seeing them clearly enough that they no longer have to run the show.",
+    tracks: [
+      { title: "Working With Thought and Emotion — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/working-with-thoughts/working-with-thought-and-emotion.mp3` },
+    ],
+  },
+  "guided-loving-kindness-meditation-audio": {
+    heading: "Listen: The Kind Heart",
+    intro:
+      "A dharma talk by Joseph Goldstein on metta and the kind heart — the slow, steady cultivation of friendliness toward self, others, and life itself.",
+    tracks: [
+      { title: "The Kind Heart — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/guided-loving-kindness-meditation-audio/the-kind-heart.mp3` },
+    ],
+  },
+  "reflections-on-slowing-down-self-love-and-inner-wisdom": {
+    heading: "Listen: Every Moment a Chance to Restart",
+    intro:
+      "A short dharma talk by Gil Fronsdal — a quiet reminder that practice is never lost; every moment offers a fresh chance to begin again.",
+    tracks: [
+      { title: "Every Moment a Chance to Restart — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/reflections-on-slowing-down/every-moment-a-chance-to-restart.mp3` },
+    ],
+  },
+  "walking-meditation-worksheet-2": {
+    heading: "Listen: Walking Meditation",
+    intro:
+      "A dharma talk by Matthew Brensilver on walking meditation — instructions and reflections on bringing mindful presence into the simple act of putting one foot in front of the other.",
+    tracks: [
+      { title: "Walking Meditation — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/walking-meditation-worksheet/walking-meditation-talk.mp3` },
+    ],
+  },
 };
 
 export function getPlaylist(slug: string | undefined): AudioPlaylist | null {
