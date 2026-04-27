@@ -190,6 +190,36 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     fileSize: "182 KB",
     flagged: true,
   },
+  "body-scan-intermediate": {
+    pdfUrl: "/sample-scripts/body-scan-intermediate.pdf",
+    title: "Body Scan Intermediate",
+    fileSize: "183 KB",
+  },
+  "feeling-your-feet-throughout-the-day": {
+    pdfUrl: "/sample-scripts/feeling-your-feet-throughout-the-day.pdf",
+    title: "Feeling Your Feet Throughout the Day",
+    fileSize: "180 KB",
+  },
+  "focusing-on-the-colors-you-see": {
+    pdfUrl: "/sample-scripts/focusing-on-the-colors-you-see.pdf",
+    title: "Focusing on the Colors You See",
+    fileSize: "180 KB",
+  },
+  "mindful-bathing": {
+    pdfUrl: "/sample-scripts/mindful-bathing.pdf",
+    title: "Mindful Bathing",
+    fileSize: "180 KB",
+  },
+  "mindful-cleaning": {
+    pdfUrl: "/sample-scripts/mindful-cleaning.pdf",
+    title: "Mindful Cleaning",
+    fileSize: "181 KB",
+  },
+  "mindful-cooking": {
+    pdfUrl: "/sample-scripts/mindful-cooking.pdf",
+    title: "Mindful Cooking",
+    fileSize: "180 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
