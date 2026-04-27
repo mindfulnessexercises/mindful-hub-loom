@@ -174,13 +174,12 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Awareness of Four Elements — Earth, Air, Water, and Fire",
     fileSize: "178 KB",
   },
-  // Flagged: PDF is titled "Ocean Mind"; mapped to the canonical Ocean
-  // Meditation post — review before relying on it.
+  // Canonical PDF "Experience Your Mind Like an Ocean" — replaces prior
+  // flagged "Ocean Mind" guess (which is now in the orphan review queue).
   "experience-your-mind-like-an-ocean": {
-    pdfUrl: "/sample-scripts/ocean-mind.pdf",
-    title: "Ocean Mind",
-    fileSize: "160 KB",
-    flagged: true,
+    pdfUrl: "/sample-scripts/experience-your-mind-like-an-ocean.pdf",
+    title: "Experience Your Mind Like an Ocean",
+    fileSize: "194 KB",
   },
   // Canonical PDF for the Walking Meditation Script post.
   "walking-meditation-guided-script": {
@@ -303,6 +302,51 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     pdfUrl: "/sample-scripts/mindfulness-of-the-present-moment-without-any-goals.pdf",
     title: "Mindfulness of the Present Moment Without Any Goals",
     fileSize: "191 KB",
+  },
+  "three-mindful-breaths-extended": {
+    pdfUrl: "/sample-scripts/three-mindful-breaths-extended.pdf",
+    title: "Three Mindful Breaths (Extended)",
+    fileSize: "183 KB",
+  },
+  "what-is-open-awareness": {
+    pdfUrl: "/sample-scripts/what-is-open-awareness.pdf",
+    title: "What is Open Awareness?",
+    fileSize: "181 KB",
+  },
+  "open-awareness-focus-on-the-breath": {
+    pdfUrl: "/sample-scripts/open-awareness-focus-on-the-breath.pdf",
+    title: "Open Awareness: Focus on the Breath",
+    fileSize: "179 KB",
+  },
+  "noting-without-identifying": {
+    pdfUrl: "/sample-scripts/noting-without-identifying.pdf",
+    title: "Noting Without Identifying",
+    fileSize: "184 KB",
+  },
+  "5-minute-simple-breathing-meditation": {
+    pdfUrl: "/sample-scripts/5-minute-simple-breathing-meditation.pdf",
+    title: "5-Minute Simple Breathing Meditation",
+    fileSize: "192 KB",
+  },
+  "bringing-yourself-into-the-present-moment": {
+    pdfUrl: "/sample-scripts/bringing-yourself-into-the-present-moment.pdf",
+    title: "Bringing Yourself into the Present Moment",
+    fileSize: "191 KB",
+  },
+  "building-abilities-to-communicate-have-patience-and-manage-time": {
+    pdfUrl: "/sample-scripts/building-abilities-to-communicate-have-patience-and-manage-time.pdf",
+    title: "Building Abilities to Communicate, Have Patience, and Manage Time",
+    fileSize: "220 KB",
+  },
+  "feeling-your-body-and-mind-as-a-lake": {
+    pdfUrl: "/sample-scripts/feeling-your-body-and-mind-as-a-lake.pdf",
+    title: "Feeling Your Body and Mind as a Lake",
+    fileSize: "194 KB",
+  },
+  "mindfulness-of-breath": {
+    pdfUrl: "/sample-scripts/mindfulness-of-breath.pdf",
+    title: "Mindfulness of Breath",
+    fileSize: "181 KB",
   },
 };
 
