@@ -152,29 +152,37 @@ export function MeditationScript({
         </div>
       </div>
 
-      {/* Inline PDF viewer */}
+      {/* Inline PDF viewer. <object> with <iframe> fallback so the PDF still
+          shows when an extension blocks one or the other. The text link below
+          is always visible as a final escape hatch. */}
       {showViewer && (
         <div className="border-t border-border bg-muted/30">
-          <div className="aspect-[8.5/11] sm:aspect-[8.5/9] w-full">
-            <iframe
-              src={`${pdfUrl}#view=FitH`}
-              title={`${title} — script preview`}
+          <div className="aspect-[8.5/11] sm:aspect-[8.5/9] w-full bg-background">
+            <object
+              data={`${pdfUrl}#view=FitH`}
+              type="application/pdf"
               className="w-full h-full"
-              loading="lazy"
-            />
+              aria-label={`${title} — script preview`}
+            >
+              <iframe
+                src={`${pdfUrl}#view=FitH`}
+                title={`${title} — script preview`}
+                className="w-full h-full"
+                loading="lazy"
+              />
+            </object>
           </div>
-          <div className="p-3 flex justify-center sm:hidden">
-            <Button asChild variant="outline" size="sm" className="min-h-[44px]">
-              <a
-                href={pdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={fireView}
-              >
-                <ExternalLink className="h-4 w-4 mr-1.5" />
-                Open in PDF reader
-              </a>
-            </Button>
+          <div className="p-3 flex justify-center">
+            <a
+              href={pdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={fireView}
+              className="inline-flex items-center justify-center gap-1.5 min-h-[44px] px-4 text-sm font-medium text-primary hover:underline"
+            >
+              <ExternalLink className="h-4 w-4" />
+              Open PDF in new tab
+            </a>
           </div>
         </div>
       )}
