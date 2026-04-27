@@ -174,13 +174,12 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Awareness of Four Elements — Earth, Air, Water, and Fire",
     fileSize: "178 KB",
   },
-  // Flagged: PDF is titled "Ocean Mind"; mapped to the canonical Ocean
-  // Meditation post — review before relying on it.
+  // Canonical PDF "Experience Your Mind Like an Ocean" — replaces prior
+  // flagged "Ocean Mind" guess (which is now in the orphan review queue).
   "experience-your-mind-like-an-ocean": {
-    pdfUrl: "/sample-scripts/ocean-mind.pdf",
-    title: "Ocean Mind",
-    fileSize: "160 KB",
-    flagged: true,
+    pdfUrl: "/sample-scripts/experience-your-mind-like-an-ocean.pdf",
+    title: "Experience Your Mind Like an Ocean",
+    fileSize: "194 KB",
   },
   // Canonical PDF for the Walking Meditation Script post.
   "walking-meditation-guided-script": {
@@ -342,11 +341,6 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
   "feeling-your-body-and-mind-as-a-lake": {
     pdfUrl: "/sample-scripts/feeling-your-body-and-mind-as-a-lake.pdf",
     title: "Feeling Your Body and Mind as a Lake",
-    fileSize: "194 KB",
-  },
-  "experience-your-mind-like-an-ocean": {
-    pdfUrl: "/sample-scripts/experience-your-mind-like-an-ocean.pdf",
-    title: "Experience Your Mind Like an Ocean",
     fileSize: "194 KB",
   },
   "mindfulness-of-breath": {
