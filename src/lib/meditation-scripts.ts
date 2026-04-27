@@ -983,6 +983,56 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Mindfulness While Speaking with Others",
     fileSize: "182 KB",
   },
+  "focused-attention-and-concentration": {
+    pdfUrl: "/sample-scripts/focused-attention-and-concentration.pdf",
+    title: "Focused Attention and Concentration",
+    fileSize: "166 KB",
+  },
+  "cultivating-joyful-effort": {
+    pdfUrl: "/sample-scripts/cultivating-joyful-effort.pdf",
+    title: "Cultivating Joyful Effort",
+    fileSize: "144 KB",
+  },
+  "boosting-your-brainwaves": {
+    pdfUrl: "/sample-scripts/boosting-your-brainwaves.pdf",
+    title: "Boosting Your Brainwaves",
+    fileSize: "184 KB",
+  },
+  "get-better-at-feeling-and-noticing": {
+    pdfUrl: "/sample-scripts/get-better-at-feeling-and-noticing.pdf",
+    title: "Get Better at Feeling and Noticing",
+    fileSize: "192 KB",
+  },
+  "awareness-of-using-social-media": {
+    pdfUrl: "/sample-scripts/awareness-of-using-social-media.pdf",
+    title: "Awareness of Using Social Media",
+    fileSize: "200 KB",
+  },
+  "becoming-motivated": {
+    pdfUrl: "/sample-scripts/becoming-motivated.pdf",
+    title: "Becoming Motivated",
+    fileSize: "199 KB",
+  },
+  "building-confidence-for-social-settings-and-meeting-new-people": {
+    pdfUrl: "/sample-scripts/building-confidence-for-social-settings-and-meeting-new-people.pdf",
+    title: "Building Confidence for Social Settings and Meeting New People",
+    fileSize: "209 KB",
+  },
+  "financial-abundance": {
+    pdfUrl: "/sample-scripts/financial-abundance.pdf",
+    title: "Financial Abundance",
+    fileSize: "184 KB",
+  },
+  "focus-extreme-concentration": {
+    pdfUrl: "/sample-scripts/focus-extreme-concentration.pdf",
+    title: "Focus - Extreme Concentration",
+    fileSize: "205 KB",
+  },
+  "focus-and-eliminating-distractions": {
+    pdfUrl: "/sample-scripts/focus-and-eliminating-distractions.pdf",
+    title: "Focus and Eliminating Distractions",
+    fileSize: "201 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
