@@ -371,12 +371,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "cultivating-self-care-and-extending-it-out": {
     heading: "Listen: Self-Care audio series",
     intro:
-      "Four gentle guided meditations for offering kind, attentive care to yourself — Tending to the Body softens you back into physical presence; Caring Awareness for the Head brings tenderness to a busy mind; Filling Your Cup is a longer replenishing practice for the days you've poured yourself empty; Mindfulness of Breathing & Self-Care weaves the breath into a fuller practice of tending to yourself.",
+      "Five gentle guided meditations for offering kind, attentive care to yourself — Tending to the Body softens you back into physical presence; Caring Awareness for the Head brings tenderness to a busy mind; Filling Your Cup is a longer replenishing practice for the days you've poured yourself empty; Mindfulness of Breathing & Self-Care weaves the breath into a fuller practice of tending to yourself; Mindful Eating turns slow, curious attention to the simple, daily act of nourishment.",
     tracks: [
       { title: "Tending to the Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-self-care/tending-to-the-body.mp3` },
       { title: "Caring Awareness for the Head — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-self-care/caring-awareness-for-the-head.mp3` },
       { title: "Filling Your Cup — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-self-care/filling-your-cup.mp3` },
       { title: "Mindfulness of Breathing & Self-Care — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-self-care/mindfulness-of-breathing-self-care.mp3` },
+      { title: "Mindful Eating — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-self-care/mindful-eating.mp3` },
     ],
   },
   "higher-self-meditation": {
@@ -426,11 +427,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself": {
     heading: "Listen: Self-Compassion audio series",
     intro:
-      "Three guided meditations companion to this collection of self-compassion exercises — 21-Day Compassion offers a steady daily practice; Nourishing Your Body With Attention turns kind, attentive presence toward the body itself; Compassion Meditation is a longer practice for opening the heart wide enough to hold both your own pain and the pain of others.",
+      "Four guided meditations companion to this collection of self-compassion exercises — 21-Day Compassion offers a steady daily practice; Nourishing Your Body With Attention turns kind, attentive presence toward the body itself; Compassion Meditation is a longer practice for opening the heart wide enough to hold both your own pain and the pain of others; Self-Compassion Meditation is an extended practice for offering yourself the same warmth and patience you'd offer a dear friend.",
     tracks: [
       { title: "21-Day Compassion — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/21-day-compassion.mp3` },
       { title: "Nourishing Your Body With Attention — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/nourishing-body-with-attention.mp3` },
       { title: "Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/compassion-meditation.mp3` },
+      { title: "Self-Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/self-compassion-pause/self-compassion-meditation.mp3` },
     ],
   },
   "mindfulness-body-scan-for-self-compassion": {
@@ -504,15 +506,17 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "three-60-second-meditation-techniques-for-anxiety": {
     heading: "Listen: Anxiety audio series",
     intro:
-      "Nine guided meditations for working with anxiety — Befriending Anxiety invites a softer relationship with anxious feeling; Alleviating Tension (and an extended take of the same practice) releases the held tightness it leaves behind; Standard Practice For Anxiety offers a steady, repeatable companion for harder moments; plus a Micro-Meditation series of three two-minute resets and an SOS series (1- and 3-minute) for moments when anxiety spikes and you need a fast, steady anchor.",
+      "Eleven guided meditations for working with anxiety — Befriending Anxiety invites a softer relationship with anxious feeling; Alleviating Tension (and an extended take of the same practice) releases the held tightness it leaves behind; Standard Practice For Anxiety offers a steady, repeatable companion for harder moments; plus a five-part Micro-Meditation series of one- to two-minute resets and an SOS series (1- and 3-minute) for moments when anxiety spikes and you need a fast, steady anchor.",
     tracks: [
       { title: "Befriending Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/three-60-second-anxiety/befriending-anxiety.mp3` },
       { title: "Alleviating Tension In Your Body & Mind — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/three-60-second-anxiety/alleviating-tension.mp3` },
       { title: "Alleviating Tension In Your Body & Mind (Extended Version) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/three-60-second-anxiety/alleviating-tension-extended.mp3` },
       { title: "Standard Practice For Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/three-60-second-anxiety/standard-practice-for-anxiety.mp3` },
-      { title: "Micro-Meditation #1 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-2.mp3` },
-      { title: "Micro-Meditation #2 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-3.mp3` },
-      { title: "Micro-Meditation #3 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-4.mp3` },
+      { title: "Micro-Meditation #1 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-1.mp3` },
+      { title: "Micro-Meditation #2 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-2.mp3` },
+      { title: "Micro-Meditation #3 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-3.mp3` },
+      { title: "Micro-Meditation #4 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-4.mp3` },
+      { title: "Micro-Meditation #5 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-5.mp3` },
       { title: "SOS Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/sos-1-minute.mp3` },
       { title: "SOS Meditation (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/sos-3-minutes.mp3` },
     ],
@@ -520,10 +524,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "bedtime-mindfulness": {
     heading: "Listen: Bedtime audio series",
     intro:
-      "Two slow, soothing guided meditations for the end of the day — Directing Your Awareness With Relaxation gently moves through the body using deep relaxation as the doorway into rest; Sleep (5 Minutes) is a short bedtime practice for the nights you just need help drifting off.",
+      "Three slow, soothing guided meditations for the end of the day — Directing Your Awareness With Relaxation gently moves through the body using deep relaxation as the doorway into rest; Sleep (5 Minutes) is a short bedtime practice for the nights you just need help drifting off; Sleep (10 Minutes) is a longer wind-down for letting the day fully unwind into sleep.",
     tracks: [
       { title: "Directing Your Awareness With Relaxation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/bedtime-mindfulness/directing-awareness-relaxation.mp3` },
       { title: "Sleep Meditation (5 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/sleep-5-minutes.mp3` },
+      { title: "Sleep Meditation (10 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/sleep-10-minutes.mp3` },
     ],
   },
   "self-love-affirmations": {
@@ -547,11 +552,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "how-to-cultivate-an-attitude-of-gratitude-why-its-important": {
     heading: "Listen: Attitude of Gratitude audio series",
     intro:
-      "Three guided meditations on the felt sense of gratitude — Gratitude Is Not In The Words drops beneath language into the quiet warmth itself; Sharing Gratitude is a longer practice for letting appreciation move outward, into your relationships and into the world; Starting The Day With Gratitude is a morning practice for letting appreciation set the tone before anything else does.",
+      "Four guided meditations on the felt sense of gratitude — Gratitude Is Not In The Words drops beneath language into the quiet warmth itself; Sharing Gratitude is a longer practice for letting appreciation move outward, into your relationships and into the world; Starting The Day With Gratitude is a morning practice for letting appreciation set the tone before anything else does; Gratitude Meditation is a fuller, ten-minute practice for sinking into appreciation as a whole-body experience.",
     tracks: [
       { title: "Gratitude Is Not In The Words — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/attitude-of-gratitude/gratitude-is-not-in-the-words.mp3` },
       { title: "Sharing Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude/sharing-gratitude.mp3` },
       { title: "Starting The Day With Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/starting-the-day-with-gratitude.mp3` },
+      { title: "Gratitude Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-meditation.mp3` },
     ],
   },
   "full-body-awareness": {
@@ -566,11 +572,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "power-of-gratitude-meditation-7-ways-to-cultivate-it": {
     heading: "Listen: Power of Gratitude audio series",
     intro:
-      "Three guided meditations and a dharma talk on gratitude — Heart-Centered Gratitude opens the chest tenderly to what is already enough; The Power of Gratitude widens it into a daily way of seeing; Sharing Gratitude is a longer practice for letting appreciation flow outward; Gratitude (Gil Fronsdal) offers a contemplative reflection on gratitude as practice.",
+      "Four guided meditations and a dharma talk on gratitude — Heart-Centered Gratitude opens the chest tenderly to what is already enough; The Power of Gratitude widens it into a daily way of seeing; Sharing Gratitude is a longer practice for letting appreciation flow outward; Gratitude Meditation is a fuller, ten-minute practice for sinking into appreciation as a whole-body experience; Gratitude (Gil Fronsdal) offers a contemplative reflection on gratitude as practice.",
     tracks: [
       { title: "Heart-Centered Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/heart-centered-gratitude.mp3` },
       { title: "The Power of Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/the-power-of-gratitude.mp3` },
       { title: "Sharing Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude/sharing-gratitude.mp3` },
+      { title: "Gratitude Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-meditation.mp3` },
       { title: "Gratitude — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-fronsdal.mp3` },
     ],
   },
@@ -648,10 +655,14 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "morning-affirmations": {
     heading: "Listen: Morning Practice audio series",
     intro:
-      "Two grounding morning guided meditations — The Foundation For All Abundance settles into gratitude as the quiet foundation beneath every other kind of abundance; Starting The Day With Gratitude is a longer practice for letting appreciation set the tone before anything else does.",
+      "Grounding morning guided meditations plus a four-part Setting Your Intention series — The Foundation For All Abundance settles into gratitude as the quiet foundation beneath every other kind of abundance; Starting The Day With Gratitude is a longer practice for letting appreciation set the tone before anything else does; Setting Your Intention (1, 3, and 5 minutes) gives you short, steady practices for naming how you want to meet the day; an alternate 5-minute take offers a second voice for the same practice.",
     tracks: [
       { title: "The Foundation For All Abundance — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/foundation-for-all-abundance.mp3` },
       { title: "Starting The Day With Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/starting-the-day-with-gratitude.mp3` },
+      { title: "Setting Your Intention (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/intention-1-minute.mp3` },
+      { title: "Setting Your Intention (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/intention-3-minutes.mp3` },
+      { title: "Setting Your Intention (5 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/intention-5-minutes.mp3` },
+      { title: "Setting Your Intention (5 Minutes, Alternate Take) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/intention-5-minutes-v2.mp3` },
     ],
   },
   "learning-the-secret-language-of-your-body-with-inna-segal": {
@@ -665,19 +676,21 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "8-sleep-meditations-for-a-good-nights-rest": {
     heading: "Listen: Sleep audio series",
     intro:
-      "Three slow, soothing guided meditations for the end of the day — The Power of Gratitude For Sleep lets gratitude soften the body and quiet the mind; Sleep (5 Minutes) is a short bedtime practice for the nights you just need help drifting off; Sleep Appreciation is a longer, tender practice for settling into rest as the day's final act of self-care.",
+      "Four slow, soothing guided meditations for the end of the day — The Power of Gratitude For Sleep lets gratitude soften the body and quiet the mind; Sleep (5 Minutes) is a short bedtime practice for the nights you just need help drifting off; Sleep (10 Minutes) is a longer wind-down for letting the day fully unwind; Sleep Appreciation is a tender practice for settling into rest as the day's final act of self-care.",
     tracks: [
       { title: "The Power of Gratitude For Sleep — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/power-of-gratitude-for-sleep.mp3` },
       { title: "Sleep Meditation (5 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/sleep-5-minutes.mp3` },
+      { title: "Sleep Meditation (10 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/sleep-10-minutes.mp3` },
       { title: "Sleep Appreciation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/sleep-appreciation.mp3` },
     ],
   },
   "self-compassion-pause": {
     heading: "Listen: Self-Compassion Pause audio series",
     intro:
-      "A short and a longer self-compassion practice — The Voice of A Good Friend invites the same warmth, patience, and steady kindness you'd offer a close friend; Compassion Meditation is a longer practice for letting the heart soften into both your own pain and the pain of others.",
+      "Three self-compassion practices in different lengths — The Voice of A Good Friend invites the same warmth, patience, and steady kindness you'd offer a close friend; Self-Compassion Meditation is an extended practice for letting that kindness sink in over a longer sit; Compassion Meditation is a longer practice for letting the heart soften into both your own pain and the pain of others.",
     tracks: [
       { title: "The Voice of A Good Friend — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/self-compassion-pause/voice-of-a-good-friend.mp3` },
+      { title: "Self-Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/self-compassion-pause/self-compassion-meditation.mp3` },
       { title: "Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/compassion-meditation.mp3` },
     ],
   },
@@ -719,15 +732,17 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "9-mindfulness-exercises-for-anxiety": {
     heading: "Listen: Anxiety audio series",
     intro:
-      "On-the-go practices and long-form dharma teachings for working with anxiety — Working With Fear (Joseph Goldstein) is a retreat-style teaching on meeting fear with steady awareness; the Commute series offers one, three, and five-minute resets for the car, train, or sidewalk; the Micro-Meditation series gives three two-minute resets you can drop into anywhere; the SOS series (1- and 3-minute) is for moments when anxiety spikes and you need a fast, steady anchor; Breathing Anchor is a longer guided practice for steadying the mind on the rhythm of the breath when anxiety is loud; Guided Meditation (Gil Fronsdal) is a classic long-form practice for settling an unsettled mind; Paying Attention (Ajahn Sumedho) is a Theravada teaching on the simple, steadying power of attention itself.",
+      "On-the-go practices and long-form dharma teachings for working with anxiety — Working With Fear (Joseph Goldstein) is a retreat-style teaching on meeting fear with steady awareness; the Commute series offers one, three, and five-minute resets for the car, train, or sidewalk; the Micro-Meditation series gives five short resets (one to two minutes each) you can drop into anywhere; the SOS series (1- and 3-minute) is for moments when anxiety spikes and you need a fast, steady anchor; Breathing Anchor is a longer guided practice for steadying the mind on the rhythm of the breath when anxiety is loud; Guided Meditation (Gil Fronsdal) is a classic long-form practice for settling an unsettled mind; Paying Attention (Ajahn Sumedho) is a Theravada teaching on the simple, steadying power of attention itself.",
     tracks: [
       { title: "Working With Fear — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/working-with-fear.mp3` },
       { title: "Commute Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/commute-1-minute.mp3` },
       { title: "Commute Meditation (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/commute-3-minutes.mp3` },
       { title: "Commute Meditation (5 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/commute-5-minutes.mp3` },
-      { title: "Micro-Meditation #1 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-2.mp3` },
-      { title: "Micro-Meditation #2 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-3.mp3` },
-      { title: "Micro-Meditation #3 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-4.mp3` },
+      { title: "Micro-Meditation #1 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-1.mp3` },
+      { title: "Micro-Meditation #2 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-2.mp3` },
+      { title: "Micro-Meditation #3 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-3.mp3` },
+      { title: "Micro-Meditation #4 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-4.mp3` },
+      { title: "Micro-Meditation #5 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-5.mp3` },
       { title: "SOS Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/sos-1-minute.mp3` },
       { title: "SOS Meditation (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/sos-3-minutes.mp3` },
       { title: "Breathing Anchor — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/breathing-anchor.mp3` },
