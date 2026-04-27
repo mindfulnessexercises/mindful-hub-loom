@@ -418,6 +418,10 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Practice Notes: Soft Receptive Mind — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/soft-receptive-mind.mp3` },
       { title: "Practice Notes: Thinking as Scenery — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/practice-notes-thinking-as-scenery.mp3` },
       { title: "Guided Forgiveness Meditation For Depression — Guided Meditation by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-forgiveness-for-depression.mp3` },
+      { title: "Dharma and Depression — Week 2 — Dharma Talk by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-dharma-and-depression-wk2.mp3` },
+      { title: "Dharma and Depression — Week 3 — Dharma Talk by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-dharma-and-depression-wk3.mp3` },
+      { title: "Dharma and Depression — Week 4 — Dharma Talk by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-dharma-and-depression-wk4.mp3` },
+      { title: "Dharma and Depression — Week 5 — Dharma Talk by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-dharma-and-depression-wk5.mp3` },
       { title: "Sickness, Depression and One's Own Virtues — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ajahn-sumedho-sickness-depression-virtues.mp3` },
     ],
   },
@@ -437,12 +441,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself": {
     heading: "Listen: Self-Compassion audio series",
     intro:
-      "Four guided meditations companion to this collection of self-compassion exercises — 21-Day Compassion offers a steady daily practice; Nourishing Your Body With Attention turns kind, attentive presence toward the body itself; Compassion Meditation is a longer practice for opening the heart wide enough to hold both your own pain and the pain of others; Self-Compassion Meditation is an extended practice for offering yourself the same warmth and patience you'd offer a dear friend.",
+      "Guided meditations and a long-form dharma talk on self-compassion — 21-Day Compassion offers a steady daily practice; Nourishing Your Body With Attention turns kind, attentive presence toward the body itself; Compassion Meditation is a longer practice for opening the heart wide enough to hold both your own pain and the pain of others; Self-Compassion Meditation is an extended practice for offering yourself the same warmth and patience you'd offer a dear friend; Self-Compassion (Tara Brach) is a long-form retreat-style teaching on the radical act of meeting yourself with care.",
     tracks: [
       { title: "21-Day Compassion — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/21-day-compassion.mp3` },
       { title: "Nourishing Your Body With Attention — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/nourishing-body-with-attention.mp3` },
       { title: "Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/compassion-meditation.mp3` },
       { title: "Self-Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/self-compassion-pause/self-compassion-meditation.mp3` },
+      { title: "Self-Compassion — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-self-compassion.mp3` },
     ],
   },
   "mindfulness-body-scan-for-self-compassion": {
@@ -568,12 +573,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "how-to-cultivate-an-attitude-of-gratitude-why-its-important": {
     heading: "Listen: Attitude of Gratitude audio series",
     intro:
-      "Four guided meditations on the felt sense of gratitude — Gratitude Is Not In The Words drops beneath language into the quiet warmth itself; Sharing Gratitude is a longer practice for letting appreciation move outward, into your relationships and into the world; Starting The Day With Gratitude is a morning practice for letting appreciation set the tone before anything else does; Gratitude Meditation is a fuller, ten-minute practice for sinking into appreciation as a whole-body experience.",
+      "Guided meditations and a long-form dharma talk on the felt sense of gratitude — Gratitude Is Not In The Words drops beneath language into the quiet warmth itself; Sharing Gratitude is a longer practice for letting appreciation move outward, into your relationships and into the world; Starting The Day With Gratitude is a morning practice for letting appreciation set the tone before anything else does; Gratitude Meditation is a fuller, ten-minute practice for sinking into appreciation as a whole-body experience; Gratitude and Generosity (Tara Brach) is a long-form retreat teaching on how appreciation naturally opens into giving.",
     tracks: [
       { title: "Gratitude Is Not In The Words — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/attitude-of-gratitude/gratitude-is-not-in-the-words.mp3` },
       { title: "Sharing Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude/sharing-gratitude.mp3` },
       { title: "Starting The Day With Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/starting-the-day-with-gratitude.mp3` },
       { title: "Gratitude Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-meditation.mp3` },
+      { title: "Gratitude and Generosity — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/power-of-gratitude-meditation/tara-brach-gratitude-and-generosity.mp3` },
     ],
   },
   "full-body-awareness": {
@@ -588,13 +594,14 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "power-of-gratitude-meditation-7-ways-to-cultivate-it": {
     heading: "Listen: Power of Gratitude audio series",
     intro:
-      "Four guided meditations and a dharma talk on gratitude — Heart-Centered Gratitude opens the chest tenderly to what is already enough; The Power of Gratitude widens it into a daily way of seeing; Sharing Gratitude is a longer practice for letting appreciation flow outward; Gratitude Meditation is a fuller, ten-minute practice for sinking into appreciation as a whole-body experience; Gratitude (Gil Fronsdal) offers a contemplative reflection on gratitude as practice.",
+      "Guided meditations and dharma talks on gratitude — Heart-Centered Gratitude opens the chest tenderly to what is already enough; The Power of Gratitude widens it into a daily way of seeing; Sharing Gratitude is a longer practice for letting appreciation flow outward; Gratitude Meditation is a fuller, ten-minute practice for sinking into appreciation as a whole-body experience; Gratitude (Gil Fronsdal) offers a contemplative reflection on gratitude as practice; Gratitude and Generosity (Tara Brach) is a long-form retreat teaching on how appreciation naturally opens into giving.",
     tracks: [
       { title: "Heart-Centered Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/heart-centered-gratitude.mp3` },
       { title: "The Power of Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/the-power-of-gratitude.mp3` },
       { title: "Sharing Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude/sharing-gratitude.mp3` },
       { title: "Gratitude Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-meditation.mp3` },
       { title: "Gratitude — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-fronsdal.mp3` },
+      { title: "Gratitude and Generosity — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/power-of-gratitude-meditation/tara-brach-gratitude-and-generosity.mp3` },
     ],
   },
   "reduce-rumination-and-increase-positive-states-through-neuro-learning": {
@@ -608,12 +615,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "the-power-of-loving-kindness-how-to-cultivate-it": {
     heading: "Listen: Loving-Kindness audio series",
     intro:
-      "A classic metta practice with Sean Fargo — extending warmth and goodwill first to yourself, then outward, in widening circles of care. Plus a long-form Guided Metta Meditation by Gil Fronsdal — a tender, traditional metta practice from one of the foremost Western teachers of loving-kindness. Closes with a two-part long-form retreat on the Brahmaviharas — the four boundless states of loving-kindness, compassion, sympathetic joy, and equanimity.",
+      "A classic metta practice with Sean Fargo — extending warmth and goodwill first to yourself, then outward, in widening circles of care. Plus a long-form Guided Metta Meditation by Gil Fronsdal — a tender, traditional metta practice from one of the foremost Western teachers of loving-kindness. A two-part long-form retreat on the Brahmaviharas — the four boundless states of loving-kindness, compassion, sympathetic joy, and equanimity. Closes with Two Kinds of Happiness (Tara Brach), a long-form retreat teaching on the difference between the fleeting happiness of getting what we want and the steady happiness that arises from a kind, open heart.",
     tracks: [
       { title: "Loving-Kindness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-loving-kindness/loving-kindness.mp3` },
       { title: "Guided Metta Meditation — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/gil-fronsdal-metta.mp3` },
       { title: "The Brahmaviharas, Part 1 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/brahmavihara-part-1.mp3` },
       { title: "The Brahmaviharas, Part 2 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/brahmavihara-part-2.mp3` },
+      { title: "Two Kinds of Happiness — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/tara-brach-two-kinds-of-happiness.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -672,7 +680,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "morning-affirmations": {
     heading: "Listen: Morning Practice audio series",
     intro:
-      "Grounding morning guided meditations plus a four-part Setting Your Intention series — The Foundation For All Abundance settles into gratitude as the quiet foundation beneath every other kind of abundance; Starting The Day With Gratitude is a longer practice for letting appreciation set the tone before anything else does; Setting Your Intention (1, 3, and 5 minutes) gives you short, steady practices for naming how you want to meet the day; an alternate 5-minute take offers a second voice for the same practice.",
+      "Grounding morning guided meditations plus a four-part Setting Your Intention series and a long-form retreat teaching — The Foundation For All Abundance settles into gratitude as the quiet foundation beneath every other kind of abundance; Starting The Day With Gratitude is a longer practice for letting appreciation set the tone before anything else does; Setting Your Intention (1, 3, and 5 minutes) gives you short, steady practices for naming how you want to meet the day; an alternate 5-minute take offers a second voice for the same practice; Morning Instruction and Q&R (Tara Brach) is a long-form retreat-style morning teaching with guided meditation and responses to practitioner questions.",
     tracks: [
       { title: "The Foundation For All Abundance — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/foundation-for-all-abundance.mp3` },
       { title: "Starting The Day With Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/starting-the-day-with-gratitude.mp3` },
@@ -680,6 +688,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Setting Your Intention (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/intention-3-minutes.mp3` },
       { title: "Setting Your Intention (5 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/intention-5-minutes.mp3` },
       { title: "Setting Your Intention (5 Minutes, Alternate Take) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/intention-5-minutes-v2.mp3` },
+      { title: "Morning Instruction and Question Response — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/morning-affirmations/tara-brach-morning-instruction-and-question-response.mp3` },
     ],
   },
   "learning-the-secret-language-of-your-body-with-inna-segal": {
