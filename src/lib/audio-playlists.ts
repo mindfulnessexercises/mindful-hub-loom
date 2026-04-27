@@ -454,7 +454,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     tracks: [
       { title: "Alleviating Anxiety — Guided Meditation", src: `${AUDIO_BASE}/affirmations-for-anxiety/alleviating-anxiety.mp3` },
       { title: "Noticing The Presence of Anxiety — Guided Meditation", src: `${AUDIO_BASE}/affirmations-for-anxiety/noticing-presence-of-anxiety.mp3` },
-      { title: "Working With Fear — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/affirmations-for-anxiety/working-with-fear.mp3` },
+      {
+        title: "Working With Fear — Dharma Talk by Joseph Goldstein",
+        src: `${AUDIO_BASE}/affirmations-for-anxiety/working-with-fear.mp3`,
+        // Also featured on the 9-mindfulness-exercises-for-anxiety hub —
+        // surface a link there for visitors who arrive here first.
+        postSlug: "9-mindfulness-exercises-for-anxiety",
+      },
     ],
   },
   "three-60-second-meditation-techniques-for-anxiety": {
