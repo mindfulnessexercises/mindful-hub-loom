@@ -1133,6 +1133,26 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Mindfulness While Being Creative",
     fileSize: "182 KB",
   },
+  "reflecting-on-a-positive-future": {
+    pdfUrl: "/sample-scripts/reflecting-on-a-positive-future.pdf",
+    title: "Reflecting on a Positive Future",
+    fileSize: "185 KB",
+  },
+  "reflecting-on-what-connected-you": {
+    pdfUrl: "/sample-scripts/reflecting-on-what-connected-you.pdf",
+    title: "Reflecting on What Connected You",
+    fileSize: "479 KB",
+  },
+  "infinite-awareness": {
+    pdfUrl: "/sample-scripts/infinite-awareness.pdf",
+    title: "Infinite Awareness",
+    fileSize: "186 KB",
+  },
+  "starting-your-day-with-mindfulness": {
+    pdfUrl: "/sample-scripts/starting-your-day-with-mindfulness.pdf",
+    title: "Starting Your Day with Mindfulness",
+    fileSize: "180 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
