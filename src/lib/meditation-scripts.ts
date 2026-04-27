@@ -1033,6 +1033,56 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Focus and Eliminating Distractions",
     fileSize: "201 KB",
   },
+  "focusing-on-healthy-food-choices": {
+    pdfUrl: "/sample-scripts/focusing-on-healthy-food-choices.pdf",
+    title: "Focusing on Healthy Food Choices",
+    fileSize: "201 KB",
+  },
+  "learning-how-to-focus-by-focusing-on-the-details-of-the-day": {
+    pdfUrl: "/sample-scripts/learning-how-to-focus-by-focusing-on-the-details-of-the-day.pdf",
+    title: "Learning How to Focus By Focusing on the Details of the Day",
+    fileSize: "203 KB",
+  },
+  "setting-goals-and-accomplishing-them": {
+    pdfUrl: "/sample-scripts/setting-goals-and-accomplishing-them.pdf",
+    title: "Setting Goals and Accomplishing Them",
+    fileSize: "181 KB",
+  },
+  "bringing-energy-and-alertness-to-your-mind": {
+    pdfUrl: "/sample-scripts/bringing-energy-and-alertness-to-your-mind.pdf",
+    title: "Bringing Energy and Alertness to Your Mind",
+    fileSize: "180 KB",
+  },
+  "concentrating-your-mind": {
+    pdfUrl: "/sample-scripts/concentrating-your-mind.pdf",
+    title: "Concentrating Your Mind",
+    fileSize: "176 KB",
+  },
+  "feeling-strong-and-confident": {
+    pdfUrl: "/sample-scripts/feeling-strong-and-confident.pdf",
+    title: "Feeling Strong and Confident",
+    fileSize: "180 KB",
+  },
+  "exploring-yourself-as-a-leader": {
+    pdfUrl: "/sample-scripts/exploring-yourself-as-a-leader.pdf",
+    title: "Exploring Yourself as a Leader",
+    fileSize: "179 KB",
+  },
+  "motivation-when-you-are-unmotivated": {
+    pdfUrl: "/sample-scripts/motivation-when-you-are-unmotivated.pdf",
+    title: "Motivation When You are Unmotivated",
+    fileSize: "179 KB",
+  },
+  "the-importance-of-daily-practice": {
+    pdfUrl: "/sample-scripts/the-importance-of-daily-practice.pdf",
+    title: "The Importance of Daily Practice",
+    fileSize: "184 KB",
+  },
+  "restoring-confidence-when-negatively-impacted": {
+    pdfUrl: "/sample-scripts/restoring-confidence-when-negatively-impacted.pdf",
+    title: "Restoring Confidence When Negatively Impacted",
+    fileSize: "198 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
