@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 import { MeditationScript } from "@/components/wp/MeditationScript";
 
 /**
@@ -13,12 +13,19 @@ const SAMPLE_PDF =
   "https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf";
 
 export default function DemoMeditationScript() {
+  useEffect(() => {
+    document.title = "Meditation Script Display Demo";
+    let robots = document.querySelector('meta[name="robots"]');
+    if (!robots) {
+      robots = document.createElement("meta");
+      robots.setAttribute("name", "robots");
+      document.head.appendChild(robots);
+    }
+    robots.setAttribute("content", "noindex,nofollow");
+  }, []);
+
   return (
     <main className="min-h-screen bg-background">
-      <Helmet>
-        <title>Meditation Script Display Demo</title>
-        <meta name="robots" content="noindex,nofollow" />
-      </Helmet>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-16">
         <header>
