@@ -668,6 +668,56 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Gratitude Is Not in the Words",
     fileSize: "179 KB",
   },
+  "gratitude-appreciating-the-simple-things": {
+    pdfUrl: "/sample-scripts/gratitude-appreciating-the-simple-things.pdf",
+    title: "Gratitude - Appreciating the Simple Things",
+    fileSize: "187 KB",
+  },
+  "gratitude-and-gladness": {
+    pdfUrl: "/sample-scripts/gratitude-and-gladness.pdf",
+    title: "Gratitude and Gladness",
+    fileSize: "181 KB",
+  },
+  "filling-your-cup-meditation": {
+    pdfUrl: "/sample-scripts/filling-your-cup-meditation.pdf",
+    title: "Filling Your Cup Meditation",
+    fileSize: "188 KB",
+  },
+  "experience-of-gratitude": {
+    pdfUrl: "/sample-scripts/experience-of-gratitude.pdf",
+    title: "Experience of Gratitude",
+    fileSize: "182 KB",
+  },
+  "ending-the-day-with-gratitude": {
+    pdfUrl: "/sample-scripts/ending-the-day-with-gratitude.pdf",
+    title: "Ending the Day with Gratitude",
+    fileSize: "188 KB",
+  },
+  "affirmations-of-gratitude": {
+    pdfUrl: "/sample-scripts/affirmations-of-gratitude.pdf",
+    title: "Affirmations of Gratitude",
+    fileSize: "179 KB",
+  },
+  "12-intentions-of-gratitude": {
+    pdfUrl: "/sample-scripts/12-intentions-of-gratitude.pdf",
+    title: "12 Intentions of Gratitude",
+    fileSize: "183 KB",
+  },
+  "gratitude-for-your-body": {
+    pdfUrl: "/sample-scripts/gratitude-for-your-body.pdf",
+    title: "Gratitude for Your Body",
+    fileSize: "466 KB",
+  },
+  "gratitude-for-breath-body-and-mind": {
+    pdfUrl: "/sample-scripts/gratitude-for-breath-body-and-mind.pdf",
+    title: "Gratitude for Breath, Body, and Mind",
+    fileSize: "180 KB",
+  },
+  "appreciating-things-in-your-life": {
+    pdfUrl: "/sample-scripts/appreciating-things-in-your-life.pdf",
+    title: "Appreciating Things in Your Life",
+    fileSize: "189 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
