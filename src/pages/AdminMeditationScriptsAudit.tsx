@@ -25,6 +25,7 @@ import {
   type MeditationScriptEntry,
 } from "@/lib/meditation-scripts";
 import { wp } from "@/lib/wp";
+import MeditationScriptReviewQueue from "@/components/admin/MeditationScriptReviewQueue";
 
 /**
  * Internal admin page that audits every meditation-script PDF in
@@ -472,55 +473,7 @@ export default function AdminMeditationScriptsAudit() {
           </CardContent>
         </Card>
 
-        {orphans.length > 0 && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <AlertTriangle className="h-5 w-5 text-amber-600" />
-                Orphan PDFs ({orphans.length})
-              </CardTitle>
-              <p className="text-sm text-muted-foreground mt-1">
-                Files in <code>public/sample-scripts/</code> with no registry
-                entry. Either wire them into <code>MEDITATION_SCRIPTS</code> or
-                delete them.
-              </p>
-            </CardHeader>
-            <CardContent className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Filename</TableHead>
-                    <TableHead>Size</TableHead>
-                    <TableHead className="text-right">Open</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {orphans.map((o) => (
-                    <TableRow key={o.filename}>
-                      <TableCell className="font-mono text-xs">
-                        {o.filename}
-                      </TableCell>
-                      <TableCell className="text-sm text-muted-foreground">
-                        {formatBytes(o.bytes)}
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <Button asChild variant="ghost" size="sm">
-                          <a
-                            href={`/sample-scripts/${o.filename}`}
-                            target="_blank"
-                            rel="noopener"
-                          >
-                            Open <ExternalLink className="h-3 w-3 ml-1" />
-                          </a>
-                        </Button>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </CardContent>
-          </Card>
-        )}
+        <MeditationScriptReviewQueue orphans={orphans} />
       </main>
     </div>
   );
