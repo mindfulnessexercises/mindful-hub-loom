@@ -192,6 +192,94 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 4: I Am Affirmations", src: `${AUDIO_BASE}/i-am-affirmations/part-4.mp3` },
     ],
   },
+  "meditation-script-contentment": {
+    heading: "Listen: Contentment for Simply Being",
+    intro:
+      "A guided meditation for resting into the quiet sufficiency of this moment — softening the urge to do, fix, or become, and letting yourself simply be.",
+    tracks: [
+      { title: "Contentment for Simply Being — Guided Meditation", src: `${AUDIO_BASE}/meditation-script-contentment/contentment-for-simply-being.mp3` },
+    ],
+  },
+  "awareness-of-the-four-elements": {
+    heading: "Listen: Elemental Body Awareness",
+    intro:
+      "A guided meditation moving slowly through earth, water, fire, and air as they live in the body — a settling practice for coming home to physical presence.",
+    tracks: [
+      { title: "Elemental Body Awareness — Guided Meditation", src: `${AUDIO_BASE}/awareness-of-the-four-elements/elemental-body-awareness.mp3` },
+    ],
+  },
+  "how-to-practice-mindfulness-of-death-and-why-its-important": {
+    heading: "Listen: Mindfulness of Death",
+    intro:
+      "A tender guided meditation on the truth of impermanence — not as fear, but as an invitation to live this life more awake, more honest, more grateful.",
+    tracks: [
+      { title: "Mindfulness of Death — Guided Meditation", src: `${AUDIO_BASE}/how-to-practice-mindfulness-of-death/mindfulness-of-death.mp3` },
+    ],
+  },
+  "feeling-tones-pleasant-unpleasant-neutral": {
+    heading: "Listen: Mindfulness of Feeling Tones",
+    intro:
+      "A guided meditation on vedanā — the subtle tone of pleasant, unpleasant, or neutral that colors every experience before we even notice it.",
+    tracks: [
+      { title: "Mindfulness of Feeling Tones — Guided Meditation", src: `${AUDIO_BASE}/feeling-tones-pleasant-unpleasant-neutral/mindfulness-of-feeling-tones.mp3` },
+    ],
+  },
+  "10-tips-for-teaching-mindfulness-of-breathing-practices": {
+    heading: "Listen: Mindfulness of Breathing",
+    intro:
+      "A guided meditation on the foundational practice — resting attention on the breath, returning gently each time the mind wanders.",
+    tracks: [
+      { title: "Mindfulness of Breathing — Guided Meditation", src: `${AUDIO_BASE}/10-tips-teaching-mindfulness-of-breathing/mindfulness-of-breathing.mp3` },
+    ],
+  },
+  "6-mindful-breathing-exercises": {
+    heading: "Listen: Breathing With Curiosity",
+    intro:
+      "A guided meditation that invites you to meet the breath as if for the first time — fresh, unhurried, alive with quiet wonder.",
+    tracks: [
+      { title: "Breathing With Curiosity — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-with-curiosity.mp3` },
+    ],
+  },
+  "using-yoga-and-mindfulness-to-heal-trauma": {
+    heading: "Listen: Finding Refuge in the Body",
+    intro:
+      "A trauma-sensitive guided meditation for slowly, gently rebuilding a sense of safety and belonging within your own body.",
+    tracks: [
+      { title: "Finding Refuge in the Body — Guided Meditation", src: `${AUDIO_BASE}/using-yoga-and-mindfulness-to-heal-trauma/finding-refuge-in-the-body.mp3` },
+    ],
+  },
+  "cope-with-difficult-emotions-through-mindfulness": {
+    heading: "Listen: Exploring Frustration",
+    intro:
+      "A guided meditation for turning toward frustration with curiosity instead of resistance — meeting the heat of it with steadiness, space, and care.",
+    tracks: [
+      { title: "Exploring Frustration — Guided Meditation", src: `${AUDIO_BASE}/cope-with-difficult-emotions/exploring-frustration.mp3` },
+    ],
+  },
+  "an-anti-anxiety-gratitude-practice": {
+    heading: "Listen: Feeling Appreciative",
+    intro:
+      "A guided meditation for softening the chest with appreciation — letting gratitude land in the body as a quiet antidote to anxious mind.",
+    tracks: [
+      { title: "Feeling Appreciative — Guided Meditation", src: `${AUDIO_BASE}/an-anti-anxiety-gratitude-practice/feeling-appreciative.mp3` },
+    ],
+  },
+  "meditation-inner-critic-audio": {
+    heading: "Listen: The 3 Core Identities of the Critic",
+    intro:
+      "A short talk unpacking the three faces the inner critic tends to wear — and how seeing them clearly is the first step to loosening their grip.",
+    tracks: [
+      { title: "The 3 Core Identities of the Critic", src: `${AUDIO_BASE}/inner-critic/three-core-identities.mp3` },
+    ],
+  },
+  "guided-meditation-inner-critic": {
+    heading: "Listen: The 3 Core Identities of the Critic",
+    intro:
+      "A short talk unpacking the three faces the inner critic tends to wear — and how seeing them clearly is the first step to loosening their grip.",
+    tracks: [
+      { title: "The 3 Core Identities of the Critic", src: `${AUDIO_BASE}/inner-critic/three-core-identities.mp3` },
+    ],
+  },
 };
 
 export function getPlaylist(slug: string | undefined): AudioPlaylist | null {
