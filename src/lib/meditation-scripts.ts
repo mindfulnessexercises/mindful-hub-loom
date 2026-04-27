@@ -182,13 +182,11 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     fileSize: "160 KB",
     flagged: true,
   },
-  // Flagged: PDF is "Awareness When Walking"; mapped to the canonical
-  // Walking Meditation script post.
+  // Canonical PDF for the Walking Meditation Script post.
   "walking-meditation-guided-script": {
-    pdfUrl: "/sample-scripts/awareness-when-walking.pdf",
-    title: "Awareness When Walking",
-    fileSize: "182 KB",
-    flagged: true,
+    pdfUrl: "/sample-scripts/walking-meditation.pdf",
+    title: "Walking Meditation",
+    fileSize: "181 KB",
   },
   "body-scan-intermediate": {
     pdfUrl: "/sample-scripts/body-scan-intermediate.pdf",
@@ -219,6 +217,46 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     pdfUrl: "/sample-scripts/mindful-cooking.pdf",
     title: "Mindful Cooking",
     fileSize: "180 KB",
+  },
+  "mindful-journaling": {
+    pdfUrl: "/sample-scripts/mindful-journaling.pdf",
+    title: "Mindful Journaling",
+    fileSize: "179 KB",
+  },
+  "mindfulness-of-doing-the-dishes": {
+    pdfUrl: "/sample-scripts/mindfulness-of-doing-the-dishes.pdf",
+    title: "Mindfulness of Doing the Dishes",
+    fileSize: "180 KB",
+  },
+  "mindfulness-when-you-drive": {
+    pdfUrl: "/sample-scripts/mindfulness-when-you-drive.pdf",
+    title: "Mindfulness When You Drive",
+    fileSize: "180 KB",
+  },
+  "open-awareness-for-thoughts-and-senses": {
+    pdfUrl: "/sample-scripts/open-awareness-for-thoughts-and-senses.pdf",
+    title: "Open Awareness for Thoughts and Senses",
+    fileSize: "184 KB",
+  },
+  "using-sounds-as-the-object-of-your-awareness": {
+    pdfUrl: "/sample-scripts/using-sounds-as-the-object-of-your-awareness.pdf",
+    title: "Using Sounds as the Object of Your Awareness",
+    fileSize: "179 KB",
+  },
+  "rhythm-of-the-breath-flowing-through-the-body": {
+    pdfUrl: "/sample-scripts/rhythm-of-the-breath-flowing-through-the-body.pdf",
+    title: "The Rhythm of the Breath Flowing Through the Body",
+    fileSize: "187 KB",
+  },
+  "short-body-scan": {
+    pdfUrl: "/sample-scripts/short-body-scan.pdf",
+    title: "Short Body Scan",
+    fileSize: "177 KB",
+  },
+  "shopping-mindfully": {
+    pdfUrl: "/sample-scripts/shopping-mindfully.pdf",
+    title: "Shopping Mindfully",
+    fileSize: "178 KB",
   },
 };
 
