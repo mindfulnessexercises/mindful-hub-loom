@@ -155,6 +155,21 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 4: Sacral Chakra", src: `${AUDIO_BASE}/sacral-chakra-affirmations/part-4.mp3` },
     ],
   },
+  "gratitude-affirmations": {
+    heading: "Listen to the Gratitude Affirmations audio series",
+    intro:
+      "Eight gentle tracks of gratitude affirmations and quiet reflection — a soft daily practice for noticing what's already enough, and letting the heart catch up to the good.",
+    tracks: [
+      { title: "Part 1: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-1.mp3` },
+      { title: "Part 2: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-2.mp3` },
+      { title: "Part 3: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-3.mp3` },
+      { title: "Part 4: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-4.mp3` },
+      { title: "Part 5: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-5.mp3` },
+      { title: "Part 6: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-6.mp3` },
+      { title: "Part 7: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-7.mp3` },
+      { title: "Part 8: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-8.mp3` },
+    ],
+  },
 };
 
 export function getPlaylist(slug: string | undefined): AudioPlaylist | null {
