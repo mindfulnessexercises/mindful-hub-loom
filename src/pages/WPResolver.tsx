@@ -46,16 +46,25 @@ import {
 } from "@/lib/wp-template-config";
 
 /**
- * Removes Elfsight audio player embeds from rendered WP HTML once we have a
- * native MeditationPlayer to show instead — prevents the old player from
- * appearing alongside the new one. Targets both the lazy script tag and the
- * placeholder div Elfsight injects into.
+ * Removes ALL third-party Elfsight embeds from rendered WP HTML — runs on
+ * every post/page, not only those with a native meditation player ready,
+ * because we never want the legacy Elfsight player to surface on the new
+ * site (it pulls a third-party script, breaks our design system, and on
+ * pages with a native player would render alongside it).
+ *
+ * Catches the variants we've seen in WP source:
+ *   - <script src="…elfsightcdn.com…"></script>
+ *   - <script src="…elfsight.com/platform/platform.js"></script>
+ *   - [tcb-script src="…elfsight.com…"][/tcb-script] (Thrive Architect wrap)
+ *     — including HTML-entity-escaped quotes (&#8221;, &quot;) from WP
+ *   - <div class="elfsight-app-…"></div> placeholder Elfsight hydrates into
  */
 function stripElfsightEmbeds(html: string): string {
   if (!html) return html;
   return html
-    .replace(/<script[^>]*elfsightcdn[^>]*><\/script>/gi, "")
-    .replace(/<div[^>]*class="[^"]*elfsight-app-[^"]*"[^>]*><\/div>/gi, "");
+    .replace(/<script[^>]*elfsight(?:cdn)?\.com[^>]*>\s*<\/script>/gi, "")
+    .replace(/\[tcb-script[^\]]*elfsight[^\]]*\][\s\S]*?\[\/tcb-script\]/gi, "")
+    .replace(/<div[^>]*class=["'][^"']*elfsight-app-[^"']*["'][^>]*>\s*<\/div>/gi, "");
 }
 
 /**
@@ -245,7 +254,9 @@ export default function WPResolver() {
 
   const { rewrittenHtml, toc } = useMemo(() => {
     let cleaned = rawContent;
-    if (meditation) cleaned = stripElfsightEmbeds(cleaned);
+    // Strip Elfsight embeds on EVERY page — never want the third-party
+    // player to render on the new site, regardless of meditation row.
+    cleaned = stripElfsightEmbeds(cleaned);
     if (isDownloadsPage) cleaned = stripDownloadsLegacy(cleaned);
     // Runs on every post — old script-style posts have a recurring lead
     // capture line we always want to remove.
