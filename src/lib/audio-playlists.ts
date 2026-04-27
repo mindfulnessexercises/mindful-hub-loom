@@ -89,7 +89,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "stress-quotes": {
     heading: "Listen to the Stress audio series",
     intro:
-      "Two calming tracks designed to slow the breath and quiet a busy mind — soft wisdom for moments when stress feels louder than you do. Plus five bonus guided meditations: Relieving Stress; Dropping the Suitcases of Regret & Worry; Mindfulness for Stress in two lengths (a longer settling practice and a shorter five-minute reset); and Soft Belly Breathing — a gentle belly-breath practice for stress relief.",
+      "Two calming tracks designed to slow the breath and quiet a busy mind — soft wisdom for moments when stress feels louder than you do. Plus guided meditations and a long-form dharma teaching: Relieving Stress; Dropping the Suitcases of Regret & Worry; Mindfulness for Stress in two lengths (a longer settling practice and a shorter five-minute reset); Soft Belly Breathing — a gentle belly-breath practice for stress relief; and Stress, Wakeful Relaxation, and Freedom (Tara Brach) — a long-form retreat-style talk on meeting stress with the wakeful, relaxed presence that opens into freedom.",
     tracks: [
       { title: "Part 1: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-1.mp3` },
       { title: "Part 2: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-2.mp3` },
@@ -98,6 +98,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Bonus: Mindfulness for Stress — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/stress-quotes/mindfulness-for-stress.mp3` },
       { title: "Bonus: Mindfulness for Stress (Short Version) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/stress-quotes/mindfulness-for-stress-short.mp3` },
       { title: "Bonus: Soft Belly Breathing To Reduce Stress — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/soft-belly/soft-belly-breathing-stress.mp3` },
+      { title: "Stress, Wakeful Relaxation, and Freedom — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/stress-quotes/tara-brach-stress-wakeful-relaxation-and-freedom.mp3` },
     ],
   },
   "empathy-quotes": {
@@ -407,7 +408,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "kindness-for-your-thinking-mind": {
     heading: "Listen: Kindness for the Mind audio series",
     intro:
-      "Guided meditations and dharma talks for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Mind Appreciation turns warm attention to the mind itself; Mindfulness of Thoughts & Feelings (in two takes) practices noticing the inner weather without getting carried away; Thoughts and Emotions is a companion practice for working skillfully with what arises; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking; Practice Notes: Thinking as Scenery (Gil Fronsdal) reframes thoughts as the passing landscape of the mind, not the destination; Guided Forgiveness Meditation For Depression (Ronna Kabatznick) brings forgiveness practice specifically to the heaviness of depression; Sickness, Depression and One's Own Virtues (Ajahn Sumedho) is a long-form reflection on meeting heavy mind-states by remembering the goodness still within you.",
+      "Guided meditations and dharma talks for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Mind Appreciation turns warm attention to the mind itself; Mindfulness of Thoughts & Feelings (in two takes) practices noticing the inner weather without getting carried away; Thoughts and Emotions is a companion practice for working skillfully with what arises; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking; Practice Notes: Thinking as Scenery (Gil Fronsdal) reframes thoughts as the passing landscape of the mind, not the destination; Guided Forgiveness Meditation For Depression (Ronna Kabatznick) brings forgiveness practice specifically to the heaviness of depression, followed by her four-part Dharma and Depression series (Weeks 2–5) — a deeper retreat-style exploration of how the dharma meets the lived experience of depression; Sickness, Depression and One's Own Virtues (Ajahn Sumedho) is a long-form reflection on meeting heavy mind-states by remembering the goodness still within you.",
     tracks: [
       { title: "Three Centers — Belly, Heart & Head by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/three-centers.mp3` },
       { title: "Mind Appreciation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/mind-appreciation.mp3` },
