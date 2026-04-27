@@ -818,6 +818,56 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Breathe Away Anxious Thoughts",
     fileSize: "186 KB",
   },
+  "breathing-for-medium-amounts-of-stress": {
+    pdfUrl: "/sample-scripts/breathing-for-medium-amounts-of-stress.pdf",
+    title: "Breathing for Medium Amounts of Stress",
+    fileSize: "197 KB",
+  },
+  "dropping-the-suitcases-of-worries-and-regrets": {
+    pdfUrl: "/sample-scripts/dropping-the-suitcases-of-worries-and-regrets.pdf",
+    title: "Dropping The Suitcases of Worries and Regrets",
+    fileSize: "189 KB",
+  },
+  "relieving-anxiety": {
+    pdfUrl: "/sample-scripts/relieving-anxiety.pdf",
+    title: "Relieving Anxiety",
+    fileSize: "191 KB",
+  },
+  "relieving-low-amounts-of-stress": {
+    pdfUrl: "/sample-scripts/relieving-low-amounts-of-stress.pdf",
+    title: "Relieving Low Amounts of Stress",
+    fileSize: "202 KB",
+  },
+  "stress-relief-with-breathing": {
+    pdfUrl: "/sample-scripts/stress-relief-with-breathing.pdf",
+    title: "Stress Relief with Breathing",
+    fileSize: "190 KB",
+  },
+  "visualization-of-a-beach-for-well-being": {
+    pdfUrl: "/sample-scripts/visualization-of-a-beach-for-well-being.pdf",
+    title: "Visualization of a Beach for Well-Being",
+    fileSize: "185 KB",
+  },
+  "visualizing-stress-as-a-storm": {
+    pdfUrl: "/sample-scripts/visualizing-stress-as-a-storm.pdf",
+    title: "Visualizing Stress as a Storm",
+    fileSize: "200 KB",
+  },
+  "extending-the-exhale": {
+    pdfUrl: "/sample-scripts/extending-the-exhale.pdf",
+    title: "Extending the Exhale",
+    fileSize: "179 KB",
+  },
+  "easing-the-mind": {
+    pdfUrl: "/sample-scripts/easing-the-mind.pdf",
+    title: "Easing the Mind",
+    fileSize: "187 KB",
+  },
+  "focused-attention-to-settle-the-mind": {
+    pdfUrl: "/sample-scripts/focused-attention-to-settle-the-mind.pdf",
+    title: "Focused Attention to Settle the Mind",
+    fileSize: "178 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
