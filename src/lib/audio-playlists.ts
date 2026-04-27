@@ -134,7 +134,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "heart-chakra-affirmations": {
     heading: "Listen to the Heart Chakra audio series",
     intro:
-      "Six guided tracks of affirmations for Anahata, the heart center — softening the chest, opening to love, and gently tending to old emotional wounds.",
+      "Six guided tracks of affirmations for Anahata, the heart center — softening the chest, opening to love, and gently tending to old emotional wounds. Plus a bonus guided meditation: Sensing Into the Heart.",
     tracks: [
       { title: "Part 1: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-1.mp3` },
       { title: "Part 2: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-2.mp3` },
@@ -142,6 +142,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 4: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-4.mp3` },
       { title: "Part 5: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-5.mp3` },
       { title: "Part 6: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-6.mp3` },
+      { title: "Bonus: Sensing Into the Heart — Guided Meditation", src: `${AUDIO_BASE}/heart-chakra-affirmations/sensing-into-the-heart.mp3` },
     ],
   },
   "sacral-chakra-affirmations": {
