@@ -129,6 +129,60 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
       src: `${AUDIO_BASE}/karma-quotes/karma-justice-quotes.mp3`,
     },
   ],
+  "stoic-quotes": [
+    {
+      match: "epictetus quotes",
+      label: "Listen: Epictetus quotes",
+      src: `${AUDIO_BASE}/stoic-quotes/epictetus.mp3`,
+    },
+    {
+      match: "seneca quotes",
+      label: "Listen: Seneca quotes",
+      src: `${AUDIO_BASE}/stoic-quotes/seneca.mp3`,
+    },
+    {
+      match: "marcus aurelius quotes",
+      label: "Listen: Marcus Aurelius quotes",
+      src: `${AUDIO_BASE}/stoic-quotes/marcus-aurelius.mp3`,
+    },
+    {
+      match: "zeno of citium quotes",
+      label: "Listen: Zeno of Citium quotes",
+      src: `${AUDIO_BASE}/stoic-quotes/zeno-of-citium.mp3`,
+    },
+    {
+      // No dedicated Cleanthes section yet — attach to "More Stoic Quotes",
+      // the natural catch-all section. When a Cleanthes h3 is added the
+      // match string can be updated; the rendered player won't change.
+      match: "more stoic quotes",
+      label: "Listen: Cleanthes quotes",
+      src: `${AUDIO_BASE}/stoic-quotes/cleanthes.mp3`,
+    },
+  ],
+  "chakra-affirmations": [
+    {
+      // Match before "Heart Chakra Affirmations" anywhere — the hub
+      // page heading is "Heart Chakra (Anahata):" so include both.
+      match: "heart chakra anahata",
+      label: "Listen: Heart Chakra (Anahata) affirmations",
+      src: `${AUDIO_BASE}/chakra-affirmations/heart-chakra-anahata.mp3`,
+    },
+    {
+      match: "throat chakra vishuddha",
+      label: "Listen: Throat Chakra (Vishuddha) affirmations",
+      src: `${AUDIO_BASE}/chakra-affirmations/throat-chakra-vishuddha.mp3`,
+    },
+    {
+      match: "third eye chakra ajna",
+      label: "Listen: Third Eye Chakra (Ajna) affirmations",
+      src: `${AUDIO_BASE}/chakra-affirmations/third-eye-chakra-ajna.mp3`,
+    },
+    {
+      match: "crown chakra sahasrara",
+      label: "Listen: Crown Chakra (Sahasrara) affirmations",
+      src: `${AUDIO_BASE}/chakra-affirmations/crown-chakra-sahasrara.mp3`,
+    },
+  ],
 };
 
 function normalize(text: string): string {
