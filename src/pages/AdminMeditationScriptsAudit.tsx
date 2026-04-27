@@ -105,6 +105,7 @@ const PDF_FILES_ON_DISK = [
   "self-compassion-pause.pdf",
   "self-compassion-through-the-body.pdf",
   "self-compassion-visualization-the-blanket-of-love.pdf",
+  "sense-of-sound.pdf",
   "settling-your-mind-by-picturing-your-body-as-a-bowl.pdf",
   "shopping-mindfully.pdf",
   "short-body-scan.pdf",
