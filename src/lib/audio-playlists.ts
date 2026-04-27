@@ -368,13 +368,14 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "power-of-acceptance": {
     heading: "Listen to the Acceptance audio series",
     intro:
-      "Four guided meditations on acceptance — welcoming this moment, accepting it as it is, trusting you are capable of meeting it, and softening into life as it unfolds. A gentle practice for letting go of resistance.",
+      "Five guided meditations and a dharma talk on acceptance — welcoming this moment, meeting it as it is, and softening into life as it unfolds. Closes with Mindfulness as Strength (Gil Fronsdal), a short reflection on how steady, accepting awareness becomes its own kind of inner strength.",
     tracks: [
       { title: "Part 1: Welcoming This Moment", src: `${AUDIO_BASE}/power-of-acceptance/welcoming-this-moment.mp3` },
       { title: "Part 2: Accepting This Present Moment As It Is", src: `${AUDIO_BASE}/power-of-acceptance/accepting-this-present-moment.mp3` },
       { title: "Part 3: I Am Capable of Meeting This Moment", src: `${AUDIO_BASE}/power-of-acceptance/capable-of-meeting-this-moment.mp3` },
       { title: "Part 4: How to Accept Life As It Unfolds", src: `${AUDIO_BASE}/power-of-acceptance/how-to-accept-life.mp3` },
       { title: "Part 5: Feeling Acceptance", src: `${AUDIO_BASE}/power-of-acceptance/feeling-acceptance.mp3` },
+      { title: "Practice Notes: Mindfulness as Strength — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-acceptance/mindfulness-as-strength.mp3` },
     ],
   },
   "8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself": {
@@ -439,10 +440,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "affirmations-for-anxiety": {
     heading: "Listen: Anxiety audio series",
     intro:
-      "Two gentle guided meditations for softening the grip of anxiety — Alleviating Anxiety meets anxious sensations with steady, kind awareness; Noticing The Presence of Anxiety practices simply seeing it clearly without becoming it.",
+      "Two guided meditations and a dharma talk for working with anxiety — Alleviating Anxiety meets anxious sensations with steady, kind awareness; Noticing The Presence of Anxiety practices simply seeing it clearly without becoming it; Working With Fear (Joseph Goldstein) widens the lens with a longer reflection on meeting fear in practice.",
     tracks: [
       { title: "Alleviating Anxiety — Guided Meditation", src: `${AUDIO_BASE}/affirmations-for-anxiety/alleviating-anxiety.mp3` },
       { title: "Noticing The Presence of Anxiety — Guided Meditation", src: `${AUDIO_BASE}/affirmations-for-anxiety/noticing-presence-of-anxiety.mp3` },
+      { title: "Working With Fear — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/affirmations-for-anxiety/working-with-fear.mp3` },
     ],
   },
   "three-60-second-meditation-techniques-for-anxiety": {
@@ -472,11 +474,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "cultivating-joy": {
-    heading: "Listen: Gratitude And Gladness",
+    heading: "Listen: Joy audio series",
     intro:
-      "A gentle guided meditation for softening into the quiet gladness of being alive — a doorway from gratitude into joy.",
+      "A guided meditation plus a short dharma talk on joy — Gratitude And Gladness softens you into the quiet gladness of being alive; Be Amazed: Wow (Gil Fronsdal) is a tender reminder of the simple wonder hiding in plain sight.",
     tracks: [
       { title: "Gratitude And Gladness — Guided Meditation", src: `${AUDIO_BASE}/cultivating-joy/gratitude-and-gladness.mp3` },
+      { title: "Be Amazed: Wow — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/be-amazed-wow.mp3` },
     ],
   },
   "how-to-cultivate-an-attitude-of-gratitude-why-its-important": {
@@ -488,11 +491,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "full-body-awareness": {
-    heading: "Listen: Grounding",
+    heading: "Listen: Body Awareness audio series",
     intro:
-      "A short guided meditation for arriving back into the body — using the felt sense of contact and weight to steady the nervous system.",
+      "A guided meditation plus a dharma talk on coming home to the body — Grounding uses the felt sense of contact and weight to steady the nervous system; Being Trusting In The Body (Gil Fronsdal) is a longer reflection on letting awareness rest, with confidence, in the body itself.",
     tracks: [
       { title: "Grounding — Guided Meditation", src: `${AUDIO_BASE}/full-body-awareness/grounding.mp3` },
+      { title: "Being Trusting In The Body — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/full-body-awareness/being-trusting-in-the-body.mp3` },
     ],
   },
   "power-of-gratitude-meditation-7-ways-to-cultivate-it": {
@@ -555,11 +559,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "mindfulness-body-scan-for-stress-relief": {
-    heading: "Listen: Relaxing Your Body",
+    heading: "Listen: Body & Stress Relief audio series",
     intro:
-      "A slow guided body scan for releasing the held tension of a stressful day — softening through the body, region by region, into deeper rest.",
+      "A guided body scan plus a short dharma talk for softening held tension — Relaxing Your Body moves slowly through the body, region by region, into deeper rest; Practice Notes: Relax The Eyes (Gil Fronsdal) turns kind attention to the small, often-overlooked tightness around the eyes that quietly carries a whole day's stress.",
     tracks: [
       { title: "Relaxing Your Body — Guided Meditation", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/relaxing-your-body.mp3` },
+      { title: "Practice Notes: Relax The Eyes — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/relax-the-eyes.mp3` },
     ],
   },
   "laying-down-meditation-visualizing-a-lake": {
