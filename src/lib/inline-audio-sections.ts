@@ -355,12 +355,14 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
     {
       match: "creativity and imagination",
       label: "Listen: Creativity & Imagination affirmations",
-      src: `${AUDIO_BASE}/positive-affirmations-for-kids/creativity-and-imagination.mp3`,
+      // v2 = re-recorded take, supersedes original.
+      src: `${AUDIO_BASE}/positive-affirmations-for-kids/creativity-and-imagination-v2.mp3`,
     },
     {
       match: "emotions and resilience",
       label: "Listen: Emotions & Resilience affirmations",
-      src: `${AUDIO_BASE}/positive-affirmations-for-kids/emotions-and-resilience.mp3`,
+      // v2 = re-recorded take, supersedes original.
+      src: `${AUDIO_BASE}/positive-affirmations-for-kids/emotions-and-resilience-v2.mp3`,
     },
     {
       match: "gratitude and appreciation",
@@ -370,7 +372,23 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
     {
       match: "environmental responsibility",
       label: "Listen: Environmental Responsibility affirmations",
-      src: `${AUDIO_BASE}/positive-affirmations-for-kids/environmental-responsibility.mp3`,
+      // v2 = re-recorded take, supersedes original.
+      src: `${AUDIO_BASE}/positive-affirmations-for-kids/environmental-responsibility-v2.mp3`,
+    },
+    {
+      match: "kindness and empathy",
+      label: "Listen: Kindness & Empathy affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-kids/kindness-and-empathy.mp3`,
+    },
+    {
+      match: "respect and manners",
+      label: "Listen: Respect & Manners affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-kids/respect-and-manners.mp3`,
+    },
+    {
+      match: "responsibility and independence",
+      label: "Listen: Responsibility & Independence affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-kids/responsibility-and-independence.mp3`,
     },
   ],
 };
