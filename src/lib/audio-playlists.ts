@@ -170,6 +170,16 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 8: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-8.mp3` },
     ],
   },
+  "i-am-affirmations": {
+    heading: "Listen to the I Am Affirmations audio series",
+    intro:
+      "A grounding series of 'I Am' affirmations — quiet declarations of who you already are, returning you to the steady ground beneath the noise. (Part 1 coming soon.)",
+    tracks: [
+      { title: "Part 2: I Am Affirmations", src: `${AUDIO_BASE}/i-am-affirmations/part-2.mp3` },
+      { title: "Part 3: I Am Affirmations", src: `${AUDIO_BASE}/i-am-affirmations/part-3.mp3` },
+      { title: "Part 4: I Am Affirmations", src: `${AUDIO_BASE}/i-am-affirmations/part-4.mp3` },
+    ],
+  },
 };
 
 export function getPlaylist(slug: string | undefined): AudioPlaylist | null {
