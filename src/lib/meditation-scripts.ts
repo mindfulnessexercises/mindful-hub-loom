@@ -128,6 +128,42 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Seeing Other People as Human Beings Rather Than Labels",
     fileSize: "180 KB",
   },
+  // Body / sensory awareness family
+  "awareness-of-the-five-senses": {
+    pdfUrl: "/sample-scripts/awareness-of-each-of-the-five-senses.pdf",
+    title: "Awareness of Each of the Five Senses",
+    fileSize: "123 KB",
+  },
+  "body-scan-advanced": {
+    pdfUrl: "/sample-scripts/body-scan-advanced.pdf",
+    title: "Advanced Body Scan Meditation",
+    fileSize: "130 KB",
+  },
+  "grounding-through-body-awareness": {
+    pdfUrl: "/sample-scripts/grounding-through-body-awareness.pdf",
+    title: "Grounding Through Body Awareness",
+    fileSize: "171 KB",
+  },
+  "movement-meditation": {
+    pdfUrl: "/sample-scripts/movement-meditation.pdf",
+    title: "Movement Meditation",
+    fileSize: "159 KB",
+  },
+  "outdoor-meditation": {
+    pdfUrl: "/sample-scripts/outdoor-meditation.pdf",
+    title: "Outdoor Meditation",
+    fileSize: "147 KB",
+  },
+  "writing-meditation": {
+    pdfUrl: "/sample-scripts/writing-meditation.pdf",
+    title: "Writing Meditation",
+    fileSize: "155 KB",
+  },
+  "chocolate-meditation": {
+    pdfUrl: "/sample-scripts/chocolate-meditation.pdf",
+    title: "Chocolate Meditation",
+    fileSize: "163 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
