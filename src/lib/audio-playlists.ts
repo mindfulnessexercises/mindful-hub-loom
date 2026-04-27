@@ -289,12 +289,20 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "cope-with-difficult-emotions-through-mindfulness": {
     heading: "Listen: Difficult Emotions audio series",
     intro:
-      "A guided meditation plus four dharma talks for working with hard feelings — Exploring Frustration turns toward the heat of it with curiosity and care; Entering Into Difficulty (Gil Fronsdal) is a tender reflection on how we step closer, instead of away, when the difficult arises; Working With Afflictive Emotions (Joseph Goldstein) widens the lens with a longer retreat-style teaching on meeting strong emotion in practice; Guided Forgiveness Meditation (Gil Fronsdal) offers a classic forgiveness practice for releasing the weight of resentment; Dullness and Anger (Ajahn Sumedho) is a long-form Theravada teaching on meeting heavy, irritable, or shut-down states with patient awareness.",
+      "A guided meditation, dharma talks, and a long-form retreat series on physical pain — Exploring Frustration turns toward the heat of it with curiosity and care; Entering Into Difficulty (Gil Fronsdal) is a tender reflection on how we step closer, instead of away, when the difficult arises; Working With Afflictive Emotions (Joseph Goldstein) widens the lens with a longer retreat-style teaching on meeting strong emotion in practice; Guided Forgiveness Meditation (Gil Fronsdal) offers a classic forgiveness practice for releasing the weight of resentment; Guided Forgiveness Meditation For Depression (Ronna Kabatznick) brings forgiveness practice specifically to the heaviness of depression; Pain (Gil Fronsdal) is a long-form dharma talk on meeting physical and emotional pain with steady, kind awareness; the Working With Pain in Meditation and Daily Life series (Ines Freedman) offers three retreat-style sessions plus three guided practices — Emotional Reactions to Pain, Free-Floating in the Discomfort, and Local Intensity, Global Spread — for working skillfully with chronic and acute pain; Dullness and Anger (Ajahn Sumedho) is a long-form Theravada teaching on meeting heavy, irritable, or shut-down states with patient awareness.",
     tracks: [
       { title: "Exploring Frustration — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cope-with-difficult-emotions/exploring-frustration.mp3` },
       { title: "Entering Into Difficulty — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions/entering-into-difficulty.mp3` },
       { title: "Working With Afflictive Emotions — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/cope-with-difficult-emotions/working-with-afflictive-emotions.mp3` },
       { title: "Guided Forgiveness Meditation — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/gil-fronsdal-forgiveness.mp3` },
+      { title: "Guided Forgiveness Meditation For Depression — Guided Meditation by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-forgiveness-for-depression.mp3` },
+      { title: "Pain — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/gil-fronsdal-pain.mp3` },
+      { title: "Working With Pain in Meditation and Daily Life — Week 1, Part 1 — Dharma Talk by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-pain-wk1-pt1.mp3` },
+      { title: "Working With Pain in Meditation and Daily Life — Week 1, Part 2 — Dharma Talk by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-pain-wk1-pt2.mp3` },
+      { title: "Working With Pain in Meditation and Daily Life — Week 2, Part 1 — Dharma Talk by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-pain-wk2-pt1.mp3` },
+      { title: "Emotional Reactions to Pain — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-emotional-reactions-to-pain.mp3` },
+      { title: "Free-Floating in the Discomfort — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-free-floating-in-discomfort.mp3` },
+      { title: "Local Intensity, Global Spread — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-local-intensity-global-spread.mp3` },
       { title: "Dullness and Anger — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ajahn-sumedho-dullness-and-anger.mp3` },
     ],
   },
@@ -399,7 +407,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "kindness-for-your-thinking-mind": {
     heading: "Listen: Kindness for the Mind audio series",
     intro:
-      "Eight guided meditations and dharma talks for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Mind Appreciation turns warm attention to the mind itself; Mindfulness of Thoughts & Feelings (in two takes) practices noticing the inner weather without getting carried away; Thoughts and Emotions is a companion practice for working skillfully with what arises; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking; Practice Notes: Thinking as Scenery (Gil Fronsdal) reframes thoughts as the passing landscape of the mind, not the destination; Sickness, Depression and One's Own Virtues (Ajahn Sumedho) is a long-form reflection on meeting heavy mind-states by remembering the goodness still within you.",
+      "Guided meditations and dharma talks for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Mind Appreciation turns warm attention to the mind itself; Mindfulness of Thoughts & Feelings (in two takes) practices noticing the inner weather without getting carried away; Thoughts and Emotions is a companion practice for working skillfully with what arises; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking; Practice Notes: Thinking as Scenery (Gil Fronsdal) reframes thoughts as the passing landscape of the mind, not the destination; Guided Forgiveness Meditation For Depression (Ronna Kabatznick) brings forgiveness practice specifically to the heaviness of depression; Sickness, Depression and One's Own Virtues (Ajahn Sumedho) is a long-form reflection on meeting heavy mind-states by remembering the goodness still within you.",
     tracks: [
       { title: "Three Centers — Belly, Heart & Head by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/three-centers.mp3` },
       { title: "Mind Appreciation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/mind-appreciation.mp3` },
@@ -408,6 +416,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Thoughts and Emotions — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/working-with-thoughts/thoughts-and-emotions.mp3` },
       { title: "Practice Notes: Soft Receptive Mind — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/soft-receptive-mind.mp3` },
       { title: "Practice Notes: Thinking as Scenery — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/practice-notes-thinking-as-scenery.mp3` },
+      { title: "Guided Forgiveness Meditation For Depression — Guided Meditation by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-forgiveness-for-depression.mp3` },
       { title: "Sickness, Depression and One's Own Virtues — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ajahn-sumedho-sickness-depression-virtues.mp3` },
     ],
   },
@@ -438,11 +447,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "mindfulness-body-scan-for-self-compassion": {
     heading: "Listen: Self-Compassion Body Scan audio series",
     intro:
-      "Two guided body-scan meditations from Sean Fargo plus a long-form classic — How to Simply Be In The Body softens the urge to do and lets you rest into being; Body Appreciation tends to each part of you with gratitude and care; Guided Body Scan (Gil Fronsdal) is a slow, traditional body-scan practice for moving through the whole body with steady, unhurried attention.",
+      "Two guided body-scan meditations from Sean Fargo plus two long-form classics — How to Simply Be In The Body softens the urge to do and lets you rest into being; Body Appreciation tends to each part of you with gratitude and care; Guided Body Scan (Gil Fronsdal) is a slow, traditional body-scan practice for moving through the whole body with steady, unhurried attention; Body Scan (Ines Freedman) is a long-form retreat-style body scan for deepening the practice with patient, careful awareness.",
     tracks: [
       { title: "How to Simply Be In The Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/how-to-simply-be-in-the-body.mp3` },
       { title: "Body Appreciation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/body-appreciation.mp3` },
       { title: "Guided Body Scan — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/gil-fronsdal-body-scan.mp3` },
+      { title: "Body Scan — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/ines-freedman-body-scan.mp3` },
     ],
   },
   "guided-meditation-self-acceptance": {
@@ -641,12 +651,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "mindfulness-body-scan-for-stress-relief": {
     heading: "Listen: Body & Stress Relief audio series",
     intro:
-      "A guided body scan, a longer mindfulness-for-stress practice, and dharma teachings for softening held tension — Relaxing Your Body moves slowly through the body, region by region, into deeper rest; Mindfulness for Stress turns steady awareness toward what's tight, racing, or tense; Practice Notes: Relax The Eyes (Gil Fronsdal) turns kind attention to the small, often-overlooked tightness around the eyes that quietly carries a whole day's stress; Guided Body Scan (Gil Fronsdal) is a long-form, traditional body-scan practice for moving through the whole body with steady, unhurried attention.",
+      "A guided body scan, a longer mindfulness-for-stress practice, and dharma teachings for softening held tension — Relaxing Your Body moves slowly through the body, region by region, into deeper rest; Mindfulness for Stress turns steady awareness toward what's tight, racing, or tense; Practice Notes: Relax The Eyes (Gil Fronsdal) turns kind attention to the small, often-overlooked tightness around the eyes that quietly carries a whole day's stress; Guided Body Scan (Gil Fronsdal) is a long-form, traditional body-scan practice for moving through the whole body with steady, unhurried attention; Body Scan (Ines Freedman) is a long-form retreat-style body scan for deepening the practice with patient, careful awareness.",
     tracks: [
       { title: "Relaxing Your Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/relaxing-your-body.mp3` },
       { title: "Mindfulness for Stress — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/stress-quotes/mindfulness-for-stress.mp3` },
       { title: "Practice Notes: Relax The Eyes — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/relax-the-eyes.mp3` },
       { title: "Guided Body Scan — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/gil-fronsdal-body-scan.mp3` },
+      { title: "Body Scan — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/ines-freedman-body-scan.mp3` },
     ],
   },
   "laying-down-meditation-visualizing-a-lake": {
@@ -758,6 +769,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Breathing Anchor — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/breathing-anchor.mp3` },
       { title: "Guided Meditation — Long-Form Practice by Gil Fronsdal", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/gil-fronsdal-guided-meditation.mp3` },
       { title: "Paying Attention — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/ajahn-sumedho-paying-attention.mp3` },
+      { title: "Guided Meditation — Long-Form Retreat Practice by Joseph Goldstein", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/joseph-goldstein-guided-meditation.mp3` },
     ],
   },
   "working-with-thoughts": {
