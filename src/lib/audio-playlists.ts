@@ -134,7 +134,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "heart-chakra-affirmations": {
     heading: "Listen to the Heart Chakra audio series",
     intro:
-      "Six guided tracks of affirmations for Anahata, the heart center — softening the chest, opening to love, and gently tending to old emotional wounds.",
+      "Six guided tracks of affirmations for Anahata, the heart center — softening the chest, opening to love, and gently tending to old emotional wounds. Plus a bonus guided meditation: Sensing Into the Heart.",
     tracks: [
       { title: "Part 1: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-1.mp3` },
       { title: "Part 2: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-2.mp3` },
@@ -142,6 +142,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 4: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-4.mp3` },
       { title: "Part 5: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-5.mp3` },
       { title: "Part 6: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-6.mp3` },
+      { title: "Bonus: Sensing Into the Heart — Guided Meditation", src: `${AUDIO_BASE}/heart-chakra-affirmations/sensing-into-the-heart.mp3` },
     ],
   },
   "sacral-chakra-affirmations": {
@@ -278,6 +279,78 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A short talk unpacking the three faces the inner critic tends to wear — and how seeing them clearly is the first step to loosening their grip.",
     tracks: [
       { title: "The 3 Core Identities of the Critic", src: `${AUDIO_BASE}/inner-critic/three-core-identities.mp3` },
+    ],
+  },
+  "when-mindfulness-meets-the-nervous-system": {
+    heading: "Listen: Mindfulness of Shame",
+    intro:
+      "A tender, trauma-sensitive guided meditation for meeting shame with awareness — softening its grip without bypass, and remembering you are not what shame says you are.",
+    tracks: [
+      { title: "Mindfulness of Shame — Guided Meditation", src: `${AUDIO_BASE}/when-mindfulness-meets-the-nervous-system/mindfulness-of-shame.mp3` },
+    ],
+  },
+  "growing-happiness-in-the-mind": {
+    heading: "Listen: Opening to Gladness",
+    intro:
+      "A guided meditation for letting small moments of joy land — opening the heart to the quiet gladness already woven into ordinary life.",
+    tracks: [
+      { title: "Opening to Gladness — Guided Meditation", src: `${AUDIO_BASE}/growing-happiness-in-the-mind/opening-to-gladness.mp3` },
+    ],
+  },
+  "the-highest-form-of-happiness-rediscovering-peace": {
+    heading: "Listen: Opening to Happiness",
+    intro:
+      "A guided meditation for softening into the kind of happiness that doesn't depend on circumstance — the steady, peaceful kind that lives beneath the noise.",
+    tracks: [
+      { title: "Opening to Happiness — Guided Meditation", src: `${AUDIO_BASE}/highest-form-of-happiness/opening-to-happiness.mp3` },
+    ],
+  },
+  "visiting-your-safe-place": {
+    heading: "Listen: Sensing Into Safety",
+    intro:
+      "A trauma-sensitive guided meditation for noticing the small signals of safety already present in the body — a gentle anchor for the nervous system.",
+    tracks: [
+      { title: "Sensing Into Safety — Guided Meditation", src: `${AUDIO_BASE}/visiting-your-safe-place/sensing-into-safety.mp3` },
+    ],
+  },
+  "movement-meditation": {
+    heading: "Listen: Seven Directions Meditation",
+    intro:
+      "A spacious guided meditation orienting awareness through the seven directions — front, back, left, right, above, below, and within — a practice of fully inhabiting your place in space.",
+    tracks: [
+      { title: "Seven Directions — Guided Meditation", src: `${AUDIO_BASE}/movement-meditation/seven-directions.mp3` },
+    ],
+  },
+  "cultivating-self-care-and-extending-it-out": {
+    heading: "Listen: Tending to the Body",
+    intro:
+      "A gentle guided meditation for offering kind, attentive care to the body — meeting it the way you'd tend to someone you love.",
+    tracks: [
+      { title: "Tending to the Body — Guided Meditation", src: `${AUDIO_BASE}/cultivating-self-care/tending-to-the-body.mp3` },
+    ],
+  },
+  "higher-self-meditation": {
+    heading: "Listen: The Expanding Dimension of Time",
+    intro:
+      "A spacious guided meditation that softens the felt sense of time — opening into a wider, quieter awareness beneath the rush.",
+    tracks: [
+      { title: "The Expanding Dimension of Time — Guided Meditation", src: `${AUDIO_BASE}/higher-self-meditation/expanding-dimension-of-time.mp3` },
+    ],
+  },
+  "what-rick-hansons-meditation-taught-me-about-truly-staying-present": {
+    heading: "Listen: This Moment Is Like This",
+    intro:
+      "A grounding guided meditation for meeting whatever is here — pleasant, unpleasant, or in-between — with the simple acknowledgment: this moment is like this.",
+    tracks: [
+      { title: "This Moment Is Like This — Guided Meditation", src: `${AUDIO_BASE}/rick-hansons-meditation-staying-present/this-moment-is-like-this.mp3` },
+    ],
+  },
+  "kindness-for-your-thinking-mind": {
+    heading: "Listen: Three Centers Meditation — Belly, Heart & Head",
+    intro:
+      "A grounding guided body-scan meditation moving through the three centers of intelligence — belly, heart, and head — settling each in turn.",
+    tracks: [
+      { title: "Three Centers — Belly, Heart & Head", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/three-centers.mp3` },
     ],
   },
 };
