@@ -391,6 +391,48 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
       src: `${AUDIO_BASE}/positive-affirmations-for-kids/responsibility-and-independence.mp3`,
     },
   ],
+  "positive-affirmations-for-women": [
+    {
+      match: "strong woman affirmations",
+      label: "Listen: Strong Woman affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-women/strong-woman.mp3`,
+    },
+    {
+      match: "daily affirmations for women",
+      label: "Listen: Daily Affirmations for Women",
+      src: `${AUDIO_BASE}/positive-affirmations-for-women/daily.mp3`,
+    },
+    {
+      match: "morning affirmations for women",
+      label: "Listen: Morning Affirmations for Women",
+      src: `${AUDIO_BASE}/positive-affirmations-for-women/morning.mp3`,
+    },
+    {
+      match: "confidence affirmations for women",
+      label: "Listen: Confidence Affirmations for Women",
+      src: `${AUDIO_BASE}/positive-affirmations-for-women/confidence.mp3`,
+    },
+    {
+      match: "empowerment and leadership",
+      label: "Listen: Empowerment & Leadership affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-women/empowerment-and-leadership.mp3`,
+    },
+    {
+      match: "personal growth and development",
+      label: "Listen: Personal Growth & Development affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-women/personal-growth-and-development.mp3`,
+    },
+    {
+      match: "healing and resilience",
+      label: "Listen: Healing & Resilience affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-women/healing-and-resilience.mp3`,
+    },
+    {
+      match: "balance and well-being",
+      label: "Listen: Balance & Well-Being affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-women/balance-and-well-being.mp3`,
+    },
+  ],
 };
 
 function normalize(text: string): string {
