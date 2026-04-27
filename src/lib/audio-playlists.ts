@@ -258,7 +258,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "6-mindful-breathing-exercises": {
     heading: "Listen: Mindful Breathing audio series",
     intro:
-      "Eleven guided meditations for meeting the breath with fresh attention — from curiosity and embodied awareness, to counting each exhale, to resting in the rhythm of the breath without judgment. Plus longer practices on the quiet beauty of the breath, a spacious breathing space, a short five-minute reset, breathing with care, creating mental space through mindful breathing, a felt-sense practice of feeling embodied, and a longer practice weaving mindful breathing into self-care.",
+      "Eleven of Sean Fargo's guided breath meditations — from curiosity and embodied awareness, to counting each exhale, to resting in the rhythm of the breath without judgment — plus longer practices on the beauty of the breath, breathing space, a short five-minute reset, breathing with care, mental space through mindful breathing, feeling embodied, and weaving mindful breathing into self-care. Plus three classic guided breath meditations from Gil Fronsdal — two long-form retreats from 2001 and 2003, and his Anapanasati teaching on the Four Forms of Mindfulness of Breathing.",
     tracks: [
       { title: "Breathing With Curiosity — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-with-curiosity.mp3` },
       { title: "Embodied Awareness of Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/embodied-awareness-of-breathing.mp3` },
@@ -271,6 +271,9 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Creating Mental Space Through Mindful Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/creating-mental-space.mp3` },
       { title: "Feeling Embodied With Mindfulness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/feeling-embodied.mp3` },
       { title: "Mindfulness of Breathing & Self-Care — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-self-care/mindfulness-of-breathing-self-care.mp3` },
+      { title: "Guided Meditation on the Breath — Long-Form Retreat by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-breath-2001.mp3` },
+      { title: "Guided Meditation on the Breath — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-breath-2003.mp3` },
+      { title: "Anapanasati: Four Forms of Mindfulness of Breathing — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapanasati-four-forms.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -284,11 +287,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "cope-with-difficult-emotions-through-mindfulness": {
     heading: "Listen: Difficult Emotions audio series",
     intro:
-      "A guided meditation plus two dharma talks for working with hard feelings — Exploring Frustration turns toward the heat of it with curiosity and care; Entering Into Difficulty (Gil Fronsdal) is a tender reflection on how we step closer, instead of away, when the difficult arises; Working With Afflictive Emotions (Joseph Goldstein) widens the lens with a longer retreat-style teaching on meeting strong emotion in practice.",
+      "A guided meditation plus four dharma talks for working with hard feelings — Exploring Frustration turns toward the heat of it with curiosity and care; Entering Into Difficulty (Gil Fronsdal) is a tender reflection on how we step closer, instead of away, when the difficult arises; Working With Afflictive Emotions (Joseph Goldstein) widens the lens with a longer retreat-style teaching on meeting strong emotion in practice; Guided Forgiveness Meditation (Gil Fronsdal) offers a classic forgiveness practice for releasing the weight of resentment; Dullness and Anger (Ajahn Sumedho) is a long-form Theravada teaching on meeting heavy, irritable, or shut-down states with patient awareness.",
     tracks: [
       { title: "Exploring Frustration — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cope-with-difficult-emotions/exploring-frustration.mp3` },
       { title: "Entering Into Difficulty — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions/entering-into-difficulty.mp3` },
       { title: "Working With Afflictive Emotions — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/cope-with-difficult-emotions/working-with-afflictive-emotions.mp3` },
+      { title: "Guided Forgiveness Meditation — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/gil-fronsdal-forgiveness.mp3` },
+      { title: "Dullness and Anger — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ajahn-sumedho-dullness-and-anger.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -391,7 +396,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "kindness-for-your-thinking-mind": {
     heading: "Listen: Kindness for the Mind audio series",
     intro:
-      "Seven guided meditations and dharma talks for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Mind Appreciation turns warm attention to the mind itself; Mindfulness of Thoughts & Feelings (in two takes) practices noticing the inner weather without getting carried away; Thoughts and Emotions is a companion practice for working skillfully with what arises; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking; Practice Notes: Thinking as Scenery (Gil Fronsdal) reframes thoughts as the passing landscape of the mind, not the destination.",
+      "Eight guided meditations and dharma talks for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Mind Appreciation turns warm attention to the mind itself; Mindfulness of Thoughts & Feelings (in two takes) practices noticing the inner weather without getting carried away; Thoughts and Emotions is a companion practice for working skillfully with what arises; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking; Practice Notes: Thinking as Scenery (Gil Fronsdal) reframes thoughts as the passing landscape of the mind, not the destination; Sickness, Depression and One's Own Virtues (Ajahn Sumedho) is a long-form reflection on meeting heavy mind-states by remembering the goodness still within you.",
     tracks: [
       { title: "Three Centers — Belly, Heart & Head by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/three-centers.mp3` },
       { title: "Mind Appreciation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/mind-appreciation.mp3` },
@@ -400,6 +405,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Thoughts and Emotions — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/working-with-thoughts/thoughts-and-emotions.mp3` },
       { title: "Practice Notes: Soft Receptive Mind — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/soft-receptive-mind.mp3` },
       { title: "Practice Notes: Thinking as Scenery — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/practice-notes-thinking-as-scenery.mp3` },
+      { title: "Sickness, Depression and One's Own Virtues — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ajahn-sumedho-sickness-depression-virtues.mp3` },
     ],
   },
   "power-of-acceptance": {
@@ -573,11 +579,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "the-power-of-loving-kindness-how-to-cultivate-it": {
-    heading: "Listen: Loving-Kindness Meditation",
+    heading: "Listen: Loving-Kindness audio series",
     intro:
-      "A classic metta practice — extending warmth and goodwill first to yourself, then outward, in widening circles of care.",
+      "A classic metta practice with Sean Fargo — extending warmth and goodwill first to yourself, then outward, in widening circles of care. Plus a long-form Guided Metta Meditation by Gil Fronsdal — a tender, traditional metta practice from one of the foremost Western teachers of loving-kindness.",
     tracks: [
       { title: "Loving-Kindness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-loving-kindness/loving-kindness.mp3` },
+      { title: "Guided Metta Meditation — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/gil-fronsdal-metta.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -616,11 +623,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "mindfulness-body-scan-for-stress-relief": {
     heading: "Listen: Body & Stress Relief audio series",
     intro:
-      "A guided body scan, a longer mindfulness-for-stress practice, and a short dharma talk for softening held tension — Relaxing Your Body moves slowly through the body, region by region, into deeper rest; Mindfulness for Stress turns steady awareness toward what's tight, racing, or tense; Practice Notes: Relax The Eyes (Gil Fronsdal) turns kind attention to the small, often-overlooked tightness around the eyes that quietly carries a whole day's stress.",
+      "A guided body scan, a longer mindfulness-for-stress practice, and dharma teachings for softening held tension — Relaxing Your Body moves slowly through the body, region by region, into deeper rest; Mindfulness for Stress turns steady awareness toward what's tight, racing, or tense; Practice Notes: Relax The Eyes (Gil Fronsdal) turns kind attention to the small, often-overlooked tightness around the eyes that quietly carries a whole day's stress; Guided Body Scan (Gil Fronsdal) is a long-form, traditional body-scan practice for moving through the whole body with steady, unhurried attention.",
     tracks: [
       { title: "Relaxing Your Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/relaxing-your-body.mp3` },
       { title: "Mindfulness for Stress — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/stress-quotes/mindfulness-for-stress.mp3` },
       { title: "Practice Notes: Relax The Eyes — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/relax-the-eyes.mp3` },
+      { title: "Guided Body Scan — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/gil-fronsdal-body-scan.mp3` },
     ],
   },
   "laying-down-meditation-visualizing-a-lake": {
@@ -703,7 +711,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "9-mindfulness-exercises-for-anxiety": {
     heading: "Listen: Anxiety audio series",
     intro:
-      "A dharma talk plus on-the-go practices for working with anxiety — Working With Fear (Joseph Goldstein) is a longer retreat-style teaching on meeting fear with steady awareness; the Commute series offers one, three, and five-minute resets for the car, train, or sidewalk; the Micro-Meditation series gives three two-minute resets you can drop into anywhere; the SOS series (1- and 3-minute) is for moments when anxiety spikes and you need a fast, steady anchor; Breathing Anchor is a longer guided practice for steadying the mind on the rhythm of the breath when anxiety is loud.",
+      "On-the-go practices and long-form dharma teachings for working with anxiety — Working With Fear (Joseph Goldstein) is a retreat-style teaching on meeting fear with steady awareness; the Commute series offers one, three, and five-minute resets for the car, train, or sidewalk; the Micro-Meditation series gives three two-minute resets you can drop into anywhere; the SOS series (1- and 3-minute) is for moments when anxiety spikes and you need a fast, steady anchor; Breathing Anchor is a longer guided practice for steadying the mind on the rhythm of the breath when anxiety is loud; Guided Meditation (Gil Fronsdal) is a classic long-form practice for settling an unsettled mind; Paying Attention (Ajahn Sumedho) is a Theravada teaching on the simple, steadying power of attention itself.",
     tracks: [
       { title: "Working With Fear — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/working-with-fear.mp3` },
       { title: "Commute Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/commute-1-minute.mp3` },
@@ -715,6 +723,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "SOS Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/sos-1-minute.mp3` },
       { title: "SOS Meditation (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/sos-3-minutes.mp3` },
       { title: "Breathing Anchor — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/breathing-anchor.mp3` },
+      { title: "Guided Meditation — Long-Form Practice by Gil Fronsdal", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/gil-fronsdal-guided-meditation.mp3` },
+      { title: "Paying Attention — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/ajahn-sumedho-paying-attention.mp3` },
     ],
   },
   "working-with-thoughts": {
