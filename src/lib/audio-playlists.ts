@@ -13,6 +13,13 @@ export interface PlaylistTrack {
   title: string;
   /** Public URL of the audio file. */
   src: string;
+  /**
+   * Optional WP post slug where this track originally lives. When set
+   * (and different from the host playlist's slug), the track row will
+   * render an "Open original post" link so visitors can jump to the
+   * source page for context. Leading slash is optional.
+   */
+  postSlug?: string;
 }
 
 export interface AudioPlaylist {
