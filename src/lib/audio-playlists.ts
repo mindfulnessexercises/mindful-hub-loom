@@ -144,6 +144,17 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 6: Heart Chakra", src: `${AUDIO_BASE}/heart-chakra-affirmations/part-6.mp3` },
     ],
   },
+  "sacral-chakra-affirmations": {
+    heading: "Listen to the Sacral Chakra audio series",
+    intro:
+      "Four guided tracks of affirmations for Svadhisthana, the sacral center — awakening creativity, sensuality, and the joyful flow of emotion.",
+    tracks: [
+      { title: "Part 1: Sacral Chakra", src: `${AUDIO_BASE}/sacral-chakra-affirmations/part-1.mp3` },
+      { title: "Part 2: Sacral Chakra", src: `${AUDIO_BASE}/sacral-chakra-affirmations/part-2.mp3` },
+      { title: "Part 3: Sacral Chakra", src: `${AUDIO_BASE}/sacral-chakra-affirmations/part-3.mp3` },
+      { title: "Part 4: Sacral Chakra", src: `${AUDIO_BASE}/sacral-chakra-affirmations/part-4.mp3` },
+    ],
+  },
 };
 
 export function getPlaylist(slug: string | undefined): AudioPlaylist | null {

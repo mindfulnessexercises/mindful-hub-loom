@@ -341,6 +341,11 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
       src: `${AUDIO_BASE}/positive-affirmations-for-men/relationships-and-communication.mp3`,
     },
     {
+      match: "self-confidence and self-worth",
+      label: "Listen: Self-Confidence & Self-Worth affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-men/self-confidence-and-self-worth.mp3`,
+    },
+    {
       match: "strength and resilience",
       label: "Listen: Strength & Resilience affirmations",
       src: `${AUDIO_BASE}/positive-affirmations-for-men/strength-and-resilience.mp3`,
@@ -356,6 +361,11 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
       match: "emotions and resilience",
       label: "Listen: Emotions & Resilience affirmations",
       src: `${AUDIO_BASE}/positive-affirmations-for-kids/emotions-and-resilience.mp3`,
+    },
+    {
+      match: "gratitude and appreciation",
+      label: "Listen: Gratitude & Appreciation affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-kids/gratitude-and-appreciation.mp3`,
     },
     {
       match: "environmental responsibility",
