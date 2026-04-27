@@ -695,9 +695,10 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "loving-kindness-benefactor": {
     heading: "Listen: Wishing Care For Self and Others",
     intro:
-      "A guided loving-kindness meditation — extending warm wishes of care first to yourself, then outward to a benefactor, a loved one, and beyond.",
+      "A guided loving-kindness meditation by Sean Fargo — extending warm wishes of care first to yourself, then outward to a benefactor, a loved one, and beyond. Plus a long-form Guided Metta Meditation by Gil Fronsdal — a tender, traditional metta practice from one of the foremost Western teachers of loving-kindness.",
     tracks: [
       { title: "Wishing Care For Self and Others — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/loving-kindness-benefactor/wishing-care-for-self-and-others.mp3` },
+      { title: "Guided Metta Meditation — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/gil-fronsdal-metta.mp3` },
     ],
   },
   "the-importance-of-finding-quiet-time": {
