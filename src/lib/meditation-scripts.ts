@@ -108,6 +108,26 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Forgiveness Meditation",
     fileSize: "200 KB",
   },
+  "letting-go-of-resentments-by-forgiving-faults": {
+    pdfUrl: "/sample-scripts/letting-go-of-resentments-by-forgiving-faults.pdf",
+    title: "Letting Go of Resentments by Forgiving Faults",
+    fileSize: "196 KB",
+  },
+  "recognition-and-care-for-those-who-frustrate-you": {
+    pdfUrl: "/sample-scripts/recognition-and-care-for-those-who-frustrate-you.pdf",
+    title: "Recognition and Care for Those Who Frustrate You",
+    fileSize: "195 KB",
+  },
+  "recognizing-what-you-need": {
+    pdfUrl: "/sample-scripts/recognizing-what-you-need.pdf",
+    title: "Recognizing What You Need",
+    fileSize: "182 KB",
+  },
+  "seeing-other-people-as-human-beings": {
+    pdfUrl: "/sample-scripts/seeing-other-people-as-human-beings.pdf",
+    title: "Seeing Other People as Human Beings Rather Than Labels",
+    fileSize: "180 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
