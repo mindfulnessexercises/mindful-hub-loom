@@ -732,15 +732,17 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "9-mindfulness-exercises-for-anxiety": {
     heading: "Listen: Anxiety audio series",
     intro:
-      "On-the-go practices and long-form dharma teachings for working with anxiety — Working With Fear (Joseph Goldstein) is a retreat-style teaching on meeting fear with steady awareness; the Commute series offers one, three, and five-minute resets for the car, train, or sidewalk; the Micro-Meditation series gives three two-minute resets you can drop into anywhere; the SOS series (1- and 3-minute) is for moments when anxiety spikes and you need a fast, steady anchor; Breathing Anchor is a longer guided practice for steadying the mind on the rhythm of the breath when anxiety is loud; Guided Meditation (Gil Fronsdal) is a classic long-form practice for settling an unsettled mind; Paying Attention (Ajahn Sumedho) is a Theravada teaching on the simple, steadying power of attention itself.",
+      "On-the-go practices and long-form dharma teachings for working with anxiety — Working With Fear (Joseph Goldstein) is a retreat-style teaching on meeting fear with steady awareness; the Commute series offers one, three, and five-minute resets for the car, train, or sidewalk; the Micro-Meditation series gives five short resets (one to two minutes each) you can drop into anywhere; the SOS series (1- and 3-minute) is for moments when anxiety spikes and you need a fast, steady anchor; Breathing Anchor is a longer guided practice for steadying the mind on the rhythm of the breath when anxiety is loud; Guided Meditation (Gil Fronsdal) is a classic long-form practice for settling an unsettled mind; Paying Attention (Ajahn Sumedho) is a Theravada teaching on the simple, steadying power of attention itself.",
     tracks: [
       { title: "Working With Fear — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/working-with-fear.mp3` },
       { title: "Commute Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/commute-1-minute.mp3` },
       { title: "Commute Meditation (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/commute-3-minutes.mp3` },
       { title: "Commute Meditation (5 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/commute-5-minutes.mp3` },
-      { title: "Micro-Meditation #1 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-2.mp3` },
-      { title: "Micro-Meditation #2 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-3.mp3` },
-      { title: "Micro-Meditation #3 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-4.mp3` },
+      { title: "Micro-Meditation #1 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-1.mp3` },
+      { title: "Micro-Meditation #2 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-2.mp3` },
+      { title: "Micro-Meditation #3 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-3.mp3` },
+      { title: "Micro-Meditation #4 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-4.mp3` },
+      { title: "Micro-Meditation #5 — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/micro-meditation-5.mp3` },
       { title: "SOS Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/sos-1-minute.mp3` },
       { title: "SOS Meditation (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/sos-3-minutes.mp3` },
       { title: "Breathing Anchor — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/breathing-anchor.mp3` },
