@@ -353,6 +353,21 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
   ],
   "positive-affirmations-for-kids": [
     {
+      match: "self-esteem and confidence",
+      label: "Listen: Self-Esteem & Confidence affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-kids/self-esteem-and-confidence.mp3`,
+    },
+    {
+      match: "positivity and optimism",
+      label: "Listen: Positivity & Optimism affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-kids/positivity-and-optimism.mp3`,
+    },
+    {
+      match: "learning and growth",
+      label: "Listen: Learning & Growth affirmations",
+      src: `${AUDIO_BASE}/positive-affirmations-for-kids/learning-and-growth.mp3`,
+    },
+    {
       match: "creativity and imagination",
       label: "Listen: Creativity & Imagination affirmations",
       // v2 = re-recorded take, supersedes original.
