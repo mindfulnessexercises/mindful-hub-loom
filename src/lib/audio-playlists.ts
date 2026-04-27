@@ -408,6 +408,30 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Cultivating Courage to Be With What Is — Guided Meditation", src: `${AUDIO_BASE}/honoring-joanna-macy/cultivating-courage.mp3` },
     ],
   },
+  "body-scan-advanced": {
+    heading: "Listen: Sensing Into the Head and Neck",
+    intro:
+      "A guided body-scan meditation focused on the head and neck — softening the held tension we so often carry without noticing.",
+    tracks: [
+      { title: "Sensing Into the Head and Neck — Guided Meditation", src: `${AUDIO_BASE}/body-scan-advanced/sensing-into-head-and-neck.mp3` },
+    ],
+  },
+  "settling-into-presence": {
+    heading: "Listen: Settling Into This Present Moment",
+    intro:
+      "A short guided meditation for letting the body, breath, and mind arrive — gently — into the simple presence of right now.",
+    tracks: [
+      { title: "Settling Into This Present Moment — Guided Meditation", src: `${AUDIO_BASE}/settling-into-presence/settling-into-this-present-moment.mp3` },
+    ],
+  },
+  "learning-the-secret-language-of-your-body-with-inna-segal": {
+    heading: "Listen: Tuning Into Breath and Body",
+    intro:
+      "A guided meditation for listening inward — tuning the dial of attention to the quiet conversation between breath and body.",
+    tracks: [
+      { title: "Tuning Into Breath and Body — Guided Meditation", src: `${AUDIO_BASE}/learning-the-secret-language-of-your-body/tuning-into-breath-and-body.mp3` },
+    ],
+  },
 };
 
 export function getPlaylist(slug: string | undefined): AudioPlaylist | null {
