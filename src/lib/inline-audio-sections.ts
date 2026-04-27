@@ -25,6 +25,16 @@ const AUDIO_BASE =
 export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
   "positive-affirmations-for-teens": [
     {
+      match: "self-confidence and self-worth",
+      label: "Listen: Self-Confidence & Self-Worth affirmations",
+      src: `${AUDIO_BASE}/affirmations-for-teens/self-confidence-and-self-worth.mp3`,
+    },
+    {
+      match: "academic success",
+      label: "Listen: Academic Success affirmations",
+      src: `${AUDIO_BASE}/affirmations-for-teens/academic-success.mp3`,
+    },
+    {
       match: "social relationships",
       label: "Listen: Social Relationships affirmations",
       src: `${AUDIO_BASE}/affirmations-for-teens/social-relationships.mp3`,
