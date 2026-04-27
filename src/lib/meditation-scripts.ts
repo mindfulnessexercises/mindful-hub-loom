@@ -348,6 +348,56 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
     title: "Mindfulness of Breath",
     fileSize: "181 KB",
   },
+  "visualizing-your-day-as-you-wake-up": {
+    pdfUrl: "/sample-scripts/visualizing-your-day-as-you-wake-up.pdf",
+    title: "Visualizing Your Day as You Wake Up",
+    fileSize: "217 KB",
+  },
+  "awareness-in-three-parts-thoughts-senses-and-whole-body": {
+    pdfUrl: "/sample-scripts/awareness-in-three-parts-thoughts-senses-and-whole-body.pdf",
+    title: "Awareness in Three Parts: Thoughts, Senses, and Whole Body",
+    fileSize: "199 KB",
+  },
+  "awareness-of-the-changing-world": {
+    pdfUrl: "/sample-scripts/awareness-of-the-changing-world.pdf",
+    title: "Awareness of the Changing World",
+    fileSize: "180 KB",
+  },
+  "awareness-of-your-problem-without-fixing-it": {
+    pdfUrl: "/sample-scripts/awareness-of-your-problem-without-fixing-it.pdf",
+    title: "Awareness of Your Problem Without Fixing It",
+    fileSize: "194 KB",
+  },
+  "awareness-when-you-are-killing-time": {
+    pdfUrl: "/sample-scripts/awareness-when-you-are-killing-time.pdf",
+    title: "Awareness When You Are Killing Time",
+    fileSize: "180 KB",
+  },
+  "become-aware-then-focus-and-expand-awareness": {
+    pdfUrl: "/sample-scripts/become-aware-then-focus-and-expand-awareness.pdf",
+    title: "Become Aware, then Focus and Expand Awareness",
+    fileSize: "199 KB",
+  },
+  "bringing-your-mind-back-from-thoughts": {
+    pdfUrl: "/sample-scripts/bringing-your-mind-back-from-thoughts.pdf",
+    title: "Bringing Your Mind Back from Thoughts",
+    fileSize: "186 KB",
+  },
+  "breathing-and-noting": {
+    pdfUrl: "/sample-scripts/breathing-and-noting.pdf",
+    title: "Breathing and Noting",
+    fileSize: "178 KB",
+  },
+  "cultivating-a-stable-mind": {
+    pdfUrl: "/sample-scripts/cultivating-a-stable-mind.pdf",
+    title: "Cultivating a Stable Mind",
+    fileSize: "193 KB",
+  },
+  "feeling-tones-pleasant-unpleasant-neutral": {
+    pdfUrl: "/sample-scripts/feeling-tones-pleasant-unpleasant-neutral.pdf",
+    title: "Feeling Tones: Pleasant, Unpleasant, Neutral",
+    fileSize: "177 KB",
+  },
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
