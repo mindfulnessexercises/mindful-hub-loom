@@ -180,6 +180,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 6: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-6.mp3` },
       { title: "Part 7: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-7.mp3` },
       { title: "Part 8: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-8.mp3` },
+      { title: "Bonus: Affirmations of Gratitude — Guided Meditation", src: `${AUDIO_BASE}/gratitude-affirmations/affirmations-of-gratitude.mp3` },
     ],
   },
   "i-am-affirmations": {
@@ -241,6 +242,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     tracks: [
       { title: "Breathing With Curiosity — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-with-curiosity.mp3` },
       { title: "Embodied Awareness of Breathing — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/embodied-awareness-of-breathing.mp3` },
+      { title: "Counting Each Exhale — Guided Meditation", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/counting-each-exhale.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -306,6 +308,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A guided meditation for softening into the kind of happiness that doesn't depend on circumstance — the steady, peaceful kind that lives beneath the noise.",
     tracks: [
       { title: "Opening to Happiness — Guided Meditation", src: `${AUDIO_BASE}/highest-form-of-happiness/opening-to-happiness.mp3` },
+      { title: "Daily Practices For Love & Happiness — Guided Meditation", src: `${AUDIO_BASE}/highest-form-of-happiness/daily-practices-love-happiness.mp3` },
     ],
   },
   "visiting-your-safe-place": {
@@ -366,6 +369,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 2: Accepting This Present Moment As It Is", src: `${AUDIO_BASE}/power-of-acceptance/accepting-this-present-moment.mp3` },
       { title: "Part 3: I Am Capable of Meeting This Moment", src: `${AUDIO_BASE}/power-of-acceptance/capable-of-meeting-this-moment.mp3` },
       { title: "Part 4: How to Accept Life As It Unfolds", src: `${AUDIO_BASE}/power-of-acceptance/how-to-accept-life.mp3` },
+      { title: "Part 5: Feeling Acceptance", src: `${AUDIO_BASE}/power-of-acceptance/feeling-acceptance.mp3` },
     ],
   },
   "8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself": {
@@ -377,11 +381,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "mindfulness-body-scan-for-self-compassion": {
-    heading: "Listen: How to Simply Be In The Body",
+    heading: "Listen: Self-Compassion Body Scan audio series",
     intro:
-      "A guided body-scan meditation for releasing the effort of doing and resting into the simple, kind awareness of being.",
+      "Two guided body-scan meditations — How to Simply Be In The Body softens the urge to do and lets you rest into being; Body Appreciation tends to each part of you with gratitude and care.",
     tracks: [
       { title: "How to Simply Be In The Body — Guided Meditation", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/how-to-simply-be-in-the-body.mp3` },
+      { title: "Body Appreciation — Guided Meditation", src: `${AUDIO_BASE}/mindfulness-body-scan-for-self-compassion/body-appreciation.mp3` },
     ],
   },
   "guided-meditation-self-acceptance": {
@@ -422,6 +427,39 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A short guided meditation for letting the body, breath, and mind arrive — gently — into the simple presence of right now.",
     tracks: [
       { title: "Settling Into This Present Moment — Guided Meditation", src: `${AUDIO_BASE}/settling-into-presence/settling-into-this-present-moment.mp3` },
+    ],
+  },
+  "affirmations-for-anxiety": {
+    heading: "Listen: Alleviating Anxiety",
+    intro:
+      "A gentle guided meditation for softening the grip of anxiety — meeting anxious sensations with steady, kind awareness instead of resistance.",
+    tracks: [
+      { title: "Alleviating Anxiety — Guided Meditation", src: `${AUDIO_BASE}/affirmations-for-anxiety/alleviating-anxiety.mp3` },
+    ],
+  },
+  "three-60-second-meditation-techniques-for-anxiety": {
+    heading: "Listen: Anxiety audio series",
+    intro:
+      "Two guided meditations for working with anxiety — Befriending Anxiety invites a softer, more curious relationship with anxious feeling; Alleviating Tension In Your Body & Mind helps release the held tightness anxiety leaves behind.",
+    tracks: [
+      { title: "Befriending Anxiety — Guided Meditation", src: `${AUDIO_BASE}/three-60-second-anxiety/befriending-anxiety.mp3` },
+      { title: "Alleviating Tension In Your Body & Mind — Guided Meditation", src: `${AUDIO_BASE}/three-60-second-anxiety/alleviating-tension.mp3` },
+    ],
+  },
+  "bedtime-mindfulness": {
+    heading: "Listen: Directing Your Awareness With Relaxation",
+    intro:
+      "A slow, soothing guided meditation for the end of the day — gently directing awareness through the body with deep relaxation as the doorway into rest.",
+    tracks: [
+      { title: "Directing Your Awareness With Relaxation — Guided Meditation", src: `${AUDIO_BASE}/bedtime-mindfulness/directing-awareness-relaxation.mp3` },
+    ],
+  },
+  "self-love-affirmations": {
+    heading: "Listen: Feeling Competent",
+    intro:
+      "A grounding guided meditation for resting into the felt sense of your own capability — quietly affirming that you are competent, worthy, and enough.",
+    tracks: [
+      { title: "Feeling Competent — Guided Meditation", src: `${AUDIO_BASE}/self-love-affirmations/feeling-competent.mp3` },
     ],
   },
   "learning-the-secret-language-of-your-body-with-inna-segal": {
