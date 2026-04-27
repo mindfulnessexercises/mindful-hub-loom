@@ -205,14 +205,44 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
       src: `${AUDIO_BASE}/morning-affirmations/adventure-and-boldness.mp3`,
     },
     {
+      match: "adventure and exploration",
+      label: "Listen: Adventure & Exploration affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/adventure-and-exploration.mp3`,
+    },
+    {
       match: "communication and expression",
       label: "Listen: Communication & Expression affirmations",
       src: `${AUDIO_BASE}/morning-affirmations/communication-and-expression.mp3`,
     },
     {
+      match: "confidence in facing challenges",
+      label: "Listen: Confidence in Facing Challenges affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/confidence-in-facing-challenges.mp3`,
+    },
+    {
+      match: "creativity and inspiration",
+      label: "Listen: Creativity & Inspiration affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/creativity-and-inspiration.mp3`,
+    },
+    {
       match: "financial abundance",
       label: "Listen: Financial Abundance affirmations",
       src: `${AUDIO_BASE}/morning-affirmations/financial-abundance.mp3`,
+    },
+    {
+      match: "focus and productivity",
+      label: "Listen: Focus & Productivity affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/focus-and-productivity.mp3`,
+    },
+    {
+      match: "gratitude and appreciation",
+      label: "Listen: Gratitude & Appreciation affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/gratitude-and-appreciation.mp3`,
+    },
+    {
+      match: "health and well-being",
+      label: "Listen: Health & Well-Being affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/health-and-well-being.mp3`,
     },
     {
       match: "inner peace and serenity",
@@ -223,6 +253,21 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
       match: "optimism and positivity",
       label: "Listen: Optimism & Positivity affirmations",
       src: `${AUDIO_BASE}/morning-affirmations/optimism-and-positivity.mp3`,
+    },
+    {
+      match: "personal growth and learning",
+      label: "Listen: Personal Growth & Learning affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/personal-growth-and-learning.mp3`,
+    },
+    {
+      match: "positivity and mindfulness",
+      label: "Listen: Positivity & Mindfulness affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/positivity-and-mindfulness.mp3`,
+    },
+    {
+      match: "relationships and connection",
+      label: "Listen: Relationships & Connection affirmations",
+      src: `${AUDIO_BASE}/morning-affirmations/relationships-and-connection.mp3`,
     },
     {
       match: "spirituality and inner connection",
