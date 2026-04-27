@@ -251,12 +251,16 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "6-mindful-breathing-exercises": {
     heading: "Listen: Mindful Breathing audio series",
     intro:
-      "Four guided meditations for meeting the breath with fresh attention — from curiosity, to embodied awareness, to counting each exhale, to resting in the rhythm of the breath without judgment.",
+      "Eight guided meditations for meeting the breath with fresh attention — from curiosity and embodied awareness, to counting each exhale, to resting in the rhythm of the breath without judgment, plus longer practices on the quiet beauty of the breath, a spacious breathing space, a short five-minute reset, and breathing with care.",
     tracks: [
       { title: "Breathing With Curiosity — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-with-curiosity.mp3` },
       { title: "Embodied Awareness of Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/embodied-awareness-of-breathing.mp3` },
       { title: "Counting Each Exhale — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/counting-each-exhale.mp3` },
       { title: "Rhythm Of The Breath Without Judgment — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/rhythm-of-the-breath.mp3` },
+      { title: "The Beauty Of Your Breath — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/beauty-of-your-breath.mp3` },
+      { title: "Breathing Space — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-space.mp3` },
+      { title: "Five-Minute Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/5-minute-breathing.mp3` },
+      { title: "Breathing In Care — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-in-care.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -278,11 +282,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
-    heading: "Listen: Feeling Appreciative",
+    heading: "Listen: Anti-Anxiety Gratitude audio series",
     intro:
-      "A guided meditation for softening the chest with appreciation — letting gratitude land in the body as a quiet antidote to anxious mind.",
+      "Two guided meditations for letting gratitude soften an anxious mind — Feeling Appreciative lets appreciation land in the chest as a quiet antidote to worry; Appreciating the Little Things turns warm attention to the small, ordinary moments that quietly hold the day together.",
     tracks: [
       { title: "Feeling Appreciative — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/an-anti-anxiety-gratitude-practice/feeling-appreciative.mp3` },
+      { title: "Appreciating the Little Things — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/an-anti-anxiety-gratitude-practice/appreciating-the-little-things.mp3` },
     ],
   },
   "meditation-inner-critic-audio": {
@@ -304,10 +309,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "when-mindfulness-meets-the-nervous-system": {
     heading: "Listen: Nervous System audio series",
     intro:
-      "Two trauma-sensitive guided meditations — Mindfulness of Shame meets shame with steady awareness; How to Befriend Your Body, Your Emotions and Your Spirit invites a softer relationship with the whole of you.",
+      "Three trauma-sensitive guided meditations — Mindfulness of Shame meets shame with steady awareness; How to Befriend Your Body, Your Emotions and Your Spirit invites a softer relationship with the whole of you; Anchoring Your Awareness Through Mindfulness offers a longer, settling practice for steadying an activated nervous system.",
     tracks: [
       { title: "Mindfulness of Shame — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/when-mindfulness-meets-the-nervous-system/mindfulness-of-shame.mp3` },
       { title: "How to Befriend Your Body, Your Emotions & Your Spirit — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/when-mindfulness-meets-the-nervous-system/befriend-body-emotions-spirit.mp3` },
+      { title: "Anchoring Your Awareness Through Mindfulness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/when-mindfulness-meets-the-nervous-system/anchoring-your-awareness-through-mindfulness.mp3` },
     ],
   },
   "growing-happiness-in-the-mind": {
@@ -664,11 +670,15 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "9-mindfulness-exercises-for-anxiety": {
-    heading: "Listen: Working With Fear",
+    heading: "Listen: Anxiety audio series",
     intro:
-      "A dharma talk by Joseph Goldstein on meeting fear with mindfulness — turning toward what frightens us with steady awareness, again and again, until the grip softens.",
+      "A dharma talk plus on-the-go practices for working with anxiety — Working With Fear (Joseph Goldstein) is a longer retreat-style teaching on meeting fear with steady awareness; the Commute series offers one, three, and five-minute resets for the car, train, or sidewalk; Breathing Anchor is a longer guided practice for steadying the mind on the rhythm of the breath when anxiety is loud.",
     tracks: [
       { title: "Working With Fear — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/working-with-fear.mp3` },
+      { title: "Commute Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/commute-1-minute.mp3` },
+      { title: "Commute Meditation (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/commute-3-minutes.mp3` },
+      { title: "Commute Meditation (5 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/commute-5-minutes.mp3` },
+      { title: "Breathing Anchor — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/breathing-anchor.mp3` },
     ],
   },
   "working-with-thoughts": {
