@@ -89,7 +89,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "stress-quotes": {
     heading: "Listen to the Stress audio series",
     intro:
-      "Two calming tracks designed to slow the breath and quiet a busy mind — soft wisdom for moments when stress feels louder than you do. Plus five bonus guided meditations: Relieving Stress; Dropping the Suitcases of Regret & Worry; Mindfulness for Stress in two lengths (a longer settling practice and a shorter five-minute reset); and Soft Belly Breathing — a gentle belly-breath practice for stress relief.",
+      "Two calming tracks designed to slow the breath and quiet a busy mind — soft wisdom for moments when stress feels louder than you do. Plus guided meditations and a long-form dharma teaching: Relieving Stress; Dropping the Suitcases of Regret & Worry; Mindfulness for Stress in two lengths (a longer settling practice and a shorter five-minute reset); Soft Belly Breathing — a gentle belly-breath practice for stress relief; and Stress, Wakeful Relaxation, and Freedom (Tara Brach) — a long-form retreat-style talk on meeting stress with the wakeful, relaxed presence that opens into freedom.",
     tracks: [
       { title: "Part 1: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-1.mp3` },
       { title: "Part 2: Stress Quotes", src: `${AUDIO_BASE}/stress-quotes/part-2.mp3` },
@@ -98,6 +98,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Bonus: Mindfulness for Stress — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/stress-quotes/mindfulness-for-stress.mp3` },
       { title: "Bonus: Mindfulness for Stress (Short Version) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/stress-quotes/mindfulness-for-stress-short.mp3` },
       { title: "Bonus: Soft Belly Breathing To Reduce Stress — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/soft-belly/soft-belly-breathing-stress.mp3` },
+      { title: "Stress, Wakeful Relaxation, and Freedom — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/stress-quotes/tara-brach-stress-wakeful-relaxation-and-freedom.mp3` },
     ],
   },
   "empathy-quotes": {
@@ -407,7 +408,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "kindness-for-your-thinking-mind": {
     heading: "Listen: Kindness for the Mind audio series",
     intro:
-      "Guided meditations and dharma talks for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Mind Appreciation turns warm attention to the mind itself; Mindfulness of Thoughts & Feelings (in two takes) practices noticing the inner weather without getting carried away; Thoughts and Emotions is a companion practice for working skillfully with what arises; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking; Practice Notes: Thinking as Scenery (Gil Fronsdal) reframes thoughts as the passing landscape of the mind, not the destination; Guided Forgiveness Meditation For Depression (Ronna Kabatznick) brings forgiveness practice specifically to the heaviness of depression; Sickness, Depression and One's Own Virtues (Ajahn Sumedho) is a long-form reflection on meeting heavy mind-states by remembering the goodness still within you.",
+      "Guided meditations and dharma talks for meeting the mind with kindness — Three Centers grounds awareness in belly, heart, and head; Mind Appreciation turns warm attention to the mind itself; Mindfulness of Thoughts & Feelings (in two takes) practices noticing the inner weather without getting carried away; Thoughts and Emotions is a companion practice for working skillfully with what arises; Practice Notes: Soft Receptive Mind (Gil Fronsdal) invites a gentler, more open quality of attention to thinking; Practice Notes: Thinking as Scenery (Gil Fronsdal) reframes thoughts as the passing landscape of the mind, not the destination; Guided Forgiveness Meditation For Depression (Ronna Kabatznick) brings forgiveness practice specifically to the heaviness of depression, followed by her four-part Dharma and Depression series (Weeks 2–5) — a deeper retreat-style exploration of how the dharma meets the lived experience of depression; Sickness, Depression and One's Own Virtues (Ajahn Sumedho) is a long-form reflection on meeting heavy mind-states by remembering the goodness still within you.",
     tracks: [
       { title: "Three Centers — Belly, Heart & Head by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/three-centers.mp3` },
       { title: "Mind Appreciation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/mind-appreciation.mp3` },
@@ -417,6 +418,10 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Practice Notes: Soft Receptive Mind — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/soft-receptive-mind.mp3` },
       { title: "Practice Notes: Thinking as Scenery — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/practice-notes-thinking-as-scenery.mp3` },
       { title: "Guided Forgiveness Meditation For Depression — Guided Meditation by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-forgiveness-for-depression.mp3` },
+      { title: "Dharma and Depression — Week 2 — Dharma Talk by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-dharma-and-depression-wk2.mp3` },
+      { title: "Dharma and Depression — Week 3 — Dharma Talk by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-dharma-and-depression-wk3.mp3` },
+      { title: "Dharma and Depression — Week 4 — Dharma Talk by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-dharma-and-depression-wk4.mp3` },
+      { title: "Dharma and Depression — Week 5 — Dharma Talk by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-dharma-and-depression-wk5.mp3` },
       { title: "Sickness, Depression and One's Own Virtues — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ajahn-sumedho-sickness-depression-virtues.mp3` },
     ],
   },
@@ -436,12 +441,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself": {
     heading: "Listen: Self-Compassion audio series",
     intro:
-      "Four guided meditations companion to this collection of self-compassion exercises — 21-Day Compassion offers a steady daily practice; Nourishing Your Body With Attention turns kind, attentive presence toward the body itself; Compassion Meditation is a longer practice for opening the heart wide enough to hold both your own pain and the pain of others; Self-Compassion Meditation is an extended practice for offering yourself the same warmth and patience you'd offer a dear friend.",
+      "Guided meditations and a long-form dharma talk on self-compassion — 21-Day Compassion offers a steady daily practice; Nourishing Your Body With Attention turns kind, attentive presence toward the body itself; Compassion Meditation is a longer practice for opening the heart wide enough to hold both your own pain and the pain of others; Self-Compassion Meditation is an extended practice for offering yourself the same warmth and patience you'd offer a dear friend; Self-Compassion (Tara Brach) is a long-form retreat-style teaching on the radical act of meeting yourself with care.",
     tracks: [
       { title: "21-Day Compassion — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/21-day-compassion.mp3` },
       { title: "Nourishing Your Body With Attention — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/nourishing-body-with-attention.mp3` },
       { title: "Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/compassion-meditation.mp3` },
       { title: "Self-Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/self-compassion-pause/self-compassion-meditation.mp3` },
+      { title: "Self-Compassion — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-self-compassion.mp3` },
     ],
   },
   "mindfulness-body-scan-for-self-compassion": {
@@ -567,12 +573,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "how-to-cultivate-an-attitude-of-gratitude-why-its-important": {
     heading: "Listen: Attitude of Gratitude audio series",
     intro:
-      "Four guided meditations on the felt sense of gratitude — Gratitude Is Not In The Words drops beneath language into the quiet warmth itself; Sharing Gratitude is a longer practice for letting appreciation move outward, into your relationships and into the world; Starting The Day With Gratitude is a morning practice for letting appreciation set the tone before anything else does; Gratitude Meditation is a fuller, ten-minute practice for sinking into appreciation as a whole-body experience.",
+      "Guided meditations and a long-form dharma talk on the felt sense of gratitude — Gratitude Is Not In The Words drops beneath language into the quiet warmth itself; Sharing Gratitude is a longer practice for letting appreciation move outward, into your relationships and into the world; Starting The Day With Gratitude is a morning practice for letting appreciation set the tone before anything else does; Gratitude Meditation is a fuller, ten-minute practice for sinking into appreciation as a whole-body experience; Gratitude and Generosity (Tara Brach) is a long-form retreat teaching on how appreciation naturally opens into giving.",
     tracks: [
       { title: "Gratitude Is Not In The Words — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/attitude-of-gratitude/gratitude-is-not-in-the-words.mp3` },
       { title: "Sharing Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude/sharing-gratitude.mp3` },
       { title: "Starting The Day With Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/starting-the-day-with-gratitude.mp3` },
       { title: "Gratitude Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-meditation.mp3` },
+      { title: "Gratitude and Generosity — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/power-of-gratitude-meditation/tara-brach-gratitude-and-generosity.mp3` },
     ],
   },
   "full-body-awareness": {
@@ -587,13 +594,14 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "power-of-gratitude-meditation-7-ways-to-cultivate-it": {
     heading: "Listen: Power of Gratitude audio series",
     intro:
-      "Four guided meditations and a dharma talk on gratitude — Heart-Centered Gratitude opens the chest tenderly to what is already enough; The Power of Gratitude widens it into a daily way of seeing; Sharing Gratitude is a longer practice for letting appreciation flow outward; Gratitude Meditation is a fuller, ten-minute practice for sinking into appreciation as a whole-body experience; Gratitude (Gil Fronsdal) offers a contemplative reflection on gratitude as practice.",
+      "Guided meditations and dharma talks on gratitude — Heart-Centered Gratitude opens the chest tenderly to what is already enough; The Power of Gratitude widens it into a daily way of seeing; Sharing Gratitude is a longer practice for letting appreciation flow outward; Gratitude Meditation is a fuller, ten-minute practice for sinking into appreciation as a whole-body experience; Gratitude (Gil Fronsdal) offers a contemplative reflection on gratitude as practice; Gratitude and Generosity (Tara Brach) is a long-form retreat teaching on how appreciation naturally opens into giving.",
     tracks: [
       { title: "Heart-Centered Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/heart-centered-gratitude.mp3` },
       { title: "The Power of Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/the-power-of-gratitude.mp3` },
       { title: "Sharing Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude/sharing-gratitude.mp3` },
       { title: "Gratitude Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-meditation.mp3` },
       { title: "Gratitude — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-fronsdal.mp3` },
+      { title: "Gratitude and Generosity — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/power-of-gratitude-meditation/tara-brach-gratitude-and-generosity.mp3` },
     ],
   },
   "reduce-rumination-and-increase-positive-states-through-neuro-learning": {
@@ -607,12 +615,13 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "the-power-of-loving-kindness-how-to-cultivate-it": {
     heading: "Listen: Loving-Kindness audio series",
     intro:
-      "A classic metta practice with Sean Fargo — extending warmth and goodwill first to yourself, then outward, in widening circles of care. Plus a long-form Guided Metta Meditation by Gil Fronsdal — a tender, traditional metta practice from one of the foremost Western teachers of loving-kindness. Closes with a two-part long-form retreat on the Brahmaviharas — the four boundless states of loving-kindness, compassion, sympathetic joy, and equanimity.",
+      "A classic metta practice with Sean Fargo — extending warmth and goodwill first to yourself, then outward, in widening circles of care. Plus a long-form Guided Metta Meditation by Gil Fronsdal — a tender, traditional metta practice from one of the foremost Western teachers of loving-kindness. A two-part long-form retreat on the Brahmaviharas — the four boundless states of loving-kindness, compassion, sympathetic joy, and equanimity. Closes with Two Kinds of Happiness (Tara Brach), a long-form retreat teaching on the difference between the fleeting happiness of getting what we want and the steady happiness that arises from a kind, open heart.",
     tracks: [
       { title: "Loving-Kindness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-loving-kindness/loving-kindness.mp3` },
       { title: "Guided Metta Meditation — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/gil-fronsdal-metta.mp3` },
       { title: "The Brahmaviharas, Part 1 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/brahmavihara-part-1.mp3` },
       { title: "The Brahmaviharas, Part 2 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/brahmavihara-part-2.mp3` },
+      { title: "Two Kinds of Happiness — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/tara-brach-two-kinds-of-happiness.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -671,7 +680,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "morning-affirmations": {
     heading: "Listen: Morning Practice audio series",
     intro:
-      "Grounding morning guided meditations plus a four-part Setting Your Intention series — The Foundation For All Abundance settles into gratitude as the quiet foundation beneath every other kind of abundance; Starting The Day With Gratitude is a longer practice for letting appreciation set the tone before anything else does; Setting Your Intention (1, 3, and 5 minutes) gives you short, steady practices for naming how you want to meet the day; an alternate 5-minute take offers a second voice for the same practice.",
+      "Grounding morning guided meditations plus a four-part Setting Your Intention series and a long-form retreat teaching — The Foundation For All Abundance settles into gratitude as the quiet foundation beneath every other kind of abundance; Starting The Day With Gratitude is a longer practice for letting appreciation set the tone before anything else does; Setting Your Intention (1, 3, and 5 minutes) gives you short, steady practices for naming how you want to meet the day; an alternate 5-minute take offers a second voice for the same practice; Morning Instruction and Q&R (Tara Brach) is a long-form retreat-style morning teaching with guided meditation and responses to practitioner questions.",
     tracks: [
       { title: "The Foundation For All Abundance — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/foundation-for-all-abundance.mp3` },
       { title: "Starting The Day With Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/starting-the-day-with-gratitude.mp3` },
@@ -679,6 +688,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Setting Your Intention (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/intention-3-minutes.mp3` },
       { title: "Setting Your Intention (5 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/intention-5-minutes.mp3` },
       { title: "Setting Your Intention (5 Minutes, Alternate Take) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/intention-5-minutes-v2.mp3` },
+      { title: "Morning Instruction and Question Response — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/morning-affirmations/tara-brach-morning-instruction-and-question-response.mp3` },
     ],
   },
   "learning-the-secret-language-of-your-body-with-inna-segal": {
@@ -704,11 +714,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "self-compassion-pause": {
     heading: "Listen: Self-Compassion Pause audio series",
     intro:
-      "Three self-compassion practices in different lengths — The Voice of A Good Friend invites the same warmth, patience, and steady kindness you'd offer a close friend; Self-Compassion Meditation is an extended practice for letting that kindness sink in over a longer sit; Compassion Meditation is a longer practice for letting the heart soften into both your own pain and the pain of others.",
+      "Self-compassion practices in different lengths plus a long-form dharma teaching — The Voice of A Good Friend invites the same warmth, patience, and steady kindness you'd offer a close friend; Self-Compassion Meditation is an extended practice for letting that kindness sink in over a longer sit; Compassion Meditation is a longer practice for letting the heart soften into both your own pain and the pain of others; Self-Compassion (Tara Brach) is a long-form retreat-style teaching on the radical act of meeting yourself with care.",
     tracks: [
       { title: "The Voice of A Good Friend — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/self-compassion-pause/voice-of-a-good-friend.mp3` },
       { title: "Self-Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/self-compassion-pause/self-compassion-meditation.mp3` },
       { title: "Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/compassion-meditation.mp3` },
+      { title: "Self-Compassion — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-self-compassion.mp3` },
     ],
   },
   "soft-belly": {
@@ -749,7 +760,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "9-mindfulness-exercises-for-anxiety": {
     heading: "Listen: Anxiety audio series",
     intro:
-      "On-the-go practices and long-form dharma teachings for working with anxiety — Working With Fear (Joseph Goldstein) is a retreat-style teaching on meeting fear with steady awareness; the Commute series offers one, three, and five-minute resets for the car, train, or sidewalk; the Micro-Meditation series gives five short resets (one to two minutes each) you can drop into anywhere; the SOS series (1, 3, and 5 minutes) is for moments when anxiety spikes and you need a fast, steady anchor; the Waiting series (1, 3, and 5 minutes) turns lines, lobbies, and traffic into pockets of calm; Breathing Anchor is a longer guided practice for steadying the mind on the rhythm of the breath when anxiety is loud; Guided Meditation (Gil Fronsdal) is a classic long-form practice for settling an unsettled mind; Paying Attention (Ajahn Sumedho) is a Theravada teaching on the simple, steadying power of attention itself.",
+      "On-the-go practices and long-form dharma teachings for working with anxiety — Working With Fear (Joseph Goldstein) is a retreat-style teaching on meeting fear with steady awareness; the Commute series offers one, three, and five-minute resets for the car, train, or sidewalk; the Micro-Meditation series gives five short resets (one to two minutes each) you can drop into anywhere; the SOS series (1, 3, and 5 minutes) is for moments when anxiety spikes and you need a fast, steady anchor; the Waiting series (1, 3, and 5 minutes) turns lines, lobbies, and traffic into pockets of calm; Breathing Anchor is a longer guided practice for steadying the mind on the rhythm of the breath when anxiety is loud; Guided Meditation (Gil Fronsdal) is a classic long-form practice for settling an unsettled mind; Paying Attention (Ajahn Sumedho) is a Theravada teaching on the simple, steadying power of attention itself; Beauty, Hope, Fear (Jack Kornfield) is a long-form retreat teaching on meeting fear within the wider field of beauty and hope.",
     tracks: [
       { title: "Working With Fear — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/working-with-fear.mp3` },
       { title: "Commute Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/commute-1-minute.mp3` },
@@ -770,6 +781,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Guided Meditation — Long-Form Practice by Gil Fronsdal", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/gil-fronsdal-guided-meditation.mp3` },
       { title: "Paying Attention — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/ajahn-sumedho-paying-attention.mp3` },
       { title: "Guided Meditation — Long-Form Retreat Practice by Joseph Goldstein", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/joseph-goldstein-guided-meditation.mp3` },
+      { title: "Beauty, Hope, Fear — Dharma Talk by Jack Kornfield", src: `${AUDIO_BASE}/9-mindfulness-exercises-for-anxiety/jack-kornfield-beauty-hope-fear.mp3` },
     ],
   },
   "working-with-thoughts": {
