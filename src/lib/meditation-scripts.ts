@@ -71,9 +71,42 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
   },
   // Second LK PDF is the "spheres of radiant light" visualization variant.
   "loving-kindness-visualization-the-spheres": {
-    pdfUrl: "/sample-scripts/loving-kindness-meditation-2.pdf",
+    pdfUrl: "/sample-scripts/loving-kindness-visualization-the-spheres.pdf",
     title: "Loving Kindness Visualization — The Spheres",
-    fileSize: "186 KB",
+    fileSize: "153 KB",
+  },
+  "loving-kindness-the-child": {
+    pdfUrl: "/sample-scripts/loving-kindness-the-child.pdf",
+    title: "Loving Kindness — The Child",
+    fileSize: "158 KB",
+  },
+  "kindness-for-your-thinking-mind": {
+    pdfUrl: "/sample-scripts/kindness-for-your-thinking-mind.pdf",
+    title: "Kindness for Your Thinking Mind",
+    fileSize: "197 KB",
+  },
+  "compassion-for-your-emotions": {
+    pdfUrl: "/sample-scripts/compassion-for-your-emotions.pdf",
+    title: "Compassion for Your Emotions",
+    fileSize: "212 KB",
+  },
+  "compassion-for-the-whole-body": {
+    pdfUrl: "/sample-scripts/compassion-for-the-whole-body.pdf",
+    title: "Compassion for the Whole Body",
+    fileSize: "235 KB",
+  },
+  "noticing-your-helpers": {
+    pdfUrl: "/sample-scripts/noticing-your-helpers.pdf",
+    title: "Noticing Your Helpers",
+    fileSize: "149 KB",
+  },
+  // Live post slug differs from the rest of the family ("meditation-script-"
+  // prefix) — kept intentionally so this maps to the canonical Forgiveness
+  // Meditation post.
+  "meditation-script-forgiveness-meditation": {
+    pdfUrl: "/sample-scripts/forgiveness-meditation.pdf",
+    title: "Forgiveness Meditation",
+    fileSize: "200 KB",
   },
 };
 
