@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useMemo, useRef } from "react";
-import { ArrowRight, Calendar, ArrowLeft, Clock, Headphones } from "lucide-react";
+import { ArrowRight, Calendar, Clock, Headphones } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { Button } from "@/components/ui/button";
