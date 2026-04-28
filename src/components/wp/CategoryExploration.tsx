@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import {
   wp,
   getFeaturedImage,
+  resolveCategoryCptEndpoint,
   stripHtml,
   type WPCategory,
   type WPPost,
@@ -88,24 +89,32 @@ export function CategoryExploration({
   // Fetch up to N recent posts per visible category in parallel. react-query
   // caches per-category so revisiting the page is instant.
   const queries = useQueries({
-    queries: visibleCats.map((cat) => ({
-      queryKey: [
-        ...wpKeys.postsList({
-          scope: "category-exploration",
-          category: cat.id,
-          perPage: POSTS_PER_TOPIC,
-        }),
-      ],
-      queryFn: () =>
-        wp.posts({
-          categories: cat.id,
-          per_page: POSTS_PER_TOPIC,
-          orderby: "date",
-          order: "desc",
-        }),
-      staleTime: WP_STALE.list,
-      gcTime: WP_STALE.gc,
-    })),
+    queries: visibleCats.map((cat) => {
+      // Categories backed by custom post types (Podcast, Downloads, and any
+      // subcategory under those parents) return [] from /wp/v2/posts. Route
+      // those to the right CPT endpoint so the preview rows are populated.
+      const cptEndpoint = resolveCategoryCptEndpoint(cat);
+      return {
+        queryKey: [
+          ...wpKeys.postsList({
+            scope: "category-exploration",
+            category: cat.id,
+            perPage: POSTS_PER_TOPIC,
+            endpoint: cptEndpoint ?? "posts",
+          }),
+        ],
+        queryFn: () =>
+          wp.posts({
+            categories: cat.id,
+            per_page: POSTS_PER_TOPIC,
+            orderby: "date",
+            order: "desc",
+            ...(cptEndpoint ? { endpoint: cptEndpoint } : {}),
+          }),
+        staleTime: WP_STALE.list,
+        gcTime: WP_STALE.gc,
+      };
+    }),
   });
 
   const onShowMore = () => {
