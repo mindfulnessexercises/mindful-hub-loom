@@ -254,7 +254,24 @@ export function StickyEmailBar({ track: trackOverride }: StickyEmailBarProps = {
           )}
 
           {status === "succeeded" && (
-            <Check className="h-5 w-5 text-primary shrink-0" aria-hidden />
+            <a
+              href={def.thankYou.ctaHref}
+              target={def.thankYou.ctaExternal ? "_blank" : undefined}
+              rel={def.thankYou.ctaExternal ? "noopener" : undefined}
+              data-track-thankyou={track}
+              onClick={() =>
+                trackEvent("cta_clicked", {
+                  cta_label: def.thankYou.ctaLabel,
+                  cta_destination: def.thankYou.ctaHref,
+                  cta_location: "sticky_bar_thankyou",
+                  matched: true,
+                })
+              }
+              className="inline-flex items-center gap-1.5 min-h-[44px] h-11 px-4 rounded-md bg-primary text-primary-foreground text-body-sm font-semibold hover:bg-primary/90 shrink-0"
+            >
+              <Check className="h-4 w-4" aria-hidden />
+              {def.thankYou.ctaLabel}
+            </a>
           )}
 
           <button
