@@ -939,6 +939,46 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Feeling Attraction to Others",
     fileSize: "161 KB",
   },
+  "fostering-connection-others": {
+    pdfUrl: "/worksheets/fostering-connection-with-others.pdf",
+    title: "Fostering Connection with Others",
+    fileSize: "161 KB",
+  },
+  "gottmans-marriage-tips": {
+    pdfUrl: "/worksheets/gottmans-marriage-tips.pdf",
+    title: "Gottman's Marriage Tips",
+    fileSize: "183 KB",
+  },
+  "nourishing-conversations": {
+    pdfUrl: "/worksheets/having-more-nourishing-conversations.pdf",
+    title: "Having More Nourishing Conversations",
+    fileSize: "161 KB",
+  },
+  "enlivening-others": {
+    pdfUrl: "/worksheets/how-are-you-enlivening-others.pdf",
+    title: "How Are You Enlivening Others",
+    fileSize: "170 KB",
+  },
+  "set-realistic-expectations": {
+    pdfUrl: "/worksheets/how-to-set-realistic-expectations.pdf",
+    title: "How to Set Realistic Expectations",
+    fileSize: "166 KB",
+  },
+  "increasing-power-relationships": {
+    pdfUrl: "/worksheets/increasing-the-power-of-our-relationships.pdf",
+    title: "Increasing the Power of Our Relationships",
+    fileSize: "212 KB",
+  },
+  "keeping-score-others": {
+    pdfUrl: "/worksheets/keeping-score-with-others.pdf",
+    title: "Keeping Score with Others",
+    fileSize: "165 KB",
+  },
+  "know-judged-others": {
+    pdfUrl: "/worksheets/know-why-you-judged-others.pdf",
+    title: "Know Why You Judged Others",
+    fileSize: "161 KB",
+  },
 };
 
 /**
@@ -1532,6 +1572,22 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
     {
       pdfUrl: "/worksheets/increasing-your-quality-of-attention.pdf",
       title: "Increasing Your Quality of Attention",
+      fileSize: "161 KB",
+      flagged: true,
+    },
+  ],
+  // "How Do People React to Me" and "Increasing Your Connection with Others"
+  // have no dedicated posts — surface on the relationships hub.
+  "how-to-practice-mindfulness-in-relationships": [
+    {
+      pdfUrl: "/worksheets/how-do-people-react-to-me.pdf",
+      title: "How Do People React to Me",
+      fileSize: "166 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/increasing-your-connection-with-others.pdf",
+      title: "Increasing Your Connection with Others",
       fileSize: "161 KB",
       flagged: true,
     },
