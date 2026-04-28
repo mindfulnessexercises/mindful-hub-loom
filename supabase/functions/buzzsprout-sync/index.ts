@@ -5,6 +5,10 @@
 // We derive a slug from the episode title using the same rules WordPress uses
 // for post slugs so we can join podcast-episode WP posts to Buzzsprout
 // episodes by slug at request time.
+//
+// After upsert, any episode that doesn't yet have AI-generated content is
+// enriched in-line by calling the Lovable AI gateway. New episodes from
+// future syncs (every 6 hours) automatically pick up enrichment.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
 
@@ -15,6 +19,8 @@ const corsHeaders = {
 };
 
 const PODCAST_ID = "2555881";
+const AI_GATEWAY_URL = "https://ai.gateway.lovable.dev/v1/chat/completions";
+const AI_MODEL = "google/gemini-3-flash-preview";
 
 interface BuzzsproutEpisode {
   id: number;
@@ -24,10 +30,9 @@ interface BuzzsproutEpisode {
   published_at?: string;
   duration?: number;
   slug?: string;
+  description?: string; // HTML show notes
 }
 
-// WordPress-compatible slugify: lowercase, strip diacritics, drop punctuation,
-// collapse whitespace to single hyphens. Matches the slugs we see in WP URLs.
 function slugify(input: string): string {
   return input
     .normalize("NFKD")
@@ -38,6 +43,106 @@ function slugify(input: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
+function stripHtml(html: string): string {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+interface EnrichmentResult {
+  summary: string;
+  takeaways: string[];
+  questions: string[];
+}
+
+async function enrichEpisode(
+  apiKey: string,
+  title: string,
+  descriptionPlain: string,
+): Promise<EnrichmentResult | null> {
+  const trimmed = descriptionPlain.slice(0, 6000);
+  const systemPrompt = [
+    "You write SEO-rich summaries for mindfulness podcast episodes.",
+    "Voice: warm, grounded, never clichéd or salesy. Avoid generic 'spa' language.",
+    "Output strictly via the provided tool.",
+  ].join(" ");
+
+  const userPrompt = `Episode title: ${title}\n\nEpisode description / show notes:\n${trimmed || "(no description provided)"}\n\nGenerate the structured fields.`;
+
+  const body = {
+    model: AI_MODEL,
+    messages: [
+      { role: "system", content: systemPrompt },
+      { role: "user", content: userPrompt },
+    ],
+    tools: [
+      {
+        type: "function",
+        function: {
+          name: "generate_episode_summary",
+          description: "Generate SEO summary, takeaways, and reflection questions for a podcast episode.",
+          parameters: {
+            type: "object",
+            properties: {
+              summary: {
+                type: "string",
+                description: "2-3 paragraph SEO summary (~150-220 words). No headings, just prose.",
+              },
+              takeaways: {
+                type: "array",
+                items: { type: "string" },
+                minItems: 3,
+                maxItems: 5,
+                description: "3-5 concise key takeaways from the episode.",
+              },
+              questions: {
+                type: "array",
+                items: { type: "string" },
+                minItems: 3,
+                maxItems: 5,
+                description: "3-5 open-ended reflection questions for listeners.",
+              },
+            },
+            required: ["summary", "takeaways", "questions"],
+            additionalProperties: false,
+          },
+        },
+      },
+    ],
+    tool_choice: { type: "function", function: { name: "generate_episode_summary" } },
+  };
+
+  const res = await fetch(AI_GATEWAY_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    console.error("AI enrichment failed", res.status, await res.text());
+    return null;
+  }
+  const data = await res.json();
+  const args = data?.choices?.[0]?.message?.tool_calls?.[0]?.function?.arguments;
+  if (!args) return null;
+  try {
+    const parsed = JSON.parse(args);
+    return {
+      summary: String(parsed.summary ?? ""),
+      takeaways: Array.isArray(parsed.takeaways) ? parsed.takeaways.map(String) : [],
+      questions: Array.isArray(parsed.questions) ? parsed.questions.map(String) : [],
+    };
+  } catch (e) {
+    console.error("Failed to parse AI args", e);
+    return null;
+  }
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -46,22 +151,22 @@ Deno.serve(async (req) => {
   const token = Deno.env.get("BUZZSPROUT_API_TOKEN");
   const supabaseUrl = Deno.env.get("SUPABASE_URL");
   const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
-  if (!token) {
-    return new Response(JSON.stringify({ error: "BUZZSPROUT_API_TOKEN not configured" }), {
-      status: 500,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  }
-  if (!supabaseUrl || !serviceKey) {
-    return new Response(JSON.stringify({ error: "Supabase env not configured" }), {
+  const lovableApiKey = Deno.env.get("LOVABLE_API_KEY");
+  if (!token || !supabaseUrl || !serviceKey) {
+    return new Response(JSON.stringify({ error: "Required env not configured" }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
 
+  // Optional cap on how many episodes to enrich per run, to keep cron fast
+  // and cost bounded. Defaults to 5 (more than enough for a 2-3-day cadence).
+  const url = new URL(req.url);
+  const enrichLimit = Math.max(0, Number(url.searchParams.get("enrich_limit") ?? "5"));
+
   try {
-    const url = `https://www.buzzsprout.com/api/${PODCAST_ID}/episodes.json`;
-    const res = await fetch(url, {
+    const apiUrl = `https://www.buzzsprout.com/api/${PODCAST_ID}/episodes.json`;
+    const res = await fetch(apiUrl, {
       headers: {
         Authorization: `Token token=${token}`,
         Accept: "application/json",
@@ -89,9 +194,9 @@ Deno.serve(async (req) => {
       artwork_url: e.artwork_url ?? null,
       published_at: e.published_at ?? null,
       duration_seconds: typeof e.duration === "number" ? e.duration : null,
+      description_html: e.description ?? null,
     }));
 
-    // Upsert in chunks to stay well under any payload limits.
     const chunkSize = 200;
     let upserted = 0;
     for (let i = 0; i < rows.length; i += chunkSize) {
@@ -103,8 +208,51 @@ Deno.serve(async (req) => {
       upserted += chunk.length;
     }
 
+    // Enrich episodes missing AI content (newest first).
+    let enriched = 0;
+    let enrichErrors = 0;
+    if (enrichLimit > 0 && lovableApiKey) {
+      const { data: pending, error: pendingErr } = await supabase
+        .from("buzzsprout_episodes")
+        .select("episode_id, title, description_html")
+        .is("ai_generated_at", null)
+        .order("published_at", { ascending: false, nullsFirst: false })
+        .limit(enrichLimit);
+      if (pendingErr) throw pendingErr;
+
+      for (const row of pending ?? []) {
+        const plain = row.description_html ? stripHtml(row.description_html) : "";
+        const result = await enrichEpisode(lovableApiKey, row.title, plain);
+        if (!result) {
+          enrichErrors += 1;
+          continue;
+        }
+        const { error: updateErr } = await supabase
+          .from("buzzsprout_episodes")
+          .update({
+            ai_summary: result.summary,
+            ai_takeaways: result.takeaways,
+            ai_questions: result.questions,
+            ai_generated_at: new Date().toISOString(),
+          })
+          .eq("episode_id", row.episode_id);
+        if (updateErr) {
+          enrichErrors += 1;
+          console.error("update failed", row.episode_id, updateErr);
+        } else {
+          enriched += 1;
+        }
+      }
+    }
+
     return new Response(
-      JSON.stringify({ ok: true, fetched: episodes.length, upserted }),
+      JSON.stringify({
+        ok: true,
+        fetched: episodes.length,
+        upserted,
+        enriched,
+        enrichErrors,
+      }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } },
     );
   } catch (err: unknown) {
