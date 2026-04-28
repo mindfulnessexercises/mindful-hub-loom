@@ -979,6 +979,51 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Know Why You Judged Others",
     fileSize: "161 KB",
   },
+  "knowing-fear-partner-exercise": {
+    pdfUrl: "/worksheets/knowing-fear-partner-exercise.pdf",
+    title: "Knowing Fear (Partner Exercise)",
+    fileSize: "160 KB",
+  },
+  "learning-challenge-said": {
+    pdfUrl: "/worksheets/learning-how-to-challenge-what-is-said.pdf",
+    title: "Learning How to Challenge What is Said",
+    fileSize: "162 KB",
+  },
+  "listening-deeply": {
+    pdfUrl: "/worksheets/listening-deeply.pdf",
+    title: "Listening Deeply",
+    fileSize: "160 KB",
+  },
+  "making-successful-requests": {
+    pdfUrl: "/worksheets/making-successful-requests.pdf",
+    title: "Making Successful Requests",
+    fileSize: "172 KB",
+  },
+  "bringing-mindfulness-marriage-changes": {
+    pdfUrl: "/worksheets/marriage-changes.pdf",
+    title: "Marriage Changes",
+    fileSize: "181 KB",
+  },
+  "mindful-connection": {
+    pdfUrl: "/worksheets/mindful-connection.pdf",
+    title: "Mindful Connection",
+    fileSize: "161 KB",
+  },
+  "mindfulness-dating": {
+    pdfUrl: "/worksheets/mindfulness-of-dating.pdf",
+    title: "Mindfulness of Dating",
+    fileSize: "161 KB",
+  },
+  "mindfulness-judging-romantic-relationships": {
+    pdfUrl: "/worksheets/mindfulness-of-judging-your-romantic-relationships.pdf",
+    title: "Mindfulness of Judging Your Romantic Relationships",
+    fileSize: "162 KB",
+  },
+  "noticing-patterns-of-communication": {
+    pdfUrl: "/worksheets/noticing-your-patterns-of-communication.pdf",
+    title: "Noticing Your Patterns of Communication",
+    fileSize: "161 KB",
+  },
 };
 
 /**
@@ -1549,6 +1594,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/your-life-in-time.pdf",
       title: "Your Life in Time",
       fileSize: "161 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/learning-to-live-more-positively.pdf",
+      title: "Learning to Live More Positively",
+      fileSize: "181 KB",
       flagged: true,
     },
   ],
