@@ -899,6 +899,46 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Letting Go",
     fileSize: "173 KB",
   },
+  "controlling-relationships": {
+    pdfUrl: "/worksheets/are-you-controlling-relationships.pdf",
+    title: "Are You Controlling Relationships",
+    fileSize: "161 KB",
+  },
+  "assessing-vs-judging-others": {
+    pdfUrl: "/worksheets/assessing-vs-judging-others.pdf",
+    title: "Assessing vs Judging Others",
+    fileSize: "160 KB",
+  },
+  "building-empathy": {
+    pdfUrl: "/worksheets/building-empathy.pdf",
+    title: "Building Empathy",
+    fileSize: "158 KB",
+  },
+  "closing-down-relationships": {
+    pdfUrl: "/worksheets/closing-down-in-relationships.pdf",
+    title: "Closing Down in Relationships",
+    fileSize: "161 KB",
+  },
+  "daily-assessment-relationship": {
+    pdfUrl: "/worksheets/daily-assessment-of-relationship.pdf",
+    title: "Daily Assessment of Relationship",
+    fileSize: "161 KB",
+  },
+  "educating-others-effectively": {
+    pdfUrl: "/worksheets/educating-others-effectively.pdf",
+    title: "Educating Others Effectively",
+    fileSize: "172 KB",
+  },
+  "experiencing-joy-relationships": {
+    pdfUrl: "/worksheets/experiencing-joy-in-relationships.pdf",
+    title: "Experiencing Joy in Relationships",
+    fileSize: "161 KB",
+  },
+  "feeling-attraction-others": {
+    pdfUrl: "/worksheets/feeling-attraction-to-others.pdf",
+    title: "Feeling Attraction to Others",
+    fileSize: "161 KB",
+  },
 };
 
 /**
@@ -1099,6 +1139,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/using-rain.pdf",
       title: "Using RAIN",
       fileSize: "205 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/experiencing-strong-emotions-while-communicating.pdf",
+      title: "Experiencing Strong Emotions While Communicating",
+      fileSize: "161 KB",
       flagged: true,
     },
   ],
