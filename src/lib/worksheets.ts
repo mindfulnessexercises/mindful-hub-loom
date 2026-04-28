@@ -1234,6 +1234,31 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Working with Boredom",
     fileSize: "277 KB",
   },
+  "awareness-of-the-five-senses": {
+    pdfUrl: "/worksheets/awareness-of-each-of-the-five-senses.pdf",
+    title: "Awareness of Each of the Five Senses",
+    fileSize: "26 KB",
+  },
+  "focusing-on-the-colors-you-see": {
+    pdfUrl: "/worksheets/focusing-on-the-colors-you-see.pdf",
+    title: "Focusing on the Colors You See",
+    fileSize: "30 KB",
+  },
+  "restoring-confidence-when-negatively-impacted": {
+    pdfUrl: "/worksheets/restoring-confidence-when-negatively-impacted.pdf",
+    title: "Restoring Confidence When Negatively Impacted",
+    fileSize: "74 KB",
+  },
+  "mindfulness-while-speaking-with-others": {
+    pdfUrl: "/worksheets/mindfulness-while-speaking-with-others.pdf",
+    title: "Mindfulness While Speaking with Others",
+    fileSize: "29 KB",
+  },
+  "practice-of-smiling": {
+    pdfUrl: "/worksheets/the-practice-of-smiling.pdf",
+    title: "The Practice of Smiling",
+    fileSize: "28 KB",
+  },
 };
 
 /**
@@ -1318,6 +1343,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/self-compassion-break.pdf",
       title: "Self-Compassion Break",
       fileSize: "173 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/giving-yourself-care-through-physical-touch.pdf",
+      title: "Giving Yourself Care Through Physical Touch",
+      fileSize: "28 KB",
       flagged: true,
     },
   ],
@@ -1488,6 +1519,18 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/acts-of-kindness.pdf",
       title: "Acts of Kindness",
       fileSize: "175 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/compassion-for-your-whole-body.pdf",
+      title: "Compassion For Your Whole Body",
+      fileSize: "104 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/breathing-in-compassion-for-self-breathing-out-compassion-for-others.pdf",
+      title: "Breathing In Compassion for Self and Breathing Out Compassion for Others",
+      fileSize: "64 KB",
       flagged: true,
     },
   ],
@@ -1967,6 +2010,24 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/what-is-important-to-do-today.pdf",
       title: "What is Important to Do Today",
       fileSize: "175 KB",
+      flagged: true,
+    },
+  ],
+  // "Awareness When You Are Killing Time" — surface alongside the distraction worksheet.
+  "sources-distraction": [
+    {
+      pdfUrl: "/worksheets/awareness-when-you-are-killing-time.pdf",
+      title: "Awareness When You Are Killing Time",
+      fileSize: "30 KB",
+      flagged: true,
+    },
+  ],
+  // "Awareness in Three Parts" — surface alongside the five-senses awareness worksheet.
+  "awareness-of-the-five-senses": [
+    {
+      pdfUrl: "/worksheets/awareness-in-three-parts.pdf",
+      title: "Awareness in Three Parts: Thoughts, Senses, and Whole Body",
+      fileSize: "98 KB",
       flagged: true,
     },
   ],
