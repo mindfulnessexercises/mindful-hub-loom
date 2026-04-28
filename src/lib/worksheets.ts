@@ -1627,6 +1627,7 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
+  // "How Do People React to Me" and "Increasing Your Connection with Others"
   // have no dedicated posts — surface on the relationships hub.
   "how-to-practice-mindfulness-in-relationships": [
     {
