@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Pause, Play, RotateCcw, RotateCw, Volume2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { trackEvent } from "@/lib/analytics";
+import { useAudioTracking } from "@/hooks/use-audio-tracking";
 
 interface PodcastPlayerProps {
   src: string;
@@ -34,20 +34,22 @@ export function PodcastPlayer({ src, title, episodeId }: PodcastPlayerProps) {
   const [speed, setSpeed] = useState<Speed>(1);
   const [volume, setVolume] = useState(1);
 
+  // Unified audio analytics — start + 90% completion (see use-audio-tracking).
+  useAudioTracking(audioRef, {
+    src,
+    title,
+    surface: "podcast_player",
+    contentId: episodeId,
+  });
+
   useEffect(() => {
     const a = audioRef.current;
     if (!a) return;
     const onTime = () => setPosition(a.currentTime);
     const onMeta = () => setDuration(a.duration || 0);
-    const onPlay = () => {
-      setPlaying(true);
-      trackEvent("podcast_play", { episode_id: episodeId, src });
-    };
+    const onPlay = () => setPlaying(true);
     const onPause = () => setPlaying(false);
-    const onEnded = () => {
-      setPlaying(false);
-      trackEvent("podcast_complete", { episode_id: episodeId, src });
-    };
+    const onEnded = () => setPlaying(false);
     a.addEventListener("timeupdate", onTime);
     a.addEventListener("loadedmetadata", onMeta);
     a.addEventListener("play", onPlay);
@@ -60,7 +62,7 @@ export function PodcastPlayer({ src, title, episodeId }: PodcastPlayerProps) {
       a.removeEventListener("pause", onPause);
       a.removeEventListener("ended", onEnded);
     };
-  }, [src, episodeId]);
+  }, [src]);
 
   useEffect(() => {
     if (audioRef.current) audioRef.current.playbackRate = speed;

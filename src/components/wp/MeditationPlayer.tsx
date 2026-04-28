@@ -55,7 +55,16 @@ export function MeditationPlayer({
   const [position, setPosition] = useState(0);
   const [speed, setSpeed] = useState<Speed>(1);
   const [volume, setVolume] = useState(1);
-  const startedRef = useRef(false);
+
+  // Centralized start/90%-completion tracking (see use-audio-tracking.ts).
+  // Replaces the older bespoke `meditation_play` / `meditation_complete`
+  // events so all surfaces share one taxonomy.
+  useAudioTracking(audioRef, {
+    src,
+    title,
+    surface: "meditation_player",
+    contentId: meditationId,
+  });
 
   useEffect(() => {
     const a = audioRef.current;
@@ -64,18 +73,9 @@ export function MeditationPlayer({
     const onMeta = () => {
       if (!durationSeconds) setDuration(a.duration || 0);
     };
-    const onPlay = () => {
-      setPlaying(true);
-      if (!startedRef.current) {
-        startedRef.current = true;
-        trackEvent("meditation_play", { meditation_id: meditationId, src });
-      }
-    };
+    const onPlay = () => setPlaying(true);
     const onPause = () => setPlaying(false);
-    const onEnded = () => {
-      setPlaying(false);
-      trackEvent("meditation_complete", { meditation_id: meditationId, src });
-    };
+    const onEnded = () => setPlaying(false);
     a.addEventListener("timeupdate", onTime);
     a.addEventListener("loadedmetadata", onMeta);
     a.addEventListener("play", onPlay);
@@ -88,7 +88,7 @@ export function MeditationPlayer({
       a.removeEventListener("pause", onPause);
       a.removeEventListener("ended", onEnded);
     };
-  }, [src, meditationId, durationSeconds]);
+  }, [src, durationSeconds]);
 
   useEffect(() => {
     if (audioRef.current) audioRef.current.playbackRate = speed;
