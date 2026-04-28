@@ -1596,6 +1596,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "161 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/learning-to-live-more-positively.pdf",
+      title: "Learning to Live More Positively",
+      fileSize: "181 KB",
+      flagged: true,
+    },
   ],
   // "One Thing at a Time" — single-tasking presence, surface alongside Mindful Pause.
   "mindful-pause": [
