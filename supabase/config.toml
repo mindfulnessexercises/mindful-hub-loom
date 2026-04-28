@@ -8,3 +8,5 @@ verify_jwt = false
 
 [functions.link-checker]
 verify_jwt = false
+[functions.seo-snapshot-run]
+verify_jwt = false
