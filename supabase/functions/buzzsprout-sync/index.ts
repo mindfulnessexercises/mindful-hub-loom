@@ -69,20 +69,19 @@ async function enrichEpisode(
   apiKey: string,
   title: string,
   descriptionPlain: string,
+  style: PromptStyle,
 ): Promise<EnrichmentResult | null> {
   const trimmed = descriptionPlain.slice(0, 6000);
-  const systemPrompt = [
-    "You write SEO-rich summaries for mindfulness podcast episodes.",
-    "Voice: warm, grounded, never clichéd or salesy. Avoid generic 'spa' language.",
-    "Output strictly via the provided tool.",
-  ].join(" ");
-
-  const userPrompt = `Episode title: ${title}\n\nEpisode description / show notes:\n${trimmed || "(no description provided)"}\n\nGenerate the structured fields.`;
+  const userPrompt =
+    `Episode title: ${title}\n\n` +
+    `Source description (raw, may be promotional — extract substance only):\n` +
+    `${trimmed || "(no description provided)"}\n\n` +
+    `Generate the structured fields in the configured house voice.`;
 
   const body = {
     model: AI_MODEL,
     messages: [
-      { role: "system", content: systemPrompt },
+      { role: "system", content: style.systemPrompt },
       { role: "user", content: userPrompt },
     ],
     tools: [
@@ -90,27 +89,25 @@ async function enrichEpisode(
         type: "function",
         function: {
           name: "generate_episode_summary",
-          description: "Generate SEO summary, takeaways, and reflection questions for a podcast episode.",
+          description:
+            "Generate on-brand summary, takeaways, and reflection questions for a podcast episode.",
           parameters: {
             type: "object",
             properties: {
-              summary: {
-                type: "string",
-                description: "2-3 paragraph SEO summary (~150-220 words). No headings, just prose.",
-              },
+              summary: { type: "string", description: style.schema.summaryGuidance },
               takeaways: {
                 type: "array",
                 items: { type: "string" },
                 minItems: 3,
                 maxItems: 5,
-                description: "3-5 concise key takeaways from the episode.",
+                description: style.schema.takeawayGuidance,
               },
               questions: {
                 type: "array",
                 items: { type: "string" },
                 minItems: 3,
                 maxItems: 5,
-                description: "3-5 open-ended reflection questions for listeners.",
+                description: style.schema.questionGuidance,
               },
             },
             required: ["summary", "takeaways", "questions"],
@@ -139,11 +136,20 @@ async function enrichEpisode(
   if (!args) return null;
   try {
     const parsed = JSON.parse(args);
-    return {
-      summary: String(parsed.summary ?? ""),
-      takeaways: Array.isArray(parsed.takeaways) ? parsed.takeaways.map(String) : [],
-      questions: Array.isArray(parsed.questions) ? parsed.questions.map(String) : [],
-    };
+    const summary = String(parsed.summary ?? "");
+    const takeaways = Array.isArray(parsed.takeaways) ? parsed.takeaways.map(String) : [];
+    const questions = Array.isArray(parsed.questions) ? parsed.questions.map(String) : [];
+
+    // Drift telemetry — never blocks the write, just surfaces in function logs
+    // so we can refine the banned-phrase list and prompts over time.
+    const drift = detectBannedPhrases(
+      [summary, takeaways.join(" "), questions.join(" ")].join(" "),
+    );
+    if (drift.length > 0) {
+      console.warn("style drift", { style: style.id, banned: drift, title });
+    }
+
+    return { summary, takeaways, questions };
   } catch (e) {
     console.error("Failed to parse AI args", e);
     return null;
