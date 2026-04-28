@@ -1179,6 +1179,31 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "The Shaping Principle",
     fileSize: "160 KB",
   },
+  "tracking-insights": {
+    pdfUrl: "/worksheets/tracking-your-insights.pdf",
+    title: "Tracking Your Insights",
+    fileSize: "161 KB",
+  },
+  "utilizing-precious-resources": {
+    pdfUrl: "/worksheets/utilizing-precious-resources.pdf",
+    title: "Utilizing Precious Resources",
+    fileSize: "167 KB",
+  },
+  "defeats": {
+    pdfUrl: "/worksheets/what-defeats-you.pdf",
+    title: "What Defeats You",
+    fileSize: "158 KB",
+  },
+  "avoiding": {
+    pdfUrl: "/worksheets/what-are-you-avoiding.pdf",
+    title: "What Are You Avoiding",
+    fileSize: "162 KB",
+  },
+  "feelings": {
+    pdfUrl: "/worksheets/what-are-your-feelings.pdf",
+    title: "What are Your Feelings",
+    fileSize: "164 KB",
+  },
 };
 
 /**
