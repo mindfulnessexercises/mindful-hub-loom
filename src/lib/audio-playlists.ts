@@ -646,6 +646,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Body and Mind Resting in One's Own Gaze — Guided Meditation by Akincano Marc Weber", src: `${AUDIO_BASE}/settling-into-presence/akincano-marc-weber-body-and-mind-resting-in-ones-own-gaze.mp3` },
       { title: "Resting the Mind — Dharma Talk by Kate Munding", src: `${AUDIO_BASE}/settling-into-presence/kate-munding-resting-the-mind.mp3` },
       { title: "The Floodlights of Awareness — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/settling-into-presence/ajahn-sumedho-floodlights-of-awareness.mp3` },
+      { title: "Guided Meditation — Long-Form Retreat Practice by Jack Kornfield", src: `${AUDIO_BASE}/settling-into-presence/jack-kornfield-guided-meditation-2015-12-14.mp3` },
+      { title: "Meditation: Getting Lost and Coming Back Here — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/settling-into-presence/tara-brach-meditation-getting-lost-and-coming-back-here.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -1024,6 +1026,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Thinking — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/working-with-thoughts/matthew-brensilver-thinking.mp3` },
       { title: "What Should I Think — Dharma Talk by Sylvia Boorstein", src: `${AUDIO_BASE}/working-with-thoughts/sylvia-boorstein-what-should-i-think.mp3` },
       { title: "Thinking and Reality — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/working-with-thoughts/will-kabat-zinn-thinking-and-reality.mp3` },
+      { title: "Meditation: A Sky-Like Mind — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/working-with-thoughts/tara-brach-meditation-a-sky-like-mind.mp3` },
+      { title: "Meditation: Letting Thought Clouds Come and Go — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/working-with-thoughts/tara-brach-meditation-letting-thought-clouds-come-and-go.mp3` },
     ],
   },
   "guided-loving-kindness-meditation-audio": {
@@ -1055,6 +1059,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Standing Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/walking-meditation-worksheet-2/standing.mp3` },
       { title: "Standing and Walking Meditation Instructions — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/walking-meditation-worksheet-2/tara-brach-standing-and-walking-instructions.mp3` },
       { title: "Walking Meditation — Guided Meditation by Sharon Salzberg", src: `${AUDIO_BASE}/walking-meditation-worksheet-2/sharon-salzberg-walking-meditation.mp3` },
+      { title: "Walking Meditation (Long-Form Practice) — Guided Meditation by Sharon Salzberg", src: `${AUDIO_BASE}/walking-meditation-worksheet-2/sharon-salzberg-walking-meditation-long-form.mp3` },
     ],
   },
   "style-over-summit-what-dirtbag-billionaire-taught-me-about-practice": {
