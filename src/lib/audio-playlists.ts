@@ -555,6 +555,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Dharma Talk: Nothing at Stake — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-acceptance/gil-fronsdal-dharma-talk-nothing-at-stake.mp3` },
       { title: "Dharmette: Don't Pick It Up and Don't Reject It — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-acceptance/gil-fronsdal-dharmette-dont-pick-it-up-dont-reject-it.mp3` },
       { title: "The Way It Is — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/power-of-acceptance/ajahn-sumedho-the-way-it-is.mp3` },
+      { title: "Equanimity: The Sweet Joy of the Way — Dharma Talk by Spring Washam", src: `${AUDIO_BASE}/power-of-acceptance/spring-washam-equanimity-the-sweet-joy-of-the-way.mp3` },
     ],
   },
   "8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself": {
@@ -799,6 +800,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Kindness for All Beings — Dharma Talk by Lila Kate Wheeler", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/lila-kate-wheeler-kindness-for-all-beings.mp3` },
       { title: "Guided Metta With Forgiveness — Guided Meditation by Kamala Masters", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/kamala-masters-guided-metta-with-forgiveness.mp3` },
       { title: "The Dharma of True Friendship — Dharma Talk by Kate Munding", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/kate-munding-the-dharma-of-true-friendship.mp3` },
+      { title: "The Fierce Heart — Dharma Talk by Spring Washam", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/spring-washam-the-fierce-heart.mp3` },
+      { title: "Purification Through Love — Dharma Talk by Spring Washam", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/spring-washam-purification-through-love.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -852,6 +855,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Opening Your Senses — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/awareness-of-the-five-senses/opening-your-senses.mp3` },
       { title: "Introduction to Seeing & Drawing — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/awareness-of-the-five-senses/marcia-rose-introduction-to-seeing-drawing.mp3` },
       { title: "Introduction to Drawing Yourself — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/awareness-of-the-five-senses/marcia-rose-introduction-to-drawing-yourself.mp3` },
+      { title: "Mindful Eating — Guided Meditation by Sharon Salzberg", src: `${AUDIO_BASE}/awareness-of-the-five-senses/sharon-salzberg-mindful-eating.mp3` },
     ],
   },
   "mindfulness-body-scan-for-stress-relief": {
@@ -869,6 +873,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Body Scan (Intermediate) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/body-scan-intermediate.mp3` },
       { title: "Finding Ease — Guided Meditation by Oren Jay Sofer", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/oren-jay-sofer-finding-ease.mp3` },
       { title: "Nine Breathing Exercises to Release Dead Energies — Guided Meditation by Anam Thubten", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/anam-thubten-nine-breathing-exercises-to-release-dead-energies.mp3` },
+      { title: "Welcome Your Body Home — Guided Meditation by Spring Washam", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/spring-washam-welcome-your-body-home.mp3` },
     ],
   },
   "laying-down-meditation-visualizing-a-lake": {
@@ -1049,6 +1054,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Walking Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/walking-meditation-worksheet-2/walking.mp3` },
       { title: "Standing Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/walking-meditation-worksheet-2/standing.mp3` },
       { title: "Standing and Walking Meditation Instructions — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/walking-meditation-worksheet-2/tara-brach-standing-and-walking-instructions.mp3` },
+      { title: "Walking Meditation — Guided Meditation by Sharon Salzberg", src: `${AUDIO_BASE}/walking-meditation-worksheet-2/sharon-salzberg-walking-meditation.mp3` },
     ],
   },
   "style-over-summit-what-dirtbag-billionaire-taught-me-about-practice": {
