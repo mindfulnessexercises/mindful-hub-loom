@@ -408,7 +408,10 @@ export default function AdminMeditationScriptsAudit() {
     let cancelled = false;
     const seed: AuditRow[] = registrySlugs.map((slug) => ({
       slug,
-      entry: MEDITATION_SCRIPTS[slug],
+      entry: {
+        ...MEDITATION_SCRIPTS[slug],
+        pdfUrl: getDownloadAssetUrl(MEDITATION_SCRIPTS[slug].pdfUrl),
+      },
       pdfStatus: "pending",
       postStatus: "pending",
       declaredBytes: parseDeclaredBytes(MEDITATION_SCRIPTS[slug].fileSize),
