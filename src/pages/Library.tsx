@@ -20,6 +20,7 @@ import { CategoryChip } from "@/components/wp/CategoryChip";
 import { ActiveFilterBanner } from "@/components/wp/ActiveFilterBanner";
 import { ShareLibraryView } from "@/components/wp/ShareLibraryView";
 import { FeaturedFromOtherCategories } from "@/components/wp/FeaturedFromOtherCategories";
+import { MostLovedShelf } from "@/components/wp/MostLovedShelf";
 import { CategoriesAvailableSummary } from "@/components/wp/CategoriesAvailableSummary";
 import { CategoryExploration } from "@/components/wp/CategoryExploration";
 import { MoreLikeThis } from "@/components/wp/MoreLikeThis";
@@ -351,6 +352,8 @@ export default function Library() {
             </form>
           </div>
         </section>
+
+        <MostLovedShelf />
 
         <section className="container mx-auto py-12 lg:py-16">
           <BrowseByCategory
