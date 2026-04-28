@@ -484,6 +484,11 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Reducing Holiday Stress",
     fileSize: "178 KB",
   },
+  "rediscovering-vision": {
+    pdfUrl: "/worksheets/rediscovering-your-vision.pdf",
+    title: "Rediscovering Your Vision",
+    fileSize: "161 KB",
+  },
   "scheduling-something-pleasant": {
     pdfUrl: "/worksheets/scheduling-something-pleasant.pdf",
     title: "Scheduling Something Pleasant",
