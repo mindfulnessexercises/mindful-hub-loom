@@ -391,6 +391,26 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
+  // "Trusting in Yourself" has no dedicated post — surface on the closest
+  // topical match (Building Inner Strength).
+  "building-inner-strength": [
+    {
+      pdfUrl: "/worksheets/trusting-in-yourself.pdf",
+      title: "Trusting in Yourself",
+      fileSize: "163 KB",
+      flagged: true,
+    },
+  ],
+  // "Understanding Your Self-Pity" has no dedicated post — surface on the
+  // closest topical match (Self-Compassion hub).
+  "the-power-of-self-compassion": [
+    {
+      pdfUrl: "/worksheets/understanding-your-self-pity.pdf",
+      title: "Understanding Your Self-Pity",
+      fileSize: "161 KB",
+      flagged: true,
+    },
+  ],
 };
 
 export function getWorksheets(slug: string | undefined | null): WorksheetEntry[] {
