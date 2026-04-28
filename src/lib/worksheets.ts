@@ -384,6 +384,21 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Mindfully Doing Schoolwork and Tests",
     fileSize: "160 KB",
   },
+  "parenting-happily": {
+    pdfUrl: "/worksheets/parenting-happily.pdf",
+    title: "Parenting Happily",
+    fileSize: "172 KB",
+  },
+  "pebble-bag-treasure-quest": {
+    pdfUrl: "/worksheets/pebble-bag-treasure-quest.pdf",
+    title: "Pebble Bag Treasure Quest",
+    fileSize: "164 KB",
+  },
+  "sounds-and-silence-kids": {
+    pdfUrl: "/worksheets/sounds-and-silence-kids.pdf",
+    title: "Sounds and Silence (Kids)",
+    fileSize: "166 KB",
+  },
 };
 
 /**
@@ -467,6 +482,32 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/mother-of-all.pdf",
       title: "Mother of All",
       fileSize: "162 KB",
+      flagged: true,
+    },
+  ],
+  // "Snow Globe Exercise for Kids" and "What's Your Weather Like Today (Kids)"
+  // have no dedicated posts — surface on the kids mindfulness hub.
+  "mindfulness-exercises-for-emotionally-disturbed-kids": [
+    {
+      pdfUrl: "/worksheets/snow-globe-exercise-for-kids.pdf",
+      title: "Snow Globe Exercise for Kids",
+      fileSize: "158 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/whats-your-weather-like-today-kids.pdf",
+      title: "What's Your Weather Like Today? (Kids)",
+      fileSize: "172 KB",
+      flagged: true,
+    },
+  ],
+  // "Finding Me" (longer ebook on identity & self) — surface on the
+  // closest topical hub (Accepting Who You Are).
+  "accepting-who-you-are": [
+    {
+      pdfUrl: "/worksheets/finding-me-by-mindfulness-exercises.pdf",
+      title: "Finding Me",
+      fileSize: "224 KB",
       flagged: true,
     },
   ],
