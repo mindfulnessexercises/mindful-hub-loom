@@ -47,6 +47,48 @@ export type Database = {
         }
         Relationships: []
       }
+      buzzsprout_episodes: {
+        Row: {
+          artwork_url: string | null
+          audio_url: string | null
+          created_at: string
+          duration_seconds: number | null
+          episode_id: string
+          id: string
+          podcast_id: string
+          published_at: string | null
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          artwork_url?: string | null
+          audio_url?: string | null
+          created_at?: string
+          duration_seconds?: number | null
+          episode_id: string
+          id?: string
+          podcast_id: string
+          published_at?: string | null
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          artwork_url?: string | null
+          audio_url?: string | null
+          created_at?: string
+          duration_seconds?: number | null
+          episode_id?: string
+          id?: string
+          podcast_id?: string
+          published_at?: string | null
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       email_leads: {
         Row: {
           consent: boolean
