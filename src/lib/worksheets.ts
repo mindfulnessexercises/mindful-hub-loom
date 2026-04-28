@@ -489,6 +489,26 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Breath Awareness Meditation",
     fileSize: "198 KB",
   },
+  "one-breath-at-a-time": {
+    pdfUrl: "/worksheets/one-breath-at-a-time.pdf",
+    title: "One Breath at a Time",
+    fileSize: "472 KB",
+  },
+  "past-present-future": {
+    pdfUrl: "/worksheets/past-present-future.pdf",
+    title: "Past, Present, Future",
+    fileSize: "195 KB",
+  },
+  "pleasant-vs-unpleasant": {
+    pdfUrl: "/worksheets/pleasant-vs-unpleasant.pdf",
+    title: "Pleasant vs Unpleasant",
+    fileSize: "201 KB",
+  },
+  "replacing-judgment-with-curiosity": {
+    pdfUrl: "/worksheets/replacing-judgment-with-curiosity.pdf",
+    title: "Replacing Judgment with Curiosity",
+    fileSize: "183 KB",
+  },
   "chocolate-meditation": {
     pdfUrl: "/worksheets/chocolate-meditation.pdf",
     title: "Chocolate Meditation",
@@ -873,6 +893,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "173 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/self-compassion-break.pdf",
+      title: "Self-Compassion Break",
+      fileSize: "173 KB",
+      flagged: true,
+    },
   ],
   // "Exploring Fear (Partner Exercise)" has no dedicated post — surface
   // alongside the anxiety/fear-themed worksheet on the affirmations-for-anxiety post.
@@ -962,6 +988,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "190 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/seeing-yourself-through-loving-eyes.pdf",
+      title: "Seeing Yourself Through Loving Eyes",
+      fileSize: "182 KB",
+      flagged: true,
+    },
   ],
   // Companion guide & journal alongside the beginners ebook.
   "mindfulness-meditation-beginners-free-ebook": [
@@ -1041,12 +1073,18 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
-  // Second "Breath Awareness Meditation" variant — surface alongside primary.
+  // Second "Breath Awareness Meditation" variant + "Perfect 10 Breaths" — surface alongside primary.
   "breath-awareness-meditation": [
     {
       pdfUrl: "/worksheets/breath-awareness-meditation-2.pdf",
       title: "Breath Awareness Meditation",
       fileSize: "173 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/perfect-10-breaths.pdf",
+      title: "Perfect 10 Breaths",
+      fileSize: "190 KB",
       flagged: true,
     },
   ],
@@ -1148,6 +1186,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "188 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/rating-anxiety-in-the-body.pdf",
+      title: "Rating Anxiety in the Body",
+      fileSize: "179 KB",
+      flagged: true,
+    },
   ],
   // "Mindfulness of Laughter" — surface alongside the cultivating-joy worksheet.
   "cultivating-joy": [
@@ -1158,13 +1202,28 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
-  // "Mindful Life Design" — values/intention reflection, surface alongside
-  // the appraising-career-values reflective worksheet.
+  // "Mindful Life Design" + "Personal Intention Statements" — values/intention
+  // reflections, surface alongside the appraising-career-values worksheet.
   "appraising-career-values": [
     {
       pdfUrl: "/worksheets/mindful-life-design.pdf",
       title: "Mindful Life Design",
       fileSize: "245 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/personal-intention-statements.pdf",
+      title: "Personal Intention Statements",
+      fileSize: "233 KB",
+      flagged: true,
+    },
+  ],
+  // "One Thing at a Time" — single-tasking presence, surface alongside Mindful Pause.
+  "mindful-pause": [
+    {
+      pdfUrl: "/worksheets/one-thing-at-a-time.pdf",
+      title: "One Thing at a Time",
+      fileSize: "160 KB",
       flagged: true,
     },
   ],
