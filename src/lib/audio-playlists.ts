@@ -329,6 +329,10 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Right Concentration — Dharma Talk by Shaila Catherine", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/shaila-catherine-right-concentration.mp3` },
       { title: "Anapanasati Concentration / Samatha Meditation — Guided Meditation by Tina Rasmussen", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/tina-rasmussen-anapanasati-concentration-samatha.mp3` },
       { title: "Lack of Continuity of Mindfulness and Concentration — Dharma Talk by Kate Munding", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/kate-munding-lack-of-continuity-mindfulness-concentration.mp3` },
+      { title: "One Complete Cycle of Breath — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/1-complete-cycle-of-breath.mp3` },
+      { title: "Two Minutes of Mindful Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/2-minutes-of-mindful-breathing.mp3` },
+      { title: "Three Mindful Breaths — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/3-mindful-breaths.mp3` },
+      { title: "Interest and Investigation — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/will-kabat-zinn-interest-and-investigation.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -364,6 +368,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Dullness and Anger — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ajahn-sumedho-dullness-and-anger.mp3` },
       { title: "Dharmette: Responses vs Reactions — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/gil-fronsdal-dharmette-responses-vs-reactions.mp3` },
       { title: "RAIN: Working With Difficult Emotions — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/rain-meditation.mp3` },
+      { title: "Three Kinds of Craving — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/will-kabat-zinn-three-kinds-of-craving.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -586,6 +591,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Seeing Anew — Dharma Talk by Jack Kornfield", src: `${AUDIO_BASE}/settling-into-presence/jack-kornfield-seeing-anew.mp3` },
       { title: "Dharmette: Resolution to Present Details — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/settling-into-presence/gil-fronsdal-resolution-to-present-details.mp3` },
       { title: "Everything Is Spiritual Practice — Dharma Talk by Sylvia Boorstein", src: `${AUDIO_BASE}/settling-into-presence/sylvia-boorstein-everything-is-spiritual-practice.mp3` },
+      { title: "The Common Denominator — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/settling-into-presence/will-kabat-zinn-the-common-denominator.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -680,6 +686,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     tracks: [
       { title: "Grounding — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/full-body-awareness/grounding.mp3` },
       { title: "Being Trusting In The Body — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/full-body-awareness/being-trusting-in-the-body.mp3` },
+      { title: "Four Domains for Mindfulness — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/full-body-awareness/will-kabat-zinn-four-domains-for-mindfulness.mp3` },
     ],
   },
   "power-of-gratitude-meditation-7-ways-to-cultivate-it": {
@@ -735,6 +742,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Noting B — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-17-noting-b.mp3` },
       { title: "Noting C — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-18-noting-c.mp3` },
       { title: "Noting Gone — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-19-noting-gone.mp3` },
+      { title: "The Prison of Comparing — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/noting-your-judgments/will-kabat-zinn-the-prison-of-comparing.mp3` },
     ],
   },
   "meditation-scripts-for-anxiety": {
@@ -912,6 +920,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Thoughts and Emotions — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/working-with-thoughts/thoughts-and-emotions.mp3` },
       { title: "Thinking — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/working-with-thoughts/matthew-brensilver-thinking.mp3` },
       { title: "What Should I Think — Dharma Talk by Sylvia Boorstein", src: `${AUDIO_BASE}/working-with-thoughts/sylvia-boorstein-what-should-i-think.mp3` },
+      { title: "Thinking and Reality — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/working-with-thoughts/will-kabat-zinn-thinking-and-reality.mp3` },
     ],
   },
   "guided-loving-kindness-meditation-audio": {
