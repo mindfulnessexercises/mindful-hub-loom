@@ -103,6 +103,31 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Problem Solving",
     fileSize: "190 KB",
   },
+  "refining-speak": {
+    pdfUrl: "/worksheets/refining-how-you-speak-up.pdf",
+    title: "Refining How You Speak Up",
+    fileSize: "161 KB",
+  },
+  "self-affirmation-reduce-self-control-failure": {
+    pdfUrl: "/worksheets/self-affirmation-to-reduce-self-control-failure.pdf",
+    title: "Self-Affirmation to Reduce Self-Control Failure",
+    fileSize: "181 KB",
+  },
+  "six-questions-greater-accomplishment": {
+    pdfUrl: "/worksheets/six-questions-for-greater-accomplishment.pdf",
+    title: "Six Questions for Greater Accomplishment",
+    fileSize: "173 KB",
+  },
+  "art-generous-learning": {
+    pdfUrl: "/worksheets/the-art-of-generous-learning.pdf",
+    title: "The Art of Generous Learning",
+    fileSize: "164 KB",
+  },
+  "time-management": {
+    pdfUrl: "/worksheets/time-management.pdf",
+    title: "Time Management",
+    fileSize: "211 KB",
+  },
 };
 
 /**
