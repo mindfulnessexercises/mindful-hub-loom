@@ -32,6 +32,7 @@ import { TableOfContents } from "@/components/wp/TableOfContents";
 import { ShareBar } from "@/components/wp/ShareBar";
 import { AuthorCard } from "@/components/wp/AuthorCard";
 import { RelatedPosts } from "@/components/wp/RelatedPosts";
+import { RecommendedNext } from "@/components/wp/RecommendedNext";
 import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
 import { MeditationPlayer } from "@/components/wp/MeditationPlayer";
 import { MeditationScript } from "@/components/wp/MeditationScript";
@@ -621,6 +622,10 @@ export default function WPResolver() {
                     endpoint={cptEndpoint}
                   />
                 )}
+
+                {/* Hand-curated cross-sell powered by the top-100 taxonomy.
+                    Self-hides on posts that aren't in the top-100 list. */}
+                <RecommendedNext />
               </div>
 
               {/* Sticky sidebar — only renders when there's a meaningful TOC. */}
