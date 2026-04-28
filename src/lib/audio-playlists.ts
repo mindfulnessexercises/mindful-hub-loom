@@ -291,6 +291,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Guided Anapanasati Meditation: Noticing Absence and Little Cessations — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-noticing-absence-and-little-cessations.mp3` },
       { title: "Guided Anapanasati Meditation: Peripheral Awareness and Fading Away — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-peripheral-awareness-and-fading-away.mp3` },
       { title: "Guided Anapanasati Meditation: Impermanence, Fading Away and Letting Go — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-impermanence-fading-letting-go.mp3` },
+      { title: "Guided Meditation: Journey of 3 Breaths — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-journey-of-3-breaths.mp3` },
+      { title: "Dharma Talk: Attention Focused Narrow — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-attention-focused-narrow.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -419,6 +421,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A spacious guided meditation that softens the felt sense of time — opening into a wider, quieter awareness beneath the rush.",
     tracks: [
       { title: "The Expanding Dimension of Time — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/higher-self-meditation/expanding-dimension-of-time.mp3` },
+      { title: "Dharmette: Practicing with Imagination — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/higher-self-meditation/gil-fronsdal-dharmette-practicing-with-imagination.mp3` },
     ],
   },
   "what-rick-hansons-meditation-taught-me-about-truly-staying-present": {
@@ -478,6 +481,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Self-Compassion — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-self-compassion.mp3` },
       { title: "Rain of Compassion — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-rain-of-compassion.mp3` },
       { title: "Tonglen — Compassion Practice by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-tonglen.mp3` },
+      { title: "Dharmette: Tenderness — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/8-self-compassion-exercises/gil-fronsdal-dharmette-tenderness.mp3` },
     ],
   },
   "mindfulness-body-scan-for-self-compassion": {
@@ -808,6 +812,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Settle The Heart First — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/importance-of-finding-quiet-time/settle-the-heart-first.mp3` },
       { title: "Dharmette: Windless Days — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/gil-fronsdal-dharmette-windless-days.mp3` },
       { title: "Grounded Silence — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/grounded-silence.mp3` },
+      { title: "Dharmette: Doing Nothing — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/gil-fronsdal-dharmette-doing-nothing.mp3` },
+      { title: "Dharma Talk: Pausing — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/gil-fronsdal-dharma-talk-pausing.mp3` },
     ],
   },
   "9-mindfulness-exercises-for-anxiety": {
