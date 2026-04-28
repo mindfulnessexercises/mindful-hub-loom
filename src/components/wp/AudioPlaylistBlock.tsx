@@ -1,6 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Clock, Download, ExternalLink, Headphones, ListMusic } from "lucide-react";
+import { Clock, Download, ExternalLink, Headphones, ListMusic, Tag } from "lucide-react";
 import type { AudioPlaylist, PlaylistTrack } from "@/lib/audio-playlists";
+import {
+  inferTrackThemes,
+  themesForPlaylist,
+} from "@/lib/audio-themes";
 
 interface AudioPlaylistBlockProps {
   playlist: AudioPlaylist;
@@ -82,6 +86,53 @@ export function AudioPlaylistBlock({ playlist, hostSlug }: AudioPlaylistBlockPro
   const totalLabel = formatDuration(totalSeconds);
   const allKnown = knownCount === playlist.tracks.length;
 
+  // Theme filter state — narrows the visible tracks within this single
+  // playlist. Resets when the playlist changes.
+  const [activeThemes, setActiveThemes] = useState<Set<string>>(new Set());
+  useEffect(() => {
+    setActiveThemes(new Set());
+  }, [playlistKey]);
+
+  // Themes that have at least one matching track in this playlist.
+  const availableThemes = useMemo(
+    () => themesForPlaylist(playlist, hostSlug ?? ""),
+    [playlist, hostSlug],
+  );
+
+  // Per-track theme sets (so we can match against the active filter
+  // without recomputing for each track on every render).
+  const trackThemes = useMemo(
+    () =>
+      playlist.tracks.map((t) =>
+        inferTrackThemes(t, hostSlug ?? "", playlist.heading),
+      ),
+    [playlist, hostSlug],
+  );
+
+  // Tracks that pass the active theme filter (OR-match: a track shows
+  // if it carries ANY of the selected themes). When no theme is
+  // active, every track is shown.
+  const visibleIndexes = useMemo(() => {
+    if (activeThemes.size === 0) return playlist.tracks.map((_, i) => i);
+    return playlist.tracks
+      .map((_, i) => i)
+      .filter((i) => {
+        const themes = trackThemes[i];
+        for (const id of activeThemes) if (themes.has(id)) return true;
+        return false;
+      });
+  }, [activeThemes, playlist.tracks, trackThemes]);
+
+  const toggleTheme = (id: string) => {
+    setActiveThemes((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+  const clearThemes = () => setActiveThemes(new Set());
+
   return (
     <section
       aria-label={playlist.heading}
@@ -122,6 +173,60 @@ export function AudioPlaylistBlock({ playlist, hostSlug }: AudioPlaylistBlockPro
               <Clock className="h-3.5 w-3.5" aria-hidden />
               {allKnown ? totalLabel : `~${totalLabel}+`} total
             </span>
+          )}
+        </div>
+      )}
+
+      {/* Theme filter chips — only shown when the playlist has at least
+          two themes worth filtering by. Single-theme playlists hide the
+          row to avoid noise. */}
+      {availableThemes.length >= 2 && (
+        <div className="mb-5">
+          <p className="text-eyebrow text-muted-foreground mb-2 inline-flex items-center gap-1.5">
+            <Tag className="h-3 w-3" aria-hidden />
+            Browse by theme
+          </p>
+          <div className="flex flex-wrap items-center gap-2">
+            {availableThemes.map(({ theme, count }) => {
+              const active = activeThemes.has(theme.id);
+              return (
+                <button
+                  key={theme.id}
+                  type="button"
+                  onClick={() => toggleTheme(theme.id)}
+                  aria-pressed={active}
+                  title={theme.description}
+                  className={`inline-flex min-h-[44px] items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition ${
+                    active
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-border bg-background text-foreground/80 hover:border-primary/40 hover:text-foreground"
+                  }`}
+                >
+                  {theme.label}
+                  <span
+                    className={`tabular-nums text-[10px] ${
+                      active ? "opacity-90" : "text-muted-foreground"
+                    }`}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+            {activeThemes.size > 0 && (
+              <button
+                type="button"
+                onClick={clearThemes}
+                className="inline-flex min-h-[44px] items-center rounded-full px-3 py-1.5 text-xs font-medium text-primary transition hover:underline"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+          {activeThemes.size > 0 && (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Showing {visibleIndexes.length} of {playlist.tracks.length} tracks
+            </p>
           )}
         </div>
       )}
@@ -167,8 +272,23 @@ export function AudioPlaylistBlock({ playlist, hostSlug }: AudioPlaylistBlockPro
         </details>
       )}
 
+      {visibleIndexes.length === 0 ? (
+        <div className="rounded-lg border border-dashed border-border bg-background/60 p-6 text-center">
+          <p className="text-sm text-muted-foreground">
+            No tracks match the selected themes on this page.
+          </p>
+          <button
+            type="button"
+            onClick={clearThemes}
+            className="mt-3 inline-flex min-h-[44px] items-center rounded-md border border-border bg-background px-3 py-2 text-xs font-medium text-foreground/85 transition hover:bg-muted"
+          >
+            Clear theme filters
+          </button>
+        </div>
+      ) : (
       <ol className="space-y-4">
-        {playlist.tracks.map((t, i) => {
+        {visibleIndexes.map((i) => {
+          const t = playlist.tracks[i];
           const trackSlug = normalizeSlug(t.postSlug);
           const showOpenPost = !!trackSlug && trackSlug !== host;
           const d = formatDuration(durations[i]);
@@ -239,6 +359,7 @@ export function AudioPlaylistBlock({ playlist, hostSlug }: AudioPlaylistBlockPro
           );
         })}
       </ol>
+      )}
 
       <div className="mt-6 border-t border-border pt-5">
         <h3 className="text-eyebrow text-primary mb-3">
