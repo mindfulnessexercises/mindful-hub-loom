@@ -86,7 +86,8 @@ const MENU: MenuGroup[] = [
     links: [
       { label: "Podcast", href: "/podcast", icon: Mic, description: "Conversations with teachers" },
       { label: "Audio Library", href: "/audio-library", icon: Headphones, description: "Every guided meditation, searchable" },
-      { label: "Videos", href: "/videos", icon: List, description: "Course videos & talks" },
+      { label: "Video Library", href: "/videos", icon: List, description: "Course videos, Q&As & talks" },
+      { label: "Free Video Courses", href: "/free-online-mindfulness-courses", icon: GraduationCap, description: "Lesson-by-lesson playlists" },
     ],
   },
   {
