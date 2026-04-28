@@ -1209,6 +1209,31 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "The Sources of Your Distraction",
     fileSize: "161 KB",
   },
+  "nurturing-and-stressful": {
+    pdfUrl: "/worksheets/what-is-most-nurturing-and-stressful-for-you.pdf",
+    title: "What is Most Nurturing and Stressful for You",
+    fileSize: "161 KB",
+  },
+  "story-you-are-believing": {
+    pdfUrl: "/worksheets/what-story-are-you-believing.pdf",
+    title: "What Story are You Believing",
+    fileSize: "161 KB",
+  },
+  "important-in-your-life": {
+    pdfUrl: "/worksheets/whats-been-important-in-your-life.pdf",
+    title: "What's Been Important in Your Life",
+    fileSize: "163 KB",
+  },
+  "willingness-to-question": {
+    pdfUrl: "/worksheets/willingness-to-question.pdf",
+    title: "Willingness to Question",
+    fileSize: "159 KB",
+  },
+  "working-with-boredom": {
+    pdfUrl: "/worksheets/working-with-boredom.pdf",
+    title: "Working with Boredom",
+    fileSize: "277 KB",
+  },
 };
 
 /**
@@ -1915,6 +1940,33 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/the-is-of-your-identity.pdf",
       title: "The I's of Your Identity",
       fileSize: "160 KB",
+      flagged: true,
+    },
+  ],
+  // "What Do You Want to Say" — no dedicated post; surface on the right-speech worksheet host.
+  "right-speech": [
+    {
+      pdfUrl: "/worksheets/what-do-you-want-to-say.pdf",
+      title: "What Do You Want to Say",
+      fileSize: "163 KB",
+      flagged: true,
+    },
+  ],
+  // "What Do You Want to Stop" — no dedicated post; surface alongside intention work.
+  "realizing-intention": [
+    {
+      pdfUrl: "/worksheets/what-do-you-want-to-stop.pdf",
+      title: "What Do You Want to Stop",
+      fileSize: "163 KB",
+      flagged: true,
+    },
+  ],
+  // "What is Important to Do Today" — no dedicated post; surface alongside investing-your-life-today.
+  "investing-your-life-today": [
+    {
+      pdfUrl: "/worksheets/what-is-important-to-do-today.pdf",
+      title: "What is Important to Do Today",
+      fileSize: "175 KB",
       flagged: true,
     },
   ],
