@@ -1,9 +1,9 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowRight, Video } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { SectionWrapper, SectionHeader } from "@/components/homepage/SectionWrapper";
+import { WPSeo } from "@/components/wp/WPSeo";
 import { VIDEO_COLLECTIONS } from "@/lib/video-catalog";
 import { InlineEmailCapture } from "@/components/email/InlineEmailCapture";
 
