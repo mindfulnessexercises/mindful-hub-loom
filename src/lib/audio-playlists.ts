@@ -306,6 +306,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Emotional Reactions to Pain — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-emotional-reactions-to-pain.mp3` },
       { title: "Free-Floating in the Discomfort — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-free-floating-in-discomfort.mp3` },
       { title: "Local Intensity, Global Spread — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-local-intensity-global-spread.mp3` },
+      { title: "Working With Pain in Meditation and Daily Life — Week 2, Part 2 — Dharma Talk by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-pain-wk2-pt2.mp3` },
       { title: "Working with Pain and Recurring Thoughts — Q&R by Tara Brach", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/tara-brach-working-with-pain-and-recurring-thoughts.mp3` },
       { title: "Working with Trauma — Morning Q&R by Tara Brach", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/tara-brach-working-with-trauma.mp3` },
       { title: "Dullness and Anger — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ajahn-sumedho-dullness-and-anger.mp3` },
@@ -314,10 +315,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "an-anti-anxiety-gratitude-practice": {
     heading: "Listen: Anti-Anxiety Gratitude audio series",
     intro:
-      "Two guided meditations for letting gratitude soften an anxious mind — Feeling Appreciative lets appreciation land in the chest as a quiet antidote to worry; Appreciating the Little Things turns warm attention to the small, ordinary moments that quietly hold the day together.",
+      "Three guided meditations for letting gratitude and gentle attention soften an anxious mind — Feeling Appreciative lets appreciation land in the chest as a quiet antidote to worry; Appreciating the Little Things turns warm attention to the small, ordinary moments that quietly hold the day together; Befriending Anxiety invites a softer, more allowing relationship with the anxious feeling itself.",
     tracks: [
       { title: "Feeling Appreciative — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/an-anti-anxiety-gratitude-practice/feeling-appreciative.mp3` },
       { title: "Appreciating the Little Things — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/an-anti-anxiety-gratitude-practice/appreciating-the-little-things.mp3` },
+      { title: "Befriending Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/an-anti-anxiety-gratitude-practice/befriending-anxiety.mp3` },
     ],
   },
   "meditation-inner-critic-audio": {
@@ -349,10 +351,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "growing-happiness-in-the-mind": {
     heading: "Listen: Happiness audio series",
     intro:
-      "A guided meditation plus a dharma talk on happiness — Opening to Gladness lets small moments of joy land; Ripples of Happiness (Matthew Brensilver) explores how cultivated happiness ripples outward into relationship, work, and world.",
+      "A guided meditation, a dharma talk, and a long-form retreat practice on happiness — Opening to Gladness lets small moments of joy land; Ripples of Happiness (Matthew Brensilver) explores how cultivated happiness ripples outward into relationship, work, and world; Gladdening the Mind (Tara Brach) is a long-form retreat-style guided meditation on intentionally lifting the heart by remembering what's already good.",
     tracks: [
       { title: "Opening to Gladness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/growing-happiness-in-the-mind/opening-to-gladness.mp3` },
       { title: "Ripples of Happiness — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/growing-happiness-in-the-mind/ripples-of-happiness.mp3` },
+      { title: "Gladdening the Mind — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/growing-happiness-in-the-mind/tara-brach-gladdening-the-mind.mp3` },
     ],
   },
   "the-highest-form-of-happiness-rediscovering-peace": {
@@ -427,6 +430,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Dharma and Depression — Week 4 — Dharma Talk by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-dharma-and-depression-wk4.mp3` },
       { title: "Dharma and Depression — Week 5 — Dharma Talk by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-dharma-and-depression-wk5.mp3` },
       { title: "Sickness, Depression and One's Own Virtues — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ajahn-sumedho-sickness-depression-virtues.mp3` },
+      { title: "Heart Meditation: Letting Go of Judgment — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/tara-brach-heart-meditation-letting-go-of-judgment.mp3` },
     ],
   },
   "power-of-acceptance": {
@@ -484,6 +488,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A grounding guided body scan — moving slowly through the body with kind, curious attention, returning you to the felt sense of being here.",
     tracks: [
       { title: "Body Scan — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/short-body-scan/body-scan-meditation.mp3` },
+      { title: "Basic Body Scan and Breath Awareness — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/short-body-scan/tara-brach-basic-body-scan-and-breath-awareness.mp3` },
     ],
   },
   "honoring-joanna-macy-a-tribute-to-a-visionary-of-interconnection-and-courage": {
@@ -505,20 +510,24 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "settling-into-presence": {
     heading: "Listen: Settling Into This Present Moment",
     intro:
-      "A short guided meditation by Sean Fargo for letting the body, breath, and mind arrive — gently — into the simple presence of right now. Followed by a short dharma talk by Gil Fronsdal — Dharmette: A Fresh Start — on how each present moment offers a quiet chance to begin again. Plus Coming Back: Meditation Instructions with Q&A (Tara Brach) — a long-form retreat-style teaching on the simple, essential practice of returning to presence, again and again.",
+      "A short guided meditation by Sean Fargo for letting the body, breath, and mind arrive — gently — into the simple presence of right now. Followed by a short dharma talk by Gil Fronsdal — Dharmette: A Fresh Start — on how each present moment offers a quiet chance to begin again. Plus Coming Back: Meditation Instructions with Q&A (Tara Brach) — a long-form retreat-style teaching on the simple, essential practice of returning to presence, again and again — and Mystery of Aliveness (Tara Brach), a guided meditation on resting in the bare wonder of being here. Grounded Silence (Sean Fargo) is a longer practice for letting silence itself become the anchor; Monday Night Class — Guided Meditation (Jack Kornfield) is a long-form retreat-style sit recorded live with Spirit Rock's Monday night sangha.",
     tracks: [
       { title: "Settling Into This Present Moment — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/settling-into-presence/settling-into-this-present-moment.mp3` },
+      { title: "Grounded Silence — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/settling-into-presence/grounded-silence.mp3` },
       { title: "Dharmette: A Fresh Start — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/settling-into-presence/dharmette-fresh-start.mp3` },
+      { title: "Mystery of Aliveness — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/settling-into-presence/tara-brach-mystery-of-aliveness.mp3` },
       { title: "Coming Back: Meditation Instructions with Q&A — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/settling-into-presence/tara-brach-coming-back-meditation-instructions.mp3` },
+      { title: "Monday Night Class — Guided Meditation by Jack Kornfield", src: `${AUDIO_BASE}/settling-into-presence/jack-kornfield-monday-night-class-2016-02-15.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
     heading: "Listen: Anxiety audio series",
     intro:
-      "Two guided meditations and a dharma talk for working with anxiety — Alleviating Anxiety meets anxious sensations with steady, kind awareness; Noticing The Presence of Anxiety practices simply seeing it clearly without becoming it; Working With Fear (Joseph Goldstein) widens the lens with a longer reflection on meeting fear in practice.",
+      "Three guided meditations and a dharma talk for working with anxiety — Alleviating Anxiety meets anxious sensations with steady, kind awareness; Noticing The Presence of Anxiety practices simply seeing it clearly without becoming it; Befriending Anxiety invites a softer, more allowing relationship with the anxious feeling itself; Working With Fear (Joseph Goldstein) widens the lens with a longer reflection on meeting fear in practice.",
     tracks: [
       { title: "Alleviating Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/affirmations-for-anxiety/alleviating-anxiety.mp3` },
       { title: "Noticing The Presence of Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/affirmations-for-anxiety/noticing-presence-of-anxiety.mp3` },
+      { title: "Befriending Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/affirmations-for-anxiety/befriending-anxiety.mp3` },
       {
         title: "Working With Fear — Dharma Talk by Joseph Goldstein",
         src: `${AUDIO_BASE}/affirmations-for-anxiety/working-with-fear.mp3`,
@@ -573,10 +582,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "cultivating-joy": {
     heading: "Listen: Joy audio series",
     intro:
-      "A guided meditation plus a short dharma talk on joy — Gratitude And Gladness softens you into the quiet gladness of being alive; Be Amazed: Wow (Gil Fronsdal) is a tender reminder of the simple wonder hiding in plain sight.",
+      "A guided meditation, a short dharma talk, and a long-form retreat practice on joy — Gratitude And Gladness softens you into the quiet gladness of being alive; Be Amazed: Wow (Gil Fronsdal) is a tender reminder of the simple wonder hiding in plain sight; Gladdening the Mind (Tara Brach) is a long-form retreat-style guided meditation on intentionally lifting the heart by remembering what's already good.",
     tracks: [
       { title: "Gratitude And Gladness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-joy/gratitude-and-gladness.mp3` },
       { title: "Be Amazed: Wow — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/be-amazed-wow.mp3` },
+      { title: "Gladdening the Mind — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/cultivating-joy/tara-brach-gladdening-the-mind.mp3` },
     ],
   },
   "how-to-cultivate-an-attitude-of-gratitude-why-its-important": {
@@ -636,18 +646,20 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "noting-your-judgments": {
     heading: "Listen: Noting & Non-Judgment audio series",
     intro:
-      "Two guided meditations in the noting tradition — Noting Thinking or Feeling practices the simple distinction between thought and feeling; Resolving Judgments meets judgmental mind with steady, non-reactive awareness.",
+      "Two guided meditations in the noting tradition plus a long-form retreat-style heart practice — Noting Thinking or Feeling practices the simple distinction between thought and feeling; Resolving Judgments meets judgmental mind with steady, non-reactive awareness; Heart Meditation: Letting Go of Judgment (Tara Brach) is a tender guided meditation on softening the inner judge and returning to the kind, spacious heart underneath.",
     tracks: [
       { title: "Noting Thinking or Feeling — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/noting-your-judgments/noting-thinking-or-feeling.mp3` },
       { title: "Resolving Judgments — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/noting-your-judgments/resolving-judgments.mp3` },
+      { title: "Heart Meditation: Letting Go of Judgment — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/noting-your-judgments/tara-brach-heart-meditation-letting-go-of-judgment.mp3` },
     ],
   },
   "meditation-scripts-for-anxiety": {
-    heading: "Listen: Observing Anxiety From A Distance",
+    heading: "Listen: Observing Anxiety audio series",
     intro:
-      "A guided meditation for stepping back from anxious thought — watching it from a steady, spacious distance instead of being swept inside it.",
+      "Two guided meditations for working with anxious mind — Observing Anxiety From A Distance steps back to watch the anxious thought from a steady, spacious distance instead of being swept inside it; Befriending Anxiety invites a softer, more allowing relationship with the anxious feeling itself.",
     tracks: [
       { title: "Observing Anxiety From A Distance — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/meditation-scripts-for-anxiety/observing-anxiety-from-a-distance.mp3` },
+      { title: "Befriending Anxiety — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/meditation-scripts-for-anxiety/befriending-anxiety.mp3` },
     ],
   },
   "5-minute-meditation-script-from-mindfulness-exercises": {
@@ -674,6 +686,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Relaxing Your Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/relaxing-your-body.mp3` },
       { title: "Mindfulness for Stress — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/stress-quotes/mindfulness-for-stress.mp3` },
       { title: "Practice Notes: Relax The Eyes — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/relax-the-eyes.mp3` },
+      { title: "Alleviating Tension In Body & Mind — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/alleviating-tension-in-body-and-mind.mp3` },
+      { title: "Basic Body Scan and Breath Awareness — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/tara-brach-basic-body-scan-and-breath-awareness.mp3` },
       { title: "Guided Body Scan — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/gil-fronsdal-body-scan.mp3` },
       { title: "Body Scan — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/ines-freedman-body-scan.mp3` },
     ],
@@ -736,10 +750,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "soft-belly": {
     heading: "Listen: Soft Belly audio series",
     intro:
-      "Two grounding guided meditations using the belly as an anchor — Touching Your Belly & Heart uses gentle touch (one hand on the belly, one on the heart) to settle the nervous system and feel held by your own presence; Soft Belly Breathing To Reduce Stress is a longer practice for softening the belly with each breath as a doorway out of fight-or-flight.",
+      "Three grounding guided meditations using the belly and body as anchors — Touching Your Belly & Heart uses gentle touch (one hand on the belly, one on the heart) to settle the nervous system and feel held by your own presence; Soft Belly Breathing To Reduce Stress is a longer practice for softening the belly with each breath as a doorway out of fight-or-flight; Alleviating Tension In Body & Mind is a steady practice for releasing the held tightness that quietly accumulates through the day.",
     tracks: [
       { title: "Touching Your Belly & Heart — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/soft-belly/touching-your-belly-and-heart.mp3` },
       { title: "Soft Belly Breathing To Reduce Stress — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/soft-belly/soft-belly-breathing-stress.mp3` },
+      { title: "Alleviating Tension In Body & Mind — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/soft-belly/alleviating-tension-in-body-and-mind.mp3` },
     ],
   },
   "what-the-world-needs": {
@@ -762,10 +777,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "the-importance-of-finding-quiet-time": {
     heading: "Listen: Quiet Time audio series",
     intro:
-      "Two short dharma talks by Gil Fronsdal — The Still, Quiet Place Within points to the silence that is always already here, beneath the noise of thought; Settle The Heart First is a tender reminder that before we ask the mind to settle, we tend, gently, to the heart.",
+      "Two short dharma talks by Gil Fronsdal plus a long-form guided practice in silence — The Still, Quiet Place Within points to the silence that is always already here, beneath the noise of thought; Settle The Heart First is a tender reminder that before we ask the mind to settle, we tend, gently, to the heart; Grounded Silence (Sean Fargo) is an extended guided meditation on letting silence itself become the anchor.",
     tracks: [
       { title: "The Still, Quiet Place Within — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/importance-of-finding-quiet-time/still-quiet-place-within.mp3` },
       { title: "Settle The Heart First — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/importance-of-finding-quiet-time/settle-the-heart-first.mp3` },
+      { title: "Grounded Silence — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/grounded-silence.mp3` },
     ],
   },
   "9-mindfulness-exercises-for-anxiety": {
@@ -809,10 +825,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "guided-loving-kindness-meditation-audio": {
     heading: "Listen: The Kind Heart audio series",
     intro:
-      "A dharma talk by Joseph Goldstein on metta and the kind heart — the slow, steady cultivation of friendliness toward self, others, and life itself. Plus a long-form Guided Metta Meditation by Gil Fronsdal — a tender, traditional metta practice from one of the foremost Western teachers of loving-kindness.",
+      "A dharma talk by Joseph Goldstein on metta and the kind heart — the slow, steady cultivation of friendliness toward self, others, and life itself. Plus a long-form Guided Metta Meditation by Gil Fronsdal — a tender, traditional metta practice from one of the foremost Western teachers of loving-kindness — and Monday Night Class — Guided Meditation (Jack Kornfield), a long-form retreat-style sit recorded live with Spirit Rock's Monday night sangha.",
     tracks: [
       { title: "The Kind Heart — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/guided-loving-kindness-meditation-audio/the-kind-heart.mp3` },
       { title: "Guided Metta Meditation — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/gil-fronsdal-metta.mp3` },
+      { title: "Monday Night Class — Guided Meditation by Jack Kornfield", src: `${AUDIO_BASE}/guided-loving-kindness-meditation-audio/jack-kornfield-monday-night-class-2016-02-15.mp3` },
     ],
   },
   "reflections-on-slowing-down-self-love-and-inner-wisdom": {
@@ -896,7 +913,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "mindfulness-meditation-and-the-space-in-between": {
     heading: "Listen: The Space In Between audio series",
     intro:
-      "A short dharma talk by Gil Fronsdal on ease — not as the absence of effort, but as the soft, spacious quality that lives in the in-between of practice. Plus a four-part long-form retreat series on Emptiness — the liberating teaching that what we take to be solid (self, thought, experience) is more open and spacious than the mind first assumes. Closes with Inner Space, Gateway to Awareness (Tara Brach) — a long-form guided meditation on resting in the spacious awareness that holds every passing experience.",
+      "A short dharma talk by Gil Fronsdal on ease — not as the absence of effort, but as the soft, spacious quality that lives in the in-between of practice. Plus a four-part long-form retreat series on Emptiness — the liberating teaching that what we take to be solid (self, thought, experience) is more open and spacious than the mind first assumes. Closes with Inner Space, Gateway to Awareness (Tara Brach) — a long-form guided meditation on resting in the spacious awareness that holds every passing experience — and Mystery of Aliveness (Tara Brach), a guided meditation on resting in the bare wonder of being here.",
     tracks: [
       { title: "Practice Notes: Ease — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/ease.mp3` },
       { title: "Emptiness, Part 1 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-1.mp3` },
