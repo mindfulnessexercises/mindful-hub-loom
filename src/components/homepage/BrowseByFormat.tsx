@@ -103,9 +103,10 @@ export function BrowseByFormat() {
               <Link
                 to={tile.href}
                 onClick={() =>
-                  trackCtaClick("browse_by_format_tile", {
-                    tile: tile.label,
-                    href: tile.href,
+                  trackCtaClick({
+                    cta_label: tile.label,
+                    cta_destination: tile.href,
+                    cta_location: "browse_by_format_tile",
                   })
                 }
                 className="group flex h-full min-h-[44px] flex-col rounded-xl border border-border bg-background p-4 sm:p-5 transition-all hover:border-primary/40 hover:shadow-[var(--shadow-card-hover)]"
