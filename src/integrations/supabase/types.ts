@@ -51,6 +51,8 @@ export type Database = {
         Row: {
           ai_generated_at: string | null
           ai_questions: string[] | null
+          ai_style: string | null
+          ai_style_version: string | null
           ai_summary: string | null
           ai_takeaways: string[] | null
           artwork_url: string | null
@@ -69,6 +71,8 @@ export type Database = {
         Insert: {
           ai_generated_at?: string | null
           ai_questions?: string[] | null
+          ai_style?: string | null
+          ai_style_version?: string | null
           ai_summary?: string | null
           ai_takeaways?: string[] | null
           artwork_url?: string | null
@@ -87,6 +91,8 @@ export type Database = {
         Update: {
           ai_generated_at?: string | null
           ai_questions?: string[] | null
+          ai_style?: string | null
+          ai_style_version?: string | null
           ai_summary?: string | null
           ai_takeaways?: string[] | null
           artwork_url?: string | null
