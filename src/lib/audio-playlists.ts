@@ -515,6 +515,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "The H.E.A.L. Steps to Happiness — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-the-heal-steps.mp3` },
       { title: "Me and We — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-me-and-we.mp3` },
       { title: "Intimacy with Linda Graham — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-intimacy-with-linda-graham.mp3` },
+      { title: "Hardwiring Happiness — Guided Meditation by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-hardwiring-happiness.mp3` },
     ],
   },
   "kindness-for-your-thinking-mind": {
@@ -658,6 +659,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
         // surface a link there for visitors who arrive here first.
         postSlug: "9-mindfulness-exercises-for-anxiety",
       },
+      { title: "How to Feel Safe, Content and Connected — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/affirmations-for-anxiety/how-to-feel-safe-content-and-connected.mp3` },
     ],
   },
   "three-60-second-meditation-techniques-for-anxiety": {
@@ -734,6 +736,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Generosity and Gratitude — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/donald-rothberg-generosity-and-gratitude.mp3` },
       { title: "Gratitude — Guided Meditation by Oren Jay Sofer", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/oren-jay-sofer-gratitude.mp3` },
       { title: "12 Intentions of Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/12-intentions-of-gratitude.mp3` },
+      { title: "Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/gratitude.mp3` },
     ],
   },
   "full-body-awareness": {
@@ -758,6 +761,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Gratitude Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-meditation.mp3` },
       { title: "Gratitude — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-fronsdal.mp3` },
       { title: "Gratitude and Generosity — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/power-of-gratitude-meditation/tara-brach-gratitude-and-generosity.mp3` },
+      { title: "Gratitude (Intermediate) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation-7-ways-to-cultivate-it/gratitude-intermediate.mp3` },
     ],
   },
   "reduce-rumination-and-increase-positive-states-through-neuro-learning": {
@@ -1072,6 +1076,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Faith — Dharma Talk by Kamala Masters", src: `${AUDIO_BASE}/supports-practice-audio/kamala-masters-faith.mp3` },
       { title: "Finding Ease — Guided Meditation by Oren Jay Sofer", src: `${AUDIO_BASE}/supports-practice-audio/oren-jay-sofer-finding-ease.mp3` },
       { title: "The Role of Motivation and Intention — Dharma Talk by Kate Munding", src: `${AUDIO_BASE}/supports-practice-audio/kate-munding-the-role-of-motivation-and-intention.mp3` },
+      { title: "How to Feel Safe, Content and Connected — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/supports-practice-audio/how-to-feel-safe-content-and-connected.mp3` },
     ],
   },
   "healing-stillness-aimless-love": {
