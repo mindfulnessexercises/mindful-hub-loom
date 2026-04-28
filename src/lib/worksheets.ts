@@ -474,6 +474,51 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "The Gift of Rest",
     fileSize: "167 KB",
   },
+  "art-therapy": {
+    pdfUrl: "/worksheets/art-therapy.pdf",
+    title: "Art Therapy",
+    fileSize: "189 KB",
+  },
+  "body-scan-meditation": {
+    pdfUrl: "/worksheets/body-scan-meditation.pdf",
+    title: "Body Scan Meditation",
+    fileSize: "210 KB",
+  },
+  "breath-awareness-meditation": {
+    pdfUrl: "/worksheets/breath-awareness-meditation.pdf",
+    title: "Breath Awareness Meditation",
+    fileSize: "198 KB",
+  },
+  "chocolate-meditation": {
+    pdfUrl: "/worksheets/chocolate-meditation.pdf",
+    title: "Chocolate Meditation",
+    fileSize: "167 KB",
+  },
+  "concentration": {
+    pdfUrl: "/worksheets/concentration.pdf",
+    title: "Concentration",
+    fileSize: "187 KB",
+  },
+  "cultivating-compassion": {
+    pdfUrl: "/worksheets/cultivating-compassion.pdf",
+    title: "Cultivating Compassion",
+    fileSize: "173 KB",
+  },
+  "cultivating-equanimity": {
+    pdfUrl: "/worksheets/cultivating-equanimity.pdf",
+    title: "Cultivating Equanimity",
+    fileSize: "269 KB",
+  },
+  "cultivating-joy": {
+    pdfUrl: "/worksheets/cultivating-joy.pdf",
+    title: "Cultivating Joy",
+    fileSize: "479 KB",
+  },
+  "do-nothing-meditation": {
+    pdfUrl: "/worksheets/do-nothing-meditation.pdf",
+    title: "Do Nothing Meditation",
+    fileSize: "187 KB",
+  },
 };
 
 /**
