@@ -1777,6 +1777,15 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
+  // "Confidence Building" has no dedicated post — surface on the closest match.
+  "building-self-esteem": [
+    {
+      pdfUrl: "/worksheets/confidence-building.pdf",
+      title: "Confidence Building",
+      fileSize: "184 KB",
+      flagged: true,
+    },
+  ],
 };
 
 export function getWorksheets(slug: string | undefined | null): WorksheetEntry[] {
