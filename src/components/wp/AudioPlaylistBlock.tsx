@@ -272,8 +272,23 @@ export function AudioPlaylistBlock({ playlist, hostSlug }: AudioPlaylistBlockPro
         </details>
       )}
 
+      {visibleIndexes.length === 0 ? (
+        <div className="rounded-lg border border-dashed border-border bg-background/60 p-6 text-center">
+          <p className="text-sm text-muted-foreground">
+            No tracks match the selected themes on this page.
+          </p>
+          <button
+            type="button"
+            onClick={clearThemes}
+            className="mt-3 inline-flex min-h-[44px] items-center rounded-md border border-border bg-background px-3 py-2 text-xs font-medium text-foreground/85 transition hover:bg-muted"
+          >
+            Clear theme filters
+          </button>
+        </div>
+      ) : (
       <ol className="space-y-4">
-        {playlist.tracks.map((t, i) => {
+        {visibleIndexes.map((i) => {
+          const t = playlist.tracks[i];
           const trackSlug = normalizeSlug(t.postSlug);
           const showOpenPost = !!trackSlug && trackSlug !== host;
           const d = formatDuration(durations[i]);
