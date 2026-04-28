@@ -1024,6 +1024,41 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Noticing Your Patterns of Communication",
     fileSize: "161 KB",
   },
+  "opening-closing-to-life": {
+    pdfUrl: "/worksheets/opening-and-closing-to-life.pdf",
+    title: "Opening and Closing to Life",
+    fileSize: "160 KB",
+  },
+  "opening-sprouting-relationships": {
+    pdfUrl: "/worksheets/opening-to-sprouting-relationships.pdf",
+    title: "Opening to Sprouting Relationships",
+    fileSize: "162 KB",
+  },
+  "optimizing-requests": {
+    pdfUrl: "/worksheets/optimizing-your-requests.pdf",
+    title: "Optimizing Your Requests",
+    fileSize: "161 KB",
+  },
+  "pointlessness-in-relationships": {
+    pdfUrl: "/worksheets/perceiving-pointlessness-in-relationships.pdf",
+    title: "Perceiving Pointlessness in Relationships",
+    fileSize: "162 KB",
+  },
+  "practicing-art-of-resolving-conflicts": {
+    pdfUrl: "/worksheets/practicing-the-art-of-resolving-conflicts.pdf",
+    title: "Practicing the Art of Resolving Conflicts",
+    fileSize: "161 KB",
+  },
+  "mindfulness-of-speech-meditation": {
+    pdfUrl: "/worksheets/right-speech.pdf",
+    title: "Right Speech",
+    fileSize: "483 KB",
+  },
+  "seeing-goodness-others": {
+    pdfUrl: "/worksheets/seeing-goodness-in-others.pdf",
+    title: "Seeing Goodness in Others",
+    fileSize: "192 KB",
+  },
 };
 
 /**
@@ -1640,6 +1675,18 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/increasing-your-connection-with-others.pdf",
       title: "Increasing Your Connection with Others",
       fileSize: "161 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/realizing-how-others-respond-to-me.pdf",
+      title: "Realizing How Others Respond to Me",
+      fileSize: "161 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/relating-to-romantic-relationships.pdf",
+      title: "Relating to Romantic Relationships",
+      fileSize: "130 KB",
       flagged: true,
     },
   ],
