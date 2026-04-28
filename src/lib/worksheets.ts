@@ -664,6 +664,41 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Changing Your History Channel",
     fileSize: "192 KB",
   },
+  "disputing-negative-thoughts": {
+    pdfUrl: "/worksheets/compassionately-questioning-negative-thoughts.pdf",
+    title: "Compassionately Questioning Negative Thoughts",
+    fileSize: "180 KB",
+  },
+  "controlled-breathing": {
+    pdfUrl: "/worksheets/controlled-breathing.pdf",
+    title: "Controlled Breathing",
+    fileSize: "179 KB",
+  },
+  "sharing-gratitude": {
+    pdfUrl: "/worksheets/cultivating-and-sharing-gratitude.pdf",
+    title: "Cultivating and Sharing Gratitude",
+    fileSize: "215 KB",
+  },
+  "here-and-now-pleasantness": {
+    pdfUrl: "/worksheets/cultivating-childlike-wonder.pdf",
+    title: "Cultivating Childlike Wonder",
+    fileSize: "194 KB",
+  },
+  "decentralizing-pain": {
+    pdfUrl: "/worksheets/decentralizing-pain.pdf",
+    title: "Decentralizing Pain",
+    fileSize: "182 KB",
+  },
+  "putting-weather-gear": {
+    pdfUrl: "/worksheets/dressing-for-the-weather.pdf",
+    title: "Dressing for the Weather",
+    fileSize: "176 KB",
+  },
+  "earth-element": {
+    pdfUrl: "/worksheets/earth-element.pdf",
+    title: "Earth Element",
+    fileSize: "192 KB",
+  },
 };
 
 /**
@@ -708,6 +743,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/trusting-in-yourself.pdf",
       title: "Trusting in Yourself",
       fileSize: "163 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/cultivating-an-inner-smile.pdf",
+      title: "Cultivating an Inner Smile",
+      fileSize: "190 KB",
       flagged: true,
     },
   ],
