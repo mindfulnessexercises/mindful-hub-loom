@@ -37,6 +37,7 @@ import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
 import { BuzzsproutEmbedPlayer } from "@/components/wp/BuzzsproutEmbed";
 import { extractBuzzsproutEmbed } from "@/lib/buzzsprout";
 import { lookupBuzzsproutBySlug } from "@/lib/buzzsprout-lookup";
+import { BuzzsproutEpisodeFallback } from "@/components/wp/BuzzsproutEpisodeFallback";
 import {
   detectPlayerInDom,
   detectPlayerInHtml,
@@ -293,13 +294,18 @@ export default function WPResolver() {
   // render time on the legacy site). We look up the episode in the cached
   // `buzzsprout_episodes` table by slug — populated by the buzzsprout-sync
   // edge function — and synthesize the same iframe embed.
+  // Always look up the cached Buzzsprout record for podcast-episode slugs.
+  // We use it BOTH as a fallback player when WP content lacks the embed AND
+  // as a full fallback page when no WP post exists yet (newly-published
+  // episodes from the buzzsprout-sync cron).
   const buzzsproutLookupQuery = useQuery({
     queryKey: ["buzzsprout-by-slug", slug],
     queryFn: () => lookupBuzzsproutBySlug(slug ?? ""),
-    enabled: isPodcastEpisode && !!slug && !inlineBuzzsproutEmbed,
+    enabled: isPodcastEpisode && !!slug,
     staleTime: 1000 * 60 * 60,
   });
-  const buzzsproutEmbed = inlineBuzzsproutEmbed ?? buzzsproutLookupQuery.data ?? null;
+  const buzzsproutRecord = buzzsproutLookupQuery.data ?? null;
+  const buzzsproutEmbed = inlineBuzzsproutEmbed ?? buzzsproutRecord?.embed ?? null;
   // Static scan of the raw WP HTML — catches every player reference present
   // in `content.rendered` (Buzzsprout shortcodes, inline iframes, …).
   const staticPlayers = useMemo<DetectedPlayer[]>(
@@ -368,7 +374,29 @@ export default function WPResolver() {
     );
   }
 
-  if (query.isError || !query.data) return <NotFound />;
+  if (query.isError || !query.data) {
+    // No WP post for this slug — but if it's a podcast episode and we have a
+    // cached Buzzsprout record, render the auto-generated episode page.
+    if (isPodcastEpisode && buzzsproutRecord) {
+      return <BuzzsproutEpisodeFallback record={buzzsproutRecord} />;
+    }
+    // Wait for the Buzzsprout lookup to settle before declaring 404 so we
+    // don't flash a NotFound on the first frame.
+    if (isPodcastEpisode && buzzsproutLookupQuery.isLoading) {
+      return (
+        <div className="min-h-screen bg-background">
+          <Navbar />
+          <main className="mx-auto max-w-3xl px-4 py-12 space-y-4">
+            <Skeleton className="h-10 w-3/4" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-5/6" />
+          </main>
+          <Footer />
+        </div>
+      );
+    }
+    return <NotFound />;
+  }
 
   const { kind, data: doc } = query.data;
   const img = getFeaturedImage(doc);

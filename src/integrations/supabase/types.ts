@@ -49,9 +49,14 @@ export type Database = {
       }
       buzzsprout_episodes: {
         Row: {
+          ai_generated_at: string | null
+          ai_questions: string[] | null
+          ai_summary: string | null
+          ai_takeaways: string[] | null
           artwork_url: string | null
           audio_url: string | null
           created_at: string
+          description_html: string | null
           duration_seconds: number | null
           episode_id: string
           id: string
@@ -62,9 +67,14 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          ai_generated_at?: string | null
+          ai_questions?: string[] | null
+          ai_summary?: string | null
+          ai_takeaways?: string[] | null
           artwork_url?: string | null
           audio_url?: string | null
           created_at?: string
+          description_html?: string | null
           duration_seconds?: number | null
           episode_id: string
           id?: string
@@ -75,9 +85,14 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          ai_generated_at?: string | null
+          ai_questions?: string[] | null
+          ai_summary?: string | null
+          ai_takeaways?: string[] | null
           artwork_url?: string | null
           audio_url?: string | null
           created_at?: string
+          description_html?: string | null
           duration_seconds?: number | null
           episode_id?: string
           id?: string
