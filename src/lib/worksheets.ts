@@ -609,6 +609,41 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Self-Kindness Part II",
     fileSize: "152 KB",
   },
+  "several-styles-sitting-meditation": {
+    pdfUrl: "/worksheets/several-styles-of-sitting-meditation.pdf",
+    title: "Several Styles of Sitting Meditation",
+    fileSize: "199 KB",
+  },
+  "shadow-exercise": {
+    pdfUrl: "/worksheets/shadow-exercise.pdf",
+    title: "Shadow Exercise",
+    fileSize: "182 KB",
+  },
+  "sitting-meditation-instructions": {
+    pdfUrl: "/worksheets/sitting-meditation-instructions.pdf",
+    title: "Sitting Meditation Instructions",
+    fileSize: "181 KB",
+  },
+  "the-mother-meditation": {
+    pdfUrl: "/worksheets/the-mother-meditation.pdf",
+    title: "The Mother Meditation",
+    fileSize: "201 KB",
+  },
+  "trataka-eye-gazing": {
+    pdfUrl: "/worksheets/trataka-eye-gazing.pdf",
+    title: "Trataka — Eye Gazing",
+    fileSize: "193 KB",
+  },
+  "walking-meditation": {
+    pdfUrl: "/worksheets/walking-meditation.pdf",
+    title: "Walking Meditation",
+    fileSize: "191 KB",
+  },
+  "walking-meditation-worksheet": {
+    pdfUrl: "/worksheets/walking-meditation-2.pdf",
+    title: "Walking Meditation",
+    fileSize: "190 KB",
+  },
 };
 
 /**
@@ -743,6 +778,35 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/mindful-meditation-guide-and-journal.pdf",
       title: "Mindful Meditation Guide and Journal",
       fileSize: "332 KB",
+    },
+  ],
+  // Third "Walking Meditation" variant — surface on the guided walking script.
+  "walking-meditation-guided-script": [
+    {
+      pdfUrl: "/worksheets/walking-meditation-3.pdf",
+      title: "Walking Meditation",
+      fileSize: "330 KB",
+      flagged: true,
+    },
+  ],
+  // "Using RAIN" has no dedicated post — surface on the closest topical match
+  // (staying with strong emotions).
+  "staying-with-emotions": [
+    {
+      pdfUrl: "/worksheets/using-rain.pdf",
+      title: "Using RAIN",
+      fileSize: "205 KB",
+      flagged: true,
+    },
+  ],
+  // "Wicca Meditation" has no dedicated post — surface on the styles-of-sitting
+  // hub as another tradition-specific meditation variant.
+  "several-styles-sitting-meditation": [
+    {
+      pdfUrl: "/worksheets/wicca-meditation.pdf",
+      title: "Wicca Meditation",
+      fileSize: "198 KB",
+      flagged: true,
     },
   ],
 };
