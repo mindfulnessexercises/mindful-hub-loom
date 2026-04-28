@@ -238,6 +238,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A tender guided meditation on the truth of impermanence — not as fear, but as an invitation to live this life more awake, more honest, more grateful.",
     tracks: [
       { title: "Mindfulness of Death — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-practice-mindfulness-of-death/mindfulness-of-death.mp3` },
+      { title: "Reflection on Mortality — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-28-reflection-on-mortality.mp3` },
     ],
   },
   "feeling-tones-pleasant-unpleasant-neutral": {
@@ -313,6 +314,15 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Foundations 19: Noting Gone — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-19-noting-gone.mp3` },
       { title: "Foundations 20: Just Being — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-20-just-being.mp3` },
       { title: "Foundations 21: Emotional Priming — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-21-emotional-priming.mp3` },
+      { title: "Foundations 22: Glimpse — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-22-glimpse.mp3` },
+      { title: "Foundations 23: Aware of Awareness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-23-aware-of-awareness.mp3` },
+      { title: "Foundations 24: Headless Way — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-24-headless-way.mp3` },
+      { title: "Foundations 25: Self-Inquiry A — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-25-self-inquiry-a.mp3` },
+      { title: "Foundations 26: Yoga Nidra — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-26-yoga-nidra.mp3` },
+      { title: "Foundations 27: Self-Inquiry B — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-27-self-inquiry-b.mp3` },
+      { title: "Foundations 28: Reflection on Mortality — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-28-reflection-on-mortality.mp3` },
+      { title: "Foundations 29: Self-Inquiry C — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-29-self-inquiry-c.mp3` },
+      { title: "Foundations 30: Actualism — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-30-actualism.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -791,6 +801,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Sleep Meditation (10 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/sleep-10-minutes.mp3` },
       { title: "Sleep Meditation (15 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/sleep-15-minutes.mp3` },
       { title: "Sleep Appreciation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations/sleep-appreciation.mp3` },
+      { title: "Lucid Dreaming Induction — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-sleep-meditations-for-a-good-nights-rest/lucid-dreaming-induction.mp3` },
     ],
   },
   "self-compassion-pause": {
