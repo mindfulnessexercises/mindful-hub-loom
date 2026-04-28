@@ -718,6 +718,16 @@ export default function WPResolver() {
                   dangerouslySetInnerHTML={{ __html: rewrittenHtml }}
                 />
 
+                {/* Map cached Buzzsprout description into structured podcast
+                    sections (summary, takeaways, reflection questions). The
+                    show-notes block is suppressed when WP `content.rendered`
+                    is non-trivial to avoid duplicating editorial copy. */}
+                {isPodcastEpisode && buzzsproutRecord && (
+                  <BuzzsproutEpisodeSections
+                    record={buzzsproutRecord}
+                    includeShowNotes={stripHtml(rawContent).trim().length < 400}
+                  />
+                )}
                 {/* Inline share rail — appears at the natural end of the read. */}
                 <div className="mt-10 pt-6 border-t border-border">
                   <ShareBar
