@@ -1024,6 +1024,34 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
+  // "Grounding" (shorter standalone variant) — surface alongside the
+  // grounding-through-body-awareness worksheet.
+  "grounding-through-body-awareness": [
+    {
+      pdfUrl: "/worksheets/grounding.pdf",
+      title: "Grounding",
+      fileSize: "173 KB",
+      flagged: true,
+    },
+  ],
+  // "Impermanence" worksheet — surface on the closest impermanence hub.
+  "embrace-change-and-strengthen-gratitude-with-7-meditations-on-impermanence": [
+    {
+      pdfUrl: "/worksheets/impermanence.pdf",
+      title: "Impermanence",
+      fileSize: "170 KB",
+      flagged: true,
+    },
+  ],
+  // "Learning from Nature" — surface alongside the Nature Walks worksheet.
+  "nature-walks": [
+    {
+      pdfUrl: "/worksheets/learning-from-nature.pdf",
+      title: "Learning from Nature",
+      fileSize: "188 KB",
+      flagged: true,
+    },
+  ],
 };
 
 export function getWorksheets(slug: string | undefined | null): WorksheetEntry[] {
