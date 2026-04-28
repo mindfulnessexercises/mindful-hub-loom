@@ -747,6 +747,9 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Gratitude — Guided Meditation by Oren Jay Sofer", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/oren-jay-sofer-gratitude.mp3` },
       { title: "12 Intentions of Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/12-intentions-of-gratitude.mp3` },
       { title: "Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/gratitude.mp3` },
+      { title: "Ending The Day With Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/ending-the-day-with-gratitude.mp3` },
+      { title: "Experience of Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/experience-of-gratitude.mp3` },
+      { title: "Making Room for Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/making-room-for-gratitude.mp3` },
     ],
   },
   "full-body-awareness": {
