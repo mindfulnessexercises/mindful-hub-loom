@@ -780,6 +780,35 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "332 KB",
     },
   ],
+  // Third "Walking Meditation" variant — surface on the guided walking script.
+  "walking-meditation-guided-script": [
+    {
+      pdfUrl: "/worksheets/walking-meditation-3.pdf",
+      title: "Walking Meditation",
+      fileSize: "330 KB",
+      flagged: true,
+    },
+  ],
+  // "Using RAIN" has no dedicated post — surface on the closest topical match
+  // (staying with strong emotions).
+  "staying-with-emotions": [
+    {
+      pdfUrl: "/worksheets/using-rain.pdf",
+      title: "Using RAIN",
+      fileSize: "205 KB",
+      flagged: true,
+    },
+  ],
+  // "Wicca Meditation" has no dedicated post — surface on the styles-of-sitting
+  // hub as another tradition-specific meditation variant.
+  "several-styles-sitting-meditation": [
+    {
+      pdfUrl: "/worksheets/wicca-meditation.pdf",
+      title: "Wicca Meditation",
+      fileSize: "198 KB",
+      flagged: true,
+    },
+  ],
 };
 
 export function getWorksheets(slug: string | undefined | null): WorksheetEntry[] {
