@@ -1,6 +1,7 @@
 # GTM → GA4 Setup Guide
 
-**GTM container:** `GTM-PBS9B6HR` (already installed in `index.html`)
+**GTM container:** `GTM-PBS9B6HR` (installed in `index.html`)
+**GA4 Measurement ID:** `G-D2YKGTLHKC` (also hardcoded in `index.html` as a standalone `gtag.js` install — see note in Step 1)
 **Goal:** Forward every meaningful homepage interaction from our `dataLayer`
 into GA4 as a custom event, with a small set marked as **conversions**.
 
@@ -14,9 +15,15 @@ into GA4 as a custom event, with a small set marked as **conversions**.
 
 ## Step 1 — Add the GA4 Configuration tag
 
+> ⚠️ **Skip this step** if you keep the standalone `gtag.js` snippet in
+> `index.html` (it already loads GA4 with `G-D2YKGTLHKC`). Adding a GA4
+> Configuration tag in GTM with the same ID would double-count pageviews.
+> If you remove the gtag snippet from `index.html` later, come back and
+> do this step.
+
 Tags → **New** → Tag Configuration → **Google Tag**
 
-- **Tag ID:** your `G-XXXXXXXXXX` Measurement ID
+- **Tag ID:** `G-D2YKGTLHKC`
 - **Trigger:** Initialization - All Pages
 - Name it: `GA4 — Config`
 
