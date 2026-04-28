@@ -1234,6 +1234,31 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Working with Boredom",
     fileSize: "277 KB",
   },
+  "awareness-of-the-five-senses": {
+    pdfUrl: "/worksheets/awareness-of-each-of-the-five-senses.pdf",
+    title: "Awareness of Each of the Five Senses",
+    fileSize: "26 KB",
+  },
+  "focusing-on-the-colors-you-see": {
+    pdfUrl: "/worksheets/focusing-on-the-colors-you-see.pdf",
+    title: "Focusing on the Colors You See",
+    fileSize: "30 KB",
+  },
+  "restoring-confidence-when-negatively-impacted": {
+    pdfUrl: "/worksheets/restoring-confidence-when-negatively-impacted.pdf",
+    title: "Restoring Confidence When Negatively Impacted",
+    fileSize: "74 KB",
+  },
+  "mindfulness-while-speaking-with-others": {
+    pdfUrl: "/worksheets/mindfulness-while-speaking-with-others.pdf",
+    title: "Mindfulness While Speaking with Others",
+    fileSize: "29 KB",
+  },
+  "practice-of-smiling": {
+    pdfUrl: "/worksheets/the-practice-of-smiling.pdf",
+    title: "The Practice of Smiling",
+    fileSize: "28 KB",
+  },
 };
 
 /**
