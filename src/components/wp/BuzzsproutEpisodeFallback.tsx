@@ -8,6 +8,7 @@ import { WPSeo } from "@/components/wp/WPSeo";
 import { WPBreadcrumbs } from "@/components/wp/WPBreadcrumbs";
 import { ShareBar } from "@/components/wp/ShareBar";
 import { BuzzsproutEmbedPlayer } from "@/components/wp/BuzzsproutEmbed";
+import { BuzzsproutEpisodeSections } from "@/components/wp/BuzzsproutEpisodeSections";
 import { trackEvent } from "@/lib/analytics";
 import type { BuzzsproutEpisodeRecord } from "@/lib/buzzsprout-lookup";
 
