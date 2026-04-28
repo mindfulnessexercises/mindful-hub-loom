@@ -324,6 +324,36 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Tracking Your Mood",
     fileSize: "175 KB",
   },
+  "transforming-anger": {
+    pdfUrl: "/worksheets/transforming-anger.pdf",
+    title: "Transforming Anger",
+    fileSize: "183 KB",
+  },
+  "transforming-anxiety": {
+    pdfUrl: "/worksheets/transforming-anxiety.pdf",
+    title: "Transforming Anxiety",
+    fileSize: "183 KB",
+  },
+  "transforming-ill-will": {
+    pdfUrl: "/worksheets/transforming-ill-will.pdf",
+    title: "Transforming Ill Will",
+    fileSize: "186 KB",
+  },
+  "withholding": {
+    pdfUrl: "/worksheets/why-are-you-withholding.pdf",
+    title: "Why Are You Withholding?",
+    fileSize: "160 KB",
+  },
+  "working-with-a-nightmare": {
+    pdfUrl: "/worksheets/working-with-a-nightmare.pdf",
+    title: "Working with a Nightmare",
+    fileSize: "175 KB",
+  },
+  "working-judgments": {
+    pdfUrl: "/worksheets/working-with-judgments.pdf",
+    title: "Working with Judgments",
+    fileSize: "163 KB",
+  },
 };
 
 /**
@@ -358,6 +388,26 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/discovering-the-concerns-of-your-team.pdf",
       title: "Discovering the Concerns of Your Team",
       fileSize: "182 KB",
+      flagged: true,
+    },
+  ],
+  // "Trusting in Yourself" has no dedicated post — surface on the closest
+  // topical match (Building Inner Strength).
+  "building-inner-strength": [
+    {
+      pdfUrl: "/worksheets/trusting-in-yourself.pdf",
+      title: "Trusting in Yourself",
+      fileSize: "163 KB",
+      flagged: true,
+    },
+  ],
+  // "Understanding Your Self-Pity" has no dedicated post — surface on the
+  // closest topical match (Self-Compassion hub).
+  "the-power-of-self-compassion": [
+    {
+      pdfUrl: "/worksheets/understanding-your-self-pity.pdf",
+      title: "Understanding Your Self-Pity",
+      fileSize: "161 KB",
       flagged: true,
     },
   ],
