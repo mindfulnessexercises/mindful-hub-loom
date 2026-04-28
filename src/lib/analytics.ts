@@ -114,6 +114,11 @@ const REQUIRED_PROPS: Record<string, readonly string[]> = {
   audio_started: ["src", "surface"],
   audio_completed: ["src", "surface", "completion_trigger"],
 
+  // Video engagement (see src/components/video/LiteVideoEmbed.tsx)
+  // Only fires on poster click — downstream play/pause/complete events
+  // would require loading the Vimeo/YouTube SDK and defeat the lite embed.
+  video_play_clicked: ["video_provider", "video_id", "video_title", "video_location"],
+
   // Certification click-throughs (site-wide; see src/hooks/use-certification-click-tracker.ts)
   certification_cta_clicked: ["cta_destination", "cta_location", "source_path"],
 

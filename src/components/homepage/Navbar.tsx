@@ -7,6 +7,7 @@ import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
 const navLinks = [
   { label: "Get Started", href: "/#resources" },
   { label: "Library", href: "/library" },
+  { label: "Videos", href: "/videos" },
   { label: "Blog", href: "/blog" },
   { label: "Get Certified", href: "https://certify.mindfulnessexercises.com/", external: true },
   { label: "Live Events", href: "https://connect.mindfulnessexercises.com/c/live-mindfulness-meditations-discussions/", external: true },
