@@ -1209,6 +1209,31 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "The Sources of Your Distraction",
     fileSize: "161 KB",
   },
+  "nurturing-and-stressful": {
+    pdfUrl: "/worksheets/what-is-most-nurturing-and-stressful-for-you.pdf",
+    title: "What is Most Nurturing and Stressful for You",
+    fileSize: "161 KB",
+  },
+  "story-you-are-believing": {
+    pdfUrl: "/worksheets/what-story-are-you-believing.pdf",
+    title: "What Story are You Believing",
+    fileSize: "161 KB",
+  },
+  "important-in-your-life": {
+    pdfUrl: "/worksheets/whats-been-important-in-your-life.pdf",
+    title: "What's Been Important in Your Life",
+    fileSize: "163 KB",
+  },
+  "willingness-to-question": {
+    pdfUrl: "/worksheets/willingness-to-question.pdf",
+    title: "Willingness to Question",
+    fileSize: "159 KB",
+  },
+  "working-with-boredom": {
+    pdfUrl: "/worksheets/working-with-boredom.pdf",
+    title: "Working with Boredom",
+    fileSize: "277 KB",
+  },
 };
 
 /**
