@@ -399,6 +399,51 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Sounds and Silence (Kids)",
     fileSize: "166 KB",
   },
+  "activating-the-parasympathetic-wing-of-your-nervous-system": {
+    pdfUrl: "/worksheets/activating-parasympathetic-wing.pdf",
+    title: "Activating the Parasympathetic Wing of Your Nervous System",
+    fileSize: "192 KB",
+  },
+  "contentment": {
+    pdfUrl: "/worksheets/contentment.pdf",
+    title: "Contentment",
+    fileSize: "193 KB",
+  },
+  "earth-descent-meditation": {
+    pdfUrl: "/worksheets/earth-descent-meditation.pdf",
+    title: "Earth Descent Meditation",
+    fileSize: "195 KB",
+  },
+  "eating-meditation": {
+    pdfUrl: "/worksheets/eating-meditation.pdf",
+    title: "Eating Meditation",
+    fileSize: "189 KB",
+  },
+  "establishing-safety": {
+    pdfUrl: "/worksheets/establishing-safety.pdf",
+    title: "Establishing Safety",
+    fileSize: "209 KB",
+  },
+  "exercising-mindfully": {
+    pdfUrl: "/worksheets/exercising-mindfully.pdf",
+    title: "Exercising Mindfully",
+    fileSize: "163 KB",
+  },
+  "mindful-physical-pain": {
+    pdfUrl: "/worksheets/how-to-be-mindful-of-physical-pain.pdf",
+    title: "How To Be Mindful of Physical Pain",
+    fileSize: "180 KB",
+  },
+  "humor-therapy": {
+    pdfUrl: "/worksheets/humor-therapy.pdf",
+    title: "Humor Therapy",
+    fileSize: "182 KB",
+  },
+  "mindful-eating-oranges": {
+    pdfUrl: "/worksheets/mindful-eating-with-oranges.pdf",
+    title: "Mindful Eating With Oranges",
+    fileSize: "168 KB",
+  },
 };
 
 /**
