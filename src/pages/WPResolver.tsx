@@ -275,6 +275,10 @@ export default function WPResolver() {
   }, [rawContent, meditation, isDownloadsPage, slug]);
 
   const audioSrc = useMemo(() => extractFirstAudioUrl(rawContent), [rawContent]);
+  // Old podcast-episode posts wrap a Buzzsprout JS player in a Thrive
+  // `[tcb-script]` shortcode. We surface it via a native iframe (see
+  // BuzzsproutEmbedPlayer) since the shortcode itself can't render here.
+  const buzzsproutEmbed = useMemo(() => extractBuzzsproutEmbed(rawContent), [rawContent]);
   const readingMinutes = useMemo(() => estimateReadingMinutes(rawContent), [rawContent]);
 
   useEffect(
