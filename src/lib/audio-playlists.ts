@@ -323,6 +323,9 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Foundations 28: Reflection on Mortality — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-28-reflection-on-mortality.mp3` },
       { title: "Foundations 29: Self-Inquiry C — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-29-self-inquiry-c.mp3` },
       { title: "Foundations 30: Actualism — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-30-actualism.mp3` },
+      { title: "Right Concentration — Dharma Talk by Shaila Catherine", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/shaila-catherine-right-concentration.mp3` },
+      { title: "Anapanasati Concentration / Samatha Meditation — Guided Meditation by Tina Rasmussen", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/tina-rasmussen-anapanasati-concentration-samatha.mp3` },
+      { title: "Lack of Continuity of Mindfulness and Concentration — Dharma Talk by Kate Munding", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/kate-munding-lack-of-continuity-mindfulness-concentration.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -575,6 +578,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Mystery of Aliveness — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/settling-into-presence/tara-brach-mystery-of-aliveness.mp3` },
       { title: "Coming Back: Meditation Instructions with Q&A — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/settling-into-presence/tara-brach-coming-back-meditation-instructions.mp3` },
       { title: "Monday Night Class — Guided Meditation by Jack Kornfield", src: `${AUDIO_BASE}/settling-into-presence/jack-kornfield-monday-night-class-2016-02-15.mp3` },
+      { title: "Seeing Anew — Dharma Talk by Jack Kornfield", src: `${AUDIO_BASE}/settling-into-presence/jack-kornfield-seeing-anew.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -703,6 +707,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Dharma Talk: Be Still and Gaze Upon Everything Kindly — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/gil-fronsdal-dharma-talk-be-still-gaze-kindly.mp3` },
       { title: "Repeated Phrase A — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-12-repeated-phrase-a.mp3` },
       { title: "Repeated Phrase B — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-14-repeated-phrase-b.mp3` },
+      { title: "How the Dalai Lama Did Not Say Something New — Dharma Talk by Sylvia Boorstein", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/sylvia-boorstein-dalai-lama-not-something-new.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -895,6 +900,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Dharmette: Resolve, Allow — Learning How to Know What's Skillful in the Moment — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/working-with-thoughts/gil-fronsdal-dharmette-resolve-allow-skillful.mp3` },
       { title: "Mindfulness of Thoughts & Feelings — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/mindfulness-of-thoughts-feelings.mp3` },
       { title: "Thoughts and Emotions — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/working-with-thoughts/thoughts-and-emotions.mp3` },
+      { title: "Thinking — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/working-with-thoughts/matthew-brensilver-thinking.mp3` },
     ],
   },
   "guided-loving-kindness-meditation-audio": {
