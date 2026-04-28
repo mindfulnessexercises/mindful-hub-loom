@@ -921,6 +921,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Emptiness, Part 3 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-3.mp3` },
       { title: "Emptiness, Part 4 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-4.mp3` },
       { title: "Inner Space, Gateway to Awareness — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/tara-brach-inner-space-gateway-to-awareness.mp3` },
+      { title: "Mystery of Aliveness — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/tara-brach-mystery-of-aliveness.mp3` },
     ],
   },
 };
