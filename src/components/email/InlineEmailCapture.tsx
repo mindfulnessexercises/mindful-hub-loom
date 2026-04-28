@@ -152,142 +152,227 @@ export function InlineEmailCapture({
             </ul>
           )}
 
-          <form
-            onSubmit={async (e) => {
-              e.preventDefault();
-              if (status === "submitting") return;
-              const form = e.currentTarget as HTMLFormElement;
-              const input = form.elements.namedItem(`${formId}-email`) as HTMLInputElement | null;
-              const email = input?.value?.trim() ?? "";
-              const startedAt = performance.now();
-
-              const sourcePath =
-                typeof window !== "undefined" ? window.location.pathname : undefined;
-
-              trackEvent("email_signup_submitted", {
-                form_id: formId,
-                track,
-                surface,
-                location,
-                has_email: !!email,
-              });
-              setStatus("submitting");
-              setErrorMessage(null);
-
-              try {
-                const result = await submitEmailSignup({
-                  email,
-                  track,
-                  surface,
-                  sourcePath,
-                  sourceSection: location,
-                  consent: true,
-                });
-                trackEvent("email_signup_succeeded", {
-                  form_id: formId,
-                  track,
-                  surface,
-                  location,
-                  duration_ms: Math.round(performance.now() - startedAt),
-                  subscriber_id: result.subscriber_id,
-                });
-                setStatus("succeeded");
-                form.reset();
-              } catch (err) {
-                const code = err instanceof EmailSignupError ? err.code : "unknown_error";
-                const httpStatus = err instanceof EmailSignupError ? err.status : -1;
-                const message = err instanceof Error ? err.message : "Something went wrong.";
-                trackEvent("email_signup_failed", {
-                  form_id: formId,
-                  track,
-                  surface,
-                  location,
-                  duration_ms: Math.round(performance.now() - startedAt),
-                  error_code: code,
-                  http_status: httpStatus,
-                });
-                setErrorMessage(message);
-                setStatus("failed");
-              }
-            }}
-            className="flex flex-col sm:flex-row gap-3"
-            aria-label={def.headline}
-          >
-            <label htmlFor={`${formId}-email`} className="sr-only">
-              Email address
-            </label>
-            <Input
-              id={`${formId}-email`}
-              name={`${formId}-email`}
-              type="email"
-              placeholder="Your email address"
-              autoComplete="email"
-              required
-              maxLength={320}
-              aria-required="true"
-              className={cn("min-h-[44px] h-12 flex-1", t.input)}
-            />
-            <Button
-              type="submit"
-              disabled={status === "submitting"}
+          {status === "succeeded" ? (
+            <div
+              role="status"
+              aria-live="polite"
+              data-track-thankyou={track}
               className={cn(
-                "min-h-[44px] h-12 px-6 font-semibold whitespace-nowrap disabled:opacity-70",
-                t.button,
+                "rounded-xl border p-5",
+                onDark
+                  ? "border-primary-foreground/20 bg-primary-foreground/10"
+                  : "border-primary/20 bg-primary/5",
               )}
             >
-              {status === "submitting" ? (
-                <>
-                  <Loader2 className="mr-1.5 h-4 w-4 animate-spin" aria-hidden />
-                  Sending…
-                </>
-              ) : (
-                <>
-                  {def.buttonLabel}
-                  <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden />
-                </>
-              )}
-            </Button>
-          </form>
-
-          <div className="mt-3 min-h-[1.25rem]" aria-live="polite">
-            {status === "succeeded" && (
-              <p className={cn("text-caption flex items-center gap-1.5", t.success)}>
-                <Check className="h-3.5 w-3.5" aria-hidden />
+              <div className="mb-2 flex items-center gap-2">
+                <span
+                  className={cn(
+                    "inline-flex h-7 w-7 items-center justify-center rounded-full",
+                    onDark ? "bg-primary-foreground/20" : "bg-primary/15",
+                  )}
+                  aria-hidden
+                >
+                  <Check
+                    className={cn("h-4 w-4", onDark ? "text-primary-foreground" : "text-primary")}
+                  />
+                </span>
+                <h4
+                  className={cn(
+                    "font-serif text-card-heading",
+                    t.headline,
+                  )}
+                >
+                  {def.thankYou.headline}
+                </h4>
+              </div>
+              <p className={cn("text-body-sm mb-4", t.subhead)}>{def.thankYou.body}</p>
+              <p
+                className={cn(
+                  "mb-4 flex items-center gap-1.5 text-caption",
+                  t.helper,
+                )}
+              >
+                <Mail className="h-3 w-3" aria-hidden />
                 {def.successMessage}
               </p>
-            )}
-            {status === "failed" && errorMessage && (
-              <p className="text-caption text-[hsl(var(--destructive-foreground,0_0%_100%))] bg-[hsl(var(--destructive)/0.85)] inline-block px-2.5 py-1 rounded">
-                {errorMessage}
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                <a
+                  href={def.thankYou.ctaHref}
+                  target={def.thankYou.ctaExternal ? "_blank" : undefined}
+                  rel={def.thankYou.ctaExternal ? "noopener" : undefined}
+                  onClick={() =>
+                    trackCtaClick({
+                      cta_label: def.thankYou.ctaLabel,
+                      cta_destination: def.thankYou.ctaHref,
+                      cta_location: `${location}_thankyou_primary`,
+                      matched: true,
+                    })
+                  }
+                  className={cn(
+                    "inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-md px-5 py-2.5 text-body-sm font-semibold transition-colors",
+                    t.button,
+                  )}
+                >
+                  {def.thankYou.ctaLabel}
+                  <ArrowRight className="h-4 w-4" aria-hidden />
+                </a>
+                {def.thankYou.secondaryLabel && def.thankYou.secondaryHref && (
+                  <a
+                    href={def.thankYou.secondaryHref}
+                    target={def.thankYou.secondaryExternal ? "_blank" : undefined}
+                    rel={def.thankYou.secondaryExternal ? "noopener" : undefined}
+                    onClick={() =>
+                      trackCtaClick({
+                        cta_label: def.thankYou.secondaryLabel!,
+                        cta_destination: def.thankYou.secondaryHref!,
+                        cta_location: `${location}_thankyou_secondary`,
+                        matched: true,
+                      })
+                    }
+                    className={cn(
+                      "inline-flex min-h-[44px] items-center justify-center px-3 text-body-sm font-medium underline underline-offset-4 decoration-current/30 transition-colors",
+                      t.followUp,
+                    )}
+                  >
+                    {def.thankYou.secondaryLabel}
+                  </a>
+                )}
+              </div>
+            </div>
+          ) : (
+            <>
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  if (status === "submitting") return;
+                  const form = e.currentTarget as HTMLFormElement;
+                  const input = form.elements.namedItem(`${formId}-email`) as HTMLInputElement | null;
+                  const email = input?.value?.trim() ?? "";
+                  const startedAt = performance.now();
+
+                  const sourcePath =
+                    typeof window !== "undefined" ? window.location.pathname : undefined;
+
+                  trackEvent("email_signup_submitted", {
+                    form_id: formId,
+                    track,
+                    surface,
+                    location,
+                    has_email: !!email,
+                  });
+                  setStatus("submitting");
+                  setErrorMessage(null);
+
+                  try {
+                    const result = await submitEmailSignup({
+                      email,
+                      track,
+                      surface,
+                      sourcePath,
+                      sourceSection: location,
+                      consent: true,
+                    });
+                    trackEvent("email_signup_succeeded", {
+                      form_id: formId,
+                      track,
+                      surface,
+                      location,
+                      duration_ms: Math.round(performance.now() - startedAt),
+                      subscriber_id: result.subscriber_id,
+                    });
+                    setStatus("succeeded");
+                    form.reset();
+                  } catch (err) {
+                    const code = err instanceof EmailSignupError ? err.code : "unknown_error";
+                    const httpStatus = err instanceof EmailSignupError ? err.status : -1;
+                    const message = err instanceof Error ? err.message : "Something went wrong.";
+                    trackEvent("email_signup_failed", {
+                      form_id: formId,
+                      track,
+                      surface,
+                      location,
+                      duration_ms: Math.round(performance.now() - startedAt),
+                      error_code: code,
+                      http_status: httpStatus,
+                    });
+                    setErrorMessage(message);
+                    setStatus("failed");
+                  }
+                }}
+                className="flex flex-col sm:flex-row gap-3"
+                aria-label={def.headline}
+              >
+                <label htmlFor={`${formId}-email`} className="sr-only">
+                  Email address
+                </label>
+                <Input
+                  id={`${formId}-email`}
+                  name={`${formId}-email`}
+                  type="email"
+                  placeholder="Your email address"
+                  autoComplete="email"
+                  required
+                  maxLength={320}
+                  aria-required="true"
+                  className={cn("min-h-[44px] h-12 flex-1", t.input)}
+                />
+                <Button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className={cn(
+                    "min-h-[44px] h-12 px-6 font-semibold whitespace-nowrap disabled:opacity-70",
+                    t.button,
+                  )}
+                >
+                  {status === "submitting" ? (
+                    <>
+                      <Loader2 className="mr-1.5 h-4 w-4 animate-spin" aria-hidden />
+                      Sending…
+                    </>
+                  ) : (
+                    <>
+                      {def.buttonLabel}
+                      <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden />
+                    </>
+                  )}
+                </Button>
+              </form>
+
+              <div className="mt-3 min-h-[1.25rem]" aria-live="polite">
+                {status === "failed" && errorMessage && (
+                  <p className="text-caption text-[hsl(var(--destructive-foreground,0_0%_100%))] bg-[hsl(var(--destructive)/0.85)] inline-block px-2.5 py-1 rounded">
+                    {errorMessage}
+                  </p>
+                )}
+              </div>
+
+              <p className={cn("flex items-center gap-1.5 text-caption mt-3", t.helper)}>
+                <Lock className="h-3 w-3" aria-hidden />
+                No spam. Unsubscribe anytime. We respect your privacy.
               </p>
-            )}
-          </div>
 
-          <p className={cn("flex items-center gap-1.5 text-caption mt-3", t.helper)}>
-            <Lock className="h-3 w-3" aria-hidden />
-            No spam. Unsubscribe anytime. We respect your privacy.
-          </p>
-
-          {!hideFollowUp && (
-            <a
-              href={def.followUp.href}
-              target={def.followUp.external ? "_blank" : undefined}
-              rel={def.followUp.external ? "noopener" : undefined}
-              onClick={() =>
-                trackCtaClick({
-                  cta_label: def.followUp.label,
-                  cta_destination: def.followUp.href,
-                  cta_location: `${location}_followup`,
-                  matched: true,
-                })
-              }
-              className={cn(
-                "mt-4 inline-flex items-center gap-1 text-body-sm font-medium underline underline-offset-4 decoration-current/30 transition-colors min-h-[44px]",
-                t.followUp,
+              {!hideFollowUp && (
+                <a
+                  href={def.followUp.href}
+                  target={def.followUp.external ? "_blank" : undefined}
+                  rel={def.followUp.external ? "noopener" : undefined}
+                  onClick={() =>
+                    trackCtaClick({
+                      cta_label: def.followUp.label,
+                      cta_destination: def.followUp.href,
+                      cta_location: `${location}_followup`,
+                      matched: true,
+                    })
+                  }
+                  className={cn(
+                    "mt-4 inline-flex items-center gap-1 text-body-sm font-medium underline underline-offset-4 decoration-current/30 transition-colors min-h-[44px]",
+                    t.followUp,
+                  )}
+                >
+                  {def.followUp.label}
+                </a>
               )}
-            >
-              {def.followUp.label}
-            </a>
+            </>
           )}
         </div>
       </div>
