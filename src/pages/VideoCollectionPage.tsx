@@ -79,11 +79,12 @@ export default function VideoCollectionPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>{`${coll.name} — Mindfulness Exercises`}</title>
-        <meta name="description" content={meta.intro} />
-        <link rel="canonical" href={`https://mindfulnessexercises.com/videos/${slug}`} />
-      </Helmet>
+      <WPSeo
+        title={`${coll.name} — Mindfulness Exercises`}
+        description={meta.intro}
+        canonical={`https://mindfulnessexercises.com/videos/${slug}`}
+        type="website"
+      />
       <Navbar />
       <main>
         <SectionWrapper background="primary" ariaLabel={`${coll.name} intro`}>
@@ -101,7 +102,7 @@ export default function VideoCollectionPage() {
           </div>
         </SectionWrapper>
 
-        <SectionWrapper background="default" ariaLabel={`${coll.name} playlist`}>
+        <SectionWrapper background="emphasis" ariaLabel={`${coll.name} playlist`}>
           <VideoPlaylist videos={coll.videos} location={`video_collection_${slug}`} />
         </SectionWrapper>
 
