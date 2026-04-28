@@ -537,10 +537,18 @@ export default function WPResolver() {
                 )}
                 {!meditation && !buzzsproutEmbed && audioSrc && (
                   <div className="mb-8">
-                    <p className="text-eyebrow text-primary mb-2 inline-flex items-center gap-1.5">
-                      <Headphones className="h-3.5 w-3.5" /> Listen to this episode
-                    </p>
-                    <PodcastPlayer src={audioSrc} title={title} episodeId={doc.id} />
+                    <h2
+                      id="podcast-player-heading"
+                      className="text-eyebrow text-primary mb-2 inline-flex items-center gap-1.5 font-sans"
+                    >
+                      <Headphones className="h-3.5 w-3.5" aria-hidden="true" /> Listen to this episode
+                    </h2>
+                    <PodcastPlayer
+                      src={audioSrc}
+                      title={title}
+                      episodeId={doc.id}
+                      headingId="podcast-player-heading"
+                    />
                   </div>
                 )}
 

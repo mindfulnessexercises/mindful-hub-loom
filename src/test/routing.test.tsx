@@ -87,7 +87,8 @@ describe("routing resolution", () => {
   it("/:slug resolves a WordPress post via WPResolver", async () => {
     renderAt("/how-to-meditate");
     await waitFor(() => {
-      expect(screen.getByText("How to Meditate")).toBeInTheDocument();
+      // H1 is unique even if the breadcrumb also shows the title.
+      expect(screen.getByRole("heading", { level: 1, name: "How to Meditate" })).toBeInTheDocument();
     });
     const { wp } = await import("@/lib/wp");
     expect(wp.postBySlug).toHaveBeenCalledWith("how-to-meditate");
@@ -96,7 +97,7 @@ describe("routing resolution", () => {
   it("/blog/:slug also resolves the same post via WPResolver", async () => {
     renderAt("/blog/how-to-meditate");
     await waitFor(() => {
-      expect(screen.getByText("How to Meditate")).toBeInTheDocument();
+      expect(screen.getByRole("heading", { level: 1, name: "How to Meditate" })).toBeInTheDocument();
     });
     const { wp } = await import("@/lib/wp");
     expect(wp.postBySlug).toHaveBeenCalledWith("how-to-meditate");
