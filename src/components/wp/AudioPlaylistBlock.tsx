@@ -86,6 +86,53 @@ export function AudioPlaylistBlock({ playlist, hostSlug }: AudioPlaylistBlockPro
   const totalLabel = formatDuration(totalSeconds);
   const allKnown = knownCount === playlist.tracks.length;
 
+  // Theme filter state — narrows the visible tracks within this single
+  // playlist. Resets when the playlist changes.
+  const [activeThemes, setActiveThemes] = useState<Set<string>>(new Set());
+  useEffect(() => {
+    setActiveThemes(new Set());
+  }, [playlistKey]);
+
+  // Themes that have at least one matching track in this playlist.
+  const availableThemes = useMemo(
+    () => themesForPlaylist(playlist, hostSlug ?? ""),
+    [playlist, hostSlug],
+  );
+
+  // Per-track theme sets (so we can match against the active filter
+  // without recomputing for each track on every render).
+  const trackThemes = useMemo(
+    () =>
+      playlist.tracks.map((t) =>
+        inferTrackThemes(t, hostSlug ?? "", playlist.heading),
+      ),
+    [playlist, hostSlug],
+  );
+
+  // Tracks that pass the active theme filter (OR-match: a track shows
+  // if it carries ANY of the selected themes). When no theme is
+  // active, every track is shown.
+  const visibleIndexes = useMemo(() => {
+    if (activeThemes.size === 0) return playlist.tracks.map((_, i) => i);
+    return playlist.tracks
+      .map((_, i) => i)
+      .filter((i) => {
+        const themes = trackThemes[i];
+        for (const id of activeThemes) if (themes.has(id)) return true;
+        return false;
+      });
+  }, [activeThemes, playlist.tracks, trackThemes]);
+
+  const toggleTheme = (id: string) => {
+    setActiveThemes((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+  const clearThemes = () => setActiveThemes(new Set());
+
   return (
     <section
       aria-label={playlist.heading}
