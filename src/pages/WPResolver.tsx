@@ -465,7 +465,7 @@ export default function WPResolver() {
           )}
 
 
-          {img && tpl.featuredImage !== "hidden" && !isDownloadsPage && (() => {
+          {img && tpl.featuredImage !== "hidden" && !isDownloadsPage && !hasWorksheets && (() => {
             const w = img.width ?? 0;
             const h = img.height ?? 0;
             const ratio = w && h ? w / h : 0;
@@ -544,20 +544,22 @@ export default function WPResolver() {
                 })()}
 
                 {(() => {
-                  const worksheets = getWorksheets(slug);
+                  const worksheets = attachedWorksheets;
                   if (worksheets.length === 0) return null;
                   return (
-                    <div className="mb-8 space-y-4">
+                    <div className="mb-8 space-y-6">
                       {worksheets.map((ws) => (
-                        <MeditationScript
-                          key={ws.pdfUrl}
-                          kind="worksheet"
-                          variant="collapsible"
-                          pdfUrl={ws.pdfUrl}
-                          title={ws.title}
-                          fileSize={ws.fileSize}
-                          meditationId={slug}
-                        />
+                        <div key={ws.pdfUrl}>
+                          <MeditationScript
+                            kind="worksheet"
+                            variant="collapsible"
+                            pdfUrl={ws.pdfUrl}
+                            title={ws.title}
+                            fileSize={ws.fileSize}
+                            meditationId={slug}
+                          />
+                          <WorksheetMindfulGuidance title={ws.title} />
+                        </div>
                       ))}
                     </div>
                   );
