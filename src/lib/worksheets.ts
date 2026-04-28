@@ -63,6 +63,46 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Facing Challenges by Others",
     fileSize: "161 KB",
   },
+  "feeling-good-supporting-others": {
+    pdfUrl: "/worksheets/feeling-good-about-supporting-others.pdf",
+    title: "Feeling Good About Supporting Others",
+    fileSize: "162 KB",
+  },
+  "gauging-external-contributions": {
+    pdfUrl: "/worksheets/gauging-external-contributions.pdf",
+    title: "Gauging External Contributions",
+    fileSize: "161 KB",
+  },
+  "how-to-create-more-time": {
+    pdfUrl: "/worksheets/how-to-create-more-time.pdf",
+    title: "How to Create More Time",
+    fileSize: "175 KB",
+  },
+  "make-important-career-changes": {
+    pdfUrl: "/worksheets/how-to-make-important-career-changes.pdf",
+    title: "How to Make Important Career Changes",
+    fileSize: "178 KB",
+  },
+  "optimize-marketing-efforts": {
+    pdfUrl: "/worksheets/how-to-optimize-your-marketing-efforts.pdf",
+    title: "How to Optimize Your Marketing Efforts",
+    fileSize: "164 KB",
+  },
+  "stick-plan": {
+    pdfUrl: "/worksheets/how-to-stick-to-a-plan.pdf",
+    title: "How to Stick to a Plan",
+    fileSize: "174 KB",
+  },
+  "mindfulness-triggering-others": {
+    pdfUrl: "/worksheets/mindfulness-of-triggering-others.pdf",
+    title: "Mindfulness of Triggering Others",
+    fileSize: "161 KB",
+  },
+  "problem-solving": {
+    pdfUrl: "/worksheets/problem-solving.pdf",
+    title: "Problem Solving",
+    fileSize: "190 KB",
+  },
 };
 
 /**
