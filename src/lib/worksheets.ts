@@ -962,6 +962,31 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "185 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/focusing-away-from-pain.pdf",
+      title: "Focusing Away From Pain",
+      fileSize: "219 KB",
+      flagged: true,
+    },
+  ],
+  // Second "Emotional Awareness Meditation" variant — surface alongside primary.
+  "emotional-awareness-meditation": [
+    {
+      pdfUrl: "/worksheets/emotional-awareness-meditation-2.pdf",
+      title: "Emotional Awareness Meditation",
+      fileSize: "174 KB",
+      flagged: true,
+    },
+  ],
+  // "Favorite Things" has no dedicated post — surface alongside the closest
+  // childlike-wonder/pleasantness worksheet.
+  "here-and-now-pleasantness": [
+    {
+      pdfUrl: "/worksheets/favorite-things.pdf",
+      title: "Favorite Things",
+      fileSize: "204 KB",
+      flagged: true,
+    },
   ],
 };
 
