@@ -521,13 +521,19 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
-  // "Understanding Your Self-Pity" has no dedicated post — surface on the
-  // closest topical match (Self-Compassion hub).
+  // "Understanding Your Self-Pity" and "Taking Care of Yourself" have no
+  // dedicated posts — surface on the Self-Compassion hub.
   "the-power-of-self-compassion": [
     {
       pdfUrl: "/worksheets/understanding-your-self-pity.pdf",
       title: "Understanding Your Self-Pity",
       fileSize: "161 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/taking-care-of-yourself.pdf",
+      title: "Taking Care of Yourself",
+      fileSize: "167 KB",
       flagged: true,
     },
   ],
