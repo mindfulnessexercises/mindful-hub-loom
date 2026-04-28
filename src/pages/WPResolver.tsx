@@ -36,6 +36,7 @@ import { RecommendedNext } from "@/components/wp/RecommendedNext";
 import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
 import { MeditationPlayer } from "@/components/wp/MeditationPlayer";
 import { MeditationScript } from "@/components/wp/MeditationScript";
+import { WorksheetMindfulGuidance } from "@/components/wp/WorksheetMindfulGuidance";
 import { getMeditationScript } from "@/lib/meditation-scripts";
 import { getWorksheets } from "@/lib/worksheets";
 import { injectInlineAudio } from "@/lib/inline-audio-sections";
