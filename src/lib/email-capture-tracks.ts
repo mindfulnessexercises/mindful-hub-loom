@@ -96,6 +96,14 @@ export const TRACK_DEFINITIONS: Record<EmailCaptureTrack, TrackDefinition> = {
       label: "Browse 3,000+ free exercises now →",
       href: "/library",
     },
+    thankYou: {
+      headline: "You're in. Your first practice is on the way.",
+      body: "While you wait, jump straight into 3,000+ free guided meditations, scripts, and worksheets.",
+      ctaLabel: "Browse the library",
+      ctaHref: "/library",
+      secondaryLabel: "Listen to today's audio",
+      secondaryHref: "/audio-library",
+    },
   },
 
   live_events: {
@@ -116,6 +124,14 @@ export const TRACK_DEFINITIONS: Record<EmailCaptureTrack, TrackDefinition> = {
       label: "See upcoming live sessions →",
       href: "#events",
     },
+    thankYou: {
+      headline: "You're on the list. See what's coming up.",
+      body: "Calendar invites land in your inbox before each session. Here's the full schedule of upcoming live events.",
+      ctaLabel: "See live events",
+      ctaHref: "/live-events",
+      secondaryLabel: "Add to calendar",
+      secondaryHref: "/live-events#calendar",
+    },
   },
 
   premium_training: {
@@ -135,6 +151,12 @@ export const TRACK_DEFINITIONS: Record<EmailCaptureTrack, TrackDefinition> = {
     followUp: {
       label: "Explore advanced trainings →",
       href: "/library?cat=advanced-training",
+    },
+    thankYou: {
+      headline: "Sample sent. Explore what's next.",
+      body: "Your free curriculum sample is in your inbox. Take a deeper look at our advanced trainings while you wait.",
+      ctaLabel: "Explore trainings",
+      ctaHref: "/library?cat=advanced-training",
     },
   },
 
@@ -157,6 +179,15 @@ export const TRACK_DEFINITIONS: Record<EmailCaptureTrack, TrackDefinition> = {
       href: CERT_HOST,
       external: true,
     },
+    thankYou: {
+      headline: "Brochure sent. Ready to take the next step?",
+      body: "Your brochure is on its way. When you're ready, book a 1:1 call with our admissions team to talk through your goals.",
+      ctaLabel: "Book a call",
+      ctaHref: CERT_HOST,
+      ctaExternal: true,
+      secondaryLabel: "View program details",
+      secondaryHref: "/mindfulness-meditation-teacher-training",
+    },
   },
 
   general: {
@@ -175,6 +206,12 @@ export const TRACK_DEFINITIONS: Record<EmailCaptureTrack, TrackDefinition> = {
     followUp: {
       label: "Browse the library →",
       href: "/library",
+    },
+    thankYou: {
+      headline: "You're subscribed. Welcome.",
+      body: "Your first email arrives soon. In the meantime, explore the library of free practices.",
+      ctaLabel: "Browse the library",
+      ctaHref: "/library",
     },
   },
 };
