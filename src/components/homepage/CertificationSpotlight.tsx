@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionWrapper, SectionHeader } from "./SectionWrapper";
+import { InlineEmailCapture } from "@/components/email/InlineEmailCapture";
 import { cn } from "@/lib/utils";
 
 /*
@@ -152,18 +153,28 @@ export function CertificationSpotlight() {
         ))}
       </div>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: 0.3 }}
-        className="text-center text-body-sm text-muted-foreground mt-8"
+        transition={{ duration: 0.4, delay: 0.25 }}
+        className="mt-10 max-w-2xl mx-auto"
       >
-        CE sponsored by Mindful CECs — approved by the APA for psychologists, and accepted for MFTs, LCSWs, LPCCs, LEPs & nurses in most states.{" "}
-        <a href="/ce-policies" className="underline underline-offset-4 decoration-muted-foreground/40 hover:text-foreground hover:decoration-foreground/60 transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
-          View CE policies →
-        </a>
-      </motion.p>
+        <InlineEmailCapture
+          track="certification"
+          location="homepage_certification_inline"
+          variant="compact"
+          hideAudience
+          hideFollowUp
+          headlineOverride="Not ready to apply? Send me the brochure."
+        />
+        <p className="text-center text-body-sm text-muted-foreground mt-6">
+          CE sponsored by Mindful CECs — approved by the APA for psychologists, and accepted for MFTs, LCSWs, LPCCs, LEPs & nurses in most states.{" "}
+          <a href="/ce-policies" className="underline underline-offset-4 decoration-muted-foreground/40 hover:text-foreground hover:decoration-foreground/60 transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
+            View CE policies →
+          </a>
+        </p>
+      </motion.div>
     </SectionWrapper>
   );
 }
