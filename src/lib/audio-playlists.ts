@@ -240,6 +240,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Mindfulness of Death — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-practice-mindfulness-of-death/mindfulness-of-death.mp3` },
       { title: "Reflection on Mortality — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-28-reflection-on-mortality.mp3` },
       { title: "Nachiketa and the Lord of Death — Dharma Talk by Jack Kornfield", src: `${AUDIO_BASE}/how-to-practice-mindfulness-of-death-and-why-its-important/jack-kornfield-nachiketa-and-the-lord-of-death.mp3` },
+      { title: "Nachiketo and the Lord of Death: Moving Through Difficulties as Transformative Practice — Dharma Talk by Jack Kornfield", src: `${AUDIO_BASE}/how-to-practice-mindfulness-of-death-and-why-its-important/jack-kornfield-nachiketo-moving-through-difficulties-2018.mp3` },
       { title: "Mortality and the Poignancy of Life — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/how-to-practice-mindfulness-of-death-and-why-its-important/matthew-brensilver-mortality-and-the-poignancy-of-life.mp3` },
     ],
   },
@@ -333,6 +334,9 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Two Minutes of Mindful Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/2-minutes-of-mindful-breathing.mp3` },
       { title: "Three Mindful Breaths — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/3-mindful-breaths.mp3` },
       { title: "Interest and Investigation — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/will-kabat-zinn-interest-and-investigation.mp3` },
+      { title: "Nine Breathing Exercises to Release Dead Energies — Guided Meditation by Anam Thubten", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/anam-thubten-nine-breathing-exercises-release-dead-energies.mp3` },
+      { title: "Focused Attention and Open Awareness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/focused-attention-and-open-awareness.mp3` },
+      { title: "Focused Attention (Intermediate) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/focused-attention-intermediate.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -557,6 +561,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Basic Body Scan and Breath Awareness — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/short-body-scan/tara-brach-basic-body-scan-and-breath-awareness.mp3` },
       { title: "Body Scan A — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-08-body-scan-a.mp3` },
       { title: "Body Scan B — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-10-body-scan-b.mp3` },
+      { title: "Body Scan — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/short-body-scan/body-scan.mp3` },
     ],
   },
   "honoring-joanna-macy-a-tribute-to-a-visionary-of-interconnection-and-courage": {
@@ -592,6 +597,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Dharmette: Resolution to Present Details — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/settling-into-presence/gil-fronsdal-resolution-to-present-details.mp3` },
       { title: "Everything Is Spiritual Practice — Dharma Talk by Sylvia Boorstein", src: `${AUDIO_BASE}/settling-into-presence/sylvia-boorstein-everything-is-spiritual-practice.mp3` },
       { title: "The Common Denominator — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/settling-into-presence/will-kabat-zinn-the-common-denominator.mp3` },
+      { title: "Awareness — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/settling-into-presence/will-kabat-zinn-awareness.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -687,6 +693,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Grounding — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/full-body-awareness/grounding.mp3` },
       { title: "Being Trusting In The Body — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/full-body-awareness/being-trusting-in-the-body.mp3` },
       { title: "Four Domains for Mindfulness — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/full-body-awareness/will-kabat-zinn-four-domains-for-mindfulness.mp3` },
+      { title: "Directing Your Awareness With Relaxation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/full-body-awareness/directing-your-awareness-with-relaxation.mp3` },
     ],
   },
   "power-of-gratitude-meditation-7-ways-to-cultivate-it": {
@@ -782,6 +789,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Basic Body Scan and Breath Awareness — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/tara-brach-basic-body-scan-and-breath-awareness.mp3` },
       { title: "Guided Body Scan — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/gil-fronsdal-body-scan.mp3` },
       { title: "Body Scan — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/ines-freedman-body-scan.mp3` },
+      { title: "Body Scan (Intermediate) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/body-scan-intermediate.mp3` },
     ],
   },
   "laying-down-meditation-visualizing-a-lake": {
