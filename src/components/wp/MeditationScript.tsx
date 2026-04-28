@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Download, FileText, Printer, ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 
 export type MeditationScriptVariant = "inline" | "collapsible" | "card";
@@ -280,15 +280,32 @@ export function MeditationScript({
             <Printer className="h-4 w-4 mr-1.5" />
             Print
           </Button>
-          <a
-            href={pdfUrl}
-            download
-            onClick={fireDownload}
-            className={buttonVariants({ size: "sm", className: "min-h-[44px]" })}
+          <Button
+            size="sm"
+            className="min-h-[44px]"
+            onClick={async () => {
+              fireDownload();
+              const filename = `${title.replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-").toLowerCase() || "meditation-script"}.pdf`;
+              try {
+                const response = await fetch(pdfUrl);
+                if (!response.ok) throw new Error("Download failed");
+                const blob = await response.blob();
+                const blobUrl = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = blobUrl;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(blobUrl);
+              } catch {
+                window.open(pdfUrl, "_blank", "noopener,noreferrer");
+              }
+            }}
           >
             <Download className="h-4 w-4 mr-1.5" />
             Download PDF
-          </a>
+          </Button>
         </div>
       </div>
 
