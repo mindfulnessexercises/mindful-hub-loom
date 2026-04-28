@@ -259,7 +259,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "6-mindful-breathing-exercises": {
     heading: "Listen: Mindful Breathing audio series",
     intro:
-      "Eleven of Sean Fargo's guided breath meditations — from curiosity and embodied awareness, to counting each exhale, to resting in the rhythm of the breath without judgment — plus longer practices on the beauty of the breath, breathing space, a short five-minute reset, breathing with care, mental space through mindful breathing, feeling embodied, and weaving mindful breathing into self-care. Plus three classic guided breath meditations from Gil Fronsdal — two long-form retreats from 2001 and 2003, and his Anapanasati teaching on the Four Forms of Mindfulness of Breathing — followed by a ten-part Guided Anapanasati Meditation series (Gil Fronsdal) recorded live at IMC: a slow, retreat-style progression through the Anapanasati instructions covering exploring the breath, relating to the breath, breath and peripheral awareness, exploring impermanence, relaxing the mental formation, noticing ease and effortlessness, relaxing while cultivating joy and ease, cultivating well-being, noticing absence and the little cessations, and peripheral awareness and fading away.",
+      "Eleven of Sean Fargo's guided breath meditations — from curiosity and embodied awareness, to counting each exhale, to resting in the rhythm of the breath without judgment — plus longer practices on the beauty of the breath, breathing space, a short five-minute reset, breathing with care, mental space through mindful breathing, feeling embodied, and weaving mindful breathing into self-care. Plus three classic guided breath meditations from Gil Fronsdal — two long-form retreats from 2001 and 2003, and his Anapanasati teaching on the Four Forms of Mindfulness of Breathing — followed by a fourteen-part Guided Anapanasati Meditation series (Gil Fronsdal) recorded live at IMC: a slow, retreat-style progression through the Anapanasati instructions covering knowing the breath, exploring the breath, relating to the breath, the reassurance of the breath, breath and peripheral awareness, exploring impermanence, relaxing the mental formation (in two takes), noticing ease and effortlessness, relaxing while cultivating joy and ease, cultivating well-being, noticing absence and the little cessations, peripheral awareness and fading away, and impermanence, fading away and letting go.",
     tracks: [
       { title: "Breathing With Curiosity — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-with-curiosity.mp3` },
       { title: "Embodied Awareness of Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/embodied-awareness-of-breathing.mp3` },
@@ -277,16 +277,20 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Guided Meditation on the Breath — Long-Form Retreat by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-breath-2001.mp3` },
       { title: "Guided Meditation on the Breath — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-breath-2003.mp3` },
       { title: "Anapanasati: Four Forms of Mindfulness of Breathing — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapanasati-four-forms.mp3` },
+      { title: "Guided Anapanasati Meditation: Knowing the Breath — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-knowing-the-breath.mp3` },
       { title: "Guided Anapanasati Meditation: Exploring the Breath — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-exploring-the-breath.mp3` },
       { title: "Guided Anapanasati Meditation: Relating to the Breath — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-relating-to-the-breath.mp3` },
+      { title: "Guided Anapanasati Meditation: The Reassurance of the Breath — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-reassurance-of-the-breath.mp3` },
       { title: "Guided Anapanasati Meditation: Breath and Peripheral Awareness — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-breath-and-peripheral-awareness.mp3` },
       { title: "Guided Anapanasati Meditation: Exploring Impermanence and Awareness — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-exploring-impermanence-and-awareness.mp3` },
       { title: "Guided Anapanasati Meditation: Relaxing the Mental Formation — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-relaxing-the-mental-formation.mp3` },
+      { title: "Guided Anapanasati Meditation: Relaxing Mental Formations by Being Present and Letting Go — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-relaxing-mental-formations-being-present-letting-go.mp3` },
       { title: "Guided Anapanasati Meditation: Noticing Ease and Effortlessness — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-noticing-ease-and-effortlessness.mp3` },
       { title: "Guided Anapanasati Meditation: Relaxing and Cultivating Joy and Ease — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-relaxing-cultivating-joy-ease.mp3` },
       { title: "Guided Anapanasati Meditation: Cultivating Well-Being — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-cultivating-well-being.mp3` },
       { title: "Guided Anapanasati Meditation: Noticing Absence and Little Cessations — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-noticing-absence-and-little-cessations.mp3` },
       { title: "Guided Anapanasati Meditation: Peripheral Awareness and Fading Away — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-peripheral-awareness-and-fading-away.mp3` },
+      { title: "Guided Anapanasati Meditation: Impermanence, Fading Away and Letting Go — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-impermanence-fading-letting-go.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -656,11 +660,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "noting-your-judgments": {
     heading: "Listen: Noting & Non-Judgment audio series",
     intro:
-      "Two guided meditations in the noting tradition plus a long-form retreat-style heart practice — Noting Thinking or Feeling practices the simple distinction between thought and feeling; Resolving Judgments meets judgmental mind with steady, non-reactive awareness; Heart Meditation: Letting Go of Judgment (Tara Brach) is a tender guided meditation on softening the inner judge and returning to the kind, spacious heart underneath.",
+      "Two guided meditations in the noting tradition, a long-form retreat-style heart practice, and a short companion dharmette — Noting Thinking or Feeling practices the simple distinction between thought and feeling; Resolving Judgments meets judgmental mind with steady, non-reactive awareness; Heart Meditation: Letting Go of Judgment (Tara Brach) is a tender guided meditation on softening the inner judge and returning to the kind, spacious heart underneath; Dharmette: Knowing, Noting and Calm (Gil Fronsdal) is a short reflection on how the simple practice of knowing and noting quietly steadies the heart into calm.",
     tracks: [
       { title: "Noting Thinking or Feeling — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/noting-your-judgments/noting-thinking-or-feeling.mp3` },
       { title: "Resolving Judgments — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/noting-your-judgments/resolving-judgments.mp3` },
       { title: "Heart Meditation: Letting Go of Judgment — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/noting-your-judgments/tara-brach-heart-meditation-letting-go-of-judgment.mp3` },
+      { title: "Dharmette: Knowing, Noting and Calm — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/noting-your-judgments/gil-fronsdal-dharmette-knowing-noting-and-calm.mp3` },
     ],
   },
   "meditation-scripts-for-anxiety": {
@@ -787,10 +792,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "the-importance-of-finding-quiet-time": {
     heading: "Listen: Quiet Time audio series",
     intro:
-      "Two short dharma talks by Gil Fronsdal plus a long-form guided practice in silence — The Still, Quiet Place Within points to the silence that is always already here, beneath the noise of thought; Settle The Heart First is a tender reminder that before we ask the mind to settle, we tend, gently, to the heart; Grounded Silence (Sean Fargo) is an extended guided meditation on letting silence itself become the anchor.",
+      "Three short dharma talks by Gil Fronsdal plus a long-form guided practice in silence — The Still, Quiet Place Within points to the silence that is always already here, beneath the noise of thought; Settle The Heart First is a tender reminder that before we ask the mind to settle, we tend, gently, to the heart; Dharmette: Windless Days is a short reflection on the rare, settled quality of mind that arrives — like a windless day — when the heart finally has space to be still; Grounded Silence (Sean Fargo) is an extended guided meditation on letting silence itself become the anchor.",
     tracks: [
       { title: "The Still, Quiet Place Within — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/importance-of-finding-quiet-time/still-quiet-place-within.mp3` },
       { title: "Settle The Heart First — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/importance-of-finding-quiet-time/settle-the-heart-first.mp3` },
+      { title: "Dharmette: Windless Days — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/gil-fronsdal-dharmette-windless-days.mp3` },
       { title: "Grounded Silence — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/grounded-silence.mp3` },
     ],
   },
@@ -824,10 +830,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "working-with-thoughts": {
     heading: "Listen: Working With Thought and Emotion",
     intro:
-      "A dharma talk by Joseph Goldstein on meeting thoughts and emotions with awareness — seeing them clearly enough that they no longer have to run the show. Followed by a short companion dharma talk by Gil Fronsdal — Dharmette: Content vs Process — on the freeing distinction between what the mind is thinking about and the simple fact that it's thinking. Plus two guided meditations: Mindfulness of Thoughts & Feelings — practicing noticing the inner weather without getting carried away — and Thoughts and Emotions, a companion practice for working skillfully with what arises.",
+      "A dharma talk by Joseph Goldstein on meeting thoughts and emotions with awareness — seeing them clearly enough that they no longer have to run the show. Followed by two short companion dharma talks by Gil Fronsdal — Dharmette: Content vs Process on the freeing distinction between what the mind is thinking about and the simple fact that it's thinking, and Dharmette: Relating to It on the quiet shift from being inside our experience to skillfully relating to it. Plus two guided meditations: Mindfulness of Thoughts & Feelings — practicing noticing the inner weather without getting carried away — and Thoughts and Emotions, a companion practice for working skillfully with what arises.",
     tracks: [
       { title: "Working With Thought and Emotion — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/working-with-thoughts/working-with-thought-and-emotion.mp3` },
       { title: "Dharmette: Content vs Process — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/working-with-thoughts/dharmette-content-vs-process.mp3` },
+      { title: "Dharmette: Relating to It — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/working-with-thoughts/gil-fronsdal-dharmette-relating-to-it.mp3` },
       { title: "Mindfulness of Thoughts & Feelings — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/mindfulness-of-thoughts-feelings.mp3` },
       { title: "Thoughts and Emotions — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/working-with-thoughts/thoughts-and-emotions.mp3` },
     ],
@@ -864,10 +871,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "style-over-summit-what-dirtbag-billionaire-taught-me-about-practice": {
     heading: "Listen: Practice Notes audio series",
     intro:
-      "Two short dharma talks by Gil Fronsdal — Practice Notes: Patience explores patience as the slow, steady willingness to stay with what's actually here, instead of leaning toward the next thing; Dharmette: Metaphors offers a playful look at the images and metaphors we live by, and how they quietly shape the practice itself.",
+      "Three short dharma talks by Gil Fronsdal — Practice Notes: Patience explores patience as the slow, steady willingness to stay with what's actually here, instead of leaning toward the next thing; Dharmette: Metaphors offers a playful look at the images and metaphors we live by, and how they quietly shape the practice itself; Choosing the Long Path of Practice is a tender reflection on the kind of practice that unfolds over years and lifetimes — choosing the long, steady path over the quick fix.",
     tracks: [
       { title: "Practice Notes: Patience — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/style-over-summit/practice-notes-patience.mp3` },
       { title: "Dharmette: Metaphors — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/style-over-summit/dharmette-metaphors.mp3` },
+      { title: "Choosing the Long Path of Practice — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/gil-fronsdal-choosing-the-long-path-of-practice.mp3` },
     ],
   },
   "supports-practice-audio": {
@@ -923,9 +931,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "mindfulness-meditation-and-the-space-in-between": {
     heading: "Listen: The Space In Between audio series",
     intro:
-      "A short dharma talk by Gil Fronsdal on ease — not as the absence of effort, but as the soft, spacious quality that lives in the in-between of practice. Plus a four-part long-form retreat series on Emptiness — the liberating teaching that what we take to be solid (self, thought, experience) is more open and spacious than the mind first assumes. Closes with Inner Space, Gateway to Awareness (Tara Brach) — a long-form guided meditation on resting in the spacious awareness that holds every passing experience — and Mystery of Aliveness (Tara Brach), a guided meditation on resting in the bare wonder of being here.",
+      "Three short dharma talks by Gil Fronsdal on space and ease — Practice Notes: Ease points to ease not as the absence of effort, but as the soft, spacious quality that lives in the in-between of practice; The Space Between turns toward the quiet gap between thoughts, breaths, and moments where awareness can rest; Dharmette: Space is a companion teaching on the inner roominess that opens when we stop crowding our experience. Plus a four-part long-form retreat series on Emptiness — the liberating teaching that what we take to be solid (self, thought, experience) is more open and spacious than the mind first assumes. Closes with Inner Space, Gateway to Awareness (Tara Brach) — a long-form guided meditation on resting in the spacious awareness that holds every passing experience — and Mystery of Aliveness (Tara Brach), a guided meditation on resting in the bare wonder of being here.",
     tracks: [
       { title: "Practice Notes: Ease — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/ease.mp3` },
+      { title: "The Space Between — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/gil-fronsdal-the-space-between.mp3` },
+      { title: "Dharmette: Space — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/gil-fronsdal-dharmette-space.mp3` },
       { title: "Emptiness, Part 1 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-1.mp3` },
       { title: "Emptiness, Part 2 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-2.mp3` },
       { title: "Emptiness, Part 3 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-3.mp3` },
