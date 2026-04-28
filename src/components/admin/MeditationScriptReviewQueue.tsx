@@ -6,9 +6,10 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { wp, type WPPost } from "@/lib/wp";
 import { MEDITATION_SCRIPTS } from "@/lib/meditation-scripts";
+import { getDownloadAssetUrl } from "@/lib/download-assets";
 
 /**
- * Review queue for orphan PDFs (files in /public/sample-scripts/ that don't
+ * Review queue for orphan PDFs (files in download-assets/sample-scripts/ that don't
  * have an exact slug match in MEDITATION_SCRIPTS). For each one we suggest
  * candidate posts from the Meditation Scripts WP category and let the admin
  * approve a slug binding or skip the file. Decisions are staged in
@@ -249,7 +250,7 @@ export default function MeditationScriptReviewQueue({ orphans }: Props) {
                     {formatBytes(o.bytes)}
                     {" · "}
                     <a
-                      href={`/sample-scripts/${o.filename}`}
+                      href={getDownloadAssetUrl(`/sample-scripts/${o.filename}`)}
                       target="_blank"
                       rel="noopener"
                       className="underline hover:no-underline"
