@@ -17,6 +17,7 @@ const Library = lazy(() => import("./pages/Library.tsx"));
 const AudioLibrary = lazy(() => import("./pages/AudioLibrary.tsx"));
 const VideoLibrary = lazy(() => import("./pages/VideoLibrary.tsx"));
 const VideoCollectionPage = lazy(() => import("./pages/VideoCollectionPage.tsx"));
+const CoursesHub = lazy(() => import("./pages/CoursesHub.tsx"));
 const QuotesHub = lazy(() => import("./pages/QuotesHub.tsx"));
 const AffirmationsHub = lazy(() => import("./pages/AffirmationsHub.tsx"));
 const ScriptsHub = lazy(() => import("./pages/ScriptsHub.tsx"));
@@ -104,6 +105,10 @@ const App = () => (
                 last URL segment as the post slug — preserves SEO equity. */}
             <Route path="/meditation/*" element={<WPResolver />} />
             <Route path="/meaningful-work/*" element={<WPResolver />} />
+            {/* Native Courses hub replaces the flat WP list. Order matters:
+                this exact-match route MUST come before the splat below so the
+                hub renders instead of WPResolver fetching the WP page. */}
+            <Route path="/free-online-mindfulness-courses" element={<CoursesHub />} />
             <Route path="/free-online-mindfulness-courses/*" element={<WPResolver />} />
             <Route path="/how-to-teach-meditation/*" element={<WPResolver />} />
             {/* Teacher CPT pages — surfaced inline by WPResolver. The legacy
