@@ -1861,6 +1861,33 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
+  // "Mindfulness of Your Relationship with Technology" — surface on Ariel Garten's tech post.
+  "how-technology-can-deepen-mindfulness-with-ariel-garten-founder-of-muse": [
+    {
+      pdfUrl: "/worksheets/mindfulness-of-your-relationship-with-technology.pdf",
+      title: "Mindfulness of Your Relationship with Technology",
+      fileSize: "161 KB",
+      flagged: true,
+    },
+  ],
+  // "Optimizing Your Schedule for Growth" — surface alongside dealing-busy-schedules.
+  "dealing-busy-schedules": [
+    {
+      pdfUrl: "/worksheets/optimizing-your-schedule-for-growth.pdf",
+      title: "Optimizing Your Schedule for Growth",
+      fileSize: "162 KB",
+      flagged: true,
+    },
+  ],
+  // "The I's of Your Identity" — surface on the identity reflections post.
+  "on-identity-gratitude-and-the-gift-of-an-orange": [
+    {
+      pdfUrl: "/worksheets/the-is-of-your-identity.pdf",
+      title: "The I's of Your Identity",
+      fileSize: "160 KB",
+      flagged: true,
+    },
+  ],
 };
 
 export function getWorksheets(slug: string | undefined | null): WorksheetEntry[] {
