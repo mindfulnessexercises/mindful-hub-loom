@@ -745,6 +745,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "163 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/cultivating-an-inner-smile.pdf",
+      title: "Cultivating an Inner Smile",
+      fileSize: "190 KB",
+      flagged: true,
+    },
   ],
   // "Understanding Your Self-Pity" and "Taking Care of Yourself" have no
   // dedicated posts — surface on the Self-Compassion hub.
