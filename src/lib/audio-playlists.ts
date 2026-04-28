@@ -1172,6 +1172,59 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Mystery of Aliveness — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/tara-brach-mystery-of-aliveness.mp3` },
     ],
   },
+  "connecting-with-your-baby": {
+    heading: "Listen: Connecting With The Baby",
+    intro:
+      "A tender guided meditation by Sean Fargo for turning warm, attentive presence toward the baby growing inside you — feeling the quiet, wordless conversation already underway.",
+    tracks: [
+      { title: "Connecting With The Baby — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/connecting-with-the-baby.mp3` },
+    ],
+  },
+  "focusing-on-pregnancy-and-motherhood": {
+    heading: "Listen: Pregnancy & Motherhood audio series",
+    intro:
+      "Ten guided meditations by Sean Fargo for the whole arc of pregnancy — Body & Mind Relaxation softens the held tension of a changing body; Connecting With The Baby turns warm attention inward to the little one already here; Deep Abdominal Breathing settles the nervous system through the belly; Embracing The Maternal Side welcomes the quiet shift into motherhood; Energy Booster gently lifts on the tired days; Feeling Supported leans into the people, presence, and love already holding you; Good Night's Sleep eases the body into rest; Mama Mantra Meditation offers a steadying inner phrase to return to; Stomach Soothing brings calming awareness to digestive discomfort; Visualizing A Calm Delivery rehearses the birth as steady, supported, and safe.",
+    tracks: [
+      { title: "Body & Mind Relaxation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/body-and-mind-relaxation.mp3` },
+      { title: "Connecting With The Baby — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/connecting-with-the-baby.mp3` },
+      { title: "Deep Abdominal Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/deep-abdominal-breathing.mp3` },
+      { title: "Embracing The Maternal Side — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/embracing-the-maternal-side.mp3` },
+      { title: "Energy Booster — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/energy-booster.mp3` },
+      { title: "Feeling Supported — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/feeling-supported.mp3` },
+      { title: "Good Night's Sleep — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/good-nights-sleep.mp3` },
+      { title: "Mama Mantra Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/mama-mantra-meditation.mp3` },
+      { title: "Stomach Soothing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/stomach-soothing.mp3` },
+      { title: "Visualizing A Calm Delivery — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/visualizing-a-calm-delivery.mp3` },
+    ],
+  },
+  "mindfulness-worked-pregnancies-labour-even-knew": {
+    heading: "Listen: Pregnancy & Labour audio series",
+    intro:
+      "The full ten-part Pregnancy & Motherhood series by Sean Fargo — guided practices to companion you through each stage of pregnancy, labour, and the early days of motherhood. Body & Mind Relaxation softens held tension; Connecting With The Baby turns warm attention inward; Deep Abdominal Breathing settles the nervous system; Embracing The Maternal Side welcomes the inner shift; Energy Booster gently lifts on the tired days; Feeling Supported leans into the love already holding you; Good Night's Sleep eases the body into rest; Mama Mantra Meditation offers a steadying inner phrase; Stomach Soothing calms digestive discomfort; Visualizing A Calm Delivery rehearses birth as steady, supported, and safe.",
+    tracks: [
+      { title: "Body & Mind Relaxation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/body-and-mind-relaxation.mp3` },
+      { title: "Connecting With The Baby — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/connecting-with-the-baby.mp3` },
+      { title: "Deep Abdominal Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/deep-abdominal-breathing.mp3` },
+      { title: "Embracing The Maternal Side — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/embracing-the-maternal-side.mp3` },
+      { title: "Energy Booster — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/energy-booster.mp3` },
+      { title: "Feeling Supported — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/feeling-supported.mp3` },
+      { title: "Good Night's Sleep — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/good-nights-sleep.mp3` },
+      { title: "Mama Mantra Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/mama-mantra-meditation.mp3` },
+      { title: "Stomach Soothing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/stomach-soothing.mp3` },
+      { title: "Visualizing A Calm Delivery — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/visualizing-a-calm-delivery.mp3` },
+    ],
+  },
+  "gratitude-for-pregnancy": {
+    heading: "Listen: Gratitude For Pregnancy audio series",
+    intro:
+      "Four guided meditations by Sean Fargo for cultivating gratitude through pregnancy — Embracing The Maternal Side welcomes the quiet shift into motherhood with appreciation; Mama Mantra Meditation offers a steadying inner phrase to return to; Feeling Supported leans into the people, presence, and love already holding you; Body & Mind Relaxation softens you into a grateful, settled awareness of the body that's carrying new life.",
+    tracks: [
+      { title: "Embracing The Maternal Side — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/embracing-the-maternal-side.mp3` },
+      { title: "Mama Mantra Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/mama-mantra-meditation.mp3` },
+      { title: "Feeling Supported — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/feeling-supported.mp3` },
+      { title: "Body & Mind Relaxation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/pregnancy/body-and-mind-relaxation.mp3` },
+    ],
+  },
 };
 
 export function getPlaylist(slug: string | undefined): AudioPlaylist | null {
