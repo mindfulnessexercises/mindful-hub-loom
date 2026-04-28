@@ -1144,6 +1144,41 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Mindfulness of Time, Meaning & Belonging",
     fileSize: "181 KB",
   },
+  "noticing-intrusions": {
+    pdfUrl: "/worksheets/noticing-intrusions.pdf",
+    title: "Noticing Intrusions",
+    fileSize: "160 KB",
+  },
+  "operating-on-autopilot": {
+    pdfUrl: "/worksheets/operating-on-autopilot.pdf",
+    title: "Operating on Autopilot",
+    fileSize: "168 KB",
+  },
+  "realizing-intention": {
+    pdfUrl: "/worksheets/realizing-intention.pdf",
+    title: "Realizing Intention",
+    fileSize: "188 KB",
+  },
+  "recurring-thoughts": {
+    pdfUrl: "/worksheets/recurring-thoughts.pdf",
+    title: "Recurring Thoughts",
+    fileSize: "161 KB",
+  },
+  "self-advocacy": {
+    pdfUrl: "/worksheets/self-advocacy.pdf",
+    title: "Self-Advocacy",
+    fileSize: "190 KB",
+  },
+  "sensing-strongest-experiences": {
+    pdfUrl: "/worksheets/sensing-into-your-strongest-experiences.pdf",
+    title: "Sensing Into Your Strongest Experiences",
+    fileSize: "175 KB",
+  },
+  "shaping-principle": {
+    pdfUrl: "/worksheets/the-shaping-principle.pdf",
+    title: "The Shaping Principle",
+    fileSize: "160 KB",
+  },
 };
 
 /**
@@ -1823,6 +1858,33 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/confidence-building.pdf",
       title: "Confidence Building",
       fileSize: "184 KB",
+      flagged: true,
+    },
+  ],
+  // "Mindfulness of Your Relationship with Technology" — surface on Ariel Garten's tech post.
+  "how-technology-can-deepen-mindfulness-with-ariel-garten-founder-of-muse": [
+    {
+      pdfUrl: "/worksheets/mindfulness-of-your-relationship-with-technology.pdf",
+      title: "Mindfulness of Your Relationship with Technology",
+      fileSize: "161 KB",
+      flagged: true,
+    },
+  ],
+  // "Optimizing Your Schedule for Growth" — surface alongside dealing-busy-schedules.
+  "dealing-busy-schedules": [
+    {
+      pdfUrl: "/worksheets/optimizing-your-schedule-for-growth.pdf",
+      title: "Optimizing Your Schedule for Growth",
+      fileSize: "162 KB",
+      flagged: true,
+    },
+  ],
+  // "The I's of Your Identity" — surface on the identity reflections post.
+  "on-identity-gratitude-and-the-gift-of-an-orange": [
+    {
+      pdfUrl: "/worksheets/the-is-of-your-identity.pdf",
+      title: "The I's of Your Identity",
+      fileSize: "160 KB",
       flagged: true,
     },
   ],
