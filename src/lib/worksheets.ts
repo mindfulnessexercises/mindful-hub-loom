@@ -644,6 +644,26 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Walking Meditation",
     fileSize: "190 KB",
   },
+  "acknowledging-success-worksheet": {
+    pdfUrl: "/worksheets/acknowledging-success.pdf",
+    title: "Acknowledging Success",
+    fileSize: "192 KB",
+  },
+  "being-still-worksheet": {
+    pdfUrl: "/worksheets/being-still.pdf",
+    title: "Being Still",
+    fileSize: "372 KB",
+  },
+  "tune-up-with-music": {
+    pdfUrl: "/worksheets/boosting-mood-with-music.pdf",
+    title: "Boosting Mood with Music",
+    fileSize: "194 KB",
+  },
+  "change-history-channel": {
+    pdfUrl: "/worksheets/changing-your-history-channel.pdf",
+    title: "Changing Your History Channel",
+    fileSize: "192 KB",
+  },
 };
 
 /**
@@ -806,6 +826,64 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/wicca-meditation.pdf",
       title: "Wicca Meditation",
       fileSize: "198 KB",
+      flagged: true,
+    },
+  ],
+  // "Acceptance of our Circumstance" has no dedicated post — surface on the
+  // closest topical match (acceptance meditation).
+  "power-of-acceptance": [
+    {
+      pdfUrl: "/worksheets/acceptance-of-our-circumstance.pdf",
+      title: "Acceptance of Our Circumstance",
+      fileSize: "178 KB",
+      flagged: true,
+    },
+  ],
+  // "Acts of Kindness" has no dedicated post — surface on the mindful
+  // compassion hub.
+  "mindful-compassion": [
+    {
+      pdfUrl: "/worksheets/acts-of-kindness.pdf",
+      title: "Acts of Kindness",
+      fileSize: "175 KB",
+      flagged: true,
+    },
+  ],
+  // Second "Body Scan Meditation" variant — surface alongside the primary one.
+  "body-scan-meditation": [
+    {
+      pdfUrl: "/worksheets/body-scan-meditation-2.pdf",
+      title: "Body Scan Meditation",
+      fileSize: "174 KB",
+      flagged: true,
+    },
+  ],
+  // Second "Breath Awareness Meditation" variant — surface alongside primary.
+  "breath-awareness-meditation": [
+    {
+      pdfUrl: "/worksheets/breath-awareness-meditation-2.pdf",
+      title: "Breath Awareness Meditation",
+      fileSize: "173 KB",
+      flagged: true,
+    },
+  ],
+  // "Breathing Into Tension" has no dedicated post — surface on the closest
+  // breath-for-stress meditation.
+  "alleviate-stress-with-three-deep-breaths": [
+    {
+      pdfUrl: "/worksheets/breathing-into-tension.pdf",
+      title: "Breathing Into Tension",
+      fileSize: "177 KB",
+      flagged: true,
+    },
+  ],
+  // "Bringing Support and Peace to Pain" has no dedicated post — surface on
+  // the mindfulness-of-physical-pain hub.
+  "mindful-physical-pain": [
+    {
+      pdfUrl: "/worksheets/bringing-support-and-peace-to-pain.pdf",
+      title: "Bringing Support and Peace to Pain",
+      fileSize: "185 KB",
       flagged: true,
     },
   ],
