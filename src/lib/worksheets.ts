@@ -178,6 +178,52 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Diving Into Your Core",
     fileSize: "160 KB",
   },
+  "effecting-effected": {
+    pdfUrl: "/worksheets/effecting-change.pdf",
+    title: "Effecting Change",
+    fileSize: "162 KB",
+  },
+  "emotional-awareness-meditation": {
+    pdfUrl: "/worksheets/emotional-awareness-meditation.pdf",
+    title: "Emotional Awareness Meditation",
+    fileSize: "174 KB",
+  },
+  "emotional-journaling": {
+    pdfUrl: "/worksheets/emotional-journaling.pdf",
+    title: "Emotional Journaling",
+    fileSize: "174 KB",
+  },
+  "emotional-validation": {
+    pdfUrl: "/worksheets/emotional-validation.pdf",
+    title: "Emotional Validation",
+    fileSize: "183 KB",
+  },
+  "finding-expressing-strong-emotions": {
+    pdfUrl: "/worksheets/finding-and-expressing-strong-emotions.pdf",
+    title: "Finding and Expressing Strong Emotions",
+    fileSize: "160 KB",
+  },
+  "for-chaotic-times": {
+    pdfUrl: "/worksheets/for-chaotic-times.pdf",
+    title: "For Chaotic Times",
+    fileSize: "163 KB",
+  },
+  "fueling-happiness": {
+    pdfUrl: "/worksheets/fueling-your-happiness.pdf",
+    title: "Fueling Your Happiness",
+    fileSize: "160 KB",
+  },
+  "getting-know-identify": {
+    pdfUrl: "/worksheets/getting-to-know-the-is-you-identify-with.pdf",
+    title: "Getting to Know the \u201cI\u2019s\u201d You Identify With",
+    fileSize: "162 KB",
+  },
+  "affirmations-for-anxiety": {
+    pdfUrl: "/worksheets/finding-your-way-out-of-the-three-fears.pdf",
+    title: "Finding Your Way Out of the Three Fears",
+    fileSize: "162 KB",
+    flagged: true,
+  },
 };
 
 /**
