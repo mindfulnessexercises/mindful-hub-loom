@@ -285,6 +285,9 @@ Deno.serve(async (req) => {
         upserted,
         enriched,
         enrichErrors,
+        style: style.id,
+        styleVersion: STYLE_VERSION,
+        forceRestyle,
       }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } },
     );
