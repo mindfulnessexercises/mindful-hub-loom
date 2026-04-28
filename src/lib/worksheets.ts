@@ -644,6 +644,26 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Walking Meditation",
     fileSize: "190 KB",
   },
+  "acknowledging-success-worksheet": {
+    pdfUrl: "/worksheets/acknowledging-success.pdf",
+    title: "Acknowledging Success",
+    fileSize: "192 KB",
+  },
+  "being-still-worksheet": {
+    pdfUrl: "/worksheets/being-still.pdf",
+    title: "Being Still",
+    fileSize: "372 KB",
+  },
+  "tune-up-with-music": {
+    pdfUrl: "/worksheets/boosting-mood-with-music.pdf",
+    title: "Boosting Mood with Music",
+    fileSize: "194 KB",
+  },
+  "change-history-channel": {
+    pdfUrl: "/worksheets/changing-your-history-channel.pdf",
+    title: "Changing Your History Channel",
+    fileSize: "192 KB",
+  },
 };
 
 /**
