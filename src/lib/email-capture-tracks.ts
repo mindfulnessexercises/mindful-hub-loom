@@ -52,6 +52,27 @@ export interface TrackDefinition {
     /** External / new-tab destinations get target=_blank automatically. */
     external?: boolean;
   };
+  /**
+   * Primary "next step" surfaced inside the post-submit thank-you state.
+   * One clear, track-appropriate button so we never strand a successful
+   * subscriber on a dead-end success message.
+   */
+  thankYou: {
+    /** Headline shown in the success card (replaces the form). */
+    headline: string;
+    /** Short reassurance line under the headline (what to expect / when). */
+    body: string;
+    /** Primary next-step CTA label — verb-led, ≤4 words. */
+    ctaLabel: string;
+    /** Where the primary CTA points. */
+    ctaHref: string;
+    /** Open in new tab when destination is offsite. */
+    ctaExternal?: boolean;
+    /** Optional muted secondary link (e.g. "Browse all events"). */
+    secondaryLabel?: string;
+    secondaryHref?: string;
+    secondaryExternal?: boolean;
+  };
 }
 
 const CERT_HOST = "https://certify.mindfulnessexercises.com/";
