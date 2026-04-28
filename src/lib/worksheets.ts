@@ -23,6 +23,11 @@ export interface WorksheetEntry {
  * For posts that warrant multiple worksheets, see WORKSHEET_BUNDLES below.
  */
 export const WORKSHEETS: Record<string, WorksheetEntry> = {
+  "acting-with-intention": {
+    pdfUrl: "/worksheets/acting-with-intention.pdf",
+    title: "Acting with Intention",
+    fileSize: "198 KB",
+  },
   "appraising-career-values": {
     pdfUrl: "/worksheets/appraising-my-career-values.pdf",
     title: "Appraising My Career Values",
@@ -32,6 +37,26 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     pdfUrl: "/worksheets/appreciating-your-accomplishments.pdf",
     title: "Appreciating Your Accomplishments",
     fileSize: "161 KB",
+  },
+  "appreciating-contribute-2": {
+    pdfUrl: "/worksheets/appreciating-how-you-contribute.pdf",
+    title: "Appreciating How You Contribute",
+    fileSize: "161 KB",
+  },
+  "building-self-esteem": {
+    pdfUrl: "/worksheets/building-self-esteem.pdf",
+    title: "Building Self-Esteem",
+    fileSize: "161 KB",
+  },
+  "building-true-power": {
+    pdfUrl: "/worksheets/building-true-power.pdf",
+    title: "Building True Power",
+    fileSize: "182 KB",
+  },
+  "cultivating-quality-virtue": {
+    pdfUrl: "/worksheets/cultivating-a-quality-or-virtue.pdf",
+    title: "Cultivating a Quality or Virtue",
+    fileSize: "172 KB",
   },
   "assessing-contributions-team": {
     pdfUrl: "/worksheets/assessing-contributions-to-your-team.pdf",
@@ -1315,6 +1340,36 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/personal-intention-statements.pdf",
       title: "Personal Intention Statements",
       fileSize: "233 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/aligning-with-your-purpose.pdf",
+      title: "Aligning with Your Purpose",
+      fileSize: "161 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/assessing-your-decision-making-skills.pdf",
+      title: "Assessing Your Decision Making Skills",
+      fileSize: "160 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/being-positive.pdf",
+      title: "Being Positive",
+      fileSize: "174 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/best-use-of-your-time.pdf",
+      title: "Best Use of Your Time",
+      fileSize: "160 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/developing-an-inner-guide.pdf",
+      title: "Developing an Inner Guide",
+      fileSize: "188 KB",
       flagged: true,
     },
   ],
