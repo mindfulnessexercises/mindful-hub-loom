@@ -34,6 +34,8 @@ import { AuthorCard } from "@/components/wp/AuthorCard";
 import { RelatedPosts } from "@/components/wp/RelatedPosts";
 import { RecommendedNext } from "@/components/wp/RecommendedNext";
 import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
+import { BuzzsproutEmbedPlayer } from "@/components/wp/BuzzsproutEmbed";
+import { extractBuzzsproutEmbed } from "@/lib/buzzsprout";
 import { MeditationPlayer } from "@/components/wp/MeditationPlayer";
 import { MeditationScript } from "@/components/wp/MeditationScript";
 import { WorksheetMindfulGuidance } from "@/components/wp/WorksheetMindfulGuidance";
@@ -275,6 +277,10 @@ export default function WPResolver() {
   }, [rawContent, meditation, isDownloadsPage, slug]);
 
   const audioSrc = useMemo(() => extractFirstAudioUrl(rawContent), [rawContent]);
+  // Old podcast-episode posts wrap a Buzzsprout JS player in a Thrive
+  // `[tcb-script]` shortcode. We surface it via a native iframe (see
+  // BuzzsproutEmbedPlayer) since the shortcode itself can't render here.
+  const buzzsproutEmbed = useMemo(() => extractBuzzsproutEmbed(rawContent), [rawContent]);
   const readingMinutes = useMemo(() => estimateReadingMinutes(rawContent), [rawContent]);
 
   useEffect(
@@ -519,7 +525,12 @@ export default function WPResolver() {
           <div className={`container mx-auto max-w-6xl ${tpl.heroDensity === "compact" ? "py-6 lg:py-10" : "py-10 lg:py-14"}`}>
             <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-12 xl:gap-16">
               <div className="max-w-3xl mx-auto lg:mx-0 w-full min-w-0">
-                {!meditation && audioSrc && (
+                {!meditation && buzzsproutEmbed && (
+                  <div className="mb-8">
+                    <BuzzsproutEmbedPlayer embed={buzzsproutEmbed} title={title} />
+                  </div>
+                )}
+                {!meditation && !buzzsproutEmbed && audioSrc && (
                   <div className="mb-8">
                     <p className="text-eyebrow text-primary mb-2 inline-flex items-center gap-1.5">
                       <Headphones className="h-3.5 w-3.5" /> Listen to this episode
