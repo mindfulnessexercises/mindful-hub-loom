@@ -128,6 +128,56 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Time Management",
     fileSize: "211 KB",
   },
+  "a-new-perspective-on-emotions": {
+    pdfUrl: "/worksheets/a-new-perspective-on-emotions.pdf",
+    title: "A New Perspective on Emotions",
+    fileSize: "216 KB",
+  },
+  "affirmations": {
+    pdfUrl: "/worksheets/affirmations.pdf",
+    title: "Affirmations",
+    fileSize: "303 KB",
+  },
+  "becoming-comfortable-emotions": {
+    pdfUrl: "/worksheets/becoming-comfortable-with-emotions.pdf",
+    title: "Becoming Comfortable With Emotions",
+    fileSize: "161 KB",
+  },
+  "breaking-patterns-self-judgement": {
+    pdfUrl: "/worksheets/breaking-patterns-of-self-judgment.pdf",
+    title: "Breaking Patterns of Self-Judgment",
+    fileSize: "162 KB",
+  },
+  "building-inner-strength": {
+    pdfUrl: "/worksheets/building-inner-strength.pdf",
+    title: "Building Inner Strength",
+    fileSize: "161 KB",
+  },
+  "calming-exhale-breath": {
+    pdfUrl: "/worksheets/calming-exhale-breath.pdf",
+    title: "Calming Exhale Breath",
+    fileSize: "191 KB",
+  },
+  "caring-integrated-way": {
+    pdfUrl: "/worksheets/caring-for-yourself-in-an-integrated-way.pdf",
+    title: "Caring For Yourself in an Integrated Way",
+    fileSize: "167 KB",
+  },
+  "clarifying-emotions": {
+    pdfUrl: "/worksheets/clarifying-emotions.pdf",
+    title: "Clarifying Emotions",
+    fileSize: "180 KB",
+  },
+  "cultivating-gratitude": {
+    pdfUrl: "/worksheets/cultivating-gratitude.pdf",
+    title: "Cultivating Gratitude",
+    fileSize: "161 KB",
+  },
+  "diving-core": {
+    pdfUrl: "/worksheets/diving-into-your-core.pdf",
+    title: "Diving Into Your Core",
+    fileSize: "160 KB",
+  },
 };
 
 /**
