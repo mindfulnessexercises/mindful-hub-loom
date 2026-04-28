@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { MeditationScript } from "@/components/wp/MeditationScript";
+import { getDownloadAssetUrl } from "@/lib/download-assets";
 
 /**
  * Side-by-side demo of the MeditationScript display variants.
  * Visit /admin/meditation-script-demo to compare.
  */
-const SAMPLE_PDF = "/sample-scripts/awareness-of-each-of-the-five-senses.pdf";
+const SAMPLE_PDF = getDownloadAssetUrl("/sample-scripts/awareness-of-each-of-the-five-senses.pdf");
 const SAMPLE_TITLE = "Awareness of Each of the Five Senses";
 
 export default function DemoMeditationScript() {
