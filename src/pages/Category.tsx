@@ -64,6 +64,9 @@ export default function Category({ sectionSlug }: { sectionSlug?: string } = {})
     source: `category:${slug}`,
   });
 
+  const allPosts = postsQuery.data?.pages.flatMap((p) => p.items) ?? [];
+  const { query: filterQuery, setQuery: setFilterQuery, filtered: visiblePosts } = useClientPostFilter(allPosts);
+
   if (catQuery.isLoading) {
     return (
       <div className="min-h-screen bg-background">
@@ -81,10 +84,8 @@ export default function Category({ sectionSlug }: { sectionSlug?: string } = {})
   if (catQuery.isError || !catQuery.data) return <NotFound />;
 
   const cat = catQuery.data;
-  const allPosts = postsQuery.data?.pages.flatMap((p) => p.items) ?? [];
   const total = postsQuery.data?.pages[0]?.total ?? cat.count;
   const totalPages = postsQuery.data?.pages[0]?.totalPages ?? 1;
-  const { query: filterQuery, setQuery: setFilterQuery, filtered: visiblePosts } = useClientPostFilter(allPosts);
   // CPT entries (podcast episodes, downloads) live at nested URLs like
   // /podcast-episodes/<slug>; default posts live at /<slug>. WPResolver
   // handles both, but we have to point the card at the right path.
