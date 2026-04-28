@@ -1,12 +1,13 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { ArrowLeft } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { SectionWrapper } from "@/components/homepage/SectionWrapper";
+import { WPSeo } from "@/components/wp/WPSeo";
 import { VideoPlaylist } from "@/components/video/VideoPlaylist";
 import { VIDEO_COLLECTIONS } from "@/lib/video-catalog";
-import { InlineEmailCapture, type EmailCaptureTrack } from "@/components/email/InlineEmailCapture";
+import { InlineEmailCapture } from "@/components/email/InlineEmailCapture";
+import type { EmailCaptureTrack } from "@/lib/email-capture-tracks";
 import { TrackedCTAButton } from "@/components/cta/TrackedCTAButton";
 
 // Audience-aware copy + secondary CTA per collection. Hand-tuned so the page

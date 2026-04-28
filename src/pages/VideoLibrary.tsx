@@ -33,14 +33,12 @@ const COLLECTION_ORDER: ReadonlyArray<{ slug: string; tagline: string; audience:
 export default function VideoLibrary() {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Video Library — Mindfulness Exercises</title>
-        <meta
-          name="description"
-          content="Hundreds of guided mindfulness videos: complete courses, daily practices, Q&A calls, and talks from leading teachers worldwide."
-        />
-        <link rel="canonical" href="https://mindfulnessexercises.com/videos" />
-      </Helmet>
+      <WPSeo
+        title="Video Library — Guided Mindfulness Videos | Mindfulness Exercises"
+        description="Hundreds of guided mindfulness videos: complete courses, daily practices, Q&A calls, and talks from leading teachers worldwide."
+        canonical="https://mindfulnessexercises.com/videos"
+        type="website"
+      />
       <Navbar />
       <main>
         <SectionWrapper background="primary" ariaLabel="Video Library introduction">
@@ -58,7 +56,7 @@ export default function VideoLibrary() {
           </div>
         </SectionWrapper>
 
-        <SectionWrapper background="default" ariaLabel="Video collections">
+        <SectionWrapper background="emphasis" ariaLabel="Video collections">
           <SectionHeader
             headingId="video-collections-heading"
             eyebrow="Browse by collection"
