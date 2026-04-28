@@ -527,7 +527,12 @@ export default function WPResolver() {
               <div className="max-w-3xl mx-auto lg:mx-0 w-full min-w-0">
                 {!meditation && buzzsproutEmbed && (
                   <div className="mb-8">
-                    <BuzzsproutEmbedPlayer embed={buzzsproutEmbed} title={title} />
+                    <BuzzsproutEmbedPlayer
+                      embed={buzzsproutEmbed}
+                      title={title}
+                      postId={doc.id}
+                      postSlug={slug}
+                    />
                   </div>
                 )}
                 {!meditation && !buzzsproutEmbed && audioSrc && (
