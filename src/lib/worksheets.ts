@@ -699,6 +699,41 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Earth Element",
     fileSize: "192 KB",
   },
+  "everything-fresh-and-new": {
+    pdfUrl: "/worksheets/everything-fresh-and-new.pdf",
+    title: "Everything Fresh and New",
+    fileSize: "199 KB",
+  },
+  "taking-viewpoints-tunnel-busting": {
+    pdfUrl: "/worksheets/exploring-another-viewpoint.pdf",
+    title: "Exploring Another Viewpoint",
+    fileSize: "188 KB",
+  },
+  "exploring-the-five-senses": {
+    pdfUrl: "/worksheets/exploring-the-five-senses.pdf",
+    title: "Exploring the Five Senses",
+    fileSize: "201 KB",
+  },
+  "responders-first": {
+    pdfUrl: "/worksheets/first-responder.pdf",
+    title: "First Responder",
+    fileSize: "183 KB",
+  },
+  "from-big-to-small-to-big": {
+    pdfUrl: "/worksheets/from-big-to-small-to-big.pdf",
+    title: "From Big to Small (to Big)",
+    fileSize: "202 KB",
+  },
+  "full-body-awareness": {
+    pdfUrl: "/worksheets/full-body-awareness.pdf",
+    title: "Full Body Awareness",
+    fileSize: "184 KB",
+  },
+  "gratitude-letter": {
+    pdfUrl: "/worksheets/gratitude-letter.pdf",
+    title: "Gratitude Letter",
+    fileSize: "182 KB",
+  },
 };
 
 /**
@@ -925,6 +960,31 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/bringing-support-and-peace-to-pain.pdf",
       title: "Bringing Support and Peace to Pain",
       fileSize: "185 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/focusing-away-from-pain.pdf",
+      title: "Focusing Away From Pain",
+      fileSize: "219 KB",
+      flagged: true,
+    },
+  ],
+  // Second "Emotional Awareness Meditation" variant — surface alongside primary.
+  "emotional-awareness-meditation": [
+    {
+      pdfUrl: "/worksheets/emotional-awareness-meditation-2.pdf",
+      title: "Emotional Awareness Meditation",
+      fileSize: "174 KB",
+      flagged: true,
+    },
+  ],
+  // "Favorite Things" has no dedicated post — surface alongside the closest
+  // childlike-wonder/pleasantness worksheet.
+  "here-and-now-pleasantness": [
+    {
+      pdfUrl: "/worksheets/favorite-things.pdf",
+      title: "Favorite Things",
+      fileSize: "204 KB",
       flagged: true,
     },
   ],
