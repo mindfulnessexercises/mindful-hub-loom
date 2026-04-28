@@ -176,6 +176,12 @@ Deno.serve(async (req) => {
   // and cost bounded. Defaults to 5 (more than enough for a 2-3-day cadence).
   const url = new URL(req.url);
   const enrichLimit = Math.max(0, Number(url.searchParams.get("enrich_limit") ?? "5"));
+  // Configurable prompt style. Defaults to the on-brand house voice.
+  const style = getStyle(url.searchParams.get("style"));
+  // When true, re-enrich episodes whose stored AI content predates the current
+  // STYLE_VERSION (i.e. was generated under an older prompt). Use this after
+  // bumping STYLE_VERSION in prompt-styles.ts.
+  const forceRestyle = url.searchParams.get("force_restyle") === "1";
 
   try {
     const apiUrl = `https://www.buzzsprout.com/api/${PODCAST_ID}/episodes.json`;
