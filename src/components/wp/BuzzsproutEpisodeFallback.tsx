@@ -64,7 +64,7 @@ export function BuzzsproutEpisodeFallback({ record }: Props) {
         title={`${record.title} — Mindfulness Exercises Podcast`}
         description={description}
         canonical={`https://mindfulnessexercises.com/podcast-episodes/${record.slug}`}
-        image={record.artworkUrl ?? undefined}
+        ogImage={record.artworkUrl ?? undefined}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "PodcastEpisode",
