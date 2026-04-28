@@ -5,6 +5,8 @@ import {
   inferTrackThemes,
   themesForPlaylist,
 } from "@/lib/audio-themes";
+import { trackEvent } from "@/lib/analytics";
+import { PlaylistAudioTrack } from "./PlaylistAudioTrack";
 
 interface AudioPlaylistBlockProps {
   playlist: AudioPlaylist;
