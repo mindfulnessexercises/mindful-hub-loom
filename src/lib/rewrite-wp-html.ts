@@ -97,15 +97,67 @@ export function mapWpPathToAppPath(pathname: string): string | null {
 }
 
 /**
- * Walks an HTML string and rewrites <a href> attributes. Internal links get
- * relative hrefs (and `data-internal="1"` so the click interceptor can
- * recognize them); external WP links get `target="_blank"` + `rel`.
+ * Phrases that mark a legacy WordPress lead-capture block we want to strip
+ * from rendered post HTML. Matched case-insensitively against text content.
  */
+const LEAD_CAPTURE_PHRASES = [
+  /download this entire guided meditation script for free/i,
+  /just enter your first name and email address/i,
+];
+
+function isLeadCaptureText(text: string | null | undefined): boolean {
+  if (!text) return false;
+  return LEAD_CAPTURE_PHRASES.some((re) => re.test(text));
+}
+
+/**
+ * Removes legacy "Download this Entire Guided Meditation Script for Free…"
+ * lead-capture blocks (the headline + any immediately-following form/iframe
+ * containers) from WordPress-rendered HTML.
+ */
+function stripLeadCaptureBlocks(doc: Document): void {
+  // 1) Remove paragraphs / headings whose text matches the phrase, plus any
+  //    immediately-following form/iframe/shortcode wrapper sibling that the
+  //    legacy theme paired with it.
+  const TEXT_HOSTS = "p, h1, h2, h3, h4, h5, h6, div, span, strong, em";
+  const candidates = Array.from(doc.querySelectorAll(TEXT_HOSTS));
+  for (const el of candidates) {
+    if (!isLeadCaptureText(el.textContent)) continue;
+
+    // Walk up to the closest "block" container (a <p>, heading, or top-level div)
+    // so we remove the whole headline element rather than just an inner <strong>.
+    let block: Element = el;
+    while (
+      block.parentElement &&
+      !/^(?:P|H[1-6]|DIV|SECTION|ASIDE)$/.test(block.tagName) &&
+      block.parentElement.tagName !== "BODY"
+    ) {
+      block = block.parentElement;
+    }
+
+    // Also remove the next sibling if it looks like the paired form/iframe.
+    const next = block.nextElementSibling;
+    if (next) {
+      const tag = next.tagName;
+      const cls = (next.getAttribute("class") || "").toLowerCase();
+      const looksLikeForm =
+        tag === "FORM" ||
+        tag === "IFRAME" ||
+        next.querySelector("form, iframe, input[type='email']") !== null ||
+        /(?:gform|wpcf7|mc4wp|cmf|convertkit|optin|email|subscribe|newsletter|leadbox|hubspot)/.test(cls);
+      if (looksLikeForm) next.remove();
+    }
+
+    block.remove();
+  }
+}
+
 export function rewriteWpHtml(html: string): string {
   if (!html || typeof window === "undefined" || typeof DOMParser === "undefined") {
     return html;
   }
   const doc = new DOMParser().parseFromString(html, "text/html");
+  stripLeadCaptureBlocks(doc);
   const anchors = doc.querySelectorAll("a[href]");
   anchors.forEach((a) => {
     const raw = a.getAttribute("href") ?? "";
