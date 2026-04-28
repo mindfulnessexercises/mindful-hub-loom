@@ -261,6 +261,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Mindfulness of Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/10-tips-teaching-mindfulness-of-breathing/mindfulness-of-breathing.mp3` },
       { title: "Training Overview — Introduction by Sean Fargo", src: `${AUDIO_BASE}/10-tips-for-teaching-mindfulness-of-breathing-practices/training-overview.mp3` },
       { title: "Cultivating Sati — Dharma Talk by Ajahn Sucitto", src: `${AUDIO_BASE}/10-tips-for-teaching-mindfulness-of-breathing-practices/ajahn-sucitto-cultivating-sati.mp3` },
+      { title: "Meditation: Coming Back to the Breath — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/10-tips-for-teaching-mindfulness-of-breathing-practices/tara-brach-coming-back-to-the-breath.mp3` },
     ],
   },
   "6-mindful-breathing-exercises": {
@@ -386,6 +387,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Compassion With Attunement — Dharma Talk by Frank Ostaseski", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/frank-ostaseski-compassion-with-attunement.mp3` },
       { title: "Guided Meditation: The Practice of Forgiveness — Guided Meditation by Guy Armstrong", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/guy-armstrong-guided-meditation-the-practice-of-forgiveness.mp3` },
       { title: "Grief — Dharma Talk by Ajahn Brahm", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ajahn-brahm-grief.mp3` },
+      { title: "The Instinctual Body: Sex, Survival and Social Drives — Dharma Talk by Martin Aylward", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/martin-aylward-the-instinctual-body.mp3` },
+      { title: "Love, Relationship, Sexuality and Dharma — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/matthew-brensilver-love-relationship-sexuality-and-dharma.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -761,6 +764,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Letting In The Love — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/james-baraz-letting-in-the-love.mp3` },
       { title: "Hatred Never Ceases By Hatred — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/james-baraz-hatred-never-ceases-by-hatred.mp3` },
       { title: "All About Love — Dharma Talk by Spring Washam", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/spring-washam-all-about-love.mp3` },
+      { title: "Metta Cultivation, Concentration and Purification — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/matthew-brensilver-metta-cultivation-concentration-and-purification.mp3` },
+      { title: "Kindness for All Beings — Dharma Talk by Lila Kate Wheeler", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/lila-kate-wheeler-kindness-for-all-beings.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -906,6 +911,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Peaceful Warrior In Modern Times — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/what-the-world-needs/james-baraz-peaceful-warrior-in-modern-times.mp3` },
       { title: "Race, Racism and Spiritual Practice — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/what-the-world-needs/donald-rothberg-race-racism-and-spiritual-practice.mp3` },
       { title: "Dr. Martin Luther King, Jr., Buddhist Practice, and the Needs of Our Times — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/what-the-world-needs/donald-rothberg-mlk-buddhist-practice-and-the-needs-of-our-times.mp3` },
+      { title: "History Is Ending Today — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/what-the-world-needs/matthew-brensilver-history-is-ending-today.mp3` },
     ],
   },
   "loving-kindness-benefactor": {
@@ -915,6 +921,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     tracks: [
       { title: "Wishing Care For Self and Others — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/loving-kindness-benefactor/wishing-care-for-self-and-others.mp3` },
       { title: "Guided Metta Meditation — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/gil-fronsdal-metta.mp3` },
+      { title: "Kindness for All Beings — Dharma Talk by Lila Kate Wheeler", src: `${AUDIO_BASE}/loving-kindness-benefactor/lila-kate-wheeler-kindness-for-all-beings.mp3` },
     ],
   },
   "the-importance-of-finding-quiet-time": {
@@ -1016,6 +1023,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "The Problem With Being A Good Meditator — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/james-baraz-the-problem-with-being-a-good-meditator.mp3` },
       { title: "The Spiritual Journey — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/donald-rothberg-the-spiritual-journey.mp3` },
       { title: "Failing Well — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/matthew-brensilver-failing-well.mp3` },
+      { title: "Practice Guided By Wisdom — Dharma Talk by Kittisaro", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/kittisaro-practice-guided-by-wisdom.mp3` },
     ],
   },
   "supports-practice-audio": {
@@ -1030,6 +1038,9 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Wise Effort — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/supports-practice-audio/marcia-rose-wise-effort.mp3` },
       { title: "Mindfulness With Attitude — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/supports-practice-audio/james-baraz-mindfulness-with-attitude.mp3` },
       { title: "Knowing and Not Knowing — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/supports-practice-audio/matthew-brensilver-knowing-and-not-knowing.mp3` },
+      { title: "Morning Meditation Instructions — Guided Meditation by Joseph Goldstein", src: `${AUDIO_BASE}/supports-practice-audio/joseph-goldstein-morning-meditation-instructions.mp3` },
+      { title: "Guided Mindfulness Meditation — Guided Meditation by Oren Jay Sofer", src: `${AUDIO_BASE}/supports-practice-audio/oren-jay-sofer-guided-mindfulness-meditation.mp3` },
+      { title: "Guided Meditation: Exploring the Four Satipatthanas — Guided Meditation by Bhikkhu Anālayo", src: `${AUDIO_BASE}/supports-practice-audio/bhikkhu-analayo-guided-meditation-exploring-the-four-satipatthanas.mp3` },
     ],
   },
   "healing-stillness-aimless-love": {
