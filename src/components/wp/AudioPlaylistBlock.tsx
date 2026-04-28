@@ -177,6 +177,60 @@ export function AudioPlaylistBlock({ playlist, hostSlug }: AudioPlaylistBlockPro
         </div>
       )}
 
+      {/* Theme filter chips — only shown when the playlist has at least
+          two themes worth filtering by. Single-theme playlists hide the
+          row to avoid noise. */}
+      {availableThemes.length >= 2 && (
+        <div className="mb-5">
+          <p className="text-eyebrow text-muted-foreground mb-2 inline-flex items-center gap-1.5">
+            <Tag className="h-3 w-3" aria-hidden />
+            Browse by theme
+          </p>
+          <div className="flex flex-wrap items-center gap-2">
+            {availableThemes.map(({ theme, count }) => {
+              const active = activeThemes.has(theme.id);
+              return (
+                <button
+                  key={theme.id}
+                  type="button"
+                  onClick={() => toggleTheme(theme.id)}
+                  aria-pressed={active}
+                  title={theme.description}
+                  className={`inline-flex min-h-[44px] items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition ${
+                    active
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-border bg-background text-foreground/80 hover:border-primary/40 hover:text-foreground"
+                  }`}
+                >
+                  {theme.label}
+                  <span
+                    className={`tabular-nums text-[10px] ${
+                      active ? "opacity-90" : "text-muted-foreground"
+                    }`}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+            {activeThemes.size > 0 && (
+              <button
+                type="button"
+                onClick={clearThemes}
+                className="inline-flex min-h-[44px] items-center rounded-full px-3 py-1.5 text-xs font-medium text-primary transition hover:underline"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+          {activeThemes.size > 0 && (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Showing {visibleIndexes.length} of {playlist.tracks.length} tracks
+            </p>
+          )}
+        </div>
+      )}
+
       {/* Compact tracklist summary so visitors can scan before playing. */}
       {isSeries && (
         <details className="group mb-5 rounded-lg border border-border bg-background/60 p-4">
