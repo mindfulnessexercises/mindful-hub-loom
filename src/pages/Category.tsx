@@ -131,10 +131,10 @@ export default function Category({ sectionSlug }: { sectionSlug?: string } = {})
               <span className="mx-2">/</span>
               <Link to="/blog" className="hover:text-foreground">Blog</Link>
               <span className="mx-2">/</span>
-              <span className="text-foreground">{cat.name}</span>
+              <span className="text-foreground">{stripHtml(cat.name)}</span>
             </nav>
             <p className="text-eyebrow text-muted-foreground mb-3">Category · Mindfulness Exercises</p>
-            <h1 className="text-section-heading text-foreground max-w-3xl">{cat.name}</h1>
+            <h1 className="text-section-heading text-foreground max-w-3xl">{stripHtml(cat.name)}</h1>
             <p className="text-body-lg text-muted-foreground mt-4 max-w-2xl">
               {description}
             </p>

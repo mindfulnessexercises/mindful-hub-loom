@@ -336,7 +336,7 @@ export default function WPResolver() {
         : [{ label: "Blog", href: "/blog" }]
       : []),
     ...(primaryCategory && !isPodcastEpisode
-      ? [{ label: primaryCategory.name, href: `/category/${primaryCategory.slug}` }]
+      ? [{ label: stripHtml(primaryCategory.name), href: `/category/${primaryCategory.slug}` }]
       : []),
     { label: title },
   ];
@@ -399,7 +399,7 @@ export default function WPResolver() {
                         variant="secondary"
                         className="hover:bg-primary/10 transition-colors"
                       >
-                        {c.name}
+                        {stripHtml(c.name)}
                       </Badge>
                     </Link>
                   ))}

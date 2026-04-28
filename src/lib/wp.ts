@@ -217,8 +217,29 @@ export async function bustWPCache(path: "posts" | "pages" | "categories" = "post
 
 
 // ---- Helpers ----
+export function decodeHtmlEntities(text: string): string {
+  if (!text) return text;
+  return text
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(parseInt(n, 10)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, n) => String.fromCharCode(parseInt(n, 16)))
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&apos;/g, "'")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&rsquo;/g, "\u2019")
+    .replace(/&lsquo;/g, "\u2018")
+    .replace(/&rdquo;/g, "\u201D")
+    .replace(/&ldquo;/g, "\u201C")
+    .replace(/&hellip;/g, "\u2026")
+    .replace(/&mdash;/g, "\u2014")
+    .replace(/&ndash;/g, "\u2013");
+}
+
 export function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+  return decodeHtmlEntities(html.replace(/<[^>]*>/g, "")).replace(/\s+/g, " ").trim();
 }
 
 export function getFeaturedImage(post: WPPost): { url: string; alt: string; width?: number; height?: number } | null {
