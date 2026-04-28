@@ -359,6 +359,7 @@ export function AudioPlaylistBlock({ playlist, hostSlug }: AudioPlaylistBlockPro
           );
         })}
       </ol>
+      )}
 
       <div className="mt-6 border-t border-border pt-5">
         <h3 className="text-eyebrow text-primary mb-3">
