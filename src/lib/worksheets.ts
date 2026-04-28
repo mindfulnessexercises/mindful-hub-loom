@@ -441,6 +441,35 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
+  // "Exploring Fear (Partner Exercise)" has no dedicated post — surface
+  // alongside the anxiety/fear-themed worksheet on the affirmations-for-anxiety post.
+  "affirmations-for-anxiety": [
+    {
+      pdfUrl: "/worksheets/exploring-fear-partner-exercise.pdf",
+      title: "Exploring Fear — Partner Exercise",
+      fileSize: "200 KB",
+      flagged: true,
+    },
+  ],
+  // "Mindful Parenting 101" has no dedicated post — surface on the
+  // closest topical hub (Family Engagement).
+  "family-engagement": [
+    {
+      pdfUrl: "/worksheets/mindful-parenting-101.pdf",
+      title: "Mindful Parenting 101",
+      fileSize: "171 KB",
+      flagged: true,
+    },
+  ],
+  // "Mother of All" has no dedicated post — surface on the kids-meditation hub.
+  "how-to-teach-kids-to-meditate": [
+    {
+      pdfUrl: "/worksheets/mother-of-all.pdf",
+      title: "Mother of All",
+      fileSize: "162 KB",
+      flagged: true,
+    },
+  ],
 };
 
 export function getWorksheets(slug: string | undefined | null): WorksheetEntry[] {
