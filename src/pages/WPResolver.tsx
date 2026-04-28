@@ -399,7 +399,7 @@ export default function WPResolver() {
                         variant="secondary"
                         className="hover:bg-primary/10 transition-colors"
                       >
-                        {c.name}
+                        {stripHtml(c.name)}
                       </Badge>
                     </Link>
                   ))}
