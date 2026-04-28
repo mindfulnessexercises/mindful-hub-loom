@@ -519,6 +519,51 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Do Nothing Meditation",
     fileSize: "187 KB",
   },
+  "four-stages-of-meditation": {
+    pdfUrl: "/worksheets/four-stages-of-meditation.pdf",
+    title: "Four Stages of Meditation",
+    fileSize: "382 KB",
+  },
+  "increasing-ability-present": {
+    pdfUrl: "/worksheets/increasing-your-ability-to-be-present.pdf",
+    title: "Increasing Your Ability to be Present",
+    fileSize: "183 KB",
+  },
+  "joyful-effort-worksheet": {
+    pdfUrl: "/worksheets/joyful-effort.pdf",
+    title: "Joyful Effort",
+    fileSize: "177 KB",
+  },
+  "locating-self": {
+    pdfUrl: "/worksheets/locating-the-self.pdf",
+    title: "Locating the Self",
+    fileSize: "162 KB",
+  },
+  "loving-kindness-meditation": {
+    pdfUrl: "/worksheets/loving-kindness-meditation.pdf",
+    title: "Loving-Kindness Meditation",
+    fileSize: "175 KB",
+  },
+  "loving-kindness-meditation-script": {
+    pdfUrl: "/worksheets/loving-kindness-meditation-alt.pdf",
+    title: "Loving Kindness Meditation Script",
+    fileSize: "211 KB",
+  },
+  "meditation-on-life-and-death": {
+    pdfUrl: "/worksheets/meditation-on-life-and-death.pdf",
+    title: "Meditation Script on Life and Death",
+    fileSize: "368 KB",
+  },
+  "meditation-with-a-pet": {
+    pdfUrl: "/worksheets/meditation-with-a-pet.pdf",
+    title: "Meditation with a Pet",
+    fileSize: "147 KB",
+  },
+  "mindfulness-meditation-beginners-free-ebook": {
+    pdfUrl: "/worksheets/mindful-meditation-for-beginners-ebook.pdf",
+    title: "Mindful Meditation for Beginners (eBook)",
+    fileSize: "266 KB",
+  },
 };
 
 /**
@@ -634,6 +679,16 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/finding-me-by-mindfulness-exercises.pdf",
       title: "Finding Me",
       fileSize: "224 KB",
+      flagged: true,
+    },
+  ],
+  // "Loving-Kindness" (third LK worksheet variant) has no dedicated post —
+  // surface alongside the primary Loving-Kindness Meditation worksheet.
+  "loving-kindness-meditation": [
+    {
+      pdfUrl: "/worksheets/loving-kindness.pdf",
+      title: "Loving-Kindness",
+      fileSize: "197 KB",
       flagged: true,
     },
   ],
