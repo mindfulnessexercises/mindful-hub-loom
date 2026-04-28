@@ -106,6 +106,13 @@ const REQUIRED_PROPS: Record<string, readonly string[]> = {
   homepage_section_viewed: ["section"],
   homepage_cta_viewed: ["cta_location"],
 
+  // Audio engagement (see src/hooks/use-audio-tracking.ts)
+  audio_started: ["src", "surface"],
+  audio_completed: ["src", "surface", "completion_trigger"],
+
+  // Certification click-throughs (site-wide; see src/hooks/use-certification-click-tracker.ts)
+  certification_cta_clicked: ["cta_destination", "cta_location", "source_path"],
+
   // Infra
   legacy_redirect: ["from", "to", "rule", "external"],
 };

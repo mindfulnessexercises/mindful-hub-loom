@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Clock, Download, ExternalLink, Headphones, ListMusic, Tag } from "lucide-react";
+import { Clock, Headphones, ListMusic, Tag } from "lucide-react";
 import type { AudioPlaylist, PlaylistTrack } from "@/lib/audio-playlists";
 import {
   inferTrackThemes,
   themesForPlaylist,
 } from "@/lib/audio-themes";
+import { PlaylistAudioTrack } from "./PlaylistAudioTrack";
 
 interface AudioPlaylistBlockProps {
   playlist: AudioPlaylist;
@@ -290,72 +291,20 @@ export function AudioPlaylistBlock({ playlist, hostSlug }: AudioPlaylistBlockPro
         {visibleIndexes.map((i) => {
           const t = playlist.tracks[i];
           const trackSlug = normalizeSlug(t.postSlug);
-          const showOpenPost = !!trackSlug && trackSlug !== host;
           const d = formatDuration(durations[i]);
           return (
-            <li
+            <PlaylistAudioTrack
               key={t.src}
-              id={`track-${i + 1}`}
-              className="rounded-lg border border-border bg-background p-4 scroll-mt-24"
-            >
-              <div className="mb-2 flex items-start gap-2 text-sm font-medium text-foreground/85">
-                <span
-                  aria-hidden
-                  className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary mt-0.5"
-                >
-                  {i + 1}
-                </span>
-                <span className="flex-1">{t.title}</span>
-                {d && (
-                  <span
-                    className="inline-flex items-center gap-1 rounded-md bg-muted px-2 py-0.5 text-xs font-medium tabular-nums text-muted-foreground shrink-0"
-                    aria-label={`Duration ${d}`}
-                  >
-                    <Clock className="h-3 w-3" aria-hidden />
-                    {d}
-                  </span>
-                )}
-              </div>
-              <audio
-                controls
-                preload="metadata"
-                src={t.src}
-                className="w-full"
-                style={{ width: "100%" }}
-                onLoadedMetadata={(e) => {
-                  const dur = (e.currentTarget as HTMLAudioElement).duration;
-                  if (Number.isFinite(dur) && dur > 0) {
-                    setDurations((prev) =>
-                      prev[i] === dur ? prev : { ...prev, [i]: dur },
-                    );
-                  }
-                }}
-              >
-                Your browser does not support the audio element.{" "}
-                <a href={t.src}>Download the audio file</a>.
-              </audio>
-              <div className="mt-3 flex flex-wrap items-center gap-2">
-                <a
-                  href={t.src}
-                  download={downloadName(t)}
-                  className="inline-flex min-h-[44px] items-center gap-1.5 rounded-md border border-border bg-background px-3 py-2 text-xs font-medium text-foreground/85 transition hover:bg-muted hover:text-foreground"
-                  aria-label={`Download ${t.title} as MP3`}
-                >
-                  <Download className="h-3.5 w-3.5" aria-hidden />
-                  Download MP3
-                </a>
-                {showOpenPost && (
-                  <a
-                    href={`/${trackSlug}`}
-                    className="inline-flex min-h-[44px] items-center gap-1.5 rounded-md px-3 py-2 text-xs font-medium text-primary transition hover:underline"
-                    aria-label={`Open the original post for ${t.title}`}
-                  >
-                    <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-                    Open original post
-                  </a>
-                )}
-              </div>
-            </li>
+              track={t}
+              index={i}
+              hostSlug={host}
+              trackOriginSlug={trackSlug}
+              durationLabel={d}
+              downloadFilename={downloadName(t)}
+              onDurationKnown={(dur) =>
+                setDurations((prev) => (prev[i] === dur ? prev : { ...prev, [i]: dur }))
+              }
+            />
           );
         })}
       </ol>
