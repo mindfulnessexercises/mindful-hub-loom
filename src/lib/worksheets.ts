@@ -544,6 +544,16 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Concentration",
     fileSize: "187 KB",
   },
+  "gathering-focus": {
+    pdfUrl: "/worksheets/gathering-focus.pdf",
+    title: "Gathering Focus",
+    fileSize: "165 KB",
+  },
+  "gaining-strength-taking-initiative": {
+    pdfUrl: "/worksheets/gaining-strength-by-taking-initiative.pdf",
+    title: "Gaining Strength by Taking Initiative",
+    fileSize: "165 KB",
+  },
   "cultivating-compassion": {
     pdfUrl: "/worksheets/cultivating-compassion.pdf",
     title: "Cultivating Compassion",
@@ -1372,6 +1382,42 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "188 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/finding-meaning-in-daily-activities.pdf",
+      title: "Finding Meaning in Daily Activities",
+      fileSize: "161 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/finding-the-meaning-in-my-life.pdf",
+      title: "Finding the Meaning in My Life",
+      fileSize: "182 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/how-do-i-spend-my-time.pdf",
+      title: "How Do I Spend My Time",
+      fileSize: "163 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/living-with-personal-integrity.pdf",
+      title: "Living with Personal Integrity",
+      fileSize: "160 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/looking-back-from-95.pdf",
+      title: "Looking Back from 95",
+      fileSize: "169 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/meaning-and-belonging-in-my-life.pdf",
+      title: "Meaning and Belonging in My Life",
+      fileSize: "164 KB",
+      flagged: true,
+    },
   ],
   // "One Thing at a Time" — single-tasking presence, surface alongside Mindful Pause.
   "mindful-pause": [
@@ -1379,6 +1425,21 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/one-thing-at-a-time.pdf",
       title: "One Thing at a Time",
       fileSize: "160 KB",
+      flagged: true,
+    },
+  ],
+  // Focus / attention worksheets — surface alongside the concentration worksheet.
+  "concentration": [
+    {
+      pdfUrl: "/worksheets/how-to-stay-focused.pdf",
+      title: "How to Stay Focused",
+      fileSize: "184 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/increasing-your-quality-of-attention.pdf",
+      title: "Increasing Your Quality of Attention",
+      fileSize: "161 KB",
       flagged: true,
     },
   ],
