@@ -20,6 +20,8 @@ import {
   flattenRegistry,
   getTheme,
 } from "@/lib/audio-themes";
+import { parseTrackTitle } from "@/lib/track-metadata";
+import { TrackMetadataChips } from "@/components/wp/TrackMetadataChips";
 
 /** Format seconds → "M:SS" or "H:MM:SS". Returns null when unknown. */
 function formatDuration(seconds: number | undefined): string | null {
@@ -387,37 +389,39 @@ export default function AudioLibrary() {
                   >
                     <div className="mb-2 flex items-start justify-between gap-3">
                       <div className="flex-1">
-                        <h2 className="text-base font-medium text-foreground/90 leading-snug">
-                          {t.title}
-                        </h2>
-                        <p className="mt-1 text-xs text-muted-foreground">
-                          From{" "}
-                          <Link
-                            to={`/${t.primaryHostSlug}`}
-                            className="text-primary hover:underline"
-                          >
-                            {t.primaryHostHeading.replace(/^Listen:?\s*/i, "")}
-                          </Link>
-                          {t.alsoOn.length > 0 && (
+                        {(() => {
+                          const meta = parseTrackTitle(t.title);
+                          const sourceLabel = t.primaryHostHeading.replace(/^Listen:?\s*/i, "");
+                          return (
                             <>
-                              {" · also on "}
-                              {t.alsoOn.map((alt, i) => (
-                                <span key={alt.hostSlug}>
-                                  <Link
-                                    to={`/${alt.hostSlug}`}
-                                    className="text-primary hover:underline"
-                                  >
-                                    {alt.hostHeading.replace(
-                                      /^Listen:?\s*/i,
-                                      "",
-                                    )}
-                                  </Link>
-                                  {i < t.alsoOn.length - 1 && ", "}
-                                </span>
-                              ))}
+                              <h2 className="text-base font-medium text-foreground/90 leading-snug">
+                                {meta.cleanTitle}
+                              </h2>
+                              <TrackMetadataChips
+                                meta={meta}
+                                sourceLabel={sourceLabel}
+                                sourceHref={`/${t.primaryHostSlug}`}
+                                className="mt-1.5"
+                              />
+                              {t.alsoOn.length > 0 && (
+                                <p className="mt-1 text-xs text-muted-foreground">
+                                  Also on{" "}
+                                  {t.alsoOn.map((alt, i) => (
+                                    <span key={alt.hostSlug}>
+                                      <Link
+                                        to={`/${alt.hostSlug}`}
+                                        className="text-primary hover:underline"
+                                      >
+                                        {alt.hostHeading.replace(/^Listen:?\s*/i, "")}
+                                      </Link>
+                                      {i < t.alsoOn.length - 1 && ", "}
+                                    </span>
+                                  ))}
+                                </p>
+                              )}
                             </>
-                          )}
-                        </p>
+                          );
+                        })()}
                       </div>
                       {d && (
                         <span
