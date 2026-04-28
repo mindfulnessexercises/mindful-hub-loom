@@ -1423,6 +1423,48 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "164 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/moving-forward-in-your-life.pdf",
+      title: "Moving Forward in Your Life",
+      fileSize: "161 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/seeing-the-big-picture.pdf",
+      title: "Seeing the Big Picture",
+      fileSize: "160 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/shaping-my-day-to-day-life.pdf",
+      title: "Shaping My Day-to-Day Life",
+      fileSize: "166 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/what-do-i-want-for-the-future.pdf",
+      title: "What Do I Want for the Future",
+      fileSize: "172 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/what-is-my-ultimate-purpose.pdf",
+      title: "What is My Ultimate Purpose",
+      fileSize: "161 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/where-are-you-going.pdf",
+      title: "Where Are You Going",
+      fileSize: "184 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/your-life-in-time.pdf",
+      title: "Your Life in Time",
+      fileSize: "161 KB",
+      flagged: true,
+    },
   ],
   // "One Thing at a Time" — single-tasking presence, surface alongside Mindful Pause.
   "mindful-pause": [
