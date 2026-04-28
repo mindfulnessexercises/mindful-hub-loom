@@ -734,6 +734,36 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Gratitude Letter",
     fileSize: "182 KB",
   },
+  "gratitude": {
+    pdfUrl: "/worksheets/gratitude.pdf",
+    title: "Gratitude",
+    fileSize: "196 KB",
+  },
+  "grounding-through-body-awareness": {
+    pdfUrl: "/worksheets/grounding-through-body-awareness.pdf",
+    title: "Grounding through Body Awareness",
+    fileSize: "195 KB",
+  },
+  "warm-hands-visualization": {
+    pdfUrl: "/worksheets/hand-warming-visualization.pdf",
+    title: "Hand Warming Visualization",
+    fileSize: "188 KB",
+  },
+  "identifying-strengths-strengths-journal": {
+    pdfUrl: "/worksheets/identifying-strengths.pdf",
+    title: "Identifying Strengths",
+    fileSize: "230 KB",
+  },
+  "letting-go-story": {
+    pdfUrl: "/worksheets/letting-go-of-limiting-stories.pdf",
+    title: "Letting Go of Limiting Stories",
+    fileSize: "189 KB",
+  },
+  "letting-go": {
+    pdfUrl: "/worksheets/letting-go.pdf",
+    title: "Letting Go",
+    fileSize: "173 KB",
+  },
 };
 
 /**
@@ -800,6 +830,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/taking-care-of-yourself.pdf",
       title: "Taking Care of Yourself",
       fileSize: "167 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/letter-of-self-compassion.pdf",
+      title: "Letter of Self-Compassion",
+      fileSize: "173 KB",
       flagged: true,
     },
   ],
@@ -985,6 +1021,34 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/favorite-things.pdf",
       title: "Favorite Things",
       fileSize: "204 KB",
+      flagged: true,
+    },
+  ],
+  // "Grounding" (shorter standalone variant) — surface alongside the
+  // grounding-through-body-awareness worksheet.
+  "grounding-through-body-awareness": [
+    {
+      pdfUrl: "/worksheets/grounding.pdf",
+      title: "Grounding",
+      fileSize: "173 KB",
+      flagged: true,
+    },
+  ],
+  // "Impermanence" worksheet — surface on the closest impermanence hub.
+  "embrace-change-and-strengthen-gratitude-with-7-meditations-on-impermanence": [
+    {
+      pdfUrl: "/worksheets/impermanence.pdf",
+      title: "Impermanence",
+      fileSize: "170 KB",
+      flagged: true,
+    },
+  ],
+  // "Learning from Nature" — surface alongside the Nature Walks worksheet.
+  "nature-walks": [
+    {
+      pdfUrl: "/worksheets/learning-from-nature.pdf",
+      title: "Learning from Nature",
+      fileSize: "188 KB",
       flagged: true,
     },
   ],
