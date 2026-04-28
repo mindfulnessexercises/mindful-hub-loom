@@ -259,7 +259,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "6-mindful-breathing-exercises": {
     heading: "Listen: Mindful Breathing audio series",
     intro:
-      "Eleven of Sean Fargo's guided breath meditations — from curiosity and embodied awareness, to counting each exhale, to resting in the rhythm of the breath without judgment — plus longer practices on the beauty of the breath, breathing space, a short five-minute reset, breathing with care, mental space through mindful breathing, feeling embodied, and weaving mindful breathing into self-care. Plus three classic guided breath meditations from Gil Fronsdal — two long-form retreats from 2001 and 2003, and his Anapanasati teaching on the Four Forms of Mindfulness of Breathing.",
+      "Eleven of Sean Fargo's guided breath meditations — from curiosity and embodied awareness, to counting each exhale, to resting in the rhythm of the breath without judgment — plus longer practices on the beauty of the breath, breathing space, a short five-minute reset, breathing with care, mental space through mindful breathing, feeling embodied, and weaving mindful breathing into self-care. Plus three classic guided breath meditations from Gil Fronsdal — two long-form retreats from 2001 and 2003, and his Anapanasati teaching on the Four Forms of Mindfulness of Breathing — followed by a ten-part Guided Anapanasati Meditation series (Gil Fronsdal) recorded live at IMC: a slow, retreat-style progression through the Anapanasati instructions covering exploring the breath, relating to the breath, breath and peripheral awareness, exploring impermanence, relaxing the mental formation, noticing ease and effortlessness, relaxing while cultivating joy and ease, cultivating well-being, noticing absence and the little cessations, and peripheral awareness and fading away.",
     tracks: [
       { title: "Breathing With Curiosity — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/breathing-with-curiosity.mp3` },
       { title: "Embodied Awareness of Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/embodied-awareness-of-breathing.mp3` },
@@ -277,6 +277,16 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Guided Meditation on the Breath — Long-Form Retreat by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-breath-2001.mp3` },
       { title: "Guided Meditation on the Breath — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-breath-2003.mp3` },
       { title: "Anapanasati: Four Forms of Mindfulness of Breathing — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapanasati-four-forms.mp3` },
+      { title: "Guided Anapanasati Meditation: Exploring the Breath — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-exploring-the-breath.mp3` },
+      { title: "Guided Anapanasati Meditation: Relating to the Breath — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-relating-to-the-breath.mp3` },
+      { title: "Guided Anapanasati Meditation: Breath and Peripheral Awareness — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-breath-and-peripheral-awareness.mp3` },
+      { title: "Guided Anapanasati Meditation: Exploring Impermanence and Awareness — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-exploring-impermanence-and-awareness.mp3` },
+      { title: "Guided Anapanasati Meditation: Relaxing the Mental Formation — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-relaxing-the-mental-formation.mp3` },
+      { title: "Guided Anapanasati Meditation: Noticing Ease and Effortlessness — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-noticing-ease-and-effortlessness.mp3` },
+      { title: "Guided Anapanasati Meditation: Relaxing and Cultivating Joy and Ease — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-relaxing-cultivating-joy-ease.mp3` },
+      { title: "Guided Anapanasati Meditation: Cultivating Well-Being — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-cultivating-well-being.mp3` },
+      { title: "Guided Anapanasati Meditation: Noticing Absence and Little Cessations — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-noticing-absence-and-little-cessations.mp3` },
+      { title: "Guided Anapanasati Meditation: Peripheral Awareness and Fading Away — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-peripheral-awareness-and-fading-away.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
