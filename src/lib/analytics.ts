@@ -286,7 +286,28 @@ export interface CtaClickProps {
 }
 
 export function trackCtaClick(props: CtaClickProps): void {
-  trackEvent("cta_clicked", { ...props });
+  // Enrich every CTA click with podcast attribution if the user played a
+  // Buzzsprout episode earlier in this tab. The attribution payload is
+  // namespaced (`podcast_play_*`) so it never collides with the CTA's own
+  // props and downstream queries can join cleanly.
+  //
+  // Sync inline import would create a circular dep at module-eval time, so
+  // we read sessionStorage via a tiny helper that has no other deps.
+  let attributed: Record<string, string | number | boolean> = {};
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { getPodcastAttribution } = require("./podcast-attribution") as typeof import("./podcast-attribution");
+    const a = getPodcastAttribution();
+    if (a) {
+      attributed = {
+        attributed_to_podcast: true,
+        ...a,
+      };
+    }
+  } catch {
+    /* attribution is best-effort; never break the click */
+  }
+  trackEvent("cta_clicked", { ...props, ...attributed });
   // Also record dispatch / queue arrival tracking. Done lazily-imported to
   // avoid a circular import (cta-arrival imports `trackEvent` from this file).
   // eslint-disable-next-line @typescript-eslint/no-var-requires
