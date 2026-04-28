@@ -444,6 +444,36 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Mindful Eating With Oranges",
     fileSize: "168 KB",
   },
+  "monitoring-stress-reduction": {
+    pdfUrl: "/worksheets/monitoring-stress-reduction.pdf",
+    title: "Monitoring Stress Reduction",
+    fileSize: "176 KB",
+  },
+  "movement-meditation": {
+    pdfUrl: "/worksheets/movement-meditation.pdf",
+    title: "Movement Meditation",
+    fileSize: "264 KB",
+  },
+  "reducing-holiday-stress": {
+    pdfUrl: "/worksheets/reducing-holiday-stress.pdf",
+    title: "Reducing Holiday Stress",
+    fileSize: "178 KB",
+  },
+  "scheduling-something-pleasant": {
+    pdfUrl: "/worksheets/scheduling-something-pleasant.pdf",
+    title: "Scheduling Something Pleasant",
+    fileSize: "190 KB",
+  },
+  "stress-eating": {
+    pdfUrl: "/worksheets/stress-eating.pdf",
+    title: "Stress Eating",
+    fileSize: "178 KB",
+  },
+  "gift-of-rest": {
+    pdfUrl: "/worksheets/the-gift-of-rest.pdf",
+    title: "The Gift of Rest",
+    fileSize: "167 KB",
+  },
 };
 
 /**
@@ -491,13 +521,19 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
-  // "Understanding Your Self-Pity" has no dedicated post — surface on the
-  // closest topical match (Self-Compassion hub).
+  // "Understanding Your Self-Pity" and "Taking Care of Yourself" have no
+  // dedicated posts — surface on the Self-Compassion hub.
   "the-power-of-self-compassion": [
     {
       pdfUrl: "/worksheets/understanding-your-self-pity.pdf",
       title: "Understanding Your Self-Pity",
       fileSize: "161 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/taking-care-of-yourself.pdf",
+      title: "Taking Care of Yourself",
+      fileSize: "167 KB",
       flagged: true,
     },
   ],
