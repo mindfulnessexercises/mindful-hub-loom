@@ -737,6 +737,14 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
+  // Companion guide & journal alongside the beginners ebook.
+  "mindfulness-meditation-beginners-free-ebook": [
+    {
+      pdfUrl: "/worksheets/mindful-meditation-guide-and-journal.pdf",
+      title: "Mindful Meditation Guide and Journal",
+      fileSize: "332 KB",
+    },
+  ],
 };
 
 export function getWorksheets(slug: string | undefined | null): WorksheetEntry[] {
