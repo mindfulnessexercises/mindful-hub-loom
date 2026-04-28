@@ -336,7 +336,7 @@ export default function WPResolver() {
         : [{ label: "Blog", href: "/blog" }]
       : []),
     ...(primaryCategory && !isPodcastEpisode
-      ? [{ label: primaryCategory.name, href: `/category/${primaryCategory.slug}` }]
+      ? [{ label: stripHtml(primaryCategory.name), href: `/category/${primaryCategory.slug}` }]
       : []),
     { label: title },
   ];
