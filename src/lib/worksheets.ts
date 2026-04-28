@@ -1059,6 +1059,16 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Seeing Goodness in Others",
     fileSize: "192 KB",
   },
+  "timing-contributions-conversations": {
+    pdfUrl: "/worksheets/timing-your-contributions-to-conversations.pdf",
+    title: "Timing Your Contributions to Conversations",
+    fileSize: "161 KB",
+  },
+  "mood-generating-others": {
+    pdfUrl: "/worksheets/what-mood-are-you-generating-in-others.pdf",
+    title: "What Mood are You Generating in Others",
+    fileSize: "161 KB",
+  },
 };
 
 /**
@@ -1687,6 +1697,42 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/relating-to-romantic-relationships.pdf",
       title: "Relating to Romantic Relationships",
       fileSize: "130 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/standing-up-for-yourself.pdf",
+      title: "Standing Up for Yourself",
+      fileSize: "161 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/stepping-up-your-support-of-others.pdf",
+      title: "Stepping Up Your Support of Others",
+      fileSize: "170 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/difference-between-private-and-public-conversations.pdf",
+      title: "The Difference Between Private and Public Conversations",
+      fileSize: "162 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/impact-of-your-emotions-in-relationships.pdf",
+      title: "The Impact of Your Emotions in Relationships",
+      fileSize: "161 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/what-really-changes-your-view-on-things.pdf",
+      title: "What Really Changes Your View on Things",
+      fileSize: "161 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/what-value-do-you-have-of-people.pdf",
+      title: "What Value Do You Have of People",
+      fileSize: "160 KB",
       flagged: true,
     },
   ],
