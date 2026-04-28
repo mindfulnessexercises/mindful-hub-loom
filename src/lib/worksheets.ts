@@ -682,6 +682,16 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
+  // "Loving-Kindness" (third LK worksheet variant) has no dedicated post —
+  // surface alongside the primary Loving-Kindness Meditation worksheet.
+  "loving-kindness-meditation": [
+    {
+      pdfUrl: "/worksheets/loving-kindness.pdf",
+      title: "Loving-Kindness",
+      fileSize: "197 KB",
+      flagged: true,
+    },
+  ],
 };
 
 export function getWorksheets(slug: string | undefined | null): WorksheetEntry[] {
