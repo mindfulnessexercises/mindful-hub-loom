@@ -324,6 +324,36 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Tracking Your Mood",
     fileSize: "175 KB",
   },
+  "transforming-anger": {
+    pdfUrl: "/worksheets/transforming-anger.pdf",
+    title: "Transforming Anger",
+    fileSize: "183 KB",
+  },
+  "transforming-anxiety": {
+    pdfUrl: "/worksheets/transforming-anxiety.pdf",
+    title: "Transforming Anxiety",
+    fileSize: "183 KB",
+  },
+  "transforming-ill-will": {
+    pdfUrl: "/worksheets/transforming-ill-will.pdf",
+    title: "Transforming Ill Will",
+    fileSize: "186 KB",
+  },
+  "withholding": {
+    pdfUrl: "/worksheets/why-are-you-withholding.pdf",
+    title: "Why Are You Withholding?",
+    fileSize: "160 KB",
+  },
+  "working-with-a-nightmare": {
+    pdfUrl: "/worksheets/working-with-a-nightmare.pdf",
+    title: "Working with a Nightmare",
+    fileSize: "175 KB",
+  },
+  "working-judgments": {
+    pdfUrl: "/worksheets/working-with-judgments.pdf",
+    title: "Working with Judgments",
+    fileSize: "163 KB",
+  },
 };
 
 /**
