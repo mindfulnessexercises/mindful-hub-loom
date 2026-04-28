@@ -295,7 +295,7 @@ export default function WPResolver() {
   // edge function — and synthesize the same iframe embed.
   const buzzsproutLookupQuery = useQuery({
     queryKey: ["buzzsprout-by-slug", slug],
-    queryFn: () => lookupBuzzsproutBySlug(slug ?? ""),
+    queryFn: () => lookupBuzzsproutEmbedBySlug(slug ?? ""),
     enabled: isPodcastEpisode && !!slug && !inlineBuzzsproutEmbed,
     staleTime: 1000 * 60 * 60,
   });
