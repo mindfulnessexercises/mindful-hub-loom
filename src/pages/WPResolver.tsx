@@ -320,6 +320,8 @@ export default function WPResolver() {
           ? "download"
           : "post";
   const tpl = getTemplateConfig(doc.slug, templateKind);
+  const attachedWorksheets = getWorksheets(doc.slug);
+  const hasWorksheets = attachedWorksheets.length > 0;
   const canonicalSlugPath = cptEndpoint
     ? `/${CPT_URL_PARENT[cptEndpoint]}/${doc.slug}`
     : `/${doc.slug}`;
