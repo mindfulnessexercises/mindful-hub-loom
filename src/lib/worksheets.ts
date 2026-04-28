@@ -734,6 +734,36 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Gratitude Letter",
     fileSize: "182 KB",
   },
+  "gratitude": {
+    pdfUrl: "/worksheets/gratitude.pdf",
+    title: "Gratitude",
+    fileSize: "196 KB",
+  },
+  "grounding-through-body-awareness": {
+    pdfUrl: "/worksheets/grounding-through-body-awareness.pdf",
+    title: "Grounding through Body Awareness",
+    fileSize: "195 KB",
+  },
+  "warm-hands-visualization": {
+    pdfUrl: "/worksheets/hand-warming-visualization.pdf",
+    title: "Hand Warming Visualization",
+    fileSize: "188 KB",
+  },
+  "identifying-strengths-strengths-journal": {
+    pdfUrl: "/worksheets/identifying-strengths.pdf",
+    title: "Identifying Strengths",
+    fileSize: "230 KB",
+  },
+  "letting-go-story": {
+    pdfUrl: "/worksheets/letting-go-of-limiting-stories.pdf",
+    title: "Letting Go of Limiting Stories",
+    fileSize: "189 KB",
+  },
+  "letting-go": {
+    pdfUrl: "/worksheets/letting-go.pdf",
+    title: "Letting Go",
+    fileSize: "173 KB",
+  },
 };
 
 /**
