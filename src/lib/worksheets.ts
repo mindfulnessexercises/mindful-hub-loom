@@ -274,6 +274,56 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Noting the Effects of Feeling Unappreciated",
     fileSize: "161 KB",
   },
+  "opening-heart-mind-gratitude": {
+    pdfUrl: "/worksheets/opening-your-heart-and-mind-to-gratitude.pdf",
+    title: "Opening Your Heart and Mind to Gratitude",
+    fileSize: "162 KB",
+  },
+  "overcoming-anxious-thoughts": {
+    pdfUrl: "/worksheets/overcoming-anxious-thoughts.pdf",
+    title: "Overcoming Anxious Thoughts",
+    fileSize: "185 KB",
+  },
+  "saturating-appreciation": {
+    pdfUrl: "/worksheets/saturating-your-being-with-appreciation.pdf",
+    title: "Saturating Your Being With Appreciation",
+    fileSize: "161 KB",
+  },
+  "scheduling-worry-time": {
+    pdfUrl: "/worksheets/scheduling-worry-time.pdf",
+    title: "Scheduling Worry Time",
+    fileSize: "173 KB",
+  },
+  "sensing-triggered-feelings": {
+    pdfUrl: "/worksheets/sensing-into-strong-triggered-feelings.pdf",
+    title: "Sensing Into Strong, Triggered Feelings",
+    fileSize: "160 KB",
+  },
+  "sourcing-self-judgment-comes": {
+    pdfUrl: "/worksheets/sourcing-where-your-self-judgment-comes-from.pdf",
+    title: "Sourcing Where Your Self-Judgment Comes From",
+    fileSize: "161 KB",
+  },
+  "staying-with-emotions": {
+    pdfUrl: "/worksheets/staying-with-emotions.pdf",
+    title: "Staying with Emotions",
+    fileSize: "163 KB",
+  },
+  "taking-in-the-good": {
+    pdfUrl: "/worksheets/taking-in-the-good.pdf",
+    title: "Taking in the Good",
+    fileSize: "172 KB",
+  },
+  "three-good-things-exercise": {
+    pdfUrl: "/worksheets/three-good-things-exercise.pdf",
+    title: "Three Good Things Exercise",
+    fileSize: "180 KB",
+  },
+  "tracking-your-mood": {
+    pdfUrl: "/worksheets/tracking-your-mood.pdf",
+    title: "Tracking Your Mood",
+    fileSize: "175 KB",
+  },
 };
 
 /**
