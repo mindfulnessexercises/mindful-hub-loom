@@ -12,6 +12,7 @@ import {
 
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
+import { InlineEmailCapture } from "@/components/email/InlineEmailCapture";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { AUDIO_PLAYLISTS } from "@/lib/audio-playlists";
 import {
@@ -494,6 +495,18 @@ export default function AudioLibrary() {
               })}
             </ol>
           )}
+        </section>
+
+        {/* Live-events lead capture sits closest to where people just
+            finished an audio session — peak intent for community sittings. */}
+        <section className="mt-16 border-t border-border pt-12">
+          <div className="mx-auto max-w-2xl">
+            <InlineEmailCapture
+              track="live_events"
+              location="audio_library_footer"
+              variant="card"
+            />
+          </div>
         </section>
       </main>
 
