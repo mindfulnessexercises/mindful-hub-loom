@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Download, FileText, Printer, ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 
 export type MeditationScriptVariant = "inline" | "collapsible" | "card";
