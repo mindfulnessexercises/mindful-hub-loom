@@ -3,6 +3,7 @@ import { Download, Pause, Play, RotateCcw, RotateCw, Volume2 } from "lucide-reac
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { trackEvent } from "@/lib/analytics";
+import { useAudioTracking } from "@/hooks/use-audio-tracking";
 
 interface MeditationPlayerProps {
   src: string;
