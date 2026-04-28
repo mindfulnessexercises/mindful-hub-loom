@@ -233,6 +233,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     tracks: [
       { title: "Elemental Body Awareness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/awareness-of-the-four-elements/elemental-body-awareness.mp3` },
       { title: "How to Come Home to the Body — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/awareness-of-the-four-elements/come-home-to-the-body.mp3` },
+      { title: "Breathing Spirit Into Form — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/awareness-of-the-four-elements/ajahn-sumedho-breathing-spirit-into-form.mp3` },
     ],
   },
   "how-to-practice-mindfulness-of-death-and-why-its-important": {
@@ -553,6 +554,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Letting Life Be Just As It Is — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/power-of-acceptance/tara-brach-letting-life-be-just-as-it-is.mp3` },
       { title: "Dharma Talk: Nothing at Stake — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-acceptance/gil-fronsdal-dharma-talk-nothing-at-stake.mp3` },
       { title: "Dharmette: Don't Pick It Up and Don't Reject It — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-acceptance/gil-fronsdal-dharmette-dont-pick-it-up-dont-reject-it.mp3` },
+      { title: "The Way It Is — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/power-of-acceptance/ajahn-sumedho-the-way-it-is.mp3` },
     ],
   },
   "8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself": {
@@ -642,6 +644,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "What's Up With Change? — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/settling-into-presence/mark-coleman-whats-up-with-change.mp3` },
       { title: "Body and Mind Resting in One's Own Gaze — Guided Meditation by Akincano Marc Weber", src: `${AUDIO_BASE}/settling-into-presence/akincano-marc-weber-body-and-mind-resting-in-ones-own-gaze.mp3` },
       { title: "Resting the Mind — Dharma Talk by Kate Munding", src: `${AUDIO_BASE}/settling-into-presence/kate-munding-resting-the-mind.mp3` },
+      { title: "The Floodlights of Awareness — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/settling-into-presence/ajahn-sumedho-floodlights-of-awareness.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -660,6 +663,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
         postSlug: "9-mindfulness-exercises-for-anxiety",
       },
       { title: "How to Feel Safe, Content and Connected — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/affirmations-for-anxiety/how-to-feel-safe-content-and-connected.mp3` },
+      { title: "Fear and Doubt — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/affirmations-for-anxiety/ajahn-sumedho-fear-and-doubt.mp3` },
     ],
   },
   "three-60-second-meditation-techniques-for-anxiety": {
@@ -790,6 +794,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Letting In The Love — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/james-baraz-letting-in-the-love.mp3` },
       { title: "Hatred Never Ceases By Hatred — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/james-baraz-hatred-never-ceases-by-hatred.mp3` },
       { title: "All About Love — Dharma Talk by Spring Washam", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/spring-washam-all-about-love.mp3` },
+      { title: "Love Is the Answer — Dharma Talk by Spring Washam", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/spring-washam-love-is-the-answer.mp3` },
       { title: "Metta Cultivation, Concentration and Purification — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/matthew-brensilver-metta-cultivation-concentration-and-purification.mp3` },
       { title: "Kindness for All Beings — Dharma Talk by Lila Kate Wheeler", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/lila-kate-wheeler-kindness-for-all-beings.mp3` },
       { title: "Guided Metta With Forgiveness — Guided Meditation by Kamala Masters", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/kamala-masters-guided-metta-with-forgiveness.mp3` },
@@ -819,6 +824,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Working With & Transforming Judgment Mind — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/noting-your-judgments/donald-rothberg-working-with-transforming-judgment-mind.mp3` },
       { title: "Transforming the Judgmental Mind — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/noting-your-judgments/donald-rothberg-transforming-the-judgmental-mind.mp3` },
       { title: "Guided Mindfulness of Mind — Guided Meditation by Steve Armstrong", src: `${AUDIO_BASE}/noting-your-judgments/steve-armstrong-guided-mindfulness-of-mind.mp3` },
+      { title: "Everybody's Crazy — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/noting-your-judgments/ajahn-sumedho-everybodys-crazy.mp3` },
     ],
   },
   "meditation-scripts-for-anxiety": {
@@ -943,6 +949,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Race, Racism and Spiritual Practice — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/what-the-world-needs/donald-rothberg-race-racism-and-spiritual-practice.mp3` },
       { title: "Dr. Martin Luther King, Jr., Buddhist Practice, and the Needs of Our Times — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/what-the-world-needs/donald-rothberg-mlk-buddhist-practice-and-the-needs-of-our-times.mp3` },
       { title: "History Is Ending Today — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/what-the-world-needs/matthew-brensilver-history-is-ending-today.mp3` },
+      { title: "Taking Refuge in Diversity — Dharma Talk by Spring Washam", src: `${AUDIO_BASE}/what-the-world-needs/spring-washam-taking-refuge-in-diversity.mp3` },
     ],
   },
   "loving-kindness-benefactor": {
@@ -968,6 +975,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Dharma Talk: Pausing — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/gil-fronsdal-dharma-talk-pausing.mp3` },
       { title: "It's About Time — Dharma Talk by Wes Nisker", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/wes-nisker-its-about-time.mp3` },
       { title: "Poetry of Realization — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/mark-coleman-poetry-of-realization.mp3` },
+      { title: "Listening to the Sound of Silence — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/ajahn-sumedho-listening-to-the-sound-of-silence.mp3` },
     ],
   },
   "9-mindfulness-exercises-for-anxiety": {
@@ -1029,6 +1037,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A short dharma talk by Gil Fronsdal — a quiet reminder that practice is never lost; every moment offers a fresh chance to begin again.",
     tracks: [
       { title: "Every Moment a Chance to Restart — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/reflections-on-slowing-down/every-moment-a-chance-to-restart.mp3` },
+      { title: "True Wisdom of the Eagle and Condor — Dharma Talk by Spring Washam", src: `${AUDIO_BASE}/reflections-on-slowing-down-self-love-and-inner-wisdom/spring-washam-true-wisdom-of-the-eagle-and-condor.mp3` },
     ],
   },
   "walking-meditation-worksheet-2": {
@@ -1077,6 +1086,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Finding Ease — Guided Meditation by Oren Jay Sofer", src: `${AUDIO_BASE}/supports-practice-audio/oren-jay-sofer-finding-ease.mp3` },
       { title: "The Role of Motivation and Intention — Dharma Talk by Kate Munding", src: `${AUDIO_BASE}/supports-practice-audio/kate-munding-the-role-of-motivation-and-intention.mp3` },
       { title: "How to Feel Safe, Content and Connected — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/supports-practice-audio/how-to-feel-safe-content-and-connected.mp3` },
+      { title: "The Camel Knows the Way: Reflections on Faith — Dharma Talk by Spring Washam", src: `${AUDIO_BASE}/supports-practice-audio/spring-washam-the-camel-knows-the-way.mp3` },
     ],
   },
   "healing-stillness-aimless-love": {
