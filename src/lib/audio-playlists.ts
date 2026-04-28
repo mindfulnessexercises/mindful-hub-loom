@@ -110,6 +110,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 2: Empathy Quotes", src: `${AUDIO_BASE}/empathy-quotes/part-2.mp3` },
       { title: "Part 3: Empathy Quotes", src: `${AUDIO_BASE}/empathy-quotes/part-3.mp3` },
       { title: "Empathy: Its Nature, What Makes It Hard, and How to Develop It — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/empathy-quotes/donald-rothberg-empathy-its-nature-what-makes-it-hard-and-how-to-develop-it.mp3` },
+      { title: "Listening Deeply — Dharma Talk by Kate Munding", src: `${AUDIO_BASE}/empathy-quotes/kate-munding-listening-deeply.mp3` },
     ],
   },
   "self-worth-quotes": {
@@ -202,6 +203,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 7: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-7.mp3` },
       { title: "Part 8: Gratitude Affirmations", src: `${AUDIO_BASE}/gratitude-affirmations/part-8.mp3` },
       { title: "Bonus: Affirmations of Gratitude — Guided Meditation", src: `${AUDIO_BASE}/gratitude-affirmations/affirmations-of-gratitude.mp3` },
+      { title: "12 Intentions of Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/gratitude-affirmations/12-intentions-of-gratitude.mp3` },
     ],
   },
   "i-am-affirmations": {
@@ -262,6 +264,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Training Overview — Introduction by Sean Fargo", src: `${AUDIO_BASE}/10-tips-for-teaching-mindfulness-of-breathing-practices/training-overview.mp3` },
       { title: "Cultivating Sati — Dharma Talk by Ajahn Sucitto", src: `${AUDIO_BASE}/10-tips-for-teaching-mindfulness-of-breathing-practices/ajahn-sucitto-cultivating-sati.mp3` },
       { title: "Meditation: Coming Back to the Breath — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/10-tips-for-teaching-mindfulness-of-breathing-practices/tara-brach-coming-back-to-the-breath.mp3` },
+      { title: "Nine Breathing Exercises to Release Dead Energies — Guided Meditation by Anam Thubten", src: `${AUDIO_BASE}/10-tips-for-teaching-mindfulness-of-breathing-practices/anam-thubten-nine-breathing-exercises-to-release-dead-energies.mp3` },
     ],
   },
   "6-mindful-breathing-exercises": {
@@ -637,6 +640,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "The Most Important Thing — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/settling-into-presence/mark-coleman-the-most-important-thing.mp3` },
       { title: "What's Up With Change? — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/settling-into-presence/mark-coleman-whats-up-with-change.mp3` },
       { title: "Body and Mind Resting in One's Own Gaze — Guided Meditation by Akincano Marc Weber", src: `${AUDIO_BASE}/settling-into-presence/akincano-marc-weber-body-and-mind-resting-in-ones-own-gaze.mp3` },
+      { title: "Resting the Mind — Dharma Talk by Kate Munding", src: `${AUDIO_BASE}/settling-into-presence/kate-munding-resting-the-mind.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -729,6 +733,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Generosity — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/marcia-rose-generosity.mp3` },
       { title: "Generosity and Gratitude — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/donald-rothberg-generosity-and-gratitude.mp3` },
       { title: "Gratitude — Guided Meditation by Oren Jay Sofer", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/oren-jay-sofer-gratitude.mp3` },
+      { title: "12 Intentions of Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/12-intentions-of-gratitude.mp3` },
     ],
   },
   "full-body-awareness": {
@@ -784,6 +789,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Metta Cultivation, Concentration and Purification — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/matthew-brensilver-metta-cultivation-concentration-and-purification.mp3` },
       { title: "Kindness for All Beings — Dharma Talk by Lila Kate Wheeler", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/lila-kate-wheeler-kindness-for-all-beings.mp3` },
       { title: "Guided Metta With Forgiveness — Guided Meditation by Kamala Masters", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/kamala-masters-guided-metta-with-forgiveness.mp3` },
+      { title: "The Dharma of True Friendship — Dharma Talk by Kate Munding", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/kate-munding-the-dharma-of-true-friendship.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -852,6 +858,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Body Scan — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/ines-freedman-body-scan.mp3` },
       { title: "Body Scan (Intermediate) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/body-scan-intermediate.mp3` },
       { title: "Finding Ease — Guided Meditation by Oren Jay Sofer", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/oren-jay-sofer-finding-ease.mp3` },
+      { title: "Nine Breathing Exercises to Release Dead Energies — Guided Meditation by Anam Thubten", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/anam-thubten-nine-breathing-exercises-to-release-dead-energies.mp3` },
     ],
   },
   "laying-down-meditation-visualizing-a-lake": {
@@ -1064,6 +1071,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Guided Mindfulness of Mind — Guided Meditation by Steve Armstrong", src: `${AUDIO_BASE}/supports-practice-audio/steve-armstrong-guided-mindfulness-of-mind.mp3` },
       { title: "Faith — Dharma Talk by Kamala Masters", src: `${AUDIO_BASE}/supports-practice-audio/kamala-masters-faith.mp3` },
       { title: "Finding Ease — Guided Meditation by Oren Jay Sofer", src: `${AUDIO_BASE}/supports-practice-audio/oren-jay-sofer-finding-ease.mp3` },
+      { title: "The Role of Motivation and Intention — Dharma Talk by Kate Munding", src: `${AUDIO_BASE}/supports-practice-audio/kate-munding-the-role-of-motivation-and-intention.mp3` },
     ],
   },
   "healing-stillness-aimless-love": {
