@@ -21,6 +21,8 @@
  * and Plausible/PostHog property tables.
  */
 
+import { getPodcastAttribution } from "./podcast-attribution";
+
 type EventProps = Record<string, string | number | boolean | null | undefined>;
 
 interface DataLayerWindow extends Window {
@@ -286,7 +288,20 @@ export interface CtaClickProps {
 }
 
 export function trackCtaClick(props: CtaClickProps): void {
-  trackEvent("cta_clicked", { ...props });
+  // Enrich every CTA click with podcast attribution if the user played a
+  // Buzzsprout episode earlier in this tab. Attribution keys are namespaced
+  // (`podcast_play_*`) so they never collide with CTA props and downstream
+  // queries can join cleanly. Best-effort — never breaks the click.
+  let attributed: EventProps = {};
+  try {
+    const a = getPodcastAttribution();
+    if (a) {
+      attributed = { attributed_to_podcast: true, ...a };
+    }
+  } catch {
+    /* swallow */
+  }
+  trackEvent("cta_clicked", { ...props, ...attributed });
   // Also record dispatch / queue arrival tracking. Done lazily-imported to
   // avoid a circular import (cta-arrival imports `trackEvent` from this file).
   // eslint-disable-next-line @typescript-eslint/no-var-requires

@@ -3,6 +3,7 @@ import { ExternalLink, Headphones } from "lucide-react";
 import type { BuzzsproutEmbed as BuzzsproutEmbedData } from "@/lib/buzzsprout";
 import { useImpression } from "@/hooks/use-impression";
 import { trackEvent } from "@/lib/analytics";
+import { recordPodcastPlay } from "@/lib/podcast-attribution";
 
 interface Props {
   embed: BuzzsproutEmbedData;
@@ -79,6 +80,13 @@ export function BuzzsproutEmbedPlayer({
       podcast_id: embed.podcastId,
       post_id: postId,
       post_slug: postSlug,
+    });
+    // Persist for cross-page CTA attribution. Stored in sessionStorage so
+    // any CTA the user clicks later in the same tab can credit this play.
+    recordPodcastPlay({
+      episodeId: embed.episodeId,
+      podcastId: embed.podcastId,
+      postSlug,
     });
   }, [embed.episodeId, embed.podcastId, postId, postSlug]);
 
