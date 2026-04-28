@@ -224,6 +224,56 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     fileSize: "162 KB",
     flagged: true,
   },
+  "gratitude-practice": {
+    pdfUrl: "/worksheets/gratitude-practice.pdf",
+    title: "Gratitude Practice",
+    fileSize: "765 KB",
+  },
+  "gratitude-when-youve-got-attitude": {
+    pdfUrl: "/worksheets/gratitude-when-youve-got-attitude.pdf",
+    title: "Gratitude When You\u2019ve Got Attitude",
+    fileSize: "181 KB",
+  },
+  "feel-good-feeling-good": {
+    pdfUrl: "/worksheets/how-to-feel-good-about-feeling-good.pdf",
+    title: "How to Feel Good About Feeling Good",
+    fileSize: "160 KB",
+  },
+  "untie-mental-knots": {
+    pdfUrl: "/worksheets/how-to-untie-mental-knots.pdf",
+    title: "How to Untie Mental Knots",
+    fileSize: "168 KB",
+  },
+  "inspiring-trust": {
+    pdfUrl: "/worksheets/inspiring-trust.pdf",
+    title: "Inspiring Trust",
+    fileSize: "159 KB",
+  },
+  "investing-emotional-energy": {
+    pdfUrl: "/worksheets/investing-your-emotional-energy.pdf",
+    title: "Investing Your Emotional Energy",
+    fileSize: "160 KB",
+  },
+  "mindfulness-moods": {
+    pdfUrl: "/worksheets/mindfulness-of-moods.pdf",
+    title: "Mindfulness of Moods",
+    fileSize: "161 KB",
+  },
+  "mindfulness-negativity": {
+    pdfUrl: "/worksheets/mindfulness-of-negativity.pdf",
+    title: "Mindfulness of Negativity",
+    fileSize: "161 KB",
+  },
+  "naming-the-feelings-meditation-worksheet": {
+    pdfUrl: "/worksheets/naming-the-feelings-meditation.pdf",
+    title: "Naming the Feelings Meditation",
+    fileSize: "268 KB",
+  },
+  "noting-effects-feeling-unappreciated": {
+    pdfUrl: "/worksheets/noting-the-effects-of-feeling-unappreciated.pdf",
+    title: "Noting the Effects of Feeling Unappreciated",
+    fileSize: "161 KB",
+  },
 };
 
 /**
