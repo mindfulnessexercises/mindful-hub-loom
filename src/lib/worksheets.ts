@@ -1104,6 +1104,46 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Identifying Core Beliefs",
     fileSize: "188 KB",
   },
+  "identifying-personal-values": {
+    pdfUrl: "/worksheets/identifying-personal-values.pdf",
+    title: "Identifying Personal Values",
+    fileSize: "189 KB",
+  },
+  "increasing-engagement-life": {
+    pdfUrl: "/worksheets/increasing-engagement-with-your-life.pdf",
+    title: "Increasing Engagement with Your Life",
+    fileSize: "161 KB",
+  },
+  "judging-future": {
+    pdfUrl: "/worksheets/judging-your-future.pdf",
+    title: "Judging Your Future",
+    fileSize: "160 KB",
+  },
+  "knowing-consequences-behavior": {
+    pdfUrl: "/worksheets/knowing-the-consequences-of-your-behavior.pdf",
+    title: "Knowing the Consequences of Your Behavior",
+    fileSize: "162 KB",
+  },
+  "living-contrary-authentic-self": {
+    pdfUrl: "/worksheets/living-contrary-to-your-authentic-self.pdf",
+    title: "Living Contrary to Your Authentic Self",
+    fileSize: "161 KB",
+  },
+  "measuring-presence": {
+    pdfUrl: "/worksheets/measuring-your-presence.pdf",
+    title: "Measuring Your Presence",
+    fileSize: "160 KB",
+  },
+  "mindful-self-analysis": {
+    pdfUrl: "/worksheets/mindful-self-analysis.pdf",
+    title: "Mindful Self-Analysis",
+    fileSize: "162 KB",
+  },
+  "time-meaning-belonging": {
+    pdfUrl: "/worksheets/mindfulness-of-time-meaning-belonging.pdf",
+    title: "Mindfulness of Time, Meaning & Belonging",
+    fileSize: "181 KB",
+  },
 };
 
 /**
