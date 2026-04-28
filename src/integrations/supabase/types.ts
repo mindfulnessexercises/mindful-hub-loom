@@ -167,6 +167,95 @@ export type Database = {
         }
         Relationships: []
       }
+      seo_snapshot_runs: {
+        Row: {
+          base_url: string
+          error_count: number
+          finished_at: string | null
+          id: string
+          notes: string | null
+          ok_count: number
+          regression_count: number
+          started_at: string
+          url_count: number
+        }
+        Insert: {
+          base_url: string
+          error_count?: number
+          finished_at?: string | null
+          id?: string
+          notes?: string | null
+          ok_count?: number
+          regression_count?: number
+          started_at?: string
+          url_count?: number
+        }
+        Update: {
+          base_url?: string
+          error_count?: number
+          finished_at?: string | null
+          id?: string
+          notes?: string | null
+          ok_count?: number
+          regression_count?: number
+          started_at?: string
+          url_count?: number
+        }
+        Relationships: []
+      }
+      seo_snapshots: {
+        Row: {
+          canonical: string | null
+          content_length: number | null
+          error: string | null
+          fetch_ms: number | null
+          fetched_at: string
+          http_status: number | null
+          id: string
+          meta_description: string | null
+          path: string
+          run_id: string
+          title: string | null
+          url: string
+        }
+        Insert: {
+          canonical?: string | null
+          content_length?: number | null
+          error?: string | null
+          fetch_ms?: number | null
+          fetched_at?: string
+          http_status?: number | null
+          id?: string
+          meta_description?: string | null
+          path: string
+          run_id: string
+          title?: string | null
+          url: string
+        }
+        Update: {
+          canonical?: string | null
+          content_length?: number | null
+          error?: string | null
+          fetch_ms?: number | null
+          fetched_at?: string
+          http_status?: number | null
+          id?: string
+          meta_description?: string | null
+          path?: string
+          run_id?: string
+          title?: string | null
+          url?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seo_snapshots_run_id_fkey"
+            columns: ["run_id"]
+            isOneToOne: false
+            referencedRelation: "seo_snapshot_runs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
