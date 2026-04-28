@@ -119,6 +119,12 @@ const REQUIRED_PROPS: Record<string, readonly string[]> = {
   // would require loading the Vimeo/YouTube SDK and defeat the lite embed.
   video_play_clicked: ["video_provider", "video_id", "video_title", "video_location"],
 
+  // Buzzsprout podcast embed (see src/components/wp/BuzzsproutEmbed.tsx).
+  // Cross-origin iframe blocks real play/ended events — these are the only
+  // two signals we can measure reliably from the parent document.
+  buzzsprout_embed_viewed: ["episode_id", "podcast_id", "post_slug"],
+  buzzsprout_embed_play_intent: ["episode_id", "podcast_id", "post_slug"],
+
   // Certification click-throughs (site-wide; see src/hooks/use-certification-click-tracker.ts)
   certification_cta_clicked: ["cta_destination", "cta_location", "source_path"],
 

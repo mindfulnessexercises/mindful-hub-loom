@@ -227,6 +227,44 @@ Same required props as `_card_viewed`, plus:
 
 ---
 
+## Podcast embed events
+
+Fired by `BuzzsproutEmbedPlayer` on podcast episode posts. The Buzzsprout
+small player runs in a cross-origin iframe, so the browser blocks us from
+reading real `play` / `pause` / `ended` events. These two events are the only
+reliable signals from the parent document — see the component's docblock for
+the full rationale.
+
+### `buzzsprout_embed_viewed`
+Fires once when ≥50 % of the player has been visible for ≥400 ms. Cross-mount
+deduped per `post_slug`.
+
+| Prop | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `episode_id` | string | ✅ | Buzzsprout episode id (from the embed URL). |
+| `podcast_id` | string | ✅ | Buzzsprout show id. |
+| `post_slug` | string | ✅ | WordPress slug for the episode post. |
+| `post_id` | number | optional | WordPress post id when known. |
+
+### `buzzsprout_embed_play_intent`
+Fires the FIRST time the user clicks anywhere inside the iframe (detected via
+the window-blur + `document.activeElement === iframe` check). This is play
+intent, not confirmed playback — naming is intentional. Subsequent clicks
+within the same mount are suppressed.
+
+| Prop | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `episode_id` | string | ✅ | Buzzsprout episode id. |
+| `podcast_id` | string | ✅ | Buzzsprout show id. |
+| `post_slug` | string | ✅ | WordPress slug for the episode post. |
+| `post_id` | number | optional | WordPress post id when known. |
+
+To compute conversion impact, treat `buzzsprout_embed_viewed` as the
+denominator and `buzzsprout_embed_play_intent` as the numerator (per
+`post_slug` for episode-level CTR; aggregated for site-wide).
+
+---
+
 ## Routing / infrastructure events
 
 ### `legacy_redirect`
