@@ -11,6 +11,10 @@ export const RESERVED_SLUGS = [
   "category",    // /category/:slug landing pages
   "library",     // /library browse-all index
   "audio-library", // /audio-library — themed audio browser across all playlists
+  "videos",      // /videos hub + /videos/:slug
+  "quotes",      // /quotes — top-100 format hub
+  "affirmations", // /affirmations — top-100 format hub
+  "meditation-scripts", // /meditation-scripts — top-100 format hub
   "admin",       // /admin/* internal pages (analytics dashboard etc.)
   // Legacy WP "section landing" slugs whose pages are hand-built archives
   // pointing to outdated content + external links. We redirect /podcast and
