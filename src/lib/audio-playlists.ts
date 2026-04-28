@@ -391,6 +391,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Love, Relationship, Sexuality and Dharma — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/matthew-brensilver-love-relationship-sexuality-and-dharma.mp3` },
       { title: "Guided Metta With Forgiveness — Guided Meditation by Kamala Masters", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/kamala-masters-guided-metta-with-forgiveness.mp3` },
       { title: "Guided Equanimity With Awareness Practice — Guided Meditation by Kamala Masters", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/kamala-masters-guided-equanimity-with-awareness-practice.mp3` },
+      { title: "The Art of Renunciation — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/joseph-goldstein-the-art-of-renunciation.mp3` },
+      { title: "The Realm of Hungry Ghosts: Working with Attachment and Addiction — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/tara-brach-the-realm-of-hungry-ghosts.mp3` },
+      { title: "The Noble Truths of Addiction and Recovery, Part 1 — Dharma Talk by Kevin Griffin", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/kevin-griffin-noble-truths-of-addiction-and-recovery-part-1.mp3` },
+      { title: "The Noble Truths of Addiction and Recovery, Part 2 — Dharma Talk by Kevin Griffin", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/kevin-griffin-noble-truths-of-addiction-and-recovery-part-2.mp3` },
+      { title: "The Noble Truths of Addiction and Recovery, Part 3 — Dharma Talk by Kevin Griffin", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/kevin-griffin-noble-truths-of-addiction-and-recovery-part-3.mp3` },
+      { title: "The Noble Truths of Addiction and Recovery, Part 4 — Dharma Talk by Kevin Griffin", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/kevin-griffin-noble-truths-of-addiction-and-recovery-part-4.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -500,6 +506,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Nowness, Wholeness, Allness, Oneness — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-nowness-wholeness-allness-oneness.mp3` },
       { title: "Self-Compassion (Part 1) — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-self-compassion-part-1.mp3` },
       { title: "Self-Compassion (Part 2) — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-self-compassion-part-2.mp3` },
+      { title: "Using the Mind to Change the Brain — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-using-the-mind-to-change-the-brain.mp3` },
+      { title: "Being for Yourself — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-being-for-yourself.mp3` },
     ],
   },
   "kindness-for-your-thinking-mind": {
