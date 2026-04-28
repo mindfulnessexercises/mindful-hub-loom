@@ -598,6 +598,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Everything Is Spiritual Practice — Dharma Talk by Sylvia Boorstein", src: `${AUDIO_BASE}/settling-into-presence/sylvia-boorstein-everything-is-spiritual-practice.mp3` },
       { title: "The Common Denominator — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/settling-into-presence/will-kabat-zinn-the-common-denominator.mp3` },
       { title: "Awareness — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/settling-into-presence/will-kabat-zinn-awareness.mp3` },
+      { title: "Evolutionary Wisdom — Dharma Talk by Wes Nisker", src: `${AUDIO_BASE}/settling-into-presence/wes-nisker-evolutionary-wisdom.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -731,6 +732,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Repeated Phrase A — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-12-repeated-phrase-a.mp3` },
       { title: "Repeated Phrase B — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-14-repeated-phrase-b.mp3` },
       { title: "How the Dalai Lama Did Not Say Something New — Dharma Talk by Sylvia Boorstein", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/sylvia-boorstein-dalai-lama-not-something-new.mp3` },
+      { title: "Teachings on the Calligraphy of Thich Nhat Hanh — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/mark-coleman-calligraphy-of-thich-nhat-hanh.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -865,6 +867,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A guided meditation on offering what's most yours to give — a quiet practice of remembering that the world needs you alive, awake, and present.",
     tracks: [
       { title: "What The World Needs — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/what-the-world-needs/what-the-world-needs.mp3` },
+      { title: "Climate Change: Waking Up in a Changing World — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/what-the-world-needs/mark-coleman-climate-change-waking-up-in-a-changing-world.mp3` },
+      { title: "A Life of Service — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/what-the-world-needs/mark-coleman-a-life-of-service.mp3` },
     ],
   },
   "loving-kindness-benefactor": {
@@ -887,6 +891,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Grounded Silence — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/grounded-silence.mp3` },
       { title: "Dharmette: Doing Nothing — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/gil-fronsdal-dharmette-doing-nothing.mp3` },
       { title: "Dharma Talk: Pausing — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/gil-fronsdal-dharma-talk-pausing.mp3` },
+      { title: "It's About Time — Dharma Talk by Wes Nisker", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/wes-nisker-its-about-time.mp3` },
     ],
   },
   "9-mindfulness-exercises-for-anxiety": {
