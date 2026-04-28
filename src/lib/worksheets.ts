@@ -485,6 +485,32 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
+  // "Snow Globe Exercise for Kids" and "What's Your Weather Like Today (Kids)"
+  // have no dedicated posts — surface on the kids mindfulness hub.
+  "mindfulness-exercises-for-emotionally-disturbed-kids": [
+    {
+      pdfUrl: "/worksheets/snow-globe-exercise-for-kids.pdf",
+      title: "Snow Globe Exercise for Kids",
+      fileSize: "158 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/whats-your-weather-like-today-kids.pdf",
+      title: "What's Your Weather Like Today? (Kids)",
+      fileSize: "172 KB",
+      flagged: true,
+    },
+  ],
+  // "Finding Me" (longer ebook on identity & self) — surface on the
+  // closest topical hub (Accepting Who You Are).
+  "accepting-who-you-are": [
+    {
+      pdfUrl: "/worksheets/finding-me-by-mindfulness-exercises.pdf",
+      title: "Finding Me",
+      fileSize: "224 KB",
+      flagged: true,
+    },
+  ],
 };
 
 export function getWorksheets(slug: string | undefined | null): WorksheetEntry[] {
