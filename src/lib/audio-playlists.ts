@@ -255,6 +255,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A guided meditation on the foundational practice — resting attention on the breath, returning gently each time the mind wanders.",
     tracks: [
       { title: "Mindfulness of Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/10-tips-teaching-mindfulness-of-breathing/mindfulness-of-breathing.mp3` },
+      { title: "Training Overview — Introduction by Sean Fargo", src: `${AUDIO_BASE}/10-tips-for-teaching-mindfulness-of-breathing-practices/training-overview.mp3` },
     ],
   },
   "6-mindful-breathing-exercises": {
@@ -360,6 +361,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Working with Trauma — Morning Q&R by Tara Brach", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/tara-brach-working-with-trauma.mp3` },
       { title: "Dullness and Anger — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ajahn-sumedho-dullness-and-anger.mp3` },
       { title: "Dharmette: Responses vs Reactions — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/gil-fronsdal-dharmette-responses-vs-reactions.mp3` },
+      { title: "RAIN: Working With Difficult Emotions — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/rain-meditation.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -417,6 +419,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     tracks: [
       { title: "Opening to Happiness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/highest-form-of-happiness/opening-to-happiness.mp3` },
       { title: "Daily Practices For Love & Happiness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/highest-form-of-happiness/daily-practices-love-happiness.mp3` },
+      { title: "Refreshing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/the-highest-form-of-happiness-rediscovering-peace/refreshing-meditation.mp3` },
     ],
   },
   "visiting-your-safe-place": {
@@ -579,6 +582,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Coming Back: Meditation Instructions with Q&A — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/settling-into-presence/tara-brach-coming-back-meditation-instructions.mp3` },
       { title: "Monday Night Class — Guided Meditation by Jack Kornfield", src: `${AUDIO_BASE}/settling-into-presence/jack-kornfield-monday-night-class-2016-02-15.mp3` },
       { title: "Seeing Anew — Dharma Talk by Jack Kornfield", src: `${AUDIO_BASE}/settling-into-presence/jack-kornfield-seeing-anew.mp3` },
+      { title: "Dharmette: Resolution to Present Details — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/settling-into-presence/gil-fronsdal-resolution-to-present-details.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -650,6 +654,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Gladdening the Mind — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/cultivating-joy/tara-brach-gladdening-the-mind.mp3` },
       { title: "Dharma Talk: Beautyful — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/gil-fronsdal-dharma-talk-beautyful.mp3` },
       { title: "Dharma Talk: Drink Your Joy — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/gil-fronsdal-dharma-talk-drink-your-joy.mp3` },
+      { title: "Dharmette: What's Not Wrong — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/gil-fronsdal-whats-not-wrong.mp3` },
     ],
   },
   "how-to-cultivate-an-attitude-of-gratitude-why-its-important": {
@@ -721,6 +726,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Dharmette: Knowing, Noting and Calm — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/noting-your-judgments/gil-fronsdal-dharmette-knowing-noting-and-calm.mp3` },
       { title: "Dharmette: Clear Seeing — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/noting-your-judgments/gil-fronsdal-dharmette-clear-seeing.mp3` },
       { title: "Dharmette: Noticing — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/noting-your-judgments/gil-fronsdal-dharmette-noticing.mp3` },
+      { title: "Dharmette: Is That So? — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/noting-your-judgments/gil-fronsdal-is-that-so.mp3` },
       { title: "Noting A — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-16-noting-a.mp3` },
       { title: "Noting B — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-17-noting-b.mp3` },
       { title: "Noting C — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-18-noting-c.mp3` },
