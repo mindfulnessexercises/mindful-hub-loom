@@ -37,6 +37,8 @@ import { MeditationPlayer } from "@/components/wp/MeditationPlayer";
 import { MeditationScript } from "@/components/wp/MeditationScript";
 import { getMeditationScript } from "@/lib/meditation-scripts";
 import { injectInlineAudio } from "@/lib/inline-audio-sections";
+import { getInlineVideos } from "@/lib/inline-video-posts";
+import { LiteVideoEmbed } from "@/components/video/LiteVideoEmbed";
 import { getPlaylist } from "@/lib/audio-playlists";
 import { AudioPlaylistBlock } from "@/components/wp/AudioPlaylistBlock";
 import { useMeditation } from "@/hooks/use-meditation";
@@ -541,6 +543,33 @@ export default function WPResolver() {
                   const playlist = getPlaylist(slug);
                   if (!playlist) return null;
                   return <AudioPlaylistBlock playlist={playlist} hostSlug={slug} />;
+                })()}
+
+                {(() => {
+                  const videos = getInlineVideos(slug);
+                  if (videos.length === 0) return null;
+                  return (
+                    <div className="my-8 space-y-6 not-prose">
+                      {videos.map((v, i) => (
+                        <figure
+                          key={`${v.provider}-${v.id}-${i}`}
+                          className="space-y-2"
+                        >
+                          <LiteVideoEmbed
+                            provider={v.provider}
+                            id={v.id}
+                            hash={v.hash}
+                            title={v.title}
+                            duration={v.duration}
+                            location={`wp_post_${slug}_inline_video`}
+                          />
+                          <figcaption className="text-caption text-muted-foreground text-center">
+                            {v.title}
+                          </figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  );
                 })()}
 
                 <div
