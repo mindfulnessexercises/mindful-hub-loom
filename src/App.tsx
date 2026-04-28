@@ -7,6 +7,7 @@ import { lazy, Suspense } from "react";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { usePageArrivalTracker } from "@/lib/cta-arrival";
+import { useCertificationClickTracker } from "@/hooks/use-certification-click-tracker";
 import { useLegacyRedirects } from "@/hooks/use-legacy-redirects";
 
 const CEPolicies = lazy(() => import("./pages/CEPolicies.tsx"));
@@ -41,6 +42,7 @@ const PageFallback = () => <div className="min-h-screen bg-background" />;
 const RouterEffects = () => {
   usePageArrivalTracker();
   useLegacyRedirects();
+  useCertificationClickTracker();
   return null;
 };
 
