@@ -36,6 +36,12 @@ import { RecommendedNext } from "@/components/wp/RecommendedNext";
 import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
 import { BuzzsproutEmbedPlayer } from "@/components/wp/BuzzsproutEmbed";
 import { extractBuzzsproutEmbed } from "@/lib/buzzsprout";
+import {
+  detectPlayerInDom,
+  detectPlayerInHtml,
+  type DetectedPlayer,
+} from "@/lib/podcast-player-detect";
+import { trackEvent } from "@/lib/analytics";
 import { MeditationPlayer } from "@/components/wp/MeditationPlayer";
 import { MeditationScript } from "@/components/wp/MeditationScript";
 import { WorksheetMindfulGuidance } from "@/components/wp/WorksheetMindfulGuidance";
