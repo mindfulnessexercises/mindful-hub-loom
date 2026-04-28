@@ -106,5 +106,27 @@ export async function submitEmailSignup(input: EmailSignupInput): Promise<EmailS
   if (!data?.id) {
     throw new EmailSignupError("server_error", "Signup failed.", 500);
   }
+
+  // Fire-and-forget push to MailerLite. The lead is already safely stored
+  // in `email_leads` (our source of truth), so a MailerLite failure must
+  // NEVER break the user's success state. We don't await — the user gets
+  // their confirmation immediately while the push happens in the background.
+  void supabase.functions
+    .invoke("mailerlite-subscribe", {
+      body: {
+        email,
+        track: input.track,
+        surface: input.surface,
+        source_path: input.sourcePath,
+        source_section: input.sourceSection,
+        ...utm,
+      },
+    })
+    .catch((err) => {
+      // Swallow — local lead is already saved. Log for ops visibility.
+      // eslint-disable-next-line no-console
+      console.warn("[email-signup] mailerlite push failed", err);
+    });
+
   return { ok: true, subscriber_id: data.id };
 }
