@@ -508,6 +508,10 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Self-Compassion (Part 2) — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-self-compassion-part-2.mp3` },
       { title: "Using the Mind to Change the Brain — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-using-the-mind-to-change-the-brain.mp3` },
       { title: "Being for Yourself — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-being-for-yourself.mp3` },
+      { title: "Self-Compassion Practice — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-self-compassion-practice.mp3` },
+      { title: "The H.E.A.L. Steps to Happiness — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-the-heal-steps.mp3` },
+      { title: "Me and We — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-me-and-we.mp3` },
+      { title: "Intimacy with Linda Graham — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-intimacy-with-linda-graham.mp3` },
     ],
   },
   "kindness-for-your-thinking-mind": {
@@ -724,6 +728,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Gratitude and Generosity — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/power-of-gratitude-meditation/tara-brach-gratitude-and-generosity.mp3` },
       { title: "Generosity — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/marcia-rose-generosity.mp3` },
       { title: "Generosity and Gratitude — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/donald-rothberg-generosity-and-gratitude.mp3` },
+      { title: "Gratitude — Guided Meditation by Oren Jay Sofer", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/oren-jay-sofer-gratitude.mp3` },
     ],
   },
   "full-body-awareness": {
@@ -846,6 +851,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Guided Body Scan — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/gil-fronsdal-body-scan.mp3` },
       { title: "Body Scan — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/ines-freedman-body-scan.mp3` },
       { title: "Body Scan (Intermediate) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/body-scan-intermediate.mp3` },
+      { title: "Finding Ease — Guided Meditation by Oren Jay Sofer", src: `${AUDIO_BASE}/mindfulness-body-scan-for-stress-relief/oren-jay-sofer-finding-ease.mp3` },
     ],
   },
   "laying-down-meditation-visualizing-a-lake": {
@@ -1057,6 +1063,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Guided Meditation: Exploring the Four Satipatthanas — Guided Meditation by Bhikkhu Anālayo", src: `${AUDIO_BASE}/supports-practice-audio/bhikkhu-analayo-guided-meditation-exploring-the-four-satipatthanas.mp3` },
       { title: "Guided Mindfulness of Mind — Guided Meditation by Steve Armstrong", src: `${AUDIO_BASE}/supports-practice-audio/steve-armstrong-guided-mindfulness-of-mind.mp3` },
       { title: "Faith — Dharma Talk by Kamala Masters", src: `${AUDIO_BASE}/supports-practice-audio/kamala-masters-faith.mp3` },
+      { title: "Finding Ease — Guided Meditation by Oren Jay Sofer", src: `${AUDIO_BASE}/supports-practice-audio/oren-jay-sofer-finding-ease.mp3` },
     ],
   },
   "healing-stillness-aimless-love": {
