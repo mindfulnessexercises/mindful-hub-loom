@@ -375,6 +375,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Three Kinds of Craving — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/will-kabat-zinn-three-kinds-of-craving.mp3` },
       { title: "You Are Not Your Fault — Dharma Talk by Wes Nisker", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/wes-nisker-you-are-not-your-fault.mp3` },
       { title: "Transforming Suffering — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/mark-coleman-transforming-suffering.mp3` },
+      { title: "Light Brings Out The Darkness, Darkness Brings Out The Light — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/james-baraz-light-brings-out-the-darkness-darkness-brings-out-the-light.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -677,6 +678,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Dharma Talk: Drink Your Joy — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/gil-fronsdal-dharma-talk-drink-your-joy.mp3` },
       { title: "Dharmette: What's Not Wrong — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/gil-fronsdal-whats-not-wrong.mp3` },
       { title: "The Dharma — Dharma Talk by Miranda July", src: `${AUDIO_BASE}/cultivating-joy/miranda-july-the-dharma.mp3` },
+      { title: "Heart Practices For Awakening Joy — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/cultivating-joy/james-baraz-heart-practices-for-awakening-joy.mp3` },
+      { title: "Awakening Joy For Kids: Bringing the Dharma to the Next Generation — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/cultivating-joy/james-baraz-awakening-joy-for-kids.mp3` },
     ],
   },
   "how-to-cultivate-an-attitude-of-gratitude-why-its-important": {
@@ -689,6 +692,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Starting The Day With Gratitude — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/morning-affirmations/starting-the-day-with-gratitude.mp3` },
       { title: "Gratitude Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-meditation.mp3` },
       { title: "Gratitude and Generosity — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/power-of-gratitude-meditation/tara-brach-gratitude-and-generosity.mp3` },
+      { title: "Generosity — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/marcia-rose-generosity.mp3` },
     ],
   },
   "full-body-awareness": {
@@ -738,6 +742,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Repeated Phrase B — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-14-repeated-phrase-b.mp3` },
       { title: "How the Dalai Lama Did Not Say Something New — Dharma Talk by Sylvia Boorstein", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/sylvia-boorstein-dalai-lama-not-something-new.mp3` },
       { title: "Teachings on the Calligraphy of Thich Nhat Hanh — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/mark-coleman-calligraphy-of-thich-nhat-hanh.mp3` },
+      { title: "Letting In The Love — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/james-baraz-letting-in-the-love.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -758,6 +763,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Noting Gone — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-19-noting-gone.mp3` },
       { title: "The Prison of Comparing — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/noting-your-judgments/will-kabat-zinn-the-prison-of-comparing.mp3` },
       { title: "Noting With A Relaxed State of Mind — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/noting-your-judgments/noting-with-a-relaxed-state-of-mind.mp3` },
+      { title: "The Tall Poppy and the Shrinking Violet — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/noting-your-judgments/james-baraz-tall-poppy-and-shrinking-violet.mp3` },
     ],
   },
   "meditation-scripts-for-anxiety": {
@@ -980,6 +986,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Practice Notes: Patience — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/style-over-summit/practice-notes-patience.mp3` },
       { title: "Dharmette: Metaphors — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/style-over-summit/dharmette-metaphors.mp3` },
       { title: "Choosing the Long Path of Practice — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/gil-fronsdal-choosing-the-long-path-of-practice.mp3` },
+      { title: "Patience — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/marcia-rose-patience.mp3` },
     ],
   },
   "supports-practice-audio": {
@@ -991,6 +998,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Limits of Technique — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/supports-practice-audio/limits-of-technique.mp3` },
       { title: "Practice Notes: Vision — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/supports-practice-audio/vision.mp3` },
       { title: "Remembering Motivation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/supports-practice-audio/remembering-motivation.mp3` },
+      { title: "Wise Effort — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/supports-practice-audio/marcia-rose-wise-effort.mp3` },
+      { title: "Mindfulness With Attitude — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/supports-practice-audio/james-baraz-mindfulness-with-attitude.mp3` },
     ],
   },
   "healing-stillness-aimless-love": {
