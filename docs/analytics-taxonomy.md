@@ -41,6 +41,19 @@ attribution — do not invent per-CTA event names.
 | `category_slug` | string | optional | Set alongside `category_id`. |
 | `matched` | boolean | optional | `true` if a rule matched, `false` for default fallback. |
 | `match_source` | `"category" \| "title" \| "default"` | optional | Which rule produced the CTA. |
+| `attributed_to_podcast` | boolean | auto | `true` when the click is credited to an earlier Buzzsprout play in the same tab session. |
+| `podcast_play_episode_id` | string | auto | Buzzsprout episode id of the most recent play. |
+| `podcast_play_podcast_id` | string | auto | Buzzsprout podcast id. |
+| `podcast_play_post_slug` | string | auto | WordPress slug of the episode post. |
+| `podcast_play_source_path` | string | auto | Pathname where the play happened (e.g. `/podcast-episodes/<slug>`). |
+| `podcast_play_occurred_at` | string (ISO) | auto | Timestamp of the play. |
+| `podcast_play_age_seconds` | number | auto | Seconds between play and CTA click — bucket "immediate" vs "delayed". |
+
+> **Podcast attribution model.** A Buzzsprout `play_intent` is recorded in
+> `sessionStorage` and credits **every subsequent** `cta_clicked` in that tab
+> until the tab closes. Most recent play wins. No time cap by design — filter
+> on `podcast_play_age_seconds` to bucket conversions.
+
 
 ### `email_signup_submitted`
 | Prop | Type | Required | Notes |
