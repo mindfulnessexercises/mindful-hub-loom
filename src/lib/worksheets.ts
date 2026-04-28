@@ -384,6 +384,21 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Mindfully Doing Schoolwork and Tests",
     fileSize: "160 KB",
   },
+  "parenting-happily": {
+    pdfUrl: "/worksheets/parenting-happily.pdf",
+    title: "Parenting Happily",
+    fileSize: "172 KB",
+  },
+  "pebble-bag-treasure-quest": {
+    pdfUrl: "/worksheets/pebble-bag-treasure-quest.pdf",
+    title: "Pebble Bag Treasure Quest",
+    fileSize: "164 KB",
+  },
+  "sounds-and-silence-kids": {
+    pdfUrl: "/worksheets/sounds-and-silence-kids.pdf",
+    title: "Sounds and Silence (Kids)",
+    fileSize: "166 KB",
+  },
 };
 
 /**
