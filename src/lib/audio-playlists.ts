@@ -324,6 +324,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Working with Pain and Recurring Thoughts — Q&R by Tara Brach", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/tara-brach-working-with-pain-and-recurring-thoughts.mp3` },
       { title: "Working with Trauma — Morning Q&R by Tara Brach", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/tara-brach-working-with-trauma.mp3` },
       { title: "Dullness and Anger — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ajahn-sumedho-dullness-and-anger.mp3` },
+      { title: "Dharmette: Responses vs Reactions — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/gil-fronsdal-dharmette-responses-vs-reactions.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -342,6 +343,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A short talk unpacking the three faces the inner critic tends to wear — and how seeing them clearly is the first step to loosening their grip.",
     tracks: [
       { title: "The 3 Core Identities of the Critic — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/inner-critic/three-core-identities.mp3` },
+      { title: "Dharmette: Self-Conscious — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/meditation-inner-critic-audio/gil-fronsdal-dharmette-self-conscious.mp3` },
     ],
   },
   "guided-meditation-inner-critic": {
@@ -350,6 +352,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A short talk unpacking the three faces the inner critic tends to wear — and how seeing them clearly is the first step to loosening their grip.",
     tracks: [
       { title: "The 3 Core Identities of the Critic — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/inner-critic/three-core-identities.mp3` },
+      { title: "Dharmette: Self-Conscious — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/meditation-inner-critic-audio/gil-fronsdal-dharmette-self-conscious.mp3` },
     ],
   },
   "when-mindfulness-meets-the-nervous-system": {
@@ -459,6 +462,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 5: Feeling Acceptance", src: `${AUDIO_BASE}/power-of-acceptance/feeling-acceptance.mp3` },
       { title: "Practice Notes: Mindfulness as Strength — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-acceptance/mindfulness-as-strength.mp3` },
       { title: "Letting Life Be Just As It Is — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/power-of-acceptance/tara-brach-letting-life-be-just-as-it-is.mp3` },
+      { title: "Dharma Talk: Nothing at Stake — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-acceptance/gil-fronsdal-dharma-talk-nothing-at-stake.mp3` },
+      { title: "Dharmette: Don't Pick It Up and Don't Reject It — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-acceptance/gil-fronsdal-dharmette-dont-pick-it-up-dont-reject-it.mp3` },
     ],
   },
   "8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself": {
@@ -601,6 +606,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Gratitude And Gladness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cultivating-joy/gratitude-and-gladness.mp3` },
       { title: "Be Amazed: Wow — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/be-amazed-wow.mp3` },
       { title: "Gladdening the Mind — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/cultivating-joy/tara-brach-gladdening-the-mind.mp3` },
+      { title: "Dharma Talk: Beautyful — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/gil-fronsdal-dharma-talk-beautyful.mp3` },
+      { title: "Dharma Talk: Drink Your Joy — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/gil-fronsdal-dharma-talk-drink-your-joy.mp3` },
     ],
   },
   "how-to-cultivate-an-attitude-of-gratitude-why-its-important": {
@@ -655,6 +662,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "The Brahmaviharas, Part 1 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/brahmavihara-part-1.mp3` },
       { title: "The Brahmaviharas, Part 2 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/brahmavihara-part-2.mp3` },
       { title: "Two Kinds of Happiness — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/tara-brach-two-kinds-of-happiness.mp3` },
+      { title: "Dharma Talk: Be Still and Gaze Upon Everything Kindly — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/gil-fronsdal-dharma-talk-be-still-gaze-kindly.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -666,6 +674,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Resolving Judgments — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/noting-your-judgments/resolving-judgments.mp3` },
       { title: "Heart Meditation: Letting Go of Judgment — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/noting-your-judgments/tara-brach-heart-meditation-letting-go-of-judgment.mp3` },
       { title: "Dharmette: Knowing, Noting and Calm — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/noting-your-judgments/gil-fronsdal-dharmette-knowing-noting-and-calm.mp3` },
+      { title: "Dharmette: Clear Seeing — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/noting-your-judgments/gil-fronsdal-dharmette-clear-seeing.mp3` },
+      { title: "Dharmette: Noticing — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/noting-your-judgments/gil-fronsdal-dharmette-noticing.mp3` },
     ],
   },
   "meditation-scripts-for-anxiety": {
@@ -835,6 +845,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Working With Thought and Emotion — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/working-with-thoughts/working-with-thought-and-emotion.mp3` },
       { title: "Dharmette: Content vs Process — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/working-with-thoughts/dharmette-content-vs-process.mp3` },
       { title: "Dharmette: Relating to It — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/working-with-thoughts/gil-fronsdal-dharmette-relating-to-it.mp3` },
+      { title: "Dharmette: Resolve, Allow — Learning How to Know What's Skillful in the Moment — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/working-with-thoughts/gil-fronsdal-dharmette-resolve-allow-skillful.mp3` },
       { title: "Mindfulness of Thoughts & Feelings — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/mindfulness-of-thoughts-feelings.mp3` },
       { title: "Thoughts and Emotions — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/working-with-thoughts/thoughts-and-emotions.mp3` },
     ],
