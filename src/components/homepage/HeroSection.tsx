@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Users, BookOpen } from "lucide-react";
+import { Shield, Users, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
 import seanSpeaking from "@/assets/sean-fargo-speaking.jpg";
 import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
+import { TrackedCTAButton } from "@/components/cta/TrackedCTAButton";
 
 export function HeroSection() {
   return (
@@ -64,26 +64,24 @@ export function HeroSection() {
               data-track-cta-label="Hero — Get certified / Browse free"
               data-track-cta-location="homepage_hero"
             >
-              <Button
+              <TrackedCTAButton
+                destination="certification"
+                audience="professional"
+                location="homepage_hero_primary"
+                label="Get Certified to Teach Mindfulness"
                 size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary/90 px-7 h-12 sm:h-11 text-sm font-medium shadow-elevated tracking-wide"
-                asChild
-              >
-                <a href="https://certify.mindfulnessexercises.com/" target="_blank" rel="noopener">
-                  Get Certified to Teach Mindfulness
-                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-                </a>
-              </Button>
-              <Button
+              />
+              <TrackedCTAButton
+                destination="free_resources"
+                audience="individual"
+                location="homepage_hero_secondary"
+                label="Browse Free Mindfulness Exercises"
                 size="lg"
                 variant="outline"
+                hideArrow
                 className="px-7 h-12 sm:h-11 text-sm font-medium border-border hover:bg-accent/60 hover:border-primary/20"
-                asChild
-              >
-                <a href="#resources">
-                  Browse Free Mindfulness Exercises
-                </a>
-              </Button>
+              />
             </motion.div>
 
             <motion.div

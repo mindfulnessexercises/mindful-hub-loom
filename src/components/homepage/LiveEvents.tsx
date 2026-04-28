@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, Video, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionWrapper, SectionHeader } from "./SectionWrapper";
+import { InlineEmailCapture } from "@/components/email/InlineEmailCapture";
 
 const upcomingEvents = [
   {
@@ -106,20 +107,29 @@ export function LiveEvents() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: 0.3 }}
-        className="text-center mt-8"
+        transition={{ duration: 0.4, delay: 0.25 }}
+        className="mt-10 max-w-2xl mx-auto"
       >
-        <a
-          href="https://connect.mindfulnessexercises.com/c/live-mindfulness-meditations-discussions/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-body-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors"
-        >
-          View full events calendar →
-        </a>
+        <InlineEmailCapture
+          track="live_events"
+          location="homepage_live_events_inline"
+          variant="compact"
+          hideAudience
+          hideFollowUp
+        />
+        <p className="text-center mt-5">
+          <a
+            href="https://connect.mindfulnessexercises.com/c/live-mindfulness-meditations-discussions/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-body-sm font-medium text-primary hover:text-primary/80 underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors"
+          >
+            View full events calendar →
+          </a>
+        </p>
       </motion.div>
     </SectionWrapper>
   );
