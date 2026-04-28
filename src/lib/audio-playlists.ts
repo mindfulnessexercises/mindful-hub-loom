@@ -389,6 +389,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Grief — Dharma Talk by Ajahn Brahm", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ajahn-brahm-grief.mp3` },
       { title: "The Instinctual Body: Sex, Survival and Social Drives — Dharma Talk by Martin Aylward", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/martin-aylward-the-instinctual-body.mp3` },
       { title: "Love, Relationship, Sexuality and Dharma — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/matthew-brensilver-love-relationship-sexuality-and-dharma.mp3` },
+      { title: "Guided Metta With Forgiveness — Guided Meditation by Kamala Masters", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/kamala-masters-guided-metta-with-forgiveness.mp3` },
+      { title: "Guided Equanimity With Awareness Practice — Guided Meditation by Kamala Masters", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/kamala-masters-guided-equanimity-with-awareness-practice.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -622,6 +624,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Evolutionary Wisdom — Dharma Talk by Wes Nisker", src: `${AUDIO_BASE}/settling-into-presence/wes-nisker-evolutionary-wisdom.mp3` },
       { title: "The Most Important Thing — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/settling-into-presence/mark-coleman-the-most-important-thing.mp3` },
       { title: "What's Up With Change? — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/settling-into-presence/mark-coleman-whats-up-with-change.mp3` },
+      { title: "Body and Mind Resting in One's Own Gaze — Guided Meditation by Akincano Marc Weber", src: `${AUDIO_BASE}/settling-into-presence/akincano-marc-weber-body-and-mind-resting-in-ones-own-gaze.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -698,6 +701,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Heart Practices For Awakening Joy — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/cultivating-joy/james-baraz-heart-practices-for-awakening-joy.mp3` },
       { title: "Awakening Joy For Kids: Bringing the Dharma to the Next Generation — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/cultivating-joy/james-baraz-awakening-joy-for-kids.mp3` },
       { title: "Altruistic Joy — Dharma Talk by Howard Cohn", src: `${AUDIO_BASE}/cultivating-joy/howard-cohn-altruistic-joy.mp3` },
+      { title: "Mudita — Guided Meditation by Zohar Lavie", src: `${AUDIO_BASE}/cultivating-joy/zohar-lavie-mudita-guided-meditation.mp3` },
     ],
   },
   "how-to-cultivate-an-attitude-of-gratitude-why-its-important": {
@@ -766,6 +770,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "All About Love — Dharma Talk by Spring Washam", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/spring-washam-all-about-love.mp3` },
       { title: "Metta Cultivation, Concentration and Purification — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/matthew-brensilver-metta-cultivation-concentration-and-purification.mp3` },
       { title: "Kindness for All Beings — Dharma Talk by Lila Kate Wheeler", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/lila-kate-wheeler-kindness-for-all-beings.mp3` },
+      { title: "Guided Metta With Forgiveness — Guided Meditation by Kamala Masters", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/kamala-masters-guided-metta-with-forgiveness.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -790,6 +795,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Working With The Judging Mind — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/noting-your-judgments/james-baraz-working-with-the-judging-mind.mp3` },
       { title: "Working With & Transforming Judgment Mind — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/noting-your-judgments/donald-rothberg-working-with-transforming-judgment-mind.mp3` },
       { title: "Transforming the Judgmental Mind — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/noting-your-judgments/donald-rothberg-transforming-the-judgmental-mind.mp3` },
+      { title: "Guided Mindfulness of Mind — Guided Meditation by Steve Armstrong", src: `${AUDIO_BASE}/noting-your-judgments/steve-armstrong-guided-mindfulness-of-mind.mp3` },
     ],
   },
   "meditation-scripts-for-anxiety": {
@@ -1041,6 +1047,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Morning Meditation Instructions — Guided Meditation by Joseph Goldstein", src: `${AUDIO_BASE}/supports-practice-audio/joseph-goldstein-morning-meditation-instructions.mp3` },
       { title: "Guided Mindfulness Meditation — Guided Meditation by Oren Jay Sofer", src: `${AUDIO_BASE}/supports-practice-audio/oren-jay-sofer-guided-mindfulness-meditation.mp3` },
       { title: "Guided Meditation: Exploring the Four Satipatthanas — Guided Meditation by Bhikkhu Anālayo", src: `${AUDIO_BASE}/supports-practice-audio/bhikkhu-analayo-guided-meditation-exploring-the-four-satipatthanas.mp3` },
+      { title: "Guided Mindfulness of Mind — Guided Meditation by Steve Armstrong", src: `${AUDIO_BASE}/supports-practice-audio/steve-armstrong-guided-mindfulness-of-mind.mp3` },
+      { title: "Faith — Dharma Talk by Kamala Masters", src: `${AUDIO_BASE}/supports-practice-audio/kamala-masters-faith.mp3` },
     ],
   },
   "healing-stillness-aimless-love": {
