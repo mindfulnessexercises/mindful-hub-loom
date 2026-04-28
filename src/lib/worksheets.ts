@@ -684,6 +684,16 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Visualizing Ease",
     fileSize: "177 KB",
   },
+  "when-you-just-cant-meditate": {
+    pdfUrl: "/worksheets/when-you-just-cant-meditate.pdf",
+    title: "When You Just Can't Meditate",
+    fileSize: "294 KB",
+  },
+  "describing-our-mindful-experience": {
+    pdfUrl: "/worksheets/words-for-mindfully-reconnecting.pdf",
+    title: "Words for Mindfully Reconnecting",
+    fileSize: "203 KB",
+  },
   "self-kindness-part-1-worksheet": {
     pdfUrl: "/worksheets/self-kindness-part-1.pdf",
     title: "Self-Kindness Part 1",
@@ -1108,6 +1118,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "372 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/witnessing-the-body.pdf",
+      title: "Witnessing the Body",
+      fileSize: "179 KB",
+      flagged: true,
+    },
   ],
   // Second "Breath Awareness Meditation" variant + "Perfect 10 Breaths" — surface alongside primary.
   "breath-awareness-meditation": [
@@ -1234,6 +1250,30 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/mindful-walking.pdf",
       title: "Mindful Walking",
       fileSize: "188 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/walking-meditation-4.pdf",
+      title: "Walking Meditation",
+      fileSize: "172 KB",
+      flagged: true,
+    },
+  ],
+  // "Witnessing Your Thoughts" — surface alongside the anxious-thoughts worksheet.
+  "overcoming-anxious-thoughts": [
+    {
+      pdfUrl: "/worksheets/witnessing-your-thoughts.pdf",
+      title: "Witnessing Your Thoughts",
+      fileSize: "173 KB",
+      flagged: true,
+    },
+  ],
+  // "Visualizing What We Wish to Experience" — surface alongside Visualizing Ease.
+  "visualizing-ease": [
+    {
+      pdfUrl: "/worksheets/visualizing-what-we-wish-to-experience.pdf",
+      title: "Visualizing What We Wish to Experience",
+      fileSize: "179 KB",
       flagged: true,
     },
   ],
