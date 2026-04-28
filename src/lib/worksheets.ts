@@ -832,6 +832,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "167 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/letter-of-self-compassion.pdf",
+      title: "Letter of Self-Compassion",
+      fileSize: "173 KB",
+      flagged: true,
+    },
   ],
   // "Exploring Fear (Partner Exercise)" has no dedicated post — surface
   // alongside the anxiety/fear-themed worksheet on the affirmations-for-anxiety post.
