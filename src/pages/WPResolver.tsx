@@ -36,7 +36,7 @@ import { RecommendedNext } from "@/components/wp/RecommendedNext";
 import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
 import { BuzzsproutEmbedPlayer } from "@/components/wp/BuzzsproutEmbed";
 import { extractBuzzsproutEmbed } from "@/lib/buzzsprout";
-import { lookupBuzzsproutBySlug } from "@/lib/buzzsprout-lookup";
+import { lookupBuzzsproutEmbedBySlug } from "@/lib/buzzsprout-lookup";
 import {
   detectPlayerInDom,
   detectPlayerInHtml,
