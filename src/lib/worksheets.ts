@@ -1515,6 +1515,18 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "175 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/compassion-for-your-whole-body.pdf",
+      title: "Compassion For Your Whole Body",
+      fileSize: "104 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/breathing-in-compassion-for-self-breathing-out-compassion-for-others.pdf",
+      title: "Breathing In Compassion for Self and Breathing Out Compassion for Others",
+      fileSize: "64 KB",
+      flagged: true,
+    },
   ],
   // Second "Body Scan Meditation" variant — surface alongside the primary one.
   "body-scan-meditation": [
@@ -1992,6 +2004,33 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/what-is-important-to-do-today.pdf",
       title: "What is Important to Do Today",
       fileSize: "175 KB",
+      flagged: true,
+    },
+  ],
+  // "Giving Yourself Care Through Physical Touch" — surface on the Self-Compassion hub.
+  "the-power-of-self-compassion": [
+    {
+      pdfUrl: "/worksheets/giving-yourself-care-through-physical-touch.pdf",
+      title: "Giving Yourself Care Through Physical Touch",
+      fileSize: "28 KB",
+      flagged: true,
+    },
+  ],
+  // "Awareness When You Are Killing Time" — surface alongside the distraction worksheet.
+  "sources-distraction": [
+    {
+      pdfUrl: "/worksheets/awareness-when-you-are-killing-time.pdf",
+      title: "Awareness When You Are Killing Time",
+      fileSize: "30 KB",
+      flagged: true,
+    },
+  ],
+  // "Awareness in Three Parts" — surface alongside the five-senses awareness worksheet.
+  "awareness-of-the-five-senses": [
+    {
+      pdfUrl: "/worksheets/awareness-in-three-parts.pdf",
+      title: "Awareness in Three Parts: Thoughts, Senses, and Whole Body",
+      fileSize: "98 KB",
       flagged: true,
     },
   ],
