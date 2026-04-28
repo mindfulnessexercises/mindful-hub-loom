@@ -354,6 +354,36 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Working with Judgments",
     fileSize: "163 KB",
   },
+  "be-your-own-best-buddy-kids-worksheet": {
+    pdfUrl: "/worksheets/be-your-own-best-buddy-kids.pdf",
+    title: "Be Your Own Best Buddy (Kids)",
+    fileSize: "205 KB",
+  },
+  "family-engagement": {
+    pdfUrl: "/worksheets/family-engagement.pdf",
+    title: "Family Engagement",
+    fileSize: "163 KB",
+  },
+  "food-contemplation-kids": {
+    pdfUrl: "/worksheets/food-contemplation-for-kids.pdf",
+    title: "Food Contemplation for Kids",
+    fileSize: "158 KB",
+  },
+  "mindful-family-calendar": {
+    pdfUrl: "/worksheets/mindful-family-calendar.pdf",
+    title: "Mindful Family Calendar",
+    fileSize: "169 KB",
+  },
+  "snack-preparation-exercise": {
+    pdfUrl: "/worksheets/mindful-snack-preparation.pdf",
+    title: "Mindful Snack Preparation",
+    fileSize: "193 KB",
+  },
+  "mindfully-schoolwork-tests": {
+    pdfUrl: "/worksheets/mindfully-doing-schoolwork-and-tests.pdf",
+    title: "Mindfully Doing Schoolwork and Tests",
+    fileSize: "160 KB",
+  },
 };
 
 /**
