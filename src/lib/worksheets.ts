@@ -354,6 +354,36 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Working with Judgments",
     fileSize: "163 KB",
   },
+  "be-your-own-best-buddy-kids-worksheet": {
+    pdfUrl: "/worksheets/be-your-own-best-buddy-kids.pdf",
+    title: "Be Your Own Best Buddy (Kids)",
+    fileSize: "205 KB",
+  },
+  "family-engagement": {
+    pdfUrl: "/worksheets/family-engagement.pdf",
+    title: "Family Engagement",
+    fileSize: "163 KB",
+  },
+  "food-contemplation-kids": {
+    pdfUrl: "/worksheets/food-contemplation-for-kids.pdf",
+    title: "Food Contemplation for Kids",
+    fileSize: "158 KB",
+  },
+  "mindful-family-calendar": {
+    pdfUrl: "/worksheets/mindful-family-calendar.pdf",
+    title: "Mindful Family Calendar",
+    fileSize: "169 KB",
+  },
+  "snack-preparation-exercise": {
+    pdfUrl: "/worksheets/mindful-snack-preparation.pdf",
+    title: "Mindful Snack Preparation",
+    fileSize: "193 KB",
+  },
+  "mindfully-schoolwork-tests": {
+    pdfUrl: "/worksheets/mindfully-doing-schoolwork-and-tests.pdf",
+    title: "Mindfully Doing Schoolwork and Tests",
+    fileSize: "160 KB",
+  },
 };
 
 /**
@@ -408,6 +438,35 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/understanding-your-self-pity.pdf",
       title: "Understanding Your Self-Pity",
       fileSize: "161 KB",
+      flagged: true,
+    },
+  ],
+  // "Exploring Fear (Partner Exercise)" has no dedicated post — surface
+  // alongside the anxiety/fear-themed worksheet on the affirmations-for-anxiety post.
+  "affirmations-for-anxiety": [
+    {
+      pdfUrl: "/worksheets/exploring-fear-partner-exercise.pdf",
+      title: "Exploring Fear — Partner Exercise",
+      fileSize: "200 KB",
+      flagged: true,
+    },
+  ],
+  // "Mindful Parenting 101" has no dedicated post — surface on the
+  // closest topical hub (Family Engagement).
+  "family-engagement": [
+    {
+      pdfUrl: "/worksheets/mindful-parenting-101.pdf",
+      title: "Mindful Parenting 101",
+      fileSize: "171 KB",
+      flagged: true,
+    },
+  ],
+  // "Mother of All" has no dedicated post — surface on the kids-meditation hub.
+  "how-to-teach-kids-to-meditate": [
+    {
+      pdfUrl: "/worksheets/mother-of-all.pdf",
+      title: "Mother of All",
+      fileSize: "162 KB",
       flagged: true,
     },
   ],
