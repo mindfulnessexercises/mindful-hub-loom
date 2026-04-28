@@ -1204,6 +1204,11 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "What are Your Feelings",
     fileSize: "164 KB",
   },
+  "sources-distraction": {
+    pdfUrl: "/worksheets/the-sources-of-your-distraction.pdf",
+    title: "The Sources of Your Distraction",
+    fileSize: "161 KB",
+  },
 };
 
 /**
