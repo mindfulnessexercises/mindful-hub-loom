@@ -1943,6 +1943,33 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
+  // "What Do You Want to Say" — no dedicated post; surface on the right-speech worksheet host.
+  "right-speech": [
+    {
+      pdfUrl: "/worksheets/what-do-you-want-to-say.pdf",
+      title: "What Do You Want to Say",
+      fileSize: "163 KB",
+      flagged: true,
+    },
+  ],
+  // "What Do You Want to Stop" — no dedicated post; surface alongside intention work.
+  "realizing-intention": [
+    {
+      pdfUrl: "/worksheets/what-do-you-want-to-stop.pdf",
+      title: "What Do You Want to Stop",
+      fileSize: "163 KB",
+      flagged: true,
+    },
+  ],
+  // "What is Important to Do Today" — no dedicated post; surface alongside investing-your-life-today.
+  "investing-your-life-today": [
+    {
+      pdfUrl: "/worksheets/what-is-important-to-do-today.pdf",
+      title: "What is Important to Do Today",
+      fileSize: "175 KB",
+      flagged: true,
+    },
+  ],
 };
 
 export function getWorksheets(slug: string | undefined | null): WorksheetEntry[] {
