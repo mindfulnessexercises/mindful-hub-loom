@@ -373,6 +373,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Dharmette: Responses vs Reactions — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/gil-fronsdal-dharmette-responses-vs-reactions.mp3` },
       { title: "RAIN: Working With Difficult Emotions — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/rain-meditation.mp3` },
       { title: "Three Kinds of Craving — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/will-kabat-zinn-three-kinds-of-craving.mp3` },
+      { title: "You Are Not Your Fault — Dharma Talk by Wes Nisker", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/wes-nisker-you-are-not-your-fault.mp3` },
+      { title: "Transforming Suffering — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/mark-coleman-transforming-suffering.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -477,6 +479,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A grounding guided meditation for meeting whatever is here — pleasant, unpleasant, or in-between — with the simple acknowledgment: this moment is like this.",
     tracks: [
       { title: "This Moment Is Like This — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/rick-hansons-meditation-staying-present/this-moment-is-like-this.mp3` },
+      { title: "Nowness, Wholeness, Allness, Oneness — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-nowness-wholeness-allness-oneness.mp3` },
     ],
   },
   "kindness-for-your-thinking-mind": {
@@ -599,6 +602,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "The Common Denominator — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/settling-into-presence/will-kabat-zinn-the-common-denominator.mp3` },
       { title: "Awareness — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/settling-into-presence/will-kabat-zinn-awareness.mp3` },
       { title: "Evolutionary Wisdom — Dharma Talk by Wes Nisker", src: `${AUDIO_BASE}/settling-into-presence/wes-nisker-evolutionary-wisdom.mp3` },
+      { title: "The Most Important Thing — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/settling-into-presence/mark-coleman-the-most-important-thing.mp3` },
+      { title: "What's Up With Change? — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/settling-into-presence/mark-coleman-whats-up-with-change.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -892,6 +897,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Dharmette: Doing Nothing — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/gil-fronsdal-dharmette-doing-nothing.mp3` },
       { title: "Dharma Talk: Pausing — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/gil-fronsdal-dharma-talk-pausing.mp3` },
       { title: "It's About Time — Dharma Talk by Wes Nisker", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/wes-nisker-its-about-time.mp3` },
+      { title: "Poetry of Realization — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/the-importance-of-finding-quiet-time/mark-coleman-poetry-of-realization.mp3` },
     ],
   },
   "9-mindfulness-exercises-for-anxiety": {
