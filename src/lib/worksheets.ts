@@ -564,6 +564,51 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Mindful Meditation for Beginners (eBook)",
     fileSize: "266 KB",
   },
+  "mindful-yoga": {
+    pdfUrl: "/worksheets/mindful-yoga.pdf",
+    title: "Mindful Yoga",
+    fileSize: "198 KB",
+  },
+  "mountain-meditation": {
+    pdfUrl: "/worksheets/mountain-meditation.pdf",
+    title: "Mountain Meditation",
+    fileSize: "181 KB",
+  },
+  "nature-walks": {
+    pdfUrl: "/worksheets/nature-walks.pdf",
+    title: "Nature Walks",
+    fileSize: "187 KB",
+  },
+  "outdoor-meditation": {
+    pdfUrl: "/worksheets/outdoor-meditation.pdf",
+    title: "An Outdoor Meditation Script for Peace and Grounding",
+    fileSize: "874 KB",
+  },
+  "posture-meditation": {
+    pdfUrl: "/worksheets/posture-meditation.pdf",
+    title: "Posture Meditation",
+    fileSize: "186 KB",
+  },
+  "puppies-meditation-worksheet": {
+    pdfUrl: "/worksheets/puppies-meditation.pdf",
+    title: "Puppies Meditation",
+    fileSize: "151 KB",
+  },
+  "self-hypnosis": {
+    pdfUrl: "/worksheets/self-hypnosis.pdf",
+    title: "Self-Hypnosis",
+    fileSize: "195 KB",
+  },
+  "self-kindness-part-1-worksheet": {
+    pdfUrl: "/worksheets/self-kindness-part-1.pdf",
+    title: "Self-Kindness Part 1",
+    fileSize: "158 KB",
+  },
+  "self-kindness-part-ii-worksheet": {
+    pdfUrl: "/worksheets/self-kindness-part-2.pdf",
+    title: "Self-Kindness Part II",
+    fileSize: "152 KB",
+  },
 };
 
 /**
@@ -690,6 +735,14 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       title: "Loving-Kindness",
       fileSize: "197 KB",
       flagged: true,
+    },
+  ],
+  // Companion guide & journal alongside the beginners ebook.
+  "mindfulness-meditation-beginners-free-ebook": [
+    {
+      pdfUrl: "/worksheets/mindful-meditation-guide-and-journal.pdf",
+      title: "Mindful Meditation Guide and Journal",
+      fileSize: "332 KB",
     },
   ],
 };
