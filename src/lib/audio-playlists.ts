@@ -651,6 +651,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "The Floodlights of Awareness — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/settling-into-presence/ajahn-sumedho-floodlights-of-awareness.mp3` },
       { title: "Guided Meditation — Long-Form Retreat Practice by Jack Kornfield", src: `${AUDIO_BASE}/settling-into-presence/jack-kornfield-guided-meditation-2015-12-14.mp3` },
       { title: "Meditation: Getting Lost and Coming Back Here — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/settling-into-presence/tara-brach-meditation-getting-lost-and-coming-back-here.mp3` },
+      { title: "The Refuge in Awareness — Dharma Talk by Phillip Moffitt", src: `${AUDIO_BASE}/settling-into-presence/phillip-moffitt-the-refuge-in-awareness.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -775,6 +776,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Gratitude — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-fronsdal.mp3` },
       { title: "Gratitude and Generosity — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/power-of-gratitude-meditation/tara-brach-gratitude-and-generosity.mp3` },
       { title: "Gratitude (Intermediate) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation-7-ways-to-cultivate-it/gratitude-intermediate.mp3` },
+      { title: "Mental Subtractions of Positive Events — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation-7-ways-to-cultivate-it/mental-subtractions-of-positive-events.mp3` },
     ],
   },
   "reduce-rumination-and-increase-positive-states-through-neuro-learning": {
