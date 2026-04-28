@@ -36,6 +36,12 @@ import { RecommendedNext } from "@/components/wp/RecommendedNext";
 import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
 import { BuzzsproutEmbedPlayer } from "@/components/wp/BuzzsproutEmbed";
 import { extractBuzzsproutEmbed } from "@/lib/buzzsprout";
+import {
+  detectPlayerInDom,
+  detectPlayerInHtml,
+  type DetectedPlayer,
+} from "@/lib/podcast-player-detect";
+import { trackEvent } from "@/lib/analytics";
 import { MeditationPlayer } from "@/components/wp/MeditationPlayer";
 import { MeditationScript } from "@/components/wp/MeditationScript";
 import { WorksheetMindfulGuidance } from "@/components/wp/WorksheetMindfulGuidance";
@@ -281,12 +287,53 @@ export default function WPResolver() {
   // `[tcb-script]` shortcode. We surface it via a native iframe (see
   // BuzzsproutEmbedPlayer) since the shortcode itself can't render here.
   const buzzsproutEmbed = useMemo(() => extractBuzzsproutEmbed(rawContent), [rawContent]);
+  // Static scan of the raw WP HTML — catches every player reference present
+  // in `content.rendered` (Buzzsprout shortcodes, inline iframes, …).
+  const staticPlayers = useMemo<DetectedPlayer[]>(
+    () => detectPlayerInHtml(rawContent),
+    [rawContent],
+  );
   const readingMinutes = useMemo(() => estimateReadingMinutes(rawContent), [rawContent]);
 
   useEffect(
     () => attachWpLinkInterceptor(contentRef.current, navigate),
     [rewrittenHtml, navigate],
   );
+
+  // Runtime DOM scan for podcast episodes. Thrive Architect templates inject
+  // Megaphone iframes (and similar) at render time — they are NOT in the WP
+  // REST `content.rendered` field, so the static scan misses them. Combine
+  // both so analytics reflects what visitors actually see on the page.
+  useEffect(() => {
+    if (!isPodcastEpisode || !slug) return;
+    if (query.isLoading || query.isError || !query.data) return;
+    // Defer one frame so any template-injected iframes have a chance to mount.
+    const raf = requestAnimationFrame(() => {
+      const domPlayers = detectPlayerInDom(contentRef.current);
+      const merged = new Map<string, DetectedPlayer>();
+      [...staticPlayers, ...domPlayers].forEach((p) => {
+        if (!merged.has(p.provider)) merged.set(p.provider, p);
+      });
+      const all = [...merged.values()];
+      trackEvent("podcast_player_detected", {
+        slug,
+        post_id: query.data.data.id,
+        has_player: all.length > 0,
+        provider_count: all.length,
+        providers: all.map((p) => p.provider).join(",") || "none",
+        sources: all.map((p) => `${p.provider}:${p.source}`).join("|"),
+        static_only: staticPlayers
+          .map((p) => p.provider)
+          .filter((p) => !domPlayers.find((d) => d.provider === p))
+          .join(",") || "none",
+        dom_only: domPlayers
+          .map((p) => p.provider)
+          .filter((p) => !staticPlayers.find((s) => s.provider === p))
+          .join(",") || "none",
+      });
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [isPodcastEpisode, slug, rewrittenHtml, staticPlayers, query.isLoading, query.isError, query.data]);
 
   if (isReservedSlug(slug)) return <NotFound />;
 
