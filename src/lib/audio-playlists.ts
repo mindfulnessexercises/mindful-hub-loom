@@ -377,6 +377,9 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Transforming Suffering — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/mark-coleman-transforming-suffering.mp3` },
       { title: "Light Brings Out The Darkness, Darkness Brings Out The Light — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/james-baraz-light-brings-out-the-darkness-darkness-brings-out-the-light.mp3` },
       { title: "Equanimity: Finding Balance In Difficult Times — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/james-baraz-equanimity-finding-balance-in-difficult-times.mp3` },
+      { title: "Practicing With Anger — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/donald-rothberg-practicing-with-anger.mp3` },
+      { title: "Practicing With Darkness and Light at the Winter Solstice — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/donald-rothberg-practicing-with-darkness-and-light-at-the-winter-solstice.mp3` },
+      { title: "Forgiveness Practice — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/donald-rothberg-forgiveness-practice.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -767,6 +770,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Noting With A Relaxed State of Mind — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/noting-your-judgments/noting-with-a-relaxed-state-of-mind.mp3` },
       { title: "The Tall Poppy and the Shrinking Violet — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/noting-your-judgments/james-baraz-tall-poppy-and-shrinking-violet.mp3` },
       { title: "Working With The Judging Mind — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/noting-your-judgments/james-baraz-working-with-the-judging-mind.mp3` },
+      { title: "Working With & Transforming Judgment Mind — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/noting-your-judgments/donald-rothberg-working-with-transforming-judgment-mind.mp3` },
+      { title: "Transforming the Judgmental Mind — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/noting-your-judgments/donald-rothberg-transforming-the-judgmental-mind.mp3` },
     ],
   },
   "meditation-scripts-for-anxiety": {
@@ -886,6 +891,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Climate Change: Waking Up in a Changing World — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/what-the-world-needs/mark-coleman-climate-change-waking-up-in-a-changing-world.mp3` },
       { title: "A Life of Service — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/what-the-world-needs/mark-coleman-a-life-of-service.mp3` },
       { title: "Peaceful Warrior In Modern Times — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/what-the-world-needs/james-baraz-peaceful-warrior-in-modern-times.mp3` },
+      { title: "Race, Racism and Spiritual Practice — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/what-the-world-needs/donald-rothberg-race-racism-and-spiritual-practice.mp3` },
     ],
   },
   "loving-kindness-benefactor": {
