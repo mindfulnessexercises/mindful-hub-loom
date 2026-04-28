@@ -3,6 +3,8 @@ import { Clock, Download, ExternalLink } from "lucide-react";
 import type { PlaylistTrack } from "@/lib/audio-playlists";
 import { useAudioTracking } from "@/hooks/use-audio-tracking";
 import { trackEvent } from "@/lib/analytics";
+import { parseTrackTitle } from "@/lib/track-metadata";
+import { TrackMetadataChips } from "./TrackMetadataChips";
 
 interface PlaylistAudioTrackProps {
   track: PlaylistTrack;
@@ -48,6 +50,7 @@ export function PlaylistAudioTrack({
   });
 
   const showOpenPost = !!trackOriginSlug && trackOriginSlug !== hostSlug;
+  const meta = parseTrackTitle(track.title);
 
   return (
     <li
@@ -61,7 +64,7 @@ export function PlaylistAudioTrack({
         >
           {index + 1}
         </span>
-        <span className="flex-1">{track.title}</span>
+        <span className="flex-1">{meta.cleanTitle}</span>
         {durationLabel && (
           <span
             className="inline-flex items-center gap-1 rounded-md bg-muted px-2 py-0.5 text-xs font-medium tabular-nums text-muted-foreground shrink-0"
@@ -72,6 +75,12 @@ export function PlaylistAudioTrack({
           </span>
         )}
       </div>
+      <TrackMetadataChips
+        meta={meta}
+        sourceLabel={trackOriginSlug && trackOriginSlug !== hostSlug ? trackOriginSlug : undefined}
+        sourceHref={trackOriginSlug && trackOriginSlug !== hostSlug ? `/${trackOriginSlug}` : undefined}
+        className="mb-3 pl-8"
+      />
       <audio
         ref={audioRef}
         controls
