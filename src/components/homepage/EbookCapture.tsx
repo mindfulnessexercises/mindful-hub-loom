@@ -1,18 +1,19 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, Lock, Loader2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { SectionWrapper } from "./SectionWrapper";
-import { trackCtaClick, trackEvent } from "@/lib/analytics";
-import { submitEmailSignup, EmailSignupError } from "@/lib/email-signup";
+import { InlineEmailCapture } from "@/components/email/InlineEmailCapture";
 import ebookCover from "@/assets/ebook-cover.jpg";
 
-type SignupStatus = "idle" | "submitting" | "succeeded" | "failed";
-
+/**
+ * Homepage section 8 — Ebook Lead Magnet (per the documented homepage
+ * architecture). Targets professionals exploring whether to formally teach,
+ * so it uses the `premium_training` track copy.
+ *
+ * Visual is preserved (cover image, deep background, two-column layout)
+ * but the form, copy, validation, persistence, and analytics now flow
+ * through the shared `InlineEmailCapture` so every capture surface on
+ * the site behaves identically.
+ */
 export function EbookCapture() {
-  const [status, setStatus] = useState<SignupStatus>("idle");
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   return (
     <SectionWrapper background="deep" id="ebook" ariaLabel="Free ebook download">
       <div className="max-w-5xl mx-auto">
@@ -26,9 +27,7 @@ export function EbookCapture() {
           {/* Ebook cover */}
           <div className="lg:col-span-2 flex justify-center lg:justify-end order-2 lg:order-1">
             <div className="relative w-48 sm:w-56 group">
-              {/* Soft glow behind cover */}
               <div className="absolute -inset-4 rounded-2xl bg-primary-foreground/[0.06] blur-2xl" />
-
               <img
                 src={ebookCover}
                 alt="Ready to Teach Mindfulness? — A Practical Orientation for Emerging Mindfulness Teachers, by Sean Fargo"
@@ -37,151 +36,19 @@ export function EbookCapture() {
                 loading="lazy"
                 className="relative rounded-lg shadow-lg border border-primary-foreground/15"
               />
-
-              {/* Shadow page behind */}
               <div className="absolute top-1.5 -right-1.5 bottom-1.5 w-full rounded-lg border border-primary-foreground/8 bg-primary-foreground/[0.03] -z-10" />
             </div>
           </div>
 
-          {/* Content + Form */}
+          {/* Capture */}
           <div className="lg:col-span-3 order-1 lg:order-2">
-            <p className="text-eyebrow text-primary-foreground/60 mb-3">Free Download</p>
-
-            <h2 id="ebook-heading" className="text-section-heading text-primary-foreground mb-3">
-              Are you ready to teach mindfulness?
-            </h2>
-
-            <p className="text-body-lg text-primary-foreground/80 mb-6 max-w-lg">
-              This free guide helps you assess your readiness, understand the five pillars of responsible teaching, and take the next step with clarity.
-            </p>
-
-            <ul className="space-y-3 mb-7" role="list">
-              {[
-                "A self-assessment to evaluate your teaching readiness",
-                "The five pillars of responsible mindfulness teaching",
-                "Clear guidance on when — and how — to pursue formal training",
-              ].map((benefit) => (
-                <li key={benefit} className="flex items-start gap-3 text-body-sm text-primary-foreground/90">
-                  <span className="flex-shrink-0 mt-0.5 h-5 w-5 rounded-full bg-primary-foreground/15 flex items-center justify-center" aria-hidden="true">
-                    <Check className="h-3 w-3 text-primary-foreground/80" />
-                  </span>
-                  {benefit}
-                </li>
-              ))}
-            </ul>
-
-            <form
-              onSubmit={async (e) => {
-                e.preventDefault();
-                if (status === "submitting") return; // guard double-submits
-                const form = e.currentTarget as HTMLFormElement;
-                const emailInput = form.elements.namedItem("ebook-email") as HTMLInputElement | null;
-                const email = emailInput?.value?.trim() ?? "";
-                const startedAt = performance.now();
-
-                trackEvent("email_signup_submitted", {
-                  form_id: "ebook_capture",
-                  has_email: !!email,
-                  location: "homepage_ebook_section",
-                });
-                setStatus("submitting");
-                setErrorMessage(null);
-
-                try {
-                  const result = await submitEmailSignup({
-                    email,
-                    source: "homepage_ebook_section",
-                  });
-                  // Success — fire conversion event with timing so we can
-                  // compute submitted→succeeded conversion rate and latency.
-                  trackEvent("email_signup_succeeded", {
-                    form_id: "ebook_capture",
-                    location: "homepage_ebook_section",
-                    duration_ms: Math.round(performance.now() - startedAt),
-                    subscriber_id: result.subscriber_id,
-                  });
-                  setStatus("succeeded");
-                  form.reset();
-                } catch (err) {
-                  // Failure — fire diagnostic event with stable error_code so
-                  // we can break drop-off down by reason (validation vs server vs network).
-                  const code = err instanceof EmailSignupError ? err.code : "unknown_error";
-                  const httpStatus = err instanceof EmailSignupError ? err.status : -1;
-                  const message = err instanceof Error ? err.message : "Something went wrong.";
-                  trackEvent("email_signup_failed", {
-                    form_id: "ebook_capture",
-                    location: "homepage_ebook_section",
-                    duration_ms: Math.round(performance.now() - startedAt),
-                    error_code: code,
-                    http_status: httpStatus,
-                  });
-                  setErrorMessage(message);
-                  setStatus("failed");
-                }
-              }}
-              className="flex flex-col sm:flex-row gap-3 max-w-lg"
-              aria-labelledby="ebook-heading"
-              data-track-cta="ebook_capture_form"
-              data-track-cta-label="Ebook capture — Get Free Guide"
-              data-track-cta-location="homepage_ebook_section"
-            >
-              <label htmlFor="ebook-email" className="sr-only">Email address</label>
-              <Input
-                id="ebook-email"
-                name="ebook-email"
-                type="email"
-                placeholder="Your email address"
-                autoComplete="email"
-                className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus-visible:ring-primary-foreground/30 min-h-[44px] h-12 flex-1"
-                required
-                aria-required="true"
-              />
-              <Button
-                type="submit"
-                disabled={status === "submitting"}
-                onClick={() =>
-                  trackCtaClick({
-                    cta_label: "Get Free Guide",
-                    cta_destination: "form:ebook_capture",
-                    cta_location: "homepage_ebook_section",
-                    matched: true,
-                  })
-                }
-                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 min-h-[44px] h-12 px-6 font-semibold whitespace-nowrap shadow-md disabled:opacity-70"
-              >
-                {status === "submitting" ? (
-                  <>
-                    <Loader2 className="mr-1.5 h-4 w-4 animate-spin" aria-hidden="true" />
-                    Sending…
-                  </>
-                ) : (
-                  <>
-                    Get Free Guide
-                    <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden="true" />
-                  </>
-                )}
-              </Button>
-            </form>
-
-            {/* Inline status — also announced to screen readers via aria-live. */}
-            <div className="mt-3 min-h-[1.25rem]" aria-live="polite">
-              {status === "succeeded" && (
-                <p className="text-caption text-primary-foreground/90 flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5" aria-hidden="true" />
-                  Check your inbox — your free guide is on the way.
-                </p>
-              )}
-              {status === "failed" && errorMessage && (
-                <p className="text-caption text-[hsl(var(--destructive-foreground,0_0%_100%))] bg-[hsl(var(--destructive)/0.85)] inline-block px-2.5 py-1 rounded">
-                  {errorMessage}
-                </p>
-              )}
-            </div>
-
-            <p className="flex items-center gap-1.5 text-caption text-primary-foreground/45 mt-3">
-              <Lock className="h-3 w-3" aria-hidden="true" />
-              No spam. Unsubscribe anytime. We respect your privacy.
-            </p>
+            <InlineEmailCapture
+              track="premium_training"
+              location="homepage_ebook_section"
+              variant="on-dark"
+              headlineOverride="Are you ready to teach mindfulness?"
+              hideFollowUp
+            />
           </div>
         </motion.div>
       </div>

@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound.tsx";
 import { usePageArrivalTracker } from "@/lib/cta-arrival";
 import { useCertificationClickTracker } from "@/hooks/use-certification-click-tracker";
 import { useLegacyRedirects } from "@/hooks/use-legacy-redirects";
+import { StickyEmailBar } from "@/components/email/StickyEmailBar";
 
 const CEPolicies = lazy(() => import("./pages/CEPolicies.tsx"));
 const Blog = lazy(() => import("./pages/Blog.tsx"));
@@ -89,6 +90,9 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        {/* Site-wide sticky capture bar. Self-hides on the homepage and
+            admin routes; auto-picks the right audience track per path. */}
+        <StickyEmailBar />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -62,10 +62,14 @@ const REQUIRED_PROPS: Record<string, readonly string[]> = {
   // CTA clicks — minimum shape that downstream funnel queries depend on.
   cta_clicked: ["cta_label", "cta_destination", "cta_location"],
 
-  // Email signups
-  email_signup_submitted: ["form_id"],
-  email_signup_succeeded: ["form_id"],
-  email_signup_failed: ["form_id"],
+  // Email signups — every capture surface MUST tag itself with track + surface.
+  email_signup_submitted: ["form_id", "track", "surface"],
+  email_signup_succeeded: ["form_id", "track", "surface"],
+  email_signup_failed: ["form_id", "track", "surface"],
+
+  // Sticky email bar lifecycle
+  sticky_email_bar_viewed: ["track", "source_path"],
+  sticky_email_bar_dismissed: ["track", "source_path"],
 
   // Featured-from-other-categories rail (Library)
   featured_other_cats_row_viewed: ["from_category_id", "item_count", "items_signature"],

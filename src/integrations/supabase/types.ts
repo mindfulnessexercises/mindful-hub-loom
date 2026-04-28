@@ -47,6 +47,51 @@ export type Database = {
         }
         Relationships: []
       }
+      email_leads: {
+        Row: {
+          consent: boolean
+          created_at: string
+          email: string
+          id: string
+          source_path: string | null
+          source_section: string | null
+          surface: string
+          track: string
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          consent?: boolean
+          created_at?: string
+          email: string
+          id?: string
+          source_path?: string | null
+          source_section?: string | null
+          surface: string
+          track: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          consent?: boolean
+          created_at?: string
+          email?: string
+          id?: string
+          source_path?: string | null
+          source_section?: string | null
+          surface?: string
+          track?: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
       meditations: {
         Row: {
           audio_url: string
