@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Calendar, FileText, Loader2 } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { wp, formatDate, type WPCategory } from "@/lib/wp";
+import { wp, formatDate, stripHtml, type WPCategory } from "@/lib/wp";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 
 /**
@@ -63,11 +63,11 @@ export function CategoryChip({ cat, active, onSelect }: CategoryChipProps) {
               : "bg-card text-muted-foreground border-border hover:text-foreground"
           }`}
         >
-          {cat.name} <span className="opacity-60 ml-1">({cat.count})</span>
+          {stripHtml(cat.name)} <span className="opacity-60 ml-1">({cat.count})</span>
         </button>
       </TooltipTrigger>
       <TooltipContent side="top" className="max-w-xs p-3 space-y-1.5">
-        <p className="text-sm font-semibold text-foreground">{cat.name}</p>
+        <p className="text-sm font-semibold text-foreground">{stripHtml(cat.name)}</p>
         <div className="space-y-1 text-xs text-muted-foreground">
           <p className="flex items-center gap-1.5">
             <FileText className="h-3 w-3" aria-hidden />
