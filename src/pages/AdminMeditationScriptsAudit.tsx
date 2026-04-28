@@ -417,7 +417,7 @@ export default function AdminMeditationScriptsAudit() {
 
     const usedFilenames = new Set<string>(
       registrySlugs.map((s) =>
-        MEDITATION_SCRIPTS[s].pdfUrl.replace(/^\/sample-scripts\//, ""),
+        MEDITATION_SCRIPTS[s].pdfUrl.split("/sample-scripts/").pop() ?? MEDITATION_SCRIPTS[s].pdfUrl,
       ),
     );
     const orphanFilenames = PDF_FILES_ON_DISK.filter(
@@ -458,7 +458,7 @@ export default function AdminMeditationScriptsAudit() {
 
     async function checkOrphan(filename: string): Promise<OrphanPdf> {
       try {
-        const res = await fetch(`/sample-scripts/${filename}`, {
+        const res = await fetch(getDownloadAssetUrl(`/sample-scripts/${filename}`), {
           method: "HEAD",
         });
         const len = res.headers.get("content-length");
