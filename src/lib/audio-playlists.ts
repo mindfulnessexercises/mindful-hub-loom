@@ -47,6 +47,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Meeting Meditation (1 Minute) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/meaningful-work-quotes/meeting-1-minute.mp3` },
       { title: "Meeting Meditation (3 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/meaningful-work-quotes/meeting-3-minutes.mp3` },
       { title: "Meeting Meditation (5 Minutes) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/meaningful-work-quotes/meeting-5-minutes.mp3` },
+      { title: "Leading With Purpose — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/meaningful-work-quotes/leading-with-purpose.mp3` },
     ],
   },
   "karma-quotes": {
@@ -111,6 +112,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 3: Empathy Quotes", src: `${AUDIO_BASE}/empathy-quotes/part-3.mp3` },
       { title: "Empathy: Its Nature, What Makes It Hard, and How to Develop It — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/empathy-quotes/donald-rothberg-empathy-its-nature-what-makes-it-hard-and-how-to-develop-it.mp3` },
       { title: "Listening Deeply — Dharma Talk by Kate Munding", src: `${AUDIO_BASE}/empathy-quotes/kate-munding-listening-deeply.mp3` },
+      { title: "Just Like Me — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/empathy-quotes/just-like-me.mp3` },
     ],
   },
   "self-worth-quotes": {
@@ -571,6 +573,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Rain of Compassion — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-rain-of-compassion.mp3` },
       { title: "Tonglen — Compassion Practice by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-tonglen.mp3` },
       { title: "Dharmette: Tenderness — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/8-self-compassion-exercises/gil-fronsdal-dharmette-tenderness.mp3` },
+      { title: "Compassion — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself/compassion.mp3` },
     ],
   },
   "mindfulness-body-scan-for-self-compassion": {
@@ -777,6 +780,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A guided meditation for working skillfully with the looping mind — gently interrupting rumination and returning, again and again, to presence.",
     tracks: [
       { title: "How To Stop Ruminating — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/reduce-rumination/how-to-stop-ruminating.mp3` },
+      { title: "Positive Future — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/reduce-rumination-and-increase-positive-states-through-neuro-learning/positive-future.mp3` },
     ],
   },
   "the-power-of-loving-kindness-how-to-cultivate-it": {
@@ -785,6 +789,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A classic metta practice with Sean Fargo — extending warmth and goodwill first to yourself, then outward, in widening circles of care. Plus a long-form Guided Metta Meditation by Gil Fronsdal — a tender, traditional metta practice from one of the foremost Western teachers of loving-kindness. A two-part long-form retreat on the Brahmaviharas — the four boundless states of loving-kindness, compassion, sympathetic joy, and equanimity. Closes with Two Kinds of Happiness (Tara Brach), a long-form retreat teaching on the difference between the fleeting happiness of getting what we want and the steady happiness that arises from a kind, open heart.",
     tracks: [
       { title: "Loving-Kindness — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-loving-kindness/loving-kindness.mp3` },
+      { title: "Loving-Kindness (Intermediate) — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/loving-kindness-intermediate.mp3` },
       { title: "Guided Metta Meditation — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/gil-fronsdal-metta.mp3` },
       { title: "The Brahmaviharas, Part 1 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/brahmavihara-part-1.mp3` },
       { title: "The Brahmaviharas, Part 2 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/brahmavihara-part-2.mp3` },
