@@ -1,11 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Clock, Download, ExternalLink, Headphones, ListMusic, Tag } from "lucide-react";
+import { Clock, Headphones, ListMusic, Tag } from "lucide-react";
 import type { AudioPlaylist, PlaylistTrack } from "@/lib/audio-playlists";
 import {
   inferTrackThemes,
   themesForPlaylist,
 } from "@/lib/audio-themes";
-import { trackEvent } from "@/lib/analytics";
 import { PlaylistAudioTrack } from "./PlaylistAudioTrack";
 
 interface AudioPlaylistBlockProps {
