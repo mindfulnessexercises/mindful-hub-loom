@@ -1,4 +1,5 @@
-import { Download, ExternalLink, Headphones } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Clock, Download, ExternalLink, Headphones, ListMusic } from "lucide-react";
 import type { AudioPlaylist, PlaylistTrack } from "@/lib/audio-playlists";
 
 interface AudioPlaylistBlockProps {
@@ -10,7 +11,7 @@ interface AudioPlaylistBlockProps {
   hostSlug?: string;
 }
 
-/** Strip a leading slash from a slug for normalized comparison. */
+/** Strip a leading/trailing slash from a slug for normalized comparison. */
 function normalizeSlug(slug: string | undefined): string | undefined {
   if (!slug) return undefined;
   return slug.replace(/^\/+/, "").replace(/\/+$/, "");
@@ -28,6 +29,17 @@ function downloadName(track: PlaylistTrack): string {
   return `${track.title.replace(/[^\w\-]+/g, "-").toLowerCase()}.mp3`;
 }
 
+/** Format seconds → "M:SS" or "H:MM:SS". */
+function formatDuration(seconds: number | undefined): string | null {
+  if (!seconds || !Number.isFinite(seconds) || seconds <= 0) return null;
+  const total = Math.round(seconds);
+  const h = Math.floor(total / 3600);
+  const m = Math.floor((total % 3600) / 60);
+  const s = total % 60;
+  if (h > 0) return `${h}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+  return `${m}:${String(s).padStart(2, "0")}`;
+}
+
 /**
  * Single playlist block rendered above the WP HTML body for posts that
  * have a multi-part audio series (e.g. /meaningful-work-quotes). Uses
@@ -39,50 +51,165 @@ function downloadName(track: PlaylistTrack): string {
  *   2. Download (.mp3) — direct file download
  *   3. Open original post — only when the track originates from a
  *      different WP slug than the host page
+ *
+ * Multi-track playlists also display a "Series" badge, a track count,
+ * and a running total duration that fills in as each file's metadata
+ * loads.
  */
 export function AudioPlaylistBlock({ playlist, hostSlug }: AudioPlaylistBlockProps) {
   const host = normalizeSlug(hostSlug);
+  const isSeries = playlist.tracks.length > 1;
+
+  // Per-track durations, keyed by track index. Populated as each
+  // <audio> element fires loadedmetadata.
+  const [durations, setDurations] = useState<Record<number, number>>({});
+
+  // Reset when the playlist itself changes (slug navigation).
+  const playlistKey = useMemo(
+    () => playlist.tracks.map((t) => t.src).join("|"),
+    [playlist.tracks],
+  );
+  const lastKeyRef = useRef(playlistKey);
+  useEffect(() => {
+    if (lastKeyRef.current !== playlistKey) {
+      lastKeyRef.current = playlistKey;
+      setDurations({});
+    }
+  }, [playlistKey]);
+
+  const knownCount = Object.keys(durations).length;
+  const totalSeconds = Object.values(durations).reduce((a, b) => a + b, 0);
+  const totalLabel = formatDuration(totalSeconds);
+  const allKnown = knownCount === playlist.tracks.length;
 
   return (
     <section
       aria-label={playlist.heading}
       className="mb-10 rounded-xl border border-border bg-[hsl(var(--section-alternate))] p-5 sm:p-6"
     >
-      <p className="text-eyebrow text-primary mb-2 inline-flex items-center gap-1.5">
-        <Headphones className="h-3.5 w-3.5" /> Guided meditation downloads
-      </p>
+      <div className="mb-2 flex flex-wrap items-center gap-2">
+        <p className="text-eyebrow text-primary inline-flex items-center gap-1.5">
+          <Headphones className="h-3.5 w-3.5" /> Guided meditation downloads
+        </p>
+        {isSeries && (
+          <span
+            className="text-eyebrow inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-primary"
+            aria-label={`Series of ${playlist.tracks.length} tracks`}
+          >
+            <ListMusic className="h-3 w-3" aria-hidden /> Series
+          </span>
+        )}
+      </div>
+
       <h2 className="text-card-heading text-foreground mb-2 font-serif">
         {playlist.heading}
       </h2>
+
       {playlist.intro && (
-        <p className="text-body text-muted-foreground mb-5 max-w-2xl">
+        <p className="text-body text-muted-foreground mb-4 max-w-2xl">
           {playlist.intro}
         </p>
       )}
+
+      {isSeries && (
+        <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
+          <span className="inline-flex items-center gap-1.5">
+            <ListMusic className="h-3.5 w-3.5" aria-hidden />
+            {playlist.tracks.length} tracks
+          </span>
+          {totalLabel && (
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="h-3.5 w-3.5" aria-hidden />
+              {allKnown ? totalLabel : `~${totalLabel}+`} total
+            </span>
+          )}
+        </div>
+      )}
+
+      {/* Compact tracklist summary so visitors can scan before playing. */}
+      {isSeries && (
+        <details className="group mb-5 rounded-lg border border-border bg-background/60 p-4">
+          <summary className="cursor-pointer list-none text-sm font-medium text-foreground marker:hidden flex items-center justify-between gap-3 min-h-[44px]">
+            <span className="inline-flex items-center gap-2">
+              <ListMusic className="h-4 w-4 text-primary" aria-hidden />
+              Tracklist
+            </span>
+            <span
+              aria-hidden
+              className="text-muted-foreground transition-transform group-open:rotate-45 text-lg leading-none"
+            >
+              +
+            </span>
+          </summary>
+          <ol className="mt-3 space-y-1.5 text-sm text-muted-foreground">
+            {playlist.tracks.map((t, i) => {
+              const d = formatDuration(durations[i]);
+              return (
+                <li key={`toc-${t.src}`} className="flex items-baseline gap-2">
+                  <span className="text-primary/70 tabular-nums w-6 shrink-0">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <a
+                    href={`#track-${i + 1}`}
+                    className="flex-1 hover:text-foreground hover:underline"
+                  >
+                    {t.title}
+                  </a>
+                  {d && (
+                    <span className="text-xs text-muted-foreground/80 tabular-nums shrink-0">
+                      {d}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        </details>
+      )}
+
       <ol className="space-y-4">
         {playlist.tracks.map((t, i) => {
           const trackSlug = normalizeSlug(t.postSlug);
           const showOpenPost = !!trackSlug && trackSlug !== host;
+          const d = formatDuration(durations[i]);
           return (
             <li
               key={t.src}
-              className="rounded-lg border border-border bg-background p-4"
+              id={`track-${i + 1}`}
+              className="rounded-lg border border-border bg-background p-4 scroll-mt-24"
             >
-              <div className="mb-2 flex items-center gap-2 text-sm font-medium text-foreground/85">
+              <div className="mb-2 flex items-start gap-2 text-sm font-medium text-foreground/85">
                 <span
                   aria-hidden
-                  className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary"
+                  className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary mt-0.5"
                 >
                   {i + 1}
                 </span>
-                {t.title}
+                <span className="flex-1">{t.title}</span>
+                {d && (
+                  <span
+                    className="inline-flex items-center gap-1 rounded-md bg-muted px-2 py-0.5 text-xs font-medium tabular-nums text-muted-foreground shrink-0"
+                    aria-label={`Duration ${d}`}
+                  >
+                    <Clock className="h-3 w-3" aria-hidden />
+                    {d}
+                  </span>
+                )}
               </div>
               <audio
                 controls
-                preload="none"
+                preload="metadata"
                 src={t.src}
                 className="w-full"
                 style={{ width: "100%" }}
+                onLoadedMetadata={(e) => {
+                  const dur = (e.currentTarget as HTMLAudioElement).duration;
+                  if (Number.isFinite(dur) && dur > 0) {
+                    setDurations((prev) =>
+                      prev[i] === dur ? prev : { ...prev, [i]: dur },
+                    );
+                  }
+                }}
               >
                 Your browser does not support the audio element.{" "}
                 <a href={t.src}>Download the audio file</a>.
