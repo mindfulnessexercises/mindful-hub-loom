@@ -444,6 +444,36 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Mindful Eating With Oranges",
     fileSize: "168 KB",
   },
+  "monitoring-stress-reduction": {
+    pdfUrl: "/worksheets/monitoring-stress-reduction.pdf",
+    title: "Monitoring Stress Reduction",
+    fileSize: "176 KB",
+  },
+  "movement-meditation": {
+    pdfUrl: "/worksheets/movement-meditation.pdf",
+    title: "Movement Meditation",
+    fileSize: "264 KB",
+  },
+  "reducing-holiday-stress": {
+    pdfUrl: "/worksheets/reducing-holiday-stress.pdf",
+    title: "Reducing Holiday Stress",
+    fileSize: "178 KB",
+  },
+  "scheduling-something-pleasant": {
+    pdfUrl: "/worksheets/scheduling-something-pleasant.pdf",
+    title: "Scheduling Something Pleasant",
+    fileSize: "190 KB",
+  },
+  "stress-eating": {
+    pdfUrl: "/worksheets/stress-eating.pdf",
+    title: "Stress Eating",
+    fileSize: "178 KB",
+  },
+  "gift-of-rest": {
+    pdfUrl: "/worksheets/the-gift-of-rest.pdf",
+    title: "The Gift of Rest",
+    fileSize: "167 KB",
+  },
 };
 
 /**
