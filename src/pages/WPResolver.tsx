@@ -294,13 +294,18 @@ export default function WPResolver() {
   // render time on the legacy site). We look up the episode in the cached
   // `buzzsprout_episodes` table by slug — populated by the buzzsprout-sync
   // edge function — and synthesize the same iframe embed.
+  // Always look up the cached Buzzsprout record for podcast-episode slugs.
+  // We use it BOTH as a fallback player when WP content lacks the embed AND
+  // as a full fallback page when no WP post exists yet (newly-published
+  // episodes from the buzzsprout-sync cron).
   const buzzsproutLookupQuery = useQuery({
     queryKey: ["buzzsprout-by-slug", slug],
-    queryFn: () => lookupBuzzsproutEmbedBySlug(slug ?? ""),
-    enabled: isPodcastEpisode && !!slug && !inlineBuzzsproutEmbed,
+    queryFn: () => lookupBuzzsproutBySlug(slug ?? ""),
+    enabled: isPodcastEpisode && !!slug,
     staleTime: 1000 * 60 * 60,
   });
-  const buzzsproutEmbed = inlineBuzzsproutEmbed ?? buzzsproutLookupQuery.data ?? null;
+  const buzzsproutRecord = buzzsproutLookupQuery.data ?? null;
+  const buzzsproutEmbed = inlineBuzzsproutEmbed ?? buzzsproutRecord?.embed ?? null;
   // Static scan of the raw WP HTML — catches every player reference present
   // in `content.rendered` (Buzzsprout shortcodes, inline iframes, …).
   const staticPlayers = useMemo<DetectedPlayer[]>(
