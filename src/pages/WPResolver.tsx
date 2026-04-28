@@ -287,7 +287,19 @@ export default function WPResolver() {
   // Old podcast-episode posts wrap a Buzzsprout JS player in a Thrive
   // `[tcb-script]` shortcode. We surface it via a native iframe (see
   // BuzzsproutEmbedPlayer) since the shortcode itself can't render here.
-  const buzzsproutEmbed = useMemo(() => extractBuzzsproutEmbed(rawContent), [rawContent]);
+  const inlineBuzzsproutEmbed = useMemo(() => extractBuzzsproutEmbed(rawContent), [rawContent]);
+  // Fallback for podcast-episode pages whose WP `content.rendered` is missing
+  // the Buzzsprout shortcode (Thrive Architect templates inject the player at
+  // render time on the legacy site). We look up the episode in the cached
+  // `buzzsprout_episodes` table by slug — populated by the buzzsprout-sync
+  // edge function — and synthesize the same iframe embed.
+  const buzzsproutLookupQuery = useQuery({
+    queryKey: ["buzzsprout-by-slug", slug],
+    queryFn: () => lookupBuzzsproutBySlug(slug ?? ""),
+    enabled: isPodcastEpisode && !!slug && !inlineBuzzsproutEmbed,
+    staleTime: 1000 * 60 * 60,
+  });
+  const buzzsproutEmbed = inlineBuzzsproutEmbed ?? buzzsproutLookupQuery.data ?? null;
   // Static scan of the raw WP HTML — catches every player reference present
   // in `content.rendered` (Buzzsprout shortcodes, inline iframes, …).
   const staticPlayers = useMemo<DetectedPlayer[]>(
