@@ -227,21 +227,33 @@ Deno.serve(async (req) => {
       upserted += chunk.length;
     }
 
-    // Enrich episodes missing AI content (newest first).
+    // Enrich episodes missing AI content (newest first), plus — when
+    // force_restyle=1 — episodes whose stored summary was generated under a
+    // different style or older STYLE_VERSION.
     let enriched = 0;
     let enrichErrors = 0;
     if (enrichLimit > 0 && lovableApiKey) {
-      const { data: pending, error: pendingErr } = await supabase
+      let pendingQuery = supabase
         .from("buzzsprout_episodes")
-        .select("episode_id, title, description_html")
-        .is("ai_generated_at", null)
+        .select("episode_id, title, description_html, ai_style, ai_style_version, ai_generated_at");
+
+      if (forceRestyle) {
+        // Either never enriched, or enriched under a different style/version.
+        pendingQuery = pendingQuery.or(
+          `ai_generated_at.is.null,ai_style.neq.${style.id},ai_style_version.neq.${STYLE_VERSION}`,
+        );
+      } else {
+        pendingQuery = pendingQuery.is("ai_generated_at", null);
+      }
+
+      const { data: pending, error: pendingErr } = await pendingQuery
         .order("published_at", { ascending: false, nullsFirst: false })
         .limit(enrichLimit);
       if (pendingErr) throw pendingErr;
 
       for (const row of pending ?? []) {
         const plain = row.description_html ? stripHtml(row.description_html) : "";
-        const result = await enrichEpisode(lovableApiKey, row.title, plain);
+        const result = await enrichEpisode(lovableApiKey, row.title, plain, style);
         if (!result) {
           enrichErrors += 1;
           continue;
@@ -253,6 +265,8 @@ Deno.serve(async (req) => {
             ai_takeaways: result.takeaways,
             ai_questions: result.questions,
             ai_generated_at: new Date().toISOString(),
+            ai_style: style.id,
+            ai_style_version: STYLE_VERSION,
           })
           .eq("episode_id", row.episode_id);
         if (updateErr) {
