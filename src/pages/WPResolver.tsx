@@ -38,6 +38,7 @@ import { BuzzsproutEmbedPlayer } from "@/components/wp/BuzzsproutEmbed";
 import { extractBuzzsproutEmbed } from "@/lib/buzzsprout";
 import { lookupBuzzsproutBySlug } from "@/lib/buzzsprout-lookup";
 import { BuzzsproutEpisodeFallback } from "@/components/wp/BuzzsproutEpisodeFallback";
+import { BuzzsproutEpisodeSections } from "@/components/wp/BuzzsproutEpisodeSections";
 import {
   detectPlayerInDom,
   detectPlayerInHtml,
