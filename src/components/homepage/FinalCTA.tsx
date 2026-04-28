@@ -1,7 +1,6 @@
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { SectionWrapper } from "./SectionWrapper";
 import { motion } from "framer-motion";
+import { TrackedCTAButton } from "@/components/cta/TrackedCTAButton";
 
 export function FinalCTA() {
   return (
@@ -26,26 +25,24 @@ export function FinalCTA() {
           data-track-cta-label="Final CTA — Get certified / Browse free"
           data-track-cta-location="homepage_final_cta"
         >
-          <Button
+          <TrackedCTAButton
+            destination="certification"
+            audience="professional"
+            location="homepage_final_cta_primary"
+            label="Get Certified to Teach Mindfulness"
             size="lg"
             className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8 min-h-[44px] h-12 text-sm font-semibold shadow-md"
-            asChild
-          >
-            <a href="https://certify.mindfulnessexercises.com/" target="_blank" rel="noopener">
-              Get Certified to Teach Mindfulness
-              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-            </a>
-          </Button>
-          <Button
+          />
+          <TrackedCTAButton
+            destination="free_resources"
+            audience="individual"
+            location="homepage_final_cta_secondary"
+            label="Browse Free Mindfulness Exercises"
             size="lg"
             variant="outline"
-            className="px-8 min-h-[44px] h-12 text-sm font-medium border-primary-foreground/25 text-primary-foreground hover:bg-primary-foreground/10"
-            asChild
-          >
-            <a href="#resources">
-              Browse Free Mindfulness Exercises
-            </a>
-          </Button>
+            hideArrow
+            className="px-8 min-h-[44px] h-12 text-sm font-medium border-primary-foreground/25 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
+          />
         </div>
 
         <a
