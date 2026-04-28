@@ -406,6 +406,9 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "The 3 Core Identities of the Critic — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/inner-critic/three-core-identities.mp3` },
       { title: "Dharmette: Self-Conscious — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/meditation-inner-critic-audio/gil-fronsdal-dharmette-self-conscious.mp3` },
       { title: "Guided Meditation on Working With the Inner Critic — Guided Meditation by Mark Coleman", src: `${AUDIO_BASE}/meditation-inner-critic-audio/mark-coleman-guided-meditation-on-working-with-the-inner-critic.mp3` },
+    ],
+  },
+  "guided-meditation-inner-critic": {
     heading: "Listen: The 3 Core Identities of the Critic",
     intro:
       "A short talk unpacking the three faces the inner critic tends to wear — and how seeing them clearly is the first step to loosening their grip.",
@@ -413,6 +416,9 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "The 3 Core Identities of the Critic — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/inner-critic/three-core-identities.mp3` },
       { title: "Dharmette: Self-Conscious — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/meditation-inner-critic-audio/gil-fronsdal-dharmette-self-conscious.mp3` },
       { title: "Guided Meditation on Working With the Inner Critic — Guided Meditation by Mark Coleman", src: `${AUDIO_BASE}/meditation-inner-critic-audio/mark-coleman-guided-meditation-on-working-with-the-inner-critic.mp3` },
+    ],
+  },
+  "when-mindfulness-meets-the-nervous-system": {
     heading: "Listen: Nervous System audio series",
     intro:
       "Three trauma-sensitive guided meditations — Mindfulness of Shame meets shame with steady awareness; How to Befriend Your Body, Your Emotions and Your Spirit invites a softer relationship with the whole of you; Anchoring Your Awareness Through Mindfulness offers a longer, settling practice for steadying an activated nervous system.",
