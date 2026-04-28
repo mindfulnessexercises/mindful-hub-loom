@@ -239,6 +239,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     tracks: [
       { title: "Mindfulness of Death — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/how-to-practice-mindfulness-of-death/mindfulness-of-death.mp3` },
       { title: "Reflection on Mortality — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-28-reflection-on-mortality.mp3` },
+      { title: "Nachiketa and the Lord of Death — Dharma Talk by Jack Kornfield", src: `${AUDIO_BASE}/how-to-practice-mindfulness-of-death-and-why-its-important/jack-kornfield-nachiketa-and-the-lord-of-death.mp3` },
+      { title: "Mortality and the Poignancy of Life — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/how-to-practice-mindfulness-of-death-and-why-its-important/matthew-brensilver-mortality-and-the-poignancy-of-life.mp3` },
     ],
   },
   "feeling-tones-pleasant-unpleasant-neutral": {
@@ -583,6 +585,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Monday Night Class — Guided Meditation by Jack Kornfield", src: `${AUDIO_BASE}/settling-into-presence/jack-kornfield-monday-night-class-2016-02-15.mp3` },
       { title: "Seeing Anew — Dharma Talk by Jack Kornfield", src: `${AUDIO_BASE}/settling-into-presence/jack-kornfield-seeing-anew.mp3` },
       { title: "Dharmette: Resolution to Present Details — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/settling-into-presence/gil-fronsdal-resolution-to-present-details.mp3` },
+      { title: "Everything Is Spiritual Practice — Dharma Talk by Sylvia Boorstein", src: `${AUDIO_BASE}/settling-into-presence/sylvia-boorstein-everything-is-spiritual-practice.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -655,6 +658,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Dharma Talk: Beautyful — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/gil-fronsdal-dharma-talk-beautyful.mp3` },
       { title: "Dharma Talk: Drink Your Joy — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/gil-fronsdal-dharma-talk-drink-your-joy.mp3` },
       { title: "Dharmette: What's Not Wrong — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cultivating-joy/gil-fronsdal-whats-not-wrong.mp3` },
+      { title: "The Dharma — Dharma Talk by Miranda July", src: `${AUDIO_BASE}/cultivating-joy/miranda-july-the-dharma.mp3` },
     ],
   },
   "how-to-cultivate-an-attitude-of-gratitude-why-its-important": {
@@ -907,6 +911,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Mindfulness of Thoughts & Feelings — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/mindfulness-of-thoughts-feelings.mp3` },
       { title: "Thoughts and Emotions — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/working-with-thoughts/thoughts-and-emotions.mp3` },
       { title: "Thinking — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/working-with-thoughts/matthew-brensilver-thinking.mp3` },
+      { title: "What Should I Think — Dharma Talk by Sylvia Boorstein", src: `${AUDIO_BASE}/working-with-thoughts/sylvia-boorstein-what-should-i-think.mp3` },
     ],
   },
   "guided-loving-kindness-meditation-audio": {
