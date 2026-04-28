@@ -1,6 +1,6 @@
 import { Shield, Users, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
-import seanSpeaking from "@/assets/sean-fargo-speaking.jpg";
+import seanSpeaking from "@/assets/sean-fargo-speaking.webp";
 import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
 import { TrackedCTAButton } from "@/components/cta/TrackedCTAButton";
 
@@ -123,6 +123,8 @@ export function HeroSection() {
                 width="600"
                 height="450"
                 loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--foreground)/.35)] via-transparent to-[hsl(var(--foreground)/.05)]" />
