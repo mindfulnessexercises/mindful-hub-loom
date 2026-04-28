@@ -609,6 +609,41 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Self-Kindness Part II",
     fileSize: "152 KB",
   },
+  "several-styles-sitting-meditation": {
+    pdfUrl: "/worksheets/several-styles-of-sitting-meditation.pdf",
+    title: "Several Styles of Sitting Meditation",
+    fileSize: "199 KB",
+  },
+  "shadow-exercise": {
+    pdfUrl: "/worksheets/shadow-exercise.pdf",
+    title: "Shadow Exercise",
+    fileSize: "182 KB",
+  },
+  "sitting-meditation-instructions": {
+    pdfUrl: "/worksheets/sitting-meditation-instructions.pdf",
+    title: "Sitting Meditation Instructions",
+    fileSize: "181 KB",
+  },
+  "the-mother-meditation": {
+    pdfUrl: "/worksheets/the-mother-meditation.pdf",
+    title: "The Mother Meditation",
+    fileSize: "201 KB",
+  },
+  "trataka-eye-gazing": {
+    pdfUrl: "/worksheets/trataka-eye-gazing.pdf",
+    title: "Trataka — Eye Gazing",
+    fileSize: "193 KB",
+  },
+  "walking-meditation": {
+    pdfUrl: "/worksheets/walking-meditation.pdf",
+    title: "Walking Meditation",
+    fileSize: "191 KB",
+  },
+  "walking-meditation-worksheet": {
+    pdfUrl: "/worksheets/walking-meditation-2.pdf",
+    title: "Walking Meditation",
+    fileSize: "190 KB",
+  },
 };
 
 /**
