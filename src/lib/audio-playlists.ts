@@ -376,6 +376,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "You Are Not Your Fault — Dharma Talk by Wes Nisker", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/wes-nisker-you-are-not-your-fault.mp3` },
       { title: "Transforming Suffering — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/mark-coleman-transforming-suffering.mp3` },
       { title: "Light Brings Out The Darkness, Darkness Brings Out The Light — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/james-baraz-light-brings-out-the-darkness-darkness-brings-out-the-light.mp3` },
+      { title: "Equanimity: Finding Balance In Difficult Times — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/james-baraz-equanimity-finding-balance-in-difficult-times.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -743,6 +744,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "How the Dalai Lama Did Not Say Something New — Dharma Talk by Sylvia Boorstein", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/sylvia-boorstein-dalai-lama-not-something-new.mp3` },
       { title: "Teachings on the Calligraphy of Thich Nhat Hanh — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/mark-coleman-calligraphy-of-thich-nhat-hanh.mp3` },
       { title: "Letting In The Love — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/james-baraz-letting-in-the-love.mp3` },
+      { title: "Hatred Never Ceases By Hatred — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/james-baraz-hatred-never-ceases-by-hatred.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -764,6 +766,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "The Prison of Comparing — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/noting-your-judgments/will-kabat-zinn-the-prison-of-comparing.mp3` },
       { title: "Noting With A Relaxed State of Mind — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/noting-your-judgments/noting-with-a-relaxed-state-of-mind.mp3` },
       { title: "The Tall Poppy and the Shrinking Violet — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/noting-your-judgments/james-baraz-tall-poppy-and-shrinking-violet.mp3` },
+      { title: "Working With The Judging Mind — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/noting-your-judgments/james-baraz-working-with-the-judging-mind.mp3` },
     ],
   },
   "meditation-scripts-for-anxiety": {
@@ -789,6 +792,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A guided meditation for arriving through the five senses — a fresh, embodied way back into the simple aliveness of right now.",
     tracks: [
       { title: "Opening Your Senses — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/awareness-of-the-five-senses/opening-your-senses.mp3` },
+      { title: "Introduction to Seeing & Drawing — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/awareness-of-the-five-senses/marcia-rose-introduction-to-seeing-drawing.mp3` },
+      { title: "Introduction to Drawing Yourself — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/awareness-of-the-five-senses/marcia-rose-introduction-to-drawing-yourself.mp3` },
     ],
   },
   "mindfulness-body-scan-for-stress-relief": {
@@ -880,6 +885,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "What The World Needs — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/what-the-world-needs/what-the-world-needs.mp3` },
       { title: "Climate Change: Waking Up in a Changing World — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/what-the-world-needs/mark-coleman-climate-change-waking-up-in-a-changing-world.mp3` },
       { title: "A Life of Service — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/what-the-world-needs/mark-coleman-a-life-of-service.mp3` },
+      { title: "Peaceful Warrior In Modern Times — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/what-the-world-needs/james-baraz-peaceful-warrior-in-modern-times.mp3` },
     ],
   },
   "loving-kindness-benefactor": {
@@ -987,6 +993,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Dharmette: Metaphors — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/style-over-summit/dharmette-metaphors.mp3` },
       { title: "Choosing the Long Path of Practice — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/gil-fronsdal-choosing-the-long-path-of-practice.mp3` },
       { title: "Patience — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/marcia-rose-patience.mp3` },
+      { title: "The Problem With Being A Good Meditator — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/james-baraz-the-problem-with-being-a-good-meditator.mp3` },
     ],
   },
   "supports-practice-audio": {
