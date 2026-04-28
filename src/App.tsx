@@ -91,6 +91,16 @@ const App = () => (
             <Route path="/podcast-episodes/*" element={<WPResolver />} />
             <Route path="/downloads/*" element={<WPResolver />} />
             <Route path="/lessons/*" element={<WPResolver />} />
+            {/* Legacy nested permalinks from the WordPress site that rank in
+                our top-100. Keep these splats so WPResolver can resolve the
+                last URL segment as the post slug — preserves SEO equity. */}
+            <Route path="/meditation/*" element={<WPResolver />} />
+            <Route path="/meaningful-work/*" element={<WPResolver />} />
+            <Route path="/free-online-mindfulness-courses/*" element={<WPResolver />} />
+            <Route path="/how-to-teach-meditation/*" element={<WPResolver />} />
+            {/* Teacher CPT pages — surfaced inline by WPResolver. The legacy
+                redirect rule used to push these off-site; we now keep them. */}
+            <Route path="/mindfulness-teacher/*" element={<WPResolver />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

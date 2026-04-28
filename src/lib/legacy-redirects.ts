@@ -196,10 +196,15 @@ const PATTERN_RULES: PatternRule[] = [
     }),
   },
 
-  // Teacher / author directory pages — /authors, /mindfulness-teacher/<slug>, /teachers/<slug>.
+  // Teacher / author directory pages — /authors, /teachers/<slug>, etc.
+  // NOTE: /mindfulness-teacher/<slug> is intentionally EXCLUDED from this
+  // rule. Those are individual WP CPT pages (e.g. /mindfulness-teacher/
+  // sean-fargo, /mindfulness-teacher/joseph-goldstein) that rank in our
+  // top-100 and resolve in-app via WPResolver — sending them off-site
+  // would forfeit their SEO equity.
   {
     rule: "teacher_directory_legacy",
-    match: /^\/(authors|mindfulness-teachers?|teachers?|instructors?|mindfulness-teacher)(?:\/.*)?$/,
+    match: /^\/(authors|mindfulness-teachers|teachers?|instructors?)(?:\/.*)?$/,
     build: (_, fullPath) => ({
       target: `${LEGACY_ORIGIN}${fullPath}`,
       external: true,
