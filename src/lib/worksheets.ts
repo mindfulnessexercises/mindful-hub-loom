@@ -1345,6 +1345,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "173 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/giving-yourself-care-through-physical-touch.pdf",
+      title: "Giving Yourself Care Through Physical Touch",
+      fileSize: "28 KB",
+      flagged: true,
+    },
   ],
   // "Exploring Fear (Partner Exercise)" has no dedicated post — surface
   // alongside the anxiety/fear-themed worksheet on the affirmations-for-anxiety post.
@@ -2007,16 +2013,15 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
-  // "Giving Yourself Care Through Physical Touch" — surface on the Self-Compassion hub.
-  "the-power-of-self-compassion": [
+  // "Awareness When You Are Killing Time" — surface alongside the distraction worksheet.
+  "sources-distraction": [
     {
-      pdfUrl: "/worksheets/giving-yourself-care-through-physical-touch.pdf",
-      title: "Giving Yourself Care Through Physical Touch",
-      fileSize: "28 KB",
+      pdfUrl: "/worksheets/awareness-when-you-are-killing-time.pdf",
+      title: "Awareness When You Are Killing Time",
+      fileSize: "30 KB",
       flagged: true,
     },
   ],
-  // "Awareness When You Are Killing Time" — surface alongside the distraction worksheet.
   "sources-distraction": [
     {
       pdfUrl: "/worksheets/awareness-when-you-are-killing-time.pdf",
