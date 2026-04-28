@@ -852,11 +852,17 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     ],
   },
   "5-minute-meditation-script-from-mindfulness-exercises": {
-    heading: "Listen: One Minute For Good",
+    heading: "Listen: Pick Your Length audio series",
     intro:
-      "A short guided meditation — just a single minute to settle, soften, and remember the good already here.",
+      "A short guided meditation plus a graduated series of bonus practices in six lengths — One Minute For Good is a single-minute settling for remembering the good already here; the Bonus Meditation series by Sean Fargo lets you choose the length that fits the moment, from a quick five-minute reset to a full hour-long sit, with stops at 15, 20, 30, and 45 minutes along the way.",
     tracks: [
       { title: "One Minute For Good — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/5-minute-meditation-script/one-minute-for-good.mp3` },
+      { title: "Bonus 5-Minute Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/5-minute-meditation-script/bonus-5min-meditation.mp3` },
+      { title: "Bonus 15-Minute Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/5-minute-meditation-script/bonus-15min-meditation.mp3` },
+      { title: "Bonus 20-Minute Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/5-minute-meditation-script/bonus-20min-meditation.mp3` },
+      { title: "Bonus 30-Minute Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/5-minute-meditation-script/bonus-30min-meditation.mp3` },
+      { title: "Bonus 45-Minute Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/5-minute-meditation-script/bonus-45min-meditation.mp3` },
+      { title: "Bonus 60-Minute Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/5-minute-meditation-script/bonus-60min-meditation.mp3` },
     ],
   },
   "awareness-of-the-five-senses": {
