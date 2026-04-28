@@ -374,7 +374,29 @@ export default function WPResolver() {
     );
   }
 
-  if (query.isError || !query.data) return <NotFound />;
+  if (query.isError || !query.data) {
+    // No WP post for this slug — but if it's a podcast episode and we have a
+    // cached Buzzsprout record, render the auto-generated episode page.
+    if (isPodcastEpisode && buzzsproutRecord) {
+      return <BuzzsproutEpisodeFallback record={buzzsproutRecord} />;
+    }
+    // Wait for the Buzzsprout lookup to settle before declaring 404 so we
+    // don't flash a NotFound on the first frame.
+    if (isPodcastEpisode && buzzsproutLookupQuery.isLoading) {
+      return (
+        <div className="min-h-screen bg-background">
+          <Navbar />
+          <main className="mx-auto max-w-3xl px-4 py-12 space-y-4">
+            <Skeleton className="h-10 w-3/4" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-5/6" />
+          </main>
+          <Footer />
+        </div>
+      );
+    }
+    return <NotFound />;
+  }
 
   const { kind, data: doc } = query.data;
   const img = getFeaturedImage(doc);
