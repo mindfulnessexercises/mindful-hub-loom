@@ -11,6 +11,13 @@
 // future syncs (every 6 hours) automatically pick up enrichment.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
+import {
+  DEFAULT_STYLE,
+  STYLE_VERSION,
+  detectBannedPhrases,
+  getStyle,
+  type PromptStyle,
+} from "./prompt-styles.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -62,20 +69,19 @@ async function enrichEpisode(
   apiKey: string,
   title: string,
   descriptionPlain: string,
+  style: PromptStyle,
 ): Promise<EnrichmentResult | null> {
   const trimmed = descriptionPlain.slice(0, 6000);
-  const systemPrompt = [
-    "You write SEO-rich summaries for mindfulness podcast episodes.",
-    "Voice: warm, grounded, never clichéd or salesy. Avoid generic 'spa' language.",
-    "Output strictly via the provided tool.",
-  ].join(" ");
-
-  const userPrompt = `Episode title: ${title}\n\nEpisode description / show notes:\n${trimmed || "(no description provided)"}\n\nGenerate the structured fields.`;
+  const userPrompt =
+    `Episode title: ${title}\n\n` +
+    `Source description (raw, may be promotional — extract substance only):\n` +
+    `${trimmed || "(no description provided)"}\n\n` +
+    `Generate the structured fields in the configured house voice.`;
 
   const body = {
     model: AI_MODEL,
     messages: [
-      { role: "system", content: systemPrompt },
+      { role: "system", content: style.systemPrompt },
       { role: "user", content: userPrompt },
     ],
     tools: [
@@ -83,27 +89,25 @@ async function enrichEpisode(
         type: "function",
         function: {
           name: "generate_episode_summary",
-          description: "Generate SEO summary, takeaways, and reflection questions for a podcast episode.",
+          description:
+            "Generate on-brand summary, takeaways, and reflection questions for a podcast episode.",
           parameters: {
             type: "object",
             properties: {
-              summary: {
-                type: "string",
-                description: "2-3 paragraph SEO summary (~150-220 words). No headings, just prose.",
-              },
+              summary: { type: "string", description: style.schema.summaryGuidance },
               takeaways: {
                 type: "array",
                 items: { type: "string" },
                 minItems: 3,
                 maxItems: 5,
-                description: "3-5 concise key takeaways from the episode.",
+                description: style.schema.takeawayGuidance,
               },
               questions: {
                 type: "array",
                 items: { type: "string" },
                 minItems: 3,
                 maxItems: 5,
-                description: "3-5 open-ended reflection questions for listeners.",
+                description: style.schema.questionGuidance,
               },
             },
             required: ["summary", "takeaways", "questions"],
@@ -132,11 +136,20 @@ async function enrichEpisode(
   if (!args) return null;
   try {
     const parsed = JSON.parse(args);
-    return {
-      summary: String(parsed.summary ?? ""),
-      takeaways: Array.isArray(parsed.takeaways) ? parsed.takeaways.map(String) : [],
-      questions: Array.isArray(parsed.questions) ? parsed.questions.map(String) : [],
-    };
+    const summary = String(parsed.summary ?? "");
+    const takeaways = Array.isArray(parsed.takeaways) ? parsed.takeaways.map(String) : [];
+    const questions = Array.isArray(parsed.questions) ? parsed.questions.map(String) : [];
+
+    // Drift telemetry — never blocks the write, just surfaces in function logs
+    // so we can refine the banned-phrase list and prompts over time.
+    const drift = detectBannedPhrases(
+      [summary, takeaways.join(" "), questions.join(" ")].join(" "),
+    );
+    if (drift.length > 0) {
+      console.warn("style drift", { style: style.id, banned: drift, title });
+    }
+
+    return { summary, takeaways, questions };
   } catch (e) {
     console.error("Failed to parse AI args", e);
     return null;
@@ -163,6 +176,12 @@ Deno.serve(async (req) => {
   // and cost bounded. Defaults to 5 (more than enough for a 2-3-day cadence).
   const url = new URL(req.url);
   const enrichLimit = Math.max(0, Number(url.searchParams.get("enrich_limit") ?? "5"));
+  // Configurable prompt style. Defaults to the on-brand house voice.
+  const style = getStyle(url.searchParams.get("style"));
+  // When true, re-enrich episodes whose stored AI content predates the current
+  // STYLE_VERSION (i.e. was generated under an older prompt). Use this after
+  // bumping STYLE_VERSION in prompt-styles.ts.
+  const forceRestyle = url.searchParams.get("force_restyle") === "1";
 
   try {
     const apiUrl = `https://www.buzzsprout.com/api/${PODCAST_ID}/episodes.json`;
@@ -208,21 +227,33 @@ Deno.serve(async (req) => {
       upserted += chunk.length;
     }
 
-    // Enrich episodes missing AI content (newest first).
+    // Enrich episodes missing AI content (newest first), plus — when
+    // force_restyle=1 — episodes whose stored summary was generated under a
+    // different style or older STYLE_VERSION.
     let enriched = 0;
     let enrichErrors = 0;
     if (enrichLimit > 0 && lovableApiKey) {
-      const { data: pending, error: pendingErr } = await supabase
+      let pendingQuery = supabase
         .from("buzzsprout_episodes")
-        .select("episode_id, title, description_html")
-        .is("ai_generated_at", null)
+        .select("episode_id, title, description_html, ai_style, ai_style_version, ai_generated_at");
+
+      if (forceRestyle) {
+        // Either never enriched, or enriched under a different style/version.
+        pendingQuery = pendingQuery.or(
+          `ai_generated_at.is.null,ai_style.neq.${style.id},ai_style_version.neq.${STYLE_VERSION}`,
+        );
+      } else {
+        pendingQuery = pendingQuery.is("ai_generated_at", null);
+      }
+
+      const { data: pending, error: pendingErr } = await pendingQuery
         .order("published_at", { ascending: false, nullsFirst: false })
         .limit(enrichLimit);
       if (pendingErr) throw pendingErr;
 
       for (const row of pending ?? []) {
         const plain = row.description_html ? stripHtml(row.description_html) : "";
-        const result = await enrichEpisode(lovableApiKey, row.title, plain);
+        const result = await enrichEpisode(lovableApiKey, row.title, plain, style);
         if (!result) {
           enrichErrors += 1;
           continue;
@@ -234,6 +265,8 @@ Deno.serve(async (req) => {
             ai_takeaways: result.takeaways,
             ai_questions: result.questions,
             ai_generated_at: new Date().toISOString(),
+            ai_style: style.id,
+            ai_style_version: STYLE_VERSION,
           })
           .eq("episode_id", row.episode_id);
         if (updateErr) {
@@ -252,6 +285,9 @@ Deno.serve(async (req) => {
         upserted,
         enriched,
         enrichErrors,
+        style: style.id,
+        styleVersion: STYLE_VERSION,
+        forceRestyle,
       }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } },
     );
