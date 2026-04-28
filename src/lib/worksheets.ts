@@ -3,12 +3,14 @@
 // team dynamics, etc.) — distinct from guided meditation scripts but rendered
 // with the same MeditationScript component using kind="worksheet".
 //
-// Add new entries as PDFs are uploaded to public/worksheets/.
+import { getDownloadAssetUrl } from "@/lib/download-assets";
+
+// Add new entries as PDFs are uploaded to download-assets/worksheets/.
 // `flagged: true` means the slug→PDF match is a best guess (no exact post
 // existed) and the placement should be reviewed before relying on it.
 
 export interface WorksheetEntry {
-  /** Path served from /public — must start with "/worksheets/". */
+  /** Storage path — usually starts with "/worksheets/". */
   pdfUrl: string;
   /** Display title shown on the worksheet card. */
   title: string;
@@ -2040,5 +2042,8 @@ export function getWorksheets(slug: string | undefined | null): WorksheetEntry[]
   if (single) entries.push(single);
   const bundle = WORKSHEET_BUNDLES[slug];
   if (bundle) entries.push(...bundle);
-  return entries;
+  return entries.map((entry) => ({
+    ...entry,
+    pdfUrl: getDownloadAssetUrl(entry.pdfUrl),
+  }));
 }

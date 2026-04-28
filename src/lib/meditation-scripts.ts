@@ -1,10 +1,12 @@
+import { getDownloadAssetUrl } from "@/lib/download-assets";
+
 // Registry mapping post slug → downloadable PDF script.
-// Add new entries as PDFs are uploaded to public/sample-scripts/.
+// Add new entries as PDFs are uploaded to download-assets/sample-scripts/.
 // `flagged: true` means the slug→PDF match is a best guess and should be
 // reviewed before relying on it in production.
 
 export interface MeditationScriptEntry {
-  /** Path served from /public — must start with "/sample-scripts/". */
+  /** Storage path — usually starts with "/sample-scripts/". */
   pdfUrl: string;
   /** Display title shown in the script card. */
   title: string;
@@ -1216,5 +1218,6 @@ export const MEDITATION_SCRIPTS: Record<string, MeditationScriptEntry> = {
 };
 
 export function getMeditationScript(slug: string): MeditationScriptEntry | null {
-  return MEDITATION_SCRIPTS[slug] ?? null;
+  const entry = MEDITATION_SCRIPTS[slug];
+  return entry ? { ...entry, pdfUrl: getDownloadAssetUrl(entry.pdfUrl) } : null;
 }

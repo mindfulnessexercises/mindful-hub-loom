@@ -24,12 +24,13 @@ import {
   MEDITATION_SCRIPTS,
   type MeditationScriptEntry,
 } from "@/lib/meditation-scripts";
+import { getDownloadAssetUrl } from "@/lib/download-assets";
 import { wp } from "@/lib/wp";
 import MeditationScriptReviewQueue from "@/components/admin/MeditationScriptReviewQueue";
 
 /**
  * Internal admin page that audits every meditation-script PDF in
- * /public/sample-scripts/ to verify:
+ * download-assets/sample-scripts/ to verify:
  *   1. The PDF itself is reachable and its served byte size matches the
  *      `fileSize` declared in the MEDITATION_SCRIPTS registry.
  *   2. The registered slug resolves to a real WordPress post (so the embed
@@ -40,8 +41,8 @@ import MeditationScriptReviewQueue from "@/components/admin/MeditationScriptRevi
  * Noindex via meta tag — internal tooling.
  */
 
-// Source of truth for "what's on disk". Update when you add/remove a PDF in
-// public/sample-scripts/. Audit will flag any mismatch with the registry.
+// Source of truth for storage-hosted PDFs. Update when you add/remove a PDF in
+// download-assets/sample-scripts/. Audit will flag any mismatch with the registry.
 const PDF_FILES_ON_DISK = [
   "5-minute-standing-meditation.pdf",
   "5-minutes-to-regain-calm-clarity-and-confidence.pdf",
@@ -407,7 +408,10 @@ export default function AdminMeditationScriptsAudit() {
     let cancelled = false;
     const seed: AuditRow[] = registrySlugs.map((slug) => ({
       slug,
-      entry: MEDITATION_SCRIPTS[slug],
+      entry: {
+        ...MEDITATION_SCRIPTS[slug],
+        pdfUrl: getDownloadAssetUrl(MEDITATION_SCRIPTS[slug].pdfUrl),
+      },
       pdfStatus: "pending",
       postStatus: "pending",
       declaredBytes: parseDeclaredBytes(MEDITATION_SCRIPTS[slug].fileSize),
@@ -416,7 +420,7 @@ export default function AdminMeditationScriptsAudit() {
 
     const usedFilenames = new Set<string>(
       registrySlugs.map((s) =>
-        MEDITATION_SCRIPTS[s].pdfUrl.replace(/^\/sample-scripts\//, ""),
+        MEDITATION_SCRIPTS[s].pdfUrl.split("/sample-scripts/").pop() ?? MEDITATION_SCRIPTS[s].pdfUrl,
       ),
     );
     const orphanFilenames = PDF_FILES_ON_DISK.filter(
@@ -457,7 +461,7 @@ export default function AdminMeditationScriptsAudit() {
 
     async function checkOrphan(filename: string): Promise<OrphanPdf> {
       try {
-        const res = await fetch(`/sample-scripts/${filename}`, {
+        const res = await fetch(getDownloadAssetUrl(`/sample-scripts/${filename}`), {
           method: "HEAD",
         });
         const len = res.headers.get("content-length");
