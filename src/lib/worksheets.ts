@@ -1069,6 +1069,41 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "What Mood are You Generating in Others",
     fileSize: "161 KB",
   },
+  "common-errors-in-thinking": {
+    pdfUrl: "/worksheets/common-errors-in-thinking.pdf",
+    title: "Common Errors in Thinking",
+    fileSize: "214 KB",
+  },
+  "dissolving-barriers-power": {
+    pdfUrl: "/worksheets/dissolving-our-barriers-to-power.pdf",
+    title: "Dissolving our Barriers to Power",
+    fileSize: "184 KB",
+  },
+  "empowering-three-intelligence-centers": {
+    pdfUrl: "/worksheets/empowering-your-three-intelligence-centers.pdf",
+    title: "Empowering Your Three Intelligence Centers",
+    fileSize: "173 KB",
+  },
+  "feeling-knocked-off-balance": {
+    pdfUrl: "/worksheets/feeling-knocked-off-balance.pdf",
+    title: "Feeling Knocked Off Balance",
+    fileSize: "160 KB",
+  },
+  "investing-your-life-today": {
+    pdfUrl: "/worksheets/how-are-you-investing-your-life-today.pdf",
+    title: "How are You Investing Your Life Today",
+    fileSize: "172 KB",
+  },
+  "make-decisions": {
+    pdfUrl: "/worksheets/how-do-you-make-decisions.pdf",
+    title: "How do You Make Decisions",
+    fileSize: "161 KB",
+  },
+  "identifying-core-beliefs": {
+    pdfUrl: "/worksheets/identifying-core-beliefs.pdf",
+    title: "Identifying Core Beliefs",
+    fileSize: "188 KB",
+  },
 };
 
 /**
@@ -1119,6 +1154,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/cultivating-an-inner-smile.pdf",
       title: "Cultivating an Inner Smile",
       fileSize: "190 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/bringing-basic-awareness-to-your-life.pdf",
+      title: "Bringing Basic Awareness to Your Life",
+      fileSize: "181 KB",
       flagged: true,
     },
   ],
@@ -1733,6 +1774,15 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/what-value-do-you-have-of-people.pdf",
       title: "What Value Do You Have of People",
       fileSize: "160 KB",
+      flagged: true,
+    },
+  ],
+  // "Confidence Building" has no dedicated post — surface on the closest match.
+  "building-self-esteem": [
+    {
+      pdfUrl: "/worksheets/confidence-building.pdf",
+      title: "Confidence Building",
+      fileSize: "184 KB",
       flagged: true,
     },
   ],
