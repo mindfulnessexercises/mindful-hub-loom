@@ -31,6 +31,7 @@ const AdminCategoryAudit = lazy(() => import("./pages/AdminCategoryAudit.tsx"));
 const AdminMeditationScriptsAudit = lazy(() => import("./pages/AdminMeditationScriptsAudit.tsx"));
 const AdminSeoSnapshots = lazy(() => import("./pages/AdminSeoSnapshots.tsx"));
 const AdminAudioAudit = lazy(() => import("./pages/AdminAudioAudit.tsx"));
+const AdminPublishDiagnostics = lazy(() => import("./pages/AdminPublishDiagnostics.tsx"));
 const DemoMeditationPlayer = lazy(() => import("./pages/DemoMeditationPlayer.tsx"));
 const DemoMeditationScript = lazy(() => import("./pages/DemoMeditationScript.tsx"));
 
@@ -87,6 +88,7 @@ const App = () => (
             <Route path="/admin/meditation-scripts-audit" element={<AdminMeditationScriptsAudit />} />
             <Route path="/admin/seo-snapshots" element={<AdminSeoSnapshots />} />
             <Route path="/admin/audio-audit" element={<AdminAudioAudit />} />
+            <Route path="/admin/publish-diagnostics" element={<AdminPublishDiagnostics />} />
             <Route path="/admin/meditation-player-demo" element={<DemoMeditationPlayer />} />
             <Route path="/admin/meditation-script-demo" element={<DemoMeditationScript />} />
             {/* Alias: /blog/:slug also resolves to the post via WPResolver */}
