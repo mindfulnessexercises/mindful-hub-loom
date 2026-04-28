@@ -290,13 +290,15 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "cope-with-difficult-emotions-through-mindfulness": {
     heading: "Listen: Difficult Emotions audio series",
     intro:
-      "A guided meditation, dharma talks, and a long-form retreat series on physical pain — Exploring Frustration turns toward the heat of it with curiosity and care; Entering Into Difficulty (Gil Fronsdal) is a tender reflection on how we step closer, instead of away, when the difficult arises; Working With Afflictive Emotions (Joseph Goldstein) widens the lens with a longer retreat-style teaching on meeting strong emotion in practice; Guided Forgiveness Meditation (Gil Fronsdal) offers a classic forgiveness practice for releasing the weight of resentment; Guided Forgiveness Meditation For Depression (Ronna Kabatznick) brings forgiveness practice specifically to the heaviness of depression; Pain (Gil Fronsdal) is a long-form dharma talk on meeting physical and emotional pain with steady, kind awareness; the Working With Pain in Meditation and Daily Life series (Ines Freedman) offers three retreat-style sessions plus three guided practices — Emotional Reactions to Pain, Free-Floating in the Discomfort, and Local Intensity, Global Spread — for working skillfully with chronic and acute pain; Dullness and Anger (Ajahn Sumedho) is a long-form Theravada teaching on meeting heavy, irritable, or shut-down states with patient awareness.",
+      "Guided meditations, dharma talks, and long-form retreat teachings on working with hard feelings — Exploring Frustration turns toward the heat of it with curiosity and care; Entering Into Difficulty (Gil Fronsdal) is a tender reflection on stepping closer, instead of away, when the difficult arises; Working With Afflictive Emotions (Joseph Goldstein) widens the lens with a longer retreat-style teaching; Guided Forgiveness Meditation (Gil Fronsdal) and Guided Forgiveness Meditation For Depression (Ronna Kabatznick) are classic forgiveness practices for releasing the weight of resentment, alongside two long-form forgiveness teachings from Tara Brach — A Forgiving Heart and Forgiving Ourselves and Others; Pain (Gil Fronsdal) is a long-form dharma talk on meeting physical and emotional pain with steady, kind awareness; the Working With Pain in Meditation and Daily Life series (Ines Freedman) offers three retreat-style sessions plus three guided practices — Emotional Reactions to Pain, Free-Floating in the Discomfort, and Local Intensity, Global Spread — for working skillfully with chronic and acute pain; Working with Pain and Recurring Thoughts and Working with Trauma (Tara Brach) bring practical, retreat-style guidance to two of the hardest places practice meets life; Dullness and Anger (Ajahn Sumedho) is a long-form Theravada teaching on meeting heavy, irritable, or shut-down states with patient awareness.",
     tracks: [
       { title: "Exploring Frustration — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/cope-with-difficult-emotions/exploring-frustration.mp3` },
       { title: "Entering Into Difficulty — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions/entering-into-difficulty.mp3` },
       { title: "Working With Afflictive Emotions — Dharma Talk by Joseph Goldstein", src: `${AUDIO_BASE}/cope-with-difficult-emotions/working-with-afflictive-emotions.mp3` },
       { title: "Guided Forgiveness Meditation — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/gil-fronsdal-forgiveness.mp3` },
       { title: "Guided Forgiveness Meditation For Depression — Guided Meditation by Ronna Kabatznick", src: `${AUDIO_BASE}/kindness-for-your-thinking-mind/ronna-kabatznick-forgiveness-for-depression.mp3` },
+      { title: "A Forgiving Heart — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/tara-brach-a-forgiving-heart.mp3` },
+      { title: "Forgiving Ourselves and Others — Guided Heart Meditation by Tara Brach", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/tara-brach-forgiving-ourselves-and-others.mp3` },
       { title: "Pain — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/gil-fronsdal-pain.mp3` },
       { title: "Working With Pain in Meditation and Daily Life — Week 1, Part 1 — Dharma Talk by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-pain-wk1-pt1.mp3` },
       { title: "Working With Pain in Meditation and Daily Life — Week 1, Part 2 — Dharma Talk by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-pain-wk1-pt2.mp3` },
@@ -304,6 +306,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Emotional Reactions to Pain — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-emotional-reactions-to-pain.mp3` },
       { title: "Free-Floating in the Discomfort — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-free-floating-in-discomfort.mp3` },
       { title: "Local Intensity, Global Spread — Guided Meditation by Ines Freedman", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ines-freedman-local-intensity-global-spread.mp3` },
+      { title: "Working with Pain and Recurring Thoughts — Q&R by Tara Brach", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/tara-brach-working-with-pain-and-recurring-thoughts.mp3` },
+      { title: "Working with Trauma — Morning Q&R by Tara Brach", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/tara-brach-working-with-trauma.mp3` },
       { title: "Dullness and Anger — Dharma Talk by Ajahn Sumedho", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ajahn-sumedho-dullness-and-anger.mp3` },
     ],
   },
@@ -428,7 +432,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "power-of-acceptance": {
     heading: "Listen to the Acceptance audio series",
     intro:
-      "Five guided meditations and a dharma talk on acceptance — welcoming this moment, meeting it as it is, and softening into life as it unfolds. Closes with Mindfulness as Strength (Gil Fronsdal), a short reflection on how steady, accepting awareness becomes its own kind of inner strength.",
+      "Five guided meditations, a dharma talk, and a long-form retreat teaching on acceptance — welcoming this moment, meeting it as it is, and softening into life as it unfolds. Closes with Mindfulness as Strength (Gil Fronsdal), a short reflection on how steady, accepting awareness becomes its own kind of inner strength, and Letting Life Be Just As It Is (Tara Brach), a long-form retreat-style guided meditation on the quiet freedom of simply allowing.",
     tracks: [
       { title: "Part 1: Welcoming This Moment", src: `${AUDIO_BASE}/power-of-acceptance/welcoming-this-moment.mp3` },
       { title: "Part 2: Accepting This Present Moment As It Is", src: `${AUDIO_BASE}/power-of-acceptance/accepting-this-present-moment.mp3` },
@@ -436,18 +440,21 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 4: How to Accept Life As It Unfolds", src: `${AUDIO_BASE}/power-of-acceptance/how-to-accept-life.mp3` },
       { title: "Part 5: Feeling Acceptance", src: `${AUDIO_BASE}/power-of-acceptance/feeling-acceptance.mp3` },
       { title: "Practice Notes: Mindfulness as Strength — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/power-of-acceptance/mindfulness-as-strength.mp3` },
+      { title: "Letting Life Be Just As It Is — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/power-of-acceptance/tara-brach-letting-life-be-just-as-it-is.mp3` },
     ],
   },
   "8-self-compassion-exercises-to-enhance-the-relationship-you-have-with-yourself": {
     heading: "Listen: Self-Compassion audio series",
     intro:
-      "Guided meditations and a long-form dharma talk on self-compassion — 21-Day Compassion offers a steady daily practice; Nourishing Your Body With Attention turns kind, attentive presence toward the body itself; Compassion Meditation is a longer practice for opening the heart wide enough to hold both your own pain and the pain of others; Self-Compassion Meditation is an extended practice for offering yourself the same warmth and patience you'd offer a dear friend; Self-Compassion (Tara Brach) is a long-form retreat-style teaching on the radical act of meeting yourself with care.",
+      "Guided meditations and long-form dharma teachings on self-compassion — 21-Day Compassion offers a steady daily practice; Nourishing Your Body With Attention turns kind, attentive presence toward the body itself; Compassion Meditation is a longer practice for opening the heart wide enough to hold both your own pain and the pain of others; Self-Compassion Meditation is an extended practice for offering yourself the same warmth and patience you'd offer a dear friend; Self-Compassion (Tara Brach) is a long-form retreat-style teaching on the radical act of meeting yourself with care; Rain of Compassion (Tara Brach) is a guided meditation in her signature RAIN practice for letting compassion soak into the hardest places; Tonglen (Tara Brach) is a Tibetan compassion practice for breathing in suffering and breathing out relief.",
     tracks: [
       { title: "21-Day Compassion — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/21-day-compassion.mp3` },
       { title: "Nourishing Your Body With Attention — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/nourishing-body-with-attention.mp3` },
       { title: "Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/compassion-meditation.mp3` },
       { title: "Self-Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/self-compassion-pause/self-compassion-meditation.mp3` },
       { title: "Self-Compassion — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-self-compassion.mp3` },
+      { title: "Rain of Compassion — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-rain-of-compassion.mp3` },
+      { title: "Tonglen — Compassion Practice by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-tonglen.mp3` },
     ],
   },
   "mindfulness-body-scan-for-self-compassion": {
@@ -464,10 +471,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "guided-meditation-self-acceptance": {
     heading: "Listen: Self-Acceptance audio series",
     intro:
-      "A guided meditation plus a short dharma talk — How to Allow Your Experience to Be What It Is meets whatever arises with allowance; Practice Notes: It's OK (Gil Fronsdal) is a tender reminder that this moment, too, is allowed to be exactly as it is.",
+      "Guided meditations and dharma teachings on allowance — How to Allow Your Experience to Be What It Is meets whatever arises with allowance; Practice Notes: It's OK (Gil Fronsdal) is a tender reminder that this moment, too, is allowed to be exactly as it is; Letting Life Be Just As It Is (Tara Brach) is a long-form retreat-style guided meditation on the quiet freedom of simply allowing.",
     tracks: [
       { title: "How to Allow Your Experience to Be What It Is — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/guided-meditation-self-acceptance/how-to-allow-your-experience.mp3` },
       { title: "Practice Notes: It's OK — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/guided-meditation-self-acceptance/practice-notes-its-ok.mp3` },
+      { title: "Letting Life Be Just As It Is — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/power-of-acceptance/tara-brach-letting-life-be-just-as-it-is.mp3` },
     ],
   },
   "short-body-scan": {
@@ -497,10 +505,11 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "settling-into-presence": {
     heading: "Listen: Settling Into This Present Moment",
     intro:
-      "A short guided meditation by Sean Fargo for letting the body, breath, and mind arrive — gently — into the simple presence of right now. Followed by a short dharma talk by Gil Fronsdal — Dharmette: A Fresh Start — on how each present moment offers a quiet chance to begin again.",
+      "A short guided meditation by Sean Fargo for letting the body, breath, and mind arrive — gently — into the simple presence of right now. Followed by a short dharma talk by Gil Fronsdal — Dharmette: A Fresh Start — on how each present moment offers a quiet chance to begin again. Plus Coming Back: Meditation Instructions with Q&A (Tara Brach) — a long-form retreat-style teaching on the simple, essential practice of returning to presence, again and again.",
     tracks: [
       { title: "Settling Into This Present Moment — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/settling-into-presence/settling-into-this-present-moment.mp3` },
       { title: "Dharmette: A Fresh Start — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/settling-into-presence/dharmette-fresh-start.mp3` },
+      { title: "Coming Back: Meditation Instructions with Q&A — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/settling-into-presence/tara-brach-coming-back-meditation-instructions.mp3` },
     ],
   },
   "affirmations-for-anxiety": {
@@ -714,12 +723,14 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "self-compassion-pause": {
     heading: "Listen: Self-Compassion Pause audio series",
     intro:
-      "Self-compassion practices in different lengths plus a long-form dharma teaching — The Voice of A Good Friend invites the same warmth, patience, and steady kindness you'd offer a close friend; Self-Compassion Meditation is an extended practice for letting that kindness sink in over a longer sit; Compassion Meditation is a longer practice for letting the heart soften into both your own pain and the pain of others; Self-Compassion (Tara Brach) is a long-form retreat-style teaching on the radical act of meeting yourself with care.",
+      "Self-compassion practices in different lengths plus long-form dharma teachings — The Voice of A Good Friend invites the same warmth, patience, and steady kindness you'd offer a close friend; Self-Compassion Meditation is an extended practice for letting that kindness sink in over a longer sit; Compassion Meditation is a longer practice for letting the heart soften into both your own pain and the pain of others; Self-Compassion (Tara Brach) is a long-form retreat-style teaching on the radical act of meeting yourself with care; Rain of Compassion (Tara Brach) is a guided meditation in her signature RAIN practice for letting compassion soak into the hardest places; Tonglen (Tara Brach) is a Tibetan compassion practice for breathing in suffering and breathing out relief.",
     tracks: [
       { title: "The Voice of A Good Friend — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/self-compassion-pause/voice-of-a-good-friend.mp3` },
       { title: "Self-Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/self-compassion-pause/self-compassion-meditation.mp3` },
       { title: "Compassion Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/8-self-compassion-exercises/compassion-meditation.mp3` },
       { title: "Self-Compassion — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-self-compassion.mp3` },
+      { title: "Rain of Compassion — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-rain-of-compassion.mp3` },
+      { title: "Tonglen — Compassion Practice by Tara Brach", src: `${AUDIO_BASE}/8-self-compassion-exercises/tara-brach-tonglen.mp3` },
     ],
   },
   "soft-belly": {
@@ -815,11 +826,12 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "walking-meditation-worksheet-2": {
     heading: "Listen: Walking Meditation audio series",
     intro:
-      "A dharma talk by Matthew Brensilver on walking meditation — instructions and reflections on bringing mindful presence into the simple act of putting one foot in front of the other. Plus a guided Walking Meditation by Sean Fargo for practicing it directly, step by step, and a companion Standing Meditation for grounding through the body before — or instead of — taking a single step.",
+      "A dharma talk by Matthew Brensilver on walking meditation — instructions and reflections on bringing mindful presence into the simple act of putting one foot in front of the other. Plus a guided Walking Meditation by Sean Fargo for practicing it directly, step by step, and a companion Standing Meditation for grounding through the body before — or instead of — taking a single step. Closes with Standing and Walking Meditation Instructions (Tara Brach) — a long-form retreat-style teaching on both postures as gateways to embodied presence.",
     tracks: [
       { title: "Walking Meditation — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/walking-meditation-worksheet/walking-meditation-talk.mp3` },
       { title: "Walking Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/walking-meditation-worksheet-2/walking.mp3` },
       { title: "Standing Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/walking-meditation-worksheet-2/standing.mp3` },
+      { title: "Standing and Walking Meditation Instructions — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/walking-meditation-worksheet-2/tara-brach-standing-and-walking-instructions.mp3` },
     ],
   },
   "style-over-summit-what-dirtbag-billionaire-taught-me-about-practice": {
@@ -884,13 +896,14 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
   "mindfulness-meditation-and-the-space-in-between": {
     heading: "Listen: The Space In Between audio series",
     intro:
-      "A short dharma talk by Gil Fronsdal on ease — not as the absence of effort, but as the soft, spacious quality that lives in the in-between of practice. Plus a four-part long-form retreat series on Emptiness — the liberating teaching that what we take to be solid (self, thought, experience) is more open and spacious than the mind first assumes.",
+      "A short dharma talk by Gil Fronsdal on ease — not as the absence of effort, but as the soft, spacious quality that lives in the in-between of practice. Plus a four-part long-form retreat series on Emptiness — the liberating teaching that what we take to be solid (self, thought, experience) is more open and spacious than the mind first assumes. Closes with Inner Space, Gateway to Awareness (Tara Brach) — a long-form guided meditation on resting in the spacious awareness that holds every passing experience.",
     tracks: [
       { title: "Practice Notes: Ease — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/ease.mp3` },
       { title: "Emptiness, Part 1 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-1.mp3` },
       { title: "Emptiness, Part 2 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-2.mp3` },
       { title: "Emptiness, Part 3 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-3.mp3` },
       { title: "Emptiness, Part 4 — Long-Form Retreat Teaching", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/emptiness-part-4.mp3` },
+      { title: "Inner Space, Gateway to Awareness — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/mindfulness-meditation-and-the-space-in-between/tara-brach-inner-space-gateway-to-awareness.mp3` },
     ],
   },
 };
