@@ -999,6 +999,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "198 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/mindfulness-of-sounds.pdf",
+      title: "Mindfulness of Sounds",
+      fileSize: "171 KB",
+      flagged: true,
+    },
   ],
   // "Acceptance of our Circumstance" has no dedicated post — surface on the
   // closest topical match (acceptance meditation).
@@ -1133,15 +1139,7 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
-  // "Mindfulness of Sounds" — surface on the closest sitting-meditation hub.
-  "several-styles-sitting-meditation": [
-    {
-      pdfUrl: "/worksheets/mindfulness-of-sounds.pdf",
-      title: "Mindfulness of Sounds",
-      fileSize: "171 KB",
-      flagged: true,
-    },
-  ],
+  // (Mindfulness of Sounds bundled into several-styles-sitting-meditation above.)
   // "Monkey Mind Meditation" — surface alongside the anxiety-transformation hub.
   "transforming-anxiety": [
     {
