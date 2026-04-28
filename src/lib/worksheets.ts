@@ -1144,6 +1144,41 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Mindfulness of Time, Meaning & Belonging",
     fileSize: "181 KB",
   },
+  "noticing-intrusions": {
+    pdfUrl: "/worksheets/noticing-intrusions.pdf",
+    title: "Noticing Intrusions",
+    fileSize: "160 KB",
+  },
+  "operating-on-autopilot": {
+    pdfUrl: "/worksheets/operating-on-autopilot.pdf",
+    title: "Operating on Autopilot",
+    fileSize: "168 KB",
+  },
+  "realizing-intention": {
+    pdfUrl: "/worksheets/realizing-intention.pdf",
+    title: "Realizing Intention",
+    fileSize: "188 KB",
+  },
+  "recurring-thoughts": {
+    pdfUrl: "/worksheets/recurring-thoughts.pdf",
+    title: "Recurring Thoughts",
+    fileSize: "161 KB",
+  },
+  "self-advocacy": {
+    pdfUrl: "/worksheets/self-advocacy.pdf",
+    title: "Self-Advocacy",
+    fileSize: "190 KB",
+  },
+  "sensing-strongest-experiences": {
+    pdfUrl: "/worksheets/sensing-into-your-strongest-experiences.pdf",
+    title: "Sensing Into Your Strongest Experiences",
+    fileSize: "175 KB",
+  },
+  "shaping-principle": {
+    pdfUrl: "/worksheets/the-shaping-principle.pdf",
+    title: "The Shaping Principle",
+    fileSize: "160 KB",
+  },
 };
 
 /**
