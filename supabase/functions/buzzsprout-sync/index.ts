@@ -11,6 +11,13 @@
 // future syncs (every 6 hours) automatically pick up enrichment.
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
+import {
+  DEFAULT_STYLE,
+  STYLE_VERSION,
+  detectBannedPhrases,
+  getStyle,
+  type PromptStyle,
+} from "./prompt-styles.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
