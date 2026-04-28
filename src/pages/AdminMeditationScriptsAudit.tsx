@@ -24,12 +24,13 @@ import {
   MEDITATION_SCRIPTS,
   type MeditationScriptEntry,
 } from "@/lib/meditation-scripts";
+import { getDownloadAssetUrl } from "@/lib/download-assets";
 import { wp } from "@/lib/wp";
 import MeditationScriptReviewQueue from "@/components/admin/MeditationScriptReviewQueue";
 
 /**
  * Internal admin page that audits every meditation-script PDF in
- * /public/sample-scripts/ to verify:
+ * download-assets/sample-scripts/ to verify:
  *   1. The PDF itself is reachable and its served byte size matches the
  *      `fileSize` declared in the MEDITATION_SCRIPTS registry.
  *   2. The registered slug resolves to a real WordPress post (so the embed
@@ -40,8 +41,8 @@ import MeditationScriptReviewQueue from "@/components/admin/MeditationScriptRevi
  * Noindex via meta tag — internal tooling.
  */
 
-// Source of truth for "what's on disk". Update when you add/remove a PDF in
-// public/sample-scripts/. Audit will flag any mismatch with the registry.
+// Source of truth for storage-hosted PDFs. Update when you add/remove a PDF in
+// download-assets/sample-scripts/. Audit will flag any mismatch with the registry.
 const PDF_FILES_ON_DISK = [
   "5-minute-standing-meditation.pdf",
   "5-minutes-to-regain-calm-clarity-and-confidence.pdf",
