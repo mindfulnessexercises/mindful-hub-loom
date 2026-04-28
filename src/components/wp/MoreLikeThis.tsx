@@ -307,7 +307,7 @@ export function MoreLikeThis({ activeCategory, allCategories, search }: MoreLike
                       }
                       className="text-xs font-medium text-primary hover:underline underline-offset-4 mb-2 inline-block"
                     >
-                      {cat.name}
+                      {stripHtml(cat.name)}
                     </Link>
                     <h3
                       className="text-sm font-semibold text-foreground line-clamp-2 mb-3"

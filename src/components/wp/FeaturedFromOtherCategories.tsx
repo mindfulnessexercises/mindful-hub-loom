@@ -292,7 +292,7 @@ function FeaturedCard({ cat, post, position, fromCategoryId, onClick }: Featured
             onClick={() => onClick(cat, post, position, "category_badge")}
             className="text-xs font-medium text-primary hover:underline underline-offset-4 mb-2 inline-block"
           >
-            {cat.name}
+            {stripHtml(cat.name)}
           </Link>
           <Link
             to={`/${post.slug}`}
