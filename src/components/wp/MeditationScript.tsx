@@ -4,6 +4,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 
 export type MeditationScriptVariant = "inline" | "collapsible" | "card";
+export type MeditationScriptKind = "script" | "worksheet";
 
 interface PdfCanvasPreviewProps {
   pdfUrl: string;
@@ -148,6 +149,8 @@ interface MeditationScriptProps {
   meditationId?: string;
   /** How the script renders. Default: "collapsible". */
   variant?: MeditationScriptVariant;
+  /** Content kind — drives eyebrow label and aria text. Default: "script". */
+  kind?: MeditationScriptKind;
 }
 
 /**
@@ -168,8 +171,14 @@ export function MeditationScript({
   fileSize,
   meditationId,
   variant = "collapsible",
+  kind = "script",
 }: MeditationScriptProps) {
   const [expanded, setExpanded] = useState(variant === "inline");
+  const eyebrow = kind === "worksheet" ? "Printable Worksheet" : "Guided Script";
+  const ariaLabel =
+    kind === "worksheet" ? `Printable worksheet: ${title}` : `Printable script for ${title}`;
+  const previewLabel = kind === "worksheet" ? "Preview worksheet" : "Preview script";
+  const hideLabel = kind === "worksheet" ? "Hide preview" : "Hide preview";
 
   const fireView = useCallback(() => {
     trackEvent("script_view", { meditation_id: meditationId, pdf_url: pdfUrl });
@@ -206,7 +215,7 @@ export function MeditationScript({
 
   return (
     <section
-      aria-label={`Printable script for ${title}`}
+      aria-label={ariaLabel}
       className="rounded-2xl border border-border bg-card overflow-hidden shadow-[var(--shadow-card)]"
     >
       {/* Header / actions row */}
@@ -217,7 +226,7 @@ export function MeditationScript({
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-xs font-semibold tracking-[0.18em] uppercase text-muted-foreground">
-              Guided Script
+              {eyebrow}
             </p>
             <h3 className="font-serif text-lg sm:text-xl text-foreground leading-snug mt-0.5 truncate">
               {title}
@@ -252,12 +261,12 @@ export function MeditationScript({
               {expanded ? (
                 <>
                   <ChevronUp className="h-4 w-4 mr-1.5" />
-                  Hide preview
+                  {hideLabel}
                 </>
               ) : (
                 <>
                   <ChevronDown className="h-4 w-4 mr-1.5" />
-                  Preview script
+                  {previewLabel}
                 </>
               )}
             </Button>
