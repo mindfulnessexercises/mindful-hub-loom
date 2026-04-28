@@ -34,6 +34,8 @@ import { AuthorCard } from "@/components/wp/AuthorCard";
 import { RelatedPosts } from "@/components/wp/RelatedPosts";
 import { RecommendedNext } from "@/components/wp/RecommendedNext";
 import { PodcastPlayer } from "@/components/wp/PodcastPlayer";
+import { BuzzsproutEmbedPlayer } from "@/components/wp/BuzzsproutEmbed";
+import { extractBuzzsproutEmbed } from "@/lib/buzzsprout";
 import { MeditationPlayer } from "@/components/wp/MeditationPlayer";
 import { MeditationScript } from "@/components/wp/MeditationScript";
 import { WorksheetMindfulGuidance } from "@/components/wp/WorksheetMindfulGuidance";
