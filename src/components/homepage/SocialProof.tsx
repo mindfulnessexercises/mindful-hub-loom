@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 import { SectionWrapper, SectionHeader } from "./SectionWrapper";
 
-import rickHanson from "@/assets/endorsers/rick-hanson.png";
-import chrisGermer from "@/assets/endorsers/chris-germer.png";
-import jackKornfield from "@/assets/endorsers/jack-kornfield.png";
-import gaborMate from "@/assets/endorsers/gabor-mate.png";
-import sharonSalzberg from "@/assets/endorsers/sharon-salzberg.png";
-import hasanRafiq from "@/assets/endorsers/hasan-rafiq.png";
+import rickHanson from "@/assets/endorsers/rick-hanson.jpg";
+import chrisGermer from "@/assets/endorsers/chris-germer.jpg";
+import jackKornfield from "@/assets/endorsers/jack-kornfield.jpg";
+import gaborMate from "@/assets/endorsers/gabor-mate.jpg";
+import sharonSalzberg from "@/assets/endorsers/sharon-salzberg.jpg";
+import hasanRafiq from "@/assets/endorsers/hasan-rafiq.jpg";
 
 const testimonials = [
   {
