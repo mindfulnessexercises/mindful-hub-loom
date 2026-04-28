@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/homepage/Navbar";
 import { HeroSection } from "@/components/homepage/HeroSection";
+import { IntentRouterStrip } from "@/components/homepage/IntentRouterStrip";
 import { TrustRibbon } from "@/components/homepage/TrustRibbon";
 import { BrowseByFormat } from "@/components/homepage/BrowseByFormat";
 import { ChooseYourPath } from "@/components/homepage/ChooseYourPath";
@@ -26,6 +27,7 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <IntentRouterStrip />
         <TrustRibbon />
         <BrowseByFormat />
         <ChooseYourPath />
