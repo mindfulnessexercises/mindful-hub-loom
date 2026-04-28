@@ -8,6 +8,7 @@ import { WPSeo } from "@/components/wp/WPSeo";
 import { WPBreadcrumbs } from "@/components/wp/WPBreadcrumbs";
 import { ShareBar } from "@/components/wp/ShareBar";
 import { BuzzsproutEmbedPlayer } from "@/components/wp/BuzzsproutEmbed";
+import { BuzzsproutEpisodeSections } from "@/components/wp/BuzzsproutEpisodeSections";
 import { trackEvent } from "@/lib/analytics";
 import type { BuzzsproutEpisodeRecord } from "@/lib/buzzsprout-lookup";
 
@@ -129,47 +130,7 @@ export function BuzzsproutEpisodeFallback({ record }: Props) {
           <ShareBar title={record.title} url={url} />
         </div>
 
-        {record.aiSummary && (
-          <section className="mt-12">
-            <h2 className="font-serif text-2xl text-foreground">About this episode</h2>
-            <div className="mt-3 text-foreground/90 leading-relaxed whitespace-pre-line">
-              {record.aiSummary}
-            </div>
-          </section>
-        )}
-
-        {record.aiTakeaways && record.aiTakeaways.length > 0 && (
-          <section className="mt-10">
-            <h2 className="font-serif text-2xl text-foreground">Key takeaways</h2>
-            <ul className="mt-3 space-y-2 list-disc pl-6 text-foreground/90 leading-relaxed">
-              {record.aiTakeaways.map((t, i) => (
-                <li key={i}>{t}</li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {record.aiQuestions && record.aiQuestions.length > 0 && (
-          <section className="mt-10">
-            <h2 className="font-serif text-2xl text-foreground">Reflection questions</h2>
-            <ul className="mt-3 space-y-2 list-disc pl-6 text-foreground/90 leading-relaxed">
-              {record.aiQuestions.map((q, i) => (
-                <li key={i}>{q}</li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {record.descriptionHtml && (
-          <section className="mt-12">
-            <h2 className="font-serif text-2xl text-foreground">Show notes</h2>
-            <div
-              className="prose prose-stone max-w-none mt-3"
-              // Buzzsprout-authored HTML — trusted source.
-              dangerouslySetInnerHTML={{ __html: record.descriptionHtml }}
-            />
-          </section>
-        )}
+        <BuzzsproutEpisodeSections record={record} includeShowNotes />
 
         <div className="mt-16 border-t border-border pt-8">
           <Button asChild variant="outline" className="min-h-[44px]">
