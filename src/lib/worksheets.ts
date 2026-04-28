@@ -549,6 +549,26 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Loving Kindness Meditation Script",
     fileSize: "211 KB",
   },
+  "loving-kindness-visualization-the-spheres-worksheet": {
+    pdfUrl: "/worksheets/loving-kindness-visualization-the-spheres.pdf",
+    title: "Loving Kindness Visualization – The Spheres",
+    fileSize: "151 KB",
+  },
+  "limitless-awareness": {
+    pdfUrl: "/worksheets/limitless-awareness.pdf",
+    title: "Limitless Awareness",
+    fileSize: "192 KB",
+  },
+  "be-the-pebble": {
+    pdfUrl: "/worksheets/like-the-ocean-floor.pdf",
+    title: "Like the Ocean Floor",
+    fileSize: "186 KB",
+  },
+  "managing-mitigating-stress": {
+    pdfUrl: "/worksheets/managing-and-mitigating-stress.pdf",
+    title: "Managing and Mitigating Stress",
+    fileSize: "224 KB",
+  },
   "meditation-on-life-and-death": {
     pdfUrl: "/worksheets/meditation-on-life-and-death.pdf",
     title: "Meditation Script on Life and Death",
@@ -903,6 +923,30 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "197 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/loving-kindness-the-child-that-is-you.pdf",
+      title: "Loving Kindness – The Child that is You",
+      fileSize: "160 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/loving-kindness-affirmations.pdf",
+      title: "Loving-Kindness Affirmations",
+      fileSize: "194 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/loving-kindness-2.pdf",
+      title: "Loving-Kindness",
+      fileSize: "177 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/meeting-mindfulness-with-kindness.pdf",
+      title: "Meeting Mindfulness With Kindness",
+      fileSize: "190 KB",
+      flagged: true,
+    },
   ],
   // Companion guide & journal alongside the beginners ebook.
   "mindfulness-meditation-beginners-free-ebook": [
@@ -967,6 +1011,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/body-scan-meditation-2.pdf",
       title: "Body Scan Meditation",
       fileSize: "174 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/mindful-body-acceptance.pdf",
+      title: "Mindful Body Acceptance",
+      fileSize: "372 KB",
       flagged: true,
     },
   ],
