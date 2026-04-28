@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -243,13 +242,19 @@ export default function AdminPublishDiagnostics() {
     return { total, stale, live };
   }, [findings]);
 
+  useEffect(() => {
+    document.title = "Publish Diagnostics — Admin";
+    let robots = document.querySelector('meta[name="robots"]');
+    if (!robots) {
+      robots = document.createElement("meta");
+      robots.setAttribute("name", "robots");
+      document.head.appendChild(robots);
+    }
+    robots.setAttribute("content", "noindex,nofollow");
+  }, []);
+
   return (
     <>
-      <Helmet>
-        <title>Publish Diagnostics — Admin</title>
-        <meta name="robots" content="noindex,nofollow" />
-      </Helmet>
-
       <div className="mx-auto max-w-5xl px-4 py-10">
         <header className="mb-8">
           <h1 className="font-serif text-3xl text-foreground">Publish Diagnostics</h1>
