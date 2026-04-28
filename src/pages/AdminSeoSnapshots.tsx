@@ -161,13 +161,14 @@ export default function AdminSeoSnapshots() {
 
   const activeRun = runs.find((r) => r.id === activeRunId) ?? null;
 
+  useEffect(() => {
+    const prev = document.title;
+    document.title = "SEO Snapshots — Admin";
+    return () => { document.title = prev; };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>SEO Snapshots — Admin</title>
-        <meta name="robots" content="noindex,nofollow" />
-      </Helmet>
-
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         <div className="mb-6 flex items-start justify-between gap-4 flex-wrap">
           <div>
