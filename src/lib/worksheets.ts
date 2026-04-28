@@ -654,6 +654,36 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Self-Hypnosis",
     fileSize: "195 KB",
   },
+  "self-inquiry": {
+    pdfUrl: "/worksheets/self-inquiry.pdf",
+    title: "Self-Inquiry",
+    fileSize: "147 KB",
+  },
+  "sky-gazing": {
+    pdfUrl: "/worksheets/sky-gazing.pdf",
+    title: "Sky Gazing",
+    fileSize: "171 KB",
+  },
+  "squeeze-out-stress": {
+    pdfUrl: "/worksheets/squeezing-and-releasing-stress.pdf",
+    title: "Squeezing and Releasing Stress",
+    fileSize: "184 KB",
+  },
+  "tonglen": {
+    pdfUrl: "/worksheets/tonglen.pdf",
+    title: "Tonglen",
+    fileSize: "172 KB",
+  },
+  "true-nature-of-mind": {
+    pdfUrl: "/worksheets/true-nature-of-mind.pdf",
+    title: "True Nature of Mind",
+    fileSize: "195 KB",
+  },
+  "visualizing-ease": {
+    pdfUrl: "/worksheets/visualizing-ease.pdf",
+    title: "Visualizing Ease",
+    fileSize: "177 KB",
+  },
   "self-kindness-part-1-worksheet": {
     pdfUrl: "/worksheets/self-kindness-part-1.pdf",
     title: "Self-Kindness Part 1",
@@ -1037,6 +1067,12 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       fileSize: "171 KB",
       flagged: true,
     },
+    {
+      pdfUrl: "/worksheets/the-alternative-way.pdf",
+      title: "The Alternative Way",
+      fileSize: "184 KB",
+      flagged: true,
+    },
   ],
   // "Acceptance of our Circumstance" has no dedicated post — surface on the
   // closest topical match (acceptance meditation).
@@ -1165,6 +1201,30 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       pdfUrl: "/worksheets/nature-gazing-from-roots-to-sky.pdf",
       title: "Nature Gazing from Roots to Sky",
       fileSize: "179 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/the-sound-of-nature.pdf",
+      title: "The Sound of Nature",
+      fileSize: "187 KB",
+      flagged: true,
+    },
+  ],
+  // "The Power of Belly Breathing" — surface alongside the controlled-breathing worksheet.
+  "controlled-breathing": [
+    {
+      pdfUrl: "/worksheets/the-power-of-belly-breathing.pdf",
+      title: "The Power of Belly Breathing",
+      fileSize: "181 KB",
+      flagged: true,
+    },
+  ],
+  // "The Power of Music" — surface alongside the music-mood worksheet.
+  "tune-up-with-music": [
+    {
+      pdfUrl: "/worksheets/the-power-of-music.pdf",
+      title: "The Power of Music",
+      fileSize: "184 KB",
       flagged: true,
     },
   ],
