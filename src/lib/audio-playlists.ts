@@ -750,6 +750,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Noting C — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-18-noting-c.mp3` },
       { title: "Noting Gone — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-19-noting-gone.mp3` },
       { title: "The Prison of Comparing — Dharma Talk by Will Kabat-Zinn", src: `${AUDIO_BASE}/noting-your-judgments/will-kabat-zinn-the-prison-of-comparing.mp3` },
+      { title: "Noting With A Relaxed State of Mind — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/noting-your-judgments/noting-with-a-relaxed-state-of-mind.mp3` },
     ],
   },
   "meditation-scripts-for-anxiety": {
@@ -854,7 +855,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "Three grounding guided meditations using the belly and body as anchors — Touching Your Belly & Heart uses gentle touch (one hand on the belly, one on the heart) to settle the nervous system and feel held by your own presence; Soft Belly Breathing To Reduce Stress is a longer practice for softening the belly with each breath as a doorway out of fight-or-flight; Alleviating Tension In Body & Mind is a steady practice for releasing the held tightness that quietly accumulates through the day.",
     tracks: [
       { title: "Touching Your Belly & Heart — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/soft-belly/touching-your-belly-and-heart.mp3` },
-      { title: "Soft Belly Breathing To Reduce Stress — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/soft-belly/soft-belly-breathing-stress.mp3` },
+      { title: "Soft Belly Breathing To Reduce Stress — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/soft-belly/soft-belly-breathing-to-reduce-stress.mp3` },
       { title: "Alleviating Tension In Body & Mind — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/soft-belly/alleviating-tension-in-body-and-mind.mp3` },
     ],
   },
@@ -978,6 +979,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Sincerity — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/supports-practice-audio/sincerity.mp3` },
       { title: "Limits of Technique — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/supports-practice-audio/limits-of-technique.mp3` },
       { title: "Practice Notes: Vision — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/supports-practice-audio/vision.mp3` },
+      { title: "Remembering Motivation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/supports-practice-audio/remembering-motivation.mp3` },
     ],
   },
   "healing-stillness-aimless-love": {
