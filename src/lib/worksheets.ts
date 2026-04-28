@@ -594,10 +594,25 @@ export const WORKSHEETS: Record<string, WorksheetEntry> = {
     title: "Mountain Meditation",
     fileSize: "181 KB",
   },
+  "mindful-pause": {
+    pdfUrl: "/worksheets/mindful-pause.pdf",
+    title: "Mindful Pause",
+    fileSize: "173 KB",
+  },
   "nature-walks": {
     pdfUrl: "/worksheets/nature-walks.pdf",
     title: "Nature Walks",
     fileSize: "187 KB",
+  },
+  "noticing-movement-through-breath": {
+    pdfUrl: "/worksheets/noticing-movement-through-breath.pdf",
+    title: "Noticing Movement through Breath",
+    fileSize: "194 KB",
+  },
+  "noticing-your-helpers": {
+    pdfUrl: "/worksheets/noticing-your-helpers.pdf",
+    title: "Noticing Your Helpers",
+    fileSize: "376 KB",
   },
   "outdoor-meditation": {
     pdfUrl: "/worksheets/outdoor-meditation.pdf",
@@ -1093,12 +1108,65 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
-  // "Learning from Nature" — surface alongside the Nature Walks worksheet.
+  // "Learning from Nature" + "Nature Gazing from Roots to Sky" surface
+  // alongside the Nature Walks worksheet.
   "nature-walks": [
     {
       pdfUrl: "/worksheets/learning-from-nature.pdf",
       title: "Learning from Nature",
       fileSize: "188 KB",
+      flagged: true,
+    },
+    {
+      pdfUrl: "/worksheets/nature-gazing-from-roots-to-sky.pdf",
+      title: "Nature Gazing from Roots to Sky",
+      fileSize: "179 KB",
+      flagged: true,
+    },
+  ],
+  // "Mindful Walking" variant — surface alongside the primary walking-meditation.
+  "walking-meditation": [
+    {
+      pdfUrl: "/worksheets/mindful-walking.pdf",
+      title: "Mindful Walking",
+      fileSize: "188 KB",
+      flagged: true,
+    },
+  ],
+  // "Mindfulness of Sounds" — surface on the closest sitting-meditation hub.
+  "several-styles-sitting-meditation": [
+    {
+      pdfUrl: "/worksheets/mindfulness-of-sounds.pdf",
+      title: "Mindfulness of Sounds",
+      fileSize: "171 KB",
+      flagged: true,
+    },
+  ],
+  // "Monkey Mind Meditation" — surface alongside the anxiety-transformation hub.
+  "transforming-anxiety": [
+    {
+      pdfUrl: "/worksheets/monkey-mind-meditation.pdf",
+      title: "Monkey Mind Meditation",
+      fileSize: "188 KB",
+      flagged: true,
+    },
+  ],
+  // "Mindfulness of Laughter" — surface alongside the cultivating-joy worksheet.
+  "cultivating-joy": [
+    {
+      pdfUrl: "/worksheets/mindfulness-of-laughter.pdf",
+      title: "Mindfulness of Laughter",
+      fileSize: "177 KB",
+      flagged: true,
+    },
+  ],
+  // "Mindful Life Design" — values/intention reflection, surface alongside
+  // the appraising-career-values reflective worksheet.
+  "appraising-career-values": [
+    {
+      pdfUrl: "/worksheets/mindful-life-design.pdf",
+      title: "Mindful Life Design",
+      fileSize: "245 KB",
       flagged: true,
     },
   ],
