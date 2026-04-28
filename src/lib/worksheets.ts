@@ -2022,14 +2022,6 @@ export const WORKSHEET_BUNDLES: Record<string, WorksheetEntry[]> = {
       flagged: true,
     },
   ],
-  "sources-distraction": [
-    {
-      pdfUrl: "/worksheets/awareness-when-you-are-killing-time.pdf",
-      title: "Awareness When You Are Killing Time",
-      fileSize: "30 KB",
-      flagged: true,
-    },
-  ],
   // "Awareness in Three Parts" — surface alongside the five-senses awareness worksheet.
   "awareness-of-the-five-senses": [
     {
