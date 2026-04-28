@@ -109,6 +109,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Part 1: Empathy Quotes", src: `${AUDIO_BASE}/empathy-quotes/part-1.mp3` },
       { title: "Part 2: Empathy Quotes", src: `${AUDIO_BASE}/empathy-quotes/part-2.mp3` },
       { title: "Part 3: Empathy Quotes", src: `${AUDIO_BASE}/empathy-quotes/part-3.mp3` },
+      { title: "Empathy: Its Nature, What Makes It Hard, and How to Develop It — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/empathy-quotes/donald-rothberg-empathy-its-nature-what-makes-it-hard-and-how-to-develop-it.mp3` },
     ],
   },
   "self-worth-quotes": {
@@ -380,6 +381,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Practicing With Anger — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/donald-rothberg-practicing-with-anger.mp3` },
       { title: "Practicing With Darkness and Light at the Winter Solstice — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/donald-rothberg-practicing-with-darkness-and-light-at-the-winter-solstice.mp3` },
       { title: "Forgiveness Practice — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/donald-rothberg-forgiveness-practice.mp3` },
+      { title: "Equanimity — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/donald-rothberg-equanimity.mp3` },
+      { title: "Compassion With Attunement — Dharma Talk by Frank Ostaseski", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/frank-ostaseski-compassion-with-attunement.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -697,6 +700,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Gratitude Meditation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/power-of-gratitude-meditation/gratitude-meditation.mp3` },
       { title: "Gratitude and Generosity — Dharma Talk by Tara Brach", src: `${AUDIO_BASE}/power-of-gratitude-meditation/tara-brach-gratitude-and-generosity.mp3` },
       { title: "Generosity — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/marcia-rose-generosity.mp3` },
+      { title: "Generosity and Gratitude — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/how-to-cultivate-an-attitude-of-gratitude-why-its-important/donald-rothberg-generosity-and-gratitude.mp3` },
     ],
   },
   "full-body-awareness": {
@@ -892,6 +896,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "A Life of Service — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/what-the-world-needs/mark-coleman-a-life-of-service.mp3` },
       { title: "Peaceful Warrior In Modern Times — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/what-the-world-needs/james-baraz-peaceful-warrior-in-modern-times.mp3` },
       { title: "Race, Racism and Spiritual Practice — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/what-the-world-needs/donald-rothberg-race-racism-and-spiritual-practice.mp3` },
+      { title: "Dr. Martin Luther King, Jr., Buddhist Practice, and the Needs of Our Times — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/what-the-world-needs/donald-rothberg-mlk-buddhist-practice-and-the-needs-of-our-times.mp3` },
     ],
   },
   "loving-kindness-benefactor": {
@@ -1000,6 +1005,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Choosing the Long Path of Practice — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/gil-fronsdal-choosing-the-long-path-of-practice.mp3` },
       { title: "Patience — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/marcia-rose-patience.mp3` },
       { title: "The Problem With Being A Good Meditator — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/james-baraz-the-problem-with-being-a-good-meditator.mp3` },
+      { title: "The Spiritual Journey — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/donald-rothberg-the-spiritual-journey.mp3` },
     ],
   },
   "supports-practice-audio": {
