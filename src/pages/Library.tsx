@@ -12,6 +12,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { LoadMoreSection, PostCardSkeletonGrid, PageRowSkeletonList } from "@/components/wp/LoadMoreSection";
 import { ClientFilterBar, useClientPostFilter } from "@/components/wp/ClientFilterBar";
 import { BrowseByCategory } from "@/components/homepage/BrowseByCategory";
+import { InlineEmailCapture } from "@/components/email/InlineEmailCapture";
 import { MobileLibraryFilters } from "@/components/wp/MobileLibraryFilters";
 import { LibrarySortSelect, sortToWpParams, type LibrarySort } from "@/components/wp/LibrarySortSelect";
 import { SparseCategoryHelper } from "@/components/wp/SparseCategoryHelper";
@@ -806,6 +807,17 @@ export default function Library() {
               )}
             </TabsContent>
           </Tabs>
+        </section>
+
+        {/* Audience-aware capture — Library readers default to free_resources. */}
+        <section className="mt-16 border-t border-border pt-12">
+          <div className="mx-auto max-w-2xl">
+            <InlineEmailCapture
+              track="free_resources"
+              location="library_footer"
+              variant="card"
+            />
+          </div>
         </section>
       </main>
 
