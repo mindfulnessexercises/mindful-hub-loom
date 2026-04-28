@@ -260,6 +260,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     tracks: [
       { title: "Mindfulness of Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/10-tips-teaching-mindfulness-of-breathing/mindfulness-of-breathing.mp3` },
       { title: "Training Overview — Introduction by Sean Fargo", src: `${AUDIO_BASE}/10-tips-for-teaching-mindfulness-of-breathing-practices/training-overview.mp3` },
+      { title: "Cultivating Sati — Dharma Talk by Ajahn Sucitto", src: `${AUDIO_BASE}/10-tips-for-teaching-mindfulness-of-breathing-practices/ajahn-sucitto-cultivating-sati.mp3` },
     ],
   },
   "6-mindful-breathing-exercises": {
@@ -383,6 +384,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Forgiveness Practice — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/donald-rothberg-forgiveness-practice.mp3` },
       { title: "Equanimity — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/donald-rothberg-equanimity.mp3` },
       { title: "Compassion With Attunement — Dharma Talk by Frank Ostaseski", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/frank-ostaseski-compassion-with-attunement.mp3` },
+      { title: "Guided Meditation: The Practice of Forgiveness — Guided Meditation by Guy Armstrong", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/guy-armstrong-guided-meditation-the-practice-of-forgiveness.mp3` },
+      { title: "Grief — Dharma Talk by Ajahn Brahm", src: `${AUDIO_BASE}/cope-with-difficult-emotions-through-mindfulness/ajahn-brahm-grief.mp3` },
     ],
   },
   "an-anti-anxiety-gratitude-practice": {
@@ -402,18 +405,14 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     tracks: [
       { title: "The 3 Core Identities of the Critic — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/inner-critic/three-core-identities.mp3` },
       { title: "Dharmette: Self-Conscious — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/meditation-inner-critic-audio/gil-fronsdal-dharmette-self-conscious.mp3` },
-    ],
-  },
-  "guided-meditation-inner-critic": {
+      { title: "Guided Meditation on Working With the Inner Critic — Guided Meditation by Mark Coleman", src: `${AUDIO_BASE}/meditation-inner-critic-audio/mark-coleman-guided-meditation-on-working-with-the-inner-critic.mp3` },
     heading: "Listen: The 3 Core Identities of the Critic",
     intro:
       "A short talk unpacking the three faces the inner critic tends to wear — and how seeing them clearly is the first step to loosening their grip.",
     tracks: [
       { title: "The 3 Core Identities of the Critic — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/inner-critic/three-core-identities.mp3` },
       { title: "Dharmette: Self-Conscious — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/meditation-inner-critic-audio/gil-fronsdal-dharmette-self-conscious.mp3` },
-    ],
-  },
-  "when-mindfulness-meets-the-nervous-system": {
+      { title: "Guided Meditation on Working With the Inner Critic — Guided Meditation by Mark Coleman", src: `${AUDIO_BASE}/meditation-inner-critic-audio/mark-coleman-guided-meditation-on-working-with-the-inner-critic.mp3` },
     heading: "Listen: Nervous System audio series",
     intro:
       "Three trauma-sensitive guided meditations — Mindfulness of Shame meets shame with steady awareness; How to Befriend Your Body, Your Emotions and Your Spirit invites a softer relationship with the whole of you; Anchoring Your Awareness Through Mindfulness offers a longer, settling practice for steadying an activated nervous system.",
@@ -488,6 +487,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     tracks: [
       { title: "This Moment Is Like This — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/rick-hansons-meditation-staying-present/this-moment-is-like-this.mp3` },
       { title: "Nowness, Wholeness, Allness, Oneness — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-nowness-wholeness-allness-oneness.mp3` },
+      { title: "Self-Compassion (Part 1) — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-self-compassion-part-1.mp3` },
+      { title: "Self-Compassion (Part 2) — Dharma Talk by Rick Hanson", src: `${AUDIO_BASE}/what-rick-hansons-meditation-taught-me-about-truly-staying-present/rick-hanson-self-compassion-part-2.mp3` },
     ],
   },
   "kindness-for-your-thinking-mind": {
@@ -687,6 +688,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "The Dharma — Dharma Talk by Miranda July", src: `${AUDIO_BASE}/cultivating-joy/miranda-july-the-dharma.mp3` },
       { title: "Heart Practices For Awakening Joy — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/cultivating-joy/james-baraz-heart-practices-for-awakening-joy.mp3` },
       { title: "Awakening Joy For Kids: Bringing the Dharma to the Next Generation — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/cultivating-joy/james-baraz-awakening-joy-for-kids.mp3` },
+      { title: "Altruistic Joy — Dharma Talk by Howard Cohn", src: `${AUDIO_BASE}/cultivating-joy/howard-cohn-altruistic-joy.mp3` },
     ],
   },
   "how-to-cultivate-an-attitude-of-gratitude-why-its-important": {
@@ -752,6 +754,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Teachings on the Calligraphy of Thich Nhat Hanh — Dharma Talk by Mark Coleman", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/mark-coleman-calligraphy-of-thich-nhat-hanh.mp3` },
       { title: "Letting In The Love — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/james-baraz-letting-in-the-love.mp3` },
       { title: "Hatred Never Ceases By Hatred — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/james-baraz-hatred-never-ceases-by-hatred.mp3` },
+      { title: "All About Love — Dharma Talk by Spring Washam", src: `${AUDIO_BASE}/the-power-of-loving-kindness-how-to-cultivate-it/spring-washam-all-about-love.mp3` },
     ],
   },
   "noting-your-judgments": {
@@ -1006,6 +1009,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Patience — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/marcia-rose-patience.mp3` },
       { title: "The Problem With Being A Good Meditator — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/james-baraz-the-problem-with-being-a-good-meditator.mp3` },
       { title: "The Spiritual Journey — Dharma Talk by Donald Rothberg", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/donald-rothberg-the-spiritual-journey.mp3` },
+      { title: "Failing Well — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/style-over-summit-what-dirtbag-billionaire-taught-me-about-practice/matthew-brensilver-failing-well.mp3` },
     ],
   },
   "supports-practice-audio": {
@@ -1019,6 +1023,7 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Remembering Motivation — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/supports-practice-audio/remembering-motivation.mp3` },
       { title: "Wise Effort — Dharma Talk by Marcia Rose", src: `${AUDIO_BASE}/supports-practice-audio/marcia-rose-wise-effort.mp3` },
       { title: "Mindfulness With Attitude — Dharma Talk by James Baraz", src: `${AUDIO_BASE}/supports-practice-audio/james-baraz-mindfulness-with-attitude.mp3` },
+      { title: "Knowing and Not Knowing — Dharma Talk by Matthew Brensilver", src: `${AUDIO_BASE}/supports-practice-audio/matthew-brensilver-knowing-and-not-knowing.mp3` },
     ],
   },
   "healing-stillness-aimless-love": {
