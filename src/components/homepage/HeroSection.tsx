@@ -81,7 +81,6 @@ export function HeroSection() {
                 variant="outline"
                 hideArrow
                 className="px-7 h-12 sm:h-11 text-sm font-medium border-border hover:bg-accent/60 hover:border-primary/20"
-                anchorProps={{ href: "#resources" } as never}
               />
             </motion.div>
 
