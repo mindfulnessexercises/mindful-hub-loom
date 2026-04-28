@@ -293,6 +293,16 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       { title: "Guided Anapanasati Meditation: Impermanence, Fading Away and Letting Go — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-anapana-impermanence-fading-letting-go.mp3` },
       { title: "Guided Meditation: Journey of 3 Breaths — Guided Meditation by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-journey-of-3-breaths.mp3` },
       { title: "Dharma Talk: Attention Focused Narrow — Dharma Talk by Gil Fronsdal", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/gil-fronsdal-attention-focused-narrow.mp3` },
+      { title: "Foundations 02: Tranquil Breathing — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-02-tranquil-breathing.mp3` },
+      { title: "Foundations 03: Meditation Basics — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-03-meditation-basics.mp3` },
+      { title: "Foundations 04: Finger Switching — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-04-finger-switching.mp3` },
+      { title: "Foundations 05: Breath Focus A — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-05-breath-focus-a.mp3` },
+      { title: "Foundations 06: Head Switching — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-06-head-switching.mp3` },
+      { title: "Foundations 07: Breath Focus B — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-07-breath-focus-b.mp3` },
+      { title: "Foundations 08: Body Scan A — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-08-body-scan-a.mp3` },
+      { title: "Foundations 09: Breath Focus C — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-09-breath-focus-c.mp3` },
+      { title: "Foundations 10: Body Scan B — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-10-body-scan-b.mp3` },
+      { title: "Foundations 11: Breath Focus D — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-11-breath-focus-d.mp3` },
     ],
   },
   "using-yoga-and-mindfulness-to-heal-trauma": {
@@ -512,6 +522,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
     tracks: [
       { title: "Body Scan — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/short-body-scan/body-scan-meditation.mp3` },
       { title: "Basic Body Scan and Breath Awareness — Guided Meditation by Tara Brach", src: `${AUDIO_BASE}/short-body-scan/tara-brach-basic-body-scan-and-breath-awareness.mp3` },
+      { title: "Body Scan A — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-08-body-scan-a.mp3` },
+      { title: "Body Scan B — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-10-body-scan-b.mp3` },
     ],
   },
   "honoring-joanna-macy-a-tribute-to-a-visionary-of-interconnection-and-courage": {
@@ -528,6 +540,8 @@ export const AUDIO_PLAYLISTS: Record<string, AudioPlaylist> = {
       "A guided body-scan meditation focused on the head and neck — softening the held tension we so often carry without noticing.",
     tracks: [
       { title: "Sensing Into the Head and Neck — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/body-scan-advanced/sensing-into-head-and-neck.mp3` },
+      { title: "Body Scan A — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-08-body-scan-a.mp3` },
+      { title: "Body Scan B — Guided Meditation by Sean Fargo", src: `${AUDIO_BASE}/6-mindful-breathing-exercises/foundations-10-body-scan-b.mp3` },
     ],
   },
   "settling-into-presence": {
