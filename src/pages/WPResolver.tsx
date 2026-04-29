@@ -52,6 +52,7 @@ import { getMeditationScript } from "@/lib/meditation-scripts";
 import { getWorksheets } from "@/lib/worksheets";
 import { injectInlineAudio } from "@/lib/inline-audio-sections";
 import { injectInlineEbook } from "@/lib/inline-ebook-sections";
+import { transformRelatedPostsBlocks } from "@/lib/related-posts-transform";
 import { FreeScriptsHero } from "@/components/wp/FreeScriptsHero";
 import { getInlineVideos } from "@/lib/inline-video-posts";
 import { LiteVideoEmbed } from "@/components/video/LiteVideoEmbed";
@@ -381,7 +382,10 @@ export default function WPResolver() {
     // Inject inline ebook recommendation cards beneath section headings
     // on posts configured in the inline-ebook registry (e.g. how-to-teach).
     const withEbooks = injectInlineEbook(withAudio, slug);
-    const { html, items } = extractToc(withEbooks);
+    // Convert legacy `<p><strong>RELATED POSTS:</strong></p><ul>…</ul>`
+    // bullet lists into clearly tappable card links — runs on EVERY post.
+    const withRelated = transformRelatedPostsBlocks(withEbooks);
+    const { html, items } = extractToc(withRelated);
     return { rewrittenHtml: html, toc: items };
   }, [rawContent, meditation, isDownloadsPage, isFreeScriptsHub, isHowToTeach, slug]);
 
