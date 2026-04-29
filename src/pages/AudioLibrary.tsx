@@ -194,7 +194,7 @@ export default function AudioLibrary() {
     <div className="min-h-screen bg-background">
       <WPSeo
         title="Audio Library — Guided Meditations by Theme | Mindfulness Exercises"
-        description={`Browse ${totalTracks} guided meditations and dharma talks by theme — anxiety, sleep, self-compassion, gratitude, safety, body care, and more. Listen, download, and share.`}
+        description={`Browse ${totalTracks} guided meditations and mindfulness talks by theme — anxiety, sleep, self-compassion, gratitude, safety, body care, and more. Listen, download, and share.`}
         canonical="https://mindfulnessexercises.com/audio-library"
         type="website"
       />
@@ -211,7 +211,7 @@ export default function AudioLibrary() {
               Guided Meditations by Theme
             </h1>
             <p className="text-body-lg text-muted-foreground max-w-2xl">
-              {totalTracks.toLocaleString()} guided meditations, dharma talks,
+              {totalTracks.toLocaleString()} guided meditations, mindfulness talks,
               and reflection tracks across {playlistCount} playlists — filter
               by what you need today, listen in your browser, or download for
               offline practice.
