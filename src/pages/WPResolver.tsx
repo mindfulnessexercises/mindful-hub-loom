@@ -211,6 +211,24 @@ function stripScriptLeadCapture(html: string): string {
     "",
   );
 
+  // ── Ebook posts (e.g. /on-meditation) ────────────────────────────────
+  // Legacy Thrive opt-in had two lingering remnants on every ebook post:
+  //   1) "Enter your name and email address to download this ebook." — the
+  //      stripped form's instruction, now meaningless on the new site.
+  //   2) The orphan "Download Scripts" icon <img> wrapped in a <span> that
+  //      sat directly above the form. After (1) is gone the icon floats
+  //      alone above the PDF viewer.
+  // Both are matched defensively (with optional <strong>, &nbsp;, smart
+  // punctuation) to survive Gutenberg/Classic editor variations.
+  out = out.replace(
+    /<p\b[^>]*>(?:\s|&nbsp;|<\/?(?:strong|em|span|br)\b[^>]*>)*\s*Enter\s+your\s+name\s+and\s+email\s+address\s+to\s+download\s+this\s+ebook\.?(?:\s|&nbsp;|<\/?(?:strong|em|span|br)\b[^>]*>)*<\/p>/gi,
+    "",
+  );
+  out = out.replace(
+    /<p\b[^>]*>\s*<span\b[^>]*>\s*<img\b[^>]*Download[-_ ]Scripts[^>]*>\s*<\/span>\s*<\/p>/gi,
+    "",
+  );
+
   // Suppress unused-var warning while keeping the intent documented above.
   void phrase;
 
