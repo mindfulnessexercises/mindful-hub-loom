@@ -104,6 +104,17 @@ const FOOTER_GROUPS: { title: string; links: FooterLink[] }[] = [
       { label: `Phone: ${CONTACT.phone}`, href: CONTACT.phoneHref },
     ],
   },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms & Conditions", href: "/terms-conditions" },
+      { label: "Terms of Purchase", href: "/terms-of-purchase" },
+      { label: "Medical Disclaimer", href: "/medical-disclaimer" },
+      { label: "Earnings Disclaimer", href: "/earnings-disclaimer" },
+      { label: "Anti-Discrimination Policy", href: "/anti-discrimination-policy-statement" },
+    ],
+  },
 ];
 
 const BOTTOM_LINKS: FooterLink[] = [
