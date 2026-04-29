@@ -15,7 +15,7 @@ import { Footer } from "@/components/homepage/Footer";
 import { InlineEmailCapture } from "@/components/email/InlineEmailCapture";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { AUDIO_PLAYLISTS } from "@/lib/audio-playlists";
-import { FEATURED_TRACK_SET, FEATURED_TRACK_SRCS } from "@/lib/audio-featured";
+import { FEATURED_TRACK_SRCS } from "@/lib/audio-featured";
 import {
   THEME_DEFINITIONS,
   flattenRegistry,
