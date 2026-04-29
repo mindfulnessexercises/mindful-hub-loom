@@ -51,6 +51,7 @@ import { WorksheetMindfulGuidance } from "@/components/wp/WorksheetMindfulGuidan
 import { getMeditationScript } from "@/lib/meditation-scripts";
 import { getWorksheets } from "@/lib/worksheets";
 import { injectInlineAudio } from "@/lib/inline-audio-sections";
+import { injectInlineEbook } from "@/lib/inline-ebook-sections";
 import { FreeScriptsHero } from "@/components/wp/FreeScriptsHero";
 import { getInlineVideos } from "@/lib/inline-video-posts";
 import { LiteVideoEmbed } from "@/components/video/LiteVideoEmbed";
