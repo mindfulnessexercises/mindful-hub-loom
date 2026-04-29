@@ -546,6 +546,59 @@ export default function AudioLibrary() {
               })}
             </ol>
           )}
+
+          {/* Expand/collapse toggle. Hidden when filters/search are active —
+              in that mode the user is already in "deep browse" and a second
+              "Show all" CTA would be redundant (and contradict the filter). */}
+          {!userHasFiltered && displayed.length > 0 && (
+            <div className="mt-10 flex flex-col items-center gap-3 border-t border-border pt-10 text-center">
+              {showAll ? (
+                <>
+                  <p className="text-sm text-muted-foreground">
+                    You're browsing all {totalTracks} tracks.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowAll(false);
+                      trackEvent("audio_library_view_changed", {
+                        to_view: "featured",
+                        from_view: "all",
+                      });
+                      // Scroll back up so the user isn't stranded mid-page
+                      // after the list collapses underneath them.
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className="inline-flex min-h-[44px] items-center rounded-md border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground/85 transition hover:bg-muted"
+                  >
+                    Show featured tracks only
+                  </button>
+                </>
+              ) : (
+                <>
+                  <p className="text-sm text-muted-foreground">
+                    Looking for something specific? Browse the full catalog of{" "}
+                    {totalTracks} guided meditations and mindfulness talks.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowAll(true);
+                      trackEvent("audio_library_view_changed", {
+                        to_view: "all",
+                        from_view: "featured",
+                        featured_count: featuredCount,
+                        total_tracks: totalTracks,
+                      });
+                    }}
+                    className="inline-flex min-h-[44px] items-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+                  >
+                    Show all {totalTracks} tracks
+                  </button>
+                </>
+              )}
+            </div>
+          )}
         </section>
 
         {/* Live-events lead capture sits closest to where people just
