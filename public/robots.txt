@@ -1,14 +1,8 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+
+# Block admin/internal tooling from indexing — these are public for product
+# decision but contain operational dashboards that don't belong in search.
+Disallow: /admin/
+
+Sitemap: https://mindfulnessexercises.com/sitemap.xml
