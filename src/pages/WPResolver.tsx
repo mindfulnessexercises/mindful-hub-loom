@@ -617,7 +617,7 @@ export default function WPResolver() {
           )}
 
 
-          {img && tpl.featuredImage !== "hidden" && !isDownloadsPage && !hasWorksheets && !isEbookPost && (() => {
+          {img && tpl.featuredImage !== "hidden" && !isDownloadsPage && !hasWorksheets && !isEbookPost && !isFreeScriptsHub && (() => {
             const w = img.width ?? 0;
             const h = img.height ?? 0;
             const ratio = w && h ? w / h : 0;
