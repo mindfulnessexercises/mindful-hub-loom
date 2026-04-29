@@ -48,6 +48,47 @@ const EXPLICIT_REDIRECTS: Record<string, LegacyRedirect> = {
 
   // The WordPress page lives at /about-us; map the shorter /about to it.
   "/about": { target: "/about-us", external: false, rule: "about_alias" },
+
+  // ---- WP "category as top-level slug" → /category/<slug> --------------
+  // The legacy WP site exposed each category at the bare slug (e.g.
+  // /anxiety, /buddhist, /sleep) which collides with WPResolver's
+  // /:slug post lookup and also with several app-owned routes. The full
+  // mapping was generated from the WXR export — see
+  // /mnt/documents/wxr-audit/redirects.csv. We intentionally OMIT the
+  // entries whose bare slug is shadowed by a native app page (/blog,
+  // /affirmations, /quotes, /meditation-scripts, /videos vs /video) —
+  // those visitors already land on the better in-app hub.
+  "/anxiety": { target: "/category/anxiety", external: false, rule: "wp_category_bare_slug" },
+  "/mindfulness-worksheets": { target: "/category/mindfulness-worksheets", external: false, rule: "wp_category_bare_slug" },
+  "/mindful-leadership-at-work": { target: "/category/mindful-leadership-at-work", external: false, rule: "wp_category_bare_slug" },
+  "/buddhist": { target: "/category/buddhist", external: false, rule: "wp_category_bare_slug" },
+  "/free-mindfulness-ebooks": { target: "/category/free-mindfulness-ebooks", external: false, rule: "wp_category_bare_slug" },
+  "/happiness": { target: "/category/happiness", external: false, rule: "wp_category_bare_slug" },
+  "/depression": { target: "/category/depression", external: false, rule: "wp_category_bare_slug" },
+  "/video": { target: "/category/video", external: false, rule: "wp_category_bare_slug" },
+  "/confidence": { target: "/category/confidence", external: false, rule: "wp_category_bare_slug" },
+  "/focus": { target: "/category/focus", external: false, rule: "wp_category_bare_slug" },
+  "/love": { target: "/category/love", external: false, rule: "wp_category_bare_slug" },
+  "/relationships-family": { target: "/category/relationships-family", external: false, rule: "wp_category_bare_slug" },
+  "/mindfulness-stress-reduction": { target: "/category/mindfulness-stress-reduction", external: false, rule: "wp_category_bare_slug" },
+  "/pain": { target: "/category/pain", external: false, rule: "wp_category_bare_slug" },
+  "/beginners": { target: "/category/beginners", external: false, rule: "wp_category_bare_slug" },
+  "/calm": { target: "/category/calm", external: false, rule: "wp_category_bare_slug" },
+  "/relaxation": { target: "/category/relaxation", external: false, rule: "wp_category_bare_slug" },
+  "/integration": { target: "/category/integration", external: false, rule: "wp_category_bare_slug" },
+  "/free-mindfulness-talks": { target: "/category/free-mindfulness-talks", external: false, rule: "wp_category_bare_slug" },
+  "/forgiveness": { target: "/category/forgiveness", external: false, rule: "wp_category_bare_slug" },
+  "/sleep": { target: "/category/sleep", external: false, rule: "wp_category_bare_slug" },
+  "/motivation": { target: "/category/motivation", external: false, rule: "wp_category_bare_slug" },
+  "/gratitude": { target: "/category/gratitude", external: false, rule: "wp_category_bare_slug" },
+  "/contentment": { target: "/category/contentment", external: false, rule: "wp_category_bare_slug" },
+  "/guided-meditations": { target: "/category/guided-meditations", external: false, rule: "wp_category_bare_slug" },
+  "/compassion": { target: "/category/compassion", external: false, rule: "wp_category_bare_slug" },
+  "/addiction": { target: "/category/addiction", external: false, rule: "wp_category_bare_slug" },
+  "/research": { target: "/category/research", external: false, rule: "wp_category_bare_slug" },
+  "/connection": { target: "/category/connection", external: false, rule: "wp_category_bare_slug" },
+  "/leadership": { target: "/category/leadership", external: false, rule: "wp_category_bare_slug" },
+  "/connection-guided-meditations": { target: "/category/connection-guided-meditations", external: false, rule: "wp_category_bare_slug" },
 };
 
 interface PatternRule {

@@ -1,9 +1,10 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Headphones, Sparkles, Users } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { WPSeo } from "@/components/wp/WPSeo";
+import { wp, decodeHtmlEntities, getFeaturedImage, type WPPost } from "@/lib/wp";
 import {
   AUDIENCE_LABELS,
   audiencesForFormat,
@@ -28,6 +29,12 @@ interface FormatHubPageProps {
   seoTitle: string;
   seoDescription: string;
   canonical: string;
+  /** Optional: WP category slug to fetch & surface as a "More posts" shelf
+   *  beneath the curated grid. Useful for hubs whose top-100 picks are
+   *  audience-tiles but the WP archive has many more relevant articles. */
+  wpPostsCategorySlug?: string;
+  /** Heading for the WP posts shelf. */
+  wpPostsHeading?: string;
 }
 
 /**
@@ -49,6 +56,8 @@ export function FormatHubPage({
   seoTitle,
   seoDescription,
   canonical,
+  wpPostsCategorySlug,
+  wpPostsHeading,
 }: FormatHubPageProps) {
   const meta = FORMATS[format];
   const allEntries = useMemo(() => entriesByFormat(format), [format]);
@@ -56,6 +65,20 @@ export function FormatHubPage({
     () => (alsoShow ? entriesByFormat(alsoShow) : []),
     [alsoShow],
   );
+
+  // Fetch WP category posts for the optional "More posts" shelf.
+  const [wpPosts, setWpPosts] = useState<WPPost[]>([]);
+  useEffect(() => {
+    if (!wpPostsCategorySlug) return;
+    let cancelled = false;
+    (async () => {
+      const cat = await wp.categoryBySlug(wpPostsCategorySlug);
+      if (!cat || cancelled) return;
+      const r = await wp.posts({ categories: cat.id, per_page: 12, orderby: "date", order: "desc" });
+      if (!cancelled) setWpPosts(r.items);
+    })().catch(() => { /* silent — shelf simply hides */ });
+    return () => { cancelled = true; };
+  }, [wpPostsCategorySlug]);
   const detectedAudiences = useMemo(
     () => audiencesForFormat(format).filter(Boolean) as NonNullable<TopEntry["audience"]>[],
     [format],
@@ -190,6 +213,60 @@ export function FormatHubPage({
             </ul>
           )}
         </section>
+
+        {/* Optional: WP category posts shelf (e.g. all "Affirmations" posts). */}
+        {wpPostsCategorySlug && wpPosts.length > 0 && (
+          <section className="border-t border-border bg-background py-12 sm:py-16">
+            <div className="container mx-auto">
+              <h2 className="text-card-heading text-foreground font-serif mb-2">
+                {wpPostsHeading ?? "More articles"}
+              </h2>
+              <p className="text-sm text-muted-foreground mb-6">
+                Latest posts from our archive on this topic.
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {wpPosts.map((post) => {
+                  const img = getFeaturedImage(post);
+                  const title = decodeHtmlEntities(post.title.rendered);
+                  return (
+                    <li key={post.id}>
+                      <Link
+                        to={`/${post.slug}`}
+                        onClick={() =>
+                          trackCtaClick({
+                            cta_label: title,
+                            cta_destination: `/${post.slug}`,
+                            cta_location: `format_hub_${format}_wp_shelf`,
+                          })
+                        }
+                        className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-background transition-all hover:border-primary/40 hover:shadow-[var(--shadow-card-hover)] min-h-[44px]"
+                      >
+                        {img && (
+                          <div className="aspect-[16/9] overflow-hidden bg-muted">
+                            <img
+                              src={img.url}
+                              alt={img.alt || title}
+                              loading="lazy"
+                              className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                            />
+                          </div>
+                        )}
+                        <div className="flex flex-1 flex-col p-5">
+                          <h3 className="text-base font-semibold text-foreground leading-snug group-hover:text-primary transition-colors">
+                            {title}
+                          </h3>
+                          <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-primary group-hover:gap-2 transition-all">
+                            Read <ArrowRight className="h-3 w-3" />
+                          </span>
+                        </div>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </section>
+        )}
 
         {/* Cross-format suggestions */}
         {alsoEntries.length > 0 && (
