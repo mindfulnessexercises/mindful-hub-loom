@@ -149,7 +149,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-[hsl(var(--section-alternate))]" role="contentinfo">
       <div className="container mx-auto py-12 lg:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 lg:gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 lg:gap-10">
           {/* Brand column */}
           <div className="col-span-2">
             <Link
@@ -161,6 +161,50 @@ export function Footer() {
             <p className="text-body-sm text-muted-foreground mt-3 max-w-xs">
               Free mindfulness practices and APA-approved professional training — for a more mindful world.
             </p>
+
+            {/* Contact info */}
+            <address className="not-italic mt-5 space-y-2 text-body-sm text-muted-foreground">
+              <a
+                href={CONTACT.phoneHref}
+                className="flex items-start gap-2 hover:text-foreground transition-colors min-h-[32px]"
+              >
+                <Phone className="h-4 w-4 mt-0.5 shrink-0" aria-hidden="true" />
+                <span>{CONTACT.phone}</span>
+              </a>
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="flex items-start gap-2 hover:text-foreground transition-colors min-h-[32px] break-all"
+              >
+                <Mail className="h-4 w-4 mt-0.5 shrink-0" aria-hidden="true" />
+                <span>{CONTACT.email}</span>
+              </a>
+              <p className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 mt-0.5 shrink-0" aria-hidden="true" />
+                <span>Mindfulness Exercises<br />{CONTACT.address}</span>
+              </p>
+            </address>
+
+            {/* Social icons */}
+            <div className="mt-5 flex items-center gap-3">
+              <a
+                href={CONTACT.linkedinCompany}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Mindfulness Exercises on LinkedIn"
+                className="inline-flex h-10 w-10 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <Linkedin className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <a
+                href={CONTACT.linkedinFounder}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Sean Fargo on LinkedIn"
+                className="inline-flex h-10 w-10 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <Linkedin className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
           </div>
 
           {FOOTER_GROUPS.map((group) => (
