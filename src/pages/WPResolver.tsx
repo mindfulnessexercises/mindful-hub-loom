@@ -236,6 +236,32 @@ function stripScriptLeadCapture(html: string): string {
   return out;
 }
 
+/**
+ * Slug of the high-traffic /free-guided-meditation-scripts hub page. The
+ * legacy WP intro for this page is a flat text list of script titles plus
+ * six oversized stock-photo banners that route to audience pages. We
+ * replace that whole intro with the designed React `<FreeScriptsHero />`
+ * (semantic-token cards, no images, scannable). The remaining SEO prose
+ * ("Benefits of...", "Tips for guiding...") is preserved verbatim.
+ */
+const FREE_SCRIPTS_HUB_SLUG = "free-guided-meditation-scripts";
+
+/**
+ * Removes the legacy intro on /free-guided-meditation-scripts: everything
+ * from the start of the WP body up to the first H2 ("Benefits of Free
+ * Guided Meditation Scripts"). The React hero is injected above the
+ * remaining prose by the caller.
+ */
+function stripFreeScriptsHubIntro(html: string): string {
+  if (!html) return html;
+  // Find the first H2 — that's where the editorial content begins. Be
+  // permissive about attributes/whitespace; the H2 may have an `id` or
+  // inline style from Thrive.
+  const m = html.match(/<h2\b[^>]*>/i);
+  if (!m || m.index === undefined) return html;
+  return html.slice(m.index);
+}
+
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 
