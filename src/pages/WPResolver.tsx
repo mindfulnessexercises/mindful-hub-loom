@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useMemo, useRef } from "react";
-import { ArrowRight, Calendar, Clock, Headphones } from "lucide-react";
+import { ArrowRight, BookOpen, Calendar, Clock, Headphones } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { Button } from "@/components/ui/button";
@@ -208,6 +208,24 @@ function stripScriptLeadCapture(html: string): string {
   // Bare "DOWNLOAD NOW" text inside a wrapper (e.g. <p>DOWNLOAD NOW</p>).
   out = out.replace(
     /<(p|div|span|strong)\b[^>]*>\s*DOWNLOAD\s+NOW\s*<\/\1>/gi,
+    "",
+  );
+
+  // ── Ebook posts (e.g. /on-meditation) ────────────────────────────────
+  // Legacy Thrive opt-in had two lingering remnants on every ebook post:
+  //   1) "Enter your name and email address to download this ebook." — the
+  //      stripped form's instruction, now meaningless on the new site.
+  //   2) The orphan "Download Scripts" icon <img> wrapped in a <span> that
+  //      sat directly above the form. After (1) is gone the icon floats
+  //      alone above the PDF viewer.
+  // Both are matched defensively (with optional <strong>, &nbsp;, smart
+  // punctuation) to survive Gutenberg/Classic editor variations.
+  out = out.replace(
+    /<p\b[^>]*>(?:\s|&nbsp;|<\/?(?:strong|em|span|br)\b[^>]*>)*\s*Enter\s+your\s+name\s+and\s+email\s+address\s+to\s+download\s+this\s+ebook\.?(?:\s|&nbsp;|<\/?(?:strong|em|span|br)\b[^>]*>)*<\/p>/gi,
+    "",
+  );
+  out = out.replace(
+    /<p\b[^>]*>\s*<span\b[^>]*>\s*<img\b[^>]*Download[-_ ]Scripts[^>]*>\s*<\/span>\s*<\/p>/gi,
     "",
   );
 
@@ -418,6 +436,12 @@ export default function WPResolver() {
   const tpl = getTemplateConfig(doc.slug, templateKind);
   const attachedWorksheets = getWorksheets(doc.slug);
   const hasWorksheets = attachedWorksheets.length > 0;
+  // Posts in the legacy "eBooks" category (id 159, slug `free-mindfulness-ebooks`)
+  // are PDF-viewer pages whose WP "featured image" is a broken placeholder
+  // shutter graphic from the old Thrive opt-in template. Detect them so we
+  // can suppress that image and render a small intro card instead.
+  const EBOOK_CATEGORY_ID = 159;
+  const isEbookPost = kind === "post" && cats.some((c) => c.id === EBOOK_CATEGORY_ID);
   const canonicalSlugPath = cptEndpoint
     ? `/${CPT_URL_PARENT[cptEndpoint]}/${doc.slug}`
     : `/${doc.slug}`;
@@ -561,7 +585,7 @@ export default function WPResolver() {
           )}
 
 
-          {img && tpl.featuredImage !== "hidden" && !isDownloadsPage && !hasWorksheets && (() => {
+          {img && tpl.featuredImage !== "hidden" && !isDownloadsPage && !hasWorksheets && !isEbookPost && (() => {
             const w = img.width ?? 0;
             const h = img.height ?? 0;
             const ratio = w && h ? w / h : 0;
@@ -609,6 +633,31 @@ export default function WPResolver() {
               </div>
             );
           })()}
+
+          {/* Ebook intro card.
+              Replaces the broken Thrive opt-in graphic with a value-add panel
+              that orients the visitor: what this is, how to use it, and a
+              reminder that download is free (no email required, since the
+              old form is gone). Sits directly above the PDF viewer in the
+              post body. */}
+          {isEbookPost && (
+            <div className="container mx-auto max-w-3xl mt-6">
+              <div className="rounded-xl border border-border bg-[hsl(var(--section-alternate))] p-5 sm:p-6">
+                <p className="text-eyebrow text-primary mb-2 inline-flex items-center gap-1.5">
+                  <BookOpen className="h-3.5 w-3.5" aria-hidden="true" />
+                  Free eBook
+                </p>
+                <h2 className="text-card-heading font-serif text-foreground mb-2">
+                  Read it here, or save it for later
+                </h2>
+                <p className="text-body text-muted-foreground">
+                  The full eBook is embedded below — no signup needed. Use the
+                  toolbar to read in your browser, or click the download icon
+                  to save the PDF for offline reading and printing.
+                </p>
+              </div>
+            </div>
+          )}
 
           {/* Two-column body: sticky TOC on lg+, content + share rail. */}
           <div className={`container mx-auto max-w-6xl ${tpl.heroDensity === "compact" ? "py-6 lg:py-10" : "py-10 lg:py-14"}`}>
