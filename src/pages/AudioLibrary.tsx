@@ -189,6 +189,35 @@ export default function AudioLibrary() {
   const totalTracks = uniqueTracks.length;
   const playlistCount = Object.keys(AUDIO_PLAYLISTS).length;
 
+  // ── Curated default view ──────────────────────────────────────────────
+  // The full catalog is 500+ tracks — overwhelming on first load. Default
+  // to a hand-picked "best of" set; expand to the full filtered list as
+  // soon as the user signals deeper intent (search, theme chip, or an
+  // explicit "Show all" click). Expansion auto-clears when filters reset
+  // so a curious tap doesn't permanently bloat the page.
+  const [showAll, setShowAll] = useState(false);
+  const userHasFiltered = activeThemes.size > 0 || query.length > 0;
+  const expanded = showAll || userHasFiltered;
+
+  const displayed = useMemo(() => {
+    if (expanded) return sorted;
+    // Render featured tracks in the curator-defined order (not alphabetical),
+    // so the "marquee" picks lead. Tracks listed in audio-featured.ts that
+    // no longer exist in the registry are silently skipped.
+    const bySrc = new Map(sorted.map((t) => [t.src, t]));
+    return FEATURED_TRACK_SRCS.map((src) => bySrc.get(src)).filter(
+      (t): t is (typeof sorted)[number] => Boolean(t),
+    );
+  }, [expanded, sorted]);
+
+  const featuredCount = useMemo(
+    () =>
+      FEATURED_TRACK_SRCS.filter((src) =>
+        uniqueTracks.some((t) => t.src === src),
+      ).length,
+    [uniqueTracks],
+  );
+
   // Per-track durations populated as <audio> metadata loads.
   const [durations, setDurations] = useState<Record<string, number>>({});
 
