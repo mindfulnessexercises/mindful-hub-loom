@@ -91,6 +91,15 @@ export const INLINE_VIDEO_POSTS: Record<string, readonly InlineVideo[]> = {
       duration: "0:44",
     },
   ],
+
+  // 528 Hz solfeggio "miracle tone" healing music post.
+  "528hz-miracle-tone": [
+    {
+      title: "528 Hz Miracle Tone — Healing Frequency",
+      provider: "youtube",
+      id: "9PRV6w6VJbc",
+    },
+  ],
 };
 
 /** Look up the inline videos configured for a WP post slug. */
