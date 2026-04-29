@@ -10,6 +10,8 @@ export default function AffirmationsHub() {
       seoTitle="Mindfulness Affirmations — By Audience & Intention | Mindfulness Exercises"
       seoDescription="Free positive affirmations for men, women, teens, kids, work, and anxiety — plus morning, gratitude, motivation, self-love, and I AM collections."
       canonical="/affirmations"
+      wpPostsCategorySlug="affirmations"
+      wpPostsHeading="More affirmation articles & practices"
     />
   );
 }
