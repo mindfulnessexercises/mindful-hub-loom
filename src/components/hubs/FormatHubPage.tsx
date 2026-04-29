@@ -29,6 +29,12 @@ interface FormatHubPageProps {
   seoTitle: string;
   seoDescription: string;
   canonical: string;
+  /** Optional: WP category slug to fetch & surface as a "More posts" shelf
+   *  beneath the curated grid. Useful for hubs whose top-100 picks are
+   *  audience-tiles but the WP archive has many more relevant articles. */
+  wpPostsCategorySlug?: string;
+  /** Heading for the WP posts shelf. */
+  wpPostsHeading?: string;
 }
 
 /**
