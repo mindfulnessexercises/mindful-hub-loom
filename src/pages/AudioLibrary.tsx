@@ -354,29 +354,45 @@ export default function AudioLibrary() {
               </div>
             </div>
 
-            {/* Active filter summary (also a screen-reader live region). */}
+            {/* Active filter summary (also a screen-reader live region).
+                When the curated default is showing, we say "featured" so
+                visitors don't think the catalog is tiny. */}
             <p
               className="mt-4 text-sm text-muted-foreground"
               aria-live="polite"
             >
-              Showing <strong className="text-foreground">{sorted.length}</strong>{" "}
-              of {totalTracks} tracks
-              {activeThemes.size > 0 && (
+              {expanded ? (
                 <>
-                  {" "}
-                  matching{" "}
-                  {Array.from(activeThemes)
-                    .map((id) => getTheme(id)?.label ?? id)
-                    .join(" + ")}
+                  Showing{" "}
+                  <strong className="text-foreground">{sorted.length}</strong>{" "}
+                  of {totalTracks} tracks
+                  {activeThemes.size > 0 && (
+                    <>
+                      {" "}
+                      matching{" "}
+                      {Array.from(activeThemes)
+                        .map((id) => getTheme(id)?.label ?? id)
+                        .join(" + ")}
+                    </>
+                  )}
+                  {query && (
+                    <>
+                      {" "}
+                      for "<span className="text-foreground">{query}</span>"
+                    </>
+                  )}
+                  .
+                </>
+              ) : (
+                <>
+                  Showing{" "}
+                  <strong className="text-foreground">
+                    {displayed.length}
+                  </strong>{" "}
+                  featured tracks from a library of {totalTracks}. Use search,
+                  pick a theme, or expand below to browse them all.
                 </>
               )}
-              {query && (
-                <>
-                  {" "}
-                  for "<span className="text-foreground">{query}</span>"
-                </>
-              )}
-              .
             </p>
           </div>
         </section>
