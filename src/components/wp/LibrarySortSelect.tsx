@@ -22,7 +22,11 @@ export const LIBRARY_SORT_OPTIONS: { value: LibrarySort; label: string; hint?: s
   { value: "newest", label: "Newest first" },
   { value: "oldest", label: "Oldest first" },
   { value: "relevance", label: "Most relevant", hint: "Search-only" },
-  { value: "popular", label: "Most popular" },
+  // NOTE: "popular" intentionally omitted from the UI. The upstream WordPress
+  // REST endpoint does not expose `comment_count` (or any popularity field) as
+  // a valid `orderby`, so the request 400s. Kept in the type union so that
+  // legacy `?sort=popular` URLs still parse — they fall back to "newest" via
+  // sortToWpParams below.
   { value: "title", label: "Title (A–Z)" },
 ];
 
@@ -33,14 +37,16 @@ export const LIBRARY_SORT_OPTIONS: { value: LibrarySort; label: string; hint?: s
 export function sortToWpParams(
   sort: LibrarySort,
   hasSearch: boolean,
-): { orderby: "date" | "title" | "relevance" | "comment_count"; order: "asc" | "desc" } {
+): { orderby: "date" | "title" | "relevance"; order: "asc" | "desc" } {
   switch (sort) {
     case "oldest":
       return { orderby: "date", order: "asc" };
     case "title":
       return { orderby: "title", order: "asc" };
     case "popular":
-      return { orderby: "comment_count", order: "desc" };
+      // Upstream WP REST rejects comment_count orderby on this site — fall
+      // back to newest so legacy shared links still render results.
+      return { orderby: "date", order: "desc" };
     case "relevance":
       return hasSearch
         ? { orderby: "relevance", order: "desc" }
