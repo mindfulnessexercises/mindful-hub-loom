@@ -355,6 +355,7 @@ export default function WPResolver() {
 
   const isDownloadsPage = parent === "downloads";
   const isFreeScriptsHub = slug === FREE_SCRIPTS_HUB_SLUG;
+  const isHowToTeach = slug === HOW_TO_TEACH_SLUG;
 
   const { rewrittenHtml, toc } = useMemo(() => {
     let cleaned = rawContent;
@@ -369,13 +370,20 @@ export default function WPResolver() {
     // intro (flat title list + 6 stock banners) and let the React hero
     // render in its place.
     if (isFreeScriptsHub) cleaned = stripFreeScriptsHubIntro(cleaned);
+    // /how-to-teach-meditation: drop the 3 generic stock photos so the
+    // inline video / ebook card / Sean Fargo audio (registered elsewhere)
+    // can take their slots.
+    if (isHowToTeach) cleaned = stripHowToTeachStockImages(cleaned);
     const linked = rewriteWpHtml(cleaned);
     // Inject inline native <audio> players beneath section headings on
     // posts configured in the inline-audio registry (e.g. teen affirmations).
     const withAudio = injectInlineAudio(linked, slug);
-    const { html, items } = extractToc(withAudio);
+    // Inject inline ebook recommendation cards beneath section headings
+    // on posts configured in the inline-ebook registry (e.g. how-to-teach).
+    const withEbooks = injectInlineEbook(withAudio, slug);
+    const { html, items } = extractToc(withEbooks);
     return { rewrittenHtml: html, toc: items };
-  }, [rawContent, meditation, isDownloadsPage, isFreeScriptsHub, slug]);
+  }, [rawContent, meditation, isDownloadsPage, isFreeScriptsHub, isHowToTeach, slug]);
 
   const audioSrc = useMemo(() => extractFirstAudioUrl(rawContent), [rawContent]);
   // Old podcast-episode posts wrap a Buzzsprout JS player in a Thrive
