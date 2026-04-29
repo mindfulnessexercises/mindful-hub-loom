@@ -793,6 +793,16 @@ export default function WPResolver() {
                   );
                 })()}
 
+                {/* High-traffic /free-guided-meditation-scripts hub: a
+                    designed routing block sits above the SEO prose. The WP
+                    intro that used to live here was stripped upstream by
+                    `stripFreeScriptsHubIntro`. */}
+                {isFreeScriptsHub && (
+                  <div className="mb-12">
+                    <FreeScriptsHero />
+                  </div>
+                )}
+
                 <div
                   ref={contentRef}
                   className="prose prose-lg prose-stone max-w-none prose-headings:font-serif prose-headings:scroll-mt-24 prose-headings:text-foreground prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-foreground/90 prose-p:leading-[1.75] prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:underline-offset-4 prose-blockquote:border-l-primary prose-blockquote:bg-[hsl(var(--section-alternate))] prose-blockquote:py-1 prose-blockquote:px-5 prose-blockquote:rounded-r-md prose-blockquote:not-italic prose-img:rounded-lg prose-img:shadow-[var(--shadow-card)] prose-figure:my-8 prose-figcaption:text-center prose-figcaption:text-muted-foreground prose-figcaption:text-sm prose-li:marker:text-primary"
