@@ -401,7 +401,7 @@ export default function AudioLibrary() {
           aria-label="Audio results"
           className="mx-auto max-w-5xl px-4 py-10 sm:px-6"
         >
-          {sorted.length === 0 ? (
+          {displayed.length === 0 ? (
             <div className="rounded-xl border border-dashed border-border bg-[hsl(var(--section-alternate))] p-12 text-center">
               <h2 className="text-card-heading font-serif text-foreground mb-2">
                 No tracks match your filters
@@ -424,7 +424,7 @@ export default function AudioLibrary() {
             </div>
           ) : (
             <ol className="space-y-4">
-              {sorted.map((t) => {
+              {displayed.map((t) => {
                 const trackThemes = THEME_DEFINITIONS.filter((th) =>
                   t.themes.has(th.id),
                 );
