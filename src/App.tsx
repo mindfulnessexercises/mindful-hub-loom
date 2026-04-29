@@ -102,6 +102,10 @@ const App = () => (
             <Route path="/podcast-episodes/*" element={<WPResolver />} />
             <Route path="/downloads/*" element={<WPResolver />} />
             <Route path="/lessons/*" element={<WPResolver />} />
+            {/* Thrive Apprentice "chapter" CPT — 42 day-by-day course chapters
+                live at /chapter/<slug> on WP. Resolve via WPResolver so the
+                last segment is looked up as a post slug. */}
+            <Route path="/chapter/*" element={<WPResolver />} />
             {/* Legacy nested permalinks from the WordPress site that rank in
                 our top-100. Keep these splats so WPResolver can resolve the
                 last URL segment as the post slug — preserves SEO equity. */}
