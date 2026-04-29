@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { absoluteUrl } from "@/lib/site-config";
 
 interface SeoProps {
   title: string;
@@ -76,8 +77,12 @@ export function WPSeo({
     setMeta('meta[property="og:type"]', "content", type);
     if (ogImage) setMeta('meta[property="og:image"]', "content", ogImage);
     if (canonical) {
-      setMeta('link[rel="canonical"]', "href", canonical);
-      setMeta('meta[property="og:url"]', "content", canonical);
+      // Always emit an absolute URL — Google requires it for the canonical
+      // signal to be authoritative across deployments. Callers may pass a
+      // root-relative path for convenience; we promote it here.
+      const absCanonical = absoluteUrl(canonical);
+      setMeta('link[rel="canonical"]', "href", absCanonical);
+      setMeta('meta[property="og:url"]', "content", absCanonical);
     }
     setMeta('meta[name="twitter:title"]', "content", title);
     setMeta('meta[name="twitter:description"]', "content", description);
