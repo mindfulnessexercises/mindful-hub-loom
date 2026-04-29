@@ -63,12 +63,13 @@ const MENU: MenuGroup[] = [
     label: "Teach",
     blurb: {
       title: "Built for teachers & therapists",
-      body: "Scripts, worksheets, and guides used by thousands of practitioners.",
-      href: "/meditation-scripts",
+      body: "230+ free scripts, worksheets, and guides used by thousands of practitioners.",
+      href: "/free-guided-meditation-scripts",
       cta: "Browse all scripts →",
     },
     links: [
-      { label: "Meditation Scripts", href: "/meditation-scripts", icon: FileText, description: "Free, audience-tagged" },
+      { label: "Free Meditation Scripts", href: "/free-guided-meditation-scripts", icon: FileText, description: "230+ scripts, searchable & filterable" },
+      { label: "Scripts by Format", href: "/meditation-scripts", icon: List, description: "Browse by audience & theme" },
       { label: "Worksheets", href: "/free-mindfulness-worksheets", icon: ClipboardList, description: "Printable PDFs" },
       { label: "Ebooks", href: "/free-mindfulness-e-books", icon: BookOpen, description: "Free downloadable guides" },
       { label: "How to Teach", href: "/how-to-teach-meditation", icon: Users, description: "Lead your first session" },
