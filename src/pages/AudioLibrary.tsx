@@ -15,6 +15,7 @@ import { Footer } from "@/components/homepage/Footer";
 import { InlineEmailCapture } from "@/components/email/InlineEmailCapture";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { AUDIO_PLAYLISTS } from "@/lib/audio-playlists";
+import { FEATURED_TRACK_SRCS } from "@/lib/audio-featured";
 import {
   THEME_DEFINITIONS,
   flattenRegistry,
@@ -22,6 +23,7 @@ import {
 } from "@/lib/audio-themes";
 import { parseTrackTitle } from "@/lib/track-metadata";
 import { TrackMetadataChips } from "@/components/wp/TrackMetadataChips";
+import { trackEvent } from "@/lib/analytics";
 
 /** Format seconds → "M:SS" or "H:MM:SS". Returns null when unknown. */
 function formatDuration(seconds: number | undefined): string | null {
@@ -187,6 +189,35 @@ export default function AudioLibrary() {
   const totalTracks = uniqueTracks.length;
   const playlistCount = Object.keys(AUDIO_PLAYLISTS).length;
 
+  // ── Curated default view ──────────────────────────────────────────────
+  // The full catalog is 500+ tracks — overwhelming on first load. Default
+  // to a hand-picked "best of" set; expand to the full filtered list as
+  // soon as the user signals deeper intent (search, theme chip, or an
+  // explicit "Show all" click). Expansion auto-clears when filters reset
+  // so a curious tap doesn't permanently bloat the page.
+  const [showAll, setShowAll] = useState(false);
+  const userHasFiltered = activeThemes.size > 0 || query.length > 0;
+  const expanded = showAll || userHasFiltered;
+
+  const displayed = useMemo(() => {
+    if (expanded) return sorted;
+    // Render featured tracks in the curator-defined order (not alphabetical),
+    // so the "marquee" picks lead. Tracks listed in audio-featured.ts that
+    // no longer exist in the registry are silently skipped.
+    const bySrc = new Map(sorted.map((t) => [t.src, t]));
+    return FEATURED_TRACK_SRCS.map((src) => bySrc.get(src)).filter(
+      (t): t is (typeof sorted)[number] => Boolean(t),
+    );
+  }, [expanded, sorted]);
+
+  const featuredCount = useMemo(
+    () =>
+      FEATURED_TRACK_SRCS.filter((src) =>
+        uniqueTracks.some((t) => t.src === src),
+      ).length,
+    [uniqueTracks],
+  );
+
   // Per-track durations populated as <audio> metadata loads.
   const [durations, setDurations] = useState<Record<string, number>>({});
 
@@ -323,29 +354,45 @@ export default function AudioLibrary() {
               </div>
             </div>
 
-            {/* Active filter summary (also a screen-reader live region). */}
+            {/* Active filter summary (also a screen-reader live region).
+                When the curated default is showing, we say "featured" so
+                visitors don't think the catalog is tiny. */}
             <p
               className="mt-4 text-sm text-muted-foreground"
               aria-live="polite"
             >
-              Showing <strong className="text-foreground">{sorted.length}</strong>{" "}
-              of {totalTracks} tracks
-              {activeThemes.size > 0 && (
+              {expanded ? (
                 <>
-                  {" "}
-                  matching{" "}
-                  {Array.from(activeThemes)
-                    .map((id) => getTheme(id)?.label ?? id)
-                    .join(" + ")}
+                  Showing{" "}
+                  <strong className="text-foreground">{sorted.length}</strong>{" "}
+                  of {totalTracks} tracks
+                  {activeThemes.size > 0 && (
+                    <>
+                      {" "}
+                      matching{" "}
+                      {Array.from(activeThemes)
+                        .map((id) => getTheme(id)?.label ?? id)
+                        .join(" + ")}
+                    </>
+                  )}
+                  {query && (
+                    <>
+                      {" "}
+                      for "<span className="text-foreground">{query}</span>"
+                    </>
+                  )}
+                  .
+                </>
+              ) : (
+                <>
+                  Showing{" "}
+                  <strong className="text-foreground">
+                    {displayed.length}
+                  </strong>{" "}
+                  featured tracks from a library of {totalTracks}. Use search,
+                  pick a theme, or expand below to browse them all.
                 </>
               )}
-              {query && (
-                <>
-                  {" "}
-                  for "<span className="text-foreground">{query}</span>"
-                </>
-              )}
-              .
             </p>
           </div>
         </section>
@@ -354,7 +401,7 @@ export default function AudioLibrary() {
           aria-label="Audio results"
           className="mx-auto max-w-5xl px-4 py-10 sm:px-6"
         >
-          {sorted.length === 0 ? (
+          {displayed.length === 0 ? (
             <div className="rounded-xl border border-dashed border-border bg-[hsl(var(--section-alternate))] p-12 text-center">
               <h2 className="text-card-heading font-serif text-foreground mb-2">
                 No tracks match your filters
@@ -377,7 +424,7 @@ export default function AudioLibrary() {
             </div>
           ) : (
             <ol className="space-y-4">
-              {sorted.map((t) => {
+              {displayed.map((t) => {
                 const trackThemes = THEME_DEFINITIONS.filter((th) =>
                   t.themes.has(th.id),
                 );
@@ -498,6 +545,59 @@ export default function AudioLibrary() {
                 );
               })}
             </ol>
+          )}
+
+          {/* Expand/collapse toggle. Hidden when filters/search are active —
+              in that mode the user is already in "deep browse" and a second
+              "Show all" CTA would be redundant (and contradict the filter). */}
+          {!userHasFiltered && displayed.length > 0 && (
+            <div className="mt-10 flex flex-col items-center gap-3 border-t border-border pt-10 text-center">
+              {showAll ? (
+                <>
+                  <p className="text-sm text-muted-foreground">
+                    You're browsing all {totalTracks} tracks.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowAll(false);
+                      trackEvent("audio_library_view_changed", {
+                        to_view: "featured",
+                        from_view: "all",
+                      });
+                      // Scroll back up so the user isn't stranded mid-page
+                      // after the list collapses underneath them.
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className="inline-flex min-h-[44px] items-center rounded-md border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground/85 transition hover:bg-muted"
+                  >
+                    Show featured tracks only
+                  </button>
+                </>
+              ) : (
+                <>
+                  <p className="text-sm text-muted-foreground">
+                    Looking for something specific? Browse the full catalog of{" "}
+                    {totalTracks} guided meditations and mindfulness talks.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowAll(true);
+                      trackEvent("audio_library_view_changed", {
+                        to_view: "all",
+                        from_view: "featured",
+                        featured_count: featuredCount,
+                        total_tracks: totalTracks,
+                      });
+                    }}
+                    className="inline-flex min-h-[44px] items-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition hover:opacity-90"
+                  >
+                    Show all {totalTracks} tracks
+                  </button>
+                </>
+              )}
+            </div>
           )}
         </section>
 
