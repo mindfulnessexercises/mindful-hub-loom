@@ -56,6 +56,8 @@ export function FormatHubPage({
   seoTitle,
   seoDescription,
   canonical,
+  wpPostsCategorySlug,
+  wpPostsHeading,
 }: FormatHubPageProps) {
   const meta = FORMATS[format];
   const allEntries = useMemo(() => entriesByFormat(format), [format]);
@@ -63,6 +65,20 @@ export function FormatHubPage({
     () => (alsoShow ? entriesByFormat(alsoShow) : []),
     [alsoShow],
   );
+
+  // Fetch WP category posts for the optional "More posts" shelf.
+  const [wpPosts, setWpPosts] = useState<WPPost[]>([]);
+  useEffect(() => {
+    if (!wpPostsCategorySlug) return;
+    let cancelled = false;
+    (async () => {
+      const cat = await wp.categoryBySlug(wpPostsCategorySlug);
+      if (!cat || cancelled) return;
+      const r = await wp.posts({ categories: [cat.id], per_page: 12, orderby: "date", order: "desc" });
+      if (!cancelled) setWpPosts(r.items);
+    })().catch(() => { /* silent — shelf simply hides */ });
+    return () => { cancelled = true; };
+  }, [wpPostsCategorySlug]);
   const detectedAudiences = useMemo(
     () => audiencesForFormat(format).filter(Boolean) as NonNullable<TopEntry["audience"]>[],
     [format],
