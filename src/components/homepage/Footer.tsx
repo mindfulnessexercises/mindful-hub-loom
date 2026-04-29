@@ -25,7 +25,7 @@ const FOOTER_GROUPS: { title: string; links: FooterLink[] }[] = [
     title: "Practice",
     links: [
       { label: "Audio Library", href: "/audio-library" },
-      { label: "Free Guided Meditations", href: "/free-guided-meditations" },
+      { label: "Top Guided Meditations", href: "/top-guided-meditations" },
       { label: "Affirmations", href: "/affirmations" },
       { label: "Mindfulness Quotes", href: "/quotes" },
       { label: "Sound & Frequency", href: "/528hz-miracle-tone" },
@@ -73,7 +73,7 @@ const FOOTER_GROUPS: { title: string; links: FooterLink[] }[] = [
     links: [
       { label: "Our Mission", href: "/about-us" },
       { label: "Mindfulness Teachers", href: "/mindfulness-teachers" },
-      { label: "Live Events", href: "/live-events" },
+      { label: "Live Events", href: "/#live-events" },
       { label: "White Label", href: "/white-label" },
       { label: "Feedback", href: "/feedback" },
     ],
