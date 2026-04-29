@@ -15,6 +15,7 @@ import { Footer } from "@/components/homepage/Footer";
 import { InlineEmailCapture } from "@/components/email/InlineEmailCapture";
 import { WPSeo } from "@/components/wp/WPSeo";
 import { AUDIO_PLAYLISTS } from "@/lib/audio-playlists";
+import { FEATURED_TRACK_SET, FEATURED_TRACK_SRCS } from "@/lib/audio-featured";
 import {
   THEME_DEFINITIONS,
   flattenRegistry,
@@ -22,6 +23,7 @@ import {
 } from "@/lib/audio-themes";
 import { parseTrackTitle } from "@/lib/track-metadata";
 import { TrackMetadataChips } from "@/components/wp/TrackMetadataChips";
+import { trackEvent } from "@/lib/analytics";
 
 /** Format seconds → "M:SS" or "H:MM:SS". Returns null when unknown. */
 function formatDuration(seconds: number | undefined): string | null {
