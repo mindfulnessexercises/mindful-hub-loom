@@ -1,9 +1,10 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Headphones, Sparkles, Users } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { WPSeo } from "@/components/wp/WPSeo";
+import { wp, decodeHtmlEntities, getFeaturedImage, type WPPost } from "@/lib/wp";
 import {
   AUDIENCE_LABELS,
   audiencesForFormat,
