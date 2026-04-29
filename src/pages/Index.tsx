@@ -19,10 +19,13 @@ import { FounderBlock } from "@/components/homepage/FounderBlock";
 import { FinalCTA } from "@/components/homepage/FinalCTA";
 import { Footer } from "@/components/homepage/Footer";
 import { HomepageEngagementTracker } from "@/components/homepage/HomepageEngagementTracker";
+import { HomepageSeo } from "@/components/homepage/HomepageSeo";
+import { KeywordSeoSection } from "@/components/homepage/KeywordSeoSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <HomepageSeo />
       <HomepageEngagementTracker />
       <Navbar />
       <main>
@@ -36,6 +39,10 @@ const Index = () => {
         <MoreWaysToGrow />
         <AuthoritySection />
         <FreeResourcesPreview />
+        {/* Keyword-rich, internal-linking SEO block — placed mid-page so it
+            sits inside the engagement window without competing with the hero
+            or the email capture. See HomepageSeo for the meta strategy. */}
+        <KeywordSeoSection />
         <LatestPosts />
         <BrowseByCategory />
         <LiveEvents />
