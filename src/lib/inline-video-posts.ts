@@ -114,6 +114,18 @@ export const INLINE_VIDEO_POSTS: Record<string, readonly InlineVideo[]> = {
       duration: "1:58:14",
     },
   ],
+
+  // Brené Brown's iconic TEDxHouston talk — referenced in the post body
+  // but never embedded on the legacy WP page. The full talk is the whole
+  // point of the article, so we surface it at the top.
+  "brene-brown-power-vulnerability": [
+    {
+      title: "The Power of Vulnerability — Brené Brown (TEDxHouston)",
+      provider: "youtube",
+      id: "iCvmsMzlF7o",
+      duration: "20:19",
+    },
+  ],
 };
 
 /** Look up the inline videos configured for a WP post slug. */
