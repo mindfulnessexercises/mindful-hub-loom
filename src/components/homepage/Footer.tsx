@@ -94,14 +94,14 @@ const FOOTER_GROUPS: { title: string; links: FooterLink[] }[] = [
     ],
   },
   {
-    title: "Legal",
+    // Socials + direct contact entry points.
+    title: "Connect",
     links: [
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms & Conditions", href: "/terms-conditions" },
-      { label: "Terms of Purchase", href: "/terms-of-purchase" },
-      { label: "Medical Disclaimer", href: "/medical-disclaimer" },
-      { label: "Earnings Disclaimer", href: "/earnings-disclaimer" },
-      { label: "Anti-Discrimination Policy", href: "/anti-discrimination-policy-statement" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "LinkedIn (Company)", href: CONTACT.linkedinCompany },
+      { label: "LinkedIn (Sean Fargo)", href: CONTACT.linkedinFounder },
+      { label: `Email: ${CONTACT.email}`, href: `mailto:${CONTACT.email}` },
+      { label: `Phone: ${CONTACT.phone}`, href: CONTACT.phoneHref },
     ],
   },
 ];
@@ -113,7 +113,10 @@ const BOTTOM_LINKS: FooterLink[] = [
 ];
 
 function FooterAnchor({ link }: { link: FooterLink }) {
-  const isExternal = link.href.startsWith("http");
+  const isExternal =
+    link.href.startsWith("http") ||
+    link.href.startsWith("mailto:") ||
+    link.href.startsWith("tel:");
   const className =
     "text-body-sm text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm py-1 inline-flex items-center min-h-[32px]";
 
