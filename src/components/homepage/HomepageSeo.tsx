@@ -1,4 +1,5 @@
 import { WPSeo } from "@/components/wp/WPSeo";
+import { SITE_ORIGIN } from "@/lib/site-config";
 
 /**
  * Homepage-only SEO surface. Lifted out of `Index.tsx` so that:
@@ -14,7 +15,7 @@ import { WPSeo } from "@/components/wp/WPSeo";
  * Description is <160 chars and front-loads "mindfulness exercises"
  * so the SERP snippet keeps the keyword bolded.
  */
-const SITE_URL = "https://mindfulnessexercises.com";
+const SITE_URL = SITE_ORIGIN;
 
 export function HomepageSeo() {
   const jsonLd = {

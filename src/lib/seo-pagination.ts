@@ -14,7 +14,9 @@
 //  - `page` is clamped to [1, totalPages] before serialisation so a stale
 //    or malicious ?page=99 doesn't generate an off-the-end canonical.
 
-export const SITE_ORIGIN = "https://mindfulnessexercises.com";
+// Re-export for back-compat — callers import SITE_ORIGIN from here today.
+export { SITE_ORIGIN } from "@/lib/site-config";
+import { SITE_ORIGIN as SITE_ORIGIN_INTERNAL } from "@/lib/site-config";
 
 export interface BuildPaginatedSeoOpts {
   /** Path without query, e.g. "/library", "/category/stress" */
@@ -47,7 +49,7 @@ function serialiseParams(params: Record<string, string | number | undefined>, pa
 
 function buildUrl(path: string, params: Record<string, string | number | undefined>, page?: number): string {
   const qs = serialiseParams(params, page);
-  return `${SITE_ORIGIN}${path}${qs ? `?${qs}` : ""}`;
+  return `${SITE_ORIGIN_INTERNAL}${path}${qs ? `?${qs}` : ""}`;
 }
 
 /**
