@@ -263,6 +263,47 @@ function stripFreeScriptsHubIntro(html: string): string {
   return html.slice(m.index);
 }
 
+/**
+ * Removes the three generic stock photos on /how-to-teach-meditation
+ * ("teaching-meditation.jpg" hero, "Meditate-1.jpg" mid-page filler, and
+ * the static "sean-fargo-mentor.jpeg" portrait). Their slots are filled
+ * by an inline video, an ebook recommendation card, and an inline Sean
+ * Fargo audio respectively — registered in:
+ *   - inline-video-posts.ts
+ *   - inline-ebook-sections.ts
+ *   - inline-audio-sections.ts
+ * This swap keeps the SEO prose intact while replacing decorative images
+ * with directly relevant, on-topic media.
+ */
+function stripHowToTeachStockImages(html: string): string {
+  if (!html) return html;
+  let out = html;
+  // Drop each <img> by filename signature. Be permissive about wrapping
+  // <p>/<span>/<figure> shells left behind, then prune empty wrappers.
+  const imgPatterns = [
+    /<img[^>]*teaching-meditation[^>]*>/gi,
+    /<img[^>]*Meditate-1[^>]*>/gi,
+    /<img[^>]*sean-fargo-mentor[^>]*>/gi,
+  ];
+  for (const re of imgPatterns) out = out.replace(re, "");
+
+  // Strip empty wrappers left behind (cascading passes — nbsp/whitespace
+  // only, or wrappers whose entire content is empty inline tags).
+  for (let i = 0; i < 3; i++) {
+    out = out.replace(
+      /<(p|div|figure|figcaption|span)\b[^>]*>\s*(?:&nbsp;|\s)*<\/\1>/gi,
+      "",
+    );
+    out = out.replace(
+      /<(p|div)\b[^>]*>\s*(?:<(?:span|strong|em|b|i)\b[^>]*>\s*(?:&nbsp;|\s)*<\/(?:span|strong|em|b|i)>\s*)+<\/\1>/gi,
+      "",
+    );
+  }
+  return out;
+}
+
+const HOW_TO_TEACH_SLUG = "how-to-teach-meditation";
+
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 
