@@ -74,7 +74,7 @@ export function FormatHubPage({
     (async () => {
       const cat = await wp.categoryBySlug(wpPostsCategorySlug);
       if (!cat || cancelled) return;
-      const r = await wp.posts({ categories: [cat.id], per_page: 12, orderby: "date", order: "desc" });
+      const r = await wp.posts({ categories: cat.id, per_page: 12, orderby: "date", order: "desc" });
       if (!cancelled) setWpPosts(r.items);
     })().catch(() => { /* silent — shelf simply hides */ });
     return () => { cancelled = true; };
