@@ -14,6 +14,7 @@ import {
   Clock,
 } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import { ScriptsBrowser } from "@/components/wp/ScriptsBrowser";
 
 /**
  * Designed hero + curated grid that REPLACES the legacy WP intro on
@@ -232,6 +233,9 @@ export function FreeScriptsHero() {
           ))}
         </div>
       </section>
+
+      {/* Full filterable index of all 230+ scripts */}
+      <ScriptsBrowser />
     </div>
   );
 }
