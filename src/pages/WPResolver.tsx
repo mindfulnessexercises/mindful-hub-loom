@@ -51,6 +51,7 @@ import { WorksheetMindfulGuidance } from "@/components/wp/WorksheetMindfulGuidan
 import { getMeditationScript } from "@/lib/meditation-scripts";
 import { getWorksheets } from "@/lib/worksheets";
 import { injectInlineAudio } from "@/lib/inline-audio-sections";
+import { injectInlineEbook } from "@/lib/inline-ebook-sections";
 import { FreeScriptsHero } from "@/components/wp/FreeScriptsHero";
 import { getInlineVideos } from "@/lib/inline-video-posts";
 import { LiteVideoEmbed } from "@/components/video/LiteVideoEmbed";
@@ -262,6 +263,47 @@ function stripFreeScriptsHubIntro(html: string): string {
   return html.slice(m.index);
 }
 
+/**
+ * Removes the three generic stock photos on /how-to-teach-meditation
+ * ("teaching-meditation.jpg" hero, "Meditate-1.jpg" mid-page filler, and
+ * the static "sean-fargo-mentor.jpeg" portrait). Their slots are filled
+ * by an inline video, an ebook recommendation card, and an inline Sean
+ * Fargo audio respectively — registered in:
+ *   - inline-video-posts.ts
+ *   - inline-ebook-sections.ts
+ *   - inline-audio-sections.ts
+ * This swap keeps the SEO prose intact while replacing decorative images
+ * with directly relevant, on-topic media.
+ */
+function stripHowToTeachStockImages(html: string): string {
+  if (!html) return html;
+  let out = html;
+  // Drop each <img> by filename signature. Be permissive about wrapping
+  // <p>/<span>/<figure> shells left behind, then prune empty wrappers.
+  const imgPatterns = [
+    /<img[^>]*teaching-meditation[^>]*>/gi,
+    /<img[^>]*Meditate-1[^>]*>/gi,
+    /<img[^>]*sean-fargo-mentor[^>]*>/gi,
+  ];
+  for (const re of imgPatterns) out = out.replace(re, "");
+
+  // Strip empty wrappers left behind (cascading passes — nbsp/whitespace
+  // only, or wrappers whose entire content is empty inline tags).
+  for (let i = 0; i < 3; i++) {
+    out = out.replace(
+      /<(p|div|figure|figcaption|span)\b[^>]*>\s*(?:&nbsp;|\s)*<\/\1>/gi,
+      "",
+    );
+    out = out.replace(
+      /<(p|div)\b[^>]*>\s*(?:<(?:span|strong|em|b|i)\b[^>]*>\s*(?:&nbsp;|\s)*<\/(?:span|strong|em|b|i)>\s*)+<\/\1>/gi,
+      "",
+    );
+  }
+  return out;
+}
+
+const HOW_TO_TEACH_SLUG = "how-to-teach-meditation";
+
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 
@@ -313,6 +355,7 @@ export default function WPResolver() {
 
   const isDownloadsPage = parent === "downloads";
   const isFreeScriptsHub = slug === FREE_SCRIPTS_HUB_SLUG;
+  const isHowToTeach = slug === HOW_TO_TEACH_SLUG;
 
   const { rewrittenHtml, toc } = useMemo(() => {
     let cleaned = rawContent;
@@ -327,13 +370,20 @@ export default function WPResolver() {
     // intro (flat title list + 6 stock banners) and let the React hero
     // render in its place.
     if (isFreeScriptsHub) cleaned = stripFreeScriptsHubIntro(cleaned);
+    // /how-to-teach-meditation: drop the 3 generic stock photos so the
+    // inline video / ebook card / Sean Fargo audio (registered elsewhere)
+    // can take their slots.
+    if (isHowToTeach) cleaned = stripHowToTeachStockImages(cleaned);
     const linked = rewriteWpHtml(cleaned);
     // Inject inline native <audio> players beneath section headings on
     // posts configured in the inline-audio registry (e.g. teen affirmations).
     const withAudio = injectInlineAudio(linked, slug);
-    const { html, items } = extractToc(withAudio);
+    // Inject inline ebook recommendation cards beneath section headings
+    // on posts configured in the inline-ebook registry (e.g. how-to-teach).
+    const withEbooks = injectInlineEbook(withAudio, slug);
+    const { html, items } = extractToc(withEbooks);
     return { rewrittenHtml: html, toc: items };
-  }, [rawContent, meditation, isDownloadsPage, isFreeScriptsHub, slug]);
+  }, [rawContent, meditation, isDownloadsPage, isFreeScriptsHub, isHowToTeach, slug]);
 
   const audioSrc = useMemo(() => extractFirstAudioUrl(rawContent), [rawContent]);
   // Old podcast-episode posts wrap a Buzzsprout JS player in a Thrive
@@ -617,7 +667,7 @@ export default function WPResolver() {
           )}
 
 
-          {img && tpl.featuredImage !== "hidden" && !isDownloadsPage && !hasWorksheets && !isEbookPost && !isFreeScriptsHub && (() => {
+          {img && tpl.featuredImage !== "hidden" && !isDownloadsPage && !hasWorksheets && !isEbookPost && !isFreeScriptsHub && !isHowToTeach && (() => {
             const w = img.width ?? 0;
             const h = img.height ?? 0;
             const ratio = w && h ? w / h : 0;

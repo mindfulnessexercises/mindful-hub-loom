@@ -100,6 +100,20 @@ export const INLINE_VIDEO_POSTS: Record<string, readonly InlineVideo[]> = {
       id: "9PRV6w6VJbc",
     },
   ],
+
+  // /how-to-teach-meditation hub: a guest-teacher session that models the
+  // craft of teaching meditation in a way that resonates and connects.
+  // Replaces the generic "teaching meditation" stock photo at the top of
+  // the legacy WP page (stripped in WPResolver for this slug).
+  "how-to-teach-meditation": [
+    {
+      title:
+        "Teaching Meditation In A Way That Resonates And Connects — Shawn J Moore",
+      provider: "vimeo",
+      id: "1085221308",
+      duration: "1:58:14",
+    },
+  ],
 };
 
 /** Look up the inline videos configured for a WP post slug. */
