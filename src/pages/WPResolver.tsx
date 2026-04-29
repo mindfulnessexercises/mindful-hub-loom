@@ -312,6 +312,7 @@ export default function WPResolver() {
   const meditation = meditationQuery.data;
 
   const isDownloadsPage = parent === "downloads";
+  const isFreeScriptsHub = slug === FREE_SCRIPTS_HUB_SLUG;
 
   const { rewrittenHtml, toc } = useMemo(() => {
     let cleaned = rawContent;
@@ -322,13 +323,17 @@ export default function WPResolver() {
     // Runs on every post — old script-style posts have a recurring lead
     // capture line we always want to remove.
     cleaned = stripScriptLeadCapture(cleaned);
+    // High-traffic /free-guided-meditation-scripts hub: drop the legacy
+    // intro (flat title list + 6 stock banners) and let the React hero
+    // render in its place.
+    if (isFreeScriptsHub) cleaned = stripFreeScriptsHubIntro(cleaned);
     const linked = rewriteWpHtml(cleaned);
     // Inject inline native <audio> players beneath section headings on
     // posts configured in the inline-audio registry (e.g. teen affirmations).
     const withAudio = injectInlineAudio(linked, slug);
     const { html, items } = extractToc(withAudio);
     return { rewrittenHtml: html, toc: items };
-  }, [rawContent, meditation, isDownloadsPage, slug]);
+  }, [rawContent, meditation, isDownloadsPage, isFreeScriptsHub, slug]);
 
   const audioSrc = useMemo(() => extractFirstAudioUrl(rawContent), [rawContent]);
   // Old podcast-episode posts wrap a Buzzsprout JS player in a Thrive
