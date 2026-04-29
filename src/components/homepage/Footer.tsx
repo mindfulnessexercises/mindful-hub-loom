@@ -1,4 +1,19 @@
 import { Link } from "react-router-dom";
+import { Linkedin, Mail, Phone, MapPin } from "lucide-react";
+
+/**
+ * Verified contact details (sourced from mindfulnessexercises.com/contact/).
+ * Update here only — both the brand column and the "Connect" column read from
+ * these constants so the footer stays consistent.
+ */
+const CONTACT = {
+  phone: "+1-415-625-7225",
+  phoneHref: "tel:+14156257225",
+  email: "Support@mindfulnessexercises.com",
+  address: "PO Box 9452, Berkeley, CA 94709",
+  linkedinCompany: "https://www.linkedin.com/company/mindfulness-exercises/",
+  linkedinFounder: "https://www.linkedin.com/in/seanfargo/",
+};
 
 /**
  * Footer IA — rebuilt 2026-04-29.
