@@ -51,6 +51,7 @@ import { WorksheetMindfulGuidance } from "@/components/wp/WorksheetMindfulGuidan
 import { getMeditationScript } from "@/lib/meditation-scripts";
 import { getWorksheets } from "@/lib/worksheets";
 import { injectInlineAudio } from "@/lib/inline-audio-sections";
+import { FreeScriptsHero } from "@/components/wp/FreeScriptsHero";
 import { getInlineVideos } from "@/lib/inline-video-posts";
 import { LiteVideoEmbed } from "@/components/video/LiteVideoEmbed";
 import { getPlaylist } from "@/lib/audio-playlists";
@@ -235,6 +236,32 @@ function stripScriptLeadCapture(html: string): string {
   return out;
 }
 
+/**
+ * Slug of the high-traffic /free-guided-meditation-scripts hub page. The
+ * legacy WP intro for this page is a flat text list of script titles plus
+ * six oversized stock-photo banners that route to audience pages. We
+ * replace that whole intro with the designed React `<FreeScriptsHero />`
+ * (semantic-token cards, no images, scannable). The remaining SEO prose
+ * ("Benefits of...", "Tips for guiding...") is preserved verbatim.
+ */
+const FREE_SCRIPTS_HUB_SLUG = "free-guided-meditation-scripts";
+
+/**
+ * Removes the legacy intro on /free-guided-meditation-scripts: everything
+ * from the start of the WP body up to the first H2 ("Benefits of Free
+ * Guided Meditation Scripts"). The React hero is injected above the
+ * remaining prose by the caller.
+ */
+function stripFreeScriptsHubIntro(html: string): string {
+  if (!html) return html;
+  // Find the first H2 — that's where the editorial content begins. Be
+  // permissive about attributes/whitespace; the H2 may have an `id` or
+  // inline style from Thrive.
+  const m = html.match(/<h2\b[^>]*>/i);
+  if (!m || m.index === undefined) return html;
+  return html.slice(m.index);
+}
+
 const CERTIFY_URL = "https://certify.mindfulnessexercises.com/";
 
 
@@ -285,6 +312,7 @@ export default function WPResolver() {
   const meditation = meditationQuery.data;
 
   const isDownloadsPage = parent === "downloads";
+  const isFreeScriptsHub = slug === FREE_SCRIPTS_HUB_SLUG;
 
   const { rewrittenHtml, toc } = useMemo(() => {
     let cleaned = rawContent;
@@ -295,13 +323,17 @@ export default function WPResolver() {
     // Runs on every post — old script-style posts have a recurring lead
     // capture line we always want to remove.
     cleaned = stripScriptLeadCapture(cleaned);
+    // High-traffic /free-guided-meditation-scripts hub: drop the legacy
+    // intro (flat title list + 6 stock banners) and let the React hero
+    // render in its place.
+    if (isFreeScriptsHub) cleaned = stripFreeScriptsHubIntro(cleaned);
     const linked = rewriteWpHtml(cleaned);
     // Inject inline native <audio> players beneath section headings on
     // posts configured in the inline-audio registry (e.g. teen affirmations).
     const withAudio = injectInlineAudio(linked, slug);
     const { html, items } = extractToc(withAudio);
     return { rewrittenHtml: html, toc: items };
-  }, [rawContent, meditation, isDownloadsPage, slug]);
+  }, [rawContent, meditation, isDownloadsPage, isFreeScriptsHub, slug]);
 
   const audioSrc = useMemo(() => extractFirstAudioUrl(rawContent), [rawContent]);
   // Old podcast-episode posts wrap a Buzzsprout JS player in a Thrive
@@ -585,7 +617,7 @@ export default function WPResolver() {
           )}
 
 
-          {img && tpl.featuredImage !== "hidden" && !isDownloadsPage && !hasWorksheets && !isEbookPost && (() => {
+          {img && tpl.featuredImage !== "hidden" && !isDownloadsPage && !hasWorksheets && !isEbookPost && !isFreeScriptsHub && (() => {
             const w = img.width ?? 0;
             const h = img.height ?? 0;
             const ratio = w && h ? w / h : 0;
@@ -760,6 +792,16 @@ export default function WPResolver() {
                     </div>
                   );
                 })()}
+
+                {/* High-traffic /free-guided-meditation-scripts hub: a
+                    designed routing block sits above the SEO prose. The WP
+                    intro that used to live here was stripped upstream by
+                    `stripFreeScriptsHubIntro`. */}
+                {isFreeScriptsHub && (
+                  <div className="mb-12">
+                    <FreeScriptsHero />
+                  </div>
+                )}
 
                 <div
                   ref={contentRef}
