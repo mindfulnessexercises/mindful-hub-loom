@@ -436,6 +436,12 @@ export default function WPResolver() {
   const tpl = getTemplateConfig(doc.slug, templateKind);
   const attachedWorksheets = getWorksheets(doc.slug);
   const hasWorksheets = attachedWorksheets.length > 0;
+  // Posts in the legacy "eBooks" category (id 159, slug `free-mindfulness-ebooks`)
+  // are PDF-viewer pages whose WP "featured image" is a broken placeholder
+  // shutter graphic from the old Thrive opt-in template. Detect them so we
+  // can suppress that image and render a small intro card instead.
+  const EBOOK_CATEGORY_ID = 159;
+  const isEbookPost = kind === "post" && cats.some((c) => c.id === EBOOK_CATEGORY_ID);
   const canonicalSlugPath = cptEndpoint
     ? `/${CPT_URL_PARENT[cptEndpoint]}/${doc.slug}`
     : `/${doc.slug}`;
