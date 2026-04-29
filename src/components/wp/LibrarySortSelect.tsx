@@ -37,7 +37,7 @@ export const LIBRARY_SORT_OPTIONS: { value: LibrarySort; label: string; hint?: s
 export function sortToWpParams(
   sort: LibrarySort,
   hasSearch: boolean,
-): { orderby: "date" | "title" | "relevance" | "comment_count"; order: "asc" | "desc" } {
+): { orderby: "date" | "title" | "relevance"; order: "asc" | "desc" } {
   switch (sort) {
     case "oldest":
       return { orderby: "date", order: "asc" };
