@@ -448,6 +448,16 @@ export const INLINE_AUDIO_SECTIONS: Record<string, InlineAudioTrack[]> = {
       src: `${AUDIO_BASE}/positive-affirmations-for-women/balance-and-well-being.mp3`,
     },
   ],
+  // /how-to-teach-meditation: replaces the Sean Fargo portrait stock image
+  // with an actual Sean Fargo guided meditation, so visitors discover what
+  // his teaching sounds like at the moment they're reading about him.
+  "how-to-teach-meditation": [
+    {
+      match: "learning from sean fargo",
+      label: "Listen: Mindfulness of Breathing — Guided Meditation by Sean Fargo",
+      src: `${AUDIO_BASE}/10-tips-teaching-mindfulness-of-breathing/mindfulness-of-breathing.mp3`,
+    },
+  ],
 };
 
 function normalize(text: string): string {
