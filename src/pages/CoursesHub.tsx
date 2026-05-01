@@ -148,15 +148,11 @@ const COURSES: readonly CourseEntry[] = [
     wpSlug: "the-work-that-reconnects",
     audience: "Daily practice",
   },
-  {
-    title: "Reducing Workplace Bias",
-    intro:
-      "21 lessons applying mindfulness to implicit bias, inclusion, and difficult workplace conversations.",
-    lessons: 21,
-    difficulty: "Intermediate",
-    wpSlug: "reducing-workplace-bias",
-    audience: "Workplace",
-  },
+  // Note: "Reducing Workplace Bias" was previously listed here. The legacy
+  // WP entry (/free-online-mindfulness-courses/reducing-workplace-bias) is a
+  // 301 to /mindfulness-at-work, not an actual structured course — there's
+  // no lesson list to render. We surface that page via the legacy redirect
+  // map instead and keep the hub clean.
   {
     title: "How To Guide Mindfulness Meditations for Well-Being and Resilience",
     intro:
