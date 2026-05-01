@@ -3,7 +3,6 @@ import { HeroSection } from "@/components/homepage/HeroSection";
 import { IntentRouterStrip } from "@/components/homepage/IntentRouterStrip";
 import { TrustRibbon } from "@/components/homepage/TrustRibbon";
 import { BrowseByFormat } from "@/components/homepage/BrowseByFormat";
-import { ChooseYourPath } from "@/components/homepage/ChooseYourPath";
 import { CertificationSpotlight } from "@/components/homepage/CertificationSpotlight";
 import { TopEndorsements } from "@/components/homepage/TopEndorsements";
 import { MoreWaysToGrow } from "@/components/homepage/MoreWaysToGrow";
@@ -11,10 +10,8 @@ import { ProductCallouts } from "@/components/homepage/ProductCallouts";
 import { AuthoritySection } from "@/components/homepage/AuthoritySection";
 import { FreeResourcesPreview } from "@/components/homepage/FreeResourcesPreview";
 import { LatestPosts } from "@/components/homepage/LatestPosts";
-import { BrowseByCategory } from "@/components/homepage/BrowseByCategory";
 import { LiveEvents } from "@/components/homepage/LiveEvents";
 import { EbookCapture } from "@/components/homepage/EbookCapture";
-import { SocialProof } from "@/components/homepage/SocialProof";
 import { FounderBlock } from "@/components/homepage/FounderBlock";
 import { FinalCTA } from "@/components/homepage/FinalCTA";
 import { Footer } from "@/components/homepage/Footer";
@@ -33,7 +30,6 @@ const Index = () => {
         <IntentRouterStrip />
         <TrustRibbon />
         <BrowseByFormat />
-        <ChooseYourPath />
         <TopEndorsements />
         <CertificationSpotlight />
         <MoreWaysToGrow />
@@ -44,10 +40,8 @@ const Index = () => {
             or the email capture. See HomepageSeo for the meta strategy. */}
         <KeywordSeoSection />
         <LatestPosts />
-        <BrowseByCategory />
         <LiveEvents />
         <EbookCapture />
-        <SocialProof />
         <ProductCallouts />
         <FounderBlock />
         <FinalCTA />
