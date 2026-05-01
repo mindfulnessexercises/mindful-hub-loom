@@ -49,6 +49,15 @@ const EXPLICIT_REDIRECTS: Record<string, LegacyRedirect> = {
   // The WordPress page lives at /about-us; map the shorter /about to it.
   "/about": { target: "/about-us", external: false, rule: "about_alias" },
 
+  // Legacy nested course URL that WP itself 301s to /mindfulness-at-work/.
+  // We mirror that here so the in-app SPA navigation lands in the right
+  // place instead of falling through to a 404 via WPResolver.
+  "/free-online-mindfulness-courses/reducing-workplace-bias": {
+    target: "/mindfulness-at-work",
+    external: false,
+    rule: "wp_course_to_page",
+  },
+
   // ---- WP "category as top-level slug" → /category/<slug> --------------
   // The legacy WP site exposed each category at the bare slug (e.g.
   // /anxiety, /buddhist, /sleep) which collides with WPResolver's
