@@ -129,7 +129,7 @@ function FooterAnchor({ link }: { link: FooterLink }) {
     link.href.startsWith("mailto:") ||
     link.href.startsWith("tel:");
   const className =
-    "text-body-sm text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm py-1 inline-flex items-center min-h-[32px]";
+    "text-body-sm text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm py-2 inline-flex items-center min-h-[44px] md:min-h-[32px] md:py-1";
 
   if (isExternal) {
     return (
@@ -230,7 +230,7 @@ export function Footer() {
               <Link
                 key={link.label}
                 to={link.href}
-                className="text-caption text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm py-1"
+                className="text-caption text-muted-foreground hover:text-foreground transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm py-2 px-1 inline-flex items-center min-h-[44px] md:min-h-0 md:py-1 md:px-0"
               >
                 {link.label}
               </Link>

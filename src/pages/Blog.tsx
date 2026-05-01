@@ -151,7 +151,7 @@ export default function Blog() {
               <div className="mt-5 flex flex-wrap gap-2">
                 <button
                   onClick={() => updateParam("cat", undefined)}
-                  className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
+                  className={`inline-flex items-center min-h-[44px] text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
                     !category ? "bg-primary text-primary-foreground border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"
                   }`}
                 >
@@ -164,7 +164,7 @@ export default function Blog() {
                     <button
                       key={c.id}
                       onClick={() => updateParam("cat", String(c.id))}
-                      className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
+                      className={`inline-flex items-center min-h-[44px] text-xs font-medium px-3 py-1.5 rounded-full border transition-colors ${
                         category === c.id ? "bg-primary text-primary-foreground border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"
                       }`}
                     >
