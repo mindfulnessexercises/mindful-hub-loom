@@ -325,6 +325,10 @@ export default function WPResolver() {
   const articleRef = useRef<HTMLElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
+  // Yoast SEO overrides imported from the original WP site (per slug).
+  // Preferred over WP-derived title/description/canonical when set.
+  const seoOverride = useWpSeoOverride(slug).data;
+
   // Resolution order: CPT (if URL parent maps to one) → post → page.
   const query = useQuery({
     queryKey: [...wpKeys.resolveSlug(slug), cptEndpoint ?? ""],
