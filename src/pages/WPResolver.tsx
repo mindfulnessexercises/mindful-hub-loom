@@ -600,6 +600,7 @@ export default function WPResolver() {
         ogImage={img?.url}
         type={kind === "post" ? "article" : "website"}
         jsonLd={jsonLd}
+        noindex={seoOverride?.robots_noindex ?? false}
       />
       <ReadingProgress targetRef={articleRef} />
       <Navbar />
