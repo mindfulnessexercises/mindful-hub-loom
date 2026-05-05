@@ -19,6 +19,7 @@ export interface WpSeoOverride {
   yoast_desc: string | null;
   yoast_canonical: string | null;
   yoast_focus_kw: string | null;
+  robots_noindex: boolean;
 }
 
 const PLACEHOLDER_RE = /%%[a-z_]+%%/i;
