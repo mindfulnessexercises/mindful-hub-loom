@@ -59,7 +59,7 @@ export function MoreWaysToGrow() {
         subtitle="Beyond the flagship certification, these are the tools, scripts, and programs trusted by mindfulness professionals worldwide."
       />
 
-      <div className="mt-10 grid gap-4 md:gap-5 md:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-10 grid gap-5 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product, idx) => {
           const Icon = product.icon;
           return (

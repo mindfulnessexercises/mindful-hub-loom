@@ -149,9 +149,9 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-[hsl(var(--section-alternate))]" role="contentinfo">
       <div className="container mx-auto py-12 lg:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 lg:gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-8 lg:gap-10">
           {/* Brand column */}
-          <div className="col-span-2">
+          <div className="col-span-2 lg:col-span-4">
             <Link
               to="/"
               className="font-serif text-lg font-semibold text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm inline-block"
@@ -208,7 +208,7 @@ export function Footer() {
           </div>
 
           {FOOTER_GROUPS.map((group) => (
-            <nav key={group.title} aria-label={`${group.title} links`}>
+            <nav key={group.title} aria-label={`${group.title} links`} className="lg:col-span-2">
               <p className="font-sans text-sm font-semibold text-foreground mb-4">{group.title}</p>
               <ul className="space-y-2.5" role="list">
                 {group.links.map((link) => (
