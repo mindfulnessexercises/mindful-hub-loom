@@ -1,0 +1,1 @@
+GRANT INSERT ON TABLE public.email_leads TO anon, authenticated;
