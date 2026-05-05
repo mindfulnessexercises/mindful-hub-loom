@@ -594,7 +594,7 @@ export default function WPResolver() {
   return (
     <div className="min-h-screen bg-background">
       <WPSeo
-        title={`${title} — Mindfulness Exercises`}
+        title={seoTitle}
         description={description}
         canonical={canonicalUrl}
         ogImage={img?.url}
