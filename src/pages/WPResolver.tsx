@@ -543,7 +543,10 @@ export default function WPResolver() {
   const canonicalSlugPath = cptEndpoint
     ? `/${CPT_URL_PARENT[cptEndpoint]}/${doc.slug}`
     : `/${doc.slug}`;
-  const canonicalUrl = `https://mindfulnessexercises.com${canonicalSlugPath}`;
+  // Prefer the canonical declared in the original Yoast settings (some posts
+  // intentionally canonicalize elsewhere); otherwise self-canonical.
+  const canonicalUrl =
+    seoOverride?.yoast_canonical ?? `https://mindfulnessexercises.com${canonicalSlugPath}`;
   const shareUrl =
     typeof window !== "undefined"
       ? `${window.location.origin}${canonicalSlugPath}`
