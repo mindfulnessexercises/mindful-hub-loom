@@ -42,7 +42,7 @@ export function useWpSeoOverride(slug: string | undefined) {
       if (!slug) return null;
       const { data, error } = await supabase
         .from("wp_seo")
-        .select("yoast_title, yoast_desc, yoast_canonical, yoast_focus_kw")
+        .select("yoast_title, yoast_desc, yoast_canonical, yoast_focus_kw, robots_noindex")
         .eq("slug", slug)
         .maybeSingle();
       if (error) return null;
@@ -52,6 +52,7 @@ export function useWpSeoOverride(slug: string | undefined) {
         yoast_desc: clean(data.yoast_desc),
         yoast_canonical: clean(data.yoast_canonical),
         yoast_focus_kw: clean(data.yoast_focus_kw),
+        robots_noindex: Boolean(data.robots_noindex),
       };
     },
   });
