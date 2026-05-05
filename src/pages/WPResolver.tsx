@@ -17,6 +17,7 @@ import {
 } from "@/lib/wp";
 import { wpKeys, WP_STALE } from "@/lib/wp-cache";
 import { WPSeo } from "@/components/wp/WPSeo";
+import { useWpSeoOverride } from "@/lib/wp-seo-overrides";
 import NotFound from "./NotFound";
 import { Badge } from "@/components/ui/badge";
 import { rewriteWpHtml, attachWpLinkInterceptor } from "@/lib/rewrite-wp-html";
