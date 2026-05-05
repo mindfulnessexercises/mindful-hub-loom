@@ -319,6 +319,45 @@ export type Database = {
           },
         ]
       }
+      wp_seo: {
+        Row: {
+          created_at: string
+          og_image: string | null
+          post_type: string | null
+          robots_noindex: boolean
+          slug: string
+          updated_at: string
+          yoast_canonical: string | null
+          yoast_desc: string | null
+          yoast_focus_kw: string | null
+          yoast_title: string | null
+        }
+        Insert: {
+          created_at?: string
+          og_image?: string | null
+          post_type?: string | null
+          robots_noindex?: boolean
+          slug: string
+          updated_at?: string
+          yoast_canonical?: string | null
+          yoast_desc?: string | null
+          yoast_focus_kw?: string | null
+          yoast_title?: string | null
+        }
+        Update: {
+          created_at?: string
+          og_image?: string | null
+          post_type?: string | null
+          robots_noindex?: boolean
+          slug?: string
+          updated_at?: string
+          yoast_canonical?: string | null
+          yoast_desc?: string | null
+          yoast_focus_kw?: string | null
+          yoast_title?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
