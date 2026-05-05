@@ -510,9 +510,16 @@ export default function WPResolver() {
 
   const { kind, data: doc } = query.data;
   const img = getFeaturedImage(doc);
-  const description =
+  const rawTitle = stripHtml(doc.title.rendered);
+  const wpDescription =
     doc.yoast_head_json?.description || stripHtml(doc.excerpt.rendered).slice(0, 160);
-  const title = stripHtml(doc.title.rendered);
+  // Prefer the original site's hand-tuned Yoast values when present.
+  // Otherwise fall back to the WP-derived defaults.
+  const seoTitle = seoOverride?.yoast_title
+    ? seoOverride.yoast_title
+    : `${rawTitle} — Mindfulness Exercises`;
+  const description = seoOverride?.yoast_desc ?? wpDescription;
+  const title = rawTitle;
   const cats = kind === "post" ? getCategories(doc) : [];
   const primaryCategory = cats[0];
   const author = kind === "post" ? getAuthor(doc) : null;
