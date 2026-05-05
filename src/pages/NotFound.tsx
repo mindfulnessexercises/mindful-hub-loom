@@ -6,6 +6,12 @@ const NotFound = () => {
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    // Tell prerender.io / crawlers this is a real 404, not a soft 200.
+    const meta = document.createElement("meta");
+    meta.name = "prerender-status-code";
+    meta.content = "404";
+    document.head.appendChild(meta);
+    return () => { meta.remove(); };
   }, [location.pathname]);
 
   return (

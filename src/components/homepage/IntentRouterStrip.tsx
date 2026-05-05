@@ -26,8 +26,8 @@ const PILLS: IntentPill[] = [
     label: "Email Signup",
     icon: Mail,
     paths: {
-      individuals: "/free-mindfulness-ebook?audience=individuals",
-      professionals: "/free-mindfulness-ebook?audience=professionals",
+      individuals: "/free-mindfulness-e-books",
+      professionals: "/free-mindfulness-e-books",
     },
   },
   {
@@ -35,8 +35,8 @@ const PILLS: IntentPill[] = [
     label: "Live Events",
     icon: CalendarDays,
     paths: {
-      individuals: "/live-events?audience=individuals",
-      professionals: "/live-events?audience=professionals",
+      individuals: "/#events",
+      professionals: "/#events",
     },
   },
   {
@@ -44,8 +44,8 @@ const PILLS: IntentPill[] = [
     label: "Certification",
     icon: GraduationCap,
     paths: {
-      individuals: "/mindfulness-meditation-teacher-training",
-      professionals: "/mindfulness-meditation-teacher-training?audience=professionals",
+      individuals: "/best-mindfulness-certification-programs",
+      professionals: "/best-mindfulness-certification-programs",
     },
   },
 ];
