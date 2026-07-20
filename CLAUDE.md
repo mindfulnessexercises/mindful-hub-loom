@@ -37,25 +37,29 @@ again 2026-07-12 for older subscribers, per Sean). Concretely:
 2. **Type scale (base inline / mobile media-query bump).** Tag text with these
    classes and include the media query verbatim; the mobile bump requires it.
 
-   | Class        | Use                              | Base    | Mobile (≤620px) |
-   |--------------|----------------------------------|---------|-----------------|
-   | `.hook`      | h1 headline                      | 31px    | 30px            |
-   | `.bcopy`     | body paragraphs                  | 20px    | **23px**        |
-   | `.step`      | numbered practice steps          | 18px    | 21px            |
-   | `.cardtitle` | section-card titles              | 25px    | 26px            |
-   | `.cardp`     | section-card body                | 17.5px  | 20px            |
-   | `.quotebox`  | pull-quote cell                  | 20px    | 22px            |
-   | `.poem`      | poem cell                        | 19px    | 21px            |
-   | `.qline`     | closing quote line               | 23px    | 24px            |
-   | `.btn`       | buttons (padding ≥ 16px 32px)    | 18px    | 20px            |
-   | `.note`      | small notes under buttons        | 15px    | 17px            |
-   | `.creds`     | signature credentials            | 15px    | 17px            |
-   | `.kicker`    | uppercase kickers                | 12–13px | 14px            |
-   | `.fine`      | legal/disclaimer                 | 14px    | 16px            |
-   | `.foot`      | footer                           | 14px    | 16px            |
+   | Class        | Use                              | Base   | Mobile (≤620px) |
+   |--------------|----------------------------------|--------|-----------------|
+   | `.hook`      | h1 headline                      | 31px   | 30px            |
+   | `.bcopy`     | body paragraphs                  | 21px   | **23px**        |
+   | `.step`      | numbered practice steps          | 19px   | 21px            |
+   | `.cardtitle` | section-card titles              | 25px   | 26px            |
+   | `.cardp`     | section-card body                | 18px   | 20px            |
+   | `.quotebox`  | pull-quote cell                  | 21px   | 22px            |
+   | `.poem`      | poem cell                        | 20px   | 21px            |
+   | `.qline`     | closing quote line               | 23px   | 24px            |
+   | `.btn`       | buttons (padding ≥ 16px 32px)    | 19px   | 20px            |
+   | `.note`      | small notes under buttons        | 16px   | 17px            |
+   | `.creds`     | signature credentials            | 16px   | 17px            |
+   | `.kicker`    | uppercase kickers                | 13px   | 14px            |
+   | `.fine`      | legal/disclaimer                 | 15px   | 16px            |
+   | `.foot`      | footer                           | 15px   | 16px            |
 
-   **Nothing below 14px base, anywhere** (the old 11–13px kickers, date line,
-   and footer are what read as illegibly small once scaled).
+   **Nothing below 15px base except the letterspaced uppercase kickers
+   (13px).** Gmail directive (Sean, 2026-07-20): some Gmail contexts (the
+   Gmail app on non-Google accounts, forwarded copies) strip `<style>` and
+   media queries entirely and render ONLY the inline base sizes — so the
+   base sizes above must be comfortably large on their own. The media-query
+   bump is an enhancement, never the guarantee.
 
    ```css
    @media only screen and (max-width:620px){
@@ -80,9 +84,8 @@ again 2026-07-12 for older subscribers, per Sean). Concretely:
    ```
 
 3. A current reference implementation of the full template lives in the
-   2026-07-13 campaign "What 8 weeks of meditation does to the brain"
-   (mobile-optimized rebuild of the Sara Lazar workshop email) — copy its
-   structure for new sends.
+   2026-07-21 campaign "A nightmare I kept having" (first send with the
+   Gmail-safe enlarged base sizes) — copy its structure for new sends.
 
 ### MailerLite API workflow facts (hard-won — trust these)
 
