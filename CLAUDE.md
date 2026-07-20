@@ -6,7 +6,7 @@ and homepage brief. Sessions here also manage MailerLite newsletter campaigns
 ("Mindful Musings") — the rules below exist because of real subscriber-facing
 incidents. Do not regress them.
 
-## MailerLite newsletter emails — REQUIRED design rules
+## MailerLite newsletter emails — REQUIRED design & voice rules
 
 ### Mobile-first sizing (Sean's directive, 2026-07-10)
 
@@ -84,8 +84,34 @@ again 2026-07-12 for older subscribers, per Sean). Concretely:
    ```
 
 3. A current reference implementation of the full template lives in the
-   2026-07-21 campaign "A nightmare I kept having" (first send with the
-   Gmail-safe enlarged base sizes) — copy its structure for new sends.
+   2026-07-21 campaign "The question that kept visiting" (first with the
+   Gmail-safe enlarged base sizes and the voice pass below) — copy its
+   structure for new sends.
+
+### Voice & tone (Sean's directive, 2026-07-20)
+
+Sean: "my tone is very gentle, encouraging, awe/curious-based, we-based (not
+I-based)… I don't want anything too direct, prescriptive, definitive,
+click-baity, salesy." This applies to every subscriber-facing word — body
+copy, subject lines, preheaders, buttons, and link labels.
+
+- **We-based, not I-based.** Teaching and invitations live in "we/us/our"
+  ("many of us know…", "we might try…"). First-person "I" is reserved for
+  Sean telling his own story, and even those stories should land back in
+  "we".
+- **Invitations, never commands.** Soften practice steps and suggestions
+  with "we might", "perhaps", "gently", "if it feels right", "at whatever
+  intensity feels workable". Avoid imperative stacks ("Do X. Notice Y.").
+- **Awe and curiosity over certainty.** Wonder rather than declare; prefer
+  questions and "perhaps" to definitive claims. Hold science lightly —
+  "research that echoes today's practice" — never as proof or a promise of
+  results.
+- **Nothing click-baity or salesy.** Subject lines are quiet curiosity in
+  sentence case (e.g. "The question that kept visiting"), with no shock,
+  drama, urgency, or promo formatting. Free offerings are shared as gifts
+  ("if today's story stirred something, this is a kind next step"), never
+  pitched. CTAs stay soft ("Listen free", "Read the script") — no "Grab",
+  "Claim", "Don't miss".
 
 ### MailerLite API workflow facts (hard-won — trust these)
 
