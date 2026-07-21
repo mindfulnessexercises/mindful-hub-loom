@@ -17,10 +17,14 @@ export interface VideoPlaylistProps {
   videos: readonly VideoEntry[];
   /** Stable analytics location ("course_sleep_meditations"). */
   location: string;
+  /** Video to start on (e.g. from a ?v= deep link). Out-of-range falls back to 0. */
+  initialIndex?: number;
 }
 
-export function VideoPlaylist({ videos, location }: VideoPlaylistProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
+export function VideoPlaylist({ videos, location, initialIndex = 0 }: VideoPlaylistProps) {
+  const [activeIndex, setActiveIndex] = useState(() =>
+    initialIndex >= 0 && initialIndex < videos.length ? initialIndex : 0,
+  );
   const active = videos[activeIndex];
 
   const totalDuration = useMemo(() => {

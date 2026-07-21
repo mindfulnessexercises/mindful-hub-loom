@@ -1,6 +1,7 @@
+import { useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import { ArrowRight, FileText, BookOpen } from "lucide-react";
+import { ArrowRight, FileText, BookOpen, PlayCircle } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
 import { Button } from "@/components/ui/button";
@@ -14,10 +15,12 @@ import { SiteSearchBar } from "@/components/wp/SiteSearchBar";
 import { useUrlPagination } from "@/hooks/use-url-pagination";
 import { buildMatchSnippet, highlightTerms } from "@/lib/search-snippet";
 import { trackEvent } from "@/lib/analytics";
+import { searchVideos } from "@/lib/video-catalog";
 
 const PER_PAGE = 50; // Per content type, when searching both
+const VIDEOS_SHOWN = 12; // Video matches rendered before the "browse all" note
 
-type ContentType = "all" | "posts" | "pages";
+type ContentType = "all" | "posts" | "pages" | "videos";
 
 export default function Search() {
   const [params, setParams] = useSearchParams();
@@ -100,14 +103,20 @@ export default function Search() {
     source: "search_posts",
   });
 
+  // ---- Videos (in-app catalog; not in WordPress, so matched client-side) ----
+  const videoMatches = useMemo(() => (q ? searchVideos(q) : []), [q]);
+
   const allPosts = postsQuery.data?.pages.flatMap((p) => p.items) ?? [];
   const postsTotal = postsQuery.data?.pages[0]?.total ?? 0;
   const { query: filterQuery, setQuery: setFilterQuery, filtered: visiblePosts } = useClientPostFilter(allPosts);
   const pages = pagesQuery.data?.items ?? [];
   const pagesTotal = pagesQuery.data?.total ?? 0;
+  const videosTotal = videoMatches.length;
   const showPosts = type === "all" || type === "posts";
   const showPages = type === "all" || type === "pages";
-  const grandTotal = (showPosts ? postsTotal : 0) + (showPages ? pagesTotal : 0);
+  const showVideos = type === "all" || type === "videos";
+  const grandTotal =
+    (showPosts ? postsTotal : 0) + (showPages ? pagesTotal : 0) + (showVideos ? videosTotal : 0);
 
   const isLoading = (showPosts && postsQuery.isLoading) || (showPages && pagesQuery.isLoading);
 
@@ -134,7 +143,7 @@ export default function Search() {
               <p className="text-body text-muted-foreground mt-3">
                 {grandTotal.toLocaleString()} {grandTotal === 1 ? "result" : "results"}
                 {showPosts && showPages && grandTotal > 0 && (
-                  <> · {postsTotal.toLocaleString()} {postsTotal === 1 ? "article" : "articles"} · {pagesTotal.toLocaleString()} {pagesTotal === 1 ? "page" : "pages"}</>
+                  <> · {postsTotal.toLocaleString()} {postsTotal === 1 ? "article" : "articles"} · {pagesTotal.toLocaleString()} {pagesTotal === 1 ? "page" : "pages"}{showVideos && videosTotal > 0 && <> · {videosTotal.toLocaleString()} {videosTotal === 1 ? "video" : "videos"}</>}</>
                 )}
               </p>
             )}
@@ -150,6 +159,7 @@ export default function Search() {
                   { id: "all", label: "All results" },
                   { id: "posts", label: `Articles${postsTotal ? ` (${postsTotal.toLocaleString()})` : ""}` },
                   { id: "pages", label: `Pages${pagesTotal ? ` (${pagesTotal.toLocaleString()})` : ""}` },
+                  { id: "videos", label: `Videos${videosTotal ? ` (${videosTotal.toLocaleString()})` : ""}` },
                 ] as { id: ContentType; label: string }[]).map((t) => (
                   <button
                     key={t.id}
@@ -258,6 +268,49 @@ export default function Search() {
                   );
                 })}
               </ul>
+            </div>
+          )}
+
+          {/* Videos section — in-app catalog matches (Guest Teachers, Q&A, courses…) */}
+          {q && showVideos && videoMatches.length > 0 && (
+            <div className={showPosts || showPages ? "mb-14" : ""}>
+              {(showPosts || showPages) && (
+                <div className="flex items-center gap-2 mb-5">
+                  <PlayCircle className="h-4 w-4 text-primary" aria-hidden />
+                  <h2 className="text-card-heading text-foreground">Videos ({videosTotal.toLocaleString()})</h2>
+                </div>
+              )}
+              <ul className="divide-y divide-border border-y border-border">
+                {videoMatches.slice(0, VIDEOS_SHOWN).map((v) => {
+                  const terms = q.trim().toLowerCase().split(/\s+/).filter((t) => t.length >= 2);
+                  return (
+                    <li key={`${v.collectionSlug}-${v.id}`}>
+                      <Link
+                        to={`/videos/${v.collectionSlug}?v=${v.id}`}
+                        className="flex items-start gap-4 py-5 hover:bg-accent/40 transition-colors px-2 -mx-2 rounded-md group"
+                      >
+                        <PlayCircle className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" aria-hidden />
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-card-heading text-foreground group-hover:text-primary transition-colors">
+                            {highlightTerms(v.title, terms)}
+                          </h3>
+                          <p className="text-caption text-muted-foreground mt-1.5">
+                            {v.collectionName}
+                            {v.duration ? ` · ${v.duration}` : ""}
+                          </p>
+                        </div>
+                        <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0 mt-1" aria-hidden />
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+              {videoMatches.length > VIDEOS_SHOWN && (
+                <p className="text-body-sm text-muted-foreground mt-3">
+                  Showing {VIDEOS_SHOWN} of {videosTotal.toLocaleString()} matching videos.{" "}
+                  <Link to="/videos" className="text-primary hover:underline">Browse all collections</Link>.
+                </p>
+              )}
             </div>
           )}
 
