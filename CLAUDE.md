@@ -139,3 +139,12 @@ copy, subject lines, preheaders, buttons, and link labels.
   (`src/App.tsx`) or a previously sent campaign — outbound network access to
   the live site is blocked in these sessions, so the codebase is the source
   of truth for valid paths.
+- **Teacher directory** `https://teachers.mindfulnessexercises.com/`
+  (Sean, 2026-07-21): a public directory that includes many teachers
+  unaffiliated with our certification, and it converts low. Use it (a) in
+  teacher-themed sends as a gentle "find a teacher / meet your people"
+  service link, and (b) as a standing footer link — from the 2026-07-28
+  send onward the footer's second row is
+  `Instagram · LinkedIn · Community · Teachers`. **Never place it beside a
+  certification CTA** — it diverts high-intent clicks to a low-converting
+  page. The certification's proof lives elsewhere.
