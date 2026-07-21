@@ -654,3 +654,17 @@ export const ALL_VIDEOS: ReadonlyArray<VideoEntry & { collectionSlug: string; co
   Object.entries(VIDEO_COLLECTIONS).flatMap(([slug, coll]) =>
     coll.videos.map((v) => ({ ...v, collectionSlug: slug, collectionName: coll.name })),
   );
+
+/**
+ * Case-insensitive all-terms match over video title + collection name.
+ * The catalog is app-local (not WordPress), so site search must query it
+ * directly — WP REST search can never surface these videos.
+ */
+export function searchVideos(query: string): typeof ALL_VIDEOS {
+  const terms = query.trim().toLowerCase().split(/\s+/).filter((t) => t.length >= 2);
+  if (!terms.length) return [];
+  return ALL_VIDEOS.filter((v) => {
+    const haystack = `${v.title} ${v.collectionName}`.toLowerCase();
+    return terms.every((t) => haystack.includes(t));
+  });
+}

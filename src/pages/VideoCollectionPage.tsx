@@ -1,4 +1,4 @@
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useParams, Link, Navigate, useSearchParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Navbar } from "@/components/homepage/Navbar";
 import { Footer } from "@/components/homepage/Footer";
@@ -72,10 +72,18 @@ const COLLECTION_META: Record<
 
 export default function VideoCollectionPage() {
   const { slug } = useParams<{ slug: string }>();
+  const [searchParams] = useSearchParams();
   if (!slug) return <Navigate to="/videos" replace />;
   const coll = VIDEO_COLLECTIONS[slug];
   if (!coll) return <Navigate to="/videos" replace />;
   const meta = COLLECTION_META[slug] ?? { intro: coll.name, captureTrack: "free_resources" as EmailCaptureTrack };
+  // ?v=<provider id> deep-links straight to one video in the playlist —
+  // used by site search results and newsletter links. Unknown ids fall back
+  // to the first video, so stale links degrade to the plain collection page.
+  const requestedVideoId = searchParams.get("v");
+  const initialIndex = requestedVideoId
+    ? coll.videos.findIndex((v) => v.id === requestedVideoId)
+    : -1;
 
   return (
     <div className="min-h-screen bg-background">
@@ -103,7 +111,11 @@ export default function VideoCollectionPage() {
         </SectionWrapper>
 
         <SectionWrapper background="emphasis" ariaLabel={`${coll.name} playlist`}>
-          <VideoPlaylist videos={coll.videos} location={`video_collection_${slug}`} />
+          <VideoPlaylist
+            videos={coll.videos}
+            location={`video_collection_${slug}`}
+            initialIndex={initialIndex >= 0 ? initialIndex : 0}
+          />
         </SectionWrapper>
 
         <SectionWrapper background="alternate" ariaLabel="Next steps">
