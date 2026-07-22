@@ -135,10 +135,17 @@ copy, subject lines, preheaders, buttons, and link labels.
 - Keep `{$url}` (read online / view in browser) and `{$unsubscribe}` links,
   UTM params (`utm_source=newsletter&utm_medium=email&utm_campaign=…`), and
   the sender `Sean Fargo <sean@mindfulnessexercises.com>`.
-- Link every destination to a URL verified in this repo's router
-  (`src/App.tsx`) or a previously sent campaign — outbound network access to
-  the live site is blocked in these sessions, so the codebase is the source
-  of truth for valid paths.
+- **Link verification (tightened 2026-07-21 after a 404 shipped):** the
+  router is NOT proof a page exists — `/:slug` is a catch-all that matches
+  anything, and production can differ from this repo (the live
+  `/videos/guest-teachers/` page runs its own player with `#talk=<vimeoId>`
+  fragments, not this repo's `?v=` code). A destination is safe ONLY if it
+  appears in (a) a previously sent campaign whose link earned real clicks,
+  (b) `src/test/fixtures/top-100-urls.csv` (real production URLs), or
+  (c) `src/lib/top-content.ts`. Never compose a plausible slug — the 404
+  that shipped was invented `/self-compassion-meditation-script/`; the real
+  page is `/self-compassion-pause/`. Outbound network access is blocked in
+  these sessions, so these lists are the only ground truth.
 - **Teacher directory** `https://teachers.mindfulnessexercises.com/`
   (Sean, 2026-07-21): a public directory that includes many teachers
   unaffiliated with our certification, and it converts low. Use it (a) in
