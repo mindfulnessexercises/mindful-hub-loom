@@ -113,6 +113,38 @@ copy, subject lines, preheaders, buttons, and link labels.
   pitched. CTAs stay soft ("Listen free", "Read the script") — no "Grab",
   "Claim", "Don't miss".
 
+### Subject & preview lines (data-backed, Sean-confirmed 2026-07-24)
+
+Six July 2026 sends (~137k recipients each) split into two subject families.
+Both are valid; use them deliberately by slot.
+
+- **Outcome subjects harvest clicks** — but only the specific shape
+  `What <concrete practice, ideally with a duration> does to <concrete part
+  of us>`, paid off by ONE hero study linked high in the email:
+  "What 8 weeks of meditation does to the brain" (6.3% clicks, 12.0% CTOR),
+  "What five minutes of sighing does to your nervous system" (5.7%, 11.0%).
+- **Generic science framing fails.** "What the science says, and where to
+  begin" (2026-07-23) opened lowest of the six and clicked 1.8% (4.4% CTOR).
+  Specificity is the lever, not the word "science" — never label the
+  science, name the practice and the outcome. Spreading clicks across a
+  many-link map instead of one hero study dilutes further.
+- **Story subjects build the relationship, not clicks** ("The question that
+  kept visiting", "Rest that doesn't need earning": ~50–57% opens, 1.6–2%
+  clicks). Right for Tuesday sends; the wrong wrapper for an email that
+  carries a hero study.
+- **Slotting:** weekend sends get the outcome subject plus one hero study;
+  Tuesday keeps the quiet story subject. When the subject carries the
+  outcome, the preview line can carry the human story (first used
+  2026-07-25: subject "What a few minutes of curiosity does to a craving",
+  preview "A veteran, a cigarette, and a wave he had never once let
+  finish.").
+- All voice rules above still bind subjects and previews: sentence case, no
+  dashes, gentle, nothing click-baity. A subject-only change on a scheduled
+  campaign is a light swap (cancel → PUT name/subject on the draft →
+  reschedule — content is untouched because it is immutable anyway); a
+  preview-line change requires the full replace cycle because the preheader
+  lives in the HTML.
+
 ### MailerLite API workflow facts (hard-won — trust these)
 
 - **Campaign email content CANNOT be edited via the API once created.**
